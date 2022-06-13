@@ -1,0 +1,20 @@
+@import "../../../../assets/style/colorPalette";
+.nave-bar {
+  background-color: $nave-bar-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.first-icon {
+  margin-left: 40px;
+}
+
+.nave-bar-icon {
+  margin-top: 8px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+}

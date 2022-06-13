@@ -1,0 +1,36 @@
+@font-face {
+  font-family: Vazir;
+  src:url('/assets/font/Vazir.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Raymon;
+  src:url('/assets/font/Raymon.ttf') format("truetype");
+}
+.d-rtl {
+  direction: rtl;
+}
+
+.d-ltr {
+  direction: ltr;
+}
+
+.boxShadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.set-font-Raymon {
+  font-family: Raymon,Vazir, Arial, Helvetica, sans-serif !important;
+}
+
+.set-font-vazir {
+  font-family: Vazir, Raymon, Arial, Helvetica, sans-serif !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.default {
+  cursor: default;
+}
