@@ -1,0 +1,27 @@
+.progress-place {
+    margin-top: -80px;
+  }
+   .progress{
+      height:140px;
+      width: 140px;
+      border-radius: 50%;
+      margin-bottom: -60;
+      background-color: rgba($color: #fff, $alpha: 0.7);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    
+      .circle{
+        position: relative;
+        width: 130px !important;
+        height: 130px !important;
+        border-radius: 50%;
+        background-image:url("../../../assets/image/logo/Nortino-Logo-1.png"); 
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 65px 75px;
+        .bar{
+            size: 120,
+        }
+      }
+    }

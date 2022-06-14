@@ -1,3 +1,6 @@
+import { InputStyleComponent } from './../../shared/page/component/input-style/input-style.component';
+import { ProgressStyleComponent } from './../../shared/page/component/progress-style/progress-style.component';
+import { ButtonStyleComponent } from './../../shared/page/component/button-style/button-style.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,6 +20,9 @@ import { GeneralBackGroundComponent } from '../../shared/page/general-back-groun
     CurrentUserProfileImageComponent,
     CurrentUserUserNameComponent,
     GeneralBackGroundComponent,
+    ButtonStyleComponent,
+    ProgressStyleComponent,
+    InputStyleComponent
   ],
   exports: [
     NavebarComponent,
@@ -25,6 +31,7 @@ import { GeneralBackGroundComponent } from '../../shared/page/general-back-groun
     CurrentUserProfileImageComponent,
     CurrentUserUserNameComponent,
     GeneralBackGroundComponent,
+    ButtonStyleComponent
   ],
   imports: [
     CommonModule,
