@@ -11,6 +11,13 @@ import { UserProfileImageComponent } from "../../shared/page/profileImage/user-p
 import { CurrentUserProfileImageComponent } from "../../shared/page/profileImage/current-user-profile-image/current-user-profile-image.component";
 import { CurrentUserUserNameComponent } from "../../shared/page/userInformation/current-user-user-name/current-user-user-name.component";
 import { GeneralBackGroundComponent } from '../../shared/page/general-back-ground/general-back-ground.component';
+import {UserInformationComponent} from "../../shared/page/sidebar/page/user-information/user-information.component";
+import {UserManagementSettingMenuComponent} from "../../shared/page/sidebar/page/user-management-setting-menu/user-management-setting-menu.component";
+import {ProjectManagementSettingMenuComponent} from "../../shared/page/sidebar/page/project-management-setting-menu/project-management-setting-menu.component";
+import {CompanyManagementSettingMenuComponent} from "../../shared/page/sidebar/page/company-management-setting-menu/company-management-setting-menu.component";
+import {GalleryManagementSettingMenuComponent} from "../../shared/page/sidebar/page/gallery-management-setting-menu/gallery-management-setting-menu.component";
+import {ProjectDependencyManagementSettingMenuComponent} from "../../shared/page/sidebar/page/project-dependency-management-setting-menu/project-dependency-management-setting-menu.component";
+import {DashbordManagmentMenuComponent} from "../../shared/page/sidebar/page/dashbord-managment-menu/dashbord-managment-menu.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { GeneralBackGroundComponent } from '../../shared/page/general-back-groun
     GeneralBackGroundComponent,
     ButtonStyleComponent,
     ProgressStyleComponent,
-    InputStyleComponent
+    InputStyleComponent,
+    UserInformationComponent,
+    DashbordManagmentMenuComponent,
+    UserManagementSettingMenuComponent,
+    ProjectManagementSettingMenuComponent,
+    CompanyManagementSettingMenuComponent,
+    GalleryManagementSettingMenuComponent,
+    ProjectDependencyManagementSettingMenuComponent,
   ],
   exports: [
     NavebarComponent,
@@ -31,7 +45,15 @@ import { GeneralBackGroundComponent } from '../../shared/page/general-back-groun
     CurrentUserProfileImageComponent,
     CurrentUserUserNameComponent,
     GeneralBackGroundComponent,
-    ButtonStyleComponent
+    ButtonStyleComponent,
+    UserInformationComponent,
+    DashbordManagmentMenuComponent,
+    UserManagementSettingMenuComponent,
+    ProjectManagementSettingMenuComponent,
+    CompanyManagementSettingMenuComponent,
+    GalleryManagementSettingMenuComponent,
+    ProjectDependencyManagementSettingMenuComponent,
+
   ],
   imports: [
     CommonModule,
