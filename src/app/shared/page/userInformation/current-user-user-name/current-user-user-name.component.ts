@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-current-user-user-name',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-user-user-name.component.scss']
 })
 export class CurrentUserUserNameComponent implements OnInit {
-
+  @Input() styleUserName: string;
   public userName: string;
   constructor() { }
 

@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<div id="collapseSideBar" class="collapse-side-bar">
+  <div class="position-relative">
+    <img src="../../../../assets/image/sideBar/openSideBar.svg" (click)="openSideBar()" class="open-close-side-bar-icon">
+  </div>
+</div>
+<div id="expandSideBar" class="expand-side-bar">
+  <div class="position-relative">
+    <img src="../../../../assets/image/sideBar/closeSideBar.svg" (click)="closeSideBar()" class="open-close-side-bar-icon">
+  </div>
+  <app-user-information></app-user-information>
+
+  <div class="menu-padding">
+    <app-dashbord-managment-menu></app-dashbord-managment-menu>
+    <app-user-management-setting-menu></app-user-management-setting-menu>
+    <app-project-management-setting-menu></app-project-management-setting-menu>
+    <app-company-management-setting-menu></app-company-management-setting-menu>
+    <app-project-dependency-management-setting-menu></app-project-dependency-management-setting-menu>
+    <app-gallery-management-setting-menu></app-gallery-management-setting-menu>
+  </div>
+
+
+</div>
