@@ -2,7 +2,6 @@
 
 .custom-input{
   position: relative;
-  // max-width: 340px;
   margin-top: 30px;
   justify-self: right !important;
   .custom-place {
@@ -21,10 +20,7 @@
     user-select: none;
     opacity: 0.8;
     transition: all 0.15s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    //animation: text-pop-up-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     @media(min-width:576px) {
-      // right: 5px !important;
-      // margin-right: -25px;
       margin-left: 5px;
       font-size: medium;
     }
@@ -47,7 +43,7 @@
     direction: rtl;
   }
   .invalid-custom-input-style{
-    color: $red;
+    color: red;
     font-size: small;
   }
 }

@@ -18,6 +18,7 @@ import {CompanyManagementSettingMenuComponent} from "../../shared/page/sidebar/p
 import {GalleryManagementSettingMenuComponent} from "../../shared/page/sidebar/page/gallery-management-setting-menu/gallery-management-setting-menu.component";
 import {ProjectDependencyManagementSettingMenuComponent} from "../../shared/page/sidebar/page/project-dependency-management-setting-menu/project-dependency-management-setting-menu.component";
 import {DashbordManagmentMenuComponent} from "../../shared/page/sidebar/page/dashbord-managment-menu/dashbord-managment-menu.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -38,26 +39,29 @@ import {DashbordManagmentMenuComponent} from "../../shared/page/sidebar/page/das
     GalleryManagementSettingMenuComponent,
     ProjectDependencyManagementSettingMenuComponent,
   ],
-  exports: [
-    NavebarComponent,
-    SidebarComponent,
-    UserProfileImageComponent,
-    CurrentUserProfileImageComponent,
-    CurrentUserUserNameComponent,
-    GeneralBackGroundComponent,
-    ButtonStyleComponent,
-    UserInformationComponent,
-    DashbordManagmentMenuComponent,
-    UserManagementSettingMenuComponent,
-    ProjectManagementSettingMenuComponent,
-    CompanyManagementSettingMenuComponent,
-    GalleryManagementSettingMenuComponent,
-    ProjectDependencyManagementSettingMenuComponent,
+    exports: [
+        NavebarComponent,
+        SidebarComponent,
+        UserProfileImageComponent,
+        CurrentUserProfileImageComponent,
+        CurrentUserUserNameComponent,
+        GeneralBackGroundComponent,
+        ButtonStyleComponent,
+        UserInformationComponent,
+        DashbordManagmentMenuComponent,
+        UserManagementSettingMenuComponent,
+        ProjectManagementSettingMenuComponent,
+        CompanyManagementSettingMenuComponent,
+        GalleryManagementSettingMenuComponent,
+        ProjectDependencyManagementSettingMenuComponent,
+        InputStyleComponent,
 
-  ],
+    ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
