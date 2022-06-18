@@ -1,0 +1,19 @@
+@import "../../../../../../assets/style/colorPalette";
+.role-text {
+  font-size: small;
+  color: $text-color-lite;
+  margin-top: 8px;
+}
+.project-title {
+  color: $lite-yellow;
+  font-size: 25px;
+  margin-left: 8px;
+}
+
+.opacity-hr {
+  opacity: 0.1;
+}
+
+.role-icon{
+  height: 17px;
+}

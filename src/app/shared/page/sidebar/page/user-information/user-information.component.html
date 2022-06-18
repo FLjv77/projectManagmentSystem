@@ -1,0 +1,22 @@
+<div class="project-title set-font-Raymon text-center my-2">
+  {{projectTitle}}
+</div>
+<div class="px-4">
+  <hr class="opacity-hr">
+</div>
+<div class="row px-3 d-rtl">
+  <div class="col-5">
+    <app-current-user-profile-image [profileStyle]="'boxShadow profile-display-expand-side-bar'"></app-current-user-profile-image>
+  </div>
+  <div class="col-7">
+    <app-current-user-user-name [styleUserName]="'font-weight-bold user-name-side-bar'"></app-current-user-user-name>
+
+    <div class="mt-1 px-2 d-flex">
+      <img src="../../../../../../assets/icon/role/managerIcon.svg" class="role-icon mx-2 d-inline mt-2">
+      <span class="role-text set-font-vazir d-inline">{{userRoleName}}</span>
+    </div>
+  </div>
+</div>
+<div class="px-4">
+  <hr class="opacity-hr">
+</div>

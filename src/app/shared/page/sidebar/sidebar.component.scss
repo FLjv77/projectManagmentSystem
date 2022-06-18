@@ -1,0 +1,32 @@
+@import "../../../../assets/style/colorPalette";
+.collapse-side-bar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-color: $side-bar-color;
+  transition: linear 0.4s;
+}
+
+.expand-side-bar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: $side-bar-color;
+  transition: linear 0.4s;
+}
+
+.open-close-side-bar-icon {
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  height: 18px;
+}
+
+.menu-padding {
+  padding-right: 20px;
+}

@@ -1,0 +1,24 @@
+@import "../../../../../../assets/style/colorPalette";
+.icon-title-menu{
+  height: 15px;
+}
+
+.title-menu {
+  text-align: right;
+  color: $text-color-lite;
+  font-size: medium;
+}
+
+.icon-title-menu-user-project {
+  height: 12px;
+}
+.active-menu {
+  font-weight: bold;
+  background-color: $text-color-lite;
+  border-radius: 0 100px 100px 0;
+}
+.active-text {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: $active-yellow;
+}
