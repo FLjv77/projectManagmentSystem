@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {noop} from "rxjs";
 
 
 @Component({
@@ -7,8 +8,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './input-style.component.html',
   styleUrls: ['./input-style.component.scss']
 })
-export class InputStyleComponent implements OnInit {
-  @Input() ring: boolean;
+export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() inputId: string;
   @Input() inputLabel: string;
   @Input() inputError: string;
@@ -16,16 +16,30 @@ export class InputStyleComponent implements OnInit {
   @Input() nortiInputCustomStyle: NortiInputCustomStyle;
   @Input() inputFormControl: FormControl;
   @Output() changeValue = new EventEmitter<string>();
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {}
   addStyles() {
-    //document.getElementById(this.inputId).classList.add('holder');
+    let element = document.getElementById(this.inputId);
+    element ? element.classList.add('holder') : noop();
   }
   removeStyles(value: FormControl) {
-    //if (!value) document.getElementById(this.inputId).classList.remove('holder');
+    if (!value) {
+      let element = document.getElementById(this.inputId);
+      element ? element.classList.remove('holder') : noop();
+    }
   }
 
+  private subscribeChangeInputValue() {
+    this.inputFormControl.valueChanges.subscribe((value: string) => {
+      this.changeValue.emit(value);
+    })
+  }
+
+  ngAfterViewInit(): void {
+    this.subscribeChangeInputValue();
+  }
 }
 
 export class NortiInputCustomStyle {

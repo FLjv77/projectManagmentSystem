@@ -3,13 +3,13 @@
       <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
         [ngStyle]="{'color': nortiInputCustomStyle? nortiInputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
       </div>
-      <!-- <input [type]="type" [name]="inputId" (ngModelChange)="changeValue.emit($event)" class="custom-input-style set-font-vazir w-100" type="text"
-             [formControl]="inputFormControl"
-        (focus)="addStyles()" (focusout)="removeStyles(inputFormControl.value)"> -->
+
+           <input [type]="type" [name]="inputId" [formControl]="inputFormControl"
+              class="custom-input-style set-font-vazir w-100" type="text"
+                  (focus)="addStyles()" (focusout)="removeStyles(inputFormControl.value)">
     </div>
      <div class="mt-2 mr-3 text-right set-font-vazir error-text
   {{inputFormControl.hasError('required') && inputFormControl.touched? '' : 'd-none'}}">
       {{inputError}}
     </div>
   </div>
-  

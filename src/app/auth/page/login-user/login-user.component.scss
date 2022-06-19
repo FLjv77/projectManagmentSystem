@@ -1,0 +1,27 @@
+@import "../../../../assets/style/colorPalette";
+.back-ground-main {
+  background-color: $lite-yellow-back-ground;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+.back-ground-dark {
+  background-color: $dark-back-ground;
+  height: 100vh;
+}
+.title-login {
+  font-size: 28px;
+  color: $text-color-normal;
+  margin-top: 40px;
+}
+
+.description-login {
+  font-size: medium;
+  margin-top: 40px;
+  line-height: 25px;
+  color: $text-color-normal;
+}
+
+.image-login {
+  height: 300px;
+  margin-top: 40px;
+}
