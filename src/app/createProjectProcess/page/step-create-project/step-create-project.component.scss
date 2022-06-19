@@ -1,0 +1,23 @@
+@import "../../../../assets/style/colorPalette.scss";
+.steps{
+    background-color: $lite-yellow-back-ground;
+    color: $text-color-normal;
+    border: solid 1px $text-color-normal;
+    width: 100px;
+    border-radius: 15px;
+  }
+  
+  .select-step{
+    background-color: $lite-yellow;
+    color: $dark-back-ground;
+    border: none;
+    box-shadow: 0px 0px 7px 0px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  
+  .border-step{
+    border-left: solid 2px $text-color-normal;
+    margin-left: 49px;
+    height: 40px;
+  }

@@ -7,6 +7,7 @@
   width: 60px;
   background-color: $side-bar-color;
   transition: linear 0.4s;
+  z-index: 1;
 }
 
 .expand-side-bar {
@@ -17,6 +18,7 @@
   width: 280px;
   background-color: $side-bar-color;
   transition: linear 0.4s;
+  z-index: 1;
 }
 
 .open-close-side-bar-icon {
