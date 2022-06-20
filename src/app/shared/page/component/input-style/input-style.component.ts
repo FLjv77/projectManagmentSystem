@@ -13,14 +13,19 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() inputLabel: string;
   @Input() inputError: string;
   @Input() type: string;
-  @Input() nortiInputCustomStyle: NortiInputCustomStyle;
+  @Input() inputCustomStyle: InputCustomStyle;
   @Input() inputFormControl: FormControl;
+  @Input() haveEye: boolean;
+  @Input() textarea:boolean;
   @Output() changeValue = new EventEmitter<string>();
+  public hideInput: boolean = true;
   constructor() {
   }
 
-  ngOnInit(): void {}
-  addStyles() {
+  ngOnInit(): void {
+    
+  }
+  addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
   }
@@ -42,7 +47,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   }
 }
 
-export class NortiInputCustomStyle {
+export class InputCustomStyle {
   colorText: string;
   lineColor: string;
   labelColor: string;
