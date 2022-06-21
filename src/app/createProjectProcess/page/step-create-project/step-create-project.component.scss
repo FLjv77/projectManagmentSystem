@@ -6,6 +6,11 @@
     width: 130px;
     border-radius: 15px;
     font-weight: bold;
+    cursor: pointer;
+    &:hover{
+      border: none;
+      box-shadow: 0px 0px 2px 0px;
+    }
   }
   
   .select-step{
@@ -16,6 +21,7 @@
     width: 130px;
     border-radius: 15px;
     font-weight: bold;
+    cursor: pointer;
   }
   
   .border-step{

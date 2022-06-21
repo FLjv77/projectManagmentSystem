@@ -1,3 +1,4 @@
+import { DevelopmentReportProjectComponent } from './../../createProjectProcess/page/project-creation-levels/page/development-report-project/development-report-project.component';
 import { UploadImagesComponent } from './../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component';
 import { AddActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/add-activity.component';
 import { RecoveryResourcesComponent } from './../../createProjectProcess/page/project-creation-levels/page/recovery-resources/recovery-resources.component';
@@ -22,6 +23,7 @@ import { CreateProjectProcessRoutingModule } from './create-project-process-rout
     RecoveryResourcesComponent,
     AddActivityComponent,
     UploadImagesComponent,
+    DevelopmentReportProjectComponent
   ],
   imports: [
     CommonModule,

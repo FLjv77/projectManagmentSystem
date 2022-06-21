@@ -1,24 +1,54 @@
-@import "../../../../../../assets/style/colorPalette";
+@import "../../../../../../assets/style/colorPalette.scss";
 .icon-title-menu{
   height: 15px;
 }
 
 .title-menu {
   text-align: right;
-  color: $text-color-lite;
+  color: white;
   font-size: medium;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .icon-title-menu-user-project {
   height: 12px;
 }
+
+
+.hoverMenu:hover{
+  font-weight: bold;
+  background-color: $text-color-lite;
+  border-radius: 0 100px 100px 0;
+  padding-right: 10px;
+  .title-menu {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: $active-yellow;
+  }
+}
+
 .active-menu {
   font-weight: bold;
   background-color: $text-color-lite;
   border-radius: 0 100px 100px 0;
+  padding-right: 10px;
 }
 .active-text {
   padding-top: 8px;
   padding-bottom: 8px;
   color: $active-yellow;
+}
+.ul-list{
+  color: white;
+  direction: rtl;
+  li{
+    margin-right: 5px;
+    font-size: 13px;
+    color: rgba($color: #fff, $alpha: 0.7);
+  }
+  .selectMenue{
+    font-weight: bold;
+    color: white !important;
+  }
 }
