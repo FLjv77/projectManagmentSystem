@@ -1,3 +1,4 @@
+import { sidebarState } from './../../../../model/sidebarModel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashbordManagmentMenuComponent implements OnInit {
 
+  public state: sidebarState = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public openSubmenue(state: sidebarState){
+    if (this.state != 1) {
+      this.state = state;
+    }
+    else if (this.state == 1){
+      this.state = 0;
+    }
   }
 
 }
