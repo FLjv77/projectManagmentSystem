@@ -1,1 +1,42 @@
-<p>add-activity works!</p>
+<div class="bg-levels mx-4 mt-2">
+    <div class="row">
+        <div class="col-12 d-block my-auto">
+            <i class="material-icons d-inline icon-styles">assignment</i>
+            <h4 class="title-page d-inline ">افزودن فعالیت</h4>
+        </div>
+        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
+            [inputFormControl]="activityNameFormControl"></app-input-style>
+        
+        <app-input-style class="col-6" [type]="'text'" [inputLabel]="'تاریخ شروع'" [inputId]="'2'"
+            [inputFormControl]="startDateFormControl"></app-input-style>
+        
+        <app-input-style class="col-6" [type]="'text'" [inputLabel]="'تاریخ اتمام'" [inputId]="'3'"
+            [inputFormControl]="endDateFormControl"></app-input-style>
+
+        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
+            [inputFormControl]="activityPriceFormControl"></app-input-style>
+
+        <app-input-style class="col-6" [type]="'text'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
+            [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
+
+            
+        <app-input-style class="col-6" [type]="'text'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
+            [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
+
+        <app-input-style class="col-12" [inputLabel]="'شرح فعالیت'" [inputId]="'7'"
+            [inputFormControl]="descreptionActivityFormControl" [textarea]="true"></app-input-style>
+    </div>
+
+    <div class="row col-12 my-2" style="direction: ltr;">
+        <button type="button" class="ok-button">
+            <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
+        </button>
+    </div>
+</div>
+
+<div class="row mx-auto">
+    <div class="mx-auto text-center">
+        <button class="button-add"><img src="../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+        <span class="text-bottom pointer">افزودن فعالیت جدید</span>
+    </div>
+</div>

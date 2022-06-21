@@ -9,8 +9,6 @@ import { SelectProjectTypeComponent } from 'src/app/createProjectProcess/page/se
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
 import { CreateProjectProcessRoutingModule } from './create-project-process-routing.module';
 
 
