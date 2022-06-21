@@ -1,8 +1,8 @@
-@import "../../../../../assets/style/base.scss";
+@import "../../../../../assets/style/colorPalette.scss";
 
 .custom-input{
   position: relative;
-  margin-top: 30px;
+  margin-top: 25px;
   justify-self: right !important;
   .custom-place {
     position: absolute;
@@ -12,7 +12,7 @@
     font-weight: 100;
     white-space: nowrap;
     border-radius: 5px;
-    color: rgb(255, 255, 255);
+    color: $text-color-normal !important;
     pointer-events: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -36,9 +36,9 @@
     background: none;
     outline: none;
     font-size: medium;
-    color: #fff;
+    color: $text-color-normal;
     border: none;
-    border-bottom: 1px solid #fff !important;
+    border-bottom: 1px solid $text-color-normal !important;
     text-align: right;
     direction: rtl;
   }
@@ -66,7 +66,7 @@
     transform: translateY(-50px) translateX(50px);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 $text-color-normal, 0 2px 0 $text-color-normal, 0 3px 0 $text-color-normal, 0 4px 0 $text-color-normal, 0 5px 0 $text-color-normal, 0 6px 0 $text-color-normal, 0 7px 0 $text-color-normal, 0 8px 0 $text-color-normal, 0 9px 0 $text-color-normal, 0 50px 30px rgba(0, 0, 0, 0.3);
   }
 }
 @keyframes text-pop-up-tr {
@@ -82,11 +82,22 @@
     transform: translateY(-50px) translateX(50px);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 $text-color-normal, 0 2px 0 $text-color-normal, 0 3px 0 $text-color-normal, 0 4px 0 $text-color-normal, 0 5px 0 $text-color-normal, 0 6px 0 $text-color-normal, 0 7px 0 $text-color-normal, 0 8px 0 $text-color-normal, 0 9px 0 $text-color-normal, 0 50px 30px rgba(0, 0, 0, 0.3);
   }
 }
 
 .error-text {
   font-size: small;
   color: red;
+}
+
+.lableColor{
+  color: $text-color-normal;
+}
+
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: $text-color-normal!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: $text-color-normal;
 }
