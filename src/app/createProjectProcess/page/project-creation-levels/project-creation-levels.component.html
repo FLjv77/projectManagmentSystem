@@ -4,15 +4,15 @@
 <div class="wrapper">
     <div class="row mx-auto">
             <div class="col-sm-3 col-12 mx-auto">
-                <app-step-create-project></app-step-create-project>
+                <app-step-create-project (selectStep)="setSelectStep($event)"></app-step-create-project>
             </div>
             <div class="col-sm-9 col-12 mx-auto">
-                <app-basic-project-information></app-basic-project-information>
-                <!-- <app-stakeholder-management></app-stakeholder-management> -->
-                <!-- <app-recovery-resources></app-recovery-resources> -->
-                <!-- <app-add-activity></app-add-activity> -->
-                <!-- <app-upload-images></app-upload-images> -->
-                <!-- <app-development-report-project></app-development-report-project> -->
+                <app-basic-project-information *ngIf="selectSteps == 1"></app-basic-project-information>
+                <app-stakeholder-management *ngIf="selectSteps == 2"></app-stakeholder-management>
+               <app-recovery-resources *ngIf="selectSteps == 3"></app-recovery-resources>
+                <app-add-activity *ngIf="selectSteps == 4"></app-add-activity>
+                <app-upload-images *ngIf="selectSteps == 5"></app-upload-images>
+                <app-development-report-project *ngIf="selectSteps == 6"></app-development-report-project>
             </div>
     </div>
 </div>
