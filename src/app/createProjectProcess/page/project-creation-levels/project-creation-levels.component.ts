@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectCreationLevelsComponent implements OnInit {
 
+  public selectSteps: number = 1;
   constructor() { }
   ngOnInit(): void {
+  }
+
+  public setSelectStep(idStep:number){
+    this.selectSteps = idStep;
   }
 
 }
