@@ -12,7 +12,6 @@
     font-weight: 100;
     white-space: nowrap;
     border-radius: 5px;
-    color: $text-color-normal !important;
     pointer-events: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -36,9 +35,7 @@
     background: none;
     outline: none;
     font-size: medium;
-    color: $text-color-normal;
     border: none;
-    border-bottom: 1px solid $text-color-normal !important;
     text-align: right;
     direction: rtl;
   }
@@ -92,12 +89,4 @@
 }
 
 .lableColor{
-  color: $text-color-normal;
-}
-
-::ng-deep .mat-form-field .mat-form-field-label {
-  color: $text-color-normal!important;
-}
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: $text-color-normal;
 }
