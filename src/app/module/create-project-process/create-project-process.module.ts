@@ -11,6 +11,10 @@ import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateProjectProcessRoutingModule } from './create-project-process-routing.module';
+import {SpecializedInformationRuralWaterComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/specialized-information-rural-water.component";
+import {SpecializedInformationRemovalMarginalizationComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-removal-marginalization/specialized-information-removal-marginalization.component";
+import {SpecializedInformationRuralWayComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-way/specialized-information-rural-way.component";
+import {SpecializedInformationRuralHousingComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-housing/specialized-information-rural-housing.component";
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { CreateProjectProcessRoutingModule } from './create-project-process-rout
     RecoveryResourcesComponent,
     AddActivityComponent,
     UploadImagesComponent,
-    DevelopmentReportProjectComponent
+    DevelopmentReportProjectComponent,
+    SpecializedInformationRuralWaterComponent,
+    SpecializedInformationRemovalMarginalizationComponent,
+    SpecializedInformationRuralWayComponent,
+    SpecializedInformationRuralHousingComponent,
   ],
   imports: [
     CommonModule,

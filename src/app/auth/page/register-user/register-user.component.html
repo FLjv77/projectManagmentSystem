@@ -1,1 +1,29 @@
-<p>register-user works!</p>
+<div class="back-ground-main d-ltr">
+  <div class="row w-100 h-100">
+
+    <div class="col-5 back-ground-dark boxShadow d-rtl">
+      <div class="row pt-4">
+        <app-boolean-custom-toggle [isFirstValueSelected]="true" (handleSelectedValue)="changeLoginType()" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
+        <div class="col-10 col-sm-8 mx-auto mt-3">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'phoneNumber'" [type]="'number'" [inputFormControl]="phoneNumberControl" [inputLabel]="'شماره همراه'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="mt-3"></app-input-style>
+        </div>
+      </div>
+
+      <app-button-style [buttonText]="'عضویت'"></app-button-style>
+      <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goLogin()">ورود</p>
+    </div>
+    <div class="col-7 d-rtl">
+      <div class="title-login text-center set-font-Raymon">
+        درباره ی سرویس بیشتر بدانید...
+      </div>
+      <div class="description-login set-font-vazir text-center col-11 col-sm-9 mx-auto">
+        متنی ساختگی و بدون معنی است که برای امتحان فونت و یا پر کردن فضا در یک طراحی گرافیکی و یا صنعت چاپ استفاده میشود. طراحان وب و گرافیک از این متن برای پرکردن صفحه و ارائه شکل کلی طرح استفاده می‌کنند.
+      </div>
+      <img src="../../../../assets/image/auth/registerUser.gif"
+           class="image-login justify-content-center d-flex mx-auto">
+    </div>
+  </div>
+</div>
