@@ -1,0 +1,34 @@
+@import "../../../../../assets/style/colorPalette";
+
+.toggle-base {
+  background-color: white;
+  width: 130px;
+  border-radius: 50px;
+  height: 45px;
+  color: $dark-back-ground;
+  font-size: large;
+  transition: all 0.5s;
+  position: relative;
+}
+.toggle-cycle {
+  width: 67px;
+  border-radius: 50px;
+  height: 50px;
+  background-color: $active-yellow;
+  margin-top: -3px;
+  position: absolute;
+  right: 0;
+  transition: all 0.5s;
+
+}
+
+.first-value-position {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+}
+.second-value-position {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

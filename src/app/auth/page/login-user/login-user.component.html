@@ -1,7 +1,16 @@
 <div class="back-ground-main d-rtl">
   <div class="row w-100 h-100">
     <div class="col-5 back-ground-dark boxShadow">
-      <app-input-style [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
+      <div class="row pt-4">
+        <app-boolean-custom-toggle [isFirstValueSelected]="true" (handleSelectedValue)="changeLoginType()" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
+        <div class="col-10 col-sm-8 mx-auto mt-3">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
+        </div>
+      </div>
+
+      <app-button-style [buttonText]="'ورود'"></app-button-style>
+      <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goRegister()">عضویت</p>
     </div>
     <div class="col-7">
       <div class="title-login text-center set-font-Raymon">

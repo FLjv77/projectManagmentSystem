@@ -1,8 +1,13 @@
-.button-project{
-    border-radius: 20px;
+.button-project {
+    border-radius: 100px;
     font-weight: bold;
     font-size: 18px;
-    background-color: rgba($color: #fff, $alpha: 0.7);
+    background-color: white;
     color: rgb(80, 80, 80);
-    border: solid 2px rgb(241, 241, 241);
+  min-width: 100px;
+  border: none;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }

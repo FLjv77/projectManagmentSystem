@@ -22,9 +22,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   constructor() {
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();

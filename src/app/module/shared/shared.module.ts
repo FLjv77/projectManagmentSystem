@@ -19,6 +19,7 @@ import {GalleryManagementSettingMenuComponent} from "../../shared/page/sidebar/p
 import {ProjectDependencyManagementSettingMenuComponent} from "../../shared/page/sidebar/page/project-dependency-management-setting-menu/project-dependency-management-setting-menu.component";
 import {DashbordManagmentMenuComponent} from "../../shared/page/sidebar/page/dashbord-managment-menu/dashbord-managment-menu.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BooleanCustomToggleComponent} from "../../shared/page/component/boolean-custom-toggle/boolean-custom-toggle.component";
 
 @NgModule({
   declarations: [
@@ -38,23 +39,25 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CompanyManagementSettingMenuComponent,
     GalleryManagementSettingMenuComponent,
     ProjectDependencyManagementSettingMenuComponent,
+    BooleanCustomToggleComponent,
   ],
     exports: [
-        NavebarComponent,
-        SidebarComponent,
-        UserProfileImageComponent,
-        CurrentUserProfileImageComponent,
-        CurrentUserUserNameComponent,
-        GeneralBackGroundComponent,
-        ButtonStyleComponent,
-        UserInformationComponent,
-        DashbordManagmentMenuComponent,
-        UserManagementSettingMenuComponent,
-        ProjectManagementSettingMenuComponent,
-        CompanyManagementSettingMenuComponent,
-        GalleryManagementSettingMenuComponent,
-        ProjectDependencyManagementSettingMenuComponent,
-        InputStyleComponent,
+      NavebarComponent,
+      SidebarComponent,
+      UserProfileImageComponent,
+      CurrentUserProfileImageComponent,
+      CurrentUserUserNameComponent,
+      GeneralBackGroundComponent,
+      ButtonStyleComponent,
+      UserInformationComponent,
+      DashbordManagmentMenuComponent,
+      UserManagementSettingMenuComponent,
+      ProjectManagementSettingMenuComponent,
+      CompanyManagementSettingMenuComponent,
+      GalleryManagementSettingMenuComponent,
+      ProjectDependencyManagementSettingMenuComponent,
+      InputStyleComponent,
+      BooleanCustomToggleComponent,
 
     ],
   imports: [
