@@ -1,3 +1,4 @@
+import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
