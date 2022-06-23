@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <app-multi-select-custom-toggle [selectedValue]="0"></app-multi-select-custom-toggle>
+    <div class="mx-auto mt-5">
+        <div class="row mx-auto time-box pb-5">
+            <div class="col-md-6 col-12 d-inline">
+                <div class="row">
+                    <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">شروع از</span>
+                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
+                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]="endDateFormControl"></app-input-style>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 d-inline">
+                <div class="row">
+                    <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">پایان از</span>
+                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
+                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]="endDateFormControl"></app-input-style>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

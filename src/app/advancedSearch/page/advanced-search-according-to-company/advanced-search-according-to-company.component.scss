@@ -1,0 +1,15 @@
+@import "../advanced-search-according-to-time/advanced-search-according-to-time.component.scss";
+
+.bg-company-list{
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    .company{
+        border-top: 1px $side-bar-color solid;
+        cursor: pointer;
+        background: transparent;
+        &:hover{
+            background-color: $lite-yellow;
+        }
+    }
+}
