@@ -1,0 +1,14 @@
+@import "../../../../../assets/style/colorPalette";
+.disabled-input {
+  color: $side-bar-color;
+  border-bottom: 2px solid $side-bar-color;
+  text-align: right;
+  height: 30px;
+  position: relative;
+}
+
+.remove-icon {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+}
