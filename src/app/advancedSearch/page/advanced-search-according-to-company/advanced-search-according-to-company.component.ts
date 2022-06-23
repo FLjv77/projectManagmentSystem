@@ -13,6 +13,7 @@ export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   public openCloseList(){
     this.showList = !this.showList;
   }

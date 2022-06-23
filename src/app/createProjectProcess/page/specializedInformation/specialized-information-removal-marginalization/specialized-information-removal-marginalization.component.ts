@@ -43,4 +43,7 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
     this.requirementList.splice(index, 1);
   }
 
+  public checkShowAddButton(): boolean {
+    return (this.requirementControl.value != null) && (this.requirementControl.value != undefined);
+  }
 }
