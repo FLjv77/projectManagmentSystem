@@ -8,8 +8,8 @@
       <div class="bg-levels mx-4 mt-2">
         <div class="row">
           <div class="col-12">
-            <i class="material-icons d-inline icon-styles">info</i>
-            <h4 class="title-page d-inline">اطلاعات اولیه</h4>
+            <i class="material-icons d-inline icon-styles">outdoor_grill</i>
+            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی رفع حاشیه نشینی</h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'"
                            [inputFormControl]="stateControl"></app-input-style>
@@ -23,23 +23,25 @@
 
 
 
-          <div class="row">
-            <div class="row mt-2" *ngFor="let item of requirementList; let i = index">
-              <div class="col-11 disabled-input">{{item}}
-                <div class="remove-icon">
-                  <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-                </div>
+          <div class="row mt-3">
+            <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
+              <div class="col-11 disabled-input">{{item}}</div>
+              <div class="remove-icon">
+                <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
               </div>
             </div>
 
 
-            <div class="row col-11">
-              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'requirement'"
-                               [inputFormControl]="requirementControl"></app-input-style>
+            <div class="pr-3 mt-3 position-relative">
+              <div class="col-11">
+                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'requirement'"
+                                 [inputFormControl]="requirementControl"></app-input-style>
+              </div>
+              <div *ngIf="checkShowAddButton()" class="remove-icon">
+                <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+              </div>
             </div>
-            <div class="col-1">
-              <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-            </div>
+
 
           </div>
         </div>
