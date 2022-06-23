@@ -7,10 +7,14 @@ import {noop} from "rxjs";
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  public sideBarIsCollapse: boolean = false;
+  public sideBarIsCollapse: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
+    let collapseSideBar = document.getElementById('collapseSideBar');
+    collapseSideBar ? collapseSideBar.style.right = '0' : noop();
+    let expandSideBar = document.getElementById('expandSideBar');
+    expandSideBar ? expandSideBar.style.right = '-400px' : noop();
   }
 
   public openSideBar() {
