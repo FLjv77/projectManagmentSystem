@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <app-multi-select-custom-toggle [selectedValue]="1"></app-multi-select-custom-toggle>
+    <div class="mx-auto mt-5">
+        <div class="row mx-auto time-box pointer" (click)="openCloseList()">
+            <div class="d-inline w-75 my-4">
+                نام شرکت
+            </div>
+            <div class="d-inline w-25">
+                <i *ngIf="!showList" class="material-icons d-inline icon-styles mt-3" style="float: left;">keyboard_arrow_down</i>
+                <i *ngIf="showList" class="material-icons d-inline icon-styles mt-3" style="float: left;">keyboard_arrow_up</i>
+            </div>
+            <div *ngIf="showList" class="bg-company-list mx-auto">
+                <div class="row py-2 mx-auto company">شرکت اول</div>
+                <div class="row py-2 mx-auto company">شرکت اول</div>
+                <div class="row py-2 mx-auto company">شرکت اول</div>
+                <div class="row py-2 mx-auto company">شرکت اول</div>
+            </div>
+        </div>
+    </div>
+</div>
