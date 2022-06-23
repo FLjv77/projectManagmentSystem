@@ -1,5 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
 @Component({
   selector: 'app-basic-project-information',
@@ -15,10 +16,17 @@ export class BasicProjectInformationComponent implements OnInit {
   public projectProfitFormControl = new FormControl();
   public addressFormControl = new FormControl();
   public LocationFormControl = new FormControl();
+  public inputCustomStyle: InputCustomStyle;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.initInputStyle();
   }
 
+  private initInputStyle() {
+    this.inputCustomStyle = new InputCustomStyle(
+      '#AEAEAE', '#AEAEAE', '#AEAEAE'
+    )
+  }
 }

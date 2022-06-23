@@ -1,1 +1,57 @@
-<p>specialized-information-removal-marginalization works!</p>
+<app-sidebar></app-sidebar>
+<app-navebar></app-navebar>
+
+
+<div class="wrapper">
+  <div class="row mx-auto">
+    <div class="col-12 mx-auto">
+      <div class="bg-levels mx-4 mt-2">
+        <div class="row">
+          <div class="col-12">
+            <i class="material-icons d-inline icon-styles">info</i>
+            <h4 class="title-page d-inline">اطلاعات اولیه</h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'"
+                           [inputFormControl]="stateControl"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'date'" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
+                           [inputFormControl]="cityControl"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'توضیحات'" [inputId]="'3'"
+                           [inputFormControl]="zoneControl"></app-input-style>
+
+
+
+
+          <div class="row">
+            <div class="row mt-2" *ngFor="let item of requirementList; let i = index">
+              <div class="col-11 disabled-input">{{item}}
+                <div class="remove-icon">
+                  <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row col-11">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'requirement'"
+                               [inputFormControl]="requirementControl"></app-input-style>
+            </div>
+            <div class="col-1">
+              <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row col-12 my-2" style="direction: ltr;">
+          <button type="button" class="ok-button">
+            <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

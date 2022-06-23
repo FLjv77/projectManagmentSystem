@@ -16,7 +16,7 @@
   top: 0;
   bottom: 0;
   width: 280px;
-  background-color: $side-bar-color;
+  background-color: rgba($color: $dark-back-ground, $alpha: 0.8);
   transition: linear 0.4s;
   z-index: 1;
 }

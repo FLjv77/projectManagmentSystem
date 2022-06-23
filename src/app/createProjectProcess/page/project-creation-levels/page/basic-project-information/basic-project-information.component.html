@@ -4,37 +4,37 @@
             <i class="material-icons d-inline icon-styles">info</i>
             <h4 class="title-page d-inline">اطلاعات اولیه</h4>
         </div>
-        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'"
             [inputFormControl]="projectNameFormControl"></app-input-style>
-        
-        <app-input-style class="col-12" [type]="'date'" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'date'" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
             [inputFormControl]="projectDeliveryDateFormControl"></app-input-style>
-        
-        <app-input-style [inputLabel]="'توضیحات'" [inputId]="'3'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'توضیحات'" [inputId]="'3'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
     </div>
-    
+
     <div class="row">
         <div class="col-12">
             <i class="material-icons d-inline icon-styles">business_center</i>
             <h4 class="title-page mt-3 d-inline">اطلاعات مالی</h4>
         </div>
-        <app-input-style class="col-12" [type]="'number'" [inputLabel]="'سرمایه اولیه پروژه'" [inputId]="'4'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'سرمایه اولیه پروژه'" [inputId]="'4'"
             [inputFormControl]="initialCapitalProjectFormControl"></app-input-style>
-        
-        <app-input-style class="col-12" [type]="'number'" [inputLabel]="'سود مورد انتظار پروژه'" [inputId]="'5'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'سود مورد انتظار پروژه'" [inputId]="'5'"
             [inputFormControl]="projectProfitFormControl"></app-input-style>
     </div>
-    
+
     <div class="row">
         <div class="col-12">
             <i class="material-icons d-inline icon-styles">location_on</i>
             <h4 class="title-page d-inline ">اطلاعات مکانی</h4>
         </div>
-        <app-input-style class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
             [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style>
-        
-        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
             [inputFormControl]="LocationFormControl"></app-input-style>
     </div>
 
@@ -43,5 +43,5 @@
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
     </div>
-    
+
 </div>

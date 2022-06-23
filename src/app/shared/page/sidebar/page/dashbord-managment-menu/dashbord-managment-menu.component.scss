@@ -1,6 +1,6 @@
 @import "../../../../../../assets/style/colorPalette.scss";
 .icon-title-menu{
-  height: 15px;
+  color: #fff;
 }
 
 .title-menu {
@@ -21,9 +21,16 @@
   background-color: $text-color-lite;
   border-radius: 0 100px 100px 0;
   padding-right: 10px;
+  transition: background-color 0.5s;
+  
   .title-menu {
     padding-top: 8px;
     padding-bottom: 8px;
+    color: $active-yellow;
+    animation: ease-in-out 0.5s infinite;
+  }
+
+  .icon-title-menu{
     color: $active-yellow;
   }
 }

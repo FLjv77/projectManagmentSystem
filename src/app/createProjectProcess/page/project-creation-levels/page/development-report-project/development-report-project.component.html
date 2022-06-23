@@ -4,21 +4,21 @@
             <i class="material-icons d-inline icon-styles">insert_chart</i>
             <h4 class="title-page d-inline ">گزارش پیشرفت</h4>
         </div>
-        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'نام گزارش دهنده'" [inputId]="'1'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارش دهنده'" [inputId]="'1'"
             [inputFormControl]="reporterNameFormControl"></app-input-style>
-        
-        <app-input-style class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="saveDateFormControl"></app-input-style>
-        
-        <app-input-style class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
             [inputFormControl]="progressFormControl"></app-input-style>
 
-        <app-input-style class="col-12" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
             [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
 
-        <app-input-style class="col-12" [type]="'file'" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'" [inputId]="'5'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'file'" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'" [inputId]="'5'"
             [inputFormControl]="uploadDocumentationProjectFormControl"></app-input-style>
-        
+
     </div>
 
     <div class="row col-12 my-2" style="direction: ltr;">
