@@ -4,7 +4,7 @@
             <i class="material-icons d-inline icon-styles">photo</i>
             <h4 class="title-page d-inline">افزودن تصویر</h4>
         </div>
-        <app-input-style class="col-12" [type]="'text'" [inputLabel]="'عنوان تصویر'" [inputId]="'1'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'عنوان تصویر'" [inputId]="'1'"
             [inputFormControl]="tiltleImageFormControl"></app-input-style>
         <div class="container-upload-image px-2 position-relative mt-4">
           <div *ngIf="!imgURL" class="px-5 py-4">
@@ -24,8 +24,7 @@
                 <img src="../../../../assets/image/createProject/cancle-button.svg" alt="">
             </button>
         </div>
-    </div>    
+    </div>
 </div>
 
-  
-  
+

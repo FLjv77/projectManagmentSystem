@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: async () => await import('./module/dashboard/dashboard.module').then((m) => m.DashboardModule)
+  },
+  {
+    path: 'advancedSearch',
+    loadChildren: async () => await import('./module/advanced-search/advanced-search.module').then((m) => m.AdvancedSearchModule)
   }
 ];
 

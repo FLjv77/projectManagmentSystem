@@ -1,6 +1,7 @@
 @import "../../../../assets/style/colorPalette";
 .nave-bar {
   background-color: $nave-bar-color;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   position: fixed;
   top: 0;
   left: 0;
