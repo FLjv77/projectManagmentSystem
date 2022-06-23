@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+import { InputCustomStyle } from './../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvancedSearchAccordingToTimeComponent implements OnInit {
 
+  public inputCustomStyle: InputCustomStyle;
+  public startDateFormControl = new FormControl;
+  public endDateFormControl = new FormControl;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.initInputStyle();
+  }
+
+  private initInputStyle() {
+    this.inputCustomStyle = new InputCustomStyle(
+      '#AEAEAE', '#AEAEAE', '#AEAEAE'
+    )
   }
 
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
 
+  public showList: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  public openCloseList(){
+    this.showList = !this.showList;
   }
 
 }
