@@ -1,3 +1,4 @@
+import { GalleryModule } from './module/gallery/gallery.module';
 import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     AuthModule,
+    GalleryModule
     BrowserAnimationsModule
   ],
   providers: [],

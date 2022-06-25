@@ -1,14 +1,19 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { GalleryRoutingModule } from './gallery-routing.module';
+import { GalleryComponent } from 'src/app/gallery/gallery.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GalleryComponent
+  ],
   imports: [
     CommonModule,
-    GalleryRoutingModule
+    GalleryRoutingModule,
+    SharedModule,
   ]
 })
 export class GalleryModule { }

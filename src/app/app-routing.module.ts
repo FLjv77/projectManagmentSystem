@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'advancedSearch',
     loadChildren: async () => await import('./module/advanced-search/advanced-search.module').then((m) => m.AdvancedSearchModule)
+  },
+  {
+    path: 'gallery',
+    loadChildren: async () => await import('./module/gallery/gallery.module').then((m) => m.GalleryModule)
   }
 ];
 
