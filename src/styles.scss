@@ -14,7 +14,12 @@
 .d-ltr {
   direction: ltr;
 }
-
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
 .boxShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -38,3 +43,10 @@
 .font-weight-bold {
  font-weight: bold;
 }
+
+.font-size-small {
+  font-size: small;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
