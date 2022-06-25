@@ -38,7 +38,7 @@
             [inputFormControl]="LocationFormControl"></app-input-style>
     </div>
 
-    <div class="row col-12 my-2" style="direction: ltr;">
+    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
         <button type="button" class="ok-button">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>

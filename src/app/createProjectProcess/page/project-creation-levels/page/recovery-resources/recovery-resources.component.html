@@ -1,5 +1,5 @@
 <div class="bg-levels mx-4 mt-2">
-    <div class="row">
+    <div class="row pb-5">
         <div class="col-12">
             <i class="material-icons d-inline icon-styles">file_download</i>
             <h4 class="title-page d-inline">اطلاعات منابع بازیابی</h4>
@@ -14,7 +14,7 @@
             [inputFormControl]="TimeResourceFormControl"></app-input-style>
     </div>
 
-    <div class="row col-12 my-2" style="direction: ltr;">
+    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
         <button type="button" class="ok-button">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>

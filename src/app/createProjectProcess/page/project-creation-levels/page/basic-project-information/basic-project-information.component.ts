@@ -29,4 +29,16 @@ export class BasicProjectInformationComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+  
+  public getValue(){
+    if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
+      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value && this.addressFormControl.value &&
+      this.LocationFormControl.value &&
+      this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
+      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid && this.addressFormControl.valid &&
+      this.LocationFormControl.valid){
+        return true;
+      }
+      else{return false}
+  }
 }

@@ -28,4 +28,16 @@ export class AddActivityComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+
+  public getValue(){
+    if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
+      this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
+      this.descreptionActivityFormControl.value &&
+      this.activityNameFormControl.valid && this.startDateFormControl.valid && this.endDateFormControl.valid &&
+      this.activityPriceFormControl.valid && this.timeWeightActivityFormControl.valid && this.priceWeightActivityFormControl.valid &&
+      this.descreptionActivityFormControl.valid){
+        return true;
+      }
+      else{return false}
+  }
 }

@@ -1,3 +1,4 @@
+import { GalleryModule } from './module/gallery/gallery.module';
 import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +16,8 @@ import { AuthModule } from "./module/auth/auth.module";
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
