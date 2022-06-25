@@ -1,5 +1,5 @@
 <div class="bg-levels mx-4 mt-2">
-    <div class="row">
+    <div class="row pb-5">
         <div class="col-12 d-block my-auto">
             <i class="material-icons d-inline icon-styles">assignment</i>
             <h4 class="title-page d-inline ">افزودن فعالیت</h4>
@@ -27,7 +27,8 @@
             [inputFormControl]="descreptionActivityFormControl" [textarea]="true"></app-input-style>
     </div>
 
-    <div class="row col-12 my-2" style="direction: ltr;">
+    <div *ngIf="getValue()"
+         class="row col-12 my-2" style="direction: ltr;">
         <button type="button" class="ok-button">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>

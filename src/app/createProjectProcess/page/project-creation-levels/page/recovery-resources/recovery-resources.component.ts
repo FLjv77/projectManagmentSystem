@@ -25,5 +25,12 @@ export class RecoveryResourcesComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+  public getValue(){
+    if(this.resourceNameFormControl.value && this.addressResourceFormControl.value && this.TimeResourceFormControl.value &&
+      this.resourceNameFormControl.valid && this.addressResourceFormControl.valid && this.TimeResourceFormControl.valid){
+        return true;
+      }
+      else{return false}
+  }
 
 }

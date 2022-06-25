@@ -1,35 +1,56 @@
 @import "../advanced-search-according-to-time/advanced-search-according-to-time.component.scss";
 
-// .chk {
-//     background-color: #28f321;
-// }
+.squaredThree {
+    position: relative;
+}
+  
+.squaredThree label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    //top: 0;
+    //left: 0;
+    background: $text-color-normal;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+}
+  
+.squaredThree label:after {
+    content: '';
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border: 3px solid #fcfff4;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
 
-// .chk {
-//     background-color: #eee;
-//   }
+.squaredThree label:hover::after {
+    opacity: 0.3;
+}
 
-// input:checked ~ .chk {
-//     background-color: #28f321;
-//   }
+.squaredThree input[type=checkbox] {
+    visibility: hidden;
+}
 
-//   .chk:after {
-//     content: "";
-//     position: absolute;
-//     display: none;
-//   }
+.squaredThree input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
 
-//   input:checked ~ .chk:after {
-//     display: block;
-//   }
+.label-text {
+    position: relative;
+    right: 30px;
+}
 
-//   .chk:after {
-//     left: 9px;
-//     top: 5px;
-//     width: 5px;
-//     height: 10px;
-//     border: solid white;
-//     border-width: 0 3px 3px 0;
-//     -webkit-transform: rotate(45deg);
-//     -ms-transform: rotate(45deg);
-//     transform: rotate(45deg);
-//   }
+*,
+::before,
+::after {
+  box-sizing: initial;
+}

@@ -28,4 +28,13 @@ export class DevelopmentReportProjectComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+  public getValue(){
+    if(this.reporterNameFormControl.value && this.saveDateFormControl.value && this.progressFormControl.value &&
+      this.descreptionReportFormControl.value && this.uploadDocumentationProjectFormControl.value &&
+      this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
+      this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid){
+        return true;
+      }
+      else{return false}
+  }
 }

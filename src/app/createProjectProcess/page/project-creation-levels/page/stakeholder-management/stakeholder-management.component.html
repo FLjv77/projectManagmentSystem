@@ -12,7 +12,9 @@
                 [inputFormControl]="firstAndLastNameFormControl"></app-input-style>
             </div>
         <div class="col-1">
-            <button class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            <button *ngIf="userNameFormControl.value && firstAndLastNameFormControl.value" class="button-add">
+                <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+            </button>
         </div>
 
     </div>
@@ -29,7 +31,9 @@
                 [inputFormControl]="supervisorFirstAndLastNameFormControl"></app-input-style>
         </div>
         <div class="col-1">
-            <button class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            <button *ngIf="supervisorNameFormControl.value && supervisorFirstAndLastNameFormControl.value" class="button-add">
+                <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+            </button>
         </div>
 
     </div>
@@ -46,7 +50,7 @@
             [inputFormControl]="executorFirstAndLastNameFormControl"></app-input-style>
         </div>
         <div class="col-1">
-            <button class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            <button *ngIf="executorNameFormControl.value && executorFirstAndLastNameFormControl.value" class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>
@@ -63,7 +67,7 @@
             [inputFormControl]="ContractorsFirstAndLastNameFormControl"></app-input-style>
         </div>
         <div class="col-1">
-            <button class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            <button *ngIf="contractorsNameFormControl.value && ContractorsFirstAndLastNameFormControl.value" class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>
@@ -80,7 +84,7 @@
             [inputFormControl]="consultantFirstAndLastNameFormControl"></app-input-style>
         </div>
         <div class="col-1">
-            <button class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+            <button *ngIf="consultantNameFormControl.value && consultantFirstAndLastNameFormControl.value" class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>

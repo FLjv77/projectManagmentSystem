@@ -16,6 +16,8 @@ import {SpecializedInformationRemovalMarginalizationComponent} from "../../creat
 import {SpecializedInformationRuralWayComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-way/specialized-information-rural-way.component";
 import {SpecializedInformationRuralHousingComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-housing/specialized-information-rural-housing.component";
 import {IranStateAndZoneService} from "../../createProjectProcess/service/iranStateAndZone/iran-state-and-zone.service";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import {IranStateAndZoneService} from "../../createProjectProcess/service/iranSt
     CommonModule,
     CreateProjectProcessRoutingModule,
     SharedModule,
-    ],
+    MatSelectModule,
+    MatRadioModule
+  ],
   exports: [],
   providers: [
     IranStateAndZoneService
