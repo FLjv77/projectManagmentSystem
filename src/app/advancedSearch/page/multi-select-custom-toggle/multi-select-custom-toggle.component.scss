@@ -10,6 +10,7 @@
   transition: all 0.5s;
   position: relative;
   border: 1px solid $dark-back-ground;
+  margin-top: 70px;
 }
 
 .toggle-cycle {
@@ -20,6 +21,7 @@
   margin-top: -4px;
   padding-left: 5px;
   padding-right: 5px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
 .unselected-value {
