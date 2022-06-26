@@ -1,3 +1,4 @@
+@import "./assets/style/colorPalette";
 @font-face {
   font-family: Vazir;
   src:url('/assets/font/Vazir.ttf') format("truetype");
@@ -14,7 +15,12 @@
 .d-ltr {
   direction: ltr;
 }
-
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
 .boxShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -37,4 +43,65 @@
 
 .font-weight-bold {
  font-weight: bold;
+}
+
+.font-size-small {
+  font-size: small;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  height: 12px;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: $active-yellow;
+  height: 10px;
+}
+
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: $lite-yellow;
+  height: 10px;
+}
+
+.mat-accent .mat-slider-thumb {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border: solid 2px gray;
+  bottom: -20px;
+  right: -20px;
+}
+*/
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: $active-yellow;
+}
+
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: $lite-yellow;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  height: 12px;
+  border-radius: 10px;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  height: 100%;
+}
+
+.mat-accent .mat-slider-thumb {
+  height: 30px;
+  width: 30px;
+  background-color: $active-yellow-lite;
+  bottom: -20px;
+  right: -20px;
 }

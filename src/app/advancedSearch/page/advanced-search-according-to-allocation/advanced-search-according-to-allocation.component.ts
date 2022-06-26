@@ -12,4 +12,14 @@ export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public setCostState(state: number) {
+
+  }
+
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000);
+    }
+    return value;
+  }
 }

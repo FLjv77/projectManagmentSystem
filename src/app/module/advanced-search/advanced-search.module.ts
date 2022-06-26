@@ -9,6 +9,8 @@ import { SharedModule } from './../shared/shared.module';
 import { AdvancedSearchAccordingToTimeComponent } from './../../advancedSearch/page/advanced-search-according-to-time/advanced-search-according-to-time.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     AdvancedSearchRoutingModule,
-    SharedModule
+    SharedModule,
+    MatRadioModule,
+    MatSliderModule
   ]
 })
 export class AdvancedSearchModule { }

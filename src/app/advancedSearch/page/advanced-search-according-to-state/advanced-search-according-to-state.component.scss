@@ -3,19 +3,17 @@
 .squaredThree {
     position: relative;
 }
-  
+
 .squaredThree label {
     width: 20px;
     height: 20px;
     cursor: pointer;
     position: absolute;
-    //top: 0;
-    //left: 0;
     background: $text-color-normal;
     border-radius: 4px;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
 }
-  
+
 .squaredThree label:after {
     content: '';
     width: 9px;
