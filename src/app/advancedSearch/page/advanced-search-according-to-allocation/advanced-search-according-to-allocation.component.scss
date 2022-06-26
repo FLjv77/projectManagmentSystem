@@ -1,0 +1,66 @@
+@import "../../../../assets/style/colorPalette";
+
+.list-result-project {
+  background-color: $lite-yellow-back-ground;
+  box-shadow: 0px 0px 3px 0px $side-bar-color;
+  border-radius: 5px;
+  color: $text-color-normal;
+}
+
+.filter-box{
+  background-color: $lite-yellow-back-ground;
+  border: none;
+  box-shadow: 0px 0px 7px 0px $side-bar-color;
+  border-radius: 5px;
+  font-weight: bold;
+  color: $text-color-normal;
+  span{
+    text-align: center;
+  }
+}
+.padding-filter-box {
+  padding-right: 100px;
+  padding-left: 70px;
+}
+.max-value-label {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  font-size: small;
+  color: $text-color-normal;
+}
+.min-value-label {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  font-size: small;
+  color: $text-color-normal;
+}
+
+.max-value-arrow {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: $active-yellow;
+}
+.min-value-arrow {
+  position: absolute;
+  right: 14px;
+  top: 15px;
+  font-weight: bolder;
+  font-size: 30px;
+  color: $active-yellow;
+}
+.icon-short-cut-project {
+  width: 50px;
+  height: 50px;
+}
+
+.state-project {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: red;
+}
