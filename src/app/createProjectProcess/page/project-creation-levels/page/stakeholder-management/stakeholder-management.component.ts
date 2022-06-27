@@ -19,11 +19,14 @@ export class StakeholderManagementComponent implements OnInit {
   public ContractorsFirstAndLastNameFormControl = new FormControl();
   public consultantNameFormControl = new FormControl();
   public consultantFirstAndLastNameFormControl = new FormControl();
+  public investorNameFormControl = new FormControl();
+  public investorFirstAndLastNameFormControl = new FormControl();
   public employerList: Array<userList> = [];
   public supervisorList: Array<userList> = [];
   public executorList: Array<userList> = [];
   public contractorsList: Array<userList> = [];
   public consultantList: Array<userList> = [];
+  public investorList: Array<userList> = [];
 
   constructor() { }
 
@@ -53,6 +56,8 @@ export class StakeholderManagementComponent implements OnInit {
     this.ContractorsFirstAndLastNameFormControl.reset();
     this.consultantNameFormControl.reset();
     this.consultantFirstAndLastNameFormControl.reset();
+    this.investorNameFormControl.reset();
+    this.investorFirstAndLastNameFormControl.reset();
   }
 
   public remove(list : Array<userList>, index: number){

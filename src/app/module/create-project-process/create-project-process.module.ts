@@ -18,6 +18,7 @@ import {SpecializedInformationRuralHousingComponent} from "../../createProjectPr
 import {IranStateAndZoneService} from "../../createProjectProcess/service/iranStateAndZone/iran-state-and-zone.service";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatRadioModule} from "@angular/material/radio";
     CreateProjectProcessRoutingModule,
     SharedModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCheckboxModule
   ],
   exports: [],
   providers: [

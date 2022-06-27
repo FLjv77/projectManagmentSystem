@@ -2,10 +2,33 @@
     <div class="row pb-5">
         <div class="col-12 d-block my-auto">
             <i class="material-icons d-inline icon-styles">assignment</i>
-            <h4 class="title-page d-inline ">افزودن فعالیت</h4>
+            <h4 class="title-page d-inline set-font-Raymon">افزودن فعالیت</h4>
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
             [inputFormControl]="activityNameFormControl"></app-input-style>
+        
+        <div class="row col-12">
+            <div class="col-6 mt-5">
+                <mat-checkbox class="d-inline" (click)="checked()"></mat-checkbox>
+                <span class="title-page set-font-Raymon px-2">فرزند</span>
+            </div>
+            <div class="col-6">
+                <mat-form-field *ngIf="checkbox" class="mat-form-field-infix" appearance="fill">
+                    <mat-label>فعالیت پدر</mat-label>
+                    <mat-select>
+                      <mat-option>
+                         فعالیت 1  
+                      </mat-option>
+                      <mat-option>
+                        فعالیت 2  
+                     </mat-option>
+                     <mat-option>
+                        فعالیت 3  
+                     </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-6" [type]="'text'" [inputLabel]="'تاریخ شروع'" [inputId]="'2'"
             [inputFormControl]="startDateFormControl"></app-input-style>
