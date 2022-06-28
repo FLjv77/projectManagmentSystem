@@ -28,6 +28,26 @@
   top: 15px;
   height: 18px;
 }
+.posision-icon{
+  cursor: pointer;
+    position: relative;
+    top: 53px;
+    left: 14px;
+    font-size: 36px;
+    color: white;
+    &:hover{
+      color: $active-yellow;
+    }
+}
+.position1{
+  top: 73px !important;
+}
+.position2{
+  top: 93px !important;
+}
+.position3{
+  top: 113px !important;
+}
 
 .menu-padding {
   padding-right: 20px;

@@ -19,8 +19,13 @@
   }
 }
 .padding-filter-box {
+  padding-top: 10px;
   padding-right: 100px;
   padding-left: 70px;
+  @media(max-width:600px){
+    padding-right: 80px;
+    padding-left: 20px;
+  }
 }
 .max-value-label {
   position: absolute;
@@ -56,6 +61,14 @@
 .icon-short-cut-project {
   width: 50px;
   height: 50px;
+  margin-right: 0;
+  margin-left: 0;
+  @media(max-width:600px){
+    width: 35px;
+    height: 35px;
+    margin-right: 1px !important;
+    margin-left: -6px;
+  }
 }
 
 .state-project {
