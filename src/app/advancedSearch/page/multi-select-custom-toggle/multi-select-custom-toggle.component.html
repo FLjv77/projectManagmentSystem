@@ -1,8 +1,33 @@
-<div class="toggle-base set-font-vazir d-flex justify-content-center mx-auto row d-rtl">
+<div class="toggle-base set-font-vazir d-flex justify-content-center mx-auto row d-rtl d-md-flex d-none">
   <div (click)="changeSelectedFilter(2)" class="unselected-value {{checkIsCurrentFilterSelected(2) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">پیشرفت</div>
   <div (click)="changeSelectedFilter(0)" class="unselected-value {{checkIsCurrentFilterSelected(0) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">زمان</div>
   <div (click)="changeSelectedFilter(5)" class="unselected-value {{checkIsCurrentFilterSelected(5) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">تخصیص</div>
   <div (click)="changeSelectedFilter(3)" class="unselected-value {{checkIsCurrentFilterSelected(3) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">هزینه</div>
   <div (click)="changeSelectedFilter(1)" class="unselected-value {{checkIsCurrentFilterSelected(1) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">شرکت</div>
   <div (click)="changeSelectedFilter(4)" class="unselected-value {{checkIsCurrentFilterSelected(4) ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">وضعیت</div>
+</div>
+<div class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl d-md-none d-block mt-3">
+  <mat-form-field class="mat-form-field-infix w-100 mt-5" appearance="fill">
+    <mat-label class="font-weight-bold">{{title}}</mat-label>
+    <mat-select>
+      <mat-option (click)="changeSelectedFilter(2)">
+         پیشرفت 
+      </mat-option>
+      <mat-option (click)="changeSelectedFilter(0)">
+        زمان  
+     </mat-option>
+     <mat-option (click)="changeSelectedFilter(5)">
+        تخصیص  
+     </mat-option>
+     <mat-option (click)="changeSelectedFilter(3)">
+        هزینه  
+    </mat-option>
+    <mat-option (click)="changeSelectedFilter(1)">
+        شرکت  
+    </mat-option>
+    <mat-option (click)="changeSelectedFilter(4)">
+      وضعیت  
+    </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

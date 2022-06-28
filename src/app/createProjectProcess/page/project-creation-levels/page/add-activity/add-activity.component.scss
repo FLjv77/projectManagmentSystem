@@ -1,3 +1,5 @@
+@import "../../../../../../assets/style/inputStyle.scss";
+
 .mat-form-field-infix {
    display: block;
    position: relative;
@@ -6,46 +8,3 @@
    width: 180px;
    text-align: right !important;
 }
-// .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-//    color: #FFE94E !important;
-//  } 
-
-// mat-label {
-//    color: #646262;
-// }
-
-// ::ng-deep .mat-form-field .mat-form-field-underline {
-//    background-color: #FFE94E;
-// }
-// ::ng-deep .mat-form-field .mat-form-field-ripple {
-//    background-color: #FFE94E;
-// }
-
-// ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-//    color: #FFE94E;
-//    margin-top: -1px;
-//    padding-right: 7px;
-// }
-// ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
-//    background-color: #FFE94E;
-// }
-
-// ::ng-deep .mat-form-field.mat-focused .mat-input-element {
-//    color: #FFE94E;
-// }
- 
-// ::ng-deep .mat-form-field .mat-input-element {
-//    color: #FFE94E;
-//    text-align: start;
-//    line-height: 2.5;
-// }
-// ::ng-deep .mat-form-field .mat-form-field-label {
-//    color: #FFE94E !important;
-//    font-size: 17px;
-//    text-align: start;
-//    @media (max-width: 418px) {
-//      font-size: 15px;
-//    }
-// }
-
-
