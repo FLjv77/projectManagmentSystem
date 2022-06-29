@@ -1,3 +1,4 @@
+import { ProjectState } from './../../model/advanceSearch';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvancedSearchAccordingToStateComponent implements OnInit {
 
+  public state: ProjectState;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public setState(state: ProjectState){
+    this.state = state;
+  }
 }

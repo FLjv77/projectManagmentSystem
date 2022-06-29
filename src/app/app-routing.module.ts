@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'gallery',
     loadChildren: async () => await import('./module/gallery/gallery.module').then((m) => m.GalleryModule)
+  },
+  {
+    path: 'workspace',
+    loadChildren: async () => await import('./module/workspace/workspace.module').then((m) => m.WorkspaceModule)
   }
 ];
 

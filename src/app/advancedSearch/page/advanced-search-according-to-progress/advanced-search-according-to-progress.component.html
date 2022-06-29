@@ -5,15 +5,24 @@
   <div class="mx-auto mt-5 filter-box">
     <div class="row mx-auto time-box py-4">
       <div class="col-12 col-sm-6 text-sm-center text-right mx-auto my-auto">
+        <mat-radio-group
+        class="example-radio-group font-size-small">
+          <mat-radio-button (click)="setDevelopment(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+            <span class="px-2">پیشرفت گزارش شده</span>
+          </mat-radio-button>
+          <mat-radio-button (click)="setDevelopment(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+            <span class="px-2">پیشرفت تایید شده</span>
+          </mat-radio-button>
+        </mat-radio-group>
 
-        <div class="d-md-inline d-block ">
+        <!-- <div class="d-md-inline d-block ">
             <mat-checkbox class="d-inline"></mat-checkbox>
             <span class="title-page set-font-Raymon px-3">پیشرفت گزارش شده</span>
         </div>
         <div class="d-md-inline d-block">
             <mat-checkbox class="d-inline"></mat-checkbox>
             <span class="title-page set-font-Raymon px-3">پیشرفت تایید شده</span>
-        </div>
+        </div> -->
       </div>
 
       <div class="col-12 col-sm-6 position-relative set-font-vazir">

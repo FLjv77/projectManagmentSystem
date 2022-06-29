@@ -1,3 +1,4 @@
+import { Cost } from './../../model/advanceSearch';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
    '../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
 export class AdvancedSearchAccordingToCostComponent implements OnInit {
+  public cost: Cost;
 
   constructor() { }
 
@@ -21,4 +23,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
     return value;
   }
 
+  setCost(state: Cost){
+    this.cost = state;
+  }
 }

@@ -5,7 +5,19 @@
     <div class="mx-auto mt-5">
         <div class="row mx-auto time-box py-4">
             <div class="col-sm-12 col-8 text-sm-center text-right mx-auto">
-                <div class="d-sm-inline d-block">
+              <mat-radio-group
+                class="example-radio-group font-size-small">
+                <mat-radio-button (click)="setState(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                  <span class="px-2">تکمیل شده</span>
+                </mat-radio-button>
+                <mat-radio-button (click)="setState(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                  <span class="px-2">متمم</span>
+                </mat-radio-button>
+                <mat-radio-button (click)="setState(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                  <span class="px-2">در حال انجام کار</span>
+                </mat-radio-button>
+              </mat-radio-group>
+                <!-- <div class="d-sm-inline d-block">
                     <mat-checkbox class="d-inline"></mat-checkbox>
                     <span class="title-page set-font-Raymon px-3">تکمیل شده</span>
                 </div>
@@ -16,7 +28,7 @@
                 <div class="d-sm-inline d-block">
                     <mat-checkbox class="d-inline"></mat-checkbox>
                     <span class="title-page set-font-Raymon px-3">در حال انجام کار</span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
