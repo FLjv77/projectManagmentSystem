@@ -16,6 +16,7 @@ export class AddActivityComponent implements OnInit {
   public timeWeightActivityFormControl = new FormControl();
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
+  public checkbox:boolean = false;
 
   constructor() { }
 
@@ -39,5 +40,9 @@ export class AddActivityComponent implements OnInit {
         return true;
       }
       else{return false}
+  }
+
+  public checked(){
+    this.checkbox = !this.checkbox;
   }
 }

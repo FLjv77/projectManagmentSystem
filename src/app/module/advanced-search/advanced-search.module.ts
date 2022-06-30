@@ -11,6 +11,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {MatSliderModule} from '@angular/material/slider';
     AdvancedSearchRoutingModule,
     SharedModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
+    MatCheckboxModule,
+    MatSelectModule
   ]
 })
 export class AdvancedSearchModule { }

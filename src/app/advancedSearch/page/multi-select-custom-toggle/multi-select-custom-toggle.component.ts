@@ -9,7 +9,9 @@ import {Router} from "@angular/router";
 export class MultiSelectCustomToggleComponent implements OnInit {
 
   @Input() selectedValue: FilteringState;
+  @Input() title: string;
   public selectedFilter: FilteringState;
+  
   constructor(private routing: Router) { }
 
   ngOnInit(): void {

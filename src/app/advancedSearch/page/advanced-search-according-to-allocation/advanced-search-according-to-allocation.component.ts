@@ -1,3 +1,4 @@
+import { Allocation } from './../../model/advanceSearch';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advanced-search-according-to-allocation.component.scss']
 })
 export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
-
+  public allocation: Allocation;
   constructor() { }
 
   ngOnInit(): void {
@@ -21,5 +22,8 @@ export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
       return Math.round(value / 1000);
     }
     return value;
+  }
+  public setAllocation(state: Allocation){
+    this.allocation = state;
   }
 }

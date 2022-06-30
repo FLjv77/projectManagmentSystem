@@ -1,3 +1,4 @@
+import { WorkspaceModule } from './module/workspace/workspace.module';
 import { GalleryModule } from './module/gallery/gallery.module';
 import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     AuthModule,
     GalleryModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    WorkspaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
