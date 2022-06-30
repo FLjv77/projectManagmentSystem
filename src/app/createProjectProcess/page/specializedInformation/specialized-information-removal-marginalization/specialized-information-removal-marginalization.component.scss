@@ -1,4 +1,6 @@
 @import "../../../../../assets/style/colorPalette";
+@import "../../../../../assets/style/inputStyle.scss";
+
 .disabled-input {
   color: $side-bar-color;
   border-bottom: 2px dashed $side-bar-color;

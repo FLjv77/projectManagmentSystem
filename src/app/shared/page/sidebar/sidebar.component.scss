@@ -7,7 +7,7 @@
   width: 60px;
   background-color: $side-bar-color;
   transition: linear 0.4s;
-  z-index: 1;
+  z-index: 2;
 }
 
 .expand-side-bar {
@@ -18,7 +18,7 @@
   width: 280px;
   background-color: rgba($color: $dark-back-ground, $alpha: 0.8);
   transition: linear 0.4s;
-  z-index: 1;
+  z-index: 2;
 }
 
 .open-close-side-bar-icon {
@@ -27,6 +27,26 @@
   left: 10px;
   top: 15px;
   height: 18px;
+}
+.posision-icon{
+  cursor: pointer;
+    position: relative;
+    top: 53px;
+    left: 14px;
+    font-size: 36px;
+    color: white;
+    &:hover{
+      color: $active-yellow;
+    }
+}
+.position1{
+  top: 73px !important;
+}
+.position2{
+  top: 93px !important;
+}
+.position3{
+  top: 113px !important;
 }
 
 .menu-padding {

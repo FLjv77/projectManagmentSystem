@@ -1,4 +1,5 @@
 @import "../advanced-search-according-to-time/advanced-search-according-to-time.component.scss";
+@import "../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss";
 
 .squaredThree {
     position: relative;
@@ -45,10 +46,4 @@
 .label-text {
     position: relative;
     right: 30px;
-}
-
-*,
-::before,
-::after {
-  box-sizing: initial;
 }

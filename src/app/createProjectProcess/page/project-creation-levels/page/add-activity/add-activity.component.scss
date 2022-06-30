@@ -1,3 +1,10 @@
-.nnn{
-   // padding-bottom: 5px !important;
+@import "../../../../../../assets/style/inputStyle.scss";
+
+.mat-form-field-infix {
+   display: block;
+   position: relative;
+   flex: auto;
+   min-width: 0;
+   width: 180px;
+   text-align: right !important;
 }
