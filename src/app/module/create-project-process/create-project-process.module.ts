@@ -1,3 +1,4 @@
+import { TreeDiagramActivityModalComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/tree-diagram-activity-modal/tree-diagram-activity-modal.component';
 import { DevelopmentReportProjectComponent } from './../../createProjectProcess/page/project-creation-levels/page/development-report-project/development-report-project.component';
 import { UploadImagesComponent } from './../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component';
 import { AddActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/add-activity.component';
@@ -36,6 +37,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SpecializedInformationRemovalMarginalizationComponent,
     SpecializedInformationRuralWayComponent,
     SpecializedInformationRuralHousingComponent,
+    TreeDiagramActivityModalComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
   exports: [],
   providers: [
-    IranStateAndZoneService
+    IranStateAndZoneService,
+    TreeDiagramActivityModalComponent
   ]
 })
 export class CreateProjectProcessModule { }
