@@ -1,0 +1,55 @@
+@import "../../../../assets/style/colorPalette";
+
+.quick-access-card {
+  height: 200px;
+  border-radius: 15px;
+  background-color: $lite-yellow;
+  position: relative;
+  padding-right: 150px;
+  padding-top: 10px;
+  max-width: 350px;
+}
+
+.img-quick-access-card {
+  position: absolute;
+  right: -60px;
+  bottom: 15px;
+  border: solid 12px $general-back-ground-color;
+  height: 220px;
+  width: 220px;
+  border-radius: 300px;
+}
+.black-glass-quick-access-card {
+  background-color: rgba(0,0,0,0.35);
+  position: absolute;
+  right: -60px;
+  bottom: 15px;
+  border: solid 12px $general-back-ground-color;
+  height: 220px;
+  width: 220px;
+  border-radius: 300px;
+}
+.title-card {
+  font-size: 31px;
+  margin-top: 79px;
+}
+.margin-top {
+  padding-top: 130px;
+  padding-right: 110px;
+}
+
+.option-in-card {
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  background-color: $active-yellow;
+}
+
+.sub-menu-text {
+  font-size: 19px;
+  font-weight: bold;
+  color: $dark-back-ground;
+}
+.m-r-1 {margin-right: 20px}
+.m-r-2 {margin-right: 35px}
+.m-r-3 {margin-right: 2px}
