@@ -1,3 +1,4 @@
+import { UserManagementModule } from './module/user-management/user-management.module';
 import { WorkspaceModule } from './module/workspace/workspace.module';
 import { GalleryModule } from './module/gallery/gallery.module';
 import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GalleryModule,
     BrowserAnimationsModule,
     WorkspaceModule,
+    UserManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

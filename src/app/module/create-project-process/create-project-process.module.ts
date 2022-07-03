@@ -1,3 +1,4 @@
+import { TreeDiagramActivityModalComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/tree-diagram-activity-modal/tree-diagram-activity-modal.component';
 import { DevelopmentReportProjectComponent } from './../../createProjectProcess/page/project-creation-levels/page/development-report-project/development-report-project.component';
 import { UploadImagesComponent } from './../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component';
 import { AddActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/add-activity.component';
@@ -45,6 +46,7 @@ import {FinancialReportProjectComponent} from "../../createProjectProcess/page/p
     SpecializedInformationRuralWayComponent,
     SpecializedInformationRuralHousingComponent,
     FinancialReportProjectComponent,
+    TreeDiagramActivityModalComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,7 @@ import {FinancialReportProjectComponent} from "../../createProjectProcess/page/p
   exports: [],
   providers: [
     IranStateAndZoneService,
+    TreeDiagramActivityModalComponent
   ]
 })
 export class CreateProjectProcessModule { }
