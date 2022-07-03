@@ -1,6 +1,6 @@
 <div class="toggle-base set-font-vazir">
-  <div id="toggle" class="toggle-cycle pointer boxShadow"></div>
+  <div id="toggle" class="pointer {{isFirstValueSelected ? 'toggle-cycle-2' : 'toggle-cycle-1'}} boxShadow"></div>
 
-  <div class="first-value-position pointer" (click)="changeSelectedValue()">{{firstValue}}</div>
-  <div class="second-value-position pointer" (click)="changeSelectedValue()"> {{secondValue}}</div>
+  <div class="first-value-position pointer" (click)="changeSelectedValue(firstValue)">{{firstValue}}</div>
+  <div class="second-value-position pointer" (click)="changeSelectedValue(secondValue)"> {{secondValue}}</div>
 </div>

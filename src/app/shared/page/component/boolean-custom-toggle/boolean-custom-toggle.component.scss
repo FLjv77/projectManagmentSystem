@@ -10,16 +10,25 @@
   transition: all 0.5s;
   position: relative;
 }
-.toggle-cycle {
+.toggle-cycle-1 {
   width: 67px;
   border-radius: 50px;
   height: 50px;
   background-color: $active-yellow;
   margin-top: -3px;
   position: absolute;
-  right: 0;
+  left: 0;
   transition: all 0.5s;
-
+}
+.toggle-cycle-2 {
+  width: 67px;
+  border-radius: 50px;
+  height: 50px;
+  background-color: $active-yellow;
+  margin-top: -3px;
+  position: absolute;
+  transition: all 0.5s;
+  right: 0;
 }
 
 .first-value-position {

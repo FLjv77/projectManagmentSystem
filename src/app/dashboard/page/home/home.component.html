@@ -1,29 +1,25 @@
-<app-navebar></app-navebar>
-<app-sidebar></app-sidebar>
-
-
 <div class="margin-top">
   <div class="row d-rtl mx-auto d-flex justify-content-center">
 
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-6 col-lg-3 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
         <span class="set-font-Raymon text-light d-flex justify-content-center title-card">
-                  ساخت پروژه
+                  پروژه ها
         </span>
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2" (click)="goToCreateProject()">ایجاد پروژه</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">ویرایش پروژه</span>
         </div>
         <div class="mt-4 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">مشاهده پروژه</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
@@ -32,7 +28,7 @@
 
       </div>
     </div>
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-6 col-lg-3 mt-3 mt-md-0 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
@@ -42,24 +38,24 @@
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">گزارش تخصیص</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">گزارش پیشرفت</span>
         </div>
         <div class="mt-4 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">نظارت بر گزارش</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">ثبت گزارش</span>
         </div>
 
       </div>
     </div>
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-6 col-lg-3 mt-3 mt-lg-0 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
@@ -69,19 +65,19 @@
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">شرکت تایید نشده</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">شرکت تایید شده</span>
         </div>
         <div class="mt-4 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">همه شرکت ها</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">ویرایش شرکت</span>
         </div>
 
       </div>
@@ -90,13 +86,13 @@
 
   </div>
   <div class="row d-rtl mx-auto d-flex justify-content-center">
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-3 col-12 mx-auto">
       <app-inprocessing-project></app-inprocessing-project>
     </div>
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
       <app-motamam-project></app-motamam-project>
     </div>
-    <div class="col-md-3 col-sm-6 col-12 mx-auto">
+    <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
       <app-done-project></app-done-project>
     </div>
   </div>

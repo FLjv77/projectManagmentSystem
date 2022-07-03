@@ -1,4 +1,3 @@
-import { ControlProgressDisplayService } from './../../../service/control-progress-display.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,14 +10,7 @@ export class ProgressStyleComponent implements OnInit {
   @Input() progressId: string;
   @Input() progressColor: string;
   openedProgressId: string;
-  constructor(private controlProgressDisplayService: ControlProgressDisplayService) {
-    this.controlProgressDisplayService.openedProgressList.subscribe((res: Array<string>) => {
-      this.progressList = res;
-    });
-
-    this.controlProgressDisplayService.openedProgress.subscribe((res: string) => {
-      this.openedProgressId = res;
-    });
+  constructor() {
   }
 
   ngOnInit(): void {

@@ -21,6 +21,7 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
   public regionControl = new FormControl();
   public peopleParticipationControl = new FormControl();
   public projectNumberControl = new FormControl();
+  public floorNumberControl = new FormControl();
   public projectAreaControl = new FormControl();
   public requirementControl = new FormControl();
   public equipmentControl = new FormControl();
