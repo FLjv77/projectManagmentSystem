@@ -3,7 +3,7 @@
 
     <div class="col-5 back-ground-dark boxShadow d-rtl">
       <div class="row pt-4">
-        <app-boolean-custom-toggle [isFirstValueSelected]="true" (handleSelectedValue)="changeLoginType()" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
+        <app-boolean-custom-toggle [isFirstValueSelected]="true" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'phoneNumber'" [type]="'number'" [inputFormControl]="phoneNumberControl" [inputLabel]="'شماره همراه'"></app-input-style>

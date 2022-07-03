@@ -5,9 +5,12 @@
   border-radius: 15px;
   background-color: $lite-yellow;
   position: relative;
-  padding-right: 150px;
+  padding-right: 130px;
   padding-top: 10px;
-  max-width: 350px;
+  max-width: 380px;
+  @media (max-width: 1100px) {
+    padding-right: 110px;
+  }
 }
 
 .img-quick-access-card {
@@ -15,9 +18,14 @@
   right: -60px;
   bottom: 15px;
   border: solid 12px $general-back-ground-color;
-  height: 220px;
-  width: 220px;
+  height: 200px;
+  width: 200px;
   border-radius: 300px;
+  @media (max-width: 1100px) {
+    height: 160px;
+    width: 160px;
+    border: solid 8px $general-back-ground-color;
+  }
 }
 .black-glass-quick-access-card {
   background-color: rgba(0,0,0,0.35);
@@ -25,12 +33,17 @@
   right: -60px;
   bottom: 15px;
   border: solid 12px $general-back-ground-color;
-  height: 220px;
-  width: 220px;
+  height: 200px;
+  width: 200px;
   border-radius: 300px;
+  @media (max-width: 1100px) {
+    height: 160px;
+    width: 160px;
+    border: solid 8px $general-back-ground-color;
+  }
 }
 .title-card {
-  font-size: 31px;
+  font-size: 28px;
   margin-top: 79px;
 }
 .margin-top {
@@ -39,17 +52,17 @@
 }
 
 .option-in-card {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 20px;
-  background-color: $active-yellow;
+  background-color: $text-color-normal;
 }
 
 .sub-menu-text {
   font-size: 19px;
-  font-weight: bold;
   color: $dark-back-ground;
+  cursor: pointer;
 }
 .m-r-1 {margin-right: 20px}
-.m-r-2 {margin-right: 35px}
+.m-r-2 {margin-right: 30px}
 .m-r-3 {margin-right: 2px}

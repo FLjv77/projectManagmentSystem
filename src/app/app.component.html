@@ -1,2 +1,4 @@
 <router-outlet>
+  <app-sidebar *ngIf="checkShowNavAndSideBar()"></app-sidebar>
+  <app-navebar *ngIf="checkShowNavAndSideBar()"></app-navebar>
 </router-outlet>

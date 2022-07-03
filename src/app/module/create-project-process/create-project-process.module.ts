@@ -1,3 +1,4 @@
+import { TreeDiagramActivityModalComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/tree-diagram-activity-modal/tree-diagram-activity-modal.component';
 import { DevelopmentReportProjectComponent } from './../../createProjectProcess/page/project-creation-levels/page/development-report-project/development-report-project.component';
 import { UploadImagesComponent } from './../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component';
 import { AddActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/add-activity.component';
@@ -19,7 +20,15 @@ import {IranStateAndZoneService} from "../../createProjectProcess/service/iranSt
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
+import {
+  MaterialPersianDateAdapter,
+  PERSIAN_DATE_FORMATS
+} from "../../shared/service/jalalyDatePiker/material.persian-date.adapter";
+import {FinancialReportProjectComponent} from "../../createProjectProcess/page/project-creation-levels/page/financial-report-project/financial-report-project.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +45,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SpecializedInformationRemovalMarginalizationComponent,
     SpecializedInformationRuralWayComponent,
     SpecializedInformationRuralHousingComponent,
+    FinancialReportProjectComponent,
+    TreeDiagramActivityModalComponent
   ],
   imports: [
     CommonModule,
@@ -43,11 +54,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SharedModule,
     MatSelectModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: [],
   providers: [
-    IranStateAndZoneService
+    IranStateAndZoneService,
+    TreeDiagramActivityModalComponent
   ]
 })
 export class CreateProjectProcessModule { }

@@ -1,18 +1,15 @@
 <div class="d-block">
   <div class="mr-3 pointer hoverMenu {{state == 2 ? 'active-menu':''}}" (click)="openSubmenue(2)">
     <div class="d-flex d-rtl mt-2">
-      <i class="icon-title-menu mx-2 my-2 material-icons">assignment_ind</i>
+      <i class="icon-title-menu mx-2 my-2 material-icons {{state == 2 ? 'icon-title-menu-selected':''}}">assignment_ind</i>
       <span class="title-menu mr-2 set-font-vazir {{state == 2 ? 'active-text':''}}"> مدیریت کاربران</span>
     </div>
   </div>
   <div class="ul-list {{state == 2 ? 'd-flex':'d-none'}}">
     <ul class="text-left d-block">
-      <li class="selectMenue">داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
+      <li class="{{selectSubmenueUser == 1 ? 'selectMenue':''}}" (click)="setSelected(1)">مشاهده کاربران</li>
+      <li class="{{selectSubmenueUser == 2 ? 'selectMenue':''}}" (click)="setSelected(2)">مدیریت نقش کاربران</li>
+      <li class="{{selectSubmenueUser == 3 ? 'selectMenue':''}}" (click)="setSelected(3)">چت با کاربران</li>
     </ul>
   </div>
   

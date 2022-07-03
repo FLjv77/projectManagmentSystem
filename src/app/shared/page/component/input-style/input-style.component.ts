@@ -16,7 +16,8 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() inputCustomStyle: InputCustomStyle;
   @Input() inputFormControl: FormControl;
   @Input() haveEye: boolean;
-  @Input() textarea:boolean;
+  @Input() textarea: boolean;
+  @Input() isDatePiker: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {

@@ -20,20 +20,37 @@ export class BooleanCustomToggleComponent implements OnInit {
   }
 
   private initSelectedValue() {
+    let toggle = document.getElementById('toggle');
+
     if(this.isFirstValueSelected) {
       this.selectedValue = this.firstValue;
+      if (toggle) {
+        toggle.classList.remove('toggle-cycle-1');
+        toggle.classList.add('toggle-cycle-2');
+      }
     } else {
       this.selectedValue = this.secondValue;
-      let toggle = document.getElementById('toggle');
-      if (toggle) toggle.style.left = '0';
-      if (toggle) toggle.style.right = 'unset';
+      if (toggle) {
+        toggle.classList.add('toggle-cycle-1');
+        toggle.classList.remove('toggle-cycle-2');
+      }
     }
   }
 
-  public changeSelectedValue() {
+  public changeSelectedValue(value: string) {
+    if (this.selectedValue != value) {
+      if (this.isFirstValueSelected) {
+        this.handleSelectedValue.emit(this.secondValue);
+      } else {
+        this.handleSelectedValue.emit(this.firstValue);
+      }
+    }
+  }
+
+  public changeSelectedValueFirst() {
     let toggle = document.getElementById('toggle');
 
-    if (this.selectedValue == this.firstValue) {
+/*    if (this.selectedValue == this.firstValue) {
       this.selectedValue = this.secondValue;
       if (toggle) toggle.style.left = '0';
       if (toggle) toggle.style.right = 'unset';
@@ -41,8 +58,36 @@ export class BooleanCustomToggleComponent implements OnInit {
       this.selectedValue = this.firstValue;
       if (toggle) toggle.style.right = '0';
       if (toggle) toggle.style.left = 'unset';
+      this.handleSelectedValue.emit(this.selectedValue);
+
+    }*/
+
+    if (this.selectedValue == this.firstValue) {
+
+    } else {
+      this.handleSelectedValue.emit(this.firstValue);
+    }
+  }
+
+  public changeSelectedValueSecond() {
+    let toggle = document.getElementById('toggle');
+/*
+    if (this.selectedValue == this.selectedValue) {
+      this.selectedValue = this.secondValue;
+      if (toggle) toggle.style.left = '0';
+      if (toggle) toggle.style.right = 'unset';
+    } else {
+      this.selectedValue = this.firstValue;
+      if (toggle) toggle.style.right = '0';
+      if (toggle) toggle.style.left = 'unset';
+      this.handleSelectedValue.emit(this.selectedValue);
+    }*/
+
+    if(this.selectedValue == this.secondValue) {
+
+    } else {
+      this.handleSelectedValue.emit(this.secondValue);
     }
 
-    this.handleSelectedValue.emit(this.selectedValue);
   }
 }

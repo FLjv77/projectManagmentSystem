@@ -1,0 +1,15 @@
+<div class="position-relative pt-3">
+  <div class="col-12 custom-input mx-auto px-0 position-relative">
+    <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
+         [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
+    </div>
+    <input class="custom-input-style set-font-vazir w-100" [formControl]="inputFormControl"
+           [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
+                       'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
+           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" [matDatepicker]="picker">
+
+  </div>
+  <mat-datepicker-toggle class="toggle-date" [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</div>
+

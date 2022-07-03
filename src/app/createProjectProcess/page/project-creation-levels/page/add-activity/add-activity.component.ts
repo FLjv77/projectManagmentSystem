@@ -1,3 +1,4 @@
+import { HandleModalService } from './../../../../../shared/service/handleModalService/handle-modal.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
@@ -18,7 +19,7 @@ export class AddActivityComponent implements OnInit {
   public descreptionActivityFormControl = new FormControl();
   public checkbox:boolean = false;
 
-  constructor() { }
+  constructor(private handleModalService: HandleModalService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -44,5 +45,9 @@ export class AddActivityComponent implements OnInit {
 
   public checked(){
     this.checkbox = !this.checkbox;
+  }
+
+  public openMdalViewActivity(){
+    this.handleModalService.openModal('view-activity-diagram-modal');
   }
 }

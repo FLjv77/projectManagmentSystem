@@ -1,3 +1,4 @@
+import { UserManagementModule } from './module/user-management/user-management.module';
 import { WorkspaceModule } from './module/workspace/workspace.module';
 import { GalleryModule } from './module/gallery/gallery.module';
 import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
@@ -9,9 +10,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from "./module/shared/shared.module";
 import { AuthModule } from "./module/auth/auth.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InprocessingProjectComponent } from './dashboard/page/home/projectList/inprocessing-project/inprocessing-project.component';
-import { MotamamProjectComponent } from './dashboard/page/home/projectList/motamam-project/motamam-project.component';
-import { DoneProjectComponent } from './dashboard/page/home/projectList/done-project/done-project.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +22,8 @@ import { DoneProjectComponent } from './dashboard/page/home/projectList/done-pro
     AuthModule,
     GalleryModule,
     BrowserAnimationsModule,
-    WorkspaceModule
+    WorkspaceModule,
+    UserManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

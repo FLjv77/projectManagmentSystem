@@ -20,6 +20,15 @@ import {ProjectDependencyManagementSettingMenuComponent} from "../../shared/page
 import {DashbordManagmentMenuComponent} from "../../shared/page/sidebar/page/dashbord-managment-menu/dashbord-managment-menu.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BooleanCustomToggleComponent} from "../../shared/page/component/boolean-custom-toggle/boolean-custom-toggle.component";
+import {DatePickerJalalyComponent} from "../../shared/page/component/date-picker-jalaly/date-picker-jalaly.component";
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
+import {
+  MaterialPersianDateAdapter,
+  PERSIAN_DATE_FORMATS
+} from "../../shared/service/jalalyDatePiker/material.persian-date.adapter";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {DisplayUserPathComponent} from "../../shared/page/display-user-path/display-user-path.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +49,9 @@ import {BooleanCustomToggleComponent} from "../../shared/page/component/boolean-
     GalleryManagementSettingMenuComponent,
     ProjectDependencyManagementSettingMenuComponent,
     BooleanCustomToggleComponent,
+    DatePickerJalalyComponent,
+    DisplayUserPathComponent,
+
   ],
     exports: [
       NavebarComponent,
@@ -58,6 +70,8 @@ import {BooleanCustomToggleComponent} from "../../shared/page/component/boolean-
       ProjectDependencyManagementSettingMenuComponent,
       InputStyleComponent,
       BooleanCustomToggleComponent,
+      DatePickerJalalyComponent,
+      DisplayUserPathComponent,
 
     ],
   imports: [
@@ -65,6 +79,12 @@ import {BooleanCustomToggleComponent} from "../../shared/page/component/boolean-
     SharedRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule
+  ],
+  providers: [
+    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS }
   ]
 })
 export class SharedModule { }

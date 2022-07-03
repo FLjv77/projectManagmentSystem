@@ -1,0 +1,14 @@
+
+@import "../../../../assets/style/modalStyle.scss";
+
+.add-user-button-modal{
+    border-radius: 20px;
+    border: none;
+    background-color: $yellow-color;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    &:hover{
+        box-shadow: 0px 0px 3px 0px $side-bar-color;
+    }
+}

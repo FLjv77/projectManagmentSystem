@@ -30,14 +30,16 @@ export class RegisterCompanyComponent implements OnInit {
     )
   }
 
-  public changeLoginType() {
+  public changeLoginType(value: string) {
     setTimeout(() => {
-      this.router.navigate(['../registerUser']);
+      if (value == 'کاربر') {
+        this.router.navigate(['../../auth/registerUser']);
+      }
     }, 600);
   }
 
   public goLogin() {
-    this.router.navigate(['../loginCompany']);
+    this.router.navigate(['../../auth/loginUser']);
   }
 
 }

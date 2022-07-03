@@ -1,6 +1,6 @@
 <div class="d-block">
   <div class="d-flex d-rtl mt-2 pointer hoverMenu {{state == 6 ? 'active-menu':''}}" (click)="openSubmenue(6)">
-    <i class="icon-title-menu mx-2 my-2 material-icons">photo</i>
+    <i class="icon-title-menu mx-2 my-2 material-icons {{state == 6 ? 'icon-title-menu-selected':''}}">photo</i>
     <span class="title-menu mr-2 set-font-vazir {{state == 6 ? 'active-text':''}}"> گالری</span>
   </div>
   <div class="ul-list {{state == 6 ? 'd-flex':'d-none'}}">
