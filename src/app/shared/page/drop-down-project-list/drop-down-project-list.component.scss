@@ -1,0 +1,47 @@
+@import "../../../../assets/style/colorPalette.scss";
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: $side-bar-color !important;
+  } 
+  
+  mat-label {
+    color: $side-bar-color;
+  }
+  
+  ::ng-deep .mat-form-field .mat-form-field-underline {
+    background-color: $side-bar-color;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-ripple {
+    background-color: $side-bar-color;
+  }
+  
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: $side-bar-color;
+    margin-top: -7px;
+    padding-right: 7px;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $side-bar-color;
+  }
+  
+  ::ng-deep .mat-form-field.mat-focused .mat-input-element {
+    color: $side-bar-color;
+  }
+  
+  ::ng-deep .mat-form-field .mat-input-element {
+    color: $side-bar-color;
+    text-align: start;
+    line-height: 2.5;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-label {
+    color: $side-bar-color !important;
+    font-size: 17px;
+    text-align: start;
+    @media (max-width: 418px) {
+      font-size: 15px;
+    }
+  }
+  
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white !important; 
+  }

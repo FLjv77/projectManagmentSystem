@@ -10,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class AdvancedSearchAccordingToTimeComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public startDateFormControl = new FormControl;
-  public endDateFormControl = new FormControl;
+  public startDateStartFormControl = new FormControl;
+  public endDateStartFormControl = new FormControl;
+  public endDateEndFormControl = new FormControl;
+  public StartDateEndFormControl = new FormControl;
 
   constructor() { }
 

@@ -1,3 +1,4 @@
+import { DropDownProjectListComponent } from './../../shared/page/drop-down-project-list/drop-down-project-list.component';
 import { AddUserModalComponent } from './../../userManagement/page/add-user-modal/add-user-modal.component';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';

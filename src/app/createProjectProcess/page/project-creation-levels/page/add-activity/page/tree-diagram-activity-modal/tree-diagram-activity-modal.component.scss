@@ -10,6 +10,12 @@
     background-color: $active-yellow-lite;
     cursor: pointer;
 }
+.bg-child{
+    background-color: #fff4c2;
+    div div span{
+        padding-right: 20px;
+    }
+}
 .percentage{
     border: none;
     border-radius: 5px;

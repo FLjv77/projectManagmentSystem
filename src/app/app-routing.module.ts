@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'userManagement',
     loadChildren: async () => await import('./module/user-management/user-management.module').then((m) => m.UserManagementModule)
+  },
+  {
+    path: 'ManagementReport',
+    loadChildren: async () => await import('./module/management-report/management-report.module').then((m) => m.ManagementReportModule)
   }
 ];
 
