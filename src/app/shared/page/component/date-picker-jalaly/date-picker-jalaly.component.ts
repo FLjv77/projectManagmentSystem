@@ -1,14 +1,15 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl} from "@angular/forms";
 import {noop} from "rxjs";
-
+import {InputCustomStyle} from "../input-style/input-style.component";
 
 @Component({
-  selector: 'app-input-style',
-  templateUrl: './input-style.component.html',
-  styleUrls: ['./input-style.component.scss']
+  selector: 'app-date-picker-jalaly',
+  templateUrl: './date-picker-jalaly.component.html',
+  styleUrls: ['./date-picker-jalaly.component.scss', '../input-style/input-style.component.scss']
 })
-export class InputStyleComponent implements OnInit, AfterViewInit {
+export class DatePickerJalalyComponent implements OnInit {
+
   @Input() inputId: string;
   @Input() inputLabel: string;
   @Input() inputError: string;
@@ -44,16 +45,5 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.subscribeChangeInputValue();
   }
-}
 
-export class InputCustomStyle {
-  colorText: string;
-  lineColor: string;
-  labelColor: string;
-
-  constructor(colorText: string, lineColor: string, labelColor: string) {
-    this.colorText = colorText;
-    this.lineColor = lineColor;
-    this.labelColor = labelColor;
-  }
 }

@@ -20,7 +20,15 @@ import {IranStateAndZoneService} from "../../createProjectProcess/service/iranSt
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
+import {
+  MaterialPersianDateAdapter,
+  PERSIAN_DATE_FORMATS
+} from "../../shared/service/jalalyDatePiker/material.persian-date.adapter";
+import {FinancialReportProjectComponent} from "../../createProjectProcess/page/project-creation-levels/page/financial-report-project/financial-report-project.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +45,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SpecializedInformationRemovalMarginalizationComponent,
     SpecializedInformationRuralWayComponent,
     SpecializedInformationRuralHousingComponent,
+    FinancialReportProjectComponent,
     TreeDiagramActivityModalComponent
   ],
   imports: [
@@ -45,7 +54,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SharedModule,
     MatSelectModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: [],
   providers: [

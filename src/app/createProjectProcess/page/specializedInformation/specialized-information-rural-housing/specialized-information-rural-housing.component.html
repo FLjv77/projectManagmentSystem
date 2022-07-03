@@ -1,7 +1,3 @@
-<app-sidebar></app-sidebar>
-<app-navebar></app-navebar>
-
-
 <div class="wrapper">
   <div class="row mx-auto">
     <div class="col-12 mx-auto">
@@ -40,23 +36,32 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'درصد مشارکت مردم'" [type]="'number'" [inputId]="'peopleParticipation'"
                            [inputFormControl]="peopleParticipationControl"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-6 mt-2" [inputLabel]="'تعداد'" [type]="'number'" [inputId]="'projectNumber'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-6 mt-2" [inputLabel]="'تعداد واحد مسکونی'" [type]="'number'" [inputId]="'projectNumber'"
                            [inputFormControl]="projectNumberControl"></app-input-style>
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-6 mt-2" [inputLabel]="'مساحت'" [type]="'number'" [inputId]="'projectArea'"
                            [inputFormControl]="projectAreaControl"></app-input-style>
 
 
-          <label class="mt-4 set-font-vazir">نوع مسکن</label>
-          <mat-radio-group
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setProjectRuralHousing(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">آپارتمانی</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralHousing(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">ویلایی</span>
-            </mat-radio-button>
-          </mat-radio-group>
+
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <label class="mt-4 set-font-vazir">نوع مسکن</label>
+              <mat-radio-group
+                class="example-radio-group font-size-small">
+                <mat-radio-button (click)="setProjectRuralHousing(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                  <span class="px-2">آپارتمانی</span>
+                </mat-radio-button>
+                <mat-radio-button (click)="setProjectRuralHousing(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                  <span class="px-2">ویلایی</span>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="col-12 col-md-6 mt-2 mt-md-0" *ngIf="projectRuralHousing == 0">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-6 mt-2" [inputLabel]="'تعداد طبقه'" [type]="'number'" [inputId]="'floorNumber'"
+                               [inputFormControl]="floorNumberControl"></app-input-style>
+            </div>
+          </div>
 
 
           <div class="row mt-3">

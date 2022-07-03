@@ -27,13 +27,11 @@ export class LoginUserComponent implements OnInit {
     )
   }
 
-  public changeLoginType() {
-    setTimeout(() => {
-      this.router.navigate(['../loginCompany']);
-    }, 600);
+  public submitLogin() {
+    this.router.navigate(['../../dashboard/home']);
   }
 
   public goRegister() {
-    this.router.navigate(['../registerUser']);
+    this.router.navigate(['../../auth/registerUser']);
   }
 }
