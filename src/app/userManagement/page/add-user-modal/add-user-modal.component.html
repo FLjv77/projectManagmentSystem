@@ -1,0 +1,23 @@
+<div id="add-user-modal">
+    <div class="modal-background">
+      <div class="modal">
+        <div class="my-modal-content text-center mx-auto">
+          <div class="modal-scroll">
+            <div class="row mt-5 mx-auto">
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'1'"
+                [inputFormControl]="userNameFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'ایمیل کاربر'" [inputId]="'2'"
+                [inputFormControl]="userEmailFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نقش کاربر'" [inputId]="'3'"
+                [inputFormControl]="userRoleFormControl"></app-input-style>
+            </div>
+            <div class="row mx-auto mt-5">
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto">افزودن</button>
+            </div>
+          </div>
+          <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
+        </div>
+      </div>
+    </div>
+</div>
+  

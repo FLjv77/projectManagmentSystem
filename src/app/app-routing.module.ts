@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'workspace',
     loadChildren: async () => await import('./module/workspace/workspace.module').then((m) => m.WorkspaceModule)
+  },
+  {
+    path: 'userManagement',
+    loadChildren: async () => await import('./module/user-management/user-management.module').then((m) => m.UserManagementModule)
   }
 ];
 

@@ -31,8 +31,12 @@
   }
 
   .icon-title-menu{
-    color: $active-yellow;
+    color: $active-yellow !important;
   }
+}
+
+.icon-title-menu-selected{
+  color: $active-yellow !important;
 }
 
 .active-menu {
@@ -53,6 +57,11 @@
     margin-right: 5px;
     font-size: 13px;
     color: rgba($color: #fff, $alpha: 0.7);
+    cursor: pointer;
+  }
+  li:hover{
+    font-weight: bold;
+    color: white !important;
   }
   .selectMenue{
     font-weight: bold;

@@ -1,6 +1,6 @@
 <div class="d-block">
   <div class="d-flex d-rtl mt-2 pointer hoverMenu {{state == 5 ? 'active-menu':''}}" (click)="openSubmenue(5)">
-    <i class="icon-title-menu mx-2 my-2 material-icons">layers</i>
+    <i class="icon-title-menu mx-2 my-2 material-icons {{state == 5 ? 'icon-title-menu-selected':''}}">layers</i>
     <span class="title-menu mr-2 set-font-vazir {{state == 5 ? 'active-text':''}}"> مدیریت وابستگی</span>
   </div>
   <div class="ul-list {{state == 5 ? 'd-flex':'d-none'}}">

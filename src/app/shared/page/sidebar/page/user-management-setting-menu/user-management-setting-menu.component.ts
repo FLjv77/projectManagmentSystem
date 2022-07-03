@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
-import { sidebarState } from './../../../../model/sidebarModel';
+import { sidebarState, SelectSubmenueUserManagement } from './../../../../model/sidebarModel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,8 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserManagementSettingMenuComponent implements OnInit {
 
   public state: sidebarState = 0;
+  public selectSubmenueUser: SelectSubmenueUserManagement = 0;
 
-  constructor(private sidebarControleServiceService:SidebarControleServiceService) {
+  constructor(private sidebarControleServiceService:SidebarControleServiceService,
+              private router:Router) {
     this.sidebarControleServiceService.state.subscribe((res: sidebarState)=>{
       this.state = res;
     })
@@ -27,6 +30,19 @@ export class UserManagementSettingMenuComponent implements OnInit {
     }
     else if (this.state == 2){
       this.sidebarControleServiceService.state.emit(0);
+    }
+  }
+
+  public setSelected(select: SelectSubmenueUserManagement){
+    this.selectSubmenueUser = select;
+    if (select == 1) {
+      this.router.navigate(['../../userManagement/userList']);
+    }
+    else if (select == 2) {
+      this.router.navigate(['../../userManagement/roleManagementUser']);
+    }
+    else if (select == 3) {
+      this.router.navigate(['../../userManagement/chatUsers']);
     }
   }
 
