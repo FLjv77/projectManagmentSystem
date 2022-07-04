@@ -1,7 +1,6 @@
 import { UserManagementModule } from './module/user-management/user-management.module';
 import { WorkspaceModule } from './module/workspace/workspace.module';
 import { GalleryModule } from './module/gallery/gallery.module';
-import { AdvancedSearchModule } from './module/advanced-search/advanced-search.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
