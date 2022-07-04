@@ -1,0 +1,66 @@
+@import "../../../../assets/style/base.scss";
+@import "../../../../assets/style/colorPalette.scss";
+@import "../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
+
+.bg-company{
+    border: none;
+    border-radius: 15px;
+    background-color: $lite-yellow-back-ground;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    min-width: 213px;
+}
+
+.bg-title{
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    //border-radius: 10px;
+    background-color: $lite-yellow;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.company-profile{
+    width: 100px;
+    height: 100px;
+    right: -20px;
+    position: relative;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    @media(max-width: 400px){
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.color-text{
+    color: $text-color-normal;
+}
+
+.bg-footer{
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: $lite-yellow;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.icon-short-cut-project {
+    width: 50px;
+    height: 50px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+    cursor: pointer;
+    @media(max-width:600px){
+      width: 37px;
+      height: 37px;
+      //margin-right: 1px !important;
+      //margin-left: -6px;
+    }
+  }

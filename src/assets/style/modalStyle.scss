@@ -1,54 +1,5 @@
 @import "./colorPalette.scss";
-
-@keyframes fadeIn {
-    0% {
-      background:rgba(0,0,0,.0);
-    }
-    100% {
-      background: $background-modal;
-    }
-}
-@keyframes roadRunnerIn {
-    0% {
-      transform:translateX(-1500px) skewX(30deg) scaleX(1.3);
-    }
-    70% {
-      transform:translateX(30px) skewX(0deg) scaleX(.9);
-    }
-    100% {
-      transform:translateX(0px) skewX(0deg) scaleX(1);
-    }
-}
-@keyframes quickScaleDown {
-    0% {
-      transform:scale(1);
-    }
-    99.9% {
-      transform:scale(1);
-    }
-    100% {
-      transform:scale(0);
-    }
-}
-@keyframes modalFadeOut {
-    0% {
-      background-color:white;
-    }
-    100% {
-      background-color:transparent;
-    }
-}
-@keyframes roadRunnerOut {
-    0% {
-      transform:translateX(0px) skewX(0deg) scaleX(1);
-    }
-    30% {
-      transform:translateX(-30px) skewX(-5deg) scaleX(.9);
-    }
-    100% {
-      transform:translateX(1500px) skewX(30deg) scaleX(1.3);
-    }
-}
+@import "./modalAnimation.scss";
 
 .my-modal {
     position: fixed;
@@ -146,7 +97,8 @@
   
   
 #add-user-modal,
-#view-activity-diagram-modal{
+#view-activity-diagram-modal,
+#add-company-modal{
   position: fixed;
   display: table;
   height: 100%;

@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from "./module/shared/shared.module";
 import { AuthModule } from "./module/auth/auth.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SubmitProgressReporterComponent } from './managementReport/page/submit-progress-reporter/submit-progress-reporter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { SubmitProgressReporterComponent } from './managementReport/page/submit-
     BrowserAnimationsModule,
     WorkspaceModule,
     UserManagementModule,
-    ManagementReportModule
+    ManagementReportModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
