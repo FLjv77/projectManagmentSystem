@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
 import {Router} from "@angular/router";
 
@@ -11,8 +11,8 @@ import {Router} from "@angular/router";
 export class LoginUserComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public userNameControl: UntypedFormControl = new UntypedFormControl();
-  public passwordControl: UntypedFormControl = new UntypedFormControl();
+  public userNameControl: FormControl = new FormControl();
+  public passwordControl: FormControl = new FormControl();
   constructor(
     private router: Router
   ) { }

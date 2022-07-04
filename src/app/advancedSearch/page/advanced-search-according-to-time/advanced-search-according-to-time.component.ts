@@ -1,4 +1,4 @@
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";

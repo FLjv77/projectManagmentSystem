@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateAndZoneIranModel";
 import {
   GroundType,
@@ -20,9 +20,9 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 })
 export class SpecializedInformationRuralWayComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new UntypedFormControl();
-  public requirementControl = new UntypedFormControl();
-  public equipmentControl = new UntypedFormControl();
+  public regionControl = new FormControl();
+  public requirementControl = new FormControl();
+  public equipmentControl = new FormControl();
   public requirementList: Array<string>;
   public equipmentList: Array<string>;
   public iranStateAndZoneList: Array<StateAndZoneIranModel>;
