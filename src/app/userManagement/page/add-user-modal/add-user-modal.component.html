@@ -3,6 +3,9 @@
       <div class="modal">
         <div class="my-modal-content text-center mx-auto">
           <div class="modal-scroll">
+            <div class="header-modal">
+              <span class="mx-auto set-font-Raymon">افزودن کاربر جدید</span>
+            </div>
             <div class="row mt-5 mx-auto">
                 <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'1'"
                 [inputFormControl]="userNameFormControl"></app-input-style>
@@ -12,7 +15,7 @@
                 [inputFormControl]="userRoleFormControl"></app-input-style>
             </div>
             <div class="row mx-auto mt-5">
-                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto">افزودن</button>
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">افزودن</button>
             </div>
           </div>
           <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>

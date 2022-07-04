@@ -1,0 +1,36 @@
+<div id="add-company-modal">
+    <div class="modal-background">
+      <div class="modal">
+        <div class="my-modal-content text-center mx-auto">
+          <div class="modal-scroll">
+            <div class="header-modal">
+                <span class="mx-auto set-font-Raymon">افزودن شرکت جدید</span>
+            </div>
+            <div class="row mt-5 mx-auto">
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'1'"
+                [inputFormControl]="companyNameFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'ایمیل کاربر'" [inputId]="'2'"
+                [inputFormControl]="registreCompanyNumberFormControl"></app-input-style>
+                <mat-radio-group
+                    aria-labelledby="example-radio-group-label" class="example-radio-group font-size-small mt-5">
+                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                        <span class="px-2 txet-radio">مسکن</span>
+                    </mat-radio-button>
+                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                        <span class="px-2 txet-radio">راه سازی</span>
+                    </mat-radio-button>
+                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+                        <span class="px-2 txet-radio">آب رسانی</span>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row mx-auto mt-5 text-center">
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">افزودن</button>
+            </div>
+          </div>
+          <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
+        </div>
+      </div>
+    </div>
+</div>
+  

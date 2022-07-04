@@ -1,5 +1,6 @@
 @import "../../../../assets/style/base.scss";
 @import "../../../../assets/style/colorPalette.scss";
+@import "../../../advancedSearch/page/advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss";
 
 .background-yellow{
     color: $text-color-normal;
@@ -72,15 +73,15 @@
 }
 
 .profile-style{
-    position: absolute;
+    //position: absolute;
     padding-left: 0px;
     padding-right: 0px;
-    margin-top: -5px;
-    right: -23%;
-    width: 280px;
-    height: 280px;
+    //margin-top: -5px;
+    //right: -23%;
+    width: 120px;
+    height: 120px;
     border-radius: 100%;
-    border: solid 10px white;
+    //border: solid 10px white;
     @media(max-width:1200px){
         right: -29%;
     }
@@ -116,100 +117,15 @@
     width: 50px;
     height: 50px;
 }
-.position1{
-    position: absolute;
-    top: -25px;
-    right: 73px;
-    @media(max-width:1200px){
-        right: 70px;
+.scroll-list-project {
+    height: 460px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    @media(max-width: 1257px){
+        height: 470px;
     }
-    @media(max-width:1000px){
-        top: 0px;
-        right: 87px;
-    }
-    @media(max-width:900px){
-        top: 16px;
-        right: 102px;
-    }
-}
-.position2{
-    position: absolute;
-    top: 16px;
-    right: 120px;
-    @media(max-width:1200px){
-        right: 117px;
-    }
-    @media(max-width:1000px){
-        top: 48px;
-        right: 134px;
-    }
-    @media(max-width:900px){
-        top: 60px;
-        right: 144px;
-    }
-}
-.position3{
-    position: absolute;
-    top: 72px;
-    right: 148px;
-    @media(max-width:1200px){
-        right: 140px;
-    }
-    @media(max-width:1000px){
-        top: 107px;
-        right: 157px;
-    }
-    @media(max-width:900px){
-        top: 112px;
-        right: 165px;
-    }
-}
-.position4{
-    position: absolute;
-    top: 135px;
-    right: 148px;
-    @media(max-width:1200px){
-        right: 140px;
-    }
-    @media(max-width:1000px){
-        top: 173px;
-        right: 157px;
-    }
-    @media(max-width:900px){
-        top: 172px;
-        right: 165px;
-    }
-}
-.position5{
-    position: absolute;
-    top: 197px;
-    right: 120px;
-    @media(max-width:1200px){
-        right: 119px;
-    }
-    @media(max-width:1000px){
-        top: 237px;
-        right: 134px;
-    }
-    @media(max-width:900px){
-        top: 232px;
-        right: 144px;
-    }
-}
-.position6{
-    position: absolute;
-    top: 247px;
-    right: 73px;
-    @media(max-width:1200px){
-        right: 70px;
-    }
-    @media(max-width:1000px){
-        top: 292px;
-        right: 87px;
-    }
-    @media(max-width:900px){
-        top: 286px;
-        right: 108px;
+    @media(max-width: 960px){
+        height: 540px;
     }
 }
 
@@ -224,3 +140,4 @@
     font-size: 14px;
     font-weight: bold;
 }
+

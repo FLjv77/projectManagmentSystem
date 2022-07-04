@@ -1,0 +1,34 @@
+@import "../../../../assets/style/base.scss";
+@import "../../../../assets/style/colorPalette.scss";
+
+.toggle-base {
+    background-color: white;
+    width: 222px;
+    border-radius: 50px;
+    height: 45px;
+    color: $dark-back-ground;
+    font-size: large;
+    transition: all 0.5s;
+    position: relative;
+    border: 1px solid $dark-back-ground;
+    margin-top: 10px;
+  }
+  
+  .toggle-cycle {
+    border-radius: 50px;
+    height: 50px;
+    width: 110px;
+    background-color: $lite-yellow;
+    font-weight: bold;
+    margin-top: -4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .unselected-value {
+    text-align: center;
+    word-wrap: break-word;
+    width: 110px;
+  }
+  

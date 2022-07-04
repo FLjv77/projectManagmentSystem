@@ -1,5 +1,6 @@
 @import "../../../../../../assets/style/inputStyle.scss";
 @import "../../../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
+@import "../../../../../../assets/style/colorPalette.scss";
 
 .mat-form-field-infix {
    display: block;
@@ -8,4 +9,20 @@
    min-width: 0;
    width: 180px;
    text-align: right !important;
+}
+.button-veiw-activity{
+   position: fixed;
+   bottom: 20px;
+   left: 20px;
+   border: solid 2px $active-yellow;
+   background: transparent;
+   border-radius: 30px;
+   color: $active-yellow;
+   transition: ease-in-out all 0.5s;
+   &:hover{
+      background-color: $active-yellow;
+      color: white;
+      bottom: 30px;
+      transition: ease-in-out all 0.5s;
+   }
 }
