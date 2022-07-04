@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import {noop} from "rxjs";
 
 
@@ -14,7 +14,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() inputError: string;
   @Input() type: string;
   @Input() inputCustomStyle: InputCustomStyle;
-  @Input() inputFormControl: FormControl;
+  @Input() inputFormControl: UntypedFormControl;
   @Input() haveEye: boolean;
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
@@ -28,7 +28,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
   }
-  removeStyles(value: FormControl) {
+  removeStyles(value: UntypedFormControl) {
     if (!value) {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();

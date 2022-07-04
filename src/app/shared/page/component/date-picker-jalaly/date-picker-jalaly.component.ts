@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {noop} from "rxjs";
 import {InputCustomStyle} from "../input-style/input-style.component";
 
@@ -15,7 +15,7 @@ export class DatePickerJalalyComponent implements OnInit {
   @Input() inputError: string;
   @Input() type: string;
   @Input() inputCustomStyle: InputCustomStyle;
-  @Input() inputFormControl: FormControl;
+  @Input() inputFormControl: UntypedFormControl;
   @Input() haveEye: boolean;
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
@@ -29,7 +29,7 @@ export class DatePickerJalalyComponent implements OnInit {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
   }
-  removeStyles(value: FormControl) {
+  removeStyles(value: UntypedFormControl) {
     if (!value) {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();

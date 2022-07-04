@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
@@ -9,11 +9,11 @@ import {InputCustomStyle} from "../../../../../shared/page/component/input-style
 })
 export class DevelopmentReportProjectComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public reporterNameFormControl = new FormControl();
-  public saveDateFormControl = new FormControl();
-  public progressFormControl = new FormControl();
-  public descreptionReportFormControl = new FormControl();
-  public uploadDocumentationProjectFormControl = new FormControl();
+  public reporterNameFormControl = new UntypedFormControl();
+  public saveDateFormControl = new UntypedFormControl();
+  public progressFormControl = new UntypedFormControl();
+  public descreptionReportFormControl = new UntypedFormControl();
+  public uploadDocumentationProjectFormControl = new UntypedFormControl();
 
 
   constructor() { }

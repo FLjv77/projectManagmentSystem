@@ -1,5 +1,5 @@
 import { HandleModalService } from './../../../../../shared/service/handleModalService/handle-modal.service';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
@@ -10,13 +10,13 @@ import {InputCustomStyle} from "../../../../../shared/page/component/input-style
 })
 export class AddActivityComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public activityNameFormControl = new FormControl();
-  public startDateFormControl = new FormControl();
-  public endDateFormControl = new FormControl();
-  public activityPriceFormControl = new FormControl();
-  public timeWeightActivityFormControl = new FormControl();
-  public priceWeightActivityFormControl = new FormControl();
-  public descreptionActivityFormControl = new FormControl();
+  public activityNameFormControl = new UntypedFormControl();
+  public startDateFormControl = new UntypedFormControl();
+  public endDateFormControl = new UntypedFormControl();
+  public activityPriceFormControl = new UntypedFormControl();
+  public timeWeightActivityFormControl = new UntypedFormControl();
+  public priceWeightActivityFormControl = new UntypedFormControl();
+  public descreptionActivityFormControl = new UntypedFormControl();
   public checkbox:boolean = false;
 
   constructor(private handleModalService: HandleModalService) { }

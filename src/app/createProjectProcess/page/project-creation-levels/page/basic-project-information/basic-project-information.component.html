@@ -35,7 +35,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
             [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
+        <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
             [inputFormControl]="LocationFormControl"></app-input-style>
     </div>
 

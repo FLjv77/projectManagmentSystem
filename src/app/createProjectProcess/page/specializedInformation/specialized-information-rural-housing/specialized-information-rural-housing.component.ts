@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateAndZoneIranModel";
 import {
   ProjectRemoveMarginalization,
   ProjectRuralHousing
 } from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
+import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 
 @Component({
   selector: 'app-specialized-information-rural-housing',
@@ -18,24 +19,28 @@ import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-st
 })
 export class SpecializedInformationRuralHousingComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new FormControl();
-  public peopleParticipationControl = new FormControl();
-  public projectNumberControl = new FormControl();
-  public floorNumberControl = new FormControl();
-  public projectAreaControl = new FormControl();
-  public requirementControl = new FormControl();
-  public equipmentControl = new FormControl();
+  public regionControl = new UntypedFormControl();
+  public peopleParticipationControl = new UntypedFormControl();
+  public projectNumberControl = new UntypedFormControl();
+  public floorNumberControl = new UntypedFormControl();
+  public projectAreaControl = new UntypedFormControl();
+  public requirementControl = new UntypedFormControl();
+  public equipmentControl = new UntypedFormControl();
   public requirementList: Array<string>;
   public equipmentList: Array<string>;
   public iranStateAndZoneList: Array<StateAndZoneIranModel>;
   private selectedState: StateAndZoneIranModel;
   public projectRuralHousing: ProjectRuralHousing;
   private selectedZone: string;
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
+  public path3: DisplayPathModel;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.initDisplayPath();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
   }
 
@@ -97,5 +102,11 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
       this.peopleParticipationControl.value && this.projectAreaControl.value && this.projectRuralHousing >=0 &&
       (this.equipmentControl.value || this.equipmentList) &&
       (this.requirementControl.value || this.requirementList);
+  }
+
+  private initDisplayPath() {
+    this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
+    this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
+    this.path3 = new DisplayPathModel('شناسه تخصصی', false, '');
   }
 }
