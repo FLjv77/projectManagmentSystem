@@ -1,5 +1,6 @@
 import { Allocation } from './../../model/advanceSearch';
 import { Component, OnInit } from '@angular/core';
+import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 
 @Component({
   selector: 'app-advanced-search-according-to-allocation',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
   public allocation: Allocation;
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
+
   constructor() { }
 
   ngOnInit(): void {

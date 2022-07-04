@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
@@ -9,9 +9,9 @@ import {InputCustomStyle} from "../../../../../shared/page/component/input-style
 })
 export class RecoveryResourcesComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public resourceNameFormControl = new FormControl();
-  public addressResourceFormControl = new FormControl();
-  public TimeResourceFormControl = new FormControl();
+  public resourceNameFormControl = new UntypedFormControl();
+  public addressResourceFormControl = new UntypedFormControl();
+  public TimeResourceFormControl = new UntypedFormControl();
 
   constructor() { }
 

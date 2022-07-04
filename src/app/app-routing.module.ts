@@ -8,36 +8,40 @@ const routes: Routes = [
   },
   {
     path: 'createProject',
-    loadChildren: async () => await import('./module/create-project-process/create-project-process.module').then((m) => m.CreateProjectProcessModule)
+    loadChildren: () => import('./module/create-project-process/create-project-process.module').then(({CreateProjectProcessModule}) => CreateProjectProcessModule)
   },
   {
     path: 'auth',
-    loadChildren: async () => await import('./module/auth/auth.module').then((m) => m.AuthModule)
+    loadChildren: () => import('./module/auth/auth.module').then(({AuthModule}) => AuthModule)
+
   },
   {
     path: 'dashboard',
-    loadChildren: async () => await import('./module/dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () => import('./module/dashboard/dashboard.module').then(({DashboardModule}) => DashboardModule)
   },
   {
     path: 'advancedSearch',
-    loadChildren: async () => await import('./module/advanced-search/advanced-search.module').then((m) => m.AdvancedSearchModule)
+    loadChildren: () => import('./module/advanced-search/advanced-search.module').then(({AdvancedSearchModule}) => AdvancedSearchModule)
+
   },
   {
     path: 'gallery',
-    loadChildren: async () => await import('./module/gallery/gallery.module').then((m) => m.GalleryModule)
+    loadChildren: () => import('./module/gallery/gallery.module').then(({GalleryModule}) => GalleryModule)
+
   },
   {
     path: 'workspace',
-    loadChildren: async () => await import('./module/workspace/workspace.module').then((m) => m.WorkspaceModule)
+    loadChildren: () => import('./module/workspace/workspace.module').then(({WorkspaceModule}) => WorkspaceModule)
   },
   {
     path: 'userManagement',
-    loadChildren: async () => await import('./module/user-management/user-management.module').then((m) => m.UserManagementModule)
+    loadChildren: () => import('./module/user-management/user-management.module').then(({UserManagementModule}) => UserManagementModule)
+
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, initialNavigation: 'enabled', relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 
