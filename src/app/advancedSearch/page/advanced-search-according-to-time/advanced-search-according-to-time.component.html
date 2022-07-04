@@ -6,21 +6,29 @@
             <div class="col-md-6 col-12 d-inline">
                 <div class="row">
                     <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">شروع از</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
-                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                              [inputFormControl]="startDateStartFormControl"></app-date-picker-jalaly>
                     <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
-                    [inputFormControl]="endDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]="endDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                              [inputFormControl]="endDateStartFormControl"></app-date-picker-jalaly>
                 </div>
             </div>
             <div class="col-md-6 col-12 d-inline">
                 <div class="row">
                     <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">پایان از</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
-                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'3'"
+                              [inputFormControl]="StartDateEndFormControl"></app-date-picker-jalaly>
                     <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
-                    [inputFormControl]="endDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]=""></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'4'"
+                              [inputFormControl]="endDateEndFormControl"></app-date-picker-jalaly>
                 </div>
             </div>
         </div>

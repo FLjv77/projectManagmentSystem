@@ -11,8 +11,10 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 export class AdvancedSearchAccordingToTimeComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public startDateFormControl = new UntypedFormControl;
-  public endDateFormControl = new UntypedFormControl;
+  public startDateStartFormControl = new FormControl;
+  public endDateStartFormControl = new FormControl;
+  public endDateEndFormControl = new FormControl;
+  public StartDateEndFormControl = new FormControl;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
 

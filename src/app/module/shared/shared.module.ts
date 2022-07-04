@@ -1,3 +1,5 @@
+import { MatSelectModule } from '@angular/material/select';
+import { DropDownProjectListComponent } from './../../shared/page/drop-down-project-list/drop-down-project-list.component';
 import { InputStyleComponent } from './../../shared/page/component/input-style/input-style.component';
 import { ProgressStyleComponent } from './../../shared/page/component/progress-style/progress-style.component';
 import { ButtonStyleComponent } from './../../shared/page/component/button-style/button-style.component';
@@ -51,7 +53,7 @@ import {DisplayUserPathComponent} from "../../shared/page/display-user-path/disp
     BooleanCustomToggleComponent,
     DatePickerJalalyComponent,
     DisplayUserPathComponent,
-
+    DropDownProjectListComponent
   ],
     exports: [
       NavebarComponent,
@@ -72,7 +74,7 @@ import {DisplayUserPathComponent} from "../../shared/page/display-user-path/disp
       BooleanCustomToggleComponent,
       DatePickerJalalyComponent,
       DisplayUserPathComponent,
-
+      DropDownProjectListComponent
     ],
   imports: [
     CommonModule,
@@ -80,7 +82,8 @@ import {DisplayUserPathComponent} from "../../shared/page/display-user-path/disp
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
