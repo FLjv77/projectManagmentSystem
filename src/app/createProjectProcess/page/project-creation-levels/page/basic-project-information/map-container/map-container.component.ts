@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-map-container',
@@ -8,7 +9,7 @@ import * as L from 'leaflet';
 })
 export class MapContainerComponent implements OnInit, AfterViewInit  {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,4 +36,23 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     tiles.addTo(this.map);
   }
 
+  public activeSelectLocation(event: any) {
+    let selectLocation = document.getElementById('selectLocation');
+    if (selectLocation) {
+      selectLocation.style.display = 'block';
+      selectLocation.style.left = event.clientX + 'px';
+      selectLocation.style.top = event.clientY + 'px';
+    }
+  }
+
+  public changeLocation() {
+    let selectLocation = document.getElementById('selectLocation');
+    if (selectLocation) {
+      selectLocation.style.display = 'none';
+    }
+  }
+
+  public backToProjectInformation() {
+    this.router.navigate(['../../createProject/startCreatProject'])
+  }
 }
