@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <div class="bg-levels mx-4 mt-2">
+    <div class=" set-font-vazir">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active set-font-Raymon tab-text" id="basicInformation-tab" data-bs-toggle="tab" data-bs-target="#basicInformation" type="button" role="tab" aria-controls="basicInformation" aria-selected="true">اولیه</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link set-font-Raymon tab-text" id="detailInformation-tab" data-bs-toggle="tab" data-bs-target="#detailInformation" type="button" role="tab" aria-controls="detailInformation" aria-selected="false">شناسه تخصصی</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link set-font-Raymon tab-text" id="activityInformation-tab" data-bs-toggle="tab" data-bs-target="#activityInformation" type="button" role="tab" aria-controls="activityInformation" aria-selected="false">فعالیت ها</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link set-font-Raymon tab-text" id="financialInformation-tab" data-bs-toggle="tab" data-bs-target="#financialInformation" type="button" role="tab" aria-controls="financialInformation" aria-selected="false">گزارش تخصیص</button>
+        </li>
+        <li class="nav-item set-font-Raymon" role="presentation">
+          <button class="nav-link tab-text" id="progressInformation-tab" data-bs-toggle="tab" data-bs-target="#progressInformation" type="button" role="tab" aria-controls="progressInformation" aria-selected="false">گزارش پیشرفت</button>
+        </li>
+        <li class="nav-item set-font-Raymon tab-text" role="presentation">
+          <button class="nav-link tab-text" id="recoveryResourcesInformation-tab" data-bs-toggle="tab" data-bs-target="#recoveryResourcesInformation" type="button" role="tab" aria-controls="recoveryResourcesInformation" aria-selected="false">منابع بازیابی</button>
+        </li>
+        <li class="nav-item set-font-Raymon tab-text" role="presentation">
+          <button class="nav-link tab-text" id="developerInformation-tab" data-bs-toggle="tab" data-bs-target="#developerInformation" type="button" role="tab" aria-controls="developerInformation" aria-selected="false">ذی نفعان</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="basicInformation" role="tabpanel" aria-labelledby="home-tab">
+          <app-edit-basic-information></app-edit-basic-information>
+        </div>
+        <div class="tab-pane fade" id="detailInformation" role="tabpanel" aria-labelledby="profile-tab">
+          <app-edite-detail-information></app-edite-detail-information>
+        </div>
+        <div class="tab-pane fade" id="activityInformation" role="tabpanel" aria-labelledby="contact-tab">
+          <app-edite-activity-information></app-edite-activity-information>
+        </div>
+        <div class="tab-pane fade" id="developerInformation" role="tabpanel" aria-labelledby="contact-tab">
+          <app-edit-developer-informationormation></app-edit-developer-informationormation>
+        </div>
+        <div class="tab-pane fade" id="financialInformation" role="tabpanel" aria-labelledby="contact-tab">
+          <app-edite-financial-report-information></app-edite-financial-report-information>
+        </div>
+        <div class="tab-pane fade" id="progressInformation" role="tabpanel" aria-labelledby="contact-tab">
+          <app-edite-progress-report-information></app-edite-progress-report-information>
+        </div>
+        <div class="tab-pane fade" id="recoveryResourcesInformation" role="tabpanel" aria-labelledby="contact-tab">
+          <app-edit-recovery-informationormation></app-edit-recovery-informationormation>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
