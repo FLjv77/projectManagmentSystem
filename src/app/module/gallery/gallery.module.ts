@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { GalleryRoutingModule } from './gallery-routing.module';
-import { GalleryComponent } from 'src/app/gallery/gallery.component';
+import { GalleryComponent } from 'src/app/gallery/page/ImageList/gallery.component';
+import {UploadNewImageForGalleryComponent} from "../../gallery/page/upload-new-image-for-gallery/upload-new-image-for-gallery.component";
 
 
 @NgModule({
   declarations: [
-    GalleryComponent
+    GalleryComponent,
+    UploadNewImageForGalleryComponent,
   ],
   imports: [
     CommonModule,

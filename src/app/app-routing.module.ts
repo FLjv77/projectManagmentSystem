@@ -35,11 +35,15 @@ const routes: Routes = [
   },
   {
     path: 'userManagement',
-    loadChildren: async () => await import('./module/user-management/user-management.module').then((m) => m.UserManagementModule)
+    loadChildren: () => import('./module/user-management/user-management.module').then(({UserManagementModule}) => UserManagementModule)
   },
   {
     path: 'ManagementReport',
-    loadChildren: async () => await import('./module/management-report/management-report.module').then((m) => m.ManagementReportModule)
+    loadChildren: () => import('./module/management-report/management-report.module').then(({ManagementReportModule}) => ManagementReportModule)
+  },
+  {
+    path: 'projectManagement',
+    loadChildren: () => import('./module/project-management/project-management.module').then(({ProjectManagementModule}) => ProjectManagementModule)
   }
 ];
 

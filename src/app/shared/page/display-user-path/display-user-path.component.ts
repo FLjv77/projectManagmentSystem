@@ -12,6 +12,7 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path1: DisplayPathModel;
   @Input() path2: DisplayPathModel;
   @Input() path3: DisplayPathModel;
+  @Input() showProjectList: boolean;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -35,7 +36,8 @@ export class DisplayUserPathComponent implements OnInit {
   }
 
   public getPath(path: DisplayPathModel): string {
-    return path.path;
+    if (path) return path.path;
+    return '';
   }
 
   public checkPath2HasLink() {

@@ -8,6 +8,7 @@ import {HomeComponent} from "../../dashboard/page/home/home.component";
 import {InprocessingProjectComponent} from "../../dashboard/page/home/projectList/inprocessing-project/inprocessing-project.component";
 import {MotamamProjectComponent} from "../../dashboard/page/home/projectList/motamam-project/motamam-project.component";
 import {DoneProjectComponent} from "../../dashboard/page/home/projectList/done-project/done-project.component";
+import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-manager/home-company-manager.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {DoneProjectComponent} from "../../dashboard/page/home/projectList/done-p
     InprocessingProjectComponent,
     MotamamProjectComponent,
     DoneProjectComponent,
+    HomeCompanyManagerComponent,
   ],
   imports: [
     CommonModule,

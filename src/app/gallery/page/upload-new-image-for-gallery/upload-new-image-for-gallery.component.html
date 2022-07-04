@@ -1,0 +1,26 @@
+<div class="wrapper set-font-vazir">
+  <div class="bg-levels mx-4 mt-2">
+    <div class="row px-3">
+      <div class="col-12">
+        <i class="material-icons d-inline icon-styles">photo</i>
+        <h4 class="title-page d-inline set-font-Raymon">افزودن تصویر</h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'عنوان تصویر'" [inputId]="'1'"
+                       [inputFormControl]="tiltleImageFormControl"></app-input-style>
+      <div class="container-upload-image px-2 position-relative mt-4">
+        <img *ngIf="imgURL" class="preview-image" [src]="imgURL">
+        <div *ngIf="loading" class="spinner-border spinner-upload-image progress-circle" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <input #imageInput class="form-control" style="width: 1px; height: 1px; opacity: 0;" type="file" (change)="onChange($event)">
+        <i *ngIf="!loading && !imgURL" class="material-icons bg-color pointer container-upload-image-button-upload" (click)="imageInput.click()">cloud_upload</i>
+
+        <img *ngIf="imgURL" class="height-add-remove-button material-icons bg-color-1 pointer container-upload-image-button-upload-1" (click)="imageInput.click()" src="../../../../../../assets/icon/gallery/submit.svg">
+        <img *ngIf="imgURL" class="height-add-remove-button material-icons bg-color-2 pointer container-upload-image-button-upload-2" (click)="removeSelectedPage()" src="../../../../../../assets/icon/gallery/cancel.svg">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

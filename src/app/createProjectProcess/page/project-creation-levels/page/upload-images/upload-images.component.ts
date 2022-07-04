@@ -9,7 +9,7 @@ import {InputCustomStyle} from "../../../../../shared/page/component/input-style
 })
 export class UploadImagesComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public showUploadPhoto=true;
+  public showUploadPhoto = true;
   imgURL: string;
   loading: boolean = false;
   file: File ;
@@ -27,8 +27,18 @@ export class UploadImagesComponent implements OnInit {
     )
   }
 
-  async onChange(event:any) {}
+  async onChange(event: any) {
+    this.file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imgURL = reader.result as string;
+    }
+    reader.readAsDataURL(this.file)
+  }
 
   public onUpload(){}
-  public noUpload(){}
+  public removeSelectedPage() {
+    this.imgURL = '';
+
+  }
 }
