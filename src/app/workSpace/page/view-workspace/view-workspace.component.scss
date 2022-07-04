@@ -2,6 +2,7 @@
 @import "../../../../assets/style/colorPalette.scss";
 
 .background-yellow{
+    color: $text-color-normal;
     border: none;
     background-color: $lite-yellow-back-ground;
     border-bottom-right-radius: 8px;
@@ -9,6 +10,20 @@
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     box-shadow: 0px 0px 5px 0px $side-bar-color;
+    &-md{
+        margin-right: 5px;
+        color: $text-color-normal;
+        border: none;
+        background-color: $lite-yellow-back-ground;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 8px;
+        box-shadow: 0px 0px 5px 0px $side-bar-color;
+        @media(max-width:500px){
+            margin-right: -3px;
+        }
+    }
 }
 
 .background-gray{
@@ -19,6 +34,20 @@
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     box-shadow: 0px 0px 5px 0px $side-bar-color;
+    &-md{
+        margin-right: 5px;
+        color: $side-bar-color;
+        border: none;
+        background-color: $side-bar-color;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 0;
+        box-shadow: 0px 0px 5px 0px $side-bar-color;
+        @media(max-width:500px){
+            margin-right: -3px;
+        }
+    }
 }
 
 .icons{
@@ -46,8 +75,7 @@
     position: absolute;
     padding-left: 0px;
     padding-right: 0px;
-    //top: 80%;
-    margin-top: 38px;
+    margin-top: -5px;
     right: -23%;
     width: 280px;
     height: 280px;
@@ -58,11 +86,29 @@
     }
     @media(max-width:1000px){
         right: -32%;
-        margin-top: 80px;
+        margin-top: 27px;
     }
     @media(max-width:900px){
         right: -36%;
-        top: 125%;
+        top: 5px;
+    }
+}
+
+.profile-style-md {
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: -46px;
+    right: -5%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: solid 5px white;
+    @media(max-width:400px){
+        width: 100px;
+        height: 100px;
+        margin-top: -35px;
+        right: -6%;
     }
 }
 
@@ -72,97 +118,109 @@
 }
 .position1{
     position: absolute;
-    top: 18px;
+    top: -25px;
     right: 73px;
     @media(max-width:1200px){
         right: 70px;
     }
     @media(max-width:1000px){
-        top: 63px;
+        top: 0px;
         right: 87px;
     }
     @media(max-width:900px){
-        top: 57px;
-        right: 108px;
+        top: 16px;
+        right: 102px;
     }
 }
 .position2{
     position: absolute;
-    top: 64px;
+    top: 16px;
     right: 120px;
     @media(max-width:1200px){
         right: 117px;
     }
     @media(max-width:1000px){
-        top: 109px;
+        top: 48px;
         right: 134px;
     }
     @media(max-width:900px){
-        top: 103px;
-        right: 155px;
+        top: 60px;
+        right: 144px;
     }
 }
 .position3{
     position: absolute;
-    top: 120px;
+    top: 72px;
     right: 148px;
     @media(max-width:1200px){
         right: 140px;
     }
     @media(max-width:1000px){
-        top: 165px;
+        top: 107px;
         right: 157px;
     }
     @media(max-width:900px){
-        top: 159px;
-        right: 178px;
+        top: 112px;
+        right: 165px;
     }
 }
 .position4{
     position: absolute;
-    top: 183px;
+    top: 135px;
     right: 148px;
     @media(max-width:1200px){
         right: 140px;
     }
     @media(max-width:1000px){
-        top: 221px;
+        top: 173px;
         right: 157px;
     }
     @media(max-width:900px){
-        top: 215px;
-        right: 178px;
+        top: 172px;
+        right: 165px;
     }
 }
 .position5{
     position: absolute;
-    top: 247px;
+    top: 197px;
     right: 120px;
     @media(max-width:1200px){
         right: 119px;
     }
     @media(max-width:1000px){
-        top: 292px;
+        top: 237px;
         right: 134px;
     }
     @media(max-width:900px){
-        top: 286px;
-        right: 155px;
+        top: 232px;
+        right: 144px;
     }
 }
 .position6{
     position: absolute;
-    top: 295px;
+    top: 247px;
     right: 73px;
     @media(max-width:1200px){
         right: 70px;
     }
     @media(max-width:1000px){
-        top: 340px;
+        top: 292px;
         right: 87px;
     }
     @media(max-width:900px){
-        top: 334px;
+        top: 286px;
         right: 108px;
     }
+}
+
+.text-style{
+    font-size: 12px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.icon-text{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }

@@ -1,1 +1,10 @@
-<p>display-user-path works!</p>
+<div class="container-routs">
+  <div class="d-flex content-routs py-4 text-right set-font-vazir">
+    <span class="parent-rout px-2 {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
+    <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+    <span class="{{path3 ? 'parent-rout' : 'current-rout'}} {{checkPath2HasLink() ? 'pointer' : 'default'}} px-2">{{getPath(path2)}}</span>
+    <img *ngIf="path3" class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+    <span class="current-rout px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
+  </div>
+</div>
+

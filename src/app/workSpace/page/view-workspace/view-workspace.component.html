@@ -1,41 +1,39 @@
-<app-navebar></app-navebar>
-<app-sidebar></app-sidebar>
 <div class="wrapper">
-    <div class="row mx-2 d-flex">
+    <div class="row mx-2 d-md-flex d-none">
         <div class="col-6 background-yellow">
             <div class="row">
                 <h2 class="set-font-Raymon text-center">عنوان فضای کاری</h2>
-                <p class="set-font-vazir col-lg-11 col-9 text-justify mr-2" style="font-size: 12px;">
+                <p class="set-font-vazir col-lg-11 col-9 mr-2 text-style">
                     لورم ای طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان  داشت  دنیای موجو گیرد.
                 </p>
             </div>
             <div class="row">
-                <div>
+                <div class="text-nowrap">
                     <i class="material-icons icons">people</i>
-                    <span class="mx-2">تعداد کاربران</span>
+                    <span class="mx-2">25</span>
                 </div>
-                <div>
-                    <i class="material-icons icons">people</i>
-                    <span class="mx-2">تعداد کاربران</span>
+                <div class="text-nowrap">
+                    <i class="material-icons icons">date_range</i>
+                    <span class="mx-2">1400/02/12</span>
                 </div>
-                <div>
-                    <i class="material-icons icons">people</i>
-                    <span class="mx-2">تعداد کاربران</span>
+                <div class="text-nowrap">
+                    <i class="material-icons icons">access_time</i>
+                    <span class="mx-2">20</span>
                 </div>
                 <div class="mt-2">
                     <div class="state-project mx-1 d-inline-block"></div>
-                    <span class="mx-2">تعداد کاربران</span>
+                    <span class="mx-2">20</span>
                 </div>
                 <div class="mt-2">
                     <div class="state-project mx-1 d-inline-block color-1"></div>
-                    <span class="mx-2">تعداد کاربران</span>
+                    <span class="mx-2">23</span>
                 </div>
                 <div class="mt-2">
                     <div class="state-project mx-1 d-inline-block color-2"></div>
-                    <span class="mx-2">تعداد کاربران</span>
+                    <span class="mx-2">4</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-4 text-center">
                     <circle-progress class="w-75"
                         [percent]="67"
@@ -81,35 +79,126 @@
             <div class="row">
                 <h2 class="set-font-Raymon text-center text-white">دسترسی سریع</h2>
                 <div class="col-12">
-                    <input type="text" name="" id="">
+                    <app-drop-down-project-list></app-drop-down-project-list>
                 </div>
             </div>
             <div class="row" style="position: relative;">
                 <img src="../../../../assets/image/workSpace/sakh3.jpg" class="profile-style img-fluid" alt="">
-                <div class="col-12">
-                    <div class="position1">
+                <div class="col-12 icon-text">
+                    <div class="position1 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20204.svg" class="icon-workSpace">
-                        <span>مشاهده کاربران</span>
+                        <span class="pointer">مشاهده کاربران</span>
                     </div>
-                    <div class="position2">
+                    <div class="position2 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20203.svg" class="icon-workSpace">
-                        <span>مشاهده وابستگی پروژه</span>
+                        <span class="pointer">مشاهده وابستگی پروژه</span>
                     </div>
-                    <div class="position3">
+                    <div class="position3 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-workSpace">
-                        <span>مشاهده گزارش پیشرفت</span>
+                        <span class="pointer">مشاهده گزارش پیشرفت</span>
                     </div>
-                    <div class="position4">
+                    <div class="position4 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-workSpace">
-                        <span>مشاهده گزارش تخصیص</span>
+                        <span class="pointer">مشاهده گزارش تخصیص</span>
                     </div>
-                    <div class="position5">
+                    <div class="position5 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20200.svg" class="icon-workSpace">
-                        <span>مدیریت منابع بازیابی</span>
+                        <span class="pointer">مدیریت منابع بازیابی</span>
                     </div>
-                    <div class="position6">
+                    <div class="position6 pointer">
                         <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-workSpace">
-                        <span>مدیریت ارسال گزارش</span>
+                        <span class="pointer">مدیریت ارسال گزارش</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-sm-2 mx-0 d-md-none d-block">
+        <div class="row background-yellow-md">
+            <img src="../../../../assets/image/workSpace/sakh3.jpg" class="profile-style-md img-fluid" alt="">
+            <div class="row col-sm-8 col-5">
+                <div class="col-sm-6 col-12 div-text">
+                    <div class="text-nowrap">
+                        <i class="material-icons icons">people</i>
+                        <span class="mx-2">25</span>
+                    </div>
+                    <div class="text-nowrap">
+                        <i class="material-icons icons">date_range</i>
+                        <span class="mx-2">1400/02/12</span>
+                    </div>
+                    <div class="text-nowrap">
+                        <i class="material-icons icons">access_time</i>
+                        <span class="mx-2">20</span>
+                    </div>
+                </div>
+                <div class="col-6 div-state d-sm-block d-none">
+                    <div class="mt-2">
+                        <div class="state-project mx-1 d-inline-block"></div>
+                        <span class="mx-2">5</span>
+                    </div>
+                    <div class="mt-2">
+                        <div class="state-project mx-1 d-inline-block color-1"></div>
+                        <span class="mx-2">3</span>
+                    </div>
+                    <div class="mt-2">
+                        <div class="state-project mx-1 d-inline-block color-2"></div>
+                        <span class="mx-2">45</span>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="row div-state d-sm-none d-block mx-auto text-center">
+                <div class="col-4 d-inline">
+                    <div class="state-project mx-1 d-inline-block"></div>
+                    <span class="mx-2">50</span>
+                </div>
+                <div class="col-4 d-inline">
+                    <div class="state-project mx-1 d-inline-block color-1"></div>
+                    <span class="mx-2">50</span>
+                </div>
+                <div class="col-4 d-inline">
+                    <div class="state-project mx-1 d-inline-block color-2"></div>
+                    <span class="mx-2">50</span>
+                </div>
+            </div>
+            <div class="col-12 mx-auto">
+                <p class="set-font-vazir mr-2 text-style">
+                    لورم ای طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان  داشت  دنیای موجو گیرد.
+                </p>
+            </div>
+        </div>
+        <div class="row background-gray-md">
+            <div class="row">
+                <h2 class="set-font-Raymon text-center text-white">دسترسی سریع</h2>
+                <div class="col-12">
+                    <app-drop-down-project-list></app-drop-down-project-list>
+                </div>
+                <div class="col-12 icon-text">
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20204.svg" class="icon-workSpace">
+                        <span class="pointer">مشاهده کاربران</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20203.svg" class="icon-workSpace">
+                        <span class="pointer">مشاهده وابستگی پروژه</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-workSpace">
+                        <span class="pointer">مشاهده گزارش پیشرفت</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-workSpace">
+                        <span class="pointer">مشاهده گزارش تخصیص</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20200.svg" class="icon-workSpace">
+                        <span class="pointer">مدیریت منابع بازیابی</span>
+                    </div>
+                    <div>
+                        <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-workSpace">
+                        <span class="pointer">مدیریت ارسال گزارش</span>
                     </div>
                 </div>
             </div>

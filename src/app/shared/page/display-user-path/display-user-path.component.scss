@@ -1,0 +1,29 @@
+@import "../../../../assets/style/colorPalette";
+.parent-rout {
+  font-size: medium;
+  color: $dark-back-ground;
+}
+
+.current-rout {
+  font-size: medium;
+  color: $dark-back-ground;
+  font-weight: bold;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 25px;
+}
+
+.container-routs {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.content-routs {
+  width: 100%;
+  border-radius: 7px;
+  background-color: $lite-yellow-back-ground;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+}

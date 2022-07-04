@@ -1,27 +1,34 @@
-<app-navebar></app-navebar>
-<app-sidebar></app-sidebar>
 <div class="padding-filter-box d-rtl">
-    <app-multi-select-custom-toggle [selectedValue]="0" [title]="'زمان'"></app-multi-select-custom-toggle>
+  <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
+  <app-multi-select-custom-toggle [selectedValue]="0" [title]="'زمان'"></app-multi-select-custom-toggle>
     <div class="mx-auto mt-5">
         <div class="row mx-auto time-box pb-5">
             <div class="col-md-6 col-12 d-inline">
                 <div class="row">
                     <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">شروع از</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
-                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                              [inputFormControl]="startDateStartFormControl"></app-date-picker-jalaly>
                     <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
-                    [inputFormControl]="endDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]="endDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                              [inputFormControl]="endDateStartFormControl"></app-date-picker-jalaly>
                 </div>
             </div>
             <div class="col-md-6 col-12 d-inline">
                 <div class="row">
                     <span class="col-xl-1 col-sm-2 col-3 d-inline text-nowrap mt-5">پایان از</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
-                    [inputFormControl]="startDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'1'"
+                    [inputFormControl]="startDateFormControl"></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'3'"
+                              [inputFormControl]="StartDateEndFormControl"></app-date-picker-jalaly>
                     <span class="col-xl-1 col-sm-2 col-3 d-inline mt-5">تا</span>
-                    <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
-                    [inputFormControl]="endDateFormControl"></app-input-style>
+                    <!-- <app-input-style class="col-xl-5 col-sm-4 col-9 d-inline" [inputCustomStyle]="inputCustomStyle" [type]="'date'" [inputLabel]="'تاریخ'" [inputId]="'2'"
+                    [inputFormControl]=""></app-input-style> -->
+                    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-xl-5 col-sm-4 col-9 d-inline" [inputLabel]="'تاریخ'" [inputId]="'4'"
+                              [inputFormControl]="endDateEndFormControl"></app-date-picker-jalaly>
                 </div>
             </div>
         </div>

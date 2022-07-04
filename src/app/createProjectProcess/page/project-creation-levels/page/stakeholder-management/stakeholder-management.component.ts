@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
@@ -9,18 +9,18 @@ import {InputCustomStyle} from "../../../../../shared/page/component/input-style
 })
 export class StakeholderManagementComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public employerNameFormControl = new FormControl();
-  public employerFirstAndLastNameFormControl = new FormControl();
-  public supervisorNameFormControl = new FormControl();
-  public supervisorFirstAndLastNameFormControl = new FormControl();
-  public executorNameFormControl = new FormControl();
-  public executorFirstAndLastNameFormControl = new FormControl();
-  public contractorsNameFormControl = new FormControl();
-  public ContractorsFirstAndLastNameFormControl = new FormControl();
-  public consultantNameFormControl = new FormControl();
-  public consultantFirstAndLastNameFormControl = new FormControl();
-  public investorNameFormControl = new FormControl();
-  public investorFirstAndLastNameFormControl = new FormControl();
+  public employerNameFormControl = new UntypedFormControl();
+  public employerFirstAndLastNameFormControl = new UntypedFormControl();
+  public supervisorNameFormControl = new UntypedFormControl();
+  public supervisorFirstAndLastNameFormControl = new UntypedFormControl();
+  public executorNameFormControl = new UntypedFormControl();
+  public executorFirstAndLastNameFormControl = new UntypedFormControl();
+  public contractorsNameFormControl = new UntypedFormControl();
+  public ContractorsFirstAndLastNameFormControl = new UntypedFormControl();
+  public consultantNameFormControl = new UntypedFormControl();
+  public consultantFirstAndLastNameFormControl = new UntypedFormControl();
+  public investorNameFormControl = new UntypedFormControl();
+  public investorFirstAndLastNameFormControl = new UntypedFormControl();
   public employerList: Array<userList> = [];
   public supervisorList: Array<userList> = [];
   public executorList: Array<userList> = [];

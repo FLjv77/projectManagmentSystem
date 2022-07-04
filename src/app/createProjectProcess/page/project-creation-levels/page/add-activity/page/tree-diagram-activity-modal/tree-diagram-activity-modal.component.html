@@ -5,18 +5,103 @@
           <div class="modal-scroll">
             <div class="row mt-5 mx-2">
                 <div class="col-12 w-100 m-auto">
-                    <div class="row bg-father py-2" (click)="openCloseList()">
-                        <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
-                            <i class="material-icons d-inline-block flesh">expand_more</i>
+                    <div class="row bg-father py-2" (click)="openCloseList(1)">
+                        <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2 px-0">
+                            <i *ngIf="!showList1" class="material-icons d-inline-block flesh">expand_more</i>
+                            <i *ngIf="showList1" class="material-icons d-inline-block flesh">expand_less</i>
                             <div class="d-inline-block">
                                 <span class="py-2">فعالیت پدر</span>
                             </div>
                         </div>
                         <div class="col-4 d-inline text-start my-auto">
                             <div class="percentage set-font-Raymon mx-1">75%</div>
-                            <div class="percentage set-font-Raymon mx-1">75%</div>
+                            <div class="percentage set-font-Raymon mx-1">50%</div>
                         </div>
                     </div>
+                    <div *ngIf="showList1">
+                      <div class="row bg-child py-2">
+                        <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                            <div class="d-inline-block">
+                                <span class="py-2 mr-3">فعالیت فرزند</span>
+                            </div>
+                        </div>
+                        <div class="col-4 d-inline text-start my-auto">
+                            <div class="percentage set-font-Raymon mx-1">65%</div>
+                            <div class="percentage set-font-Raymon mx-1">20%</div>
+                        </div>
+                      </div>
+                      <div class="row bg-child py-2">
+                        <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                            <div class="d-inline-block mr-4">
+                                <span class="py-2">فعالیت فرزند</span>
+                            </div>
+                        </div>
+                        <div class="col-4 d-inline text-start my-auto">
+                            <div class="percentage set-font-Raymon mx-1">65%</div>
+                            <div class="percentage set-font-Raymon mx-1">20%</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row bg-father py-2 mt-3" (click)="openCloseList(2)">
+                      <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2 px-0">
+                        <i *ngIf="!showList2" class="material-icons d-inline-block flesh">expand_more</i>
+                        <i *ngIf="showList2" class="material-icons d-inline-block flesh">expand_less</i>
+                          <div class="d-inline-block">
+                              <span class="py-2">فعالیت پدر</span>
+                          </div>
+                      </div>
+                      <div class="col-4 d-inline text-start my-auto">
+                          <div class="percentage set-font-Raymon mx-1">75%</div>
+                          <div class="percentage set-font-Raymon mx-1">50%</div>
+                      </div>
+                  </div>
+                  <div *ngIf="showList2">
+                    <div class="row bg-child py-2">
+                      <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                          <div class="d-inline-block mr-4">
+                              <span class="py-2">فعالیت فرزند</span>
+                          </div>
+                      </div>
+                      <div class="col-4 d-inline text-start my-auto">
+                          <div class="percentage set-font-Raymon mx-1">65%</div>
+                          <div class="percentage set-font-Raymon mx-1">20%</div>
+                      </div>
+                    </div>
+                    <div class="row bg-child py-2">
+                      <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                          <div class="d-inline-block mr-4">
+                              <span class="py-2">فعالیت فرزند</span>
+                          </div>
+                      </div>
+                      <div class="col-4 d-inline text-start my-auto">
+                          <div class="percentage set-font-Raymon mx-1">65%</div>
+                          <div class="percentage set-font-Raymon mx-1">20%</div>
+                      </div>
+                    </div>
+                    <div class="row bg-child py-2">
+                      <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                          <div class="d-inline-block mr-4">
+                              <span class="py-2">فعالیت فرزند</span>
+                          </div>
+                      </div>
+                      <div class="col-4 d-inline text-start my-auto">
+                          <div class="percentage set-font-Raymon mx-1">65%</div>
+                          <div class="percentage set-font-Raymon mx-1">20%</div>
+                      </div>
+                    </div>
+                    <div class="row bg-child py-2">
+                      <div class="col-8 text-end d-inline set-font-Raymon font-weight-bold pb-2">
+                          <div class="d-inline-block mr-4">
+                              <span class="py-2">فعالیت فرزند</span>
+                          </div>
+                      </div>
+                      <div class="col-4 d-inline text-start my-auto">
+                          <div class="percentage set-font-Raymon mx-1">65%</div>
+                          <div class="percentage set-font-Raymon mx-1">20%</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>

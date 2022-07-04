@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class AddUserModalComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public userNameFormControl = new FormControl();
-  public userRoleFormControl = new FormControl();
-  public userEmailFormControl = new FormControl();
+  public userNameFormControl = new UntypedFormControl();
+  public userRoleFormControl = new UntypedFormControl();
+  public userEmailFormControl = new UntypedFormControl();
 
   constructor() { }
 
