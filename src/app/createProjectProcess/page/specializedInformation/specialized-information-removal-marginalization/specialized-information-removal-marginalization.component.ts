@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
 import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateAndZoneIranModel";
@@ -14,10 +14,10 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 })
 export class SpecializedInformationRemovalMarginalizationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new UntypedFormControl();
-  public regionPopulationControl = new UntypedFormControl();
-  public requirementControl = new UntypedFormControl();
-  public equipmentControl = new UntypedFormControl();
+  public regionControl = new FormControl();
+  public regionPopulationControl = new FormControl();
+  public requirementControl = new FormControl();
+  public equipmentControl = new FormControl();
   public requirementList: Array<string>;
   public equipmentList: Array<string>;
   public iranStateAndZoneList: Array<StateAndZoneIranModel>;

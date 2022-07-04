@@ -1,4 +1,4 @@
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
@@ -13,7 +13,7 @@ export class UploadImagesComponent implements OnInit {
   imgURL: string;
   loading: boolean = false;
   file: File ;
-  public tiltleImageFormControl = new UntypedFormControl();
+  public tiltleImageFormControl = new FormControl();
 
   constructor() { }
 

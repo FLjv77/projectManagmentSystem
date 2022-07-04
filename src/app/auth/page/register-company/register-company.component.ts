@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,10 +11,10 @@ import {Router} from "@angular/router";
 export class RegisterCompanyComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public companyNameControl: UntypedFormControl = new UntypedFormControl();
-  public companyNumberControl: UntypedFormControl = new UntypedFormControl();
-  public passwordControl: UntypedFormControl = new UntypedFormControl();
-  public repeatPasswordControl: UntypedFormControl = new UntypedFormControl();
+  public companyNameControl: FormControl = new FormControl();
+  public companyNumberControl: FormControl = new FormControl();
+  public passwordControl: FormControl = new FormControl();
+  public repeatPasswordControl: FormControl = new FormControl();
 
   constructor(
     private router: Router

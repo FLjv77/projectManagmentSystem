@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateAndZoneIranModel";
 import {
   ProjectRemoveMarginalization,
@@ -19,13 +19,13 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 })
 export class SpecializedInformationRuralHousingComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new UntypedFormControl();
-  public peopleParticipationControl = new UntypedFormControl();
-  public projectNumberControl = new UntypedFormControl();
-  public floorNumberControl = new UntypedFormControl();
-  public projectAreaControl = new UntypedFormControl();
-  public requirementControl = new UntypedFormControl();
-  public equipmentControl = new UntypedFormControl();
+  public regionControl = new FormControl();
+  public peopleParticipationControl = new FormControl();
+  public projectNumberControl = new FormControl();
+  public floorNumberControl = new FormControl();
+  public projectAreaControl = new FormControl();
+  public requirementControl = new FormControl();
+  public equipmentControl = new FormControl();
   public requirementList: Array<string>;
   public equipmentList: Array<string>;
   public iranStateAndZoneList: Array<StateAndZoneIranModel>;

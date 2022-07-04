@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
-import {UntypedFormControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,11 +10,11 @@ import {Router} from "@angular/router";
 })
 export class FinancialReportProjectComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public reporterNameFormControl = new UntypedFormControl();
-  public saveDateFormControl = new UntypedFormControl();
-  public progressFormControl = new UntypedFormControl();
-  public descreptionReportFormControl = new UntypedFormControl();
-  public uploadDocumentationProjectFormControl = new UntypedFormControl();
+  public reporterNameFormControl = new FormControl();
+  public saveDateFormControl = new FormControl();
+  public progressFormControl = new FormControl();
+  public descreptionReportFormControl = new FormControl();
+  public uploadDocumentationProjectFormControl = new FormControl();
 
   constructor(private router: Router) { }
 
