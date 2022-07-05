@@ -1,0 +1,14 @@
+@import "../../../../../../../assets/style/base.scss";
+@import "../../../../../../../assets/style/colorPalette.scss";
+
+$color-table: rgba(256, 256, 256, 0.8);
+
+.table-style{
+    background-color: $color-table;
+    color: $dark-back-ground;
+    min-width: 600px;
+}
+
+.overflow-table{
+    overflow-x: scroll;
+}

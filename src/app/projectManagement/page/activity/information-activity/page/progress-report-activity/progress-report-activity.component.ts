@@ -1,3 +1,4 @@
+import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressReportActivityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private handleModalService : HandleModalService) { }
 
   ngOnInit(): void {
   }
 
+  public openMdalRecordProgress(){
+    this.handleModalService.openModal('record-progress-report');
+  }
 }
