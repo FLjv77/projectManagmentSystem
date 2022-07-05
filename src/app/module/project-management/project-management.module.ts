@@ -22,6 +22,7 @@ import {ProgressReportActivityComponent} from "../../projectManagement/page/acti
 import {ReportActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/report-activities.component";
 import {DependencyActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/dependency-activities/dependency-activities.component";
 import {ActivityRelationshipsComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {ActivityRelationshipsComponent} from "../../projectManagement/page/activ
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatExpansionModule
   ]
 })
 export class ProjectManagementModule { }
