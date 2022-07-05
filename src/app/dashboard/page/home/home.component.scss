@@ -5,11 +5,10 @@
   border-radius: 15px;
   background-color: $lite-yellow;
   position: relative;
-  padding-right: 130px;
+  padding-right: 90px;
   padding-top: 10px;
-  min-width: 400px;
   @media (max-width: 1100px) {
-    padding-right: 110px;
+    padding-right: 140px;
     min-width: 350px;
   }
 }
@@ -31,13 +30,14 @@
   position: absolute;
   right: -60px;
   bottom: 15px;
-  border: solid 12px $general-back-ground-color;
-  height: 200px;
-  width: 200px;
+  border: solid 8px $general-back-ground-color;
+  height: 170px;
+  width: 170px;
   border-radius: 300px;
   @media (max-width: 1100px) {
     height: 160px;
     width: 160px;
+    right: -20px;
     border: solid 8px $general-back-ground-color;
   }
 }
@@ -46,19 +46,20 @@
   position: absolute;
   right: -60px;
   bottom: 15px;
-  border: solid 12px $general-back-ground-color;
-  height: 200px;
-  width: 200px;
+  border: solid 8px $general-back-ground-color;
+  height: 170px;
+  width: 170px;
   border-radius: 300px;
   @media (max-width: 1100px) {
     height: 160px;
+    right: -20px;
     width: 160px;
     border: solid 8px $general-back-ground-color;
   }
 }
 .title-card {
   font-size: 28px;
-  margin-top: 79px;
+  margin-top: 60px;
   @media (max-width: 1100px) {
     font-size: 22px;
   }
@@ -76,10 +77,11 @@
 }
 
 .sub-menu-text {
-  font-size: 19px;
+  font-size: 16px;
   color: $dark-back-ground;
   cursor: pointer;
 }
-.m-r-1 {margin-right: 20px}
-.m-r-2 {margin-right: 30px}
-.m-r-3 {margin-right: 2px}
+.m-r-1 {margin-right: -5px}
+.m-r-2 {margin-right: 23px}
+.m-r-3 {margin-right: 25px}
+.m-r-4 {margin-right: 7px}

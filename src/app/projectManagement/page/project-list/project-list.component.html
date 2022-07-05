@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <app-display-user-path [showProjectList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
+    <app-display-user-path [showCompanyList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
 
   <div class="row px-3">
-    <div class="col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
       <div class="project-card position-relative">
         <div class="d-flex">
           <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
@@ -14,15 +14,17 @@
         </div>
         <circle-progress class="cycle-progress d-none d-sm-block"
                          [percent]="67"
-                         [radius]="50"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="12"
-                         [innerStrokeWidth]="8"
+                         [radius]="30"
+                         [titleFontSize]="'15'"
+                         [outerStrokeWidth]="7"
+                         [titleColor]="'#646262'"
+                         [showSubtitle]="false"
+                         [innerStrokeWidth]="5"
                          [outerStrokeColor]="'#ff0000'"
-        [innerStrokeWidth]= "0"
-        [animation]="true"
-        [backgroundColor]="'#FFFDF1'"
-        [animationDuration]="300"
+                        [innerStrokeWidth]= "0"
+                        [animation]="true"
+                        [backgroundColor]="'#FFFDF1'"
+                        [animationDuration]="300"
         ></circle-progress>
         <circle-progress class="cycle-progress d-sm-none"
                          [percent]="67"
@@ -50,7 +52,7 @@
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
       <div class="project-card position-relative">
         <div class="d-flex">
           <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
@@ -62,10 +64,12 @@
         </div>
         <circle-progress class="cycle-progress d-none d-sm-block"
                          [percent]="67"
-                         [radius]="50"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="12"
-                         [innerStrokeWidth]="8"
+                         [radius]="30"
+                         [titleFontSize]="'15'"
+                         [outerStrokeWidth]="7"
+                         [titleColor]="'#646262'"
+                         [showSubtitle]="false"
+                         [innerStrokeWidth]="5"
                          [outerStrokeColor]="'#ff0000'"
                          [innerStrokeWidth]= "0"
                          [animation]="true"
@@ -97,7 +101,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
       <div class="project-card position-relative">
         <div class="d-flex">
           <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
@@ -108,12 +113,14 @@
           </div>
         </div>
         <circle-progress class="cycle-progress d-none d-sm-block"
-                         [percent]="67"
-                         [radius]="50"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="12"
-                         [innerStrokeWidth]="8"
-                         [outerStrokeColor]="'#ff0000'"
+                         [percent]="100"
+                         [radius]="30"
+                         [titleFontSize]="'15'"
+                         [outerStrokeWidth]="7"
+                         [titleColor]="'#646262'"
+                         [showSubtitle]="false"
+                         [innerStrokeWidth]="5"
+                         [outerStrokeColor]="'#40f17b'"
                          [innerStrokeWidth]= "0"
                          [animation]="true"
                          [backgroundColor]="'#FFFDF1'"
@@ -144,54 +151,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="project-card position-relative">
-        <div class="d-flex">
-          <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
-          <div class="d-inline-block px-2 set-font-Raymon project-title">
-            نام پروژه
-            <div class="set-font-vazir project-detail mt-3">تاریخ ایجاد</div>
-            <div class="set-font-vazir project-detail mt-1">مهلت اجرا</div>
-          </div>
-        </div>
-        <circle-progress class="cycle-progress d-none d-sm-block"
-                         [percent]="67"
-                         [radius]="50"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="12"
-                         [innerStrokeWidth]="8"
-                         [outerStrokeColor]="'#ff0000'"
-                         [innerStrokeWidth]= "0"
-                         [animation]="true"
-                         [backgroundColor]="'#FFFDF1'"
-                         [animationDuration]="300"
-        ></circle-progress>
-        <circle-progress class="cycle-progress d-sm-none"
-                         [percent]="67"
-                         [radius]="30"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="5"
-                         [innerStrokeWidth]="3"
-                         [outerStrokeColor]="'#ff0000'"
-                         [innerStrokeWidth]= "0"
-                         [animation]="true"
-                         [backgroundColor]="'#FFFDF1'"
-                         [animationDuration]="300"
-        ></circle-progress>
-        <div class="project-description text-justify set-font-vazir">
-          طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که اساسا مورد استفاده قرار گیرد.
-        </div>
 
-        <div class="container-icon d-flex justify-content-center">
-          <img src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="short-cut-icon">
-          <img src="../../../../assets/icon/projectShortCut/Group%20204.svg" class="short-cut-icon">
-          <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="short-cut-icon">
-          <img src="../../../../assets/icon/projectShortCut/Group%20200.svg" class="short-cut-icon">
-          <img src="../../../../assets/icon/projectShortCut/Group%20203.svg" class="short-cut-icon">
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
       <div class="project-card position-relative">
         <div class="d-flex">
           <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
@@ -202,12 +163,14 @@
           </div>
         </div>
         <circle-progress class="cycle-progress d-none d-sm-block"
-                         [percent]="67"
-                         [radius]="50"
-                         [titleFontSize]="'0'"
-                         [outerStrokeWidth]="12"
-                         [innerStrokeWidth]="8"
-                         [outerStrokeColor]="'#ff0000'"
+                         [percent]="80"
+                         [radius]="30"
+                         [titleFontSize]="'15'"
+                         [outerStrokeWidth]="7"
+                         [titleColor]="'#646262'"
+                         [showSubtitle]="false"
+                         [innerStrokeWidth]="5"
+                         [outerStrokeColor]="'#ffd500'"
                          [innerStrokeWidth]= "0"
                          [animation]="true"
                          [backgroundColor]="'#FFFDF1'"

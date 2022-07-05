@@ -1,18 +1,20 @@
-<div class="container-routs">
-  <div class="row w-100 content-routs mx-auto">
-    <div class="col-md-6 col-12 my-auto">
-      <div class="d-flex py-4 text-right set-font-vazir">
-        <span class="parent-rout px-2 {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
-        <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
-        <span class="{{path3 ? 'parent-rout' : 'current-rout'}} {{checkPath2HasLink() ? 'pointer' : 'default'}} px-2">{{getPath(path2)}}</span>
-        <img *ngIf="path3" class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
-        <span class="current-rout px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
+  <div class="wrapper-rout container-routs">
+    <div class="row w-100 content-routs mx-auto">
+      <div class="col-md-6 col-12 my-auto">
+        <div class="d-flex py-4 text-right set-font-vazir">
+          <span class="parent-rout px-2 {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
+          <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+          <span class="{{path3 ? 'parent-rout' : 'current-rout'}} {{checkPath2HasLink() ? 'pointer' : 'default'}} px-2">{{getPath(path2)}}</span>
+          <img *ngIf="path3" class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+          <span class="current-rout px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-12" *ngIf="showProjectList">
+        <app-drop-down-project-list></app-drop-down-project-list>
+      </div>
+      <div class="col-md-6 col-12" *ngIf="showCompanyList">
+        <app-drop-down-company-list></app-drop-down-company-list>
       </div>
     </div>
-    <div class="col-md-6 col-12" *ngIf="showProjectList">
-      <app-drop-down-project-list></app-drop-down-project-list>
-    </div>
+
   </div>
-
-</div>
-

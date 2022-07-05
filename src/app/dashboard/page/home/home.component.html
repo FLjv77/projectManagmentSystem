@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="row d-rtl mx-auto d-flex justify-content-center">
   <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
-    <div class="col-md-6 col-lg-3 col-12 mx-auto">
+    <div class="col-lg-6 col-xl-3 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
@@ -15,20 +15,15 @@
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ویرایش پروژه</span>
-        </div>
-        <div class="mt-4 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">مشاهده پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2" (click)="goToEditProject()">ویرایش پروژه</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
+          <span class="set-font-vazir sub-menu-text px-2" (click)="goToProjectList()">مشاهده پروژه</span>
         </div>
-
       </div>
     </div>
-    <div class="col-md-6 col-lg-3 mt-3 mt-md-0 col-12 mx-auto">
+    <div class="col-lg-6 col-xl-3 mt-3 mt-lg-0 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
@@ -38,24 +33,24 @@
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">گزارش تخصیص</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">درآمد شرکت</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">گزارش پیشرفت</span>
-        </div>
-        <div class="mt-4 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">نظارت بر گزارش</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">فعالیت شرکت</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ثبت گزارش</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">هزینه شرکت</span>
+        </div>
+        <div class="mt-4 d-flex m-r-4">
+          <div class="option-in-card mt-1"></div>
+          <span class="set-font-vazir sub-menu-text px-2">توسعه شرکت</span>
         </div>
 
       </div>
     </div>
-    <div class="col-md-6 col-lg-3 mt-3 mt-lg-0 col-12 mx-auto">
+    <div class="col-lg-6 col-xl-3 mt-3 mt-lg-0 col-12 mx-auto">
       <div class="quick-access-card boxShadow">
         <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
         <div class="black-glass-quick-access-card">
@@ -65,21 +60,16 @@
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">شرکت تایید نشده</span>
+          <span class="set-font-vazir sub-menu-text px-2 " (click)="goToRequestCompany()">شرکت تایید نشده</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">شرکت تایید شده</span>
-        </div>
-        <div class="mt-4 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">همه شرکت ها</span>
+          <span class="set-font-vazir sub-menu-text px-2 " (click)="goToCompanyList()">شرکت تایید شده</span>
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
           <span class="set-font-vazir sub-menu-text px-2 ">ویرایش شرکت</span>
         </div>
-
       </div>
     </div>
 
