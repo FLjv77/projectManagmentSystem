@@ -1,3 +1,6 @@
+import { ViewChartProgressRoportComponent } from './../../managementReport/page/view-chart-progress-roport/view-chart-progress-roport.component';
+import { ViewChartFinancialRoportComponent } from './../../managementReport/page/view-chart-financial-roport/view-chart-financial-roport.component';
+import { SharedModule } from './../shared/shared.module';
 import { ProgressReportComponent } from './../../managementReport/page/submit-progress-reporter/page/progress-report/progress-report.component';
 import { FinancialReportComponent } from './../../managementReport/page/submit-progress-reporter/page/financial-report/financial-report.component';
 import { SubmitProgressReporterComponent } from './../../managementReport/page/submit-progress-reporter/submit-progress-reporter.component';
@@ -11,11 +14,14 @@ import { ManagementReportRoutingModule } from './management-report-routing.modul
   declarations: [
     SubmitProgressReporterComponent,
     ProgressReportComponent,
-    FinancialReportComponent
+    FinancialReportComponent,
+    ViewChartProgressRoportComponent,
+    ViewChartFinancialRoportComponent,
   ],
   imports: [
     CommonModule,
-    ManagementReportRoutingModule
+    ManagementReportRoutingModule,
+    SharedModule
   ],
   exports: [
     ProgressReportComponent,
