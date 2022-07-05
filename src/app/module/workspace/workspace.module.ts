@@ -7,13 +7,15 @@ import { CommonModule } from '@angular/common';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { WorkspaceRoutingModule } from './workspace-routing.module';
 import { MatRadioModule } from '@angular/material/radio';
+import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-registred-company/confirm-registred-company.component";
 
 
 @NgModule({
   declarations: [
     ViewWorkspaceComponent,
     CompanyListComponent,
-    AddCompanyModalComponent
+    AddCompanyModalComponent,
+    ConfirmRegistredCompanyComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-view-workspace',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewWorkspaceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  public goToEditProject() {
+    this.router.navigate(['../../projectManagement/editProject'])
+  }
+  public goToActivityProject() {
+    this.router.navigate(['../../projectManagement/InformationActivity'])
+  }
 }

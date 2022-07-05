@@ -9,6 +9,9 @@ import {AdvancedSearchAccordingToStateComponent} from "../../advancedSearch/page
 
 const routes: Routes = [
   {
+    path: '', component: AdvancedSearchAccordingToProgressComponent,
+  },
+  {
     path: 'advancedSearchAccordingToProgress', component: AdvancedSearchAccordingToProgressComponent,
   },
   {

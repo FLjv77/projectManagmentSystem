@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-display-user-path',
   templateUrl: './display-user-path.component.html',
-  styleUrls: ['./display-user-path.component.scss']
+  styleUrls: ['./display-user-path.component.scss', '../../../../assets/style/base.scss']
 })
 export class DisplayUserPathComponent implements OnInit {
 
@@ -13,6 +13,7 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path2: DisplayPathModel;
   @Input() path3: DisplayPathModel;
   @Input() showProjectList: boolean;
+  @Input() showCompanyList: boolean;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
