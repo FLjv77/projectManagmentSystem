@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-project-list',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropDownProjectListComponent implements OnInit {
 
+  @Input() placeholder: string;
   public title: string = 'انتخاب پروژه';
 
   constructor() { }
