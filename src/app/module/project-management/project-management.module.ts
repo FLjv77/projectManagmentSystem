@@ -16,6 +16,12 @@ import {EditDeveloperInformationormationComponent} from "../../projectManagement
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {InformationActivityComponent} from "../../projectManagement/page/activity/information-activity/information-activity.component";
+import {FinancialReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/page/financial-report-activity/financial-report-activity.component";
+import {ProgressReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/page/progress-report-activity/progress-report-activity.component";
+import {ReportActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/report-activities.component";
+import {DependencyActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/dependency-activities/dependency-activities.component";
+import {ActivityRelationshipsComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +34,12 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     EditeProgressReportInformationComponent,
     EditRecoveryInformationormationComponent,
     EditDeveloperInformationormationComponent,
+    InformationActivityComponent,
+    ActivityRelationshipsComponent,
+    DependencyActivitiesComponent,
+    ReportActivitiesComponent,
+    FinancialReportActivityComponent,
+    ProgressReportActivityComponent,
   ],
   imports: [
     CommonModule,
