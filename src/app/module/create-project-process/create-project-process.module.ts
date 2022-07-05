@@ -22,6 +22,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {FinancialReportProjectComponent} from "../../createProjectProcess/page/project-creation-levels/page/financial-report-project/financial-report-project.component";
 import {MapContainerComponent} from "../../createProjectProcess/page/project-creation-levels/page/basic-project-information/map-container/map-container.component";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,8 @@ import {MapContainerComponent} from "../../createProjectProcess/page/project-cre
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatExpansionModule
+
   ],
   exports: [],
   providers: [

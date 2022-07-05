@@ -1,0 +1,38 @@
+@import "../../../../../../../assets/style/colorPalette";
+.title-activity {
+  color: $dark-back-ground;
+  font-size: medium;
+}
+.detail-activity {
+  color: $text-color-normal;
+  font-size: 13px;
+}
+
+.parent-bg-color {
+  background-color: $hieght-lite-yellow;
+}
+
+.icon-progress-and-weight {
+  height: 12px;
+}
+.title-for-child-activity {
+  font-size: 18px;
+  text-align: center;
+  color: $dark-back-ground;
+  border-top: 1px solid $yellow-color;
+  padding-bottom: 15px;
+  padding-top: 8px;
+  margin-bottom: 8px;
+}
+
+.hr-opacity {
+  opacity: 0.3;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.p-right-child-activity {
+  padding-right: 40px;
+  @media (max-width: 600px) {
+    padding-right: 20px;
+  }
+}

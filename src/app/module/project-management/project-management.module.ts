@@ -22,6 +22,7 @@ import {InformationActivityComponent} from "../../projectManagement/page/activit
 import {FinancialReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/financial-report-activity/financial-report-activity.component";
 import {DependencyActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/dependency-activities/dependency-activities.component";
 import {ActivityRelationshipsComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component";
+import {MatExpansionModule} from '@angular/material/expansion';
 import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/activity/information-activity/page/progress-report-activity/progress-report-activity.component';
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatExpansionModule
   ],
   exports: [
     ActivityRelationshipsComponent,
