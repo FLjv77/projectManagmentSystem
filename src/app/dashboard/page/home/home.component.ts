@@ -20,6 +20,18 @@ export class HomeComponent implements OnInit {
   public goToCreateProject() {
     this.router.navigate(['../createProject/selectProjectType']);
   }
+  public goToEditProject() {
+    this.router.navigate(['../projectManagement/editProject']);
+  }
+  public goToProjectList() {
+    this.router.navigate(['../projectManagement/projectList']);
+  }
+  public goToRequestCompany() {
+    this.router.navigate(['../workspace/confirmRegisteredCompany']);
+  }
+  public goToCompanyList() {
+    this.router.navigate(['../workspace/companyList']);
+  }
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('داشبورد', false, '');

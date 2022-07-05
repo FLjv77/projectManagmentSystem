@@ -38,7 +38,7 @@ const routes: Routes = [
     loadChildren: () => import('./module/user-management/user-management.module').then(({UserManagementModule}) => UserManagementModule)
   },
   {
-    path: 'ManagementReport',
+    path: 'managementReport',
     loadChildren: () => import('./module/management-report/management-report.module').then(({ManagementReportModule}) => ManagementReportModule)
   },
   {

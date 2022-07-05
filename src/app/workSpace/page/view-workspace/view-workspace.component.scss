@@ -3,6 +3,7 @@
 @import "../../../advancedSearch/page/advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss";
 
 .background-yellow{
+  min-height: 650px;
     color: $text-color-normal;
     border: none;
     background-color: $lite-yellow-back-ground;
@@ -28,7 +29,8 @@
 }
 
 .background-gray{
-    border: none;
+  min-height: 600px;
+  border: none;
     background-color: $side-bar-color;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
@@ -133,6 +135,7 @@
     font-size: 12px;
     text-align: justify;
     text-justify: inter-word;
+  line-height: 29px;
 }
 
 .icon-text{
