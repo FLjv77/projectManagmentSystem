@@ -33,6 +33,7 @@ export class UploadNewImageForGalleryComponent implements OnInit {
     this.file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
+      console.log(reader);
       this.imgURL = reader.result as string;
     }
     reader.readAsDataURL(this.file)
