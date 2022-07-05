@@ -1,3 +1,5 @@
+import { RecordFinancialReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/financial-report-activity/page/record-financial-report-modal/record-financial-report-modal.component';
+import { RecordProgressReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/progress-report-activity/page/record-progress-report-modal/record-progress-report-modal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,11 +19,11 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {InformationActivityComponent} from "../../projectManagement/page/activity/information-activity/information-activity.component";
-import {FinancialReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/page/financial-report-activity/financial-report-activity.component";
-import {ProgressReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/page/progress-report-activity/progress-report-activity.component";
-import {ReportActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/report-activities/report-activities.component";
+import {FinancialReportActivityComponent} from "../../projectManagement/page/activity/information-activity/page/financial-report-activity/financial-report-activity.component";
 import {DependencyActivitiesComponent} from "../../projectManagement/page/activity/information-activity/page/dependency-activities/dependency-activities.component";
 import {ActivityRelationshipsComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component";
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/activity/information-activity/page/progress-report-activity/progress-report-activity.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import {ActivityRelationshipsComponent} from "../../projectManagement/page/activ
     InformationActivityComponent,
     ActivityRelationshipsComponent,
     DependencyActivitiesComponent,
-    ReportActivitiesComponent,
     FinancialReportActivityComponent,
     ProgressReportActivityComponent,
+    RecordFinancialReportModalComponent,
+    RecordProgressReportModalComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +52,15 @@ import {ActivityRelationshipsComponent} from "../../projectManagement/page/activ
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatExpansionModule
+  ],
+  exports: [
+    ActivityRelationshipsComponent,
+    DependencyActivitiesComponent,
+    FinancialReportActivityComponent,
+    ProgressReportActivityComponent,
+    RecordFinancialReportModalComponent,
+    RecordProgressReportModalComponent,
   ]
 })
 export class ProjectManagementModule { }
