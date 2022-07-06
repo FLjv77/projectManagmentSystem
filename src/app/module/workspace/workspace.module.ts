@@ -1,3 +1,4 @@
+import { ConfirmedRegistredCompanyModalComponent } from './../../workSpace/page/confirm-registred-company/page/confirmed-registred-company-modal/confirmed-registred-company-modal.component';
 import { AddCompanyModalComponent } from './../../workSpace/page/company-list/page/add-company-modal/add-company-modal.component';
 import { CompanyListComponent } from './../../workSpace/page/company-list/company-list.component';
 import { SharedModule } from './../shared/shared.module';
@@ -15,7 +16,8 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     ViewWorkspaceComponent,
     CompanyListComponent,
     AddCompanyModalComponent,
-    ConfirmRegistredCompanyComponent
+    ConfirmRegistredCompanyComponent,
+    ConfirmedRegistredCompanyModalComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     })
   ],
   exports: [
-    AddCompanyModalComponent
+    AddCompanyModalComponent,
+    ConfirmedRegistredCompanyModalComponent
   ]
 })
 export class WorkspaceModule { }

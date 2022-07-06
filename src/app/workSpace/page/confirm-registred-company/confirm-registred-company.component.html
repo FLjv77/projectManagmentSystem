@@ -19,8 +19,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
@@ -42,8 +42,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
@@ -65,8 +65,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
@@ -88,8 +88,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
@@ -111,8 +111,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
@@ -134,10 +134,11 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(true)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(false)" class="button-size pointer">
           </div>
         </div>
       </div>
     </div>
 </div>
+<app-confirmed-registred-company-modal [modalState]="modalState"></app-confirmed-registred-company-modal>
