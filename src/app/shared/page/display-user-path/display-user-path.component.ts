@@ -54,4 +54,8 @@ export class DisplayUserPathComponent implements OnInit {
 
     return res;
   }
+
+  public goBack() {
+    history.back();
+  }
 }
