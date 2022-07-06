@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-list',
@@ -9,7 +10,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 export class ProjectListComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -18,5 +19,9 @@ export class ProjectListComponent implements OnInit {
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
     this.path2 = new DisplayPathModel('لیست پروژه ها', false, '');
+  }
+
+  public goToUserOfProject() {
+    this.router.navigate(['../../userManagement/userList']);
   }
 }
