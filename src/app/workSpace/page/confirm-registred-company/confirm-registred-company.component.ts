@@ -20,7 +20,7 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
-    this.path2 = new DisplayPathModel('اهراز شرکت', false, '');
+    this.path2 = new DisplayPathModel('احراز شرکت', false, '');
   }
 
   public openModalConfirm(value:boolean){
