@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-company-list',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropDownCompanyListComponent implements OnInit {
 
+  @Input() customStyle: string;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.customStyle)
   }
 
 }

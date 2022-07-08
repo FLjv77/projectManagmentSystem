@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="row d-rtl mx-auto d-flex justify-content-center">
+    <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
+
+    <div class="px-4">
+      <div class="row">
+        <div class="col-lg-6 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">درآمد شرکت ها در هفته گذشته</p>
+            <div echarts [options]="optionsIncome" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">هزینه شرکت ها در هفته گذشته</p>
+            <div echarts [options]="optionsCost" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

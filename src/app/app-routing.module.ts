@@ -22,7 +22,6 @@ const routes: Routes = [
   {
     path: 'advancedSearch',
     loadChildren: () => import('./module/advanced-search/advanced-search.module').then(({AdvancedSearchModule}) => AdvancedSearchModule)
-
   },
   {
     path: 'gallery',

@@ -33,7 +33,7 @@
         </div>
         <div class="mt-2 d-flex m-r-1">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">درآمد شرکت</span>
+          <span class="set-font-vazir sub-menu-text px-2 ">بازدهی شرکت</span>
         </div>
         <div class="mt-4 d-flex m-r-2">
           <div class="option-in-card mt-1"></div>
@@ -41,13 +41,8 @@
         </div>
         <div class="mt-4 d-flex m-r-3">
           <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">هزینه شرکت</span>
+          <span class="set-font-vazir sub-menu-text px-2" (click)="goToCompanyCostReport()">امور مالی شرکت</span>
         </div>
-        <div class="mt-4 d-flex m-r-4">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2">توسعه شرکت</span>
-        </div>
-
       </div>
     </div>
     <div class="col-lg-6 col-xl-3 mt-3 mt-lg-0 col-12 mx-auto">
@@ -75,8 +70,11 @@
 
 
   </div>
-  <div class="row d-rtl mx-auto d-flex justify-content-center">
-    <div class="col-md-3 col-12 mx-auto">
+  <div class="row px-4 d-rtl mx-auto d-flex justify-content-center">
+    <div class="col-12 mx-auto mt-4">
+      <app-selected-company-list></app-selected-company-list>
+    </div>
+<!--    <div class="col-md-3 col-12 mx-auto">
       <app-inprocessing-project></app-inprocessing-project>
     </div>
     <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
@@ -84,6 +82,6 @@
     </div>
     <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
       <app-done-project></app-done-project>
-    </div>
+    </div>-->
   </div>
 </div>

@@ -3,16 +3,20 @@ import { ViewChartProgressRoportComponent } from './../../managementReport/page/
 import { SubmitProgressReporterComponent } from './../../managementReport/page/submit-progress-reporter/submit-progress-reporter.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {ReportOnEfficiencyForOrganisationManagerComponent} from "../../managementReport/page/reportOfCompanyForOrganisationManager/report-on-efficiency-for-organisation-manager/report-on-efficiency-for-organisation-manager.component";
 
 const routes: Routes = [
   {
     path: '', component: SubmitProgressReporterComponent,
   },
   {
-    path: 'ViewChartProgressRoport', component: ViewChartProgressRoportComponent,
+    path: 'viewChartProgressRoport', component: ViewChartProgressRoportComponent,
   },
   {
-    path: 'ViewChartFinancialRoport', component: ViewChartFinancialRoportComponent,
+    path: 'viewChartFinancialRoport', component: ViewChartFinancialRoportComponent,
+  },
+  {
+    path: 'reportOnEfficiency', component: ReportOnEfficiencyForOrganisationManagerComponent,
   },
 ];
 

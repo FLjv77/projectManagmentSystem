@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from "./module/shared/shared.module";
 import { AuthModule } from "./module/auth/auth.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxEchartsModule} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
     SharedModule,
     AuthModule,
     GalleryModule,
