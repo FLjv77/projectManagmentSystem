@@ -32,6 +32,9 @@ export class HomeComponent implements OnInit {
   public goToCompanyList() {
     this.router.navigate(['../workspace/companyList']);
   }
+  public goToCompanyCostReport() {
+    this.router.navigate(['../managementReport/reportOnEfficiency']);
+  }
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('داشبورد', false, '');

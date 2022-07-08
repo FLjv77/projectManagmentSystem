@@ -9,6 +9,7 @@ import {InprocessingProjectComponent} from "../../dashboard/page/home/projectLis
 import {MotamamProjectComponent} from "../../dashboard/page/home/projectList/motamam-project/motamam-project.component";
 import {DoneProjectComponent} from "../../dashboard/page/home/projectList/done-project/done-project.component";
 import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-manager/home-company-manager.component";
+import {SelectedCompanyListComponent} from "../../dashboard/page/home/companyList/selected-company-list/selected-company-list.component";
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-man
     MotamamProjectComponent,
     DoneProjectComponent,
     HomeCompanyManagerComponent,
+    SelectedCompanyListComponent,
+
   ],
   imports: [
     CommonModule,

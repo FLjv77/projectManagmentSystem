@@ -10,8 +10,8 @@
         </div>
       </div>
       <div class="col-md-6 col-12">
-        <app-drop-down-project-list *ngIf="showProjectList"></app-drop-down-project-list>
-        <app-drop-down-company-list *ngIf="showCompanyList"></app-drop-down-company-list>
+        <app-drop-down-project-list class="w-100" *ngIf="showProjectList"></app-drop-down-project-list>
+        <app-drop-down-company-list [customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
       </div>
       <div class="col-md-2 col-12 d-flex justify-content-end my-auto">
         <img src="../../../../assets/icon/naveBar/back.svg" class="back-icon pointer" (click)="goBack()">

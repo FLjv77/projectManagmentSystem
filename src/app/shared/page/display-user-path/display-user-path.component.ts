@@ -19,6 +19,10 @@ export class DisplayUserPathComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public projectListAndCompanyListIsActive(): string {
+    return this.showCompanyList && this.showProjectList ? 'margin-top' : '';
+  }
+
   public routToPath1() {
     if (this.path1.hasLink ) this.router.navigate(['../../' + this.path1.link]);
   }
