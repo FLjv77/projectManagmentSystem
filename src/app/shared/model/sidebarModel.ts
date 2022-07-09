@@ -5,3 +5,23 @@ export enum sidebarState{
 export enum SelectSubmenueUserManagement{
     none, userView, userManagement, userChat
 }
+
+export enum SelectSubmenueDashbord{
+    none, home, monitoring
+}
+
+export enum SelectSubmenueProjectManagement{
+    none, createProgect, editProject, viewProjectList, sendReport
+}
+
+export enum SelectSubmenueCompanyManagement{
+    none, viewCompany, editCompany, unverifiedCompanies
+}
+
+export enum SelectSubmenueDependencyManagement{
+    none, viewCriticalPath
+}
+
+export enum SelectSubmenueGallery{
+    none, viewGallery, uploadPhoto
+}

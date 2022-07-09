@@ -7,7 +7,7 @@ import {ReportOnEfficiencyForOrganisationManagerComponent} from "../../managemen
 
 const routes: Routes = [
   {
-    path: '', component: SubmitProgressReporterComponent,
+    path: 'submitProgressReporter', component: SubmitProgressReporterComponent,
   },
   {
     path: 'viewChartProgressRoport', component: ViewChartProgressRoportComponent,
