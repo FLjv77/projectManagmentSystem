@@ -32,6 +32,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {DisplayUserPathComponent} from "../../shared/page/display-user-path/display-user-path.component";
 import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-list/drop-down-company-list.component";
+import { NgSelect2Module } from 'ng-select2';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-
     ReactiveFormsModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    NgSelect2Module
   ],
   providers: [
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },

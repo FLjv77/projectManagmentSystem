@@ -9,7 +9,7 @@
           <span class="current-rout px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
         </div>
       </div>
-      <div class="col-md-6 col-12">
+      <div class="col-md-6 col-12 py-3">
         <app-drop-down-project-list class="w-100" *ngIf="showProjectList"></app-drop-down-project-list>
         <app-drop-down-company-list [customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
       </div>
@@ -19,3 +19,4 @@
     </div>
 
   </div>
+
