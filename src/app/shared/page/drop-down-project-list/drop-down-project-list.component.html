@@ -1,17 +1,3 @@
 <div class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl">
-    <mat-form-field class="mat-form-field-infix w-100" appearance="fill">
-      <mat-label *ngIf="!placeholder" class="font-weight-bold set-font-vazir">{{title}}</mat-label>
-      <mat-label *ngIf="placeholder" class="font-weight-bold set-font-vazir">{{placeholder}}</mat-label>
-      <mat-select class="text-right set-font-vazir">
-        <mat-option class="text-right set-font-vazir" (click)="setProject('پروژه اول')">
-           پروژه اول
-        </mat-option>
-        <mat-option class="text-right set-font-vazir" (click)="setProject('پروژه دوم')">
-          پروژه دوم
-       </mat-option>
-       <mat-option class="text-right set-font-vazir" (click)="setProject('پروژه سوم')">
-          پروژه سوم
-       </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <ng-select2 [data]="projectData" [placeholder]="'انتخاب پروژه'" [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
 </div>
