@@ -48,3 +48,14 @@
     padding: 0 !important;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
   }
+
+
+::ng-deep.select2-container {
+  width: 100% !important;
+  font-family: Vazir, Raymon, Arial, Helvetica, sans-serif !important;
+  text-align: right;
+  font-size: 17px;
+}
+::ng-deep.select2-container .select2-selection--single {
+  height: 34px;
+}

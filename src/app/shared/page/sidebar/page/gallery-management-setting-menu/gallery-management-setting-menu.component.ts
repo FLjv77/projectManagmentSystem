@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
-import { sidebarState } from './../../../../model/sidebarModel';
+import { sidebarState, SelectSubmenueGallery } from './../../../../model/sidebarModel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryManagementSettingMenuComponent implements OnInit {
 
+  public selectSubmenueUser: SelectSubmenueGallery = 0;
   public state: sidebarState = 0;
 
-  constructor(private sidebarControleServiceService:SidebarControleServiceService) {
+  constructor(private sidebarControleServiceService:SidebarControleServiceService,
+              private router:Router) {
     this.sidebarControleServiceService.state.subscribe((res: sidebarState)=>{
       this.state = res;
     })
@@ -27,6 +30,16 @@ export class GalleryManagementSettingMenuComponent implements OnInit {
     }
     else if (this.state == 6){
       this.sidebarControleServiceService.state.emit(0);
+    }
+  }
+
+  public setSelected(select: SelectSubmenueGallery){
+    this.selectSubmenueUser = select;
+    if (select == 1) {
+      this.router.navigate(['../../gallery']);
+    }
+    else if (select == 2) {
+      this.router.navigate(['../../gallery/uploadNewImage']);
     }
   }
 

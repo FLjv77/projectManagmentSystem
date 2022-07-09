@@ -21,7 +21,16 @@ export class ProjectListComponent implements OnInit {
     this.path2 = new DisplayPathModel('لیست پروژه ها', false, '');
   }
 
-  public goToUserOfProject() {
-    this.router.navigate(['../../userManagement/userList']);
+  public goEditProject(){
+    this.router.navigate(['../../projectManagement/editProject'])
   }
+
+  public goInformationActivity(){
+    this.router.navigate(['../../projectManagement/InformationActivity'])
+  }
+
+  public sendReport(){
+    this.router.navigate(['../../managementReport/submitProgressReporter'])
+  }
+
 }

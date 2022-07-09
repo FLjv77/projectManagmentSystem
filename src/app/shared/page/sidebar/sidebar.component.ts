@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {noop} from "rxjs";
 
@@ -8,7 +9,7 @@ import {noop} from "rxjs";
 })
 export class SidebarComponent implements OnInit {
   public sideBarIsCollapse: boolean = false;
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
     let collapseSideBar = document.getElementById('collapseSideBar');
@@ -30,5 +31,13 @@ export class SidebarComponent implements OnInit {
     collapseSideBar ? collapseSideBar.style.right = '0' : noop();
     let expandSideBar = document.getElementById('expandSideBar');
     expandSideBar ? expandSideBar.style.right = '-400px' : noop();
+  }
+
+  public openProfile(){}
+  public goSearchFillter(){
+    this.router.navigate(['../../advancedSearch/advancedSearchAccordingToProgress']);
+  }
+  public logout(){
+    this.router.navigate(['../../auth/loginUser']);
   }
 }
