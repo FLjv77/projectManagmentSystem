@@ -29,4 +29,12 @@ export class CompanyListComponent implements OnInit {
   public goToWorkSpaceProfile() {
     this.router.navigate(['../../workspace/workSpaceProfile']);
   }
+
+  public goUserList() {
+    this.router.navigate(['../../userManagement/userList']);
+  }
+
+  public goProjectList() {
+    this.router.navigate(['../../projectManagement/projectList']);
+  }
 }

@@ -1,16 +1,12 @@
 <div class="d-block">
   <div class="d-flex d-rtl mt-2 pointer hoverMenu {{state == 6 ? 'active-menu':''}}" (click)="openSubmenue(6)">
     <i class="icon-title-menu mx-2 my-2 material-icons {{state == 6 ? 'icon-title-menu-selected':''}}">photo</i>
-    <span class="title-menu mr-2 set-font-vazir {{state == 6 ? 'active-text':''}}"> گالری</span>
+    <span class="title-menu mr-2 set-font-Raymon {{state == 6 ? 'active-text':''}}"> گالری</span>
   </div>
   <div class="ul-list {{state == 6 ? 'd-flex':'d-none'}}">
-    <ul class="text-left d-block">
-      <li class="selectMenue">داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
-      <li>داشبورد 1</li>
+    <ul class="text-right d-block set-font-vazir mt-2">
+      <li class="{{selectSubmenueUser == 1 ? 'selectMenue':''}}" (click)="setSelected(1)">مشاهده گالری</li>
+      <li class="{{selectSubmenueUser == 2 ? 'selectMenue':''}}" (click)="setSelected(2)">آپلود تصویر</li>
     </ul>
   </div>
 </div>
