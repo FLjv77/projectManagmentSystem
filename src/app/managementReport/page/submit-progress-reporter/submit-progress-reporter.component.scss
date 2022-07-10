@@ -3,7 +3,7 @@
 
 .toggle-base {
     background-color: white;
-    width: 222px;
+    width: 225px;
     border-radius: 50px;
     height: 45px;
     color: $dark-back-ground;
@@ -31,4 +31,27 @@
     word-wrap: break-word;
     width: 110px;
   }
-  
+
+  .mat-tree {
+    background: rgba(#dddddd, $alpha: 0.7);
+  }
+    
+  .mat-tree-node {
+    color: black;
+  }
+
+  button{
+    background-color: transparent;
+    border: none;
+  }
+
+.padding-span{
+  padding-right: 50px;
+}
+.matTreeNodePadding1{
+  padding-right: 0px !important;
+}
+
+.bgbg{
+  background-color: rgba($color: rgb(245, 245, 245), $alpha: 0.9);
+}

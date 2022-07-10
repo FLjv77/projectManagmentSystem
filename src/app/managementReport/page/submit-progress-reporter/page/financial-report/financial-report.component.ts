@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class FinancialReportComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
-  public reporterNameFormControl = new FormControl();
+  //public reporterNameFormControl = new FormControl();
   public registrationDateFormControl = new FormControl();
   public reportedCostFormControl = new FormControl();
   public descreptionReportFormControl = new FormControl();
@@ -29,9 +29,9 @@ export class FinancialReportComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.reporterNameFormControl.value && this.registrationDateFormControl.value && this.reportedCostFormControl.value &&
+    if(this.registrationDateFormControl.value && this.reportedCostFormControl.value &&
       this.descreptionReportFormControl.value && this.financialDocumentsFormControl.value &&
-      this.reporterNameFormControl.valid && this.registrationDateFormControl.valid && this.reportedCostFormControl.valid &&
+      this.registrationDateFormControl.valid && this.reportedCostFormControl.valid &&
       this.descreptionReportFormControl.valid && this.financialDocumentsFormControl.valid){
         return true;
       }
