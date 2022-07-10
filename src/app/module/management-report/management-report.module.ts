@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { ViewChartProgressRoportComponent } from './../../managementReport/page/view-chart-progress-roport/view-chart-progress-roport.component';
 import { ViewChartFinancialRoportComponent } from './../../managementReport/page/view-chart-financial-roport/view-chart-financial-roport.component';
 import { SharedModule } from './../shared/shared.module';
@@ -8,11 +9,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ManagementReportRoutingModule } from './management-report-routing.module';
-import {AppComponent} from "../../app.component";
 import {ReportOnEfficiencyForOrganisationManagerComponent} from "../../managementReport/page/reportOfCompanyForOrganisationManager/report-on-efficiency-for-organisation-manager/report-on-efficiency-for-organisation-manager.component";
 import {ReportOnActivityForOrganisationManagerComponent} from "../../managementReport/page/reportOfCompanyForOrganisationManager/report-on-activity-for-organisation-manager/report-on-activity-for-organisation-manager.component";
 import {ReportOnCostForOrganisationManagerComponent} from "../../managementReport/page/reportOfCompanyForOrganisationManager/report-on-cost-for-organisation-manager/report-on-cost-for-organisation-manager.component";
 import {NgxEchartsModule} from "ngx-echarts";
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatTreeModule} from '@angular/material/tree';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -30,6 +37,10 @@ import {NgxEchartsModule} from "ngx-echarts";
     CommonModule,
     ManagementReportRoutingModule,
     SharedModule,
+    MatIconModule,
+    MatTreeModule,
+    FormsModule,
+    MatFormFieldModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

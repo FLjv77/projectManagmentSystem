@@ -9,10 +9,13 @@ import { SharedModule } from './../shared/shared.module';
 import { AdvancedSearchAccordingToTimeComponent } from './../../advancedSearch/page/advanced-search-according-to-time/advanced-search-according-to-time.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatRadioModule} from "@angular/material/radio";
-import {MatSliderModule} from '@angular/material/slider';
+import { MatRadioModule} from "@angular/material/radio";
+import { MatSliderModule} from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatSelectModule} from "@angular/material/select";
+import { MatSelectModule} from "@angular/material/select";
+import { FilterSideBarComponent} from "../../advancedSearch/page/filter-side-bar/filter-side-bar.component";
+import { AdvancedSearchContainerComponent} from "../../advancedSearch/page/advanced-search-container/advanced-search-container.component";
+import { MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -24,6 +27,8 @@ import {MatSelectModule} from "@angular/material/select";
     AdvancedSearchAccordingToCostComponent,
     AdvancedSearchAccordingToCompanyComponent,
     AdvancedSearchAccordingToStateComponent,
+    FilterSideBarComponent,
+    AdvancedSearchContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +37,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatRadioModule,
     MatSliderModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ]
 })
 export class AdvancedSearchModule { }

@@ -16,6 +16,42 @@
             <div echarts [options]="optionsCost" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
           </div>
         </div>
+        <div class="col-lg-12 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">درصد پیشرفت فعالیت ها</p>
+            <div echarts [options]="option1" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">نسبت نیروی انسانی و زیرساخت</p>
+            <div echarts [options]="option2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3"> نسبت نیروی انسانی و زیرساخت و هزینه کل</p>
+            <div echarts [options]="option6" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">پیشرفت زمانی,اعلامی,تایید شده پروژه های یک شرکت</p>
+            <div echarts [options]="option3" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">پیشرفت زمانی,اعلامی,تایید شده فعالیت های یک پروژه</p>
+            <div echarts [options]="option4" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 px-3 mx-auto">
+          <div class="container-chart boxShadow p-2">
+            <p class="title-chart set-font-vazir py-3">دریافتی پروژه به مانده</p>
+            <div echarts [options]="option7" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

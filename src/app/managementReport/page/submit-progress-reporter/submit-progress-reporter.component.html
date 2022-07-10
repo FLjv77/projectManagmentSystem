@@ -4,6 +4,23 @@
             <div (click)="setSelectedToggle(1)" class="unselected-value {{ selectedToggle == 1 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">گزارش پیشرفت</div>
             <div (click)="setSelectedToggle(2)" class="unselected-value {{ selectedToggle == 2 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">گزارش مالی</div>
         </div>
+        <div class="mt-3">
+            <mat-tree [dataSource]="dataSource" 
+                [treeControl]="treeControl">
+                <mat-tree-node class="bgbg" *matTreeNodeDef="let node">
+                    <span class="padding-span">{{node.name}}</span>       
+                </mat-tree-node>
+                <mat-tree-node *matTreeNodeDef="let node;when: hasChild">
+                    <button mat-icon-button matTreeNodeToggle 
+                        [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror"> 
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} 
+                        </mat-icon>
+                    </button>
+                    <span>{{node.name}}</span>
+                </mat-tree-node>
+            </mat-tree>
+        </div>
         <div class="row">
             <app-progress-report *ngIf="selectedToggle==1"></app-progress-report>
             <app-financial-report *ngIf="selectedToggle==2"></app-financial-report>
