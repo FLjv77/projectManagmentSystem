@@ -8,10 +8,10 @@
   font-family: Raymon;
   src:url('/assets/font/Raymon.ttf') format("truetype");
 }
+.opacity-hr { opacity: 0.1;}
 .d-rtl {
   direction: rtl;
 }
-
 .d-ltr {
   direction: ltr;
 }
@@ -78,8 +78,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   right: -20px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 ::-webkit-scrollbar {
   width: 4px;
