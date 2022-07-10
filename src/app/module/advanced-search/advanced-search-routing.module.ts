@@ -6,10 +6,11 @@ import {AdvancedSearchAccordingToAllocationComponent} from "../../advancedSearch
 import {AdvancedSearchAccordingToCostComponent} from "../../advancedSearch/page/advanced-search-according-to-cost/advanced-search-according-to-cost.component";
 import {AdvancedSearchAccordingToCompanyComponent} from "../../advancedSearch/page/advanced-search-according-to-company/advanced-search-according-to-company.component";
 import {AdvancedSearchAccordingToStateComponent} from "../../advancedSearch/page/advanced-search-according-to-state/advanced-search-according-to-state.component";
+import {AdvancedSearchContainerComponent} from "../../advancedSearch/page/advanced-search-container/advanced-search-container.component";
 
 const routes: Routes = [
   {
-    path: '', component: AdvancedSearchAccordingToProgressComponent,
+    path: '', component: AdvancedSearchContainerComponent,
   },
   {
     path: 'advancedSearchAccordingToProgress', component: AdvancedSearchAccordingToProgressComponent,
