@@ -18,3 +18,12 @@
     }
 }
 
+.wrapper-content{
+    margin-right: 20px;
+    margin-left: 20px;
+    direction: rtl;
+    @media(max-width:500px){
+        margin-left: 0px;
+    }
+}
+

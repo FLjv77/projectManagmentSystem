@@ -10,7 +10,6 @@ import { WorkspaceRoutingModule } from './workspace-routing.module';
 import { MatRadioModule } from '@angular/material/radio';
 import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-registred-company/confirm-registred-company.component";
 
-
 @NgModule({
   declarations: [
     ViewWorkspaceComponent,
@@ -26,7 +25,7 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     MatRadioModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
-    })
+    }),
   ],
   exports: [
     AddCompanyModalComponent,
