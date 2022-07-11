@@ -1,3 +1,4 @@
+import { ChartReportProjectComponent } from './../../projectManagement/page/chart-report-project/chart-report-project.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ProjectListComponent} from "../../projectManagement/page/project-list/project-list.component";
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'InformationActivity', component: InformationActivityComponent
+  },
+  {
+    path: 'chart', component: ChartReportProjectComponent
   }
 ];
 

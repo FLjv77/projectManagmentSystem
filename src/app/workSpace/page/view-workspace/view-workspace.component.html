@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="row d-lg-flex d-none">
-                <div class="col-4 text-center">
+                <!-- <div class="col-4 text-center">
                     <circle-progress class="w-75"
                         [percent]="67"
                         [radius]="100"
@@ -88,7 +88,9 @@
                         [animationDuration]="300"
                     ></circle-progress>
                     <span class="text-center d-block mx-auto" style="margin-top: -40px;">پروژه تکمیل شده</span>
-                </div>
+                </div> -->
+                
+                <!-- <div gantt data = data></div> -->
             </div>
         </div>
         <div class="col-6 background-gray">
@@ -103,10 +105,8 @@
                         <div class="state-project mx-1 d-inline-block"></div>
                         وضعیت پروژه</div>
                       <div class="col-6 col-lg-4 d-flex justify-content-end">
+                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project">
                         <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-<!--
-                        <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
--->
                         <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
                       </div>
                     </div>
@@ -357,4 +357,4 @@
             </div>
         </div>
     </div>
-</div>
+

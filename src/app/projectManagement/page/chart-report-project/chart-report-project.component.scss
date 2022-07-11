@@ -1,0 +1,20 @@
+@import "../../../../assets/style/base.scss";
+
+.project-profile{
+    border-radius: 100%;
+    border: none;
+    width: 130px;
+    height: 130px;
+}
+
+.container-chart {
+    border-radius: 7px;
+    background-color: $lite-yellow-back-ground;
+}
+  
+.title-chart {
+    color: $dark-back-ground;
+    font-size: 20px;
+    text-align: center;
+}
+  
