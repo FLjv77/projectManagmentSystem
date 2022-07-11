@@ -27,6 +27,7 @@ import {FilterProjectHumanResourceCostComponent} from "../../advancedSearch/page
 import {FilterProjectGeographicalLocationComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-geographical-location/filter-project-geographical-location.component";
 import {NgSelect2Module} from "ng-select2";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxEchartsModule} from "ngx-echarts";
 
 
 @NgModule({
@@ -62,7 +63,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NgSelect2Module,
     FormsModule,
     ReactiveFormsModule,
-
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ]
 })
 export class AdvancedSearchModule { }
