@@ -8,15 +8,31 @@ import {Router} from "@angular/router";
 })
 export class ViewWorkspaceComponent implements OnInit {
 
+   // public data = [
+   //    {name: 'row1', tasks: [
+   //        {name: 'task1', from: '2015/12/10', to: '2016/02/15'},
+   //        {name: 'task2',from: '2015/12/10', to: '2016/02/15'}
+   //        ]
+   //    },
+   //    {name: 'row2', tasks: [
+   //        {name: 'task3', from: '2015/12/10', to: '2016/02/15'},
+   //        {name: 'task4', from: '2015/12/10', to: '2016/02/15'}
+   //      ]
+   //    },
+   // ];
+
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
   public goToEditProject() {
     this.router.navigate(['../../projectManagement/editProject'])
   }
   public goToActivityProject() {
     this.router.navigate(['../../projectManagement/InformationActivity'])
   }
+  public goToChartPage() {
+    this.router.navigate(['../../projectManagement/InformationActivity'])
+  }
+  
+
 }

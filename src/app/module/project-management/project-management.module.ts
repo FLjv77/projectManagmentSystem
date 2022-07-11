@@ -1,3 +1,4 @@
+import { ChartReportProjectComponent } from './../../projectManagement/page/chart-report-project/chart-report-project.component';
 import { RecordFinancialReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/financial-report-activity/page/record-financial-report-modal/record-financial-report-modal.component';
 import { RecordProgressReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/progress-report-activity/page/record-progress-report-modal/record-progress-report-modal.component';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ import {DependencyActivitiesComponent} from "../../projectManagement/page/activi
 import {ActivityRelationshipsComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/activity/information-activity/page/progress-report-activity/progress-report-activity.component';
+import {NgxEchartsModule} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/
     ProgressReportActivityComponent,
     RecordFinancialReportModalComponent,
     RecordProgressReportModalComponent,
+    ChartReportProjectComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +55,10 @@ import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   exports: [
     ActivityRelationshipsComponent,
