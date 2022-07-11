@@ -16,33 +16,6 @@ export class DropDownCompanyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initListCompany();
-
-    this.companyData = [
-      {
-        text: 'باسلام',
-        id: 'Basic 1'
-      },
-      {
-        text: 'ایرانسل',
-        id: 'Basic 2'
-      },
-      {
-        text: 'ازکی',
-        id: 'Basic 2'
-      },
-      {
-        text: 'دیجیکالا',
-        id: 'Basic 2'
-      },
-      {
-        text: 'تپسی',
-        id: 'Basic 3'
-      },
-      {
-        text: 'اسنپ',
-        id: 'Basic 4'
-      }
-    ];
   }
 
   private initListCompany() {
