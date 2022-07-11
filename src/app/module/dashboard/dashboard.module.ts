@@ -13,20 +13,23 @@ import {SelectedCompanyListComponent} from "../../dashboard/page/home/companyLis
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    HomeComponent,
-    InprocessingProjectComponent,
-    MotamamProjectComponent,
-    DoneProjectComponent,
-    HomeCompanyManagerComponent,
-    SelectedCompanyListComponent,
+    declarations: [
+        DashboardComponent,
+        HomeComponent,
+        InprocessingProjectComponent,
+        MotamamProjectComponent,
+        DoneProjectComponent,
+        HomeCompanyManagerComponent,
+        SelectedCompanyListComponent,
 
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    SharedModule
-  ]
+    ],
+    exports: [
+        SelectedCompanyListComponent
+    ],
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        SharedModule
+    ]
 })
 export class DashboardModule { }

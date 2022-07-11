@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
 
   public openProfile(){}
   public goSearchFillter(){
-    this.router.navigate(['../../advancedSearch/advancedSearchAccordingToProgress']);
+    this.router.navigate(['../../advancedSearch']);
   }
   public logout(){
     this.router.navigate(['../../auth/loginUser']);

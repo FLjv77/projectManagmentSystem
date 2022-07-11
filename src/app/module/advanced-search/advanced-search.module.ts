@@ -16,6 +16,17 @@ import { MatSelectModule} from "@angular/material/select";
 import { FilterSideBarComponent} from "../../advancedSearch/page/filter-side-bar/filter-side-bar.component";
 import { AdvancedSearchContainerComponent} from "../../advancedSearch/page/advanced-search-container/advanced-search-container.component";
 import { MatExpansionModule} from '@angular/material/expansion';
+import {FilterProjectStateComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-state/filter-project-state.component";
+import {FilterProjectStartTimeComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-start-time/filter-project-start-time.component";
+import {FilterProjectEndTimeComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-end-time/filter-project-end-time.component";
+import {FilterProjectCompanyNameComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-company-name/filter-project-company-name.component";
+import {FilterProjectInfrastructureCostComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-infrastructure-cost/filter-project-infrastructure-cost.component";
+import {FilterProjectTypeComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-type/filter-project-type.component";
+import {FilterProjectTotalCostComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-total-cost/filter-project-total-cost.component";
+import {FilterProjectHumanResourceCostComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-human-resource-cost/filter-project-human-resource-cost.component";
+import {FilterProjectGeographicalLocationComponent} from "../../advancedSearch/page/filter-side-bar/page/filter-project-geographical-location/filter-project-geographical-location.component";
+import {NgSelect2Module} from "ng-select2";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -29,6 +40,15 @@ import { MatExpansionModule} from '@angular/material/expansion';
     AdvancedSearchAccordingToStateComponent,
     FilterSideBarComponent,
     AdvancedSearchContainerComponent,
+    FilterProjectStateComponent,
+    FilterProjectStartTimeComponent,
+    FilterProjectEndTimeComponent,
+    FilterProjectCompanyNameComponent,
+    FilterProjectInfrastructureCostComponent,
+    FilterProjectTypeComponent,
+    FilterProjectTotalCostComponent,
+    FilterProjectHumanResourceCostComponent,
+    FilterProjectGeographicalLocationComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +58,11 @@ import { MatExpansionModule} from '@angular/material/expansion';
     MatSliderModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgSelect2Module,
+    FormsModule,
+    ReactiveFormsModule,
+
   ]
 })
 export class AdvancedSearchModule { }
