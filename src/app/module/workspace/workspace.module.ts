@@ -9,7 +9,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { WorkspaceRoutingModule } from './workspace-routing.module';
 import { MatRadioModule } from '@angular/material/radio';
 import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-registred-company/confirm-registred-company.component";
-
+import {NgxDailyGanttChartModule} from "ngx-daily-gantt-chart";
+import {TimeLineProjectComponent} from "../../workSpace/page/view-workspace/page/time-line-project/time-line-project.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     CompanyListComponent,
     AddCompanyModalComponent,
     ConfirmRegistredCompanyComponent,
-    ConfirmedRegistredCompanyModalComponent
+    ConfirmedRegistredCompanyModalComponent,
+    TimeLineProjectComponent,
+
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     MatRadioModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
-    })
+    }),
+    NgxDailyGanttChartModule
   ],
   exports: [
     AddCompanyModalComponent,

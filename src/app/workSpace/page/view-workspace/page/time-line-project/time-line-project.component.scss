@@ -1,0 +1,25 @@
+@import "../../../../../../assets/style/colorPalette";
+
+::ng-deep .taskTableWrapper {
+  width: 0!important;
+  display: none!important;
+}
+::ng-deep .timelineWrapper {
+  overflow-x: hidden!important;
+  width: 100%!important;
+}
+::ng-deep .theme-material {
+  padding-right: 100px !important;
+}
+
+.project-list {
+  position: absolute;
+  top: 48px;
+  right: 30px;
+  line-height: 31px;
+  font-size: 14px;
+  color: $dark-back-ground;
+}
+.chart-line-content {
+  padding-right: 60px;
+}
