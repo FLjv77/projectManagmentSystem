@@ -1,4 +1,57 @@
 <div class="wrapper">
   <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
-  <app-filter-side-bar></app-filter-side-bar>
-</div>
+
+  <div class="wrapper-content">
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <app-filter-side-bar></app-filter-side-bar>
+      </div>
+      <div class="col-12 col-lg-9">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field-infix w-100" appearance="fill">
+              <mat-label class="font-weight-bold set-font-vazir">نمایش گزارش بر اساس</mat-label>
+              <mat-select class="text-right set-font-vazir">
+                <mat-option class="text-right set-font-vazir">
+                  پیشرفت پروژه ها
+                </mat-option>
+                <mat-option class="text-right set-font-vazir">
+                  هزینه ها
+                </mat-option>
+                <mat-option class="text-right set-font-vazir">
+                  زمانبندی پروژه ها
+                </mat-option>
+                <mat-option class="text-right set-font-vazir">
+                  دریافتی ها و مانده حساب
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-6 pt-3">
+            <mat-radio-group class="example-radio-group font-size-small">
+              <mat-label class="font-weight-bold set-font-vazir px-4 title-check-box">نوع نمایش</mat-label>
+
+              <mat-radio-button (click)="changeShowChart(true)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                <span class="px-2">نموداری</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="changeShowChart(false)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                <span class="px-2">داده ها</span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <app-advanced-search-according-to-company *ngIf="!showChart"></app-advanced-search-according-to-company>
+
+
+        <div class="row" *ngIf="showChart">
+          <div class="col-12 px-3 mx-auto">
+            <div class="container-chart boxShadow p-2">
+              <p class="title-chart set-font-vazir py-3">درآمد شرکت ها در هفته گذشته</p>
+              <div echarts [options]="optionsIncome" theme="macarons" class="demo-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>

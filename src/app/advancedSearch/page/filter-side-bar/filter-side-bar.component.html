@@ -1,96 +1,87 @@
-<div class="wrapper-content">
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      <div class="content-filter">
-        <p class="set-font-Raymon text-center py-3 title-filter">فیلتر ها</p>
-        <hr class="opacity-hr">
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                وضعیت پروژه
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-state></app-filter-project-state>
-          </mat-expansion-panel>
+<div class="content-filter">
+  <p class="set-font-Raymon text-center py-3 title-filter">فیلتر ها</p>
+  <hr class="opacity-hr">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          وضعیت پروژه
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-state></app-filter-project-state>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                زمان شروع
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-start-time></app-filter-project-start-time>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          زمان شروع
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-start-time></app-filter-project-start-time>
 
-          </mat-expansion-panel>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                زمان خاتمه
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-end-time></app-filter-project-end-time>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          زمان خاتمه
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-end-time></app-filter-project-end-time>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                نام شرکت
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-company-name></app-filter-project-company-name>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          نام شرکت
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-company-name></app-filter-project-company-name>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                هزینه زیرساخت
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-infrastructure-cost></app-filter-project-infrastructure-cost>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          هزینه زیرساخت
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-infrastructure-cost></app-filter-project-infrastructure-cost>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                هزینه کل
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-total-cost></app-filter-project-total-cost>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          هزینه کل
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-total-cost></app-filter-project-total-cost>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                هزینه منابع انسانی
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-human-resource-cost></app-filter-project-human-resource-cost>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          هزینه منابع انسانی
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-human-resource-cost></app-filter-project-human-resource-cost>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                نوع پروژه
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-type></app-filter-project-type>
-          </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          نوع پروژه
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-type></app-filter-project-type>
+    </mat-expansion-panel>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title class="filter-type set-font-vazir">
-                منطقه جفرافیایی
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-filter-project-geographical-location></app-filter-project-geographical-location>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-    </div>
-    <div class="col-12 col-lg-9">
-      <app-advanced-search-according-to-company></app-advanced-search-according-to-company>
-    </div>
-  </div>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-type set-font-vazir">
+          منطقه جفرافیایی
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-filter-project-geographical-location></app-filter-project-geographical-location>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
