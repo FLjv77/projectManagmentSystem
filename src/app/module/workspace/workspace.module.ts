@@ -11,7 +11,7 @@ import { WorkspaceRoutingModule } from './workspace-routing.module';
 import { MatRadioModule } from '@angular/material/radio';
 import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-registred-company/confirm-registred-company.component";
 import {NgxDailyGanttChartModule} from "ngx-daily-gantt-chart";
-import {TimeLineProjectComponent} from "../../workSpace/page/view-workspace/page/time-line-project/time-line-project.component";
+import { TimeLineProjectComponent } from 'src/app/workSpace/page/view-workspace/page/time-line-project/time-line-project.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import {TimeLineProjectComponent} from "../../workSpace/page/view-workspace/page
     ConfirmRegistredCompanyComponent,
     ConfirmedRegistredCompanyModalComponent,
     TimeLineProjectComponent,
-
   ],
   imports: [
     CommonModule,
@@ -36,7 +35,8 @@ import {TimeLineProjectComponent} from "../../workSpace/page/view-workspace/page
   ],
   exports: [
     AddCompanyModalComponent,
-    ConfirmedRegistredCompanyModalComponent
+    ConfirmedRegistredCompanyModalComponent,
+    TimeLineProjectComponent
   ]
 })
 export class WorkspaceModule { }
