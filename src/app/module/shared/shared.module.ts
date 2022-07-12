@@ -33,6 +33,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {DisplayUserPathComponent} from "../../shared/page/display-user-path/display-user-path.component";
 import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-list/drop-down-company-list.component";
 import { NgSelect2Module } from 'ng-select2';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { NgSelect2Module } from 'ng-select2';
     MatDatepickerModule,
     MatFormFieldModule,
     MatSelectModule,
-    NgSelect2Module
+    NgSelect2Module,
+    MatTooltipModule
   ],
   providers: [
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },

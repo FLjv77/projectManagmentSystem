@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
 
   public showList: boolean = false;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +17,16 @@ export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
 
   public openCloseList(){
     this.showList = !this.showList;
+  }
+
+  public goToEditProject() {
+    this.router.navigate(['../../projectManagement/editProject'])
+  }
+  public goToActivityProject() {
+    this.router.navigate(['../../projectManagement/InformationActivity'])
+  }
+  public goToChartPage() {
+    this.router.navigate(['../../projectManagement/chart'])
   }
 
 }

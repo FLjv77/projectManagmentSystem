@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConfirmedRegistredCompanyModalComponent } from './../../workSpace/page/confirm-registred-company/page/confirmed-registred-company-modal/confirmed-registred-company-modal.component';
 import { AddCompanyModalComponent } from './../../workSpace/page/company-list/page/add-company-modal/add-company-modal.component';
 import { CompanyListComponent } from './../../workSpace/page/company-list/company-list.component';
@@ -23,6 +24,7 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     WorkspaceRoutingModule,
     SharedModule,
     MatRadioModule,
+    MatTooltipModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
     }),
