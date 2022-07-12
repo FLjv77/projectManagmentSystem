@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectedCompanyListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public goToWorkSpaceProfile() {
+    this.router.navigate(['../../workspace/workSpaceProfile']);
+  }
+
+  public goUserList() {
+    this.router.navigate(['../../userManagement/userList']);
+  }
+
+  public goProjectList() {
+    this.router.navigate(['../../projectManagement/projectList']);
   }
 
 }
