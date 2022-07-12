@@ -1,0 +1,40 @@
+@import "../../../../assets/style/base.scss";
+@import "../../../projectManagement/page/edit-project-information/edit-project-information.component.scss";
+
+.button-style-report{
+    border: none;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba($color: $active-yellow-lite, $alpha: 0.9);
+    border-radius: 50px;
+    font-size: 15px;
+    color: $background-modal;
+    font-weight: bold;
+}
+
+.icon-Report{
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    color: $background-modal;
+}
+
+.text-style{
+    color: $background-modal;
+    font-weight: bold;
+}
+
+.text-report{
+    color: $background-modal;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.bg-answer-report{
+    background-color: rgba($color: #fff, $alpha: 1);
+    border-radius: 10px;
+    display: none;
+    p{
+        text-align: justify;
+        text-justify: inter-word;
+    }
+}

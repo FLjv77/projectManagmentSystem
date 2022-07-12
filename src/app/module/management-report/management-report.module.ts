@@ -1,3 +1,7 @@
+import { ProjectManagementModule } from './../project-management/project-management.module';
+import { CheckedReportsComponent } from './../../managementReport/page/project-controle-reports/page/checked-reports/checked-reports.component';
+import { UnreviewedReportsComponent } from './../../managementReport/page/project-controle-reports/page/unreviewed-reports/unreviewed-reports.component';
+import { ProjectControleReportsComponent } from './../../managementReport/page/project-controle-reports/project-controle-reports.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ViewChartProgressRoportComponent } from './../../managementReport/page/view-chart-progress-roport/view-chart-progress-roport.component';
 import { ViewChartFinancialRoportComponent } from './../../managementReport/page/view-chart-financial-roport/view-chart-financial-roport.component';
@@ -32,6 +36,9 @@ import { FormsModule } from '@angular/forms';
     ReportOnEfficiencyForOrganisationManagerComponent,
     ReportOnActivityForOrganisationManagerComponent,
     ReportOnCostForOrganisationManagerComponent,
+    ProjectControleReportsComponent,
+    CheckedReportsComponent,
+    UnreviewedReportsComponent,
   ],
   imports: [
     CommonModule,
@@ -41,13 +48,16 @@ import { FormsModule } from '@angular/forms';
     MatTreeModule,
     FormsModule,
     MatFormFieldModule,
+    ProjectManagementModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
   ],
   exports: [
     ProgressReportComponent,
-    FinancialReportComponent
+    FinancialReportComponent,
+    CheckedReportsComponent,
+    UnreviewedReportsComponent,
   ]
 })
 export class ManagementReportModule { }

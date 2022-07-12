@@ -1,3 +1,4 @@
+import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -10,6 +11,9 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./submit-progress-reporter.component.scss']
 })
 export class SubmitProgressReporterComponent implements OnInit {
+
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
 
   private _transformer = (node: Family, level: number) => {
     return {
@@ -41,6 +45,11 @@ export class SubmitProgressReporterComponent implements OnInit {
   
   public selectedToggle:number=1;
   ngOnInit(): void {
+    this.initDisplayPath();
+  }
+  private initDisplayPath() {
+    this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
+    this.path2 = new DisplayPathModel('ارسال گزارش', false, '');
   }
 
   public setSelectedToggle(state: number){

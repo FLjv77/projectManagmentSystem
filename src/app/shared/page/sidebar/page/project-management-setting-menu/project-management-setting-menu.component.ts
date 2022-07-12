@@ -47,5 +47,8 @@ export class ProjectManagementSettingMenuComponent implements OnInit {
     else if (select == 4) {
       this.router.navigate(['../../managementReport/submitProgressReporter']);
     }
+    else if (select == 5) {
+      this.router.navigate(['../../managementReport/projectControleReports']);
+    }
   }
 }
