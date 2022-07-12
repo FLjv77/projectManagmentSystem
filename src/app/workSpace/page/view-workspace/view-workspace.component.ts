@@ -33,4 +33,5 @@ export class ViewWorkspaceComponent implements OnInit {
   public goToChartPage() {
     this.router.navigate(['../../projectManagement/chart'])
   }
+
 }
