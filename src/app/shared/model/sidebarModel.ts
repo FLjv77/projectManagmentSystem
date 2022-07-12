@@ -11,7 +11,7 @@ export enum SelectSubmenueDashbord{
 }
 
 export enum SelectSubmenueProjectManagement{
-    none, createProgect, editProject, viewProjectList, sendReport
+    none, createProgect, editProject, viewProjectList, sendReport, reportManagement
 }
 
 export enum SelectSubmenueCompanyManagement{

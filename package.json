@@ -30,6 +30,7 @@
     "mdb-ui-kit": "^4.2.0",
     "ng-circle-progress": "^1.6.0",
     "ng-select2": "^1.4.1",
+    "ngx-daily-gantt-chart": "^1.5.2",
     "ngx-echarts": "^14.0.0",
     "rxjs": "~7.4.0",
     "select2": "^4.1.0-rc.0",

@@ -18,6 +18,6 @@ export class InformationActivityComponent implements OnInit {
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
-    this.path2 = new DisplayPathModel('گزارش پیشرفت پروژه', false, '');
+    this.path2 = new DisplayPathModel('مدیریت فعالیت ها', false, '');
   }
 }

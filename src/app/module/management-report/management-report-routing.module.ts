@@ -1,3 +1,4 @@
+import { ProjectControleReportsComponent } from './../../managementReport/page/project-controle-reports/project-controle-reports.component';
 import { ViewChartFinancialRoportComponent } from './../../managementReport/page/view-chart-financial-roport/view-chart-financial-roport.component';
 import { ViewChartProgressRoportComponent } from './../../managementReport/page/view-chart-progress-roport/view-chart-progress-roport.component';
 import { SubmitProgressReporterComponent } from './../../managementReport/page/submit-progress-reporter/submit-progress-reporter.component';
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'reportOnEfficiency', component: ReportOnEfficiencyForOrganisationManagerComponent,
+  },
+  {
+    path: 'projectControleReports', component: ProjectControleReportsComponent,
   },
 ];
 

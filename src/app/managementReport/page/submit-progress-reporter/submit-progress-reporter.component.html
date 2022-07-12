@@ -1,4 +1,7 @@
 <div class="wrapper">
+    <div class="col-12">
+        <app-display-user-path [path1]="path1" [path2]="path2" [showProjectList]="true" [showCompanyList]="true"></app-display-user-path>
+    </div>
     <div class="bg-levels">
         <div class="toggle-base set-font-vazir d-flex justify-content-center mx-auto row d-rtl d-md-flex d-none">
             <div (click)="setSelectedToggle(1)" class="unselected-value {{ selectedToggle == 1 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">گزارش پیشرفت</div>
