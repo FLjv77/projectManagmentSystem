@@ -34,5 +34,4 @@ export class ViewWorkspaceComponent implements OnInit {
     this.router.navigate(['../../projectManagement/chart'])
   }
 
-
 }
