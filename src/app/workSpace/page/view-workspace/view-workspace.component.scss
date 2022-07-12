@@ -120,7 +120,7 @@
     height: 50px;
 }
 .scroll-list-project {
-    height: 460px;
+    height: 660px;
     overflow-x: hidden;
     overflow-y: scroll;
     @media(max-width: 1257px){
@@ -144,3 +144,6 @@
     font-weight: bold;
 }
 
+::ng-deep .mat-elevation-z8 {
+   box-shadow: none!important;
+}

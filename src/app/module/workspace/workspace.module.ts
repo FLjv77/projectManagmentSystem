@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConfirmedRegistredCompanyModalComponent } from './../../workSpace/page/confirm-registred-company/page/confirmed-registred-company-modal/confirmed-registred-company-modal.component';
 import { AddCompanyModalComponent } from './../../workSpace/page/company-list/page/add-company-modal/add-company-modal.component';
 import { CompanyListComponent } from './../../workSpace/page/company-list/company-list.component';
@@ -9,6 +10,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { WorkspaceRoutingModule } from './workspace-routing.module';
 import { MatRadioModule } from '@angular/material/radio';
 import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-registred-company/confirm-registred-company.component";
+import {NgxDailyGanttChartModule} from "ngx-daily-gantt-chart";
+import {TimeLineProjectComponent} from "../../workSpace/page/view-workspace/page/time-line-project/time-line-project.component";
 
 @NgModule({
   declarations: [
@@ -16,16 +19,20 @@ import {ConfirmRegistredCompanyComponent} from "../../workSpace/page/confirm-reg
     CompanyListComponent,
     AddCompanyModalComponent,
     ConfirmRegistredCompanyComponent,
-    ConfirmedRegistredCompanyModalComponent
+    ConfirmedRegistredCompanyModalComponent,
+    TimeLineProjectComponent,
+
   ],
   imports: [
     CommonModule,
     WorkspaceRoutingModule,
     SharedModule,
     MatRadioModule,
+    MatTooltipModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
     }),
+    NgxDailyGanttChartModule
   ],
   exports: [
     AddCompanyModalComponent,

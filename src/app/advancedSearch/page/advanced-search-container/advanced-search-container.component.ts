@@ -4,7 +4,9 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 @Component({
   selector: 'app-advanced-search-container',
   templateUrl: './advanced-search-container.component.html',
-  styleUrls: ['./advanced-search-container.component.scss', '../../../../assets/style/base.scss', '../../../shared/page/drop-down-project-list/drop-down-project-list.component.scss']
+  styleUrls: ['./advanced-search-container.component.scss',
+    '../../../managementReport/page/reportOfCompanyForOrganisationManager/report-on-efficiency-for-organisation-manager/report-on-efficiency-for-organisation-manager.component.scss',
+    '../../../../assets/style/base.scss', '../../../shared/page/drop-down-project-list/drop-down-project-list.component.scss']
 })
 export class AdvancedSearchContainerComponent implements OnInit {
   public path1: DisplayPathModel;

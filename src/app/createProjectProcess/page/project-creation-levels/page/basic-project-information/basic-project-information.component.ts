@@ -18,6 +18,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public addressFormControl = new FormControl();
   public LocationFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
+  public checkbox:boolean = false;
 
   constructor(private router: Router) { }
 
@@ -45,5 +46,8 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
+  }
+  public checked(){
+    this.checkbox = !this.checkbox;
   }
 }

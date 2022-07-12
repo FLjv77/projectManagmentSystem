@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ChartReportProjectComponent } from './../../projectManagement/page/chart-report-project/chart-report-project.component';
 import { RecordFinancialReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/financial-report-activity/page/record-financial-report-modal/record-financial-report-modal.component';
 import { RecordProgressReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/progress-report-activity/page/record-progress-report-modal/record-progress-report-modal.component';
@@ -55,6 +56,7 @@ import {NgxEchartsModule} from "ngx-echarts";
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTooltipModule,
     MatExpansionModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')

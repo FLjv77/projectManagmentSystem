@@ -10,6 +10,7 @@ import {MotamamProjectComponent} from "../../dashboard/page/home/projectList/mot
 import {DoneProjectComponent} from "../../dashboard/page/home/projectList/done-project/done-project.component";
 import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-manager/home-company-manager.component";
 import {SelectedCompanyListComponent} from "../../dashboard/page/home/companyList/selected-company-list/selected-company-list.component";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {SelectedCompanyListComponent} from "../../dashboard/page/home/companyLis
     imports: [
         CommonModule,
         DashboardRoutingModule,
-        SharedModule
+        SharedModule,
+        MatTooltipModule
     ]
 })
 export class DashboardModule { }
