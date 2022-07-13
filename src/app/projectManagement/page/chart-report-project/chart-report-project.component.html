@@ -1,14 +1,14 @@
 <div class="wrapper">
     <div class="col-12">
-        <app-display-user-path [path1]="path1" [path2]="path2" [showProjectList]="true"></app-display-user-path>
+        <app-display-user-path [showCompanyList]="true" [showProjectList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
     </div>
-    <div class="bg-levels row mx-auto">
+    <div class="bg-levels row mx-4">
         <div class="d-inline col-2">
             <img src="../../../../assets/image/workSpace/sakh3.jpg" class="project-profile" alt="">
         </div>
         <div class="row col-10 my-auto">
             <div class="col-6 my-auto">
-                <h1 class="set-font-Raymon">ساخت برج سینا</h1>
+                <h1 class="set-font-Raymon">ساخت برج </h1>
                 <h3 class="set-font-vazir">شرکت داده پردازان</h3>
                 <h5 class="set-font-vazir">مسکن</h5>
             </div>
@@ -19,18 +19,24 @@
         </div>
         <hr class="mt-3">
         <div class="row">
-            <div class="col-6 px-3 mx-auto my-2">
+            <div class="col-12 px-3 mx-auto">
                 <div class="container-chart boxShadow p-2">
-                  <p class="title-chart set-font-vazir py-3">درصد پیشرفت فعالیت ها</p>
-                  <div echarts [options]="option1" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+                  <p class="title-chart set-font-vazir py-3">پیشرفت زمانی,اعلامی,تایید شده فعالیت های یک پروژه</p>
+                  <div echarts [options]="option4" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
                 </div>
-            </div>
+              </div>
             <div class="col-lg-6 col-12 px-3 mx-auto my-2">
                 <div class="container-chart boxShadow p-2">
                   <p class="title-chart set-font-vazir py-3">نسبت نیروی انسانی و زیرساخت</p>
                   <div echarts [options]="option2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
                 </div>
-              </div>
+            </div>
+            <div class="col-6 px-3 mx-auto my-2">
+                <div class="container-chart boxShadow p-2">
+                  <p class="title-chart set-font-vazir py-3">نمودار تخصیص و پیشرفت پروژه بر حسب زمان</p>
+                  <div echarts [options]="optionsIncome" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+                </div>
+            </div>
             <div class="col-6 px-3 mx-auto my-2">
                 <div class="container-chart boxShadow p-2">
                     <p class="title-chart set-font-vazir py-3">میزان پیشرفت پروژه</p>
@@ -66,12 +72,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 px-3 mx-auto my-2">
-                <div class="container-chart boxShadow p-2">
-                  <p class="title-chart set-font-vazir py-3">نمودار تخصیص و پیشرفت پروژه بر حسب زمان</p>
-                  <div echarts [options]="optionsIncome" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
-                </div>
-              </div>
         </div>
     </div>
 </div>

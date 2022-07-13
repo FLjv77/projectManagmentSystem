@@ -7,13 +7,13 @@
     border-radius: 50px;
     height: 45px;
     color: $dark-back-ground;
-    font-size: large;
+    font-size: medium;
     transition: all 0.5s;
     position: relative;
     border: 1px solid $dark-back-ground;
     margin-top: 10px;
   }
-  
+
   .toggle-cycle {
     border-radius: 50px;
     height: 50px;
@@ -25,7 +25,7 @@
     padding-right: 5px;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
-  
+
   .unselected-value {
     text-align: center;
     word-wrap: break-word;
@@ -35,7 +35,7 @@
   .mat-tree {
     background: rgba(#dddddd, $alpha: 0.7);
   }
-    
+
   .mat-tree-node {
     color: black;
   }

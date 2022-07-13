@@ -4,25 +4,93 @@
     </div>
     <div class="bg-levels">
         <div class="toggle-base set-font-vazir d-flex justify-content-center mx-auto row d-rtl d-md-flex d-none">
-            <div (click)="setSelectedToggle(1)" class="unselected-value {{ selectedToggle == 1 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">گزارش پیشرفت</div>
-            <div (click)="setSelectedToggle(2)" class="unselected-value {{ selectedToggle == 2 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2">گزارش مالی</div>
+            <div (click)="setSelectedToggle(1)" class="unselected-value {{ selectedToggle == 1 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2"> پیشرفت</div>
+            <div (click)="setSelectedToggle(2)" class="unselected-value {{ selectedToggle == 2 ? 'toggle-cycle py-3' : 'py-2'}} pointer col-2"> مالی</div>
         </div>
         <div class="mt-3">
-            <mat-tree [dataSource]="dataSource" 
-                [treeControl]="treeControl">
-                <mat-tree-node class="bgbg" *matTreeNodeDef="let node">
-                    <span class="padding-span">{{node.name}}</span>       
-                </mat-tree-node>
-                <mat-tree-node *matTreeNodeDef="let node;when: hasChild">
-                    <button mat-icon-button matTreeNodeToggle 
-                        [attr.aria-label]="'Toggle ' + node.name">
-                        <mat-icon class="mat-icon-rtl-mirror"> 
-                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} 
-                        </mat-icon>
-                    </button>
-                    <span>{{node.name}}</span>
-                </mat-tree-node>
-            </mat-tree>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class="">
+                <mat-panel-title>
+                  <mat-checkbox>
+                    <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                  </mat-checkbox>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+
+              <div class="set-font-Raymon title-for-child-activity"></div>
+
+              <div class="p-right-child-activity">
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class="">
+                <mat-panel-title>
+                  <mat-checkbox>
+                    <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                  </mat-checkbox>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+
+              <div class="set-font-Raymon title-for-child-activity"></div>
+
+              <div class="p-right-child-activity">
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+                <div class="row set-font-vazir w-100">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                    <mat-checkbox>
+                      <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+                    </mat-checkbox>
+                  </div>
+                  <hr class="hr-opacity">
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+
         </div>
         <div class="row">
             <app-progress-report *ngIf="selectedToggle==1"></app-progress-report>
