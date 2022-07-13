@@ -1,6 +1,8 @@
 <div class="wrapper set-font-vazir">
-    <div class="row">
-        <div class="mt-4 mx-2">
+    <div class="col-12">
+        <app-display-user-path [path1]="path1" [path2]="path2" [showProjectList]="true" [showCompanyList]="true"></app-display-user-path>
+    </div>
+    <div class="col-12 mx-auto px-5">
             <div class="row list-result-project set-font-vazir py-1">
                 <div class="col-12 col-md-3 col-sm-4 text-sm-end text-center">
                     <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
@@ -64,9 +66,7 @@
                 <div class="col-12 col-md-3 col-sm-4 my-auto text-center text-md-center text-sm-start">لیست پروژه حضور داره</div>
                 <div class="col-12 col-md-3 my-auto text-sm-start text-center">تاریخ عضویت</div>
             </div>
-          </div>
     </div>
-    
 </div>
 <button class="button-add-user p-0 m-0" (click)="openMdalAddUser();">
     <i class="material-icons icon-lockes add-user-icon m-0 p-0">add_circle</i>
