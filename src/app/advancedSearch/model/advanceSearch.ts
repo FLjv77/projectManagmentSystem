@@ -14,3 +14,7 @@ export enum Development{
 export enum ProjectState{
     completed, supplement, inWorking
 }
+
+export enum ReportState {
+  progress, cost, timing, income
+}

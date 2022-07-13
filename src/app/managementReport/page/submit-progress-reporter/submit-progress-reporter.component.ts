@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-submit-progress-reporter',
   templateUrl: './submit-progress-reporter.component.html',
-  styleUrls: ['./submit-progress-reporter.component.scss']
+  styleUrls: ['./submit-progress-reporter.component.scss', '../../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component.scss']
 })
 export class SubmitProgressReporterComponent implements OnInit {
 
@@ -22,12 +22,12 @@ export class SubmitProgressReporterComponent implements OnInit {
       level: level,
     };
   };
-  
+
   treeControl = new FlatTreeControl<ExampleFlatNode>(
     (node) => node.level,
     (node) => node.expandable
   );
-  
+
   treeFlattener = new MatTreeFlattener(
     this._transformer,
     (node) => node.level,
@@ -35,14 +35,14 @@ export class SubmitProgressReporterComponent implements OnInit {
     (node) => node.children
   );dataSource = new MatTreeFlatDataSource(
     this.treeControl, this.treeFlattener);
-  
+
   constructor() {
     this.dataSource.data = FAMILY_TREE;
   }
-  
-  hasChild = (_: number, 
+
+  hasChild = (_: number,
     node: ExampleFlatNode) => node.expandable;
-  
+
   public selectedToggle:number=1;
   ngOnInit(): void {
     this.initDisplayPath();
@@ -61,7 +61,7 @@ interface Family {
   name: string;
   children?: Family[];
 }
-  
+
 const FAMILY_TREE: Family[] = [
   {
     name: "Joyce",
@@ -77,7 +77,7 @@ const FAMILY_TREE: Family[] = [
     name: "Jean",
     children: [{ name: "Otis" }, { name: "Maeve" }],
   },];
-  
+
   /** Flat node with expandable and level information */
   interface ExampleFlatNode {
     expandable: boolean;
