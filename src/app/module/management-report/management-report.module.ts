@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 
@@ -48,7 +49,9 @@ import { FormsModule } from '@angular/forms';
     MatTreeModule,
     FormsModule,
     MatFormFieldModule,
+    MatExpansionModule,
     ProjectManagementModule,
+    MatCheckboxModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

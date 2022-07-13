@@ -1,17 +1,17 @@
-<div class="row">
+<div class="row"><!--
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
-            [inputFormControl]="reporterNameFormControl"></app-input-style>
+            [inputFormControl]="reporterNameFormControl"></app-input-style>-->
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="registrationDateFormControl"></app-date-picker-jalaly>
-    
+
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
             [inputFormControl]="ProgressFormControl"></app-input-style>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'file'" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'" [inputId]="'5'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'" [inputId]="'5'"
             [inputFormControl]="fileFormControl"></app-input-style>
 
     <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">

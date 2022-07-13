@@ -4,20 +4,20 @@
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="registrationDateFormControl"></app-date-picker-jalaly>
-    
+
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'میزان تخصیص کل'" [inputId]="'3'"
             [inputFormControl]="reportedCostFormControl"></app-input-style>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'شرح گزارش هزینه'" [inputId]="'4'"
             [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'file'" [inputLabel]="'بارگزاری مستندات مالی'" [inputId]="'5'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'بارگزاری مستندات مالی'" [inputId]="'5'"
             [inputFormControl]="financialDocumentsFormControl"></app-input-style>
 
-        
+
 
     <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button">
+        <button type="button" class="ok-button ">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
     </div>

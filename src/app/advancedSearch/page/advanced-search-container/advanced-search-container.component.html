@@ -12,16 +12,16 @@
             <mat-form-field class="mat-form-field-infix w-100" appearance="fill">
               <mat-label class="font-weight-bold set-font-vazir">نمایش گزارش بر اساس</mat-label>
               <mat-select class="text-right set-font-vazir">
-                <mat-option class="text-right set-font-vazir">
+                <mat-option (click)="setReportState(0)" class="text-right set-font-vazir">
                   پیشرفت پروژه ها
                 </mat-option>
-                <mat-option class="text-right set-font-vazir">
+                <mat-option (click)="setReportState(1)" class="text-right set-font-vazir">
                   هزینه ها
                 </mat-option>
-                <mat-option class="text-right set-font-vazir">
+                <mat-option (click)="setReportState(2)" class="text-right set-font-vazir">
                   زمانبندی پروژه ها
                 </mat-option>
-                <mat-option class="text-right set-font-vazir">
+                <mat-option (click)="setReportState(3)" class="text-right set-font-vazir">
                   دریافتی ها و مانده حساب
                 </mat-option>
               </mat-select>
@@ -31,7 +31,7 @@
             <mat-radio-group class="example-radio-group font-size-small">
               <mat-label class="font-weight-bold set-font-vazir px-4 title-check-box">نوع نمایش</mat-label>
 
-              <mat-radio-button (click)="changeShowChart(true)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <mat-radio-button [checked]="true" (click)="changeShowChart(true)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="0">
                 <span class="px-2">نموداری</span>
               </mat-radio-button>
               <mat-radio-button (click)="changeShowChart(false)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="1">
@@ -44,12 +44,11 @@
 
 
         <div class="row" *ngIf="showChart">
-          <div class="col-12 px-3 mx-auto">
-            <div class="container-chart boxShadow p-2">
-              <p class="title-chart set-font-vazir py-3">درآمد شرکت ها در هفته گذشته</p>
-              <div echarts [options]="optionsIncome" theme="macarons" class="demo-chart"></div>
-            </div>
-          </div>
+
+          <app-advanced-search-according-to-progress *ngIf="reportState == 0"></app-advanced-search-according-to-progress>
+          <app-advanced-search-according-to-cost *ngIf="reportState == 1"></app-advanced-search-according-to-cost>
+          <app-advanced-search-according-to-time *ngIf="reportState == 2"></app-advanced-search-according-to-time>
+          <app-advanced-search-according-to-allocation *ngIf="reportState == 3"></app-advanced-search-according-to-allocation>
         </div>
       </div>
       </div>

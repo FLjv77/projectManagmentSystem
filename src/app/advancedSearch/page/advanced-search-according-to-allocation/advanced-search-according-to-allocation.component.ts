@@ -6,29 +6,45 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 @Component({
   selector: 'app-advanced-search-according-to-allocation',
   templateUrl: './advanced-search-according-to-allocation.component.html',
-  styleUrls: ['./advanced-search-according-to-allocation.component.scss']
+  styleUrls: ['./advanced-search-according-to-allocation.component.scss', '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
 })
 export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
-  public allocation: Allocation;
-  public path1: DisplayPathModel;
-  public path2: DisplayPathModel;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.initoption2();
   }
+  public option2: any;
 
-  public setCostState(state: number) {
+  private initoption2() {
+    this.option2 = {
 
-  }
-
-  formatLabel(value: number) {
-    if (value >= 1000) {
-      return Math.round(value / 1000);
-    }
-    return value;
-  }
-  public setAllocation(state: Allocation){
-    this.allocation = state;
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left'
+      },
+      series: [
+        {
+          name: 'Access From',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 20, name: 'پرداختی', itemStyle: {color: '#ffd519'} },
+            { value: 80, name: 'مانده حساب' , itemStyle: {color: '#AEAEAE'}},
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    };
   }
 }
