@@ -19,11 +19,12 @@ export class ChartReportProjectComponent implements OnInit {
     this.initoption2();
     this.initChartIncome();
     this.initDisplayPath();
+    this.initoption4();
   }
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
-    this.path2 = new DisplayPathModel('مشاهده گزارشات', false, '');
+    this.path2 = new DisplayPathModel('مشاهده گزارش ها', false, '');
   }
 
   public option1: any;
@@ -139,7 +140,27 @@ export class ChartReportProjectComponent implements OnInit {
         }
       ]
     };
+  }
 
+  public option4: any;
+  
+  private initoption4() {
+    this.option4 = {
+      legend: {},
+      tooltip: {},
+      dataset: {
+        source: [
+          ['product', 'پیشرفت زمانی', 'پشرفت اعلامی', 'پیشرفت تایید شده'],
+          ['فعالیت اول', 43.3, 85.8, 93.7],
+          ['فعالیت دوم', 83.1, 73.4, 55.1],
+          ['فعالیت سوم', 86.4, 65.2, 82.5],
+          ['فعالیت چهارم', 72.4, 53.9, 39.1]
+        ]
+      },
+      xAxis: { type: 'category' },
+      yAxis: {name: 'درصد پیشرفت',},
+      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#ffd519'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
+    };
   }
 
 }
