@@ -1,270 +1,58 @@
 <div class="wrapper set-font-vazir">
     <div class="col-12">
-        <app-display-user-path [path1]="path1" [path2]="path2" [showProjectList]="true" [showCompanyList]="true"></app-display-user-path>
+        <app-display-user-path [path1]="path1" [path2]="path2" [showCompanyList]="true"></app-display-user-path>
     </div>
     <div class="col-12 mx-auto px-5">
-            <div class="row list-result-project set-font-vazir py-1">
+            <div *ngFor="let item of sampleList; let i = index" class="row list-result-project set-font-vazir py-1">
                 <div class="col-12 col-md-3 text-sm-end text-center">
                     <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
                     <span>نام</span>
                 </div>
                 <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
+                    <div (click)="changeLockRolePresenter(i)" class="role-border px-2 mx-1 pointer">
                         <span class="d-inline-flex pb-2">مجری</span>
                         <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
+                          <i *ngIf="item.isPresenter" class="material-icons icon-lockes lock_open">lock_open</i>
+                          <i *ngIf="!item.isPresenter" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                         </div>
                     </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
+                  <div (click)="changeLockRoleObserver(i)" class="role-border px-2 mx-1 pointer">
+                    <span class="d-inline-flex pb-2"> ناظر</span>
+                    <div class="d-inline-flex">
+                      <i *ngIf="item.isObserver" class="material-icons icon-lockes lock_open">lock_open</i>
+                      <i *ngIf="!item.isObserver" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                     </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
+                  </div>
+                  <div (click)="changeLockRoleSponsor(i)" class="role-border px-2 mx-1 pointer">
+                    <span class="d-inline-flex pb-2">سرمایه گذار</span>
+                    <div class="d-inline-flex">
+                      <i *ngIf="item.isSponsor" class="material-icons icon-lockes lock_open">lock_open</i>
+                      <i *ngIf="!item.isSponsor" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                     </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
+                  </div>
+                  <div (click)="changeLockRoleEmployer(i)" class="role-border px-2 mx-1 pointer">
+                    <span class="d-inline-flex pb-2">کارفرما</span>
+                    <div class="d-inline-flex">
+                      <i *ngIf="item.isEmployer" class="material-icons icon-lockes lock_open">lock_open</i>
+                      <i *ngIf="!item.isEmployer" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                     </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
+                  </div>
+
+                  <div (click)="changeLockRoleAdvisor(i)" class="role-border px-2 mx-1 pointer">
+                    <span class="d-inline-flex pb-2">مشاور</span>
+                    <div class="d-inline-flex">
+                      <i *ngIf="item.isAdvisor" class="material-icons icon-lockes lock_open">lock_open</i>
+                      <i *ngIf="!item.isAdvisor" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                     </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
+                  </div>
+
+                  <div (click)="changeLockRoleContactor(i)" class="role-border px-2 mx-1 pointer">
+                    <span class="d-inline-flex pb-2">پیمان کار</span>
+                    <div class="d-inline-flex">
+                      <i *ngIf="item.isContractor" class="material-icons icon-lockes lock_open">lock_open</i>
+                      <i *ngIf="!item.isContractor" class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
                     </div>
-                </div>
-            </div>
-            <div class="row list-result-project set-font-vazir py-1 my-3">
-                <div class="col-12 col-md-3 text-sm-end text-center">
-                    <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-                    <span>نام</span>
-                </div>
-                <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مجری</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row list-result-project set-font-vazir py-1 my-3">
-                <div class="col-12 col-md-3 text-sm-end text-center">
-                    <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-                    <span>نام</span>
-                </div>
-                <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مجری</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row list-result-project set-font-vazir py-1 my-3">
-                <div class="col-12 col-md-3 text-sm-end text-center">
-                    <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-                    <span>نام</span>
-                </div>
-                <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مجری</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row list-result-project set-font-vazir py-1 my-3">
-                <div class="col-12 col-md-3 text-sm-end text-center">
-                    <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-                    <span>نام</span>
-                </div>
-                <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مجری</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row list-result-project set-font-vazir py-1 my-3">
-                <div class="col-12 col-md-3 text-sm-end text-center">
-                    <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-                    <span>نام</span>
-                </div>
-                <div class="col-12 col-md-9 text-md-start text-center my-auto">
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مجری</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">ناظر</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">سرمایه گذار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">کارفرما</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">مشاور</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_open">lock_open</i>
-                        </div>
-                    </div>
-                    <div class="role-border px-2 mx-1">
-                        <span class="d-inline-flex pb-2">پیمان کار</span>
-                        <div class="d-inline-flex">
-                            <i class="material-icons d-inline icon-lockes lock_outline">lock_outline</i>
-                        </div>
-                    </div>
+                  </div>
                 </div>
             </div>
     </div>
