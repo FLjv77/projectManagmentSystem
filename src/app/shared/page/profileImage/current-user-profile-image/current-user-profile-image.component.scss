@@ -4,6 +4,17 @@
   border-radius: 100px;
   margin-left: 25px;
   margin-top: 8px;
+
+  @media (max-width: 500px) {
+    height: 30px;
+    width: 30px;
+    margin-left: 12px;
+  }
+  @media (max-width: 300px) {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+  }
 }
 .profile-display-expand-side-bar {
   height: 90px;

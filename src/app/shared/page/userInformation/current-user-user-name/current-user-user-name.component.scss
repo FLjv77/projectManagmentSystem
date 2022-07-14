@@ -4,6 +4,9 @@
   color: $text-color-lite;
   font-size: medium;
   margin-left: 10px;
+  @media (max-width: 500px) {
+    font-size: small;
+  }
 }
 
 .user-name-side-bar {

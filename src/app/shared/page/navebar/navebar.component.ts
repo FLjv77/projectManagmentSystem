@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 })
 export class NavebarComponent implements OnInit {
 
+  public isFullScreen: boolean = false;
   constructor(
     private router: Router
   ) { }
@@ -17,5 +18,24 @@ export class NavebarComponent implements OnInit {
 
   public logout() {
     this.router.navigate(['../../auth/loginUser']);
+  }
+
+
+  openFullscreen() {
+    let elem = document.getElementById("screen");
+
+    if (elem) {
+      if (!this.isFullScreen) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        }
+      }
+      else {
+        document.exitFullscreen();
+      }
+    }
+
+
+    this.isFullScreen = !this.isFullScreen;
   }
 }
