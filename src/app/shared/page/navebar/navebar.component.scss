@@ -20,3 +20,16 @@
   width: 48px;
   height: 48px;
 }
+.select-container {
+  width: 5px;
+  position: absolute; top: 31px; left: 310px;
+}
+::ng-deep .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+  color: transparent!important;
+}

@@ -3,7 +3,7 @@ export enum sidebarState{
 }
 
 export enum SelectSubmenueUserManagement{
-    none, userView, userManagement, userChat
+    none, userView, userManagement, userChat, userManagementOrganization
 }
 
 export enum SelectSubmenueDashbord{
