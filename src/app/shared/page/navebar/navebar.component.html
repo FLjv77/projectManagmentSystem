@@ -2,15 +2,18 @@
   <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
   <app-current-user-user-name></app-current-user-user-name>
 
-  <img src="../../../../assets/icon/naveBar/changeDisplayMode.svg"
+<!--  <img src="../../../../assets/icon/naveBar/changeDisplayMode.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر تم"
-       class="first-icon nave-bar-icon">
+       class="first-icon nave-bar-icon">-->
   <img src="../../../../assets/icon/naveBar/logOutButtonIcon.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="خروج"
-       (click)="logout()" class="nave-bar-icon">
-  <img src="../../../../assets/icon/naveBar/notificationIcon.svg"
-       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="اعلان ها"
-       class="nave-bar-icon">
+       (click)="logout()" class="nave-bar-icon first-icon">
+  <img *ngIf="!isFullScreen" src="../../../../assets/icon/naveBar/fullScreen.svg"
+       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تمام صفحه"
+       class="nave-bar-icon" (click)="openFullscreen()">
+  <img *ngIf="isFullScreen" src="../../../../assets/icon/naveBar/outFullScreen.svg"
+       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="خروج تمام صفحه"
+       class="nave-bar-icon" (click)="openFullscreen()">
 
   <img src="../../../../assets/icon/naveBar/activityIcon.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر نقش"

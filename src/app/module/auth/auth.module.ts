@@ -6,6 +6,7 @@ import { RegisterUserComponent } from "../../auth/page/register-user/register-us
 import { RegisterCompanyComponent } from "../../auth/page/register-company/register-company.component";
 import { SharedModule } from "../shared/shared.module";
 import {MatRadioModule} from "@angular/material/radio";
+import {SelectRoleToEntryComponent} from "../../auth/page/select-role-to-entry/select-role-to-entry.component";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {MatRadioModule} from "@angular/material/radio";
     LoginUserComponent,
     RegisterUserComponent,
     RegisterCompanyComponent,
+    SelectRoleToEntryComponent,
   ],
   imports: [
     CommonModule,

@@ -28,7 +28,7 @@ export class LoginUserComponent implements OnInit {
   }
 
   public submitLogin() {
-    this.router.navigate(['../../dashboard/home']);
+    this.router.navigate(['../../auth/selectRoleToEntry']);
   }
 
   public goRegister() {

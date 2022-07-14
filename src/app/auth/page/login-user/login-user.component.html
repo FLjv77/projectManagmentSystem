@@ -1,7 +1,7 @@
 <div class="back-ground-main d-rtl">
   <div class="row w-100 h-100">
     <div class="col-5 back-ground-dark boxShadow">
-      <div class="row pt-4">
+      <div class="row m-top-form">
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
@@ -11,8 +11,8 @@
       <app-button-style (click)="submitLogin()" [buttonText]="'ورود'"></app-button-style>
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goRegister()">عضویت</p>
     </div>
-    <div class="col-7">
-      <div class="title-login text-center set-font-Raymon">
+    <div class="col-7 pt-md-5 pt-4">
+      <div class="title-login text-center set-font-Raymon m-top-form">
         درباره ی سرویس بیشتر بدانید...
       </div>
       <div class="description-login set-font-vazir text-center col-11 col-sm-9 mx-auto">
