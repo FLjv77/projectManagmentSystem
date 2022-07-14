@@ -46,7 +46,9 @@ export class SidebarComponent implements OnInit {
     expandSideBar ? expandSideBar.style.right = '-400px' : noop();
   }
 
-  public openProfile(){}
+  public openProfile(){
+    this.router.navigate(['../../auth/profile']);
+  }
   public goSearchFillter(){
     this.router.navigate(['../../advancedSearch']);
   }

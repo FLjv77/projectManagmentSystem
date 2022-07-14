@@ -36,7 +36,7 @@ import { TimeLineProjectComponent } from 'src/app/workSpace/page/view-workspace/
   exports: [
     AddCompanyModalComponent,
     ConfirmedRegistredCompanyModalComponent,
-    TimeLineProjectComponent
+    TimeLineProjectComponent,
   ]
 })
 export class WorkspaceModule { }

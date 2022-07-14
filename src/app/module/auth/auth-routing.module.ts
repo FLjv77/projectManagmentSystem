@@ -1,3 +1,4 @@
+import { UserProfileComponent } from 'src/app/auth/page/user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginUserComponent } from "../../auth/page/login-user/login-user.component";
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'registerUser', component: RegisterUserComponent},
   { path: 'registerCompany', component: RegisterCompanyComponent},
   { path: 'selectRoleToEntry', component: SelectRoleToEntryComponent},
+  { path: 'profile', component: UserProfileComponent},
 ];
 
 @NgModule({
