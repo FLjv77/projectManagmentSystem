@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-advanced-search-according-to-cost',
   templateUrl: './advanced-search-according-to-cost.component.html',
   styleUrls: ['./advanced-search-according-to-cost.component.scss',
+  '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss',
    '../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
 export class AdvancedSearchAccordingToCostComponent implements OnInit {
@@ -55,28 +56,32 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [120, 132, 101, 134, 90, 230, 210]
+          data: [120, 132, 101, 134, 90, 230, 210],
+          itemStyle: {color: '#ffd000'}
         },
         {
           name: 'شرکت-2',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [220, 182, 191, 234, 290, 330, 310]
+          data: [220, 182, 191, 234, 290, 330, 310],
+          itemStyle: {color: '#ffd519'}
         },
         {
           name: 'شرکت-3',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [150, 232, 201, 154, 190, 330, 410]
+          data: [150, 232, 201, 154, 190, 330, 410],
+          itemStyle: {color: '#AEAEAE'}
         },
         {
           name: 'شرکت-4',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [320, 332, 301, 334, 390, 330, 320]
+          data: [320, 332, 301, 334, 390, 330, 320],
+          itemStyle: {color: '#bb9900'}
         },
         {
           name: 'شرکت-5',
@@ -89,7 +94,8 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
             }
           },
           areaStyle: { normal: {} },
-          data: [820, 932, 901, 934, 1290, 1330, 1320]
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          itemStyle: {color: '#525252cc'}
         }
       ]
     };
