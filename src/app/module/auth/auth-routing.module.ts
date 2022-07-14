@@ -1,3 +1,4 @@
+import { UserProfileComponent } from 'src/app/auth/page/user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginUserComponent } from "../../auth/page/login-user/login-user.component";
@@ -7,7 +8,8 @@ import { RegisterCompanyComponent } from "../../auth/page/register-company/regis
 const routes: Routes = [
   { path: 'loginUser', component: LoginUserComponent},
   { path: 'registerUser', component: RegisterUserComponent},
-  { path: 'registerCompany', component: RegisterCompanyComponent}
+  { path: 'registerCompany', component: RegisterCompanyComponent},
+  { path: 'profile', component: UserProfileComponent},
 ];
 
 @NgModule({

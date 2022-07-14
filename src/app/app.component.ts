@@ -12,6 +12,8 @@ export class AppComponent {
   }
 
   public checkShowNavAndSideBar(): boolean {
-    return location.href.indexOf('auth') == -1;
+    return location.href.indexOf('auth/loginUser') == -1 ,
+     location.href.indexOf('auth/registerUser') == -1,
+     location.href.indexOf('auth/registerCompany') == -1;
   }
 }
