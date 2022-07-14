@@ -55,7 +55,13 @@
   font-family: Vazir, Raymon, Arial, Helvetica, sans-serif !important;
   text-align: right;
   font-size: 17px;
+  @media(max-width: 600px){
+    font-size: 12px;
+  }
 }
 ::ng-deep.select2-container .select2-selection--single {
   height: 34px;
+  @media(max-width: 600px){
+    height: 26px;
+  }
 }

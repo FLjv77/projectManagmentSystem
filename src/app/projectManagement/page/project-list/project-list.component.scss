@@ -11,8 +11,8 @@
   width: 300px;
   margin-top: 20px;
   @media (max-width: 400px) {
-    width: 230px;
-    height: 280px;
+    //width: 230px;
+    height: 310px;
   }
 }
 
@@ -58,9 +58,15 @@
   }
 }
 .cycle-progress {
-  position: absolute; left: -95px; top: 5px; width: 60%;
+  position: absolute; left: -90px; top: 5px; width: 60%;
   @media (max-width: 1100px) {
-    left: 10px;
+    left: -85px;
+  }
+  @media (max-width: 400px) {
+    left: -75px;
+  }
+  @media (max-width: 300px) {
+    left: -55px;
   }
 }
 .short-cut-icon {

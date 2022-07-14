@@ -9,6 +9,10 @@
   background-color: $side-bar-color;
   transition: linear 0.4s;
   z-index: 2;
+
+  @media (max-width: 500px) {
+    width: 40px;
+  }
 }
 
 .expand-side-bar {
@@ -39,6 +43,10 @@
     &:hover{
       color: $active-yellow;
     }
+  @media (max-width: 500px) {
+    font-size: 26px;
+    left: 8px;
+  }
 }
 .position1{
   top: 73px !important;

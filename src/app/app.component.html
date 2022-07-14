@@ -1,4 +1,6 @@
-<router-outlet>
-  <app-sidebar *ngIf="checkShowNavAndSideBar()"></app-sidebar>
-  <app-navebar *ngIf="checkShowNavAndSideBar()"></app-navebar>
-</router-outlet>
+<div class="vw-100 vh-100 scroll-w-hidden" (click)="closeSideBarOnClickOutSide($event)">
+  <router-outlet>
+    <app-sidebar *ngIf="checkShowNavAndSideBar()"></app-sidebar>
+    <app-navebar *ngIf="checkShowNavAndSideBar()"></app-navebar>
+  </router-outlet>
+</div>

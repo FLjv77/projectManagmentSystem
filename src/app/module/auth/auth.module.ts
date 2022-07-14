@@ -8,6 +8,7 @@ import { LoginUserComponent } from "../../auth/page/login-user/login-user.compon
 import { RegisterUserComponent } from "../../auth/page/register-user/register-user.component";
 import { RegisterCompanyComponent } from "../../auth/page/register-company/register-company.component";
 import {MatRadioModule} from "@angular/material/radio";
+import {SelectRoleToEntryComponent} from "../../auth/page/select-role-to-entry/select-role-to-entry.component";
 import { UserProfileComponent } from 'src/app/auth/page/user-profile/user-profile.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -17,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LoginUserComponent,
     RegisterUserComponent,
     RegisterCompanyComponent,
+    SelectRoleToEntryComponent,
     UserProfileComponent
   ],
   imports: [

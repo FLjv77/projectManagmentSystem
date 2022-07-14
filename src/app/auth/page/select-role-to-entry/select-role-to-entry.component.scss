@@ -1,0 +1,33 @@
+@import "../../../../assets/style/colorPalette";
+
+.role-box {
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  color: $hieght-lite-yellow;
+  min-width: 130px;
+  opacity: 0.85;
+  transition: all 0.3s;
+  border: 3px solid $hieght-lite-yellow;
+
+  &:hover {
+    border: none;
+    background-color: $hieght-lite-yellow;
+    opacity: 1;
+    color: rgb(80, 80, 80);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.arrow-icon {
+  i {
+    opacity: 0;
+    transition: 0.2s;
+  }
+
+  &:hover {
+    i {
+      opacity: 1;
+    }
+  }
+}

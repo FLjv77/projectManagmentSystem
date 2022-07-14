@@ -28,33 +28,33 @@
 
 .img-quick-access-card {
   position: absolute;
-  right: -60px;
-  bottom: 15px;
-  border: solid 8px $general-back-ground-color;
-  height: 170px;
-  width: 170px;
+  right: -40px;
+  bottom: 35px;
+  border: solid 6px $general-back-ground-color;
+  height: 150px;
+  width: 150px;
   border-radius: 300px;
-  @media (max-width: 1100px) {
-    height: 160px;
-    width: 160px;
-    right: -20px;
-    border: solid 8px $general-back-ground-color;
+  @media (max-width: 1200px) {
+    height: 140px;
+    width: 140px;
+    right: -10px;
+    border: solid 6px $general-back-ground-color;
   }
 }
 .black-glass-quick-access-card {
   background-color: rgba(0,0,0,0.35);
   position: absolute;
-  right: -60px;
-  bottom: 15px;
-  border: solid 8px $general-back-ground-color;
-  height: 170px;
-  width: 170px;
+  right: -40px;
+  bottom: 35px;
+  border: solid 6px $general-back-ground-color;
+  height: 150px;
+  width: 150px;
   border-radius: 300px;
-  @media (max-width: 1100px) {
-    height: 160px;
-    right: -20px;
-    width: 160px;
-    border: solid 8px $general-back-ground-color;
+  @media (max-width: 1200px) {
+    height: 140px;
+    right: -10px;
+    width: 140px;
+    border: solid 6px $general-back-ground-color;
   }
 }
 .title-card {
