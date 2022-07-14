@@ -6,7 +6,8 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 @Component({
   selector: 'app-advanced-search-according-to-allocation',
   templateUrl: './advanced-search-according-to-allocation.component.html',
-  styleUrls: ['./advanced-search-according-to-allocation.component.scss', '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
+  styleUrls: ['./advanced-search-according-to-allocation.component.scss',
+   '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
 })
 export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
 
