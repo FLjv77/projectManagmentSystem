@@ -1,11 +1,14 @@
 <div id="collapseSideBar" class="collapse-side-bar set-font-vazir">
   <div class="position-relative">
     <img src="../../../../assets/image/sideBar/openSideBar.svg" (click)="openSideBar()" class="open-close-side-bar-icon">
-    <i class="material-icons posision-icon" (click)="openProfile()"
+
+    <i class="material-icons posision-icon" (click)="GoHome()"
+        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'left'" matTooltip="خانه">home</i>
+    <i class="material-icons posision-icon position1" (click)="openProfile()"
         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'left'" matTooltip="پروفایل">person</i>
-    <i class="material-icons position1 posision-icon" (click)="goSearchFillter()"
+    <i class="material-icons position2 posision-icon" (click)="goSearchFillter()"
         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'left'" matTooltip="جستجوی پیشرفته">search</i>
-    <i class="material-icons position2 posision-icon" (click)="logout()"
+    <i class="material-icons position3 posision-icon" (click)="logout()"
         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'left'" matTooltip="خروج">power_settings_new</i>
   </div>
 </div>

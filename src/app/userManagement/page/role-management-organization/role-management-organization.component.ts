@@ -1,12 +1,12 @@
-import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
+import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 
 @Component({
-  selector: 'app-management-users',
-  templateUrl: './role-management-users.component.html',
-  styleUrls: ['./role-management-users.component.scss']
+  selector: 'app-role-management-organization',
+  templateUrl: './role-management-organization.component.html',
+  styleUrls: ['./role-management-organization.component.scss', '../role-management-users/role-management-users.component.scss']
 })
-export class RoleManagementUsersComponent implements OnInit {
+export class RoleManagementOrganizationComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
 
@@ -18,7 +18,7 @@ export class RoleManagementUsersComponent implements OnInit {
     {id: 5, isPresenter: true, isObserver: true, isSponsor: true, isEmployer: false, isAdvisor: false, isContractor: false},
     {id: 6, isPresenter: false, isObserver: true, isSponsor: false, isEmployer: true, isAdvisor: true, isContractor: true},
     {id: 7, isPresenter: false, isObserver: false, isSponsor: true, isEmployer: true, isAdvisor: false, isContractor: false},
-    ];
+  ];
 
   constructor() { }
 
@@ -28,7 +28,7 @@ export class RoleManagementUsersComponent implements OnInit {
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت کاربران', false, '');
-    this.path2 = new DisplayPathModel('مدیریت نقش کاربران شرکتی', false, '');
+    this.path2 = new DisplayPathModel('مدیریت نقش کاربران سازمانی', false, '');
   }
 
   public changeLockRolePresenter(index: number) {

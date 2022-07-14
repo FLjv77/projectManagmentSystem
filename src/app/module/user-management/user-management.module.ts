@@ -8,6 +8,7 @@ import { UserManagementRoutingModule } from './user-management-routing.module';
 import { VeiwUserListComponent } from 'src/app/userManagement/page/veiw-user-list/veiw-user-list.component';
 import { RoleManagementUsersComponent } from 'src/app/userManagement/page/role-management-users/role-management-users.component';
 import { ChatUsersComponent } from 'src/app/userManagement/page/chat-users/chat-users.component';
+import { RoleManagementOrganizationComponent} from "../../userManagement/page/role-management-organization/role-management-organization.component";
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { ChatUsersComponent } from 'src/app/userManagement/page/chat-users/chat-
     RoleManagementUsersComponent,
     ChatUsersComponent,
     AddUserModalComponent,
-
+    RoleManagementOrganizationComponent,
   ],
   imports: [
     CommonModule,

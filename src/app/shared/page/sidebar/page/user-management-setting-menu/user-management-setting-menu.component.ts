@@ -44,6 +44,9 @@ export class UserManagementSettingMenuComponent implements OnInit {
     else if (select == 3) {
       this.router.navigate(['../../userManagement/chatUsers']);
     }
+    else if (select == 4) {
+      this.router.navigate(['../../userManagement/roleManagementUserOrganization']);
+    }
   }
 
 }
