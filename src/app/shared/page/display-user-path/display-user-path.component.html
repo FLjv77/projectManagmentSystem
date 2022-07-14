@@ -1,6 +1,6 @@
   <div class="wrapper-rout container-routs">
     <div class="row w-100 content-routs mx-auto">
-      <div class="col-md-4 col-12 my-auto">
+      <div class="col-md-5 col-lg-4 col-12 my-auto">
         <div class="d-flex py-4 text-right set-font-vazir">
           <span class="parent-rout px-2 {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
           <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
@@ -9,7 +9,7 @@
           <span class="current-rout px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
         </div>
       </div>
-      <div class="col-md-6 col-12 py-3">
+      <div class="col-lg-6 col-md-5 col-12 py-md-3 py-0">
         <app-drop-down-company-list [customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
         <app-drop-down-project-list class="w-100" *ngIf="showProjectList"></app-drop-down-project-list>
       </div>

@@ -7,6 +7,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
   selector: 'app-advanced-search-according-to-time',
   templateUrl: './advanced-search-according-to-time.component.html',
   styleUrls: ['./advanced-search-according-to-time.component.scss',
+  '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss',
     '../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
 export class AdvancedSearchAccordingToTimeComponent implements OnInit {
