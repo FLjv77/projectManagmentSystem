@@ -1,3 +1,4 @@
+import { HandleModalService } from './../../../../../shared/service/handleModalService/handle-modal.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectedCompanyListComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private handleModalService: HandleModalService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +25,10 @@ export class SelectedCompanyListComponent implements OnInit {
 
   public goProjectList() {
     this.router.navigate(['../../projectManagement/projectList']);
+  }
+
+  public openEditCompanyModal(){
+    this.handleModalService.openModal('company-profile-modal');
   }
 
 }

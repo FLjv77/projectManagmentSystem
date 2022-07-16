@@ -1,0 +1,20 @@
+@import "../../../../assets/style/modalAnimation.scss";
+@import "../../../../assets/style/modalStyle.scss";
+@import "../../../../assets/style/inputStyle.scss";
+@import "../../../userManagement/page/add-user-modal/add-user-modal.component.scss";
+
+.color-radio{
+    color: $dark-back-ground !important;
+}
+
+.company-profile{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    @media(max-width:470px){
+        width: 90px;
+        height: 90px;
+    }
+}
