@@ -34,6 +34,7 @@ import {DisplayUserPathComponent} from "../../shared/page/display-user-path/disp
 import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-list/drop-down-company-list.component";
 import { NgSelect2Module } from 'ng-select2';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {UploadFileInputComponent} from "../../shared/page/upload-file-input/upload-file-input.component";
 
 @NgModule({
   declarations: [
@@ -58,27 +59,29 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DisplayUserPathComponent,
     DropDownProjectListComponent,
     DropDownCompanyListComponent,
+    UploadFileInputComponent,
   ],
     exports: [
-      NavebarComponent,
-      SidebarComponent,
-      UserProfileImageComponent,
-      CurrentUserProfileImageComponent,
-      CurrentUserUserNameComponent,
-      GeneralBackGroundComponent,
-      ButtonStyleComponent,
-      UserInformationComponent,
-      DashbordManagmentMenuComponent,
-      UserManagementSettingMenuComponent,
-      ProjectManagementSettingMenuComponent,
-      CompanyManagementSettingMenuComponent,
-      GalleryManagementSettingMenuComponent,
-      ProjectDependencyManagementSettingMenuComponent,
-      InputStyleComponent,
-      BooleanCustomToggleComponent,
-      DatePickerJalalyComponent,
-      DisplayUserPathComponent,
-      DropDownProjectListComponent
+        NavebarComponent,
+        SidebarComponent,
+        UserProfileImageComponent,
+        CurrentUserProfileImageComponent,
+        CurrentUserUserNameComponent,
+        GeneralBackGroundComponent,
+        ButtonStyleComponent,
+        UserInformationComponent,
+        DashbordManagmentMenuComponent,
+        UserManagementSettingMenuComponent,
+        ProjectManagementSettingMenuComponent,
+        CompanyManagementSettingMenuComponent,
+        GalleryManagementSettingMenuComponent,
+        ProjectDependencyManagementSettingMenuComponent,
+        InputStyleComponent,
+        BooleanCustomToggleComponent,
+        DatePickerJalalyComponent,
+        DisplayUserPathComponent,
+        DropDownProjectListComponent,
+        UploadFileInputComponent
     ],
   imports: [
     CommonModule,

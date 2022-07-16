@@ -1,6 +1,7 @@
 <div class="wrapper">
-    <div class="row mx-2 d-md-flex d-none mb-2">
-        <div class="col-6 background-yellow">
+  <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
+  <div class="row mx-2 d-md-flex mb-2">
+        <div class="col-md-6 col-12 background-yellow">
             <div class="row">
                 <div class="row col-12 my-2">
                     <div class="col-xl-3 col-lg-4 col-12 d-inline my-auto text-lg-end text-center">
@@ -53,7 +54,7 @@
           <app-time-line-project></app-time-line-project>
 
         </div>
-        <div class="col-6 background-gray">
+        <div class="col-md-6 col-12 background-gray">
             <div class="row">
                 <h1 class="set-font-Raymon text-center text-white pt-3">دسترسی سریع</h1>
             </div>
@@ -136,11 +137,25 @@
                         وضعیت پروژه</div>
                       <div class="col-6 col-lg-4 d-flex justify-content-end">
                         <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
                         <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
                         <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
+                      </div>
+                    </div>
+                    <div class="row list-result-project set-font-vazir py-2">
+                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                      <div class="col-lg-4 col-6 my-auto">
+                        <div class="state-project mx-1 d-inline-block"></div>
+                        وضعیت پروژه</div>
+                      <div class="col-6 col-lg-4 d-flex justify-content-end">
+                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
                       </div>
                     </div>
                     <div class="row list-result-project set-font-vazir py-2">
@@ -178,11 +193,11 @@
                         وضعیت پروژه</div>
                       <div class="col-6 col-lg-4 d-flex justify-content-end">
                         <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
                         <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
                         <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
                       </div>
                     </div>
                     <div class="row list-result-project set-font-vazir py-2">
@@ -192,11 +207,11 @@
                         وضعیت پروژه</div>
                       <div class="col-6 col-lg-4 d-flex justify-content-end">
                         <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
                         <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
                         <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
                       </div>
                     </div>
                     <div class="row list-result-project set-font-vazir py-2">
@@ -206,195 +221,15 @@
                         وضعیت پروژه</div>
                       <div class="col-6 col-lg-4 d-flex justify-content-end">
                         <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
                         <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
                         <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
                       </div>
                     </div>
                   </div>
             </div>
         </div>
     </div>
-    <div class="row mx-sm-2 mx-0 d-md-none d-block">
-        <div class="row background-yellow-md">
-            <img src="../../../../assets/image/workSpace/sakh3.jpg" class="profile-style-md img-fluid" alt="">
-            <div class="row col-sm-8 col-5">
-                <div class="col-sm-6 col-12 div-text">
-                    <div class="text-nowrap">
-                        <i class="material-icons icons">people</i>
-                        <span class="mx-2">25</span>
-                    </div>
-                    <div class="text-nowrap">
-                        <i class="material-icons icons">date_range</i>
-                        <span class="mx-2">1400/02/12</span>
-                    </div>
-                    <div class="text-nowrap">
-                        <i class="material-icons icons">access_time</i>
-                        <span class="mx-2">20</span>
-                    </div>
-                </div>
-                <div class="col-6 div-state d-sm-block d-none">
-                    <div class="mt-2">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        <span class="mx-2">5</span>
-                    </div>
-                    <div class="mt-2">
-                        <div class="state-project mx-1 d-inline-block color-1"></div>
-                        <span class="mx-2">3</span>
-                    </div>
-                    <div class="mt-2">
-                        <div class="state-project mx-1 d-inline-block color-2"></div>
-                        <span class="mx-2">45</span>
-                    </div>
-                </div>
-                <div>
-
-                </div>
-            </div>
-            <div class="row div-state d-sm-none d-block mx-auto text-center">
-                <div class="col-4 d-inline">
-                    <div class="state-project mx-1 d-inline-block"></div>
-                    <span class="mx-2">50</span>
-                </div>
-                <div class="col-4 d-inline">
-                    <div class="state-project mx-1 d-inline-block color-1"></div>
-                    <span class="mx-2">50</span>
-                </div>
-                <div class="col-4 d-inline">
-                    <div class="state-project mx-1 d-inline-block color-2"></div>
-                    <span class="mx-2">50</span>
-                </div>
-            </div>
-            <div class="col-12 mx-auto">
-                <p class="set-font-vazir mr-2 text-style">
-                    لورم ای طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان  داشت  دنیای موجو گیرد.
-                </p>
-            </div>
-        </div>
-        <div class="row background-gray-md">
-            <div class="row mx-auto px-0">
-                <h2 class="set-font-Raymon text-center text-white">دسترسی سریع</h2>
-                <div class="row mx-auto">
-                    <div class="mt-4 mx-auto scroll-list-project">
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                          <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                          <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                        <div class="row list-result-project set-font-vazir py-2">
-                          <div class="col-lg-4 col-12 my-auto text-sm-end text-center">نام پروژه</div>
-                          <div class="col-lg-4 col-sm-6 col-12 my-auto text-center">
-                            <div class="state-project mx-1 d-inline-block"></div>
-                            وضعیت پروژه</div>
-                          <div class="col-sm-6 col-12 col-lg-4 d-flex justify-content-end">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/Group%20202.svg" class="icon-short-cut-project">
-                            <img src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project">
-                          </div>
-                        </div>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

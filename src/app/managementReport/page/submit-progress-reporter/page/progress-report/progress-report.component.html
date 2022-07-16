@@ -11,10 +11,10 @@
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'" [inputId]="'5'"
-            [inputFormControl]="fileFormControl"></app-input-style>
+  <app-upload-file-input [inputFormControl]="fileFormControl" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'"></app-upload-file-input>
 
-    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
+
+  <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
         <button type="button" class="ok-button">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
