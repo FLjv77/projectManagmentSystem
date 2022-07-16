@@ -1,3 +1,4 @@
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { DropDownProjectListComponent } from './../../shared/page/drop-down-project-list/drop-down-project-list.component';
 import { InputStyleComponent } from './../../shared/page/component/input-style/input-style.component';
@@ -34,6 +35,7 @@ import {DisplayUserPathComponent} from "../../shared/page/display-user-path/disp
 import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-list/drop-down-company-list.component";
 import { NgSelect2Module } from 'ng-select2';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { CompanyProfileModalComponent } from 'src/app/shared/page/company-profile-modal/company-profile-modal.component';
 import {UploadFileInputComponent} from "../../shared/page/upload-file-input/upload-file-input.component";
 
 @NgModule({
@@ -60,28 +62,30 @@ import {UploadFileInputComponent} from "../../shared/page/upload-file-input/uplo
     DropDownProjectListComponent,
     DropDownCompanyListComponent,
     UploadFileInputComponent,
+    CompanyProfileModalComponent
   ],
     exports: [
-        NavebarComponent,
-        SidebarComponent,
-        UserProfileImageComponent,
-        CurrentUserProfileImageComponent,
-        CurrentUserUserNameComponent,
-        GeneralBackGroundComponent,
-        ButtonStyleComponent,
-        UserInformationComponent,
-        DashbordManagmentMenuComponent,
-        UserManagementSettingMenuComponent,
-        ProjectManagementSettingMenuComponent,
-        CompanyManagementSettingMenuComponent,
-        GalleryManagementSettingMenuComponent,
-        ProjectDependencyManagementSettingMenuComponent,
-        InputStyleComponent,
-        BooleanCustomToggleComponent,
-        DatePickerJalalyComponent,
-        DisplayUserPathComponent,
-        DropDownProjectListComponent,
-        UploadFileInputComponent
+      NavebarComponent,
+      SidebarComponent,
+      UserProfileImageComponent,
+      CurrentUserProfileImageComponent,
+      CurrentUserUserNameComponent,
+      GeneralBackGroundComponent,
+      ButtonStyleComponent,
+      UserInformationComponent,
+      DashbordManagmentMenuComponent,
+      UserManagementSettingMenuComponent,
+      ProjectManagementSettingMenuComponent,
+      CompanyManagementSettingMenuComponent,
+      GalleryManagementSettingMenuComponent,
+      ProjectDependencyManagementSettingMenuComponent,
+      InputStyleComponent,
+      BooleanCustomToggleComponent,
+      DatePickerJalalyComponent,
+      DisplayUserPathComponent,
+      DropDownProjectListComponent,
+      CompanyProfileModalComponent
+      UploadFileInputComponent,
     ],
   imports: [
     CommonModule,
@@ -92,7 +96,8 @@ import {UploadFileInputComponent} from "../../shared/page/upload-file-input/uplo
     MatFormFieldModule,
     MatSelectModule,
     NgSelect2Module,
-    MatTooltipModule
+    MatTooltipModule,
+    MatRadioModule
   ],
   providers: [
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },

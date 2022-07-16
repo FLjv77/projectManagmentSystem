@@ -93,3 +93,12 @@ span, a, a:hover {
         font-size: 20px;
     }
 }
+
+.padding-gallery{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    @media(max-width:500px){
+        margin-left: -1rem;
+        margin-right: 1rem;
+    }
+}

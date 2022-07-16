@@ -75,15 +75,11 @@
 }
 
 .profile-style{
-    //position: absolute;
     padding-left: 0px;
     padding-right: 0px;
-    //margin-top: -5px;
-    //right: -23%;
     width: 120px;
     height: 120px;
     border-radius: 100%;
-    //border: solid 10px white;
     @media(max-width:1200px){
         right: -29%;
     }
