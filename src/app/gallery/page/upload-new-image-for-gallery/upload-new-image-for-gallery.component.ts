@@ -1,3 +1,4 @@
+import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
@@ -7,7 +8,8 @@ import {FormControl} from "@angular/forms";
   templateUrl: './upload-new-image-for-gallery.component.html',
   styleUrls: ['./upload-new-image-for-gallery.component.scss',
     '../../../../assets/style/base.scss',
-    '../../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component.scss']
+    '../../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component.scss',
+    '../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss']
 })
 export class UploadNewImageForGalleryComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
@@ -16,11 +18,14 @@ export class UploadNewImageForGalleryComponent implements OnInit {
   loading: boolean = false;
   file: File ;
   public tiltleImageFormControl = new FormControl();
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
 
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.initDisplayPath();
   }
 
   private initInputStyle() {
@@ -42,7 +47,10 @@ export class UploadNewImageForGalleryComponent implements OnInit {
   public onUpload(){}
   public removeSelectedPage() {
     this.imgURL = '';
-
+  }
+  private initDisplayPath() {
+    this.path1 = new DisplayPathModel('گالری', false, '');
+    this.path2 = new DisplayPathModel('آپلود تصویر', false, '');
   }
 
 }
