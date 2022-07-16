@@ -3,33 +3,42 @@
 
 .toggle-base {
     background-color: white;
-    width: 225px;
+    width: 210px;
     border-radius: 50px;
     height: 45px;
     color: $dark-back-ground;
-    font-size: medium;
+    font-size: large;
     transition: all 0.5s;
     position: relative;
     border: 1px solid $dark-back-ground;
     margin-top: 10px;
+    @media(max-width:400px) {
+      width: 180px;
+    }
   }
 
   .toggle-cycle {
     border-radius: 50px;
     height: 50px;
-    width: 110px;
+    width: 104px;
     background-color: $lite-yellow;
     font-weight: bold;
     margin-top: -4px;
     padding-left: 5px;
     padding-right: 5px;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+    @media(max-width:400px) {
+      width: 89px;
+    }
   }
 
   .unselected-value {
     text-align: center;
     word-wrap: break-word;
-    width: 110px;
+    width: 104px;
+    @media(max-width:400px) {
+      width: 89px;
+    }
   }
 
   .mat-tree {
@@ -54,4 +63,12 @@
 
 .bgbg{
   background-color: rgba($color: rgb(245, 245, 245), $alpha: 0.9);
+}
+
+.padding-report{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  @media(max-width:500px){
+    margin-left: 0rem;
+  }
 }
