@@ -1,0 +1,42 @@
+<div id="company-profile-modal">
+    <div class="modal-background">
+      <div class="modal">
+        <div class="my-modal-content text-center mx-auto">
+          <div class="modal-scroll">
+            <div class="header-modal">
+              <span class="mx-auto set-font-Raymon">ویرایش شرکت</span>
+            </div>
+            <div class="row mt-sm-2 mx-auto">
+              <div class="col-12 my-auto text-center">
+                <input #imageProfile class="form-control" style="width: 1px; height: 1px; opacity: 0;" type="file" (change)="onChange($event)">
+                <img src="../../../../assets/image/workSpace/sakh3.jpg" class="company-profile pointer" alt="" (click)="imageProfile.click()">
+              </div>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام شرکت'" [inputId]="'1'"
+                [inputFormControl]="companyNameFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'توضیحات شرکت'" [inputId]="'2'"
+                [inputFormControl]="companyDescriptionFormControl" [textarea]="true"></app-input-style>
+                <label id="example-radio-group-label" class="mt-5 set-font-vazir row text-light">حوزه کاربری شرکت</label>
+                <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="example-radio-group font-size-small text-light color-radio">
+                  <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right" [value]="0">
+                    <span class="px-2">مسکن</span>
+                  </mat-radio-button>
+                  <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right" [value]="1">
+                    <span class="px-2">راه سازی</span>
+                  </mat-radio-button>
+                  <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right" [value]="2">
+                    <span class="px-2">آب رسانی</span>
+                  </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row mx-auto mt-5">
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">تایید</button>
+            </div>
+          </div>
+          <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
+        </div>
+      </div>
+    </div>
+</div>
+  

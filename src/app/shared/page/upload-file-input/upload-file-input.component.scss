@@ -1,0 +1,29 @@
+@import "../../../../assets/style/colorPalette";
+
+.input-label {
+  position: absolute;
+  right: 4px;
+  color: $side-bar-color;
+  font-size: medium;
+  bottom: 6px;
+}
+.input-upload-style {
+  opacity: 0;
+}
+.container-input-upload-style {
+  margin-top: 10px;
+  border-bottom: 2px solid $side-bar-color;
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding-bottom: 7px;
+}
+
+.upload-icon {
+  position: absolute;
+  left: 8px;
+  bottom: 6px;
+  cursor: pointer;
+  color: $dark-back-ground;
+}

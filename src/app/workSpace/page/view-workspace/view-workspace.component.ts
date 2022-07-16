@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 
 @Component({
   selector: 'app-view-workspace',
@@ -7,22 +8,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./view-workspace.component.scss']
 })
 export class ViewWorkspaceComponent implements OnInit {
-
-   // public data = [
-   //    {name: 'row1', tasks: [
-   //        {name: 'task1', from: '2015/12/10', to: '2016/02/15'},
-   //        {name: 'task2',from: '2015/12/10', to: '2016/02/15'}
-   //        ]
-   //    },
-   //    {name: 'row2', tasks: [
-   //        {name: 'task3', from: '2015/12/10', to: '2016/02/15'},
-   //        {name: 'task4', from: '2015/12/10', to: '2016/02/15'}
-   //      ]
-   //    },
-   // ];
-
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
   constructor(private router: Router) { }
   ngOnInit() {
+    this.initDisplayPath();
   }
   public goToEditProject() {
     this.router.navigate(['../../projectManagement/editProject'])
@@ -34,4 +24,8 @@ export class ViewWorkspaceComponent implements OnInit {
     this.router.navigate(['../../projectManagement/chart'])
   }
 
+  private initDisplayPath() {
+    this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
+    this.path2 = new DisplayPathModel('پروفایل شرکت', false, '');
+  }
 }

@@ -14,9 +14,10 @@ import {FormControl} from "@angular/forms";
 export class UploadNewImageForGalleryComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public showUploadPhoto = true;
-  imgURL: string;
-  loading: boolean = false;
-  file: File ;
+  public imgURL: string;
+  public loading: boolean = false;
+  public filePath: string;
+  public file: File ;
   public tiltleImageFormControl = new FormControl();
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
@@ -38,8 +39,16 @@ export class UploadNewImageForGalleryComponent implements OnInit {
     this.file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
-      console.log(reader);
-      this.imgURL = reader.result as string;
+      if (event.target.files[0].type.indexOf('application') > -1) {
+        this.imgURL = '../../../../assets/icon/gallery/uploadedFile.svg';
+      } else if (event.target.files[0].type.indexOf('audio') > -1) {
+        this.imgURL = '../../../../assets/icon/gallery/voice.svg';
+      } else if (event.target.files[0].type.indexOf('video') > -1) {
+        this.imgURL = '../../../../assets/icon/gallery/videocam.svg';
+      } else {
+        this.imgURL = reader.result as string;
+      }
+      this.filePath = event.target.files[0].name;
     }
     reader.readAsDataURL(this.file)
   }
@@ -47,6 +56,7 @@ export class UploadNewImageForGalleryComponent implements OnInit {
   public onUpload(){}
   public removeSelectedPage() {
     this.imgURL = '';
+    this.filePath = '';
   }
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('گالری', false, '');

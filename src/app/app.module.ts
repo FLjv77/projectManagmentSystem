@@ -11,6 +11,7 @@ import { SharedModule } from "./module/shared/shared.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxEchartsModule} from "ngx-echarts";
 import {AuthModule} from "./module/auth/auth.module";
+import { UploadFileInputComponent } from './shared/page/upload-file-input/upload-file-input.component';
 
 @NgModule({
   declarations: [
