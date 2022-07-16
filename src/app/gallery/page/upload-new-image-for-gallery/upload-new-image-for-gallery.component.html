@@ -12,6 +12,7 @@
                        [inputFormControl]="tiltleImageFormControl"></app-input-style>
       <div class="container-upload-image px-2 position-relative mt-4">
         <img *ngIf="imgURL" class="preview-image" [src]="imgURL">
+        <div class="py-2 set-font-vazir file-name-style">{{filePath}}</div>
         <div *ngIf="loading" class="spinner-border spinner-upload-image progress-circle" role="status">
           <span class="sr-only">Loading...</span>
         </div>

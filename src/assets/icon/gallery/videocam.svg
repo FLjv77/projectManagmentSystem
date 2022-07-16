@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="79.397" height="58.931" viewBox="0 0 79.397 58.931">
+  <defs>
+    <filter id="ic_videocam_24px" x="0" y="0" width="79.397" height="58.931" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#ic_videocam_24px)">
+    <path id="ic_videocam_24px-2" data-name="ic_videocam_24px" d="M50.753,21.349V9.411A3.421,3.421,0,0,0,47.342,6H6.411A3.421,3.421,0,0,0,3,9.411V43.52a3.421,3.421,0,0,0,3.411,3.411H47.342a3.421,3.421,0,0,0,3.411-3.411V31.582L64.4,45.226V7.705Z" transform="translate(6)" fill="#9a9a9a"/>
+  </g>
+</svg>

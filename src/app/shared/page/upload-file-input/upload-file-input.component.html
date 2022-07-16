@@ -1,0 +1,6 @@
+<div class="position-relative container-input-upload-style py-2">
+  <div class="input-label set-font-vazir">{{filePath}}</div>
+  <input #inputFile class="input-upload-style"
+         (change)="onChange($event)" type="file" [placeholder]="inputLabel">
+  <span class="material-icons upload-icon" (click)="inputFile.click()">upload_file</span>
+</div>
