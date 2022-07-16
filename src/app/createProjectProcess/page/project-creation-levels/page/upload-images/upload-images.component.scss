@@ -31,9 +31,8 @@
   .bg-color {
     position: absolute;
     left: 43%;
-    height: 107px;
-    bottom: -70px;
-    opacity: 0;
+    bottom: 80px;
+    opacity: 0.7;
     transition: 0.3s all;
     color: rgba(255, 233, 78, 0.7);
     font-size: 122px;
@@ -54,9 +53,8 @@
   .bg-color-1 {
     position: absolute;
     left: 40%;
-    height: 107px;
-    bottom: -70px;
-    opacity: 0;
+    bottom: 80px;
+    opacity: 0.7;
     transition: 0.3s all;
     color: rgba(255, 233, 78, 0.7);
     font-size: 122px;
@@ -77,9 +75,8 @@
   .bg-color-2 {
         position: absolute;
         left: 49%;
-        height: 107px;
-        bottom: -70px;
-        opacity: 0;
+        bottom: 80px;
+        opacity: 0.7;
         transition: 0.3s all;
         color: rgba(255, 233, 78, 0.7);
         font-size: 122px;
@@ -99,15 +96,12 @@
 
     &:hover {
       .bg-color {
-        bottom: 80px;
         opacity: 1;
       }
       .bg-color-1 {
-        bottom: 80px;
         opacity: 1;
       }
       .bg-color-2 {
-        bottom: 80px;
         opacity: 1;
       }
     }
