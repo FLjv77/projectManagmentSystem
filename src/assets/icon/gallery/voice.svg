@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="85" viewBox="0 0 85 85">
+  <defs>
+    <filter id="ic_album_24px" x="0" y="0" width="85" height="85" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#ic_album_24px)">
+    <path id="ic_album_24px-2" data-name="ic_album_24px" d="M35.5,2A33.5,33.5,0,1,0,69,35.5,33.512,33.512,0,0,0,35.5,2Zm0,48.575A15.075,15.075,0,1,1,50.575,35.5,15.055,15.055,0,0,1,35.5,50.575Zm0-18.425a3.35,3.35,0,1,0,3.35,3.35A3.36,3.36,0,0,0,35.5,32.15Z" transform="translate(7 4)" fill="#9a9a9a"/>
+  </g>
+</svg>

@@ -44,6 +44,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.subscribeChangeInputValue();
   }
+
 }
 
 export class InputCustomStyle {
