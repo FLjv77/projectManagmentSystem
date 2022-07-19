@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressReportActivityComponent implements OnInit {
 
-  constructor(private handleModalService : HandleModalService) { }
+  constructor(private handleModalService : HandleModalService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   public openMdalRecordProgress(){
     this.handleModalService.openModal('record-progress-report');
+  }
+
+  public newReport(){
+    this.router.navigate(['../../managementReport/submitProgressReporter']);
   }
 }

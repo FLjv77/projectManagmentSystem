@@ -72,7 +72,7 @@ export class ChartReportProjectComponent implements OnInit {
           type: 'pie',
           radius: '50%',
           data: [
-            { value: 20, name: 'نیروی انسانی', itemStyle: {color: '#ffd519'} },
+            { value: 20, name: 'نیروی انسانی', itemStyle: {color: '#000'} },
             { value: 80, name: 'زیر ساخت' , itemStyle: {color: '#AEAEAE'}},
           ],
           emphasis: {
@@ -128,7 +128,7 @@ export class ChartReportProjectComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [5, 10, 11, 18, 18, 20, 30],
-          itemStyle: {color: '#ffd519'}
+          itemStyle: {color: '#000'}
         },
         {
           name: 'تخصیص پروژه',
@@ -159,7 +159,7 @@ export class ChartReportProjectComponent implements OnInit {
       },
       xAxis: { type: 'category' },
       yAxis: {name: 'درصد پیشرفت',},
-      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#ffd519'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
+      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#000'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
     };
   }
 
