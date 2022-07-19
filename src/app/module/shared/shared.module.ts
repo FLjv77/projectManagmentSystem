@@ -84,7 +84,7 @@ import {UploadFileInputComponent} from "../../shared/page/upload-file-input/uplo
       DatePickerJalalyComponent,
       DisplayUserPathComponent,
       DropDownProjectListComponent,
-      CompanyProfileModalComponent
+      CompanyProfileModalComponent,
       UploadFileInputComponent,
     ],
   imports: [

@@ -18,13 +18,12 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     this.initMap();
   }
 
-  // @ts-ignore
-  private map;
+  private map: any;
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39.8282, -98.5795 ],
-      zoom: 3
+      center: [ 35.7, 51.4 ],
+      zoom: 10
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

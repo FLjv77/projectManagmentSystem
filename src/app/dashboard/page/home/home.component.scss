@@ -1,12 +1,21 @@
 @import "../../../../assets/style/colorPalette";
 
+.lite-part {
+  padding-right: 20px;
+  padding-top: 20px;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.dark-part {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: black;
+}
 .quick-access-card {
   height: 200px;
   border-radius: 15px;
   background-color: $lite-yellow;
-  position: relative;
-  padding-right: 90px;
-  padding-top: 10px;
   @media (max-width: 1100px) {
     padding-right: 140px;
     min-width: 350px;
@@ -27,39 +36,17 @@
 }
 
 .img-quick-access-card {
-  position: absolute;
-  right: -40px;
-  bottom: 35px;
-  border: solid 6px $general-back-ground-color;
-  height: 150px;
-  width: 150px;
-  border-radius: 300px;
+  height: 130px;
+  width: 130px;
+  margin-top: 15px;
   @media (max-width: 1200px) {
-    height: 140px;
-    width: 140px;
-    right: -10px;
-    border: solid 6px $general-back-ground-color;
-  }
-}
-.black-glass-quick-access-card {
-  background-color: rgba(0,0,0,0.35);
-  position: absolute;
-  right: -40px;
-  bottom: 35px;
-  border: solid 6px $general-back-ground-color;
-  height: 150px;
-  width: 150px;
-  border-radius: 300px;
-  @media (max-width: 1200px) {
-    height: 140px;
-    right: -10px;
-    width: 140px;
-    border: solid 6px $general-back-ground-color;
+    height: 120px;
+    width: 120px;
   }
 }
 .title-card {
   font-size: 28px;
-  margin-top: 60px;
+  margin-top: 10px;
   @media (max-width: 1100px) {
     font-size: 22px;
   }
