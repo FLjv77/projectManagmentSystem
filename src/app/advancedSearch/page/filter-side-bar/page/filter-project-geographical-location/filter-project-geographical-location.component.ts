@@ -9,14 +9,16 @@ import {Select2OptionData} from "ng-select2";
 export class FilterProjectGeographicalLocationComponent implements OnInit {
   public placeHolder: Select2OptionData;
   public stateData: Array<Select2OptionData>;
+  public cityData: Array<Select2OptionData>;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.initListCompany();
+    this.initListState();
+    this.initListCity();
   }
 
-  private initListCompany() {
+  private initListState() {
     this.placeHolder = {
       text: 'انتخاب استان',
       id: 'none'
@@ -97,6 +99,90 @@ export class FilterProjectGeographicalLocationComponent implements OnInit {
       },
       {
         text: 'کرمانشاه',
+        id: 'Basic 4'
+      }
+    ];
+  }
+  private initListCity() {
+    this.placeHolder = {
+      text: 'انتخاب شهرستان',
+      id: 'none'
+    }
+    this.cityData = [
+      {
+        text: 'سیس',
+        id: 'Basic 1'
+      },
+      {
+        text: 'سهند',
+        id: 'Basic 2'
+      },
+      {
+        text: 'کشکسرای',
+        id: 'Basic 2'
+      },
+      {
+        text: 'باسمنج',
+        id: 'Basic 2'
+      },
+      {
+        text: 'تیکمه داش',
+        id: 'Basic 3'
+      },
+      {
+        text: 'مبارک شهر',
+        id: 'Basic 4'
+      },
+      {
+        text: 'مهربان',
+        id: 'Basic 4'
+      },
+      {
+        text: 'ایلخچی',
+        id: 'Basic 4'
+      },
+      {
+        text: 'زنوز',
+        id: 'Basic 4'
+      },
+      {
+        text: 'تسوج',
+        id: 'Basic 4'
+      },
+      {
+        text: 'ورزقان',
+        id: 'Basic 4'
+      },
+      {
+        text: 'ترکمانچای',
+        id: 'Basic 4'
+      },
+      {
+        text: 'زرنق',
+        id: 'Basic 4'
+      },
+      {
+        text: 'هشترود',
+        id: 'Basic 4'
+      },
+      {
+        text: 'هادیشهر',
+        id: 'Basic 4'
+      },
+      {
+        text: 'سردرود',
+        id: 'Basic 4'
+      },
+      {
+        text: 'صوفیان',
+        id: 'Basic 4'
+      },
+      {
+        text: 'تیمورلو',
+        id: 'Basic 4'
+      },
+      {
+        text: 'دوزدوزان',
         id: 'Basic 4'
       }
     ];
