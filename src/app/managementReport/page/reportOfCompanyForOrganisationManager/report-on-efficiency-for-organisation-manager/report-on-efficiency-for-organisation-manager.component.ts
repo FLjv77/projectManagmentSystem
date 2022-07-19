@@ -67,7 +67,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [120, 132, 101, 134, 90, 230, 210],
-          itemStyle: {color: '#bb9900'}
+          itemStyle: {color: '#5c5c5c'}
         },
         {
           name: 'شرکت-2',
@@ -75,7 +75,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [220, 182, 191, 234, 290, 330, 310],
-          itemStyle: {color: '#525252cc'}
+          itemStyle: {color: '#AEAEAE'}
         },
         {
           name: 'شرکت-3',
@@ -83,7 +83,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [150, 232, 201, 154, 190, 330, 410],
-          itemStyle: {color: '#ffd519'}
+          itemStyle: {color: '#000'}
         },
         {
           name: 'شرکت-4',
@@ -91,7 +91,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [320, 332, 301, 334, 390, 330, 320],
-          itemStyle: {color: '#AEAEAE'}
+          itemStyle: {color: '#dfdfdf'}
         },
         {
           name: 'شرکت-5',
@@ -105,7 +105,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           },
           areaStyle: { normal: {} },
           data: [820, 932, 901, 934, 1290, 1330, 1320],
-          itemStyle: {color: '#ffd000'}
+          itemStyle: {color: '#3d3d3d'}
         }
       ]
     };
@@ -151,7 +151,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [320, 32, 171, 834, 290, 30, 210],
-          itemStyle: {color: '#ffd000'}
+          itemStyle: {color: '#dfdfdf'}
         },
         {
           name: 'شرکت-2',
@@ -167,7 +167,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [50, 532, 101, 254, 90, 230, 310],
-          itemStyle: {color: '#ffd519'}
+          itemStyle: {color: '#3d3d3d'}
         },
         {
           name: 'شرکت-4',
@@ -175,7 +175,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [20, 32, 1, 4, 30, 30, 20],
-          itemStyle: {color: '#525252cc'}
+          itemStyle: {color: '#000'}
         },
         {
           name: 'شرکت-5',
@@ -189,7 +189,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
           },
           areaStyle: { normal: {} },
           data: [80, 92, 101, 234, 190, 130, 320],
-          itemStyle: {color: '#bb9900'} 
+          itemStyle: {color: '#5c5c5c'} 
         }
       ]
     };
@@ -211,7 +211,7 @@ export class ReportOnEfficiencyForOrganisationManagerComponent implements OnInit
       },
       xAxis: { type: 'category' },
       yAxis: {name: 'درصد پیشرفت',},
-      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#ffd519'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
+      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#000'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
     };
   }
 }

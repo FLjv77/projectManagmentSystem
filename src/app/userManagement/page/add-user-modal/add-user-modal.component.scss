@@ -4,11 +4,12 @@
 .add-user-button-modal{
     border-radius: 20px;
     border: none;
-    background-color: $yellow-color;
+    background-color: $icon-color;
     color: white;
     font-size: 18px;
     font-weight: bold;
     &:hover{
         box-shadow: 0px 0px 3px 0px $side-bar-color;
+        background-color: $text-color-normal;
     }
 }

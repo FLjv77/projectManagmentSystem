@@ -1,13 +1,13 @@
 @import "../../../../assets/style/base.scss";
 @import "../../../projectManagement/page/edit-project-information/edit-project-information.component.scss";
 
-.button-style-report{
+.button-style-report-progress{
     border: none;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgba($color: $active-yellow-lite, $alpha: 0.9);
+    background-color: $icon-color;
     border-radius: 50px;
     font-size: 15px;
-    color: $background-modal;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -37,4 +37,34 @@
         text-align: justify;
         text-justify: inter-word;
     }
+}
+
+.title-efficiency{
+    color: #fff;
+    background-color: $active-yellow-lite;
+    border: none;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.title-progress{
+    color: #fff;
+    background-color: $icon-color;
+    border: none;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.button-style-report-efficiency{
+    border: none;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+    background-color: $active-yellow-lite;
+    border-radius: 50px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
 }

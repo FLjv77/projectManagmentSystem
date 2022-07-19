@@ -10,8 +10,8 @@
   </defs>
   <g id="Group_201" data-name="Group 201" transform="translate(-1145 -405)">
     <g transform="matrix(1, 0, 0, 1, 1145, 405)" filter="url(#Ellipse_18)">
-      <circle id="Ellipse_18-2" data-name="Ellipse 18" cx="20.5" cy="20.5" r="20.5" transform="translate(9 6)" fill="#fff" opacity="0.73"/>
+      <circle id="Ellipse_18-2" data-name="Ellipse 18" cx="20.5" cy="20.5" r="20.5" transform="translate(9 6)" fill="#a4a3a3"/>
     </g>
-    <path id="ic_reorder_24px" d="M3,15H21V13H3Zm0,4H21V17H3Zm0-8H21V9H3ZM3,5V7H21V5Z" transform="translate(1163 420)" fill="#c2c2c2" opacity="0.72"/>
+    <path id="ic_reorder_24px" d="M3,15H21V13H3Zm0,4H21V17H3Zm0-8H21V9H3ZM3,5V7H21V5Z" transform="translate(1163 420)" fill="#fff"/>
   </g>
 </svg>
