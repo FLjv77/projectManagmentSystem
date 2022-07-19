@@ -36,7 +36,7 @@ import {DropDownCompanyListComponent} from "../../shared/page/drop-down-company-
 import { NgSelect2Module } from 'ng-select2';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { CompanyProfileModalComponent } from 'src/app/shared/page/company-profile-modal/company-profile-modal.component';
-import {UploadFileInputComponent} from "../../shared/page/upload-file-input/upload-file-input.component";
+import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/upload-file-input.component';
 
 @NgModule({
   declarations: [
@@ -84,8 +84,8 @@ import {UploadFileInputComponent} from "../../shared/page/upload-file-input/uplo
       DatePickerJalalyComponent,
       DisplayUserPathComponent,
       DropDownProjectListComponent,
-      CompanyProfileModalComponent
-      UploadFileInputComponent,
+      CompanyProfileModalComponent,
+      UploadFileInputComponent
     ],
   imports: [
     CommonModule,

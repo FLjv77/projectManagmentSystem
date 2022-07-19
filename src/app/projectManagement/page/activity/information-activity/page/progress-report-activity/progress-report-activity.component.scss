@@ -12,3 +12,16 @@ $color-table: rgba(256, 256, 256, 0.8);
 .overflow-table{
     overflow-x: scroll;
 }
+
+.add-report {
+    font-size: 30px;
+    color: $text-color-normal;
+    border-radius: 100%;
+    padding: -2px !important;
+}
+
+.button-add-report{
+    background: transparent;
+    border: none;
+    border-radius: 100%;
+}

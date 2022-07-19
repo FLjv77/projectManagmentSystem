@@ -2,7 +2,7 @@
 @import "../../../../assets/style/colorPalette.scss";
 
 .title-page{
-    color: $text-color-normal;
+    color: $side-bar-color;
 }
 
 .ok-button{
@@ -30,12 +30,12 @@
 .text-bottom{
     font-weight: bold;
     font-size: 14px;
-    color: $text-color-normal;
+    color: $side-bar-color;
 }
 
 .icon-styles{
     position: relative;
     top: 8px;
-    color: $text-color-normal;
+    color: $side-bar-color;
     font-size: 30px;
 }
