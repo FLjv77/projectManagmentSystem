@@ -1,4 +1,4 @@
-<div class="bg-levels mx-4 mt-2">
+<div *ngFor="let activity of activityList , let i = index" class="bg-levels mx-4 mt-2" id="'index'">
     <div class="row pb-5">
         <div class="col-12 d-block my-auto">
             <i class="material-icons d-inline icon-styles">assignment</i>
@@ -10,11 +10,11 @@
         <div class="row col-12">
             <div class="col-md-3 col-12 mt-5">
                 <mat-checkbox class="d-inline" (click)="checked()"></mat-checkbox>
-                <span class="title-page set-font-Raymon px-2">فرزند</span>
+                <span class="title-page set-font-Raymon px-2">زیر فعالیت</span>
             </div>
             <div class="col-md-9 col-12">
                 <mat-form-field *ngIf="checkbox" class="mat-form-field-infix w-100" appearance="fill">
-                    <mat-label>فعالیت پدر</mat-label>
+                    <mat-label>فعالیت اصلی</mat-label>
                     <mat-select>
                       <mat-option>
                          فعالیت 1  
@@ -59,12 +59,12 @@
 </div>
 
 <div class="row mx-auto">
-    <div class="mx-auto text-center">
+    <div class="mx-auto text-center" (click)="addActivity()">
         <button class="button-add"><img src="../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         <span class="text-bottom pointer">افزودن فعالیت جدید</span>
     </div>
 </div>
 <button class="button-veiw-activity px-3 py-2" (click)="openMdalViewActivity();">
-    مشاهده فعالیت ها
+    نمایش فعالیت ها
 </button>
 <app-tree-diagram-activity-modal></app-tree-diagram-activity-modal>
