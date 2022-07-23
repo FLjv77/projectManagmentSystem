@@ -24,6 +24,8 @@
     "angular-material-tree": "^0.2.1",
     "bootstrap": "^5.1.3",
     "echarts": "^5.3.3",
+    "highcharts": "^10.2.0",
+    "highcharts-angular": "^3.0.0",
     "jalali-moment": "^3.3.11",
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
