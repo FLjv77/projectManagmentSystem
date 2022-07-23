@@ -18,6 +18,7 @@ export class AddActivityComponent implements OnInit {
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
   public checkbox:boolean = false;
+  public activityList: Array<string> = ['2223'];
 
   constructor(private handleModalService: HandleModalService) { }
 
@@ -49,5 +50,9 @@ export class AddActivityComponent implements OnInit {
 
   public openMdalViewActivity(){
     this.handleModalService.openModal('view-activity-diagram-modal');
+  }
+
+  addActivity(){
+    this.activityList.push('222');
   }
 }
