@@ -49,8 +49,11 @@
   font-size: small;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100% !important;}
+body { 
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
   background-color: $active-yellow;
@@ -76,21 +79,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: $active-yellow-lite;
   bottom: -20px;
   right: -20px;
-}
-
-
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #b7b7b7;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #757575;
 }

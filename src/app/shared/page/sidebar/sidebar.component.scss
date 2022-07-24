@@ -2,7 +2,7 @@
 @import "../../../../assets/style/base.scss";
 .collapse-side-bar {
   position: fixed;
-  right: 0;
+  right: 5px !important;
   top: 0;
   bottom: 0;
   width: 60px;
@@ -17,7 +17,7 @@
 
 .expand-side-bar {
   position: fixed;
-  right: 0;
+  right: 5px;
   top: 0;
   bottom: 0;
   width: 280px;

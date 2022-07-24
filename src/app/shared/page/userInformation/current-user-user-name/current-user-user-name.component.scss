@@ -1,8 +1,9 @@
 @import "../../../../../assets/style/colorPalette";
 
 .user-name {
-  color: $text-color-lite;
+  color: #fff;
   font-size: medium;
+  font-weight: bold;
   margin-left: 10px;
   @media (max-width: 500px) {
     font-size: small;

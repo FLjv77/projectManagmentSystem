@@ -14,10 +14,13 @@
   <img *ngIf="isFullScreen" src="../../../../assets/icon/naveBar/outFullScreen.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="خروج تمام صفحه"
        class="nave-bar-icon mx-4" (click)="openFullscreen()">
-
   <img src="../../../../assets/icon/naveBar/change-role.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر نقش"
        class="nave-bar-icon" (click)="select.open()">
+  <img src="../../../../assets/icon/naveBar/notificationIcon.svg"
+       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="اعلان ها"
+       class="nave-bar-icon mx-4" (click)="select.open()">
+
   <mat-select class="select-container" #select>
     <mat-option class="set-font-Raymon d-block text-right pointer mx-2 mt-2 mb-1 pb-1">
       مدیر

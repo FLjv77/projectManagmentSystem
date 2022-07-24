@@ -21,7 +21,7 @@
 
 ::ng-deep.mat-expansion-panel-header:not([aria-disabled=true]) {
   cursor: pointer;
-  background-color: #fffce1;
+  background-color: rgba($color: #D1B6E1, $alpha: 0.3);
 }
 .title-check-box {
   color: $dark-back-ground;
