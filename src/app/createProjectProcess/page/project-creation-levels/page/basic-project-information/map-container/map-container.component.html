@@ -1,5 +1,9 @@
 <div (click)="activeSelectLocation($event)" class="map-container">
   <div class="map-frame">
+    <div class="pt-4">
+      <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path>
+    </div>
+
     <div id="map"></div>
   </div>
 

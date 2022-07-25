@@ -1,17 +1,22 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {Router} from "@angular/router";
+import {DisplayPathModel} from "../../../../../../shared/model/displayPathModel";
 
 @Component({
   selector: 'app-map-container',
   templateUrl: './map-container.component.html',
-  styleUrls: ['./map-container.component.scss']
+  styleUrls: ['./map-container.component.scss', '../../../../../../../assets/style/base.scss']
 })
 export class MapContainerComponent implements OnInit, AfterViewInit  {
-
+  public path1: DisplayPathModel;
+  public path2: DisplayPathModel;
+  public path3: DisplayPathModel;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.initMap();
+    this.initDisplayPath();
   }
 
   ngAfterViewInit(): void {
@@ -53,5 +58,11 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   public backToProjectInformation() {
     this.router.navigate(['../../createProject/startCreatProject'])
+  }
+
+  private initDisplayPath() {
+    this.path1 = new DisplayPathModel('مدیریت پروژ', false, '');
+    this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
+    this.path3 = new DisplayPathModel('انتخاب موقعیت', false, '');
   }
 }

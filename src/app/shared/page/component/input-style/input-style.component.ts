@@ -18,6 +18,9 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() haveEye: boolean;
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
+  @Input() haveLimit: boolean;
+  @Input() maxValue: number;
+  @Input() minValue: number;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {
@@ -36,9 +39,17 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   }
 
   private subscribeChangeInputValue() {
-    this.inputFormControl.valueChanges.subscribe((value: string) => {
-      this.changeValue.emit(value);
-    })
+    this.inputFormControl.valueChanges.subscribe((value) => {
+      if (this.haveLimit) {
+        if (value >= this.minValue && value <= this.maxValue) {
+          this.changeValue.emit(value);
+        } else {
+          this.inputFormControl.reset();
+        }
+      } else {
+        this.changeValue.emit(value);
+      }
+    });
   }
 
   ngAfterViewInit(): void {
