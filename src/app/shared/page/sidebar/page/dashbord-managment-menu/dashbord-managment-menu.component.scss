@@ -18,7 +18,7 @@
 
 .hoverMenu:hover{
   font-weight: bold;
-  background-color: $text-color-lite;
+  background-color: rgba($color: #f6e7ff, $alpha: 0.7);;
   border-radius: 0 100px 100px 0;
   padding-right: 10px;
   transition: background-color 0.5s;
@@ -41,7 +41,7 @@
 
 .active-menu {
   font-weight: bold;
-  background-color: $text-color-lite;
+  background-color: rgba($color: #f6e7ff, $alpha: 0.7);
   border-radius: 0 100px 100px 0;
   padding-right: 10px;
 }

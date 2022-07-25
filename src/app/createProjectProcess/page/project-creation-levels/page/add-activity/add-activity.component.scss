@@ -1,6 +1,7 @@
 @import "../../../../../../assets/style/inputStyle.scss";
 @import "../../../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
 @import "../../../../../../assets/style/colorPalette.scss";
+@import "../../../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
 
 .mat-form-field-infix {
    display: block;
@@ -24,5 +25,29 @@
       color: white;
       bottom: 30px;
       transition: ease-in-out all 0.5s;
+   }
+}
+
+.button-view-activity{
+   background: transparent;
+   border: none;
+   border-radius: 100%;
+   position: fixed;
+   bottom: 16px;
+   left: 73px;
+   transition: ease-in-out all 0.5s;
+   border-radius: 100%;
+   z-index: 1;
+   .add-view-icon{
+      position: relative;
+      width: 52px;
+      height: 52px;
+      padding: 4px;
+      box-shadow: 0px 0px 3px 0px $button-color;
+      border-radius: 100%;
+   }
+   &:hover{
+       bottom: 25px;
+       transition: ease-in-out all 0.5s;
    }
 }

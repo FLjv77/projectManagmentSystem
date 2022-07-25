@@ -3,13 +3,13 @@
 
 .toggle-base {
     background-color: white;
-    width: 210px;
+    width: 211px;
     border-radius: 50px;
     height: 45px;
     font-size: large;
     transition: all 0.5s;
     position: relative;
-    border: 1px solid $dark-back-ground;
+    border: 1px solid $active-yellow;
     margin-top: 10px;
     @media(max-width:400px) {
       width: 180px;
@@ -21,7 +21,7 @@
     height: 50px;
     width: 104px;
     color: #fff !important;
-    background-color: $lite-yellow;
+    background-color: $active-yellow;
     font-weight: bold;
     margin-top: -4px;
     padding-left: 5px;
@@ -71,5 +71,18 @@
   margin-right: 2rem;
   @media(max-width:500px){
     margin-left: 0rem;
+  }
+}
+
+.mat-expansion-panel-header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba($color: $icon-color, $alpha: 0.7);
+  align-items: center;
+  padding: 0 24px;
+  border-radius: inherit;
+  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover{
+    background-color: rgba($color: $side-bar-color, $alpha: 0.7);
   }
 }
