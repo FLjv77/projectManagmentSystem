@@ -9,6 +9,7 @@ import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-man
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {NgxEchartsModule} from "ngx-echarts";
 import {TotalChartForOrganizationComponent} from "../../dashboard/page/home/page/total-chart-for-organization/total-chart-for-organization.component";
+import {TotalChartForCompanyComponent} from "../../dashboard/page/home-company-manager/page/total-chart-for-company/total-chart-for-company.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {TotalChartForOrganizationComponent} from "../../dashboard/page/home/page
       HomeComponent,
       HomeCompanyManagerComponent,
       TotalChartForOrganizationComponent,
+      TotalChartForCompanyComponent,
     ],
     exports: [
     ],

@@ -1,13 +1,13 @@
-<div *ngFor="let activity of activityList , let i = index" class="bg-levels mx-4 mt-2" id="'index'">
+<div *ngFor="let activity of activityList , let i = index" class="bg-levels mx-4 mt-2">
     <div class="row pb-5">
         <div class="col-12 d-block my-auto">
             <i class="material-icons d-inline icon-styles">assignment</i>
-            <h4 class="title-page d-inline set-font-Raymon">افزودن فعالیت</h4>
+            <h4 class="title-page d-inline set-font-Raymon">افزودن فعالیت اصلی</h4>
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
             [inputFormControl]="activityNameFormControl"></app-input-style>
         
-        <div class="row col-12">
+        <!-- <div class="row col-12">
             <div class="col-md-3 col-12 mt-5">
                 <mat-checkbox class="d-inline" (click)="checked()"></mat-checkbox>
                 <span class="title-page set-font-Raymon px-2">زیر فعالیت</span>
@@ -28,7 +28,7 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-        </div>
+        </div> -->
 
         <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
             [inputFormControl]="startDateFormControl"></app-date-picker-jalaly>
@@ -58,13 +58,22 @@
     </div>
 </div>
 
-<div class="row mx-auto">
+<!-- <div class="row mx-auto">
     <div class="mx-auto text-center" (click)="addActivity()">
         <button class="button-add"><img src="../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         <span class="text-bottom pointer">افزودن فعالیت جدید</span>
     </div>
-</div>
-<button class="button-veiw-activity px-3 py-2" (click)="openMdalViewActivity();">
-    نمایش فعالیت ها
+</div> -->
+<button class="button-add-user p-0 m-0" (click)="addActivity();">
+    <i class="material-icons icon-lockes add-user-icon m-0 p-0"
+        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن فعالیت جدید">
+        add_circle
+    </i>
+</button>
+
+<button class="button-view-activity" (click)="openMdalViewActivity();">
+    <img class="icon-lockes add-view-icon" src="../../../../../../assets/icon/projectShortCut/view.svg" alt=""
+    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="نمایش فعالیت ها">
 </button>
 <app-tree-diagram-activity-modal></app-tree-diagram-activity-modal>
+<app-sub-activity></app-sub-activity>

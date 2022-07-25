@@ -1,3 +1,5 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SubActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/sub-activity/sub-activity.component';
 import { TreeDiagramActivityModalComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/tree-diagram-activity-modal/tree-diagram-activity-modal.component';
 import { DevelopmentReportProjectComponent } from './../../createProjectProcess/page/project-creation-levels/page/development-report-project/development-report-project.component';
 import { UploadImagesComponent } from './../../createProjectProcess/page/project-creation-levels/page/upload-images/upload-images.component';
@@ -42,6 +44,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     FinancialReportProjectComponent,
     TreeDiagramActivityModalComponent,
     MapContainerComponent,
+    SubActivityComponent
   ],
   imports: [
     CommonModule,
@@ -50,10 +53,11 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatExpansionModule
-
+    MatExpansionModule,
+    MatTooltipModule
   ],
-  exports: [],
+  exports: [
+  ],
   providers: [
     IranStateAndZoneService,
     TreeDiagramActivityModalComponent

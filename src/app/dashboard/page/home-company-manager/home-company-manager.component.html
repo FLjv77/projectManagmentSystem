@@ -1,67 +1,62 @@
 <div class="wrapper">
   <div class="row d-rtl mx-auto d-flex justify-content-center">
-    <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
-    <div class="col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="quick-access-card-company boxShadow">
-        <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
-        <div class="black-glass-quick-access-card">
-        <span class="set-font-Raymon text-light d-flex justify-content-center title-card">
+    <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
+    <div class="wrapper-content row">
+      <div class="col-lg-6 mt-2 col-12 px-3 mx-auto">
+        <div class="quick-access-card boxShadow d-flex">
+          <div class="w-50 dark-part">
+            <img src="../../../../assets/image/workSpace/project-management.png" class="img-quick-access-card mx-auto d-flex justify-content-center">
+            <span class="set-font-Raymon text-light d-flex justify-content-center title-card">
           پروژه ها
         </span>
+          </div>
+          <div class="w-50 lite-part">
+            <div class="mt-2 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2" (click)="goToCreateProject()">ایجاد پروژه</span>
+            </div>
+            <div class="mt-4 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2" (click)="goToEditProject()">ویرایش پروژه</span>
+            </div>
+            <div class="mt-4 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2" (click)="goToProjectList()">مشاهده پروژه</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-2 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2" (click)="goToCreateProject()">ایجاد پروژه</span>
-        </div>
-        <div class="mt-4 d-flex m-r-2">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ویرایش پروژه</span>
-        </div>
-        <div class="mt-4 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">مشاهده پروژه</span>
-        </div>
-        <div class="mt-4 d-flex m-r-3">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ایجاد پروژه</span>
-        </div>
-
       </div>
-    </div>
-    <div class="col-md-6 mt-3 mt-md-0 col-12 mx-auto d-flex justify-content-center">
-      <div class="quick-access-card-company boxShadow">
-        <img class="img-quick-access-card" src="../../../../assets/image/workSpace/sakh3.jpg">
-        <div class="black-glass-quick-access-card">
-        <span class="set-font-Raymon text-light d-flex justify-content-center title-card">
-                 گزارش ها
+
+
+      <div class="col-lg-6 mt-2 col-12 px-3 mx-auto">
+        <div class="quick-access-card boxShadow d-flex">
+          <div class="w-50 dark-part">
+            <img src="../../../../assets/image/workSpace/company.png" class="img-quick-access-card mx-auto d-flex justify-content-center">
+            <span class="set-font-Raymon text-light d-flex justify-content-center title-card">
+          فعالیت ها
         </span>
+          </div>
+          <div class="w-50 lite-part">
+            <div class="mt-2 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2" (click)="goToSubmitReport()">ثبت گزارش</span>
+            </div>
+            <div class="mt-4 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2" (click)="goToActivityInformation()">مدیریت فعالیت ها</span>
+            </div>
+            <div class="mt-4 d-flex">
+              <div class="option-in-card mt-1"></div>
+              <span class="set-font-vazir sub-menu-text px-2 ">ایجاد فعالیت</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-2 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">گزارش تخصیص</span>
-        </div>
-        <div class="mt-4 d-flex m-r-2">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">گزارش پیشرفت</span>
-        </div>
-        <div class="mt-4 d-flex m-r-1">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">نظارت بر گزارش</span>
-        </div>
-        <div class="mt-4 d-flex m-r-3">
-          <div class="option-in-card mt-1"></div>
-          <span class="set-font-vazir sub-menu-text px-2 ">ثبت گزارش</span>
-        </div>
-
       </div>
     </div>
+
   </div>
-  <div class="row d-rtl mt-4 mx-auto d-flex justify-content-center">
-    <div class="col-md-3 col-12 mx-auto">
-    </div>
-    <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
-    </div>
-    <div class="col-md-3 mt-3 mt-md-0 col-12 mx-auto">
-    </div>
-  </div>
+  <app-total-chart-for-company></app-total-chart-for-company>
+
 </div>
+
+<app-company-profile-modal></app-company-profile-modal>

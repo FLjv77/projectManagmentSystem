@@ -11,8 +11,6 @@ import { SharedModule } from "./module/shared/shared.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxEchartsModule} from "ngx-echarts";
 import {AuthModule} from "./module/auth/auth.module";
-import { UploadFileInputComponent } from './shared/page/upload-file-input/upload-file-input.component';
-import { TotalChartForOrganizationComponent } from './dashboard/page/home/page/total-chart-for-organization/total-chart-for-organization.component';
 
 @NgModule({
   declarations: [

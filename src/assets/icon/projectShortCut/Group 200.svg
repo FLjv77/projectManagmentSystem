@@ -10,7 +10,7 @@
   </defs>
   <g id="Group_200" data-name="Group 200" transform="translate(-1094 -405)">
     <g transform="matrix(1, 0, 0, 1, 1094, 405)" filter="url(#Ellipse_16)">
-      <circle id="Ellipse_16-2" data-name="Ellipse 16" cx="20.5" cy="20.5" r="20.5" transform="translate(9 6)" fill="#a4a3a3"/>
+      <circle id="Ellipse_16-2" data-name="Ellipse 16" cx="20.5" cy="20.5" r="20.5" transform="translate(9 6)" fill="#d1b6e1"/>
     </g>
     <path id="ic_file_download_24px" d="M25,11.571H19.286V3H10.714v8.571H5l10,10ZM5,24.429v2.857H25V24.429Z" transform="translate(1109 418)" fill="#fff"/>
   </g>
