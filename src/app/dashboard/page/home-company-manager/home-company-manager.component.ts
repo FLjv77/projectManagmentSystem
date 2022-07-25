@@ -19,7 +19,18 @@ export class HomeCompanyManagerComponent implements OnInit {
   public goToCreateProject() {
     this.router.navigate(['../createProject/selectProjectType']);
   }
-
+  public goToEditProject() {
+    this.router.navigate(['../projectManagement/editProject']);
+  }
+  public goToProjectList() {
+    this.router.navigate(['../projectManagement/projectList']);
+  }
+  public goToSubmitReport() {
+    this.router.navigate(['../managementReport/submitProgressReporter']);
+  }
+  public goToActivityInformation() {
+    this.router.navigate(['../projectManagement/InformationActivity']);
+  }
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('داشبورد', false, '');
     this.path2 = new DisplayPathModel('خانه', false, '');

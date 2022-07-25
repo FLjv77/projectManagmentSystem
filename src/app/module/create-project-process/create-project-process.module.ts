@@ -56,7 +56,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatExpansionModule,
     MatTooltipModule
   ],
-  exports: [],
+  exports: [
+  ],
   providers: [
     IranStateAndZoneService,
     TreeDiagramActivityModalComponent

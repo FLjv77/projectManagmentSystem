@@ -40,14 +40,22 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
       },
       xAxis: [
         {
+          dataTextStyle: {
+            fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif'
+          },
           type: 'category',
           boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          data: ['مهر', 'شهریور', 'مرداد', 'تیر', 'خرداد', 'اردیبهشت', 'فروردین']
         }
       ],
       yAxis: [
         {
-          type: 'value'
+          type: 'value',
+          nameTextStyle: {
+            fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+            fontWeight: 'bold'
+          },
+          name: 'ریال'
         }
       ],
       series: [
