@@ -8,7 +8,7 @@ export enum WayType {
   asphalt, concrete, soil
 }
 export enum ProjectRuralWater {
-  well, aqueduct, dredgingWells, waterRefinery, waterTranslate
+  well, fountain, dam, distributionNetwork, source, pomp,purification, waterSeal, transferLine
 }
 export enum ProjectRuralHousing {
   apartment, villa

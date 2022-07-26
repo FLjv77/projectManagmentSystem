@@ -2,67 +2,15 @@
         <div class="row">
           <div class="col-12">
             <i class="material-icons d-inline icon-styles">water_drop</i>
-            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آب روستایی</h4>
+            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
           </div>
-          <mat-form-field class="text-right set-font-vazir mt-4">
-            <mat-label class="set-font-vazir float-end">انتخاب استان</mat-label>
-            <mat-select class="text-right set-font-vazir">
-              <mat-option *ngFor="let item of iranStateAndZoneList" [value]="getStateName(item)" class="set-font-vazir text-right">
-                <div class="text-right" (click)="setSelectedState(item)">
-                  {{getStateName(item)}}
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="text-right set-font-vazir mt-2">
-            <mat-label class="set-font-vazir float-end">انتخاب شهرستان</mat-label>
-            <mat-select class="text-right set-font-vazir">
-              <mat-option *ngFor="let item of getZoneOfSelectedState()" [value]="item" class="set-font-vazir text-right">
-                <div class="text-right" (click)="setSelectedZone(item)">
-                  {{item}}
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
 
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام منطقه'" [inputId]="'region'"
-                           [inputFormControl]="regionControl"></app-input-style>
-
-
-          <label id="example-radio-group-label" class="mt-5 set-font-vazir">حوزه پروژه</label>
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setProjectRuralWaterArea(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">احداث چاه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">احیای قنات</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-              <span class="px-2">لایروبی چاه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(3)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="3">
-              <span class="px-2">احداث تصفیه خانه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(4)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="4">
-              <span class="px-2">انتقال آب از مکانی دیگر</span>
-            </mat-radio-button>
-          </mat-radio-group>
-
-          <label class="mt-5 set-font-vazir">نوع خاک</label>
-          <mat-radio-group
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setProjectGroundType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">کوهستانی</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectGroundType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">کویری</span>
-            </mat-radio-button>
-          </mat-radio-group>
-
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
 
           <div class="row mt-3">
             <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
@@ -82,7 +30,6 @@
             </div>
           </div>
 
-
           <div class="row mt-3">
             <div class="pr-3 mt-3 position-relative" *ngFor="let item of equipmentList; let i = index">
               <div class="col-11 disabled-input">{{item}}</div>
@@ -100,6 +47,42 @@
               </div>
             </div>
           </div>
+
+
+          <label id="example-radio-group-label" class="mt-5 set-font-vazir">حوزه پروژه</label>
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setProjectRuralWaterArea(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">چاه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">چشمه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">سد</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(3)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="3">
+              <span class="px-2">شبکه توزیع</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(4)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="4">
+              <span class="px-2">مخزن</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(5)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="5">
+              <span class="px-2">ایستگاه پمپاژ</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(6)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="6">
+              <span class="px-2">تصفیه خانه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(7)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="7">
+              <span class="px-2">آب بند</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setProjectRuralWaterArea(8)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="8">
+              <span class="px-2">خط انتقال</span>
+            </mat-radio-button>
+          </mat-radio-group>
+
+
         </div>
 
         <div class="row col-12 my-2 d-ltr" *ngIf="checkShowSubmitButton()">

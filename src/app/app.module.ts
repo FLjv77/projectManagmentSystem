@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxEchartsModule} from "ngx-echarts";
 import {AuthModule} from "./module/auth/auth.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,

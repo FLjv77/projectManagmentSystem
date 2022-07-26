@@ -19,6 +19,16 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public regionControl = new FormControl();
   public requirementControl = new FormControl();
   public equipmentControl = new FormControl();
+
+
+
+  public ableToUseControl = new FormControl();
+  public stabilityResourceControl = new FormControl();
+  public debeyControl = new FormControl();
+  public ownerShipTypeControl = new FormControl();
+  public groundTypeControl = new FormControl();
+
+
   public requirementList: Array<string>;
   public equipmentList: Array<string>;
   public iranStateAndZoneList: Array<StateAndZoneIranModel>;
