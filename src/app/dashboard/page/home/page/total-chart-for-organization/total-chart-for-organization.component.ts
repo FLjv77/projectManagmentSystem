@@ -28,7 +28,10 @@ export class TotalChartForOrganizationComponent implements OnInit {
         }
       },
       legend: {
-        data: ['شرکت-1', 'شرکت-2', 'شرکت-3', 'شرکت-4', 'شرکت-5']
+        data: ['شرکت-1', 'شرکت-2', 'شرکت-3', 'شرکت-4'],
+        textStyle: {
+          fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+        }
       },
       grid: {
         left: '3%',
@@ -40,13 +43,21 @@ export class TotalChartForOrganizationComponent implements OnInit {
         {
           type: 'category',
           boundaryGap: false,
-          data: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر']
+          labelTextStyle: {
+            fontFamily: 'Vazir, Raymon, Arial, Helvetica, sans-serif',
+            color:'#FFFFFF'
+          },
+          data: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر'],
         }
       ],
       yAxis: [
         {
           type: 'value',
-          name: 'درصد پیشرفت'
+          nameTextStyle: {
+            fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+            fontWeight: 'bold'
+          },
+          name: 'ریال'
         }
       ],
       series: [
@@ -55,31 +66,23 @@ export class TotalChartForOrganizationComponent implements OnInit {
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [5, 10, 11, 18, 18, 20, 30],
-          itemStyle: {color: '#222222'}
+          data: [705, 1000, 1100, 1800, 1008, 200, 930],
+          itemStyle: {color: '#2a6364'}
         },
         {
           name: 'شرکت-2',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [10, 20, 25, 40, 40, 42, 45],
-          itemStyle: {color: '#AEAEAE'}
+          data: [1022, 2120, 1255, 2140, 1140, 2142, 1145],
+          itemStyle: {color: '#519D9E'}
         },
         {
           name: 'شرکت-3',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [60, 30, 25, 23, 20, 12, 15],
-          itemStyle: {color: '#c1c1c1'}
-        },
-        {
-          name: 'شرکت-3',
-          type: 'line',
-          stack: 'counts',
-          areaStyle: { normal: {} },
-          data: [40, 30, 25, 23, 20, 12, 15],
+          data: [2240, 3110, 2511, 2325, 3210, 1211, 1115],
           itemStyle: {color: '#c1c1c1'}
         },
         {
@@ -87,16 +90,8 @@ export class TotalChartForOrganizationComponent implements OnInit {
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [25, 30, 34, 42, 48, 51, 57],
-          itemStyle: {color: '#7c7c7c'}
-        },
-        {
-          name: 'شرکت-5',
-          type: 'line',
-          stack: 'counts',
-          areaStyle: { normal: {} },
-          data: [5, 13, 11, 19, 17, 23, 19],
-          itemStyle: {color: '#545454'}
+          data: [255, 830, 934, 492, 888, 1151, 597],
+          itemStyle: {color: '#28dadd'}
         }
       ]
     };
@@ -105,7 +100,7 @@ export class TotalChartForOrganizationComponent implements OnInit {
 
   private initChartDoneProjectOfCompany() {
     this.doneProjectOfCompany =  {
-      color: ['#797777'],
+      color: ['#519D9E'],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -124,7 +119,10 @@ export class TotalChartForOrganizationComponent implements OnInit {
           data: ['شرکت 7', 'شرکت 6', 'شرکت 5', 'شرکت 4', 'شرکت 3', 'شرکت 2', 'شرکت 1'],
           axisTick: {
             alignWithLabel: true
-          }
+          },
+          textStyle: {
+            fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+          },
         }
       ],
       yAxis: [{
@@ -134,7 +132,10 @@ export class TotalChartForOrganizationComponent implements OnInit {
         name: 'تعداد پروژه',
         type: 'bar',
         barWidth: '60%',
-        data: [10, 5, 20, 34, 17, 30, 22]
+        data: [10, 5, 20, 34, 17, 30, 22],
+        textStyle: {
+          fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+        },
       }]
     };
   }

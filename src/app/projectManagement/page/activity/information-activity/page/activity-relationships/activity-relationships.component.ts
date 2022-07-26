@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityRelationshipsComponent implements OnInit {
 
+  public showGanttChart: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeDisplayMode() {
+    this.showGanttChart = !this.showGanttChart;
+  }
 }

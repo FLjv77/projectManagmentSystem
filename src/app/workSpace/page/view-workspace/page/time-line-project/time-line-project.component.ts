@@ -19,58 +19,6 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
   }
 
   private initTimeLineData() {
-/*
-    this.tasks = [
-      {
-        id: 1,
-        label: 'task 1',
-        start: '04/01',
-        end: '04/03',
-      },
-      {
-        id: 2,
-        label: 'task 2',
-        start: '04/05',
-        end: '04/12',
-      },
-      {
-        id: 3,
-        label: 'task 2a',
-        start: '10:00',
-        end: '12:25',
-      },
-      {
-        id: 4,
-        label: 'task 2a',
-        start: '10:40',
-        end: '12:00',
-      },
-      {
-        id: 5,
-        label: 'task 2a',
-        start: '11:40',
-        end: '13:48',
-      },
-      {
-        id: 6,
-        label: 'task 2a',
-        start: '12:20',
-        end: '13:30',
-      },
-      {
-        id: 7,
-        label: 'task 2a',
-        start: '12:40',
-        end: '13:50',
-      },
-      {
-        id: 8,
-        label: 'task 2a',
-        start: '12:00',
-        end: '13:20',
-      }
-    ];
-*/
     this.siries = [
       {
         name: 'Work Order',
@@ -85,7 +33,7 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
             end: Date.UTC(2020, 9, 18),
             completed: {
               amount: 1,
-              fill: "#fc3e3e"
+              fill: "#11d8f1"
             },
             accessibility:{
               description: 'Progress'
@@ -181,7 +129,7 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
             end: Date.UTC(2020, 9, 24),
             completed: {
               amount: 1,
-              fill: "#5ddd51"
+              fill: "#2f8891"
             },
             custom:{
               taskStatus: "progress",
@@ -288,7 +236,7 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
             end: Date.UTC(2020, 9, 19),
             completed: {
               amount: 1,
-              fill: "#ffd709"
+              fill: "#a3dbe5"
             },
             custom:{
               taskStatus: "progress",
@@ -395,7 +343,7 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
             end: Date.UTC(2020, 9, 27),
             completed: {
               amount: 1,
-              fill: "#ffd709"
+              fill: "#5e7679"
             },
             custom:{
               taskStatus: "progress",
@@ -497,7 +445,6 @@ export class TimeLineProjectComponent implements OnInit, AfterViewInit {
   }
 
   createGanttOptionData(siries: any){
-    console.log(siries);
     siries.forEach((elem: any) =>{
       elem.point = { events: { click: this.updateSelectedElement } }
     });

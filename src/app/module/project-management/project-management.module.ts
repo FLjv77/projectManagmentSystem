@@ -27,6 +27,11 @@ import {ActivityRelationshipsComponent} from "../../projectManagement/page/activ
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProgressReportActivityComponent } from 'src/app/projectManagement/page/activity/information-activity/page/progress-report-activity/progress-report-activity.component';
 import {NgxEchartsModule} from "ngx-echarts";
+import {ActivityRelationshipsTreeModeComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships-tree-mode/activity-relationships-tree-mode.component";
+import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
+import {WorkspaceModule} from "../workspace/workspace.module";
+import {TimeLineChartActivityComponent} from "../../projectManagement/page/activity/information-activity/page/time-line-chart-activity/time-line-chart-activity.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +51,10 @@ import {NgxEchartsModule} from "ngx-echarts";
     ProgressReportActivityComponent,
     RecordFinancialReportModalComponent,
     RecordProgressReportModalComponent,
-    ChartReportProjectComponent
+    ChartReportProjectComponent,
+    ActivityRelationshipsTreeModeComponent,
+    TimeLineChartActivityComponent,
+
   ],
   imports: [
     CommonModule,
@@ -58,6 +66,8 @@ import {NgxEchartsModule} from "ngx-echarts";
     MatRadioModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatTreeModule,
+    MatIconModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

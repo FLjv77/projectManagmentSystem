@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class InformationActivityComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public path3: DisplayPathModel;
 
   constructor() { }
 
@@ -17,7 +18,8 @@ export class InformationActivityComponent implements OnInit {
   }
 
   private initDisplayPath() {
-    this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
-    this.path2 = new DisplayPathModel('مدیریت فعالیت ها', false, '');
+    this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
+    this.path2 = new DisplayPathModel('پروفایل شرکت', true, 'workspace/workSpaceProfile');
+    this.path3 = new DisplayPathModel('فعالیت ها', false, '');
   }
 }
