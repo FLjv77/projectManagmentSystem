@@ -12,12 +12,18 @@
                 <app-add-activity *ngIf="selectSteps == 4"></app-add-activity>
                 <app-upload-images *ngIf="selectSteps == 5"></app-upload-images>
                 <app-development-report-project *ngIf="selectSteps == 6"></app-development-report-project>
-              <app-specialized-information-rural-water *ngIf="selectSteps == 7"></app-specialized-information-rural-water>
+              <div *ngIf="selectSteps == 7">
+                <app-specialized-information-rural-water *ngIf="checkWhichSpecializedComponent(9)"></app-specialized-information-rural-water>
+                <app-specialized-information-rural-housing *ngIf="checkWhichSpecializedComponent(0)"></app-specialized-information-rural-housing>
+                <app-specialized-information-rural-way *ngIf="checkWhichSpecializedComponent(2)"></app-specialized-information-rural-way>
+                <app-specialized-information-removal-marginalization *ngIf="checkWhichSpecializedComponent(4)"></app-specialized-information-removal-marginalization>
+                <app-social-transformation-information *ngIf="checkWhichSpecializedComponent(5)"></app-social-transformation-information>
+                <app-revival-of-industry-information *ngIf="checkWhichSpecializedComponent(8)"></app-revival-of-industry-information>
+                <app-knowledge-base-information *ngIf="checkWhichSpecializedComponent(3)"></app-knowledge-base-information>
+                <app-health-information *ngIf="checkWhichSpecializedComponent(1)"></app-health-information>
+              </div>
                 <app-project-objectives *ngIf="selectSteps == 8"></app-project-objectives>
                 <app-pproject-location-information *ngIf="selectSteps == 9"></app-pproject-location-information>
-                <!-- <app-specialized-information-rural-housing *ngIf="selectSteps == 7"></app-specialized-information-rural-housing>
-                <app-specialized-information-rural-water *ngIf="selectSteps == 7"></app-specialized-information-rural-water>
-                <app-specialized-information-rural-way *ngIf="selectSteps == 7"></app-specialized-information-rural-way> -->
             </div>
     </div>
 </div>

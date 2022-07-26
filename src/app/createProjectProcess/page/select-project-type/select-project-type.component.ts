@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
+import {ProjectType} from "../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 
 @Component({
   selector: 'app-select-project-type',
@@ -8,6 +9,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
   styleUrls: ['./select-project-type.component.scss']
 })
 export class SelectProjectTypeComponent implements OnInit {
+  private projectType: ProjectType;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
@@ -17,8 +19,9 @@ export class SelectProjectTypeComponent implements OnInit {
     this.initDisplayPath();
   }
 
-  public goToCreateProjectSteps() {
-    this.router.navigate(['createProject/startCreatProject']);
+  public goToCreateProjectSteps(type: ProjectType) {
+    this.projectType = type;
+    this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType}});
   }
 
 
