@@ -27,7 +27,7 @@
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
                         <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
+                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
                         <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
@@ -60,7 +60,7 @@
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
                         <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
+                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
                         <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
@@ -93,7 +93,7 @@
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
                         <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
+                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
                         <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
@@ -126,7 +126,7 @@
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
                         <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
+                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
                         <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
@@ -140,4 +140,7 @@
 <button class="button-add-user p-0 m-0" (click)="openMdalAddCompony();">
     <i class="material-icons icon-lockes add-user-icon m-0 p-0">add_circle</i>
 </button>
+
+
 <app-add-company-modal></app-add-company-modal>
+<app-company-profile-modal></app-company-profile-modal>

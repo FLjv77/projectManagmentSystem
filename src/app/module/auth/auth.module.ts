@@ -1,3 +1,5 @@
+import { NgSelect2Module } from 'ng-select2';
+import { DropDownRoleUserComponent } from './../../shared/page/drop-down-role-user/drop-down-role-user.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from '../shared/shared.module';
@@ -28,7 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     SharedModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatTooltipModule
+    MatTooltipModule,
   ]
 })
 export class AuthModule { }

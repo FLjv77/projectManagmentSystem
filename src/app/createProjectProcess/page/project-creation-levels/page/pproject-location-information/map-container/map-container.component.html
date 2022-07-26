@@ -1,0 +1,16 @@
+<div (click)="activeSelectLocation($event)" class="map-container">
+  <div class="map-frame">
+    <div class="pt-4">
+      <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+</div>
+<div id="selectLocation" class="select-location set-font-vazir p-2">
+  <span class="px-2 d-inline-block pointer" (click)="backToProjectInformation()">بله</span>
+  <span class="px-2 d-inline-block pointer" (click)="changeLocation()">خیر</span>
+  <span class="font-weight-bold px-1">همین جاست؟</span>
+
+</div>

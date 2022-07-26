@@ -1,3 +1,5 @@
+import { ProjectObjectivesComponent } from './../../createProjectProcess/page/project-creation-levels/page/project-objectives/project-objectives.component';
+import { PProjectLocationInformationComponent } from './../../createProjectProcess/page/project-creation-levels/page/pproject-location-information/pproject-location-information.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SubActivityComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/sub-activity/sub-activity.component';
 import { TreeDiagramActivityModalComponent } from './../../createProjectProcess/page/project-creation-levels/page/add-activity/page/tree-diagram-activity-modal/tree-diagram-activity-modal.component';
@@ -23,8 +25,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {FinancialReportProjectComponent} from "../../createProjectProcess/page/project-creation-levels/page/financial-report-project/financial-report-project.component";
-import {MapContainerComponent} from "../../createProjectProcess/page/project-creation-levels/page/basic-project-information/map-container/map-container.component";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { MapContainerComponent } from 'src/app/createProjectProcess/page/project-creation-levels/page/pproject-location-information/map-container/map-container.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
     FinancialReportProjectComponent,
     TreeDiagramActivityModalComponent,
     MapContainerComponent,
-    SubActivityComponent
+    SubActivityComponent,
+    ProjectObjectivesComponent,
+    PProjectLocationInformationComponent
   ],
   imports: [
     CommonModule,

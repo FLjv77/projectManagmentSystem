@@ -3,13 +3,13 @@
     <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
          [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
     </div>
-    <input class="custom-input-style set-font-vazir w-100" [formControl]="inputFormControl"
+    <input class="custom-input-style set-font-vazir w-100" [formControl]="inputFormControl" [disabled]="true"
            [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
            (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" [matDatepicker]="picker">
 
   </div>
   <mat-datepicker-toggle class="toggle-date" [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
+  <mat-datepicker #picker [disabled]="false"></mat-datepicker>
 </div>
 

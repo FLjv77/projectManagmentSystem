@@ -11,7 +11,7 @@ export class ProjectCreationLevelsComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
-  public selectSteps: number = 1;
+  public selectSteps: number = 8;
 
   constructor() { }
   ngOnInit(): void {

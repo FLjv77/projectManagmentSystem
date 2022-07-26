@@ -1,1 +1,9 @@
 @import "../../../../../../assets/style/inputStyle.scss";
+
+.example-radio-button{
+    span{
+        color: $active-yellow;
+        font-size: 13px;
+        font-weight: bold;
+    }
+}
