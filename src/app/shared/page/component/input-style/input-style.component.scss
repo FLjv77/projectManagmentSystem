@@ -88,5 +88,11 @@
   color: red;
 }
 
-.lableColor{
+.label-pos{
+  position: absolute;
+  left: 25px;
+  font-size: medium;
+  bottom: 5px;
+  color: $grey;
+  font-weight: bold;
 }

@@ -1,3 +1,4 @@
+import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Router } from '@angular/router';
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class UserProfileComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private handleModalService:HandleModalService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -33,5 +35,9 @@ export class UserProfileComponent implements OnInit {
 
   public goProjectList() {
     this.router.navigate(['../../projectManagement/projectList']);
+  }
+
+  public editCompany() {
+    this.handleModalService.openModal('company-profile-modal');
   }
 }

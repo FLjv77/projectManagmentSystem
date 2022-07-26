@@ -116,11 +116,11 @@ export class AdvancedSearchAccordingToTimeComponent implements OnInit {
         {
           type: 'bar',
           itemStyle: {
-            color: '#f0da18',
+            color: '#519D9E',
           },
           emphasis: {
             itemStyle: {
-              color: '#f3e246',
+              color: '#4dd9db',
             }
           },
           data,

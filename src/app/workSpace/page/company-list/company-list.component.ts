@@ -37,4 +37,8 @@ export class CompanyListComponent implements OnInit {
   public goProjectList() {
     this.router.navigate(['../../projectManagement/projectList']);
   }
+
+  public editCompany() {
+    this.handleModalService.openModal('company-profile-modal');
+  }
 }

@@ -15,8 +15,6 @@ export class BasicProjectInformationComponent implements OnInit {
   public descreptionFormControl = new FormControl();
   public initialCapitalProjectFormControl = new FormControl();
   public projectProfitFormControl = new FormControl();
-  public addressFormControl = new FormControl();
-  public LocationFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
   public checkbox:boolean = false;
 
@@ -34,20 +32,15 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public getValue(){
     if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
-      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value && this.addressFormControl.value &&
-      this.LocationFormControl.value &&
+      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value &&
       this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
-      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid && this.addressFormControl.valid &&
-      this.LocationFormControl.valid){
+      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid ){
         return true;
       }
       else{return false}
   }
 
-  public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
-  }
-  public checked(){
-    this.checkbox = !this.checkbox;
+  public checked(value:boolean){
+    this.checkbox = value;
   }
 }
