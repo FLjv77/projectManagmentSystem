@@ -1,0 +1,21 @@
+@import "../../../../../../assets/style/colorPalette.scss";
+
+.lists{
+    color: $text-color-normal;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: rgba($color: #fff, $alpha: 1);
+    border: none;
+}
+
+.remove-button{
+    border: none;
+    border-radius: 100%;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    img{
+        width: 100%;
+    }
+}

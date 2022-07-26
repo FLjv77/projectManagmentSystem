@@ -1,0 +1,30 @@
+<div class="bg-levels mx-4 mt-2">
+  <div class="row">
+    <div class="col-12 d-block my-auto">
+      <i class="material-icons d-inline icon-styles">insert_chart</i>
+      <h4 class="title-page d-inline set-font-Raymon">گزارش تخصیص</h4>
+    </div>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارش دهنده'" [inputId]="'5'"
+                     [inputFormControl]="reporterNameFormControl"></app-input-style>
+
+    <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
+                     [inputFormControl]="saveDateFormControl"></app-input-style> -->
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'6'"
+                     [inputFormControl]="saveDateFormControl"></app-date-picker-jalaly>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12 mt-2" [type]="'number'" [inputLabel]="'میزان تخصیص'" [inputId]="'7'"
+                     [inputFormControl]="progressFormControl"></app-input-style>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'8'"
+                     [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
+
+    <app-upload-file-input [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگزاری مستندات تخصیص پروژه'"></app-upload-file-input>
+
+  </div>
+
+  <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
+    <button (click)="goNextStep()" type="button" class="ok-button">
+      <img src="../../../../../../assets/image/createProject/ok-button.svg" alt="">
+    </button>
+  </div>
+</div>

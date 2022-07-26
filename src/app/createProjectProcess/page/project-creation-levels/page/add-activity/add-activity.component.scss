@@ -1,0 +1,53 @@
+@import "../../../../../../assets/style/inputStyle.scss";
+@import "../../../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
+@import "../../../../../../assets/style/colorPalette.scss";
+@import "../../../../../userManagement/page/veiw-user-list/veiw-user-list.component.scss";
+
+.mat-form-field-infix {
+   display: block;
+   position: relative;
+   flex: auto;
+   min-width: 0;
+   width: 180px;
+   text-align: right !important;
+}
+.button-veiw-activity{
+   position: fixed;
+   bottom: 20px;
+   left: 20px;
+   border: solid 2px $active-yellow;
+   background: transparent;
+   border-radius: 30px;
+   color: $active-yellow;
+   transition: ease-in-out all 0.5s;
+   &:hover{
+      background-color: $active-yellow;
+      color: white;
+      bottom: 30px;
+      transition: ease-in-out all 0.5s;
+   }
+}
+
+.button-view-activity{
+   background: transparent;
+   border: none;
+   border-radius: 100%;
+   position: fixed;
+   bottom: 16px;
+   left: 73px;
+   transition: ease-in-out all 0.5s;
+   border-radius: 100%;
+   z-index: 1;
+   .add-view-icon{
+      position: relative;
+      width: 52px;
+      height: 52px;
+      padding: 4px;
+      box-shadow: 0px 0px 3px 0px $button-color;
+      border-radius: 100%;
+   }
+   &:hover{
+       bottom: 25px;
+       transition: ease-in-out all 0.5s;
+   }
+}
