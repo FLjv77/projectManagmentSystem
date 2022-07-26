@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
@@ -26,22 +27,30 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
   public projectAreaControl = new FormControl();
   public requirementControl = new FormControl();
   public equipmentControl = new FormControl();
-  public requirementList: Array<string>;
-  public equipmentList: Array<string>;
-  public iranStateAndZoneList: Array<StateAndZoneIranModel>;
-  private selectedState: StateAndZoneIranModel;
-  public projectRuralHousing: ProjectRuralHousing;
-  private selectedZone: string;
+  public ApplicantsPaymentAmount = new FormControl();
+  public amountFacilities = new FormControl();
+  public numberOfFloors = new FormControl();
+  public meterageInfrastructure = new FormControl();
+  public meterageLand = new FormControl();
+  public projectDeliveryDateFormControl = new FormControl();
+  public beneficiariesListNameFormControl = new FormControl();
+  public beneficiaries = new FormControl();
+  public branches = new FormControl();
+  public amountCost = new FormControl();
+  public goodName = new FormControl();
+  public LocationFormControl = new FormControl();
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
+  public beneficiariesList: Array<string> = [];
+  public good: boolean = false;
 
-  constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
-    this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
   }
 
   private initInputStyle() {
@@ -50,63 +59,26 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
     )
   }
 
-  public addRequirement() {
-    if (!this.requirementList) this.requirementList = new Array<string>();
-    this.requirementList.push(this.requirementControl.value);
-    this.requirementControl.reset();
-  }
-
-  public addEquipmentList() {
-    if (!this.equipmentList) this.equipmentList = new Array<string>();
-    this.equipmentList.push(this.equipmentControl.value);
-    this.equipmentControl.reset();
-  }
-
-  public removeRequirement(index: number) {
-    this.requirementList.splice(index, 1);
-  }
-  public removeEquipmentList(index: number) {
-    this.requirementList.splice(index, 1);
-  }
-
-  public checkShowAddButtonRequirement(): boolean {
-    return (this.requirementControl.value != null) && (this.requirementControl.value != undefined);
-  }
-
-  public checkShowAddButtonEquipment(): boolean {
-    return (this.equipmentControl.value != null) && (this.equipmentControl.value != undefined);
-  }
-
-  public getStateName(item: StateAndZoneIranModel): string {
-    return item.stateName;
-  }
-
-  public setSelectedState(item: StateAndZoneIranModel) {
-    this.selectedState = item;
-  }
-
-  public setSelectedZone(item: string) {
-    this.selectedZone = item;
-  }
-
-  public getZoneOfSelectedState(): string[] {
-    return this.selectedState ? this.selectedState.zoneList : [];
-  }
-
-  public setProjectRuralHousing(state: ProjectRuralHousing) {
-    this.projectRuralHousing = state;
-  }
-
-  public checkShowSubmitButton(): boolean {
-    return this.selectedState && this.selectedZone && this.projectNumberControl.value &&
-      this.peopleParticipationControl.value && this.projectAreaControl.value && this.projectRuralHousing >=0 &&
-      (this.equipmentControl.value || this.equipmentList) &&
-      (this.requirementControl.value || this.requirementList);
-  }
-
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
     this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
     this.path3 = new DisplayPathModel('شناسه تخصصی', false, '');
+  }
+  public add(list: Array<string>, name:string){
+    if (!this.beneficiariesList && name != null) this.beneficiariesList = new Array<string>();
+    list.push(name);
+    this.beneficiaries.reset();
+  }
+
+  public remove(list : Array<string>, index: number){
+    list.splice(index, 1);
+  }
+
+  public setGood() {
+    this.good = !this.good;
+  }
+
+  public goOnMap() {
+    this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 }

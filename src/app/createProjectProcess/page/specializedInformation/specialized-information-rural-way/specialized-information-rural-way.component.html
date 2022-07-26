@@ -5,110 +5,46 @@
             <i class="material-icons d-inline icon-styles">add_road</i>
             <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی راه روستایی</h4>
           </div>
-          <mat-form-field class="text-right set-font-vazir mt-4">
-            <mat-label class="set-font-vazir float-end">انتخاب استان</mat-label>
-            <mat-select class="text-right set-font-vazir">
-              <mat-option *ngFor="let item of iranStateAndZoneList" [value]="getStateName(item)" class="set-font-vazir text-right">
-                <div class="text-right" (click)="setSelectedState(item)">
-                  {{getStateName(item)}}
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
 
-          <mat-form-field class="text-right set-font-vazir mt-2">
-            <mat-label class="set-font-vazir float-end">انتخاب شهرستان</mat-label>
-            <mat-select class="text-right set-font-vazir">
-              <mat-option *ngFor="let item of getZoneOfSelectedState()" [value]="item" class="set-font-vazir text-right">
-                <div class="text-right" (click)="setSelectedZone(item)">
-                  {{item}}
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام منطقه'" [inputId]="'region'"
-                           [inputFormControl]="regionControl"></app-input-style>
-
-          <label class="mt-4 set-font-vazir">حوزه پروژه</label>
-          <mat-radio-group
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setProjectRuralWayArea(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">احداث راه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWayArea(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">تعمیر راه</span>
-            </mat-radio-button>
-          </mat-radio-group>
-
-
-          <label class="mt-4 set-font-vazir">نوع جاده</label>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده فعلی : </h4>
+          </div>
           <mat-radio-group
             class="example-radio-group font-size-small">
             <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">آسفالته</span>
             </mat-radio-button>
             <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">بتنی</span>
+              <span class="px-2">شوسه</span>
             </mat-radio-button>
             <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
               <span class="px-2">خاکی</span>
             </mat-radio-button>
           </mat-radio-group>
 
-
-          <label class="mt-4 set-font-vazir">نوع زمین</label>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده هدف : </h4>
+          </div>
           <mat-radio-group
             class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setGroundType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">کوهستانی</span>
+            <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">آسفالته</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setGroundType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">کویری</span>
+            <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">شوسه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">خاکی</span>
             </mat-radio-button>
           </mat-radio-group>
 
-
-          <div class="row mt-3">
-            <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
-              <div class="col-11 disabled-input">{{item}}</div>
-              <div class="remove-icon">
-                <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-              </div>
-            </div>
-            <div class="pr-3 mt-3 position-relative">
-              <div class="col-11">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'"
-                                 [inputFormControl]="requirementControl"></app-input-style>
-              </div>
-              <div *ngIf="checkShowAddButtonRequirement()" class="remove-icon">
-                <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-              </div>
-            </div>
-          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [inputFormControl]="roadLength"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [inputFormControl]="roadWidth"></app-input-style>
 
 
-          <div class="row mt-3">
-            <div class="pr-3 mt-3 position-relative" *ngFor="let item of equipmentList; let i = index">
-              <div class="col-11 disabled-input">{{item}}</div>
-              <div class="remove-icon">
-                <button (click)="removeEquipmentList(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-              </div>
-            </div>
-            <div class="pr-3 mt-3 position-relative">
-              <div class="col-11">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'"
-                                 [inputFormControl]="equipmentControl"></app-input-style>
-              </div>
-              <div *ngIf="checkShowAddButtonEquipment()" class="remove-icon">
-                <button (click)="addEquipmentList()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row col-12 my-2 d-ltr" *ngIf="checkShowSubmitButton()">
+          <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
+            [inputFormControl]="LocationFormControl"></app-input-style>
+        <div class="row col-12 my-2 d-ltr">
           <button type="button" class="ok-button">
             <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
           </button>
