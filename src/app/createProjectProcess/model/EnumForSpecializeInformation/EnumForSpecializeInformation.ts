@@ -17,3 +17,8 @@ export enum ProjectRuralHousing {
 export enum GroundType {
   mountainous, desert
 }
+
+export enum ProjectType {
+hosing, health, way, knowledge, removeMarginalization,
+  social, food, working, industry, water
+}
