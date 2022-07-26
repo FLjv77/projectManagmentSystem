@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class StepCreateProjectComponent implements OnInit {
   @Output() selectStep = new EventEmitter<number>();
-  public state: number=1;
+  public state: number=8;
 
   constructor() { }
 

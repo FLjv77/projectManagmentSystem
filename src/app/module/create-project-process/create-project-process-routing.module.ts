@@ -6,7 +6,7 @@ import {SpecializedInformationRuralWaterComponent} from "../../createProjectProc
 import {SpecializedInformationRemovalMarginalizationComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-removal-marginalization/specialized-information-removal-marginalization.component";
 import {SpecializedInformationRuralWayComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-way/specialized-information-rural-way.component";
 import {SpecializedInformationRuralHousingComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-housing/specialized-information-rural-housing.component";
-import {MapContainerComponent} from "../../createProjectProcess/page/project-creation-levels/page/basic-project-information/map-container/map-container.component";
+import { MapContainerComponent } from 'src/app/createProjectProcess/page/project-creation-levels/page/pproject-location-information/map-container/map-container.component';
 
 const routes: Routes = [
   {

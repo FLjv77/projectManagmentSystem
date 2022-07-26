@@ -1,0 +1,11 @@
+<div class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl pt-2">
+    <div class="{{addInput ? 'col-10':'col-12'}}">
+        <ng-select2 [data]="projectData" [placeholder]="'انتخاب روستا'" [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
+    </div>
+    <div class="col-1 d-inline">
+        <button *ngIf="addInput" class="button-add">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="">
+        </button>
+    </div>
+</div>
+  

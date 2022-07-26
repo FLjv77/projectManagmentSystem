@@ -1,3 +1,9 @@
+import { DropDownRoleUserComponent } from './../../shared/page/drop-down-role-user/drop-down-role-user.component';
+import { DropDownActivitiesComponent } from './../../shared/page/drop-down-activities/drop-down-activities.component';
+import { DropDownVillageListComponent } from './../../shared/page/drop-down-village-list/drop-down-village-list.component';
+import { DropDownProvinceListComponent } from './../../shared/page/drop-down-province-list/drop-down-province-list.component';
+import { DropDownCityListComponent } from './../../shared/page/drop-down-city-list/drop-down-city-list.component';
+import { DropDownContributorsComponent } from './../../shared/page/drop-down-contributors/drop-down-contributors.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { DropDownProjectListComponent } from './../../shared/page/drop-down-project-list/drop-down-project-list.component';
@@ -62,7 +68,13 @@ import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/
     DropDownProjectListComponent,
     DropDownCompanyListComponent,
     UploadFileInputComponent,
-    CompanyProfileModalComponent
+    CompanyProfileModalComponent,
+    DropDownContributorsComponent,
+    DropDownProvinceListComponent,
+    DropDownCityListComponent,
+    DropDownVillageListComponent,
+    DropDownActivitiesComponent,
+    DropDownRoleUserComponent
   ],
     exports: [
       NavebarComponent,
@@ -85,7 +97,13 @@ import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/
       DisplayUserPathComponent,
       DropDownProjectListComponent,
       CompanyProfileModalComponent,
-      UploadFileInputComponent
+      UploadFileInputComponent,
+      DropDownContributorsComponent,
+      DropDownProvinceListComponent,
+      DropDownCityListComponent,
+      DropDownVillageListComponent,
+      DropDownActivitiesComponent,
+      DropDownRoleUserComponent
     ],
   imports: [
     CommonModule,

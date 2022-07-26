@@ -1,0 +1,36 @@
+<div class="bg-levels mx-4 mt-2">
+        <div class="row">
+            <div class="col-12">
+                <i class="material-icons d-inline icon-styles">location_on</i>
+                <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مکانی</h4>
+            </div>
+            <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
+            [inputFormControl]="LocationFormControl"></app-input-style>
+
+            <app-drop-down-province-list></app-drop-down-province-list>
+            <hr class="my-3 opacity-hr">
+            <div class="col-md-3 col-12">
+                <section class="example-section text-end">
+                    <mat-checkbox class="example-margin set-font-vazir" (click)="changeValue(1)"><label class="mat-checkbox-label">پروژه بین شهری</label></mat-checkbox>
+                </section>
+            </div>
+            <div class="col-md-9 col-12">
+                <app-drop-down-city-list [addInput]="checkCity"></app-drop-down-city-list>
+            </div>
+            <hr class="my-3 opacity-hr">
+            <div class="col-md-3 col-12">
+                <section class="example-section text-end">
+                    <mat-checkbox class="example-margin set-font-vazir" (click)="changeValue(2)"><label class="mat-checkbox-label">پروژه بین روستایی</label></mat-checkbox>
+                </section>
+            </div>
+            <div class="col-md-9 col-12">
+                <app-drop-down-village-list [addInput]="checkVillage"></app-drop-down-village-list>
+            </div>
+        </div>
+
+    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
+        <button type="button" class="ok-button">
+            <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
+        </button>
+    </div>
+</div>
