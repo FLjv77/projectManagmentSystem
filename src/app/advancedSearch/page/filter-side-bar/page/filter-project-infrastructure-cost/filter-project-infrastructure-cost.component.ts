@@ -20,4 +20,19 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
     }
     return value;
   }
+
+  public getNumberWithSeparator(value: number): string {
+    let valueToStr = value.toString().split('');
+    let res = '';
+    let len = valueToStr.length;
+    for (let i = 0; i < len; i++) {
+      if ((len - i) % 3 == 0 && (i) != 0) {
+        res =  res + ',' + valueToStr[i];
+      } else {
+        if (valueToStr[i]) res = res + valueToStr[i];
+      }
+    }
+
+    return res;
+  }
 }

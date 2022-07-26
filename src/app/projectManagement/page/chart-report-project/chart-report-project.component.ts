@@ -11,6 +11,7 @@ export class ChartReportProjectComponent implements OnInit {
   public isLoading = false;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public path3: DisplayPathModel;
 
   constructor() { }
 
@@ -23,12 +24,13 @@ export class ChartReportProjectComponent implements OnInit {
   }
 
   private initDisplayPath() {
-    this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
-    this.path2 = new DisplayPathModel('مشاهده گزارش ها', false, '');
+    this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
+    this.path2 = new DisplayPathModel('پروفایل شرکت', true, 'workspace/workSpaceProfile');
+    this.path3 = new DisplayPathModel('نمودار ها', false, '');
   }
 
   public option1: any;
-  
+
   private initoption1() {
     this.option1 =  {
     xAxis: {
@@ -45,9 +47,17 @@ export class ChartReportProjectComponent implements OnInit {
         data: [50, 75, 20, 30, 82, 10, 100],
         type: 'bar',
         showBackground: true,
-        color: '#ffd519',
+        color: '#519D9E',
         backgroundStyle: {
           color: 'rgba(180, 180, 180, 0.2)'
+        },
+        label: {
+          normal: {
+            textStyle: {
+              fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+
+            },
+          },
         }
       }
     ]
@@ -55,10 +65,10 @@ export class ChartReportProjectComponent implements OnInit {
   };
 
   public option2: any;
-  
+
   private initoption2() {
     this.option2 = {
-      
+
       tooltip: {
         trigger: 'item'
       },
@@ -72,19 +82,20 @@ export class ChartReportProjectComponent implements OnInit {
           type: 'pie',
           radius: '50%',
           data: [
-            { value: 20, name: 'نیروی انسانی', itemStyle: {color: '#000'} },
-            { value: 80, name: 'زیر ساخت' , itemStyle: {color: '#AEAEAE'}},
+            { value: 20, name: 'نیروی انسانی', itemStyle: {color: '#6fe5e7'} },
+            { value: 80, name: 'زیر ساخت' , itemStyle: {color: '#9cabab'}},
           ],
           emphasis: {
             itemStyle: {
               shadowBlur: 10,
               shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+              fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
             }
           }
         }
       ]
-    };  
+    };
   }
 
   public optionsIncome: any;
@@ -100,7 +111,10 @@ export class ChartReportProjectComponent implements OnInit {
         }
       },
       legend: {
-        data: ['شرکت-1', 'شرکت-2', 'شرکت-3', 'شرکت-4', 'شرکت-5']
+        data: ['شرکت-1', 'شرکت-2', 'شرکت-3', 'شرکت-4', 'شرکت-5'],
+        textStyle: {
+          fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+        }
       },
       grid: {
         left: '3%',
@@ -128,7 +142,7 @@ export class ChartReportProjectComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [5, 10, 11, 18, 18, 20, 30],
-          itemStyle: {color: '#000'}
+          itemStyle: {color: '#519D9E'}
         },
         {
           name: 'تخصیص پروژه',
@@ -136,17 +150,21 @@ export class ChartReportProjectComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [10, 20, 25, 40, 40, 42, 45],
-          itemStyle: {color: '#AEAEAE'}
+          itemStyle: {color: '#2be3e5'}
         }
       ]
     };
   }
 
   public option4: any;
-  
+
   private initoption4() {
     this.option4 = {
-      legend: {},
+      legend: {
+        textStyle: {
+          fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+        }
+      },
       tooltip: {},
       dataset: {
         source: [
@@ -159,7 +177,7 @@ export class ChartReportProjectComponent implements OnInit {
       },
       xAxis: { type: 'category' },
       yAxis: {name: 'درصد پیشرفت',},
-      series: [{ type: 'bar',itemStyle: {color: '#AEAEAE'} }, { type: 'bar',itemStyle: {color: '#000'} }, { type: 'bar' ,itemStyle: {color: '#525252cc'}}]
+      series: [{ type: 'bar',itemStyle: {color: '#407a7a'} }, { type: 'bar',itemStyle: {color: '#46d5d7'} }, { type: 'bar' ,itemStyle: {color: '#818d8d'}}]
     };
   }
 

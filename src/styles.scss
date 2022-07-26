@@ -50,7 +50,7 @@
 }
 
 html, body { height: 100% !important;}
-body { 
+body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -84,18 +84,17 @@ body {
 
 ::-webkit-scrollbar {
   width: 10px;
-  background: red;
-
+  background: #519D9E;
 }
 
 ::-webkit-scrollbar-track {
-  background: red;
+  background: #6c7979;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: #3bd4d4;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: red;
+  background: #6c7979;
 }

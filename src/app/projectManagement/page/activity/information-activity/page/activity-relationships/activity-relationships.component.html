@@ -1,755 +1,766 @@
-<div class="row mx-auto">
-  <div class="col-12 mt-2 mx-0 px-0">
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+<div class="row mx-auto mt-2">
+  <div class="col-12 py-1 d-ltr">
+    <span (click)="changeDisplayMode()" class="material-icons gantt-chart-icon">schema</span>
+  </div>
+  <div *ngIf="!showGanttChart" class="row">
+    <div class="col-2">
+      <app-activity-relationships-tree-mode></app-activity-relationships-tree-mode>
+    </div>
+    <div class="col-10">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <div class="set-font-Raymon title-for-child-activity"></div>
+
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-
-        <div class="set-font-Raymon title-for-child-activity"></div>
-
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-
-        <div class="set-font-Raymon title-for-child-activity"></div>
-
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
 
-        <div class="set-font-Raymon title-for-child-activity"></div>
+          <div class="set-font-Raymon title-for-child-activity"></div>
 
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-
-        <div class="set-font-Raymon title-for-child-activity"></div>
-
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-
-        <div class="set-font-Raymon title-for-child-activity"></div>
-
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
 
-        <div class="set-font-Raymon title-for-child-activity"></div>
+          <div class="set-font-Raymon title-for-child-activity"></div>
 
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
-              </div>
-            </div>
-            <hr class="hr-opacity">
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="">
-          <mat-panel-title>
-            <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="row px-2 set-font-vazir w-100">
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">درصد پیشرف</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن مالی</span>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-4 detail-activity">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
                 <div class="d-flex">
                   <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
                   <span class="px-1">وزن پیشرفت</span>
                 </div>
               </div>
+              <hr class="hr-opacity">
             </div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
 
-        <div class="set-font-Raymon title-for-child-activity"></div>
+          <div class="set-font-Raymon title-for-child-activity"></div>
 
-        <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
               </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
             </div>
-            <hr class="hr-opacity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
           </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <div class="set-font-Raymon title-for-child-activity"></div>
+
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
               </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
             </div>
-            <hr class="hr-opacity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
           </div>
-          <div class="row set-font-vazir w-100">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="set-font-Raymon title-activity">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">درصد پیشرف</span>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن مالی</span>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <div class="set-font-Raymon title-for-child-activity"></div>
+
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
-              <div class="d-flex">
-                <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-                <span class="px-1">وزن پیشرفت</span>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
               </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
             </div>
-            <hr class="hr-opacity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="">
+            <mat-panel-title>
+              <div class="set-font-Raymon font-weight-bold title-activity">نام فعالیت</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="row px-2 set-font-vazir w-100">
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">درصد پیشرف</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن مالی</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 detail-activity">
+                  <div class="d-flex">
+                    <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                    <span class="px-1">وزن پیشرفت</span>
+                  </div>
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <div class="set-font-Raymon title-for-child-activity"></div>
+
+          <div class="p-right-child-activity">
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+            <div class="row set-font-vazir w-100">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="set-font-Raymon title-activity">نام فعالیت</div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">درصد پیشرف</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن مالی</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 detail-activity">
+                <div class="d-flex">
+                  <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
+                  <span class="px-1">وزن پیشرفت</span>
+                </div>
+              </div>
+              <hr class="hr-opacity">
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <div *ngIf="showGanttChart">
+    <app-time-line-chart-activity></app-time-line-chart-activity>
   </div>
 </div>

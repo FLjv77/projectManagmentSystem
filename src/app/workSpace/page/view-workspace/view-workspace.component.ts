@@ -10,6 +10,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 export class ViewWorkspaceComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public projectStateDisplay: ProjectState = 0;
   constructor(private router: Router) { }
   ngOnInit() {
     this.initDisplayPath();
@@ -28,4 +29,12 @@ export class ViewWorkspaceComponent implements OnInit {
     this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
     this.path2 = new DisplayPathModel('پروفایل شرکت', false, '');
   }
+
+  public setFilterState(state: ProjectState) {
+    this.projectStateDisplay = state;
+  }
+}
+
+export enum ProjectState {
+  none, inProgress, done
 }

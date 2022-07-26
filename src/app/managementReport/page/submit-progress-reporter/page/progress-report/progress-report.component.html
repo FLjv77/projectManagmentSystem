@@ -2,10 +2,10 @@
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
             [inputFormControl]="reporterNameFormControl"></app-input-style>-->
 
-    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12 col-md-6" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="registrationDateFormControl"></app-date-picker-jalaly>
 
-    <app-input-style [haveLimit]="true" [minValue]="0" [maxValue]="100" [inputCustomStyle]="inputCustomStyle" class="col-12"
+    <app-input-style [label]="'%'" [haveLimit]="true" [minValue]="0" [maxValue]="100" [inputCustomStyle]="inputCustomStyle" class="col-12 col-md-6 mt-2"
                      [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
             [inputFormControl]="ProgressFormControl"></app-input-style>
 

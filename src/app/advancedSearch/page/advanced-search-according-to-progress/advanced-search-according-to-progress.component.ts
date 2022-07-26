@@ -53,6 +53,8 @@ export class AdvancedSearchAccordingToProgressComponent implements OnInit, After
             normal: {
               textStyle: {
                 color: 'rgba(59,59,59,0.9)',
+                fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+
               },
             },
           },
@@ -68,7 +70,7 @@ export class AdvancedSearchAccordingToProgressComponent implements OnInit, After
           },
           itemStyle: {
             normal: {
-              color: '#ffcc31',
+              color: '#23d8db',
             },
           },
 

@@ -2,11 +2,11 @@
     <div class="row w-100 content-routs mx-auto position-relative">
       <div class="col-md-5 col-lg-4 col-12 my-auto">
         <div class="d-flex py-4 text-right set-font-vazir">
-          <span class="parent-rout px-2 text-nowrap {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
+          <span (click)="routToPath1()" class="parent-rout px-2 text-nowrap {{checkPath1HasLink() ? 'pointer' : 'default'}}">{{getPath(path1)}}</span>
           <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
-          <span class="text-nowrap {{path3 ? 'parent-rout' : 'current-rout'}} {{checkPath2HasLink() ? 'pointer' : 'default'}} px-2">{{getPath(path2)}}</span>
+          <span (click)="routToPath2()" class="text-nowrap {{path3 ? 'parent-rout' : 'current-rout'}} {{checkPath2HasLink() ? 'pointer' : 'default'}} px-2">{{getPath(path2)}}</span>
           <img *ngIf="path3" class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
-          <span class="current-rout text-nowrap px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
+          <span (click)="routToPath3()" class="current-rout text-nowrap px-2 {{checkPath3HasLink() ? 'pointer' : 'default'}}">{{getPath(path3)}}</span>
         </div>
       </div>
       <div class="col-lg-6 col-md-5 col-12 pb-md-3 pt-md-3 pb-2">
