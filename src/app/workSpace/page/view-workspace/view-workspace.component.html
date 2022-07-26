@@ -56,11 +56,30 @@
         </div>
         <div class="col-md-6 col-12 background-gray">
             <div class="row">
-                <h1 class="set-font-Raymon text-center text-white pt-3">دسترسی سریع</h1>
+              <div class="col-md-6 col-12">
+                <h1 class="set-font-Raymon text-right text-white pt-3">دسترسی سریع</h1>
+              </div>
+              <div class="col-md-6 col-12 d-flex justify-content-end my-auto">
+                <mat-radio-group [value]="'0'" aria-label="Select an option">
+                  <mat-radio-button (click)="setFilterState(2)" class="set-font-vazir text-white pt-2" value="2">
+                  <span class="px-2"> تکمیل شده
+                  </span>
+                  </mat-radio-button>
+                  <mat-radio-button (click)="setFilterState(1)" class="set-font-vazir text-white pt-2" value="1">
+                    <span class="px-2"> درحال انجام
+                  </span>
+                  </mat-radio-button>
+                  <mat-radio-button (click)="setFilterState(0)" class="set-font-vazir text-white pt-2" value="0">
+                    <span class="px-2">همه
+                  </span>
+                  </mat-radio-button>
+                </mat-radio-group>
+
+              </div>
             </div>
-            <div class="row mx-auto">
+            <div *ngIf="projectStateDisplay == 0" class="row mx-auto">
                 <div class="mx-auto scroll-list-project">
-                    <div class="row list-result-project set-font-vazir py-2">
+                  <div class="row list-result-project set-font-vazir py-2">
                       <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
                       <div class="col-lg-4 col-6 my-auto">
                         <div class="state-project mx-1 d-inline-block"></div>
@@ -74,162 +93,255 @@
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
                       </div>
                     </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
-                      <div class="col-lg-4 col-6 my-auto">
-                        <div class="state-project mx-1 d-inline-block"></div>
-                        وضعیت پروژه</div>
-                      <div class="col-6 col-lg-4 d-flex justify-content-end">
-                        <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="گزارش ها">
-                        <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-                        <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
+                  <div class="row list-result-project set-font-vazir py-2">
+                    <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                    <div class="col-lg-4 col-6 my-auto">
+                      <div class="state-project-done mx-1 d-inline-block"></div>
+                      وضعیت پروژه</div>
+                    <div class="col-6 col-lg-4 d-flex justify-content-end">
+                      <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                      <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                      <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
                     </div>
                   </div>
+                  <div class="row list-result-project set-font-vazir py-2">
+                    <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                    <div class="col-lg-4 col-6 my-auto">
+                      <div class="state-project-done mx-1 d-inline-block"></div>
+                      وضعیت پروژه</div>
+                    <div class="col-6 col-lg-4 d-flex justify-content-end">
+                      <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                      <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                      <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                    </div>
+                  </div>
+                  <div class="row list-result-project set-font-vazir py-2">
+                    <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                    <div class="col-lg-4 col-6 my-auto">
+                      <div class="state-project mx-1 d-inline-block"></div>
+                      وضعیت پروژه</div>
+                    <div class="col-6 col-lg-4 d-flex justify-content-end">
+                      <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                      <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                      <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                    </div>
+                  </div>
+                  <div class="row list-result-project set-font-vazir py-2">
+                    <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                    <div class="col-lg-4 col-6 my-auto">
+                      <div class="state-project-done mx-1 d-inline-block"></div>
+                      وضعیت پروژه</div>
+                    <div class="col-6 col-lg-4 d-flex justify-content-end">
+                      <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                      <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                      <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                    </div>
+                  </div>
+                  <div class="row list-result-project set-font-vazir py-2">
+                    <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                    <div class="col-lg-4 col-6 my-auto">
+                      <div class="state-project mx-1 d-inline-block"></div>
+                      وضعیت پروژه</div>
+                    <div class="col-6 col-lg-4 d-flex justify-content-end">
+                      <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                      <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                      <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                           mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                    </div>
+                  </div>
+                </div>
             </div>
+          <div *ngIf="projectStateDisplay == 2" class="row mx-auto">
+            <div class="mx-auto scroll-list-project">
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project-done mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="projectStateDisplay == 1" class="row mx-auto">
+            <div class="mx-auto scroll-list-project">
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+              <div class="row list-result-project set-font-vazir py-2">
+                <div class="col-lg-4 col-12 my-auto">نام پروژه</div>
+                <div class="col-lg-4 col-6 my-auto">
+                  <div class="state-project mx-1 d-inline-block"></div>
+                  وضعیت پروژه</div>
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
+                  <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+                  <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+                  <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+                       mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
     </div>
 </div>

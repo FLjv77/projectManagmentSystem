@@ -34,9 +34,17 @@ export class AdvancedSearchAccordingToAllocationComponent implements OnInit {
           type: 'pie',
           radius: '50%',
           data: [
-            { value: 20, name: 'پرداختی', itemStyle: {color: '#ffd519'} },
-            { value: 80, name: 'مانده حساب' , itemStyle: {color: '#AEAEAE'}},
+            { value: 20, name: 'پرداختی', itemStyle: {color: '#7fcccd'} },
+            { value: 80, name: 'مانده حساب' ,
+              itemStyle: {color: '#AEAEAE',
+              },
+              textStyle: {
+                fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+              }
+              },
+
           ],
+
           emphasis: {
             itemStyle: {
               shadowBlur: 10,

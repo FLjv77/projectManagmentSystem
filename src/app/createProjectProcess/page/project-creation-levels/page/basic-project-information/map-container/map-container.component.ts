@@ -42,11 +42,15 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   public activeSelectLocation(event: any) {
     let selectLocation = document.getElementById('selectLocation');
-    if (selectLocation) {
-      selectLocation.style.display = 'block';
-      selectLocation.style.left = event.clientX + 'px';
-      selectLocation.style.top = event.clientY + 'px';
+    if (event.clientY > 200) {
+      if (selectLocation) {
+        selectLocation.style.display = 'block';
+        selectLocation.style.left = event.clientX + 'px';
+        selectLocation.style.top = event.clientY + 'px';
+      }
     }
+
+
   }
 
   public changeLocation() {
@@ -62,7 +66,7 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژ', false, '');
-    this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
+    this.path2 = new DisplayPathModel('ساخت پروژه', true, 'createProject/startCreatProject');
     this.path3 = new DisplayPathModel('انتخاب موقعیت', false, '');
   }
 }

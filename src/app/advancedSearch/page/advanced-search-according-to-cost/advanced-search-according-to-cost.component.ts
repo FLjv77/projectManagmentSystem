@@ -65,7 +65,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [120, 132, 101, 134, 90, 230, 210],
-          itemStyle: {color: '#ffd000'}
+          itemStyle: {color: '#519D9E'}
         },
         {
           name: 'شرکت-2',
@@ -73,7 +73,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [220, 182, 191, 234, 290, 330, 310],
-          itemStyle: {color: '#ffd519'}
+          itemStyle: {color: '#39e4e7'}
         },
         {
           name: 'شرکت-3',
@@ -89,7 +89,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [320, 332, 301, 334, 390, 330, 320],
-          itemStyle: {color: '#bb9900'}
+          itemStyle: {color: '#9acecf'}
         },
         {
           name: 'شرکت-5',

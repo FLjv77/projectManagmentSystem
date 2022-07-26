@@ -13,6 +13,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() inputLabel: string;
   @Input() inputError: string;
   @Input() type: string;
+  @Input() label: string;
   @Input() inputCustomStyle: InputCustomStyle;
   @Input() inputFormControl: FormControl;
   @Input() haveEye: boolean;

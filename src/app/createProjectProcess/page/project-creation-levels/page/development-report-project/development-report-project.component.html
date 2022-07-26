@@ -13,8 +13,8 @@
         <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="saveDateFormControl"></app-date-picker-jalaly>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" [haveLimit]="true" [minValue]="0" [maxValue]="100" class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
-            [inputFormControl]="progressFormControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" [haveLimit]="true" [minValue]="0" [maxValue]="100" class="col-sm-6 col-12 mt-2" [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'"
+            [inputFormControl]="progressFormControl" [label]="'%'"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
             [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
