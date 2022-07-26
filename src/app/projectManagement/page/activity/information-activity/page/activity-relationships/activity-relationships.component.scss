@@ -46,3 +46,22 @@
   padding: 6px;
   background-color: $text-color-normal;
 }
+
+.tab-active-container {
+  cursor: pointer;
+  border-right: solid $button-color 5px;
+  color: $button-color;
+  height: 40px;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-right: 10px;
+}
+
+.tab-container {
+  cursor: pointer;
+  padding-right: 10px;
+  padding-top: 5px;
+  color: $grey;
+  height: 30px;
+  border-right: solid $grey 3px;
+}

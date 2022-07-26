@@ -30,8 +30,8 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {ActivityRelationshipsTreeModeComponent} from "../../projectManagement/page/activity/information-activity/page/activity-relationships-tree-mode/activity-relationships-tree-mode.component";
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
-import {WorkspaceModule} from "../workspace/workspace.module";
 import {TimeLineChartActivityComponent} from "../../projectManagement/page/activity/information-activity/page/time-line-chart-activity/time-line-chart-activity.component";
+import {ActivityByDetailComponent} from "../../projectManagement/page/activity/information-activity/page/activity-by-detail/activity-by-detail.component";
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import {TimeLineChartActivityComponent} from "../../projectManagement/page/activ
     ChartReportProjectComponent,
     ActivityRelationshipsTreeModeComponent,
     TimeLineChartActivityComponent,
+    ActivityByDetailComponent,
 
   ],
   imports: [

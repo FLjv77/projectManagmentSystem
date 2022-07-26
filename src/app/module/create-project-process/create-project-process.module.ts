@@ -27,6 +27,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import {FinancialReportProjectComponent} from "../../createProjectProcess/page/project-creation-levels/page/financial-report-project/financial-report-project.component";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { MapContainerComponent } from 'src/app/createProjectProcess/page/project-creation-levels/page/pproject-location-information/map-container/map-container.component';
+import {KnowledgeBaseInformationComponent} from "../../createProjectProcess/page/specializedInformation/knowledge-base-information/knowledge-base-information.component";
+import {SocialTransformationInformationComponent} from "../../createProjectProcess/page/specializedInformation/social-transformation-information/social-transformation-information.component";
+import {RevivalOfIndustryInformationComponent} from "../../createProjectProcess/page/specializedInformation/revival-of-industry-information/revival-of-industry-information.component";
+import {HealthInformationComponent} from "../../createProjectProcess/page/specializedInformation/health-information/health-information.component";
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { MapContainerComponent } from 'src/app/createProjectProcess/page/project
     MapContainerComponent,
     SubActivityComponent,
     ProjectObjectivesComponent,
-    PProjectLocationInformationComponent
+    PProjectLocationInformationComponent,
+    KnowledgeBaseInformationComponent,
+    SocialTransformationInformationComponent,
+    RevivalOfIndustryInformationComponent,
+    HealthInformationComponent,
   ],
   imports: [
     CommonModule,
