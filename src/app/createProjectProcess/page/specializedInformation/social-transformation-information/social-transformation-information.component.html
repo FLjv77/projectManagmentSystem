@@ -1,1 +1,29 @@
-<p>social-transformation-information works!</p>
+
+      <div class="bg-levels mx-4 mt-2">
+        <div class="row">
+          <div class="col-12">
+            <i class="material-icons d-inline icon-styles">public</i>
+            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی تحول اجتماعی</h4>
+          </div>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [inputId]="'numberIntroduction'" [type]="'number'" [inputFormControl]="numberIntroduction"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'بودجه مورد نظر'" [inputId]="'budget'" [inputFormControl]="budget"></app-input-style>
+    
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">ساخت کمپ : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberCamp'" [type]="'number'" [inputFormControl]="numberCamp"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طرفیت بیمار یا معتاد'" [inputId]="'Capacity'" [inputFormControl]="Capacity"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'numberFloors'" [type]="'number'" [inputFormControl]="numberFloors"></app-input-style>
+          
+        </div>
+
+        <div class="row col-12 my-2 d-ltr">
+          <button type="button" class="ok-button">
+            <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+          </button>
+        </div>
+
+      </div>

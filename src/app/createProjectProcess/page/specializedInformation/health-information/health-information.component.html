@@ -1,1 +1,50 @@
-<p>health-information works!</p>
+<div class="bg-levels mx-4 mt-2">
+    <div class="row">
+      <div class="col-12">
+        <i class="material-icons d-inline icon-styles">local_hospital</i>
+        <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی پروژه سلامت</h4>
+      </div>
+      <div class="col-12 mt-2">
+        <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'NumberOfFloors'" [type]="'number'" [inputFormControl]="NumberOfFloors"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHospital'" [type]="'number'" [inputFormControl]="numberOfBedsHospital"></app-input-style>
+
+      <div class="col-12 mt-2">
+        <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHealthHouse'" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد دکتر'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [inputId]="'numberNurses'" [type]="'number'" [inputFormControl]="numberNurses"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد داروخانه'" [inputId]="'numberpharmacy'" [type]="'number'" [inputFormControl]="numberpharmacy"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد حمام'" [inputId]="'numberBathroom'" [type]="'number'" [inputFormControl]="numberBathroom"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد سرویس بهداشتی'" [inputId]="'numberWC'" [type]="'number'" [inputFormControl]="numberWC"></app-input-style>
+
+      <div class="col-md-3 col-12 mt-5">
+        <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'" [inputId]="'numberOfPeopleCoveredByInsurance'" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance"></app-input-style>
+
+      <div class="col-12 mt-5">
+        <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'" [inputId]="'TypeOfDisease'" [inputFormControl]="TypeOfDisease"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'" [inputId]="'NumberOfTreatments'" [type]="'number'" [inputFormControl]="NumberOfTreatments"></app-input-style>
+      
+      <div class="col-12 mt-5">
+        <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
+      </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'" [inputId]="'typeOfMedicine'" [inputFormControl]="typeOfMedicine"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberOfMedicine'" [type]="'number'" [inputFormControl]="numberOfMedicine"></app-input-style>
+
+      <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
+            [inputFormControl]="LocationFormControl"></app-input-style>
+    </div>
+
+    <div class="row col-12 my-2 d-ltr">
+      <button type="button" class="ok-button">
+        <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+      </button>
+    </div>
+  </div>

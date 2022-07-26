@@ -1,9 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
-import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
-import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateAndZoneIranModel";
-import {ProjectRemoveMarginalization} from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 
 @Component({
@@ -14,26 +12,25 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 })
 export class SpecializedInformationRemovalMarginalizationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new FormControl();
-  public regionPopulationControl = new FormControl();
-  public requirementControl = new FormControl();
-  public equipmentControl = new FormControl();
-  public requirementList: Array<string>;
-  public equipmentList: Array<string>;
-  public iranStateAndZoneList: Array<StateAndZoneIranModel>;
-  private selectedState: StateAndZoneIranModel;
-  public projectRemoveMarginalization: ProjectRemoveMarginalization;
-  private selectedZone: string;
+  public numberMosques = new FormControl();
+  public meterageMosques = new FormControl();
+  public meterageSchool = new FormControl();
+  public numberClass = new FormControl();
+  public estimatedNumberOfStudents = new FormControl();
+  public meteragePark = new FormControl();
+  public NumberOfFloors = new FormControl();
+  public meterageClinic = new FormControl();
+  public numberDoctors = new FormControl();
+  public LocationFormControl = new FormControl();
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
 
-  constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
-    this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
   }
 
   private initInputStyle() {
@@ -42,63 +39,12 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
     )
   }
 
-  public addRequirement() {
-    if (!this.requirementList) this.requirementList = new Array<string>();
-    this.requirementList.push(this.requirementControl.value);
-    this.requirementControl.reset();
-  }
-
-  public addEquipmentList() {
-    if (!this.equipmentList) this.equipmentList = new Array<string>();
-    this.equipmentList.push(this.equipmentControl.value);
-    this.equipmentControl.reset();
-  }
-
-  public removeRequirement(index: number) {
-    this.requirementList.splice(index, 1);
-  }
-  public removeEquipmentList(index: number) {
-    this.requirementList.splice(index, 1);
-  }
-
-  public checkShowAddButtonRequirement(): boolean {
-    return (this.requirementControl.value != null) && (this.requirementControl.value != undefined);
-  }
-
-  public checkShowAddButtonEquipment(): boolean {
-    return (this.equipmentControl.value != null) && (this.equipmentControl.value != undefined);
-  }
-
-  public getStateName(item: StateAndZoneIranModel): string {
-    return item.stateName;
-  }
-
-  public setSelectedState(item: StateAndZoneIranModel) {
-    this.selectedState = item;
-  }
-
-  public setSelectedZone(item: string) {
-    this.selectedZone = item;
-  }
-
-  public getZoneOfSelectedState(): string[] {
-    return this.selectedState ? this.selectedState.zoneList : [];
-  }
-
-  public setProjectRuralWaterArea(state: ProjectRemoveMarginalization) {
-    this.projectRemoveMarginalization = state;
-  }
-
-  public checkShowSubmitButton(): boolean {
-    return this.selectedState && this.selectedZone && this.regionPopulationControl.value &&
-      (this.equipmentControl.value || this.equipmentList) &&
-      (this.requirementControl.value || this.requirementList);
-  }
-
-
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
     this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
     this.path3 = new DisplayPathModel('شناسه تخصصی', false, '');
+  }
+  public goOnMap() {
+    this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 }

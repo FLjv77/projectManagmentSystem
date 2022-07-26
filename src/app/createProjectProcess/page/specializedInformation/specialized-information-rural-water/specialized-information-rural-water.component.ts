@@ -107,6 +107,10 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     this.projectRuralWaterArea = state;
   }
 
+  public checkProjectType(state: ProjectRuralWater) {
+    return state == this.projectRuralWaterArea;
+  }
+
   public setProjectGroundType(state: GroundType) {
     this.groundType = state;
   }
