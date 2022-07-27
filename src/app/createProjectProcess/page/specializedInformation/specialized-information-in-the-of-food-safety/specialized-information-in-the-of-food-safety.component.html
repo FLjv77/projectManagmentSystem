@@ -1,0 +1,19 @@
+<div class="bg-levels mx-4 mt-2">
+    <div class="row">
+      <div class="col-12">
+        <i class="material-icons d-inline icon-styles">room_service</i>
+        <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی امنیت غذایی</h4>
+      </div>
+
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عنوان مرکز'" [inputId]="'centerTitle'" [inputFormControl]="centerTitle"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [inputFormControl]="budget"></app-input-style>
+      <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
+        [inputFormControl]="LocationFormControl"></app-input-style>
+    <div class="row col-12 my-2 d-ltr">
+      <button type="button" class="ok-button">
+        <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+      </button>
+    </div>
+
+  </div>
