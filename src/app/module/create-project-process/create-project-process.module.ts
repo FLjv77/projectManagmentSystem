@@ -1,3 +1,5 @@
+import { SpecializedInformationOnEmploymentComponent } from './../../createProjectProcess/page/specializedInformation/specialized-information-on-employment/specialized-information-on-employment.component';
+import { SpecializedInformationInTheOfFoodSafetyComponent } from './../../createProjectProcess/page/specializedInformation/specialized-information-in-the-of-food-safety/specialized-information-in-the-of-food-safety.component';
 import { ProjectObjectivesComponent } from './../../createProjectProcess/page/project-creation-levels/page/project-objectives/project-objectives.component';
 import { PProjectLocationInformationComponent } from './../../createProjectProcess/page/project-creation-levels/page/pproject-location-information/pproject-location-information.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -75,6 +77,8 @@ import {WaterInformationTransferLineTypeComponent} from "../../createProjectProc
     WaterInformationPurificationTypeComponent,
     WaterInformationWaterSealTypeComponent,
     WaterInformationTransferLineTypeComponent,
+    SpecializedInformationOnEmploymentComponent,
+    SpecializedInformationInTheOfFoodSafetyComponent,
   ],
   imports: [
     CommonModule,

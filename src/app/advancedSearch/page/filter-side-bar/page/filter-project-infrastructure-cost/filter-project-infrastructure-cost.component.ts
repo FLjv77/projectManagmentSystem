@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,8 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
 
   public maxValue: number = 0;
   public minValue: number = 0;
-  constructor() { }
+  
+  constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +36,9 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
     }
 
     return res;
+  }
+
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
   }
 }

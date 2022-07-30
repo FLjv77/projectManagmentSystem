@@ -26,16 +26,16 @@
                     <button (click)="remove(beneficiariesList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
                 </div>
             </div>
-        </div>
-        <div class="row col-11">
+          </div>
+          <div class="row col-11">
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'بهره برداران'" [inputId]="'beneficiaries'" [inputFormControl]="beneficiaries"></app-input-style>
-        </div>
-        <div class="col-1">
+          </div>
+          <div class="col-1">
             <button *ngIf="beneficiaries.value && beneficiaries.valid" class="button-add"
                      (click)="add(beneficiariesList,beneficiaries.value)">
                 <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
             </button>
-        </div>
+          </div>
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">این پروژه خیّر دارد؟ </h4>
         </div>
