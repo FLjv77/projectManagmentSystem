@@ -14,6 +14,7 @@ export class DevelopmentReportProjectComponent implements OnInit {
   public progressFormControl = new FormControl();
   public descreptionReportFormControl = new FormControl();
   public uploadDocumentationProjectFormControl = new FormControl();
+  public valueInputReport: boolean;
 
 
   constructor() { }
@@ -32,9 +33,14 @@ export class DevelopmentReportProjectComponent implements OnInit {
     if(this.reporterNameFormControl.value && this.saveDateFormControl.value && this.progressFormControl.value &&
       this.descreptionReportFormControl.value && this.uploadDocumentationProjectFormControl.value &&
       this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
-      this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid){
+      this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid && this.valueInputReport == true){
         return true;
       }
       else{return false}
+  }
+
+  public getInputs(state: boolean){
+    this.valueInputReport = state;
+    console.log(this.valueInputReport);
   }
 }
