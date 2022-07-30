@@ -3,7 +3,7 @@
 
 .toggle-base {
     background-color: white;
-    width: 211px;
+    width: 213px;
     border-radius: 50px;
     height: 45px;
     font-size: large;
@@ -19,7 +19,7 @@
   .toggle-cycle {
     border-radius: 50px;
     height: 50px;
-    width: 104px;
+    width: 105px;
     color: #fff !important;
     background-color: $active-yellow;
     font-weight: bold;
@@ -35,7 +35,7 @@
   .unselected-value {
     text-align: center;
     word-wrap: break-word;
-    width: 104px;
+    width: 105px;
     color: $active-yellow;
     @media(max-width:400px) {
       width: 89px;
@@ -77,7 +77,7 @@
 .mat-expansion-panel-header {
   display: flex;
   flex-direction: row;
-  background-color: rgba($color: $icon-color, $alpha: 0.7);
+  background-color: rgba($color: $icon-color, $alpha: 0.5);
   align-items: center;
   padding: 0 24px;
   border-radius: inherit;

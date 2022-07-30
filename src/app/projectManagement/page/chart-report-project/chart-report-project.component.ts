@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../shared/service/number/number-formater.service';
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,7 +14,7 @@ export class ChartReportProjectComponent implements OnInit {
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
 
-  constructor() { }
+  constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
     this.initoption1();
@@ -83,7 +84,7 @@ export class ChartReportProjectComponent implements OnInit {
           radius: '50%',
           data: [
             { value: 20, name: 'نیروی انسانی', itemStyle: {color: '#6fe5e7'} },
-            { value: 80, name: 'زیر ساخت' , itemStyle: {color: '#9cabab'}},
+            { value: 80, name: 'زیر ساخت' , itemStyle: {color: '#D1B6E1'}},
           ],
           emphasis: {
             itemStyle: {
@@ -177,8 +178,12 @@ export class ChartReportProjectComponent implements OnInit {
       },
       xAxis: { type: 'category' },
       yAxis: {name: 'درصد پیشرفت',},
-      series: [{ type: 'bar',itemStyle: {color: '#407a7a'} }, { type: 'bar',itemStyle: {color: '#46d5d7'} }, { type: 'bar' ,itemStyle: {color: '#818d8d'}}]
+      series: [{ type: 'bar',itemStyle: {color: '#407a7a'} }, { type: 'bar',itemStyle: {color: '#46d5d7'} }, { type: 'bar' ,itemStyle: {color: '#D1B6E1'}}]
     };
+  }
+
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
   }
 
 }

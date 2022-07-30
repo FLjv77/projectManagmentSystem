@@ -1,14 +1,14 @@
-import { HandleModalService } from './../../../../../shared/service/handleModalService/handle-modal.service';
 import { FormControl } from '@angular/forms';
+import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
-import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 
 @Component({
-  selector: 'app-add-activity',
-  templateUrl: './add-activity.component.html',
-  styleUrls: ['./add-activity.component.scss','../../project-creation-levels.component.scss']
+  selector: 'app-create-new-activity',
+  templateUrl: './create-new-activity.component.html',
+  styleUrls: ['./create-new-activity.component.scss']
 })
-export class AddActivityComponent implements OnInit {
+export class CreateNewActivityComponent implements OnInit {
+
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
   public startDateFormControl = new FormControl();
@@ -17,9 +17,8 @@ export class AddActivityComponent implements OnInit {
   public timeWeightActivityFormControl = new FormControl();
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
-  public activityList: Array<string> = ['2223'];
 
-  constructor(private handleModalService: HandleModalService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -41,13 +40,6 @@ export class AddActivityComponent implements OnInit {
         return true;
       }
       else{return false}
-  }
+  } 
 
-  public openMdalViewActivity(){
-    this.handleModalService.openModal('view-activity-diagram-modal');
-  }
-
-  addActivity(){
-    this.activityList.push('222');
-  }
 }
