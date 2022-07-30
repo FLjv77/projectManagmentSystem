@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../shared/service/number/number-formater.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -11,7 +12,10 @@ export class ViewWorkspaceComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public projectStateDisplay: ProjectState = 0;
-  constructor(private router: Router) { }
+
+  constructor(private router: Router,
+              private numberFormaterService:NumberFormaterService) { }
+
   ngOnInit() {
     this.initDisplayPath();
   }
@@ -32,6 +36,10 @@ export class ViewWorkspaceComponent implements OnInit {
 
   public setFilterState(state: ProjectState) {
     this.projectStateDisplay = state;
+  }
+
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
   }
 }
 
