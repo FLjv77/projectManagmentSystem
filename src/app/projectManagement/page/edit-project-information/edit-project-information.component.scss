@@ -8,4 +8,13 @@
   @media(max-width:325px){
     font-size: 12px;
   }
+  &:active{
+    color: $icon-color;
+  }
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: $icon-color;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }
