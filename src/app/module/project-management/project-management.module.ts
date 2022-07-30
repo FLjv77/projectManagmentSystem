@@ -1,6 +1,6 @@
-import { AddProgressReportComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/page/add-progress-report/add-progress-report.component';
-import { AddFinancialReportComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/page/add-financial-report/add-financial-report.component';
-import { SubmitAddActivityProgressFinancialComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/submit-add-activity-progress-financial.component';
+import { CreateNewActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-activity/create-new-activity.component';
+import { CreateNewSubActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-sub-activity/create-new-sub-activity.component';
+import { SubmitAddActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/submit-add-activity.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ChartReportProjectComponent } from './../../projectManagement/page/chart-report-project/chart-report-project.component';
 import { RecordFinancialReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/financial-report-activity/page/record-financial-report-modal/record-financial-report-modal.component';
@@ -58,9 +58,9 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     ActivityRelationshipsTreeModeComponent,
     TimeLineChartActivityComponent,
     ActivityByDetailComponent,
-    SubmitAddActivityProgressFinancialComponent,
-    AddProgressReportComponent,
-    AddFinancialReportComponent
+    CreateNewActivityComponent,
+    CreateNewSubActivityComponent,
+    SubmitAddActivityComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,33 @@
+<div class="row pb-5">
+    <div class="col-12 d-block my-auto">
+        <i class="material-icons d-inline icon-styles">assignment</i>
+        <h4 class="title-page d-inline set-font-Raymon">ایجاد فعالیت اصلی</h4>
+    </div>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
+        [inputFormControl]="activityNameFormControl"></app-input-style>
+
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
+        [inputFormControl]="startDateFormControl"></app-date-picker-jalaly>
+
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
+        [inputFormControl]="endDateFormControl"></app-date-picker-jalaly>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
+        [inputFormControl]="activityPriceFormControl"></app-input-style>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
+        [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
+
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
+        [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح فعالیت'" [inputId]="'7'"
+        [inputFormControl]="descreptionActivityFormControl" [textarea]="true"></app-input-style>
+</div>
+
+<div class="row col-12 my-2" style="direction: ltr;">
+    <button type="button" class="ok-button" [disabled]="!getValue()">
+        <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
+    </button>
+</div>

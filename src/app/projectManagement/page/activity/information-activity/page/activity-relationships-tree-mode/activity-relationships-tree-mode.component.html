@@ -1,6 +1,6 @@
 <div class="row d-rtl mr-0">
 
-  <div class="col-4">
+  <div class="col-md-3 col-12 px-0 mx-0">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <!-- This is the tree node template for leaf nodes -->
       <mat-tree-node class="set-font-vazir pr-4" *matTreeNodeDef="let node">
@@ -26,8 +26,8 @@
     </mat-tree>
   </div>
 
-  <div class="col-8">
-    
+  <div class="col-md-9 col-12 px-0 mx-0">
+    <app-submit-add-activity></app-submit-add-activity>
   </div>
 
 </div>
