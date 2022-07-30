@@ -22,12 +22,11 @@
       <app-upload-file-input [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگزاری مستندات پیشرفت پروژه'"></app-upload-file-input>
 
     </div>
+    <app-financial-report-project (formcontroleInputs)="getInputs($event)"></app-financial-report-project>
 
-    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button">
-            <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
+    <div class="row col-12 my-2" style="direction: ltr;">
+        <button type="button" class="ok-button" [disabled]="!getValue()">
+            <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
         </button>
     </div>
 </div>
-
-<app-financial-report-project></app-financial-report-project>

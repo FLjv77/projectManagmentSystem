@@ -21,24 +21,24 @@
                 </mat-select>
             </mat-form-field> -->
         </div>
-        <div *ngFor="let activity of subactivityList , let i = index" class="bg-activity mt-3">
+        <div *ngFor="let activity of subactivityList , let i = index" class="bg-activity mt-3 row mx-auto">
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام زیر فعالیت'" [inputId]="'1'"
                 [inputFormControl]="activityNameFormControl"></app-input-style>
 
-            <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
+            <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
                 [inputFormControl]="startDateFormControl"></app-date-picker-jalaly>
 
-            <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
+            <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
                 [inputFormControl]="endDateFormControl"></app-date-picker-jalaly>
 
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه زیر فعالیت'" [inputId]="'4'"
                 [inputFormControl]="activityPriceFormControl"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی زیر فعالیت'" [inputId]="'5'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی زیر فعالیت'" [inputId]="'5'"
                 [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
 
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی زیر فعالیت'" [inputId]="'6'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی زیر فعالیت'" [inputId]="'6'"
                 [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
 
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح زیر فعالیت'" [inputId]="'7'"

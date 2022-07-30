@@ -39,6 +39,12 @@ export class UploadImagesComponent implements OnInit {
   public onUpload(){}
   public removeSelectedPage() {
     this.imgURL = '';
+  }
 
+  public getValue(){
+    if(this.tiltleImageFormControl.valid && this.tiltleImageFormControl.value && this.imgURL != null){
+        return true;
+      }
+      else{return false}
   }
 }

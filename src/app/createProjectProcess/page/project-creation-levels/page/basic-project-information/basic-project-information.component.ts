@@ -16,7 +16,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public initialCapitalProjectFormControl = new FormControl();
   public projectProfitFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
-  public checkbox:boolean = false;
+  public checkbox:boolean;
 
   constructor(private router: Router) { }
 
@@ -34,7 +34,7 @@ export class BasicProjectInformationComponent implements OnInit {
     if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
       this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value &&
       this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
-      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid ){
+      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid && this.checkbox != null ){
         return true;
       }
       else{return false}

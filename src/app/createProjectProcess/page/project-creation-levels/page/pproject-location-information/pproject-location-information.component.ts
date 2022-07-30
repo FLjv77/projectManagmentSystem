@@ -14,8 +14,8 @@ import { throwIfEmpty } from 'rxjs';
 export class PProjectLocationInformationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public LocationFormControl = new FormControl();
-  public checkCity: boolean = false;
-  public checkVillage: boolean = false;
+  public checkCity: boolean;
+  public checkVillage: boolean;
 
 
   constructor(private router:Router) { }
@@ -31,7 +31,8 @@ export class PProjectLocationInformationComponent implements OnInit {
     )
   }
   public getValue(){
-    if(this.LocationFormControl.valid){
+    if(this.LocationFormControl.valid && this.LocationFormControl.value &&
+       this.checkCity !=null && this.checkVillage != null){
         return true;
       }
       else{return false}
@@ -43,9 +44,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public changeValue(value:number){
     if (value == 1) {
-      console.log(this.checkCity);
       this.checkCity = !this.checkCity;
-      console.log(this.checkCity);
     }
     else if (value == 2) {
       this.checkVillage = !this.checkVillage;

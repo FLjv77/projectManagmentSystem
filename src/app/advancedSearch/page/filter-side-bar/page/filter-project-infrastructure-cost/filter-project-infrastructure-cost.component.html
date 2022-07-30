@@ -4,8 +4,8 @@
     <span class="px-2 font-weight-bold">{{getNumberWithSeparator(minValue)}}</span>
   </div>
   <div class="col-12 position-relative set-font-vazir">
-    <div class="min-value-label">0 تومان</div>
-    <div class="max-value-label">100000 تومان</div>
+    <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
+    <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
       class="w-100"
       thumbLabel
@@ -25,8 +25,8 @@
   <span class="px-2 font-weight-bold">{{getNumberWithSeparator(maxValue)}}</span>
   </div>
   <div class="col-12 position-relative set-font-vazir">
-    <div class="min-value-label">0 تومان</div>
-    <div class="max-value-label">100000 تومان</div>
+    <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
+    <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
       class="w-100"
       thumbLabel

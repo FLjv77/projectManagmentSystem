@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +12,7 @@ export class CheckedReportsComponent implements OnInit {
   public openCloseAnswer1:boolean = false;
   public openCloseAnswer2:boolean = false;
 
-  constructor() { }
+  constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,10 @@ export class CheckedReportsComponent implements OnInit {
     }
     
     
+  }
+
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
   }
 
 }

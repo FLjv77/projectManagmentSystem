@@ -14,16 +14,10 @@
             [inputFormControl]="TimeResourceFormControl"></app-input-style>
     </div>
 
-    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button">
-            <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
+    <div class="row col-12 my-2" style="direction: ltr;">
+        <button type="button" class="ok-button" [disabled]="!getValue()">
+            <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
         </button>
     </div>
 </div>
 
-<!-- <div class="row mx-auto">
-    <div class="mx-auto text-center">
-        <button class="button-add"><img src="../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-        <span class="text-bottom pointer">افزودن منبع جدید</span>
-    </div>
-</div> -->
