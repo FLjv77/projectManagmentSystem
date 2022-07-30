@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../shared/service/number/number-formater.service';
 import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Router } from '@angular/router';
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
@@ -14,7 +15,8 @@ export class UserProfileComponent implements OnInit {
   public path2: DisplayPathModel;
 
   constructor(private router: Router,
-              private handleModalService:HandleModalService) { }
+              private handleModalService:HandleModalService,
+              private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -39,5 +41,9 @@ export class UserProfileComponent implements OnInit {
 
   public editCompany() {
     this.handleModalService.openModal('company-profile-modal');
+  }
+  
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
@@ -15,6 +15,7 @@ export class FinancialReportProjectComponent implements OnInit {
   public progressFormControl = new FormControl();
   public descreptionReportFormControl = new FormControl();
   public uploadDocumentationProjectFormControl = new FormControl();
+  @Output() formcontroleInputs= new EventEmitter<boolean>();
 
   constructor(private router: Router) { }
 
@@ -33,12 +34,14 @@ export class FinancialReportProjectComponent implements OnInit {
       this.descreptionReportFormControl.value && this.uploadDocumentationProjectFormControl.value &&
       this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
       this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid){
+      this.formcontroleInputs.emit(true);
+      console.log(this.formcontroleInputs);
       return true;
     }
     else{return false}
   }
 
-  public goNextStep() {
-    this.router.navigate(['../../createProject/specializedInformationRuralHousing'])
-  }
+  // public goNextStep() {
+  //   this.router.navigate(['../../createProject/specializedInformationRuralHousing'])
+  // }
 }

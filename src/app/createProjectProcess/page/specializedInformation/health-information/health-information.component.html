@@ -29,14 +29,69 @@
       <div class="col-12 mt-5">
         <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'" [inputId]="'TypeOfDisease'" [inputFormControl]="TypeOfDisease"></app-input-style>
+      <div *ngIf="diseaseList" class="col-11">
+        <div *ngFor="let list1 of diseaseList , let i = index" class="row my-2 lists">
+            <div class="row col-11">
+                <div class="col-6 my-auto">
+                    <span class="d-inline">{{i+1}}.
+                        بیماری :</span>
+                    <span class="d-inline">{{list1.name}}</span>
+                </div>
+                <div class="col-6 my-auto">
+                  <span class="d-inline">{{i+1}}.
+                      تعداد :</span>
+                  <span class="d-inline">{{list1.number}}</span>
+              </div>
+            </div>
+            <div class="col-1 pt-1">
+                <button (click)="remove(diseaseList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
+            </div>
+        </div>
+      </div>
+      <div class="row col-11">
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'" [inputId]="'TypeOfDisease'" [inputFormControl]="TypeOfDisease"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'" [inputId]="'NumberOfTreatments'" [type]="'number'" [inputFormControl]="NumberOfTreatments"></app-input-style>
+      </div>
+      <div class="col-1">
+        <button *ngIf="TypeOfDisease.value && TypeOfDisease.valid && NumberOfTreatments.value && NumberOfTreatments.valid" class="button-add"
+                 (click)="add(diseaseList,TypeOfDisease.value, NumberOfTreatments.value)">
+            <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+        </button>
+      </div>
       
       <div class="col-12 mt-5">
         <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'" [inputId]="'typeOfMedicine'" [inputFormControl]="typeOfMedicine"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberOfMedicine'" [type]="'number'" [inputFormControl]="numberOfMedicine"></app-input-style>
+      <div *ngIf="medicineList" class="col-11">
+        <div *ngFor="let list2 of medicineList , let i = index" class="row my-2 lists">
+            <div class="row col-11">
+                <div class="col-6 my-auto">
+                    <span class="d-inline">{{i+1}}.
+                        دارو :</span>
+                    <span class="d-inline">{{list2.name}}</span>
+                </div>
+                <div class="col-6 my-auto">
+                  <span class="d-inline">{{i+1}}.
+                      تعداد :</span>
+                  <span class="d-inline">{{list2.number}}</span>
+              </div>
+            </div>
+            <div class="col-1 pt-1">
+                <button (click)="remove(medicineList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
+            </div>
+        </div>
+      </div>
+      <div class="row col-11">
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'" [inputId]="'typeOfMedicine'" [inputFormControl]="typeOfMedicine"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberOfMedicine'" [type]="'number'" [inputFormControl]="numberOfMedicine"></app-input-style>
+      </div>
+      <div class="col-1">
+        <button *ngIf="typeOfMedicine.value && typeOfMedicine.valid && numberOfMedicine.value && numberOfMedicine.valid" class="button-add"
+                 (click)="add(medicineList,typeOfMedicine.value, numberOfMedicine.value)">
+            <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+        </button>
+      </div>
+      
 
       <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
             [inputFormControl]="LocationFormControl"></app-input-style>

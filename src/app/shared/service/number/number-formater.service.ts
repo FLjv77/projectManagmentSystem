@@ -19,6 +19,7 @@ export class NumberFormaterService {
     result = result.replace(/7/gi,'۷');
     result = result.replace(/8/gi,'۸');
     result = result.replace(/9/gi,'۹');
+    result = result.replace(/,/gi,',');
     return result;
   }
 

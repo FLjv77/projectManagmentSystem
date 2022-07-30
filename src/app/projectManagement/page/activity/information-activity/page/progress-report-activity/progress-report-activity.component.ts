@@ -1,3 +1,4 @@
+import { NumberFormaterService } from './../../../../../../shared/service/number/number-formater.service';
 import { Router } from '@angular/router';
 import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProgressReportActivityComponent implements OnInit {
 
   constructor(private handleModalService : HandleModalService,
-              private router: Router) { }
+              private router: Router,
+              private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
   }
@@ -22,4 +24,9 @@ export class ProgressReportActivityComponent implements OnInit {
   public newReport(){
     this.router.navigate(['../../managementReport/submitProgressReporter']);
   }
+
+  public changeToPersian(num:string){
+    return this.numberFormaterService.covertToFrNumber(num)
+  }
+  
 }

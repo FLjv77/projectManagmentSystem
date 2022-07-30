@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-health-information',
   templateUrl: './health-information.component.html',
   styleUrls: ['./health-information.component.scss', '../../project-creation-levels/project-creation-levels.component.scss',
-  '../specialized-information-removal-marginalization/specialized-information-removal-marginalization.component.scss']
+  '../specialized-information-removal-marginalization/specialized-information-removal-marginalization.component.scss',
+  '../specialized-information-rural-housing/specialized-information-rural-housing.component.scss']
 })
 export class HealthInformationComponent implements OnInit {
 
@@ -27,6 +28,8 @@ export class HealthInformationComponent implements OnInit {
   public typeOfMedicine= new FormControl();
   public numberOfMedicine= new FormControl();
   public LocationFormControl= new FormControl();
+  public medicineList: Array<heahthList> = [];
+  public diseaseList: Array<heahthList> = [];
 
   constructor(private router:Router) { }
 
@@ -44,4 +47,25 @@ export class HealthInformationComponent implements OnInit {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 
+  public add(list: Array<heahthList>, name:string, number:string){
+    if (!this.medicineList && name != null && number != null) this.medicineList = new Array<heahthList>();
+    let medicine = new heahthList;
+    medicine.name = name;
+    medicine.number = number;
+    list.push(medicine);
+    this.typeOfMedicine.reset();
+    this.numberOfMedicine.reset();
+    this.NumberOfTreatments.reset();
+    this.TypeOfDisease.reset();
+  }
+
+  public remove(list : Array<heahthList>, index: number){
+    list.splice(index, 1);
+  }
+
 }
+export class heahthList{
+  name : string;
+  number : string;
+}
+

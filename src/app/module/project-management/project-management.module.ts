@@ -1,3 +1,6 @@
+import { AddProgressReportComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/page/add-progress-report/add-progress-report.component';
+import { AddFinancialReportComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/page/add-financial-report/add-financial-report.component';
+import { SubmitAddActivityProgressFinancialComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity-progress-financial/submit-add-activity-progress-financial.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ChartReportProjectComponent } from './../../projectManagement/page/chart-report-project/chart-report-project.component';
 import { RecordFinancialReportModalComponent } from './../../projectManagement/page/activity/information-activity/page/financial-report-activity/page/record-financial-report-modal/record-financial-report-modal.component';
@@ -55,7 +58,9 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     ActivityRelationshipsTreeModeComponent,
     TimeLineChartActivityComponent,
     ActivityByDetailComponent,
-
+    SubmitAddActivityProgressFinancialComponent,
+    AddProgressReportComponent,
+    AddFinancialReportComponent
   ],
   imports: [
     CommonModule,
