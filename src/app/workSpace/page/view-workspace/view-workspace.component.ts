@@ -44,5 +44,5 @@ export class ViewWorkspaceComponent implements OnInit {
 }
 
 export enum ProjectState {
-  none, inProgress, done
+  none, inProgress, done, motamam
 }

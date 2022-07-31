@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-total-chart-for-company',
@@ -9,7 +10,9 @@ export class TotalChartForCompanyComponent implements OnInit {
   public progressOfCompany: any;
   public doneProjectOfCompany: any;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.initChartDoneProjectOfCompany();
@@ -23,7 +26,11 @@ export class TotalChartForCompanyComponent implements OnInit {
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: '#6a7985'
+            backgroundColor: '#6a7985',
+            labelTextStyle: {
+              fontFamily: 'Vazir, Raymon, Arial, Helvetica, sans-serif',
+              color:'#FFFFFF'
+            },
           }
         }
       },
@@ -56,7 +63,7 @@ export class TotalChartForCompanyComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [5, 10, 11, 18, 18, 20, 30],
-          itemStyle: {color: '#222222'}
+          itemStyle: {color: '#D1B6E1'}
         },
         {
           name: 'پروژه-2',
@@ -64,7 +71,7 @@ export class TotalChartForCompanyComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [10, 20, 25, 40, 40, 42, 45],
-          itemStyle: {color: '#AEAEAE'}
+          itemStyle: {color: '#2a6364'}
         },
         {
           name: 'پروژه-3',
@@ -72,7 +79,7 @@ export class TotalChartForCompanyComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [60, 30, 25, 23, 20, 12, 15],
-          itemStyle: {color: '#c1c1c1'}
+          itemStyle: {color: '#519D9E'}
         },
         {
           name: 'پروژه-4',
@@ -80,7 +87,7 @@ export class TotalChartForCompanyComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [25, 30, 34, 42, 48, 51, 57],
-          itemStyle: {color: '#7c7c7c'}
+          itemStyle: {color: '#c1c1c1'}
         },
         {
           name: 'پروژه-5',
@@ -88,7 +95,7 @@ export class TotalChartForCompanyComponent implements OnInit {
           stack: 'counts',
           areaStyle: { normal: {} },
           data: [5, 13, 11, 19, 17, 23, 19],
-          itemStyle: {color: '#545454'}
+          itemStyle: {color: '#28dadd'}
         }
       ]
     };
@@ -97,7 +104,7 @@ export class TotalChartForCompanyComponent implements OnInit {
 
   private initChartDoneProjectOfCompany() {
     this.doneProjectOfCompany =  {
-      color: ['#797777'],
+      color: ['#519D9E'],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -116,7 +123,10 @@ export class TotalChartForCompanyComponent implements OnInit {
           data: ['متمم', 'درحال انجام','تکمیل شده'],
           axisTick: {
             alignWithLabel: true
-          }
+          },
+          textStyle: {
+            fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+          },
         }
       ],
       yAxis: [{
@@ -126,11 +136,14 @@ export class TotalChartForCompanyComponent implements OnInit {
         name: 'تعداد پروژه',
         type: 'bar',
         barWidth: '60%',
-        data: [10, 5, 20]
+        data: [10, 5, 20],
+        textStyle: {
+          fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
+        },
       }]
     };
   }
-
-
-
+  public goToAllChart() {
+    this.router.navigate(['../../advancedSearch']);
+  }
 }

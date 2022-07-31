@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-drop-down-role-user',
   templateUrl: './drop-down-role-user.component.html',
-  styleUrls: ['./drop-down-role-user.component.scss']
+  styleUrls: ['./drop-down-role-user.component.scss', '../drop-down-project-list/drop-down-project-list.component.scss']
 })
 export class DropDownRoleUserComponent implements OnInit {
   @Input() placeholder: string;
