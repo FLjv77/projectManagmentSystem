@@ -5,7 +5,8 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-display-user-path',
   templateUrl: './display-user-path.component.html',
-  styleUrls: ['./display-user-path.component.scss', '../../../../assets/style/base.scss']
+  styleUrls: ['./display-user-path.component.scss',
+  '../../../../assets/style/base.scss']
 })
 export class DisplayUserPathComponent implements OnInit {
 

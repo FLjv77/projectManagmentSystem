@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-drop-down-province-list',
   templateUrl: './drop-down-province-list.component.html',
-  styleUrls: ['./drop-down-province-list.component.scss']
+  styleUrls: ['./drop-down-province-list.component.scss', '../drop-down-project-list/drop-down-project-list.component.scss']
 })
 export class DropDownProvinceListComponent implements OnInit {
 
@@ -39,8 +39,120 @@ export class DropDownProvinceListComponent implements OnInit {
       },
       {
         text: 'سمنان',
-        id: 'Basic 2'
-      }
+        id: 'Basic 3'
+      },
+      {
+        text: 'یزد',
+        id: 'Basic 3'
+      },
+      {
+        text: 'فارس',
+        id: 'Basic 3'
+      },
+      {
+        text: 'اردبیل',
+        id: 'Basic 3'
+      },
+      {
+        text: 'خوزستان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'خراسان رضوی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'خراسان شمالی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'خراسان جنوبی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'سیستان و بلوچستان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'آذربایجان غربی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'آذربایجان شرقی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'زنجان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'قزوین',
+        id: 'Basic 3'
+      },
+      {
+        text: 'همدان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'کهکیلویه و بویراحمد',
+        id: 'Basic 3'
+      },
+      {
+        text: 'کردستان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'لرستان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'گیلان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'مازندران',
+        id: 'Basic 3'
+      },
+      {
+        text: 'گلستان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'کرمان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'بوشهر',
+        id: 'Basic 3'
+      },
+      {
+        text: 'هرمزگان',
+        id: 'Basic 3'
+      },
+      {
+        text: 'ایلام',
+        id: 'Basic 3'
+      },
+      {
+        text: 'چهارمحال و بختیاری',
+        id: 'Basic 3'
+      },
+      {
+        text: 'قم',
+        id: 'Basic 3'
+      },
+      {
+        text: 'کرمانشاه',
+        id: 'Basic 3'
+      },
+      {
+        text: 'مرکزی',
+        id: 'Basic 3'
+      },
+      {
+        text: 'البرز',
+        id: 'Basic 3'
+      },
     ];
 
   }
