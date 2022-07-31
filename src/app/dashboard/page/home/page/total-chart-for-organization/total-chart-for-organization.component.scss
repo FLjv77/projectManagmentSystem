@@ -1,0 +1,11 @@
+@import '../../../../../../assets/style/colorPalette.scss';
+
+.more-button {
+  color: white;
+  background-color: $icon-color;
+  width: 100px;
+  margin-top: 25px;
+  cursor: pointer;
+  border-radius: 100px;
+  text-align: center;
+}

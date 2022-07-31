@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-total-chart-for-organization',
   templateUrl: './total-chart-for-organization.component.html',
-  styleUrls: ['./total-chart-for-organization.component.scss', '../../../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
+  styleUrls: ['./total-chart-for-organization.component.scss',
+  '../../../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
 })
 export class TotalChartForOrganizationComponent implements OnInit {
   public progressOfCompany: any;
   public doneProjectOfCompany: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.initChartDoneProjectOfCompany();
@@ -140,5 +142,7 @@ export class TotalChartForOrganizationComponent implements OnInit {
     };
   }
 
-
+  public goToAllChart() {
+    this.router.navigate(['../../advancedSearch']);
+  }
 }

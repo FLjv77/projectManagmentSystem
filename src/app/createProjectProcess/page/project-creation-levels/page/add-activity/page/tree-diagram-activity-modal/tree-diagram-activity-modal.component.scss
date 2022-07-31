@@ -28,3 +28,20 @@
     position: relative;
     top: 8px;
 }
+.detaile-activity {
+  padding-top: 12px;
+  color: $text-color-normal;
+  font-size: 14px;
+}
+
+.detaile-activity-child {
+  padding-top: 12px;
+  color: $text-color-normal;
+  font-size: 14px;
+  opacity: 0.8;
+}
+.parent-container {
+  margin-top: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+}

@@ -42,6 +42,7 @@ import {WaterInformationPompTypeComponent} from "../../createProjectProcess/page
 import {WaterInformationPurificationTypeComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/page/water-information-purification-type/water-information-purification-type.component";
 import {WaterInformationWaterSealTypeComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/page/water-information-water-seal-type/water-information-water-seal-type.component";
 import {WaterInformationTransferLineTypeComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/page/water-information-transfer-line-type/water-information-transfer-line-type.component";
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {WaterInformationTransferLineTypeComponent} from "../../createProjectProc
     MatRadioModule,
     MatCheckboxModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTreeModule,
   ],
   exports: [
   ],

@@ -1,9 +1,6 @@
 <div class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl">
-
-  <ng-select2 [data]="stateData" [placeholder]="'انتخاب استان'"
-              [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
-
-  <ng-select2 [data]="stateData" [placeholder]="'انتخاب شهر'"
+  <app-drop-down-province-list></app-drop-down-province-list>
+  <ng-select2 [placeholder]="'انتخاب شهر'"
               [(ngModel)]="placeHolder" class="set-font-vazir mt-2"></ng-select2>
 
 </div>

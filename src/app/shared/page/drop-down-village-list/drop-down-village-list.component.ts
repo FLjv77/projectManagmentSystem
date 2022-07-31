@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-drop-down-village-list',
   templateUrl: './drop-down-village-list.component.html',
-  styleUrls: ['./drop-down-village-list.component.scss']
+  styleUrls: ['./drop-down-village-list.component.scss', '../drop-down-project-list/drop-down-project-list.component.scss']
 })
 export class DropDownVillageListComponent implements OnInit {
 
