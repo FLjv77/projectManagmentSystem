@@ -1,0 +1,38 @@
+@import "../../../../../../../assets/style/colorPalette.scss";
+
+.edit-pen {
+  position: absolute;
+  left: 10px;
+  top: -2px;
+  font-size: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+  &:hover {
+    color: $text-color-normal;
+  }
+}
+
+.input-detail {
+  outline: none;
+  background: none;
+  border: none;
+  color: $text-color-normal;
+}
+
+input:disabled {
+  color: $disable-input-color;
+}
+
+.open-panel {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  font-size: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+  &:hover {
+    color: $text-color-normal;
+  }
+}
