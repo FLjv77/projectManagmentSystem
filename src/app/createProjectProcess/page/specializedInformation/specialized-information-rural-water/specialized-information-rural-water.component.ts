@@ -39,6 +39,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
+  public checkSubOption: boolean;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
 
@@ -104,6 +105,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   }
 
   public setProjectRuralWaterArea(state: ProjectRuralWater) {
+    this.checkSubOption = false;
     this.projectRuralWaterArea = state;
   }
 
@@ -119,5 +121,23 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     return this.selectedState && this.selectedZone &&
       (this.equipmentControl.value || this.equipmentList) &&
       (this.requirementControl.value || this.requirementList) && this.projectRuralWaterArea >= 0 && this.groundType >= 0;
+  }
+
+  public handleSubOption(state: boolean) {
+    this.checkSubOption = state;
+  }
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.regionControl.value &&
+      this.stabilityResourceControl.value &&
+      this.debeyControl.value &&
+      this.ownerShipTypeControl.value &&
+      this.groundTypeControl.value &&
+      this.requirementControl.value &&
+      this.equipmentControl.value &&
+      this.checkSubOption
+    ) res = true;
+    return res;
   }
 }

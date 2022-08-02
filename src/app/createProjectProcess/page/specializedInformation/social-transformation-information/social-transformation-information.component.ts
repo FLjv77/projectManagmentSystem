@@ -55,5 +55,40 @@ export class SocialTransformationInformationComponent implements OnInit {
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
-  
+
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.numberIntroduction.value &&
+      this.campBudget.value &&
+      this.numberCamp.value &&
+      this.Capacity.value &&
+      this.numberFloors.value &&
+
+      this.consultantWorkshops.value &&
+      this.amountDivorceGivenFacilities.value &&
+      this.numberElectricalBonds.value &&
+      this.prisonerBudget.value &&
+      this.amountPrisonerGivenFacilities.value &&
+      this.typeCrime.value &&
+      this.numberDrugPackages.value &&
+      this.packagesCost.value &&
+      this.typeTools.value &&
+
+      this.numberTools.value &&
+      this.costTools.value &&
+      this.numberEducationalPackages.value &&
+      this.costEducational.value &&
+      this.numberPeopleCovered.value &&
+      this.numberSubsistencePackages.value &&
+      this.costSubsistencePackages.value &&
+
+      this.numberChildrenCovered.value &&
+      this.numberDrugPackagesSpecificPatients.value &&
+      this.volumeTreatmentFacilities.value &&
+      this.numberTargetPatients.value
+    ) res = true;
+    return res;
+  }
 }

@@ -1,4 +1,3 @@
-  <!-- <app-display-user-path [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path> -->
       <div class="bg-levels mx-4 mt-2">
         <div class="row">
           <div class="col-12">
@@ -9,7 +8,7 @@
           <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده فعلی : </h4>
           </div>
-          <mat-radio-group
+          <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
             <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">آسفالته</span>
@@ -25,7 +24,7 @@
           <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده هدف : </h4>
           </div>
-          <mat-radio-group
+          <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
             <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">آسفالته</span>
@@ -38,16 +37,13 @@
             </mat-radio-button>
           </mat-radio-group>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [inputFormControl]="roadLength"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [inputFormControl]="roadWidth"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth"></app-input-style>
 
-
-          <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
-            [inputFormControl]="LocationFormControl"></app-input-style>
-        <div class="row col-12 my-2 d-ltr">
-          <button type="button" class="ok-button">
-            <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
-          </button>
+          <div class="row col-12 my-2" style="direction: ltr;">
+            <button type="button" class="ok-button" [disabled]="!checkValidation()">
+                <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+            </button>
         </div>
 
       </div>

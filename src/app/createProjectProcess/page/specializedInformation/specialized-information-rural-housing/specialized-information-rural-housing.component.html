@@ -3,15 +3,14 @@
           <div class="col-12">
             <i class="material-icons d-inline icon-styles">home</i>
             <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی مسکن</h4>
-          </div>     
+          </div>
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'meterageLand'" [type]="'number'" [inputFormControl]="meterageLand"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageInfrastructure'" [inputFormControl]="meterageInfrastructure"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'numberOfFloors'" [inputFormControl]="numberOfFloors"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان تسهیلات'" [inputId]="'amountFacilities'" [inputFormControl]="amountFacilities"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان پرداخت متقاضیان'" [inputId]="'ApplicantsPaymentAmount'" [inputFormControl]="ApplicantsPaymentAmount"></app-input-style>
-          <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
-                              [inputFormControl]="projectDeliveryDateFormControl"></app-date-picker-jalaly>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageInfrastructure'" [type]="'number'" [inputFormControl]="meterageInfrastructure"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'numberOfFloors'" [type]="'number'" [inputFormControl]="numberOfFloors"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان تسهیلات'" [inputId]="'amountFacilities'" [type]="'number'" [inputFormControl]="amountFacilities"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان پرداخت متقاضیان'" [inputId]="'ApplicantsPaymentAmount'" [type]="'number'" [inputFormControl]="ApplicantsPaymentAmount"></app-input-style>
+
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'انشعابات'" [inputId]="'branches'" [inputFormControl]="branches"></app-input-style>
           <div *ngIf="beneficiariesList" class="col-11">
             <div *ngFor="let list of beneficiariesList , let i = index" class="row my-2 lists">
@@ -39,7 +38,7 @@
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">این پروژه خیّر دارد؟ </h4>
         </div>
-        <mat-radio-group
+        <mat-radio-group [value]="1"
             class="example-radio-group font-size-small">
             <mat-radio-button (click)="setGood()" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">بله</span>
@@ -50,16 +49,13 @@
           </mat-radio-group>
 
           <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نام خیّر'" [inputId]="'goodName'" [inputFormControl]="goodName"></app-input-style>
-          <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان هزینه'" [inputId]="'amountCost'" [inputFormControl]="amountCost"></app-input-style>
-
-          <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
-            [inputFormControl]="LocationFormControl"></app-input-style>
-
+          <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان هزینه'" [type]="'number'" [inputId]="'amountCost'" [inputFormControl]="amountCost"></app-input-style>
         </div>
 
-        <div class="row col-12 my-2 d-ltr">
-          <button type="button" class="ok-button">
-            <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+
+        <div class="row col-12 my-2" style="direction: ltr;">
+          <button type="button" class="ok-button" [disabled]="!checkValidation()">
+              <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
           </button>
-        </div>
+      </div>
       </div>

@@ -78,7 +78,20 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
     this.good = !this.good;
   }
 
-  public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.meterageLand.value &&
+      this.meterageInfrastructure.value &&
+      this.numberOfFloors.value &&
+
+      this.amountFacilities.value &&
+      this.ApplicantsPaymentAmount.value &&
+      this.branches.value &&
+      this.beneficiaries.value &&
+      ((this.good && this.goodName.value && this.amountCost.value) || (!this.good))
+
+    ) res = true;
+    return res;
   }
 }
