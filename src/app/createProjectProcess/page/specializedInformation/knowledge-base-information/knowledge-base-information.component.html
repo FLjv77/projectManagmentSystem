@@ -6,21 +6,19 @@
       </div>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'" [inputId]="'numberCompany'" [type]="'number'" [inputFormControl]="numberCompany"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'" [inputId]="'AreaOfExpertise'" [type]="'number'" [inputFormControl]="AreaOfExpertise"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'" [inputId]="'AreaOfExpertise'" [inputFormControl]="AreaOfExpertise"></app-input-style>
 
       <div class="col-12 mt-2">
         <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'loanAmount'" [inputFormControl]="loanAmount"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'loanAmount'" [type]="'number'" [inputFormControl]="loanAmount"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'numberAmount'" [type]="'number'" [inputFormControl]="numberAmount"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'" [inputId]="'reasonAmount'" [inputFormControl]="reasonAmount"></app-input-style>
 
-      <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
-        [inputFormControl]="LocationFormControl"></app-input-style>
-    <div class="row col-12 my-2 d-ltr">
-      <button type="button" class="ok-button">
-        <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
-      </button>
-    </div>
 
+    <div class="row col-12 my-2" style="direction: ltr;">
+      <button type="button" class="ok-button" [disabled]="!checkValidation()">
+          <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+      </button>
+  </div>
   </div>

@@ -34,4 +34,16 @@ export class KnowledgeBaseInformationComponent implements OnInit {
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.numberCompany.value &&
+      this.AreaOfExpertise.value &&
+      this.numberAmount.value &&
+      this.loanAmount.value &&
+      this.reasonAmount.value
+    ) res = true;
+    return res;
+  }
 }

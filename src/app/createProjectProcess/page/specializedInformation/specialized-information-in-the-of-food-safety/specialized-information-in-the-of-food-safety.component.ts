@@ -14,7 +14,6 @@ export class SpecializedInformationInTheOfFoodSafetyComponent implements OnInit 
   public centerTitle = new FormControl();
   public number = new FormControl();
   public budget = new FormControl();
-  public LocationFormControl = new FormControl();
 
   constructor(private router:Router) { }
 
@@ -30,5 +29,15 @@ export class SpecializedInformationInTheOfFoodSafetyComponent implements OnInit 
 
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
+  }
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.budget.value &&
+      this.number.value &&
+      this.centerTitle.value
+    ) res = true;
+    return res;
   }
 }

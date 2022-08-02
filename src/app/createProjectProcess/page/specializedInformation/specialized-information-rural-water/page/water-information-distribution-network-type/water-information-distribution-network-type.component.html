@@ -1,1 +1,19 @@
-<p>water-information-distribution-network-type works!</p>
+<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2"
+                 [inputLabel]="'وضعیت شبکه توزیع'"
+                 [inputId]="'networkStateControl'"
+                 [inputFormControl]="networkStateControl"></app-input-style>
+
+<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2"
+[inputLabel]="'پمپ تقویتی بر روی خط'"
+[inputId]="'pompControl'"
+[inputFormControl]="pompControl"></app-input-style>
+
+<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2"
+                 [inputLabel]="'نوع لوله'"
+                 [inputId]="'typePipeControl'"
+                 [inputFormControl]="typePipeControl"></app-input-style>
+
+<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2"
+[inputLabel]="'طول خط انتقال'"
+[inputId]="'lenPipeControl'" [type]="'number'"
+[inputFormControl]="lenPipeControl"></app-input-style>

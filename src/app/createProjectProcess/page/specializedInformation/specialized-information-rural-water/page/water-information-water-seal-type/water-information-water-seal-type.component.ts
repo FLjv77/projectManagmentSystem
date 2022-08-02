@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -8,6 +8,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./water-information-water-seal-type.component.scss']
 })
 export class WaterInformationWaterSealTypeComponent implements OnInit {
+  @Output() validationForm = new EventEmitter<boolean>();
   public inputCustomStyle: InputCustomStyle;
   public riverNameControl = new FormControl();
   public resourceSaveWaterStateControl = new FormControl();
@@ -22,6 +23,7 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -30,4 +32,49 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
     )
   }
 
+  private subscribeChangeFormCoontrol() {
+    this.riverNameControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.resourceSaveWaterStateControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.pompControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.stopFloodControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.riverWidthControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.lenControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.heightControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+  }
+
+  private checkValidationForm() {
+    if(
+      this.riverNameControl.value &&
+      this.resourceSaveWaterStateControl.value &&
+      this.stopFloodControl.value &&
+      this.pompControl.value &&
+      this.riverWidthControl.value &&
+      this.lenControl.value &&
+      this.heightControl.value
+    ) {
+      this.validationForm.emit(true);
+    } else {
+      this.validationForm.emit(false);
+    }
+  }
 }

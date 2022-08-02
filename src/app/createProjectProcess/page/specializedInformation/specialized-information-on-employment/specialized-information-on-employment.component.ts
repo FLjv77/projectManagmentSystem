@@ -37,4 +37,20 @@ export class SpecializedInformationOnEmploymentComponent implements OnInit {
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.workshopName.value &&
+      this.workshopType.value &&
+      this.numberPeopleWorkshop.value &&
+      this.EducationCenterName.value &&
+      this.EducationCenterType.value &&
+      this.numberPeopleEducationCenter.value &&
+      this.amount.value &&
+      this.number.value &&
+      this.reason.value
+    ) res = true;
+    return res;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -12,10 +12,13 @@ export class WaterInformationPurificationTypeComponent implements OnInit {
   public informationStateControl = new FormControl();
   public electricStateControl = new FormControl();
   public capacityStateControl = new FormControl();
+  @Output() validationForm = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -24,4 +27,30 @@ export class WaterInformationPurificationTypeComponent implements OnInit {
     )
   }
 
+  private subscribeChangeFormCoontrol() {
+    this.informationStateControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.electricStateControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.capacityStateControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+  }
+
+  private checkValidationForm() {
+    if(
+      this.informationStateControl.value &&
+      this.electricStateControl.value &&
+      this.capacityStateControl.value
+    ) {
+      this.validationForm.emit(true);
+    } else {
+      this.validationForm.emit(false);
+    }
+  }
 }

@@ -63,6 +63,27 @@ export class HealthInformationComponent implements OnInit {
     list.splice(index, 1);
   }
 
+  public checkValidation(): boolean {
+    let res = false;
+    if(this.NumberOfFloors.value
+      && this.numberOfBedsHospital.value
+      && this.Meterage.value
+      && this.numberOfBedsHealthHouse.value
+      && this.numberDoctors.value
+      && this.numberNurses.value
+      && this.numberBathroom.value
+      && this.numberWC.value
+      && this.numberpharmacy.value
+      && this.numberOfPeopleCoveredByInsurance.value
+
+      && this.NumberOfTreatments.value
+      && this.TypeOfDisease.value
+      && this.numberOfMedicine.value
+      && this.typeOfMedicine.value
+      ) res = true;
+
+    return res;
+  }
 }
 export class heahthList{
   name : string;

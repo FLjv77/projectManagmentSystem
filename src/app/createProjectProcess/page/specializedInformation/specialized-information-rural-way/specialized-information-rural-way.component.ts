@@ -24,7 +24,6 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public roadWidth = new FormControl();
   public roadLength = new FormControl();
-  public LocationFormControl = new FormControl();
 
   public wayType: WayType;
   public path1: DisplayPathModel;
@@ -50,8 +49,13 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     )
   }
 
-  public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.roadWidth.value &&
+      this.roadLength.value
+    ) res = true;
+    return res;
   }
 
   public setWayType(state: WayType) {
