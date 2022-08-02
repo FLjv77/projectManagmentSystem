@@ -7,13 +7,12 @@
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عنوان مرکز'" [inputId]="'centerTitle'" [inputFormControl]="centerTitle"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [inputFormControl]="budget"></app-input-style>
-      <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
-        [inputFormControl]="LocationFormControl"></app-input-style>
-    <div class="row col-12 my-2 d-ltr">
-      <button type="button" class="ok-button">
-        <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
-      </button>
-    </div>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [type]="'number'" [inputFormControl]="budget"></app-input-style>
+
+        <div class="row col-12 my-2" style="direction: ltr;">
+          <button type="button" class="ok-button" [disabled]="!checkValidation()">
+              <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+          </button>
+      </div>
 
   </div>

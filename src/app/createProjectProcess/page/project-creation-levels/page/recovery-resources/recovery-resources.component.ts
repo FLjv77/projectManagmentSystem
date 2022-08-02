@@ -12,6 +12,8 @@ export class RecoveryResourcesComponent implements OnInit {
   public resourceNameFormControl = new FormControl();
   public addressResourceFormControl = new FormControl();
   public TimeResourceFormControl = new FormControl();
+  public startDateFormControl = new FormControl();
+  public endDateFormControl = new FormControl();
 
   constructor() { }
 

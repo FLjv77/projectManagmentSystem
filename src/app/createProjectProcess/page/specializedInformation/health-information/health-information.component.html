@@ -13,7 +13,7 @@
       <div class="col-12 mt-2">
         <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage" [type]="'number'"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHealthHouse'" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد دکتر'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [inputId]="'numberNurses'" [type]="'number'" [inputFormControl]="numberNurses"></app-input-style>
@@ -58,7 +58,7 @@
             <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
         </button>
       </div>
-      
+
       <div class="col-12 mt-5">
         <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
       </div>
@@ -91,15 +91,12 @@
             <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
         </button>
       </div>
-      
 
-      <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
-            [inputFormControl]="LocationFormControl"></app-input-style>
     </div>
 
-    <div class="row col-12 my-2 d-ltr">
-      <button type="button" class="ok-button">
-        <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
+    <div class="row col-12 my-2" style="direction: ltr;">
+      <button type="button" class="ok-button" [disabled]="!checkValidation()">
+          <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
       </button>
-    </div>
+  </div>
   </div>

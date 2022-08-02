@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -9,11 +9,17 @@ import {FormControl} from "@angular/forms";
 })
 export class WaterInformationDistributionNetworkTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public damStateControl = new FormControl();
+  public networkStateControl = new FormControl();
+  public pompControl = new FormControl();
+  public lenPipeControl = new FormControl();
+  public typePipeControl = new FormControl();
+  @Output() validationForm = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -22,4 +28,35 @@ export class WaterInformationDistributionNetworkTypeComponent implements OnInit 
     )
   }
 
+
+  private subscribeChangeFormCoontrol() {
+    this.networkStateControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.pompControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.lenPipeControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.typePipeControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+  }
+
+  private checkValidationForm() {
+    if(
+      this.networkStateControl.value &&
+      this.pompControl.value &&
+      this.lenPipeControl.value &&
+      this.typePipeControl.value
+    ) {
+      this.validationForm.emit(true);
+    } else {
+      this.validationForm.emit(false);
+    }
+  }
 }

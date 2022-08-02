@@ -31,4 +31,15 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
   public goOnMap() {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
+
+
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.amountGrantedFacilities.value &&
+      this.numberIndustries.value
+    ) res = true;
+    return res;
+  }
 }

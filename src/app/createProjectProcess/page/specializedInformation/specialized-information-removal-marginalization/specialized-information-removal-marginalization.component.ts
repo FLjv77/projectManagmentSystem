@@ -21,7 +21,6 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
   public NumberOfFloors = new FormControl();
   public meterageClinic = new FormControl();
   public numberDoctors = new FormControl();
-  public LocationFormControl = new FormControl();
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
@@ -44,7 +43,22 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
     this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
     this.path3 = new DisplayPathModel('شناسه تخصصی', false, '');
   }
-  public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
+
+  public checkValidation(): boolean {
+    let res = false;
+    if(
+      this.numberMosques.value &&
+      this.numberMosques.value &&
+      this.meterageMosques.value &&
+      this.meterageSchool.value &&
+      this.numberClass.value &&
+      this.estimatedNumberOfStudents.value &&
+      this.meteragePark.value &&
+      this.NumberOfFloors.value &&
+      this.meterageClinic.value &&
+      this.numberDoctors.value
+
+    ) res = true;
+    return res;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -9,11 +9,13 @@ import {FormControl} from "@angular/forms";
 })
 export class WaterInformationFountainTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public damStateControl = new FormControl();
+  @Output() validationForm = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.checkValidationForm();
   }
 
   private initInputStyle() {
@@ -22,4 +24,10 @@ export class WaterInformationFountainTypeComponent implements OnInit {
     )
   }
 
+  private subscribeChangeFormCoontrol() {
+  }
+
+  private checkValidationForm() {
+    this.validationForm.emit(true);
+  }
 }
