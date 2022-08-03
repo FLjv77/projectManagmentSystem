@@ -12,6 +12,7 @@ export class FinancialReportProjectComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public reporterNameFormControl = new FormControl();
   public saveDateFormControl = new FormControl();
+  public paymentDateFormControl = new FormControl();
   public progressFormControl = new FormControl();
   public descreptionReportFormControl = new FormControl();
   public uploadDocumentationProjectFormControl = new FormControl();

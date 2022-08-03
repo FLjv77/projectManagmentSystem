@@ -7,9 +7,12 @@
               <span class="mx-auto set-font-Raymon">نظارت بر گزارش تخصیص </span>
             </div>
             <div class="row mt-5 mx-auto">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت نظر'" [inputId]="'1'"
-                [inputFormControl]="recordDateFormControl"></app-input-style>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'درصد پیشرفت مورد تایید'" [inputId]="'2'"
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارشگر'" [inputId]="'reporterNameFormControl'"
+              [inputFormControl]="reporterNameFormControl"></app-input-style>
+                <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت نظر'" [inputId]="'1'"
+                [inputFormControl]="recordDateFormControl"></app-date-picker-jalaly>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه پرداختی مورد تایید'" [inputId]="'2'"
                 [inputFormControl]="approvedProgressPercentageFormControl"></app-input-style>
                 <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'توضیحات'" [inputId]="'3'"
                 [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
@@ -23,4 +26,3 @@
       </div>
     </div>
 </div>
-  
