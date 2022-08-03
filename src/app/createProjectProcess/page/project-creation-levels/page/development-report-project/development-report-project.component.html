@@ -7,9 +7,6 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارش دهنده'" [inputId]="'1'"
             [inputFormControl]="reporterNameFormControl"></app-input-style>
 
-        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
-            [inputFormControl]="saveDateFormControl"></app-input-style> -->
-
         <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
             [inputFormControl]="saveDateFormControl"></app-date-picker-jalaly>
 
@@ -22,7 +19,7 @@
       <app-upload-file-input [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگذاری مستندات پیشرفت پروژه'"></app-upload-file-input>
 
     </div>
-    <app-financial-report-project (formcontroleInputs)="getInputs($event)"></app-financial-report-project>
+    <app-financial-report-project (validationForm)="handleSubOption($event)"></app-financial-report-project>
 
     <div class="row col-12 my-2" style="direction: ltr;">
         <button type="button" class="ok-button" [disabled]="!getValue()">

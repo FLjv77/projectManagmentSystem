@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-financial-report-project',
@@ -16,13 +15,14 @@ export class FinancialReportProjectComponent implements OnInit {
   public progressFormControl = new FormControl();
   public descreptionReportFormControl = new FormControl();
   public uploadDocumentationProjectFormControl = new FormControl();
-  @Output() formcontroleInputs= new EventEmitter<boolean>();
+  @Output() validationForm = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { }
+  constructor() { }
 
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -30,19 +30,45 @@ export class FinancialReportProjectComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
-  public getValue(){
-    if(this.reporterNameFormControl.value && this.saveDateFormControl.value && this.progressFormControl.value &&
-      this.descreptionReportFormControl.value && this.uploadDocumentationProjectFormControl.value &&
-      this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
-      this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid){
-      this.formcontroleInputs.emit(true);
-      console.log(this.formcontroleInputs);
-      return true;
-    }
-    else{return false}
+  private subscribeChangeFormCoontrol() {
+    this.reporterNameFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.saveDateFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.paymentDateFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.progressFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.descreptionReportFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
+    this.uploadDocumentationProjectFormControl.valueChanges.subscribe(() => {
+      this.checkValidationForm();
+    });
+
   }
 
-  // public goNextStep() {
-  //   this.router.navigate(['../../createProject/specializedInformationRuralHousing'])
-  // }
+  private checkValidationForm() {
+    if(
+      this.reporterNameFormControl.value &&
+      this.saveDateFormControl.value &&
+      this.paymentDateFormControl.value &&
+      this.progressFormControl.value &&
+      this.descreptionReportFormControl.value &&
+      this.uploadDocumentationProjectFormControl.value
+    ) {
+      this.validationForm.emit(true);
+    } else {
+      this.validationForm.emit(false);
+    }
+  }
 }
