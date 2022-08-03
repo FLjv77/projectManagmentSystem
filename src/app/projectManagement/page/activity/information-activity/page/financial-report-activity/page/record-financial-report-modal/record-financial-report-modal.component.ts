@@ -11,6 +11,7 @@ export class RecordFinancialReportModalComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
   public recordDateFormControl = new FormControl();
+  public reporterNameFormControl = new FormControl();
   public approvedProgressPercentageFormControl = new FormControl();
   public descreptionFormControl = new FormControl();
 
