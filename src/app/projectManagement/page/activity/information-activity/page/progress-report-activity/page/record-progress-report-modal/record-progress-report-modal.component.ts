@@ -13,6 +13,7 @@ export class RecordProgressReportModalComponent implements OnInit {
   public recordDateFormControl = new FormControl();
   public approvedProgressPercentageFormControl = new FormControl();
   public descreptionFormControl = new FormControl();
+  public reporterNameFormControl = new FormControl();
 
   constructor() { }
 
