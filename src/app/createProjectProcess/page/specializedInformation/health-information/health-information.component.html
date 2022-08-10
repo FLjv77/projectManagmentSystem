@@ -4,99 +4,213 @@
         <i class="material-icons d-inline icon-styles">local_hospital</i>
         <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی پروژه سلامت</h4>
       </div>
-      <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
-      </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'NumberOfFloors'" [type]="'number'" [inputFormControl]="NumberOfFloors"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHospital'" [type]="'number'" [inputFormControl]="numberOfBedsHospital"></app-input-style>
 
       <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
+        <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage" [type]="'number'"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHealthHouse'" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد دکتر'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [inputId]="'numberNurses'" [type]="'number'" [inputFormControl]="numberNurses"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد داروخانه'" [inputId]="'numberpharmacy'" [type]="'number'" [inputFormControl]="numberpharmacy"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد حمام'" [inputId]="'numberBathroom'" [type]="'number'" [inputFormControl]="numberBathroom"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد سرویس بهداشتی'" [inputId]="'numberWC'" [type]="'number'" [inputFormControl]="numberWC"></app-input-style>
+      <mat-radio-group [value]="0"
+        class="example-radio-group font-size-small">
+        <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+          <span class="px-2">احداث</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+          <span class="px-2">تکمیل و توسعه</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+          <span class="px-2">مرمت</span>
+        </mat-radio-button>
+      </mat-radio-group>
 
-      <div class="col-md-3 col-12 mt-5">
-        <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
-      </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'" [inputId]="'numberOfPeopleCoveredByInsurance'" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance"></app-input-style>
+      <section class="example-section text-end mt-3">
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(0)">
+          <label class="mat-checkbox-label">بیمارستان</label>
+        </mat-checkbox>
 
-      <div class="col-12 mt-5">
-        <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(1)">
+          <label class="mat-checkbox-label">خانه بهداشت</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(2)">
+          <label class="mat-checkbox-label">بیمه</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(3)">
+          <label class="mat-checkbox-label">داروخانه</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(4)">
+          <label class="mat-checkbox-label">حمام</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(5)">
+          <label class="mat-checkbox-label">سرویس بهداشتی</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(6)">
+          <label class="mat-checkbox-label">واکسیناسیون</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(7)">
+          <label class="mat-checkbox-label">درمان</label>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(8)">
+          <label class="mat-checkbox-label">دارو</label>
+        </mat-checkbox>
+      </section>
+      
+      <div *ngIf="select0">
+        <div *ngFor="let Hospital of HospitalList , let i = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'" [inputId]="'numberHospital'" [inputFormControl]="numberHospital" [type]="'number'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'NumberOfFloors'" [type]="'number'" [inputFormControl]="NumberOfFloors"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHospital'" [type]="'number'" [inputFormControl]="numberOfBedsHospital"></app-input-style>
+        </div>
+
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHospital()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+              </button>
+          </div>
+      </div> 
       </div>
-      <div *ngIf="diseaseList" class="col-11">
-        <div *ngFor="let list1 of diseaseList , let i = index" class="row my-2 lists">
-            <div class="row col-11">
-                <div class="col-6 my-auto">
+
+      <div *ngIf="select1">
+        <div *ngFor="let HealthHome of HealthHomeList , let i = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'" [inputId]="'numberHealthHome'" [inputFormControl]="numberHealthHome" [type]="'number'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage" [type]="'number'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHealthHouse'" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پزشک'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [inputId]="'numberNurses'" [type]="'number'" [inputFormControl]="numberNurses"></app-input-style>
+        </div>
+
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHealthHome()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن خانه بهداشت جدید">
+              </button>
+          </div>
+        </div>
+      </div> 
+
+      <div *ngIf="select2" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
+        </div>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'" [inputId]="'numberOfPeopleCoveredByInsurance'" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance"></app-input-style>
+      </div>
+
+      <div *ngIf="select3" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
+        </div>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد داروخانه'" [inputId]="'numberpharmacy'" [type]="'number'" [inputFormControl]="numberpharmacy"></app-input-style>
+      </div>
+
+      <div *ngIf="select4" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
+        </div>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد حمام'" [inputId]="'numberBathroom'" [type]="'number'" [inputFormControl]="numberBathroom"></app-input-style>
+      </div>
+      
+      <div *ngIf="select5" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
+        </div>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد سرویس بهداشتی'" [inputId]="'numberWC'" [type]="'number'" [inputFormControl]="numberWC"></app-input-style>
+      </div>
+
+      <div *ngIf="select6" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
+        </div>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد واکسیناسیون'" [inputId]="'numberVaccination'" [type]="'number'" [inputFormControl]="numberVaccination"></app-input-style>
+      </div>
+      
+      <div *ngIf="select7" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
+        </div>
+        <div *ngIf="diseaseList" class="col-11">
+          <div *ngFor="let list1 of diseaseList , let i = index" class="row my-2 lists">
+              <div class="row col-11">
+                  <div class="col-6 my-auto">
+                      <span class="d-inline">{{i+1}}.
+                          بیماری :</span>
+                      <span class="d-inline">{{list1.name}}</span>
+                  </div>
+                  <div class="col-6 my-auto">
                     <span class="d-inline">{{i+1}}.
-                        بیماری :</span>
-                    <span class="d-inline">{{list1.name}}</span>
+                        تعداد :</span>
+                    <span class="d-inline">{{list1.number}}</span>
                 </div>
-                <div class="col-6 my-auto">
-                  <span class="d-inline">{{i+1}}.
-                      تعداد :</span>
-                  <span class="d-inline">{{list1.number}}</span>
               </div>
-            </div>
-            <div class="col-1 pt-1">
-                <button (click)="remove(diseaseList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-            </div>
+              <div class="col-1 pt-1">
+                  <button (click)="remove(diseaseList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
+              </div>
+          </div>
+        </div>
+        <div class="row col-11">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'" [inputId]="'TypeOfDisease'" [inputFormControl]="TypeOfDisease"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'" [inputId]="'NumberOfTreatments'" [type]="'number'" [inputFormControl]="NumberOfTreatments"></app-input-style>
+        </div>
+        <div class="col-1">
+          <button *ngIf="TypeOfDisease.value && TypeOfDisease.valid && NumberOfTreatments.value && NumberOfTreatments.valid" class="button-add"
+                   (click)="add(diseaseList,TypeOfDisease.value, NumberOfTreatments.value)">
+              <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+          </button>
         </div>
       </div>
-      <div class="row col-11">
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'" [inputId]="'TypeOfDisease'" [inputFormControl]="TypeOfDisease"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'" [inputId]="'NumberOfTreatments'" [type]="'number'" [inputFormControl]="NumberOfTreatments"></app-input-style>
-      </div>
-      <div class="col-1">
-        <button *ngIf="TypeOfDisease.value && TypeOfDisease.valid && NumberOfTreatments.value && NumberOfTreatments.valid" class="button-add"
-                 (click)="add(diseaseList,TypeOfDisease.value, NumberOfTreatments.value)">
-            <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
-        </button>
-      </div>
 
-      <div class="col-12 mt-5">
-        <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
-      </div>
-      <div *ngIf="medicineList" class="col-11">
-        <div *ngFor="let list2 of medicineList , let i = index" class="row my-2 lists">
-            <div class="row col-11">
-                <div class="col-6 my-auto">
-                    <span class="d-inline">{{i+1}}.
-                        دارو :</span>
-                    <span class="d-inline">{{list2.name}}</span>
-                </div>
-                <div class="col-6 my-auto">
-                  <span class="d-inline">{{i+1}}.
-                      تعداد :</span>
-                  <span class="d-inline">{{list2.number}}</span>
-              </div>
-            </div>
-            <div class="col-1 pt-1">
-                <button (click)="remove(medicineList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-            </div>
+      <div *ngIf="select8" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
         </div>
-      </div>
-      <div class="row col-11">
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'" [inputId]="'typeOfMedicine'" [inputFormControl]="typeOfMedicine"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberOfMedicine'" [type]="'number'" [inputFormControl]="numberOfMedicine"></app-input-style>
-      </div>
-      <div class="col-1">
-        <button *ngIf="typeOfMedicine.value && typeOfMedicine.valid && numberOfMedicine.value && numberOfMedicine.valid" class="button-add"
-                 (click)="add(medicineList,typeOfMedicine.value, numberOfMedicine.value)">
-            <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
-        </button>
+        <div *ngIf="medicineList" class="col-11">
+          <div *ngFor="let list2 of medicineList , let i = index" class="row my-2 lists">
+              <div class="row col-11">
+                  <div class="col-6 my-auto">
+                      <span class="d-inline">{{i+1}}.
+                          دارو :</span>
+                      <span class="d-inline">{{list2.name}}</span>
+                  </div>
+                  <div class="col-6 my-auto">
+                    <span class="d-inline">{{i+1}}.
+                        تعداد :</span>
+                    <span class="d-inline">{{list2.number}}</span>
+                </div>
+              </div>
+              <div class="col-1 pt-1">
+                  <button (click)="remove(medicineList , i)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
+              </div>
+          </div>
+        </div>
+        <div class="row col-11">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'" [inputId]="'typeOfMedicine'" [inputFormControl]="typeOfMedicine"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberOfMedicine'" [type]="'number'" [inputFormControl]="numberOfMedicine"></app-input-style>
+        </div>
+        <div class="col-1">
+          <button *ngIf="typeOfMedicine.value && typeOfMedicine.valid && numberOfMedicine.value && numberOfMedicine.valid" class="button-add"
+                   (click)="add(medicineList,typeOfMedicine.value, numberOfMedicine.value)">
+              <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+          </button>
+        </div>
       </div>
 
     </div>
 
-    <div class="row col-12 my-2" style="direction: ltr;">
-      <button type="button" class="ok-button" [disabled]="!checkValidation()">
-          <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+    <div class="my-2" style="direction: ltr;">
+      <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+          تایید و ادامه
       </button>
-  </div>
-  </div>
+    </div>
+</div>

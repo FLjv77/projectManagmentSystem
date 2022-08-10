@@ -1,3 +1,4 @@
+import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -15,7 +16,8 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
   templateUrl: './specialized-information-rural-housing.component.html',
   styleUrls: ['./specialized-information-rural-housing.component.scss',
     '../../project-creation-levels/project-creation-levels.component.scss',
-    '../specialized-information-removal-marginalization/specialized-information-removal-marginalization.component.scss'
+    '../specialized-information-removal-marginalization/specialized-information-removal-marginalization.component.scss',
+    '../../project-creation-levels/page/basic-project-information/basic-project-information.component.scss'
   ]
 })
 export class SpecializedInformationRuralHousingComponent implements OnInit {
@@ -44,6 +46,8 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
   public path3: DisplayPathModel;
   public beneficiariesList: Array<string> = [];
   public good: boolean = false;
+  public typeProject: projectType;
+  public arrayList: Array<string> = ['2223'];
 
 
   constructor(private router:Router) { }
@@ -94,4 +98,13 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
     ) res = true;
     return res;
   }
+
+  public setTypeProject(state: projectType){
+    this.typeProject = state;
+  }
+
+  public addList(){
+    this.arrayList.push('222');
+  }
+
 }
