@@ -28,9 +28,9 @@
             </div>
         </div>
 
-    <div class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button" [disabled]="!getValue()">
-            <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
-        </button>
-    </div>
+        <div class="my-2" style="direction: ltr;">
+            <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
+                تایید و ادامه
+            </button>
+        </div>
 </div>

@@ -18,7 +18,7 @@ export class SubActivityComponent implements OnInit {
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
   public checkbox:boolean = false;
-  public subactivityList: Array<string> = ['2223'];
+  public subactivityList: Array<string> = [];
 
   constructor(private handleModalService: HandleModalService) { }
 

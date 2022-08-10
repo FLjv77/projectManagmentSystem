@@ -1,3 +1,4 @@
+import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -24,11 +25,14 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public roadWidth = new FormControl();
   public roadLength = new FormControl();
+  // public number = new FormControl();
 
   public wayType: WayType;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
+  public typeProject: projectType;
+  public arrayList: Array<string> = ['2223'];
 
   constructor(private router:Router) { }
 
@@ -53,7 +57,8 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     let res = false;
     if(
       this.roadWidth.value &&
-      this.roadLength.value
+      this.roadLength.value 
+      //&& this.number.value
     ) res = true;
     return res;
   }
@@ -62,4 +67,11 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     this.wayType = state;
   }
 
+  public setTypeProject(state: projectType){
+    this.typeProject = state;
+  }
+
+  public addList(){
+    this.arrayList.push('222');
+  }
 }

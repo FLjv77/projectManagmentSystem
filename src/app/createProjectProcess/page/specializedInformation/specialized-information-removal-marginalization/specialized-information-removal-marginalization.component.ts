@@ -1,3 +1,4 @@
+import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
@@ -8,7 +9,8 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
   selector: 'app-specialized-information-removal-marginalization',
   templateUrl: './specialized-information-removal-marginalization.component.html',
   styleUrls: ['./specialized-information-removal-marginalization.component.scss',
-    '../../project-creation-levels/project-creation-levels.component.scss']
+    '../../project-creation-levels/project-creation-levels.component.scss',
+  '../../project-creation-levels/page/basic-project-information/basic-project-information.component.scss']
 })
 export class SpecializedInformationRemovalMarginalizationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
@@ -21,9 +23,20 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
   public NumberOfFloors = new FormControl();
   public meterageClinic = new FormControl();
   public numberDoctors = new FormControl();
+  public numberPark = new FormControl();
+  public numberClinic = new FormControl();
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
+  public typeProject: projectType;
+  public arrayList0: Array<string> = ['2223'];
+  public arrayList1: Array<string> = ['2223'];
+  public arrayList2: Array<string> = ['2223'];
+  public arrayList3: Array<string> = ['2223'];
+  public select0: boolean = false;
+  public select1: boolean = false;
+  public select2: boolean = false;
+  public select3: boolean = false;
 
   constructor(private router:Router) { }
 
@@ -60,5 +73,28 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
 
     ) res = true;
     return res;
+  }
+
+  public setTypeProject(state: projectType){
+    this.typeProject = state;
+  }
+
+  public addList(listName: Array<string>){
+    listName.push('222');
+  }
+
+  public setProjectMarginalization(state: number) {
+    if (state==0) {
+      this.select0 = !this.select0;
+    }
+    else if (state==1) {
+      this.select1 = !this.select1;
+    }
+    else if (state==2) {
+      this.select2 = !this.select2;
+    }
+    else if (state==3) {
+      this.select3 = !this.select3;
+    }
   }
 }
