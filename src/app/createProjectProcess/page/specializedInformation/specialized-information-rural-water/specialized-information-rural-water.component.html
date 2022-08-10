@@ -4,15 +4,13 @@
             <i class="material-icons d-inline icon-styles">water_drop</i>
             <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
           </div>
-
-
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+          <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
 
-          <div class="row mt-3">
+          <!-- <div class="row mt-3">
             <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
               <div class="col-11 disabled-input">{{item}}</div>
               <div class="remove-icon">
@@ -46,58 +44,64 @@
                 <button (click)="addEquipmentList()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
-          <label id="example-radio-group-label" class="mt-5 set-font-vazir">حوزه پروژه</label>
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setProjectRuralWaterArea(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">چاه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">چشمه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-              <span class="px-2">سد</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(3)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="3">
-              <span class="px-2">شبکه توزیع</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(4)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="4">
-              <span class="px-2">مخزن</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(5)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="5">
-              <span class="px-2">ایستگاه پمپاژ</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(6)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="6">
-              <span class="px-2">تصفیه خانه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(7)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="7">
-              <span class="px-2">آب بند</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setProjectRuralWaterArea(8)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="8">
-              <span class="px-2">خط انتقال</span>
-            </mat-radio-button>
-          </mat-radio-group>
+          <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
+          <section class="example-section text-end">
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(0)">
+              <label class="mat-checkbox-label">چاه</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(1)">
+              <label class="mat-checkbox-label">چشمه</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(2)">
+              <label class="mat-checkbox-label">سد</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(3)">
+              <label class="mat-checkbox-label">شبکه توزیع</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(4)">
+              <label class="mat-checkbox-label">مخزن</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(5)">
+              <label class="mat-checkbox-label">ایستگاه پمپاژ</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(6)">
+              <label class="mat-checkbox-label">تصفیه خانه</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(7)">
+              <label class="mat-checkbox-label">آب بند</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(8)">
+              <label class="mat-checkbox-label">خط انتقال</label>
+            </mat-checkbox>
+          </section>
         </div>
 
-        <app-water-information-dam-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(2)"></app-water-information-dam-type>
-        <app-water-information-distribution-network-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(3)"></app-water-information-distribution-network-type>
-        <app-water-information-fountain-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(1)"></app-water-information-fountain-type>
-        <app-water-information-pomp-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(5)"></app-water-information-pomp-type>
-        <app-water-information-purification-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(6)"></app-water-information-purification-type>
-        <app-water-information-source-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(4)"></app-water-information-source-type>
-        <app-water-information-transfer-line-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(8)"></app-water-information-transfer-line-type>
-        <app-water-information-water-seal-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(7)"></app-water-information-water-seal-type>
-        <app-water-information-well-type (validationForm)="handleSubOption($event)" *ngIf="checkProjectType(0)"></app-water-information-well-type>
+        <app-water-information-transfer-line-type (validationForm)="handleSubOption(8,$event)" *ngIf="select8"></app-water-information-transfer-line-type>
+        <app-water-information-water-seal-type (validationForm)="handleSubOption(7,$event)" *ngIf="select7"></app-water-information-water-seal-type>
+        <app-water-information-purification-type (validationForm)="handleSubOption(6,$event)" *ngIf="select6"></app-water-information-purification-type>
+        <app-water-information-pomp-type (validationForm)="handleSubOption(5,$event)" *ngIf="select5"></app-water-information-pomp-type>
+        <app-water-information-source-type (validationForm)="handleSubOption(4,$event)" *ngIf="select4"></app-water-information-source-type>
+        <app-water-information-distribution-network-type (validationForm)="handleSubOption(3,$event)" *ngIf="select3"></app-water-information-distribution-network-type>
+        <app-water-information-dam-type (validationForm)="handleSubOption(2,$event)" *ngIf="select2"></app-water-information-dam-type>
+        <app-water-information-fountain-type (validationForm)="handleSubOption(1,$event)" *ngIf="select1"></app-water-information-fountain-type>
+        <app-water-information-well-type (validationForm)="handleSubOption(0,$event)" *ngIf="select0"></app-water-information-well-type>
 
 
-        <div class="row col-12 my-2" style="direction: ltr;">
-          <button type="button" class="ok-button" [disabled]="!checkValidation()">
-              <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+        <div class="my-2" style="direction: ltr;">
+          <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+              تایید و ادامه
           </button>
-      </div>
+        </div>
 
       </div>

@@ -1,49 +1,76 @@
       <div class="bg-levels mx-4 mt-2">
         <div class="row">
-          <div class="col-12">
-            <i class="material-icons d-inline icon-styles">add_road</i>
-            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی راه روستایی</h4>
+          <div *ngFor="let list of arrayList , let i = index" class="row">
+            <div class="col-12">
+              <i class="material-icons d-inline icon-styles">add_road</i>
+              <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی راه روستایی</h4>
+            </div>
+  
+            <div class="col-12 mt-2">
+              <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            </div>
+            <mat-radio-group [value]="0"
+              class="example-radio-group font-size-small">
+              <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                <span class="px-2">احداث</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                <span class="px-2">تکمیل و توسعه</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+                <span class="px-2">مرمت</span>
+              </mat-radio-button>
+            </mat-radio-group>
+  
+            <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style> -->
+            <div class="col-12 mt-2">
+              <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده فعلی : </h4>
+            </div>
+            <mat-radio-group [value]="0"
+              class="example-radio-group font-size-small">
+              <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                <span class="px-2">آسفالته</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                <span class="px-2">شوسه</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+                <span class="px-2">خاکی</span>
+              </mat-radio-button>
+            </mat-radio-group>
+  
+            <div class="col-12 mt-2">
+              <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده هدف : </h4>
+            </div>
+            <mat-radio-group [value]="0"
+              class="example-radio-group font-size-small">
+              <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+                <span class="px-2">آسفالته</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+                <span class="px-2">شوسه</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+                <span class="px-2">خاکی</span>
+              </mat-radio-button>
+            </mat-radio-group>
+  
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength"></app-input-style>
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth"></app-input-style>
+          </div>
+          <div class="row mx-auto">
+            <div class="mx-auto text-start" (click)="addList()">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن راه روستایی جدید">
+                </button>
+            </div>
           </div>
 
-          <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده فعلی : </h4>
-          </div>
-          <mat-radio-group [value]="0"
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">آسفالته</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">شوسه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-              <span class="px-2">خاکی</span>
-            </mat-radio-button>
-          </mat-radio-group>
-
-          <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">نوع جاده هدف : </h4>
-          </div>
-          <mat-radio-group [value]="0"
-            class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">آسفالته</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">شوسه</span>
-            </mat-radio-button>
-            <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-              <span class="px-2">خاکی</span>
-            </mat-radio-button>
-          </mat-radio-group>
-
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth"></app-input-style>
-
-          <div class="row col-12 my-2" style="direction: ltr;">
-            <button type="button" class="ok-button" [disabled]="!checkValidation()">
-                <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
+          <div class="my-2" style="direction: ltr;">
+            <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+                تایید و ادامه
             </button>
-        </div>
+          </div>
 
       </div>

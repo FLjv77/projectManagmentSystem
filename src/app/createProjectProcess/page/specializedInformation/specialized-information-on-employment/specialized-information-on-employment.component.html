@@ -5,32 +5,132 @@
         <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی اشتغال</h4>
       </div>
 
-      <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">کارگاه : </h4>
+      <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
+          <section class="example-section text-end">
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectEmployment(0)">
+              <label class="mat-checkbox-label">کارگاه</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectEmployment(1)">
+              <label class="mat-checkbox-label">مرکز آموزش</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectEmployment(2)">
+              <label class="mat-checkbox-label">وام و تسهیلات</label>
+            </mat-checkbox>
+          </section>
+
+      <div *ngIf="select0">
+        <div *ngFor="let list0 of arrayList0 , let i = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">کارگاه : </h4>
+          </div>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberWorkshop'" [type]="'number'" [inputFormControl]="numberWorkshop"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'اسم'" [inputId]="'workshopName'" [inputFormControl]="workshopName"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع'" [inputId]="'workshopType'" [inputFormControl]="workshopType"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد نفرات'" [inputId]="'numberPeopleWorkshop'" [type]="'number'" [inputFormControl]="numberPeopleWorkshop"></app-input-style>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addList(arrayList0)">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن کارگاه جدید">
+              </button>
+          </div>
+        </div>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'اسم'" [inputId]="'workshopName'" [inputFormControl]="workshopName"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع'" [inputId]="'workshopType'" [inputFormControl]="workshopType"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد نفرات'" [inputId]="'numberPeopleWorkshop'" [type]="'number'" [inputFormControl]="numberPeopleWorkshop"></app-input-style>
-
-      <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">مرکز آموزش : </h4>
+      
+      <div *ngIf="select1">
+        <div *ngFor="let list1 of arrayList1 , let i = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">مرکز آموزش : </h4>
+          </div>
+          
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberEducationCenter'" [type]="'number'" [inputFormControl]="numberEducationCenter"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'اسم'" [inputId]="'EducationCenterName'" [inputFormControl]="EducationCenterName"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع'" [inputId]="'EducationCenterType'" [inputFormControl]="EducationCenterType"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد نفرات'" [inputId]="'numberPeopleEducationCenter'" [type]="'number'" [inputFormControl]="numberPeopleEducationCenter"></app-input-style>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addList(arrayList1)">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن مرکز آموزش جدید">
+              </button>
+          </div>
+        </div>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'اسم'" [inputId]="'EducationCenterName'" [inputFormControl]="EducationCenterName"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع'" [inputId]="'EducationCenterType'" [inputFormControl]="EducationCenterType"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد نفرات'" [inputId]="'numberPeopleEducationCenter'" [type]="'number'" [inputFormControl]="numberPeopleEducationCenter"></app-input-style>
 
-      <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
+      <div *ngIf="select2">
+        <div *ngFor="let list2 of arrayList2 , let i = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
+          </div>
+          
+          
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'amount'" [type]="'number'" [inputFormControl]="amount"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'بابت'" [inputId]="'reason'" [inputFormControl]="reason"></app-input-style>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addList(arrayList2)">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن مرکز آموزش جدید">
+              </button>
+          </div>
+        </div>
       </div>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'amount'" [type]="'number'" [inputFormControl]="amount"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'بابت'" [inputId]="'reason'" [inputFormControl]="reason"></app-input-style>
 
-
-        <div class="row col-12 my-2" style="direction: ltr;">
-          <button type="button" class="ok-button" [disabled]="!checkValidation()">
-              <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
-          </button>
+      <div class="my-2" style="direction: ltr;">
+        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+            تایید و ادامه
+        </button>
       </div>
 
 

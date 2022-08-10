@@ -22,3 +22,7 @@ export enum ProjectType {
 hosing, health, way, knowledge, removeMarginalization,
   social, food, working, industry, water
 }
+
+export enum projectType{
+  construction , Completion , restoration
+}

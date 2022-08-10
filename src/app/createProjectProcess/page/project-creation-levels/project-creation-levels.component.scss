@@ -47,3 +47,26 @@
 .opacity-bold{
     opacity: 1;
 }
+
+.ok-button-text{
+    border: solid 2px #9d78b3;
+    background-color: transparent;
+    border-radius: 30px;
+    color: #9d78b3;
+    &:hover{
+        background-color: #9d78b3;
+        color: white;
+    }
+}
+
+.button-add-activity{
+    margin-top: 10px;
+    border: none;
+    border-radius: 100%;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    img{
+        width: 100%;
+    }
+}

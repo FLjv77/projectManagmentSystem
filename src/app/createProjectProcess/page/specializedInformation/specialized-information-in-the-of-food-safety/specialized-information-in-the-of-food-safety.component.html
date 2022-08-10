@@ -5,14 +5,44 @@
         <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی امنیت غذایی</h4>
       </div>
 
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عنوان مرکز'" [inputId]="'centerTitle'" [inputFormControl]="centerTitle"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [type]="'number'" [inputFormControl]="budget"></app-input-style>
+      <div class="row">
+        <div *ngFor="let list of arrayList , let i = index">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+    
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عنوان مرکز'" [inputId]="'centerTitle'" [inputFormControl]="centerTitle"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [type]="'number'" [inputFormControl]="budget"></app-input-style>
+    
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addList()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن امنیت غذایی جدید">
+              </button>
+          </div>
+        </div>
+      </div>
+      
 
-        <div class="row col-12 my-2" style="direction: ltr;">
-          <button type="button" class="ok-button" [disabled]="!checkValidation()">
-              <img src="../../../../assets/image/createProject/ok-button.svg" class="opacity-light {{checkValidation() ? 'opacity-bold':''}}" alt="">
-          </button>
+      <div class="my-2" style="direction: ltr;">
+        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+            تایید و ادامه
+        </button>
       </div>
 
   </div>
