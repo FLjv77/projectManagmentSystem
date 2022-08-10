@@ -1,27 +1,66 @@
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
-                 [inputId]="'riverNameControl'" [inputFormControl]="riverNameControl"></app-input-style>
+<div class="row">
+    <div *ngFor="let list of arrayList , let i = index" class="row">
+        <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">آب بند : </h4>
+        </div>
+    
+        <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
 
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت منبع تامین آب'"
-                 [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="resourceSaveWaterStateControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
+                     [inputId]="'riverNameControl'" [inputFormControl]="riverNameControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت منبع تامین آب'"
+                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="resourceSaveWaterStateControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پمپاژ'"
+                     [inputId]="'pompControl'" [inputFormControl]="pompControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'سیل بند'"
+                     [inputId]="'stopFloodControl'" [inputFormControl]="stopFloodControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض رودخانه'" [type]="'number'"
+                     [inputId]="'riverWidthControl'" [inputFormControl]="riverWidthControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس مصالح آب بند'"
+                     [inputId]="'stuffWaterSealControl'" [inputFormControl]="stuffWaterSealControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض'" [type]="'number'"
+                     [inputId]="'widthControl'" [inputFormControl]="widthControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'طول'" [type]="'number'"
+                     [inputId]="'lenControl'" [inputFormControl]="lenControl"></app-input-style>
+    
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'ارتفاع'" [type]="'number'"
+                     [inputId]="'heightControl'" [inputFormControl]="heightControl"></app-input-style>
+    </div>
 
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پمپاژ'"
-                 [inputId]="'pompControl'" [inputFormControl]="pompControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'سیل بند'"
-                 [inputId]="'stopFloodControl'" [inputFormControl]="stopFloodControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض رودخانه'" [type]="'number'"
-                 [inputId]="'riverWidthControl'" [inputFormControl]="riverWidthControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس مصالح آب بند'"
-                 [inputId]="'stuffWaterSealControl'" [inputFormControl]="stuffWaterSealControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض'" [type]="'number'"
-                 [inputId]="'widthControl'" [inputFormControl]="widthControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'طول'" [type]="'number'"
-                 [inputId]="'lenControl'" [inputFormControl]="lenControl"></app-input-style>
-
-<app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'ارتفاع'" [type]="'number'"
-                 [inputId]="'heightControl'" [inputFormControl]="heightControl"></app-input-style>
-
+    <div class="row mx-auto">
+        <div class="mx-auto text-start" (click)="addList()">
+            <button class="button-add-activity">
+                <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن آب بند جدید">
+            </button>
+        </div>
+      </div>
+</div>

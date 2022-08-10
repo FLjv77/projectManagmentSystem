@@ -17,7 +17,7 @@ export class DevelopmentReportProjectComponent implements OnInit {
   public valueInputReport: boolean;
 
 
-  constructor() { }
+  constructor() {}
 
 
   ngOnInit(): void {
@@ -39,8 +39,8 @@ export class DevelopmentReportProjectComponent implements OnInit {
       else{return false}
   }
 
-  public getInputs(state: boolean){
-    this.valueInputReport = state;
-    console.log(this.valueInputReport);
+  public handleSubOption(value:boolean){
+    this.valueInputReport = value;
+    this.getValue();
   }
 }
