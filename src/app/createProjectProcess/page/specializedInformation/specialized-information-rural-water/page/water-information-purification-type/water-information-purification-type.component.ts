@@ -99,5 +99,9 @@ export class WaterInformationPurificationTypeComponent implements OnInit {
   public setTypeProject(state: projectType){
     this.typeProject = state;
   }
+
+  public deleteList(index: number){
+    this.arrayList.splice(index, 1);
+  }
   
 }

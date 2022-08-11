@@ -33,7 +33,14 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'loanAmount'" [type]="'number'" [inputFormControl]="loanAmount"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'numberAmount'" [type]="'number'" [inputFormControl]="numberAmount"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'" [inputId]="'reasonAmount'" [inputFormControl]="reasonAmount"></app-input-style>
-    
+          <div *ngIf="i-1>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteList(i)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
         </div>
         <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addList()">

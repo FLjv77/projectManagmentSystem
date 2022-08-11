@@ -46,6 +46,15 @@
         [inputLabel]="'طول خط انتقال'"
         [inputId]="'lenPipeControl'" [type]="'number'"
         [inputFormControl]="lenPipeControl"></app-input-style>
+
+        <div *ngIf="i-1>=0" class="row mx-auto">
+          <div class="mx-auto text-start" (click)="deleteList(i)">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+              </button>
+          </div>
+        </div>
     </div>
     <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addList()">

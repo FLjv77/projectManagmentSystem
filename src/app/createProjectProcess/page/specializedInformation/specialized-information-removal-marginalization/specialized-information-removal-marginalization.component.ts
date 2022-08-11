@@ -97,4 +97,8 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
       this.select3 = !this.select3;
     }
   }
+
+  public deleteList(list: Array<string>,index: number){
+    list.splice(index, 1);
+  }
 }

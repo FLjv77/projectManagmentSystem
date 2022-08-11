@@ -85,4 +85,7 @@ export class SpecializedInformationOnEmploymentComponent implements OnInit {
     listName.push('222');
   }
 
+  public deleteList(list:Array<string>, index: number){
+    list.splice(index, 1);
+  }
 }
