@@ -109,7 +109,12 @@ export class WaterInformationDamTypeComponent implements OnInit {
   public addList(){
     this.arrayList.push('222');
   }
+  
   public setTypeProject(state: projectType){
     this.typeProject = state;
+  }
+
+  public deleteList(index: number){
+    this.arrayList.splice(index, 1);
   }
 }

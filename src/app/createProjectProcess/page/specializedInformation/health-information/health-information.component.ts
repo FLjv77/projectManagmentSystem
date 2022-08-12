@@ -148,6 +148,9 @@ export class HealthInformationComponent implements OnInit {
     this.HospitalList.push('222');
   }
 
+  public deleteList(list:Array<string>, index: number){
+    list.splice(index, 1);
+  }
 
 }
 export class heahthList{
