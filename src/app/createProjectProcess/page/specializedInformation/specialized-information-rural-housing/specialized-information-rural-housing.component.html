@@ -65,6 +65,15 @@
 
           <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نام خیّر'" [inputId]="'goodName'" [inputFormControl]="goodName"></app-input-style>
           <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان هزینه'" [type]="'number'" [inputId]="'amountCost'" [inputFormControl]="amountCost"></app-input-style>
+
+          <div *ngIf="i-1>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteList(i)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
         </div>
 
         <div class="row mx-auto">

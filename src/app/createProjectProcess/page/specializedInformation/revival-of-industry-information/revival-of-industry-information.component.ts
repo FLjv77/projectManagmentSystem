@@ -55,4 +55,8 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
     this.arrayList.push('222');
   }
 
+  public deleteList(index: number){
+    this.arrayList.splice(index, 1);
+  }
+
 }

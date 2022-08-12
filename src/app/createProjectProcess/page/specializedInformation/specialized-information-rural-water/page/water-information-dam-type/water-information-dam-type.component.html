@@ -4,7 +4,6 @@
             <h4 class="title-page d-inline set-font-Raymon px-2">سد : </h4>
         </div>
 
-
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
@@ -40,7 +39,15 @@
                  [inputId]="'staffControl'" [inputFormControl]="staffControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'حجم مخزن سد'"
                  [inputId]="'volumeDamControl'" [inputFormControl]="volumeDamControl" [type]="'number'"></app-input-style>
-    </div>
+        <div *ngIf="i-1>=0" class="row mx-auto">
+          <div class="mx-auto text-start" (click)="deleteList(i)">
+            <button class="button-add-activity">
+              <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                          mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+            </button>
+          </div>
+        </div>
+      </div>
     
     <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addList()">

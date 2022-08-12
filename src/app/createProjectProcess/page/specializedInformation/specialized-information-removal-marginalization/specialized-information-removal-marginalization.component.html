@@ -46,6 +46,14 @@
               </mat-radio-group>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberMosques'" [type]="'number'" [inputFormControl]="numberMosques"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageMosques' "[type]="'number'" [inputFormControl]="meterageMosques"></app-input-style>
+              <div *ngIf="i-1>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteList(arrayList0,i)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
             </div>
             <div class="row mx-auto">
               <div class="mx-auto text-start" (click)="addList(arrayList0)">
@@ -58,7 +66,7 @@
           </div>
 
           <div *ngIf="select1">
-            <div *ngFor="let list1 of arrayList1 , let i = index" class="row">
+            <div *ngFor="let list1 of arrayList1 , let j = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">مدرسه : </h4>
               </div>
@@ -81,6 +89,14 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageSchool'" [type]="'number'" [inputFormControl]="meterageSchool"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کلاس'" [inputId]="'numberClass'" [type]="'number'" [inputFormControl]="numberClass"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخمینی دانش آموزان'" [inputId]="'estimatedNumberOfStudents'" [type]="'number'" [inputFormControl]="estimatedNumberOfStudents"></app-input-style>
+              <div *ngIf="j-1>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteList(arrayList1,j)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
             </div>
             <div class="row mx-auto">
               <div class="mx-auto text-start" (click)="addList(arrayList1)">
@@ -93,7 +109,7 @@
           </div>
           
           <div *ngIf="select2">
-            <div *ngFor="let list2 of arrayList2 , let i = index" class="row">
+            <div *ngFor="let list2 of arrayList2 , let k = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">پارک : </h4>
               </div>
@@ -120,6 +136,14 @@
                 <mat-checkbox class="example-margin set-font-vazir col-md-6 col-12 mt-1"><label class="mat-checkbox-label">وسایل بازی کودکان</label></mat-checkbox>
                 <mat-checkbox class="example-margin set-font-vazir col-md-6 col-12 mt-1"><label class="mat-checkbox-label">نگهبان/پارکبان</label></mat-checkbox>
               </section>
+              <div *ngIf="k-1>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteList(arrayList2,k)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
             </div>
             <div class="row mx-auto">
               <div class="mx-auto text-start" (click)="addList(arrayList2)">
@@ -132,7 +156,7 @@
           </div>
 
           <div *ngIf="select3">
-            <div *ngFor="let list3 of arrayList3 , let i = index" class="row">
+            <div *ngFor="let list3 of arrayList3 , let m = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">درمانگاه : </h4>
               </div>
@@ -155,6 +179,14 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageClinic'" [type]="'number'" [inputFormControl]="meterageClinic"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد دکتر'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'NumberOfFloors'" [type]="'number'" [inputFormControl]="NumberOfFloors"></app-input-style>
+              <div *ngIf="m-1>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteList(arrayList3,m)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
             </div>
             <div class="row mx-auto">
               <div class="mx-auto text-start" (click)="addList(arrayList3)">
