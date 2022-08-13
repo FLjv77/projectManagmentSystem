@@ -12,6 +12,8 @@ export class RegisterCompanyComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
   public companyNameControl: FormControl = new FormControl();
+  public companyUserNameControl: FormControl = new FormControl();
+  public companyPhoneControl: FormControl = new FormControl();
   public companyNumberControl: FormControl = new FormControl();
   public passwordControl: FormControl = new FormControl();
   public repeatPasswordControl: FormControl = new FormControl();

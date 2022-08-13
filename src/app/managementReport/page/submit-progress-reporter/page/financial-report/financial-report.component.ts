@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-financial-report',
   templateUrl: './financial-report.component.html',
-  styleUrls: ['./financial-report.component.scss']
+  styleUrls: ['./financial-report.component.scss',
+  '../../../../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component.scss'
+]
 })
 export class FinancialReportComponent implements OnInit {
 

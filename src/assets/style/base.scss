@@ -15,8 +15,8 @@
   padding-bottom: 50px;
     direction: rtl;
     @media(max-width:500px){
-      margin-right: 30px;
-      margin-left: 15px;
+      margin-right: 35px;
+      margin-left: 2px;
     }
 }
 
@@ -39,15 +39,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #f1f1f1; 
+  box-shadow: inset 0 0 5px #f1f1f1;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b7374; 
+  background: #3b7374;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #203e3f; 
+  background: #203e3f;
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from "../../dashboard/page/dashboard/dashboard.component";
 import {HomeComponent} from "../../dashboard/page/home/home.component";
 import {HomeCompanyManagerComponent} from "../../dashboard/page/home-company-manager/home-company-manager.component";
+import { HomeSuperVisorComponent } from '../../dashboard/page/home-super-visor/home-super-visor.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'statistic', component: DashboardComponent
+  },
+  {
+    path: 'homeSupervisor', component: HomeSuperVisorComponent
   }
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { UserRole } from '../../model/naveBarModel';
 
 @Component({
   selector: 'app-navebar',
@@ -21,7 +22,7 @@ export class NavebarComponent implements OnInit {
   }
 
 
-  openFullscreen() {
+  public openFullscreen() {
     let elem = document.getElementById("screen");
 
     if (elem) {
@@ -38,4 +39,14 @@ export class NavebarComponent implements OnInit {
 
     this.isFullScreen = !this.isFullScreen;
   }
+
+  public changeUserRole(stateRole: UserRole) {
+    switch(stateRole) {
+      case 0 : this.router.navigate(['../../dashboard/home']); break;
+      case 1 : this.router.navigate(['../../dashboard/homeCompany']); break;
+      case 2 : this.router.navigate(['../../dashboard/homeSupervisor']); break;
+    }
+  }
+
 }
+
