@@ -22,13 +22,13 @@
        class="nave-bar-icon mx-4">
 
   <mat-select class="select-container" #select>
-    <mat-option class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
+    <mat-option (click)="changeUserRole(0)" class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
       مدیر سازمان
     </mat-option>
-    <mat-option class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
+    <mat-option (click)="changeUserRole(1)" class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
       مدیر شرکت
     </mat-option>
-    <mat-option class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
+    <mat-option (click)="changeUserRole(2)" class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">
       ناظر
     </mat-option>
   </mat-select>

@@ -58,7 +58,7 @@
           <label class="mat-checkbox-label">دارو</label>
         </mat-checkbox>
       </section>
-      
+
       <div *ngIf="select0">
         <div *ngFor="let Hospital of HospitalList , let i = index" class="row">
           <div class="col-12 mt-2">
@@ -84,7 +84,7 @@
                   mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
               </button>
           </div>
-      </div> 
+      </div>
       </div>
 
       <div *ngIf="select1">
@@ -93,7 +93,7 @@
             <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'" [inputId]="'numberHealthHome'" [inputFormControl]="numberHealthHome" [type]="'number'"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage" [type]="'number'"></app-input-style>
+          <app-input-style [label]="'متر'" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'Meterage'" [inputFormControl]="Meterage" [type]="'number'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [inputId]="'numberOfBedsHealthHouse'" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پزشک'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [inputId]="'numberNurses'" [type]="'number'" [inputFormControl]="numberNurses"></app-input-style>
@@ -115,7 +115,7 @@
               </button>
           </div>
         </div>
-      </div> 
+      </div>
 
       <div *ngIf="select2" class="row">
         <div class="col-md-3 col-12 mt-5">
@@ -137,7 +137,7 @@
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد حمام'" [inputId]="'numberBathroom'" [type]="'number'" [inputFormControl]="numberBathroom"></app-input-style>
       </div>
-      
+
       <div *ngIf="select5" class="row">
         <div class="col-md-3 col-12 mt-5">
           <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
@@ -151,7 +151,7 @@
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد واکسیناسیون'" [inputId]="'numberVaccination'" [type]="'number'" [inputFormControl]="numberVaccination"></app-input-style>
       </div>
-      
+
       <div *ngIf="select7" class="row">
         <div class="col-12 mt-5">
           <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>

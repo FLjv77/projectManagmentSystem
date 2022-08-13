@@ -1,0 +1,27 @@
+@import '../../../../assets//style/colorPalette.scss';
+
+.visit-report {
+  color: $icon-color;
+  font-size: 30px;
+}
+
+.container-report {
+  border-radius: 7px;
+  height: 300px;
+  overflow-y: scroll;
+  background-color: $lite-yellow-back-ground;
+}
+
+.title-box {
+  color: $dark-back-ground;
+  font-size: 20px;
+  text-align: center;
+}
+
+.list-result-report {
+  background-color: $lite-yellow-back-ground;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: $dark-back-ground;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}

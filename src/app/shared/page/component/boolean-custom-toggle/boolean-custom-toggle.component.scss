@@ -1,14 +1,14 @@
-@import "../../../../../assets/style/colorPalette";
+@import "../../../../../assets/style/colorPalette.scss";
 
 .toggle-base {
   background-color: white;
   width: 130px;
   border-radius: 50px;
   height: 45px;
-  color: $dark-back-ground;
   font-size: large;
   transition: all 0.5s;
   position: relative;
+  color: $active-yellow-lite;
 }
 .toggle-cycle-1 {
   width: 67px;
@@ -18,6 +18,7 @@
   margin-top: -3px;
   position: absolute;
   left: 0;
+  color: $active-yellow-lite;
   transition: all 0.5s;
 }
 .toggle-cycle-2 {

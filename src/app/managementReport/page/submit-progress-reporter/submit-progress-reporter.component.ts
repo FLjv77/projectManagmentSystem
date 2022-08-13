@@ -4,6 +4,8 @@ import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree'
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 
 @Component({
   selector: 'app-submit-progress-reporter',
@@ -11,7 +13,8 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./submit-progress-reporter.component.scss', '../../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component.scss']
 })
 export class SubmitProgressReporterComponent implements OnInit {
-
+  public ProgressFormControl = new FormControl();
+  public inputCustomStyle: InputCustomStyle;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
 
@@ -46,7 +49,16 @@ export class SubmitProgressReporterComponent implements OnInit {
   public selectedToggle:number=1;
   ngOnInit(): void {
     this.initDisplayPath();
+    this.initInputStyle();
   }
+
+
+  private initInputStyle() {
+    this.inputCustomStyle = new InputCustomStyle(
+      '#AEAEAE', '#AEAEAE', '#AEAEAE'
+    )
+  }
+
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
     this.path2 = new DisplayPathModel('ارسال گزارش', false, '');
