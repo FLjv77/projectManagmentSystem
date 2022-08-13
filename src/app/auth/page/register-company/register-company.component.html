@@ -6,6 +6,8 @@
         <app-boolean-custom-toggle [isFirstValueSelected]="false" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyName'" [type]="'text'" [inputFormControl]="companyNameControl" [inputLabel]="'نام شرکت'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyUserName'" [type]="'text'" [inputFormControl]="companyUserNameControl" [inputLabel]="'نام کاربری شرکت'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyPhone'" [type]="'phone'" [inputFormControl]="companyPhoneControl" [inputLabel]="'شماره تماس شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyNumber'" [type]="'text'" [inputFormControl]="companyNumberControl" [inputLabel]="'شماره ثبت شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="mt-3"></app-input-style>

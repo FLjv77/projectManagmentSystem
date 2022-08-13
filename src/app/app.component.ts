@@ -15,11 +15,11 @@ export class AppComponent {
   }
 
   public checkShowNavAndSideBar(): boolean {
-   return location.href.indexOf('auth/loginUser') == -1 ,
-     location.href.indexOf('auth/registerUser') == -1,
-     location.href.indexOf('auth/registerCompany') == -1;
-     
-     }
+   return location.href.indexOf('auth/loginUser') == -1 &&
+     location.href.indexOf('auth/registerUser') == -1 &&
+     location.href.indexOf('auth/selectRoleToEntry') == -1 &&
+     location.href.indexOf('auth/registerCompany') == -1 ;
+  }
 
   private subscribeSideBarIsOpen() {
     this.sidebarControleService.sideBarIsOpen.subscribe((res: boolean) => {

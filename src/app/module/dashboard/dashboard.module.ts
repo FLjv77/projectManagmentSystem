@@ -10,6 +10,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {NgxEchartsModule} from "ngx-echarts";
 import {TotalChartForOrganizationComponent} from "../../dashboard/page/home/page/total-chart-for-organization/total-chart-for-organization.component";
 import {TotalChartForCompanyComponent} from "../../dashboard/page/home-company-manager/page/total-chart-for-company/total-chart-for-company.component";
+import { HomeSuperVisorComponent } from 'src/app/dashboard/page/home-super-visor/home-super-visor.component';
+import { ChartForHomeSupervisorComponent } from '../../dashboard/page/home-super-visor/page/chart-for-home-supervisor/chart-for-home-supervisor.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import {TotalChartForCompanyComponent} from "../../dashboard/page/home-company-m
       HomeCompanyManagerComponent,
       TotalChartForOrganizationComponent,
       TotalChartForCompanyComponent,
+      HomeSuperVisorComponent,
+      ChartForHomeSupervisorComponent
     ],
     exports: [
     ],

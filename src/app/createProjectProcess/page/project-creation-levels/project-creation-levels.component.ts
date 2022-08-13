@@ -38,9 +38,8 @@ export class ProjectCreationLevelsComponent implements OnInit {
   }
 
   private initDisplayPath() {
-    this.path1 = new DisplayPathModel('مدیریت پروژه', false, '');
-    this.path2 = new DisplayPathModel('ساخت پروژه', false, '');
-    this.path3 = new DisplayPathModel('اطلاعات پروژه', false, '');
+    this.path1 = new DisplayPathModel('ساخت پروژه', true, 'createProject/selectProjectType');
+    this.path2 = new DisplayPathModel('اطلاعات پروژه', false, '');
   }
 
 }

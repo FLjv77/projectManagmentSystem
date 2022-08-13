@@ -50,18 +50,6 @@ export class BooleanCustomToggleComponent implements OnInit {
   public changeSelectedValueFirst() {
     let toggle = document.getElementById('toggle');
 
-/*    if (this.selectedValue == this.firstValue) {
-      this.selectedValue = this.secondValue;
-      if (toggle) toggle.style.left = '0';
-      if (toggle) toggle.style.right = 'unset';
-    } else {
-      this.selectedValue = this.firstValue;
-      if (toggle) toggle.style.right = '0';
-      if (toggle) toggle.style.left = 'unset';
-      this.handleSelectedValue.emit(this.selectedValue);
-
-    }*/
-
     if (this.selectedValue == this.firstValue) {
 
     } else {
@@ -71,17 +59,6 @@ export class BooleanCustomToggleComponent implements OnInit {
 
   public changeSelectedValueSecond() {
     let toggle = document.getElementById('toggle');
-/*
-    if (this.selectedValue == this.selectedValue) {
-      this.selectedValue = this.secondValue;
-      if (toggle) toggle.style.left = '0';
-      if (toggle) toggle.style.right = 'unset';
-    } else {
-      this.selectedValue = this.firstValue;
-      if (toggle) toggle.style.right = '0';
-      if (toggle) toggle.style.left = 'unset';
-      this.handleSelectedValue.emit(this.selectedValue);
-    }*/
 
     if(this.selectedValue == this.secondValue) {
 
