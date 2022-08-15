@@ -11,6 +11,8 @@ import { SharedModule } from "./module/shared/shared.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxEchartsModule} from "ngx-echarts";
 import {AuthModule} from "./module/auth/auth.module";
+import { AuthInterceptor } from './interseptor/interseptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import {AuthModule} from "./module/auth/auth.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),
@@ -30,7 +33,10 @@ import {AuthModule} from "./module/auth/auth.module";
     UserManagementModule,
     ManagementReportModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

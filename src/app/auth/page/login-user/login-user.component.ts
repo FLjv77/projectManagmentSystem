@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
 import {Router} from "@angular/router";
+import { AuthService } from '../../service/authConnectToApi/auth.service';
+import { HoldingUserRegisterDTO } from '../../model/userDTO';
 
 @Component({
   selector: 'app-login-user',
@@ -13,8 +15,11 @@ export class LoginUserComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public userNameControl: FormControl = new FormControl();
   public passwordControl: FormControl = new FormControl();
+  public phoneNumberControl: FormControl = new FormControl();
+
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +33,17 @@ export class LoginUserComponent implements OnInit {
   }
 
   public submitLogin() {
+    this.authService.holdingUserRegister(new HoldingUserRegisterDTO(
+      this.userNameControl.value,
+      this.phoneNumberControl.value,
+      this.passwordControl.value
+    )).subscribe((res: any) => {
+      console.log(res);
+
+    });
+  }
+
+  private goToHomePage() {
     this.router.navigate(['../../auth/selectRoleToEntry']);
   }
 

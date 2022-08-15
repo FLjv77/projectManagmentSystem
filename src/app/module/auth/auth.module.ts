@@ -13,6 +13,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {SelectRoleToEntryComponent} from "../../auth/page/select-role-to-entry/select-role-to-entry.component";
 import { UserProfileComponent } from 'src/app/auth/page/user-profile/user-profile.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSelectModule,
     MatFormFieldModule,
     MatTooltipModule,
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class AuthModule { }
