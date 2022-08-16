@@ -9,7 +9,7 @@
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
            (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)">
 
-    <div *ngIf="haveEye" class="eye-icon">
+    <div *ngIf="haveEye" class="eye-pos">
       <span *ngIf="!hideInput" (click)="hideInput = true" class="material-icons pointer text-lite">visibility</span>
       <span *ngIf="hideInput" (click)="hideInput = false" class="material-icons pointer text-lite">visibility_off</span>
     </div>

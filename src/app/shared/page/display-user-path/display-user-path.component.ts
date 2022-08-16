@@ -25,7 +25,7 @@ export class DisplayUserPathComponent implements OnInit {
   }
 
   public routToPath1() {
-    if (this.path1.hasLink ) this.router.navigate(['../../' + this.path1.link]);
+    if (this.path1.hasLink) this.router.navigate(['../../' + this.path1.link]);
   }
   public routToPath2() {
     if (this.path2.hasLink ) this.router.navigate(['../../' + this.path2.link]);

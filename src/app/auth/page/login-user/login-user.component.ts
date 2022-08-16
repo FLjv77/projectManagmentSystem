@@ -4,6 +4,8 @@ import {InputCustomStyle} from "../../../shared/page/component/input-style/input
 import {Router} from "@angular/router";
 import { AuthService } from '../../service/authConnectToApi/auth.service';
 import { HoldingUserRegisterDTO } from '../../model/userDTO';
+import { FormCreator } from '../../model/formCreator';
+import { ApiResult, AccessToken } from '../../model/authDTO';
 
 @Component({
   selector: 'app-login-user',
@@ -15,7 +17,6 @@ export class LoginUserComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public userNameControl: FormControl = new FormControl();
   public passwordControl: FormControl = new FormControl();
-  public phoneNumberControl: FormControl = new FormControl();
 
   constructor(
     private router: Router,
@@ -33,14 +34,20 @@ export class LoginUserComponent implements OnInit {
   }
 
   public submitLogin() {
-    this.authService.holdingUserRegister(new HoldingUserRegisterDTO(
+    const user = FormCreator.CreatePasswordForm(
       this.userNameControl.value,
-      this.phoneNumberControl.value,
-      this.passwordControl.value
-    )).subscribe((res: any) => {
-      console.log(res);
+      this.passwordControl.value);
 
-    });
+      const loginFormData = new FormData();
+      loginFormData.append('grant_type', 'password');
+      loginFormData.append('username', this.userNameControl.value);
+      loginFormData.append('password', this.passwordControl.value);
+
+      this.authService.generateToken(
+        loginFormData
+      ).subscribe((res: ApiResult<AccessToken>) => {
+        console.log(res);
+      });
   }
 
   private goToHomePage() {
@@ -49,5 +56,9 @@ export class LoginUserComponent implements OnInit {
 
   public goRegister() {
     this.router.navigate(['../../auth/registerUser']);
+  }
+
+  public checkAbelityButton(): boolean {
+    return !(this.passwordControl.value) || !(this.userNameControl.value);
   }
 }
