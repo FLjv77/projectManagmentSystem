@@ -1,4 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { ApiResult } from './../../model/authDTO';
+import { CompanyUserRegisterDTO } from './../../model/companyUserDTO';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HoldingUserRegisterDTO } from '../../model/userDTO';
 import { Observable } from 'rxjs';
@@ -17,4 +19,10 @@ export class AuthService {
       return this.http.post<boolean>(url.createHoldingUser, user);
   }
 
+  async CreateCompanyUser(companyUserRegisterDTO: CompanyUserRegisterDTO): Promise<ApiResult<boolean> | undefined> {
+    const headers = new HttpHeaders({
+      'handleError': JSON.stringify(companyUserRegisterDTO.handelErrorTDO)
+    });
+    return await this.http.post<ApiResult<boolean>>(url.CreateCompanyUser ,'' ,{headers}).toPromise();
+  }
 }
