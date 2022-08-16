@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
+import { AuthService } from '../../service/authConnectToApi/auth.service';
+import { HoldingUserRegisterDTO } from '../../model/userDTO';
+import { ApiResult } from '../../model/authDTO';
 
 @Component({
   selector: 'app-register-user',
@@ -17,7 +20,8 @@ export class RegisterUserComponent implements OnInit {
   public repeatPasswordControl: FormControl = new FormControl();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +32,17 @@ export class RegisterUserComponent implements OnInit {
     this.inputCustomStyle = new InputCustomStyle(
       '#ffffff', '#ffffff', '#ffffff'
     )
+  }
+
+  public submitRegister() {
+    this.authService.holdingUserRegister(new HoldingUserRegisterDTO(
+      this.userNameControl.value,
+      this.phoneNumberControl.value,
+      this.passwordControl.value
+    )).subscribe((res: ApiResult<boolean>) => {
+      console.log(res);
+
+    });
   }
 
   public changeLoginType(value: string) {

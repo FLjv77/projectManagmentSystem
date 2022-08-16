@@ -1,16 +1,44 @@
-<div (click)="activeSelectLocation($event)" class="map-container">
-  <div class="map-frame">
-    <div class="pt-4">
-      <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path>
+  <div class="wrapper-rout container-routs navigate-pos">
+    <div class="row w-100 content-routs mx-auto position-relative">
+      <div class="col-md-5 col-lg-4 col-12 my-auto">
+        <div class="d-flex py-4 text-right set-font-vazir">
+          <span (click)="routToPath1()" class="parent-rout px-2 text-nowrap pointer">{{path1.path}}</span>
+          <img class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+          <span (click)="routToPath2()" class="text-nowrap parent-rout pointer px-2">{{path2.path}}</span>
+          <img *ngIf="path3" class="arrow-icon" src="../../../../assets/icon/naveBar/arrow.svg">
+          <span (click)="routToPath3()" class="current-rout text-nowrap px-2 pointer">{{path3.path}}</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-5 col-12 pb-md-3 pt-md-3 pb-2">
+      </div>
+      <div class="col-md-2 col-12 d-flex justify-content-end my-auto back-icon-container">
+        <img src="../../../../assets/icon/naveBar/back.svg" class="back-icon pointer" (click)="goBack()">
+      </div>
     </div>
-
-    <div id="map"></div>
   </div>
 
+
+  <div (click)="activeSelectLocation($event)" class="map-content">
+  <div id="map"></div>
 </div>
+
 <div id="selectLocation" class="select-location set-font-vazir p-2">
   <span class="px-2 d-inline-block pointer" (click)="backToProjectInformation()">بله</span>
   <span class="px-2 d-inline-block pointer" (click)="changeLocation()">خیر</span>
   <span class="font-weight-bold px-1">همین جاست؟</span>
+</div>
+
+<div class="container-box">
+  <div class="set-font-vazir display-selected-location p-2 mt-2" *ngFor="item of addressList; let i=index;">
+    <div class="address-text text-center">مشخصات آدرس {{i + 1}}</div>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'id' + i" [inputFormControl]="getInputControler(i)" class="mt-2" [inputLabel]="'عنوان آدرس'"></app-input-style>
+    <div class="text-right">
+      <span class="set-font-vazir address-detail mx-2"> :موقعیت</span>
+      <span>{{getTitleAddress(i)}}</span>
+    </div>
+  </div>
+
+  <button (click)="addNewLocation()" class="add-address-button set-font-vazir p-2 mt-2 mx-auto d-flex justify-content-center">افزودن آدرس جدید</button>
 
 </div>
+

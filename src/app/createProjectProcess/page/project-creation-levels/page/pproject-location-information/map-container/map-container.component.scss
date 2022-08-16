@@ -1,4 +1,5 @@
-@import "../../../../../../../assets/style/colorPalette";
+@import "../../../../../../../assets/style/colorPalette.scss";
+
 .map-container {
   position: absolute;
   top: 60px;
@@ -6,6 +7,15 @@
   right: 60px;
   bottom: 0;
   z-index: 1;
+}
+
+.map-content {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  z-index: 0;
 }
 
 .map-frame {
@@ -25,4 +35,48 @@
   color: $dark-back-ground;
   position: fixed; z-index: 99999;
   display: none;
+}
+
+.navigate-pos {
+  position: absolute;
+  left: 15px;
+  right: 55px;
+  top: 75px;
+  z-index: 3;
+}
+
+.display-selected-location {
+  width: 200px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.address-text {
+  font-weight: bold;
+  font-size: medium;
+  color: $active-yellow-lite;
+}
+
+.address-detail {
+  font-size: small;
+  color: $active-yellow-lite;
+}
+
+.container-box {
+  position: absolute;
+  top: 170px;
+  right: 80px;
+}
+
+.add-address-button {
+  color: white;
+  background-color: $icon-color;
+  border-radius: 50px;
+  font-size: small;
+  text-align: center;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  outline: none;
 }
