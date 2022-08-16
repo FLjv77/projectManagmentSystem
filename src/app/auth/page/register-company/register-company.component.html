@@ -1,7 +1,7 @@
 <div class="back-ground-main d-ltr">
   <div class="row w-100 h-100">
 
-    <div class="col-5 back-ground-dark boxShadow d-rtl">
+    <div class="col-5 back-ground-dark boxShadow d-rtl" style="overflow-y: scroll;">
       <div class="row py-4">
         <app-boolean-custom-toggle [isFirstValueSelected]="false" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
         <div class="col-10 col-sm-8 mx-auto mt-3">
@@ -9,6 +9,7 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyUserName'" [type]="'text'" [inputFormControl]="companyUserNameControl" [inputLabel]="'نام کاربری شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyPhone'" [type]="'phone'" [inputFormControl]="companyPhoneControl" [inputLabel]="'شماره تماس شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyNumber'" [type]="'text'" [inputFormControl]="companyNumberControl" [inputLabel]="'شماره ثبت شرکت'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyEconomicCodeControl'" [type]="'text'" [inputFormControl]="companyEconomicCodeControl" [inputLabel]="' کد اقتصادی شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="mt-3"></app-input-style>
 
@@ -16,20 +17,23 @@
           <mat-radio-group
             aria-labelledby="example-radio-group-label"
             class="example-radio-group font-size-small text-light">
-            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-              <span class="px-2">مسکن</span>
+            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0" (click)="setType(2)">
+              <span class="px-1">مسکن</span>
             </mat-radio-button>
-            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-              <span class="px-2">راه سازی</span>
+            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1" (click)="setType(3)">
+              <span class="px-1">راه سازی</span>
             </mat-radio-button>
-            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-              <span class="px-2">آب رسانی</span>
+            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2" (click)="setType(1)">
+              <span class="px-1">آب رسانی</span>
+            </mat-radio-button>
+            <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0" (click)="setType(0)">
+              <span class="px-1">سلامت</span>
             </mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
 
-      <app-button-style [buttonText]="'عضویت'"></app-button-style>
+      <app-button-style [buttonText]="'عضویت'" (click)="registerCompany()"></app-button-style>
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goLogin()">ورود</p>
     </div>
     <div class="col-7 d-rtl">
