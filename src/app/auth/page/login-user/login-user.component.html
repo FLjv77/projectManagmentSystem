@@ -1,6 +1,6 @@
 <div class="back-ground-main d-rtl">
   <div class="row w-100 h-100">
-    <div class="col-5 back-ground-dark boxShadow">
+    <div class="col-sm-5 col-12 back-ground-dark boxShadow">
       <div class="row m-top-form">
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
@@ -8,11 +8,16 @@
         </div>
       </div>
 
-      <button (click)="submitLogin()" [disabled]="checkAbelityButton()" class="button-project mx-auto px-4 py-2 mt-3 d-flex justify-content-center set-font-vazir">ورود</button>
+      <button (click)="submitLogin()" [disabled]="checkAbelityButton()" class="button-project mx-auto px-4 py-2 mt-3 d-flex justify-content-center set-font-vazir">
+        <span *ngIf="!showSpinner">ورود</span>
+
+        <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status">
+        </div>
+      </button>
 
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goRegister()">عضویت</p>
     </div>
-    <div class="col-7 pt-md-5 pt-4">
+    <div class="col-sm-7 col-12 pt-md-5 pt-4">
       <div class="title-login text-center set-font-Raymon m-top-form">
         درباره ی سرویس بیشتر بدانید...
       </div>

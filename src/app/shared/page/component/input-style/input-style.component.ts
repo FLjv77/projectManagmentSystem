@@ -27,16 +27,40 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   constructor() {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscribeChangePhoneNumber();
+  }
+
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
   }
+
   removeStyles(value: FormControl) {
     if (!value) {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();
     }
+  }
+
+  private subscribeChangePhoneNumber() {
+    if(this.type == 'phone') {
+          this.inputFormControl.valueChanges.subscribe((res: string) => {
+      if(res) {
+        let state1 = res.substr(0,1) == '0';
+        let state2 = res.length == 11;
+
+        if(state1 && state2) {
+          this.inputError = '';
+        } else {
+          this.inputError = 'شماره تلفن نامعتبر';
+        }
+      } else {
+        this.inputError = '';
+      }
+    });
+    }
+
   }
 
   private subscribeChangeInputValue() {

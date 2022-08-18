@@ -14,6 +14,7 @@ import { ApiResult } from '../../model/authDTO';
 export class RegisterUserComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
+  public errorPhoneNumber: string;
   public userNameControl: FormControl = new FormControl();
   public phoneNumberControl: FormControl = new FormControl();
   public passwordControl: FormControl = new FormControl();
@@ -25,7 +26,7 @@ export class RegisterUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initInputStyle()
+    this.initInputStyle();
   }
 
   private initInputStyle() {

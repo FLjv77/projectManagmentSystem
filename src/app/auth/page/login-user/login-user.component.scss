@@ -1,4 +1,4 @@
-@import "../../../../assets/style/colorPalette";
+@import "../../../../assets/style/colorPalette.scss";
 
 .m-top-form {
   margin-top: 70px;
@@ -45,8 +45,8 @@
   font-weight: bold;
   font-size: 18px;
   background-color: white;
-  color: rgb(80, 80, 80);
 min-width: 130px;
+color: $text-color-normal;
 border: none;
 transition: all 0.3s;
 &:hover {

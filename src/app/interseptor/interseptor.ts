@@ -65,7 +65,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (myRequest.headers.has('handleError')) {
       let headerError = myRequest.headers.get('handleError');
       let errorFace = headerError ? JSON.parse(headerError) : '';
-      this.handleErrorService.showError(errorFace, error.message);
+      this.handleErrorService.showError(error.status);
     }
     return throwError(error);
   }
