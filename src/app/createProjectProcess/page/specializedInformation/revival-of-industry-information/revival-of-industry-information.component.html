@@ -23,7 +23,7 @@
             </mat-radio-button>
           </mat-radio-group>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountGrantedFacilities'" [type]="'number'" [inputFormControl]="amountGrantedFacilities"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [unit]="3" [inputId]="'amountGrantedFacilities'" [type]="'number'" [inputFormControl]="amountGrantedFacilities"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد صنایع'" [inputId]="'numberIndustries'" [type]="'number'" [inputFormControl]="numberIndustries"></app-input-style>
           <div *ngIf="i-1>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteList(i)">

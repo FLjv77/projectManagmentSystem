@@ -44,42 +44,32 @@ export class HandleDisplayErrorService {
     return res;
   }
 
-  public showError(handleError: HandelErrorTDO, errorMessage: string) {
-    let message = errorMessage;
-    /*
-          customClass: {
-        title: 'set-font-Raymon text-lite',
-        confirmButton: 'formacell-btn-11-lite',
-        container: 'set-font-vazir text-lite',
-        footer: 'set-font-vazir text-lite',
-        content: 'set-font-vazir text-lite'
+  public showError(errorCode: number) {
+    let message = this.getMessage(errorCode);
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        title: 'set-font-Raymon',
+        confirmButton: 'set-font-vazir button-project ',
+        container: 'set-font-vazir',
       },
-    */
-    Swal.fire({
-      imageUrl: 'https://nortino-cute-statue-image.s3.ir-thr-at1.arvanstorage.com/Access%20error.svg',
-      imageWidth: 250,
-      imageAlt: 'Custom image',
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      icon: 'error',
       title: 'مشکلی هست',
       text: message,
-      showConfirmButton: true,
-      confirmButtonText: 'باشه',
-      padding: '2em',
-      timer: 4000,
-      background: 'rgba(0,0,0,0.7)',
-      allowOutsideClick: false,
-      timerProgressBar: true,
-      footer: 'تا چند ثانیه دیگه به صفحه قبلی برگشت داده میشی'
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'متوجه شدم',
     }).then((result: any) => {
       if (result.dismiss === Swal.DismissReason.timer) {
         // document.location.href  = handleError.link;
-        history.back();
       }
       else {
         // document.location.href  = handleError.link;
-        history.back();
       }
     });
-
 
   }
 }

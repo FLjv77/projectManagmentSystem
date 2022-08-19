@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {noop} from "rxjs";
-
+import { Units } from 'src/app/shared/model/unit';
+import {lengthUnits, ereaUnits, volumeUnit, priceUnit} from '../../../model/unit'
 
 @Component({
   selector: 'app-input-style',
@@ -22,21 +23,46 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() haveLimit: boolean;
   @Input() maxValue: number;
   @Input() minValue: number;
+  @Input() unit: Units;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscribeChangePhoneNumber();
+  }
+
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
   }
+
   removeStyles(value: FormControl) {
     if (!value) {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();
     }
+  }
+
+  private subscribeChangePhoneNumber() {
+    if(this.type == 'phone') {
+          this.inputFormControl.valueChanges.subscribe((res: string) => {
+      if(res) {
+        let state1 = res.substr(0,1) == '0';
+        let state2 = res.length == 11;
+
+        if(state1 && state2) {
+          this.inputError = '';
+        } else {
+          this.inputError = 'شماره تلفن نامعتبر';
+        }
+      } else {
+        this.inputError = '';
+      }
+    });
+    }
+
   }
 
   private subscribeChangeInputValue() {
@@ -57,6 +83,28 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
     this.subscribeChangeInputValue();
   }
 
+  public getUnits(): string[] {
+    let res = [''];
+    switch(this.unit) {
+      case Units.erea: {
+        res = ereaUnits;
+      } break;
+
+      case Units.length: {
+        res = lengthUnits
+      } break;
+
+      case Units.price: {
+        res = priceUnit;
+      } break;
+
+      case Units.volume: {
+        res = volumeUnit;
+      } break;
+    }
+
+    return res;
+  }
 }
 
 export class InputCustomStyle {

@@ -97,6 +97,14 @@
   font-weight: bold;
 }
 
+.label-unit {
+  position: absolute;
+  left: 0px;
+  font-size: medium;
+  bottom: -18px;
+  color: $grey;
+  font-weight: bold;
+}
 
 .eye-pos{
   position: absolute;
@@ -105,4 +113,8 @@
   bottom: -1px;
   color: white;
   font-weight: bold;
+}
+
+.unit-text {
+  font-size: 15px;
 }

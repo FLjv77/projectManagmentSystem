@@ -6,6 +6,9 @@ import { AuthService } from '../../service/authConnectToApi/auth.service';
 import { HoldingUserRegisterDTO } from '../../model/userDTO';
 import { FormCreator } from '../../model/formCreator';
 import { ApiResult, AccessToken } from '../../model/authDTO';
+import { url } from 'src/assets/url/url';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-user',
@@ -14,13 +17,15 @@ import { ApiResult, AccessToken } from '../../model/authDTO';
 })
 export class LoginUserComponent implements OnInit {
 
+  public showSpinner: boolean = false;
   public inputCustomStyle: InputCustomStyle;
   public userNameControl: FormControl = new FormControl();
   public passwordControl: FormControl = new FormControl();
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private handleDisplayErrorService: HandleDisplayErrorService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +39,7 @@ export class LoginUserComponent implements OnInit {
   }
 
   public submitLogin() {
+    this.chageSpinnerState(true);
     const user = FormCreator.CreatePasswordForm(
       this.userNameControl.value,
       this.passwordControl.value);
@@ -46,8 +52,26 @@ export class LoginUserComponent implements OnInit {
       this.authService.generateToken(
         loginFormData
       ).subscribe((res: ApiResult<AccessToken>) => {
-        console.log(res);
+        if(res.isSuccess && res.statusCode == 200) {
+          this.saveTokenToLocalStorage(res.data);
+          this.goToHomePage();
+        } else {
+          this.handleDisplayErrorService.showError(res.statusCode);
+        }
+        this.chageSpinnerState(false);
+      }, (err: HttpErrorResponse) => {
+        this.handleDisplayErrorService.showError(err.error.StatusCode);
+        console.log(err);
+        this.chageSpinnerState(false);
       });
+  }
+
+  private chageSpinnerState(state: boolean) {
+    this.showSpinner = state;
+  }
+
+  private saveTokenToLocalStorage(token: AccessToken) {
+    localStorage.setItem(url.tokenName, JSON.stringify(token));
   }
 
   private goToHomePage() {
@@ -59,6 +83,6 @@ export class LoginUserComponent implements OnInit {
   }
 
   public checkAbelityButton(): boolean {
-    return !(this.passwordControl.value) || !(this.userNameControl.value);
+    return !(this.passwordControl.value) || !(this.userNameControl.value) || this.showSpinner;
   }
 }

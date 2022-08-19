@@ -68,7 +68,7 @@
               </mat-radio-group>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [inputId]="'numberIntroduction'" [type]="'number'" [inputFormControl]="numberIntroduction"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'بودجه مورد نظر'" [inputId]="'campBudget'" [type]="'number'" [inputFormControl]="campBudget"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'" [inputId]="'campBudget'" [type]="'number'" [inputFormControl]="campBudget"></app-input-style>
               <div *ngIf="i-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList0,i)">
                     <button class="button-add-activity">
@@ -130,7 +130,7 @@
               </div>
             </div>
           </div>
-          
+
           <div *ngIf="select2">
             <div *ngFor="let list2 of arrayList2 , let k = index" class="row">
               <div class="col-12 mt-2">
@@ -153,7 +153,7 @@
               </mat-radio-group>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'" [inputId]="'consultantWorkshops'" [type]="'number'" [inputFormControl]="consultantWorkshops"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountDivorceGivenFacilities'" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountDivorceGivenFacilities'" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities"></app-input-style>
               <div *ngIf="k-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList2,k)">
                     <button class="button-add-activity">
@@ -172,7 +172,7 @@
               </div>
             </div>
           </div>
-          
+
           <div *ngIf="select3">
             <div *ngFor="let list3 of arrayList3 , let l = index" class="row">
               <div class="col-12 mt-2">
@@ -195,8 +195,8 @@
               </mat-radio-group>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'" [inputId]="'numberElectricalBonds'" [type]="'number'" [inputFormControl]="numberElectricalBonds"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه یا بودجه'" [inputId]="'prisonerBudget'" [type]="'number'" [inputFormControl]="prisonerBudget"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountPrisonerGivenFacilities'" [type]="'number'" [inputFormControl]="amountPrisonerGivenFacilities"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'" [inputId]="'prisonerBudget'" [type]="'number'" [inputFormControl]="prisonerBudget"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountPrisonerGivenFacilities'" [type]="'number'" [inputFormControl]="amountPrisonerGivenFacilities"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع جرم جهت آزادی'" [inputId]="'typeCrime'" [inputFormControl]="typeCrime"></app-input-style>
               <div *ngIf="l-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList3,l)">
@@ -240,10 +240,10 @@
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [inputId]="'numberDrugPackages'" [type]="'number'" [inputFormControl]="numberDrugPackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه مورد نظر بسته ها'" [inputId]="'packagesCost'" [type]="'number'" [inputFormControl]="packagesCost"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر بسته ها'" [inputId]="'packagesCost'" [type]="'number'" [inputFormControl]="packagesCost"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع وسایل توان خواه'" [inputId]="'typeTools'" [inputFormControl]="typeTools"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberTools'" [type]="'number'" [inputFormControl]="numberTools"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه های وسایل'" [inputId]="'costTools'" [type]="'number'" [inputFormControl]="costTools"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه های وسایل'" [inputId]="'costTools'" [type]="'number'" [inputFormControl]="costTools"></app-input-style>
               <div *ngIf="m-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList4,m)">
                     <button class="button-add-activity">
@@ -262,7 +262,7 @@
               </div>
             </div>
           </div>
-          
+
           <div *ngIf="select5">
             <div *ngFor="let list5 of arrayList5 , let n = index" class="row">
               <div class="col-12 mt-2">
@@ -286,7 +286,7 @@
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number1'" [type]="'number'" [inputFormControl]="number1"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'" [inputId]="'numberEducationalPackages'" [type]="'number'" [inputFormControl]="numberEducationalPackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational'" [type]="'number'" [inputFormControl]="costEducational"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational'" [type]="'number'" [inputFormControl]="costEducational"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'" [inputId]="'numberPeopleCovered'" [type]="'number'" [inputFormControl]="numberPeopleCovered"></app-input-style>
               <div *ngIf="n-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList5,n)">
@@ -306,7 +306,7 @@
               </div>
             </div>
           </div>
-          
+
           <div *ngIf="select6">
             <div *ngFor="let list6 of arrayList6 , let p = index" class="row">
               <div class="col-12 mt-2">
@@ -330,7 +330,7 @@
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number2'" [type]="'number'" [inputFormControl]="number2"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'" [inputId]="'numberSubsistencePackages'" [type]="'number'" [inputFormControl]="numberSubsistencePackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'هزینه مورد نظر'" [inputId]="'costSubsistencePackages'" [type]="'number'" [inputFormControl]="costSubsistencePackages"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'" [inputId]="'costSubsistencePackages'" [type]="'number'" [inputFormControl]="costSubsistencePackages"></app-input-style>
               <div *ngIf="p-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList6,p)">
                     <button class="button-add-activity">
@@ -414,7 +414,7 @@
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number4'" [type]="'number'" [inputFormControl]="number4"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [inputId]="'numberDrugPackagesSpecificPatients'" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات درمانی'" [inputId]="'volumeTreatmentFacilities'" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'" [inputId]="'volumeTreatmentFacilities'" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'" [inputId]="'numberTargetPatients'" [type]="'number'" [inputFormControl]="numberTargetPatients"></app-input-style>
               <div *ngIf="d-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList8,d)">
