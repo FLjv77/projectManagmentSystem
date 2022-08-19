@@ -16,7 +16,17 @@
     <div *ngIf="label" class="label-pos">
       {{label}}
     </div>
+
+    <mat-form-field *ngIf="unit" class="set-font-vazir label-unit">
+      <mat-label class="set-font-vazir text-right unit-text">واحد</mat-label>
+      <mat-select class="set-font-vazir unit-text" >
+        <mat-option class="set-font-vazir unit-text" *ngFor="let unit of getUnits()" [value]="unit">
+          {{unit}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
+
    <div class="text-danger mt-2 mr-3 text-right set-font-vazir error-text {{inputError? '' : 'd-none'}}">
     {{inputError}}
   </div>

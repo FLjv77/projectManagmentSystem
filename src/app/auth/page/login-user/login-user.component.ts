@@ -83,6 +83,6 @@ export class LoginUserComponent implements OnInit {
   }
 
   public checkAbelityButton(): boolean {
-    return !(this.passwordControl.value) || !(this.userNameControl.value);
+    return !(this.passwordControl.value) || !(this.userNameControl.value) || this.showSpinner;
   }
 }

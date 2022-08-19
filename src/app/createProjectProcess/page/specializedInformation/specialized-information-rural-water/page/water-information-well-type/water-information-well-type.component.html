@@ -3,7 +3,7 @@
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">چاه : </h4>
         </div>
-    
+
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
@@ -23,27 +23,27 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'میزان اراضی تحت پوشش'"
-                     [inputId]="'amountOfSurfaceControl'" [type]="'number'"
+                     [inputId]="'amountOfSurfaceControl'" [type]="'number'" [unit]="1"
                      [inputFormControl]="amountOfSurfaceControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
-                     class="col-12 mt-2" [inputLabel]="'قطر چاه'"
+                     class="col-12 mt-2" [inputLabel]="'قطر چاه'" [unit]="0"
                      [inputId]="'widthWellControl'" [type]="'number'"
                      [inputFormControl]="widthWellControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
-                     class="col-12 mt-2" [inputLabel]="'طول لوله جداره'"
+                     class="col-12 mt-2" [inputLabel]="'طول لوله جداره'" [unit]="0"
                      [inputId]="'lenPipeControl'" [type]="'number'"
                      [inputFormControl]="lenPipeControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
-                     class="col-12 mt-2" [inputLabel]="'طول کول گذاری'"
+                     class="col-12 mt-2" [inputLabel]="'طول کول گذاری'" [unit]="0"
                      [inputId]="'lenColControl'" [type]="'number'"
                      [inputFormControl]="lenColControl"></app-input-style>
 

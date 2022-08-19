@@ -19,7 +19,7 @@ export class AuthService {
       'Authorization': 'true'
     });
 
-    return this.http.post<ApiResult<boolean>>(url.createHoldingUser, user, {headers});
+    return this.http.post<ApiResult<boolean>>(url.createSupervisorUser, user, {headers});
   }
 
   async CreateCompanyUser(companyUserRegisterDTO: CompanyUserRegisterDTO): Promise<ApiResult<boolean> | undefined> {

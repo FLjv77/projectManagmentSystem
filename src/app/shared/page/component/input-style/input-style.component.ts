@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {noop} from "rxjs";
-
+import { Units } from 'src/app/shared/model/unit';
+import {lengthUnits, ereaUnits, volumeUnit, priceUnit} from '../../../model/unit'
 
 @Component({
   selector: 'app-input-style',
@@ -22,6 +23,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() haveLimit: boolean;
   @Input() maxValue: number;
   @Input() minValue: number;
+  @Input() unit: Units;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {
@@ -81,6 +83,28 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
     this.subscribeChangeInputValue();
   }
 
+  public getUnits(): string[] {
+    let res = [''];
+    switch(this.unit) {
+      case Units.erea: {
+        res = ereaUnits;
+      } break;
+
+      case Units.length: {
+        res = lengthUnits
+      } break;
+
+      case Units.price: {
+        res = priceUnit;
+      } break;
+
+      case Units.volume: {
+        res = volumeUnit;
+      } break;
+    }
+
+    return res;
+  }
 }
 
 export class InputCustomStyle {

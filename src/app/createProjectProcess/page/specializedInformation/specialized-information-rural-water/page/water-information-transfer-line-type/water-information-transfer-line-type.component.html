@@ -19,34 +19,34 @@
               <span class="px-2">مرمت</span>
             </mat-radio-button>
           </mat-radio-group>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'وضعیت خط انتقال'"
                      [inputId]="'transferLineControl'"
                      [inputFormControl]="transferLineControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'نوع خط لوله'"
                      [inputId]="'pipeTypeControl'"
                      [inputFormControl]="pipeTypeControl"></app-input-style>
-    
-        <app-input-style [inputCustomStyle]="inputCustomStyle"
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="0"
                      class="col-12 mt-2" [inputLabel]="'طول خط انتقال'"
                      [inputId]="'pipeLenControl'" [type]="'number'"
                      [inputFormControl]="pipeLenControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'از کجا'"
                      [inputId]="'fromWhereControl'"
                      [inputFormControl]="fromWhereControl"></app-input-style>
-    
+
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'به کجا'"
                      [inputId]="'toWhereControl'"
