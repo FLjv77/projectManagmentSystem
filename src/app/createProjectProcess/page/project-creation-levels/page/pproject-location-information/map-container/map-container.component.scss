@@ -45,12 +45,22 @@
   z-index: 3;
 }
 
+.display-location {
+  width: 240px;
+  min-height: 111px;
+  border-radius: 8px;
+  background-color: rgba(256, 256, 256, 0.8);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 .display-selected-location {
-  width: 200px;
+  width: 240px;
+  min-height: 111px;
   border-radius: 8px;
   background-color: white;
+  border: 3px solid $active-yellow-lite;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .address-text {
@@ -61,13 +71,16 @@
 
 .address-detail {
   font-size: small;
-  color: $active-yellow-lite;
+  color: #AEAEAE;
 }
 
 .container-box {
   position: absolute;
   top: 170px;
   right: 80px;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .add-address-button {
@@ -79,4 +92,11 @@
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
   outline: none;
+}
+
+.submit-address-button {
+  float: left;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 12px;
 }

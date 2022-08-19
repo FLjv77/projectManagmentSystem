@@ -17,7 +17,7 @@
             <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
                 [inputFormControl]="endDateFormControl"></app-date-picker-jalaly>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه زیر فعالیت'" [inputId]="'4'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [unit]="3" [inputLabel]="'هزینه زیر فعالیت'" [inputId]="'4'"
                 [inputFormControl]="activityPriceFormControl"></app-input-style>
 
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی زیر فعالیت'" [inputId]="'5'"
@@ -37,7 +37,7 @@
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن زیرفعالیت جدید">
                     </button>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 

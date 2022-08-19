@@ -23,7 +23,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
 
@@ -31,13 +31,13 @@
                  [inputId]="'damStateControl'" [inputFormControl]="damStateControl"></app-input-style>
 
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'ظرفیت آبدهی'" [type]="'number'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'ظرفیت آبدهی'" [type]="'number'"
                  [inputId]="'capacityWaterControl'" [inputFormControl]="capacityWaterControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
                  [inputId]="'riverNameControl'" [inputFormControl]="riverNameControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس سد'"
                  [inputId]="'staffControl'" [inputFormControl]="staffControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'حجم مخزن سد'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'حجم مخزن سد'"
                  [inputId]="'volumeDamControl'" [inputFormControl]="volumeDamControl" [type]="'number'"></app-input-style>
         <div *ngIf="i-1>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteList(i)">
@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-    
+
     <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addList()">
             <button class="button-add-activity">

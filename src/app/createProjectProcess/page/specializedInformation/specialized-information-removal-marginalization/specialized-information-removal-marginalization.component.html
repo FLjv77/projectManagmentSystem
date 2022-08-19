@@ -45,7 +45,7 @@
                 </mat-radio-button>
               </mat-radio-group>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberMosques'" [type]="'number'" [inputFormControl]="numberMosques"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageMosques' "[type]="'number'" [inputFormControl]="meterageMosques"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" [inputLabel]="'متراژ'" [inputId]="'meterageMosques' "[type]="'number'" [inputFormControl]="meterageMosques"></app-input-style>
               <div *ngIf="i-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteList(arrayList0,i)">
                     <button class="button-add-activity">
@@ -86,7 +86,7 @@
                 </mat-radio-button>
               </mat-radio-group>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberSchool'" [type]="'number'" [inputFormControl]="numberMosques"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageSchool'" [type]="'number'" [inputFormControl]="meterageSchool"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" [inputLabel]="'متراژ'" [inputId]="'meterageSchool'" [type]="'number'" [inputFormControl]="meterageSchool"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کلاس'" [inputId]="'numberClass'" [type]="'number'" [inputFormControl]="numberClass"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخمینی دانش آموزان'" [inputId]="'estimatedNumberOfStudents'" [type]="'number'" [inputFormControl]="estimatedNumberOfStudents"></app-input-style>
               <div *ngIf="j-1>=0" class="row mx-auto">
@@ -107,7 +107,7 @@
               </div>
             </div>
           </div>
-          
+
           <div *ngIf="select2">
             <div *ngFor="let list2 of arrayList2 , let k = index" class="row">
               <div class="col-12 mt-2">
@@ -176,7 +176,7 @@
                 </mat-radio-button>
               </mat-radio-group>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberClinic'" [type]="'number'" [inputFormControl]="numberClinic"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'" [inputId]="'meterageClinic'" [type]="'number'" [inputFormControl]="meterageClinic"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" [inputLabel]="'متراژ'" [inputId]="'meterageClinic'" [type]="'number'" [inputFormControl]="meterageClinic"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد دکتر'" [inputId]="'numberDoctors'" [type]="'number'" [inputFormControl]="numberDoctors"></app-input-style>
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'NumberOfFloors'" [type]="'number'" [inputFormControl]="NumberOfFloors"></app-input-style>
               <div *ngIf="m-1>=0" class="row mx-auto">

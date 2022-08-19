@@ -23,22 +23,29 @@
 </div>
 
 <div id="selectLocation" class="select-location set-font-vazir p-2">
-  <span class="px-2 d-inline-block pointer" (click)="backToProjectInformation()">بله</span>
+  <span class="px-2 d-inline-block pointer" (click)="addNewAddress()">بله</span>
   <span class="px-2 d-inline-block pointer" (click)="changeLocation()">خیر</span>
-  <span class="font-weight-bold px-1">همین جاست؟</span>
+  <span class="font-weight-bold px-1">موقعیت آدرس {{returnSelectedAddressNumber()}} همین جاست؟</span>
 </div>
 
 <div class="container-box">
-  <div class="set-font-vazir display-selected-location p-2 mt-2" *ngFor="item of addressList; let i=index;">
+  <div (click)="setSelectedAddress(i)" class="set-font-vazir {{i == selectedAddressToSetLocation ? 'display-selected-location' : 'display-location'}} p-2 mt-2"
+  *ngFor="item of addressList; let i=index;">
     <div class="address-text text-center">مشخصات آدرس {{i + 1}}</div>
-    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'id' + i" [inputFormControl]="getInputControler(i)" class="mt-2" [inputLabel]="'عنوان آدرس'"></app-input-style>
-    <div class="text-right">
-      <span class="set-font-vazir address-detail mx-2"> :موقعیت</span>
-      <span>{{getTitleAddress(i)}}</span>
+    <!--
+    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'id' + i" [inputFormControl]="getInputControler(i)" class="mt-1" [inputLabel]="'عنوان آدرس'"></app-input-style>
+    -->
+    <div class="text-right address-detail mt-3">
+      <span class="d-inline-block px-2">{{getTitleAddress(i)}}</span>
+      <span class="set-font-vazir"> :موقعیت</span>
     </div>
+
+
+    <img src="../../../../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="removeAddress(i)" class="submit-address-button">
+    <img src="../../../../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="submit-address-button">
   </div>
 
-  <button (click)="addNewLocation()" class="add-address-button set-font-vazir p-2 mt-2 mx-auto d-flex justify-content-center">افزودن آدرس جدید</button>
+  <button (click)="addNewLocation()" [disabled]="checkAddNewAddress()" class="add-address-button set-font-vazir p-2 mt-2 mx-auto d-flex justify-content-center">افزودن آدرس جدید</button>
 
 </div>
 

@@ -4,5 +4,6 @@ export const url = {
   identity: '',
   createHoldingUser: 'User/CreateHoldingUser',
   CreateCompanyUser:'User/CreateCompanyUser',
+  createSupervisorUser: 'User/CreateSupervisorUser',
   auth: 'Auth/Token'
 }

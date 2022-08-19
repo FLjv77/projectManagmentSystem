@@ -1,9 +1,27 @@
+import { NumberFormaterService } from './../../../../../../shared/service/number/number-formater.service';
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../../../../shared/model/displayPathModel";
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
+import { number } from 'echarts';
+
+
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-map-container',
@@ -14,6 +32,9 @@ import { InputCustomStyle } from 'src/app/shared/page/component/input-style/inpu
 })
 export class MapContainerComponent implements OnInit, AfterViewInit  {
 
+  private selectedX: number;
+  private selectedY: number;
+  public selectedAddressToSetLocation: number = 0;
   public addressList: AdressInformation[];
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
@@ -22,7 +43,8 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   public formControl = new FormControl();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private numberFormaterService: NumberFormaterService) { }
 
   ngOnInit(): void {
     this.initMap();
@@ -50,6 +72,12 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     });
 
     tiles.addTo(this.map);
+
+
+    this.map.on("click", (e: any) => {
+      this.selectedX = e.latlng.lat;
+      this.selectedY = e.latlng.lng;
+    });
   }
 
   private initInputStyle() {
@@ -74,8 +102,23 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     }
   }
 
-  public backToProjectInformation() {
-    this.router.navigate(['../../createProject/startCreatProject'])
+  public addNewAddress() {
+    const marker = L.marker([this.selectedX, this.selectedY]);
+
+    this.map.addLayer(marker);
+    if(this.addressList[this.selectedAddressToSetLocation].layer) this.map.removeLayer(this.addressList[this.selectedAddressToSetLocation].layer);
+
+    this.addressList[this.selectedAddressToSetLocation].location = new Location(this.selectedX, this.selectedY);
+    this.addressList[this.selectedAddressToSetLocation].layer = marker;
+  }
+
+  public removeAddress(index: number) {
+    if(this.addressList[index].layer) this.map.removeLayer(this.addressList[index].layer);
+    if(this.addressList.length == 1) {
+      this.addressList[0] = new AdressInformation;
+    } else {
+      this.addressList.splice(index, 1);
+    }
   }
 
   private initDisplayPath() {
@@ -87,6 +130,10 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   public goBack() {
     history.back();
+  }
+
+  public returnSelectedAddressNumber(): string {
+    return this.numberFormaterService.covertToFrNumber(this.selectedAddressToSetLocation + 1);
   }
 
   public routToPath1() {
@@ -104,6 +151,8 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     this.addressList.push(
       new AdressInformation()
     );
+
+    this.selectedAddressToSetLocation = this.addressList.length - 1;
   }
 
   public getInputControler(index: number): FormControl {
@@ -111,17 +160,40 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
   }
 
   public getTitleAddress(index: number): string {
-    return this.addressList[index].location;
+    if(this.addressList[index].location) {
+      return (this.addressList[index].location.x_pos.toString()).substring(0, 5)
+
+    + ' - ' + (this.addressList[index].location.y_pos.toString()).substring(0, 5)
+  }
+    else return 'تایین نشده';
   }
 
+  public setSelectedAddress(index: number) {
+    this.selectedAddressToSetLocation = index;
+  }
+
+  public checkAddNewAddress(): boolean {
+    return !this.addressList[this.addressList.length - 1].layer;
+  }
  }
 
 
 export class AdressInformation {
   titleControler: FormControl;
-  location: string;
+  location: Location;
+  layer: any;
 
   constructor() {
+    this.layer = '';
     this.titleControler = new FormControl();
+  }
+}
+
+export class Location {
+  x_pos: number;
+  y_pos: number;
+  constructor(x: number, y: number) {
+    this.x_pos = x;
+    this.y_pos = y;
   }
 }

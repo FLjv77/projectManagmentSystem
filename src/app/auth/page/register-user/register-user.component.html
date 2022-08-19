@@ -6,13 +6,19 @@
         <app-boolean-custom-toggle [isFirstValueSelected]="true" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'phoneNumber'" [type]="'number'" [inputFormControl]="phoneNumberControl" [inputLabel]="'شماره همراه'"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'phoneNumber'" [type]="'phone'" [inputFormControl]="phoneNumberControl" [inputLabel]="'شماره همراه'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="mt-3"></app-input-style>
         </div>
       </div>
 
-      <app-button-style [buttonText]="'عضویت'" (click)="submitRegister()"></app-button-style>
+      <button (click)="submitRegister()" [disabled]="checkAbelityButton()" class="button-project mx-auto px-4 py-2 mt-3 d-flex justify-content-center set-font-vazir">
+        <span *ngIf="!showSpinner">عضویت</span>
+
+        <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status">
+        </div>
+      </button>
+
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goLogin()">ورود</p>
     </div>
     <div class="col-7 d-rtl">
