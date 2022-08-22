@@ -5,5 +5,6 @@ export const url = {
   createHoldingUser: 'User/CreateHoldingUser',
   CreateCompanyUser:'User/CreateCompanyUser',
   createSupervisorUser: 'User/CreateSupervisorUser',
-  auth: 'Auth/Token'
+  auth: 'Auth/Token',
+  CreateProject: 'Project/CreateProject'
 }

@@ -54,17 +54,10 @@ export class RegisterCompanyComponent implements OnInit {
   }
 
   public registerCompany(){
-    this.authService.CreateCompanyUser(
-      this.companyUserRegisterDTO = new CompanyUserRegisterDTO(this.createCompanyDTO = new CreateCompanyDTO(this.companyNameControl.value,this.companyNumberControl.value,this.companyEconomicCodeControl.value,this.companyType),
-      this.companyUserNameControl.value,
-      this.companyPhoneControl.value,
-      this.passwordControl.value)).then((res : ApiResult<boolean> | undefined)=>{
-        console.log(res != undefined && res.statusCode);
-        if(res != undefined && res.statusCode == 405 && res.isSuccess == true){
-          
-          this.goLogin();
-        }
-      });
+    this.authService.CreateCompanyUser( this.companyUserRegisterDTO = new CompanyUserRegisterDTO(this.createCompanyDTO = new CreateCompanyDTO(this.companyNameControl.value,this.companyNumberControl.value,this.companyEconomicCodeControl.value,this.companyType),
+    this.companyUserNameControl.value,
+    this.companyPhoneControl.value,
+    this.passwordControl.value));
  }
 
   public setType(state: CompanyType){
