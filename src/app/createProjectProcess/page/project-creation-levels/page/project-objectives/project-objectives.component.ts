@@ -1,7 +1,9 @@
+import { OutputInfo } from './../../../../model/createProject';
+import { ProjectType, projectType } from './../../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-project-objectives',
@@ -14,6 +16,7 @@ export class ProjectObjectivesComponent implements OnInit {
   public projectObjectiveFormControl = new FormControl();
   public projectTheBottleneckFormControl = new FormControl();
   public projectChallengeFormControl = new FormControl();
+  @Output() objectiveInputValue = new EventEmitter<OutputInfo>();
 
   constructor(private router:Router) { }
 
@@ -34,6 +37,16 @@ export class ProjectObjectivesComponent implements OnInit {
       else{return false}
   } 
 
-
+  public inputInfo: OutputInfo;
+  public goToNext(state: projectType){
+    console.log('اول11');
+    console.log('اول');
+    this.inputInfo.inputs[0] = this.projectObjectiveFormControl.value;
+    this.inputInfo.inputs.push(this.projectTheBottleneckFormControl.value);
+    this.inputInfo.inputs.push(this.projectChallengeFormControl.value);
+    this.inputInfo.state = state;
+    console.log('اخر');
+    this.objectiveInputValue.emit(this.inputInfo);
+  }
   
 }

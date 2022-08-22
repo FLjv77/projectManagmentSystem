@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import {Router} from "@angular/router";
 
@@ -16,7 +16,9 @@ export class BasicProjectInformationComponent implements OnInit {
   public initialCapitalProjectFormControl = new FormControl();
   public projectProfitFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
-  public checkbox:boolean;
+  public checkbox: boolean;
+  public contributors: string = '';
+  @Output() basicInputValue = new EventEmitter<Array<string>>();
 
   constructor(private router: Router) { }
 
@@ -32,7 +34,7 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public getValue(){
     if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
-      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value &&
+      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value && this.contributors != null &&
       this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
       this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid && this.checkbox != null ){
         return true;
@@ -42,5 +44,14 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public checked(value:boolean){
     this.checkbox = value;
+  }
+
+  public goToNext(){
+    this.basicInputValue.emit([this.projectNameFormControl.value,this.projectDeliveryDateFormControl.value,
+      this.descreptionFormControl.value,this.initialCapitalProjectFormControl.value,
+      this.projectProfitFormControl.value , this.contributors]);
+  }
+  public setContributors($event: string){
+    this.contributors = $event;
   }
 }
