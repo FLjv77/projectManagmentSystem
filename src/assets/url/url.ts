@@ -6,5 +6,8 @@ export const url = {
   CreateCompanyUser:'User/CreateCompanyUser',
   createSupervisorUser: 'User/CreateSupervisorUser',
   auth: 'Auth/Token',
-  CreateProject: 'Project/CreateProject'
+  CreateProject: 'Project/CreateProject',
+  registerAllocationReport: 'Project/RegisterAllocationReport/',
+  modifyDependentActivity: 'Project/ModifyDependentActivity/',
+  showDependentActivities: 'Project/ShowDependentActivities/'
 }

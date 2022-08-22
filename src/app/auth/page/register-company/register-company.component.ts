@@ -58,6 +58,7 @@ export class RegisterCompanyComponent implements OnInit {
     this.companyUserNameControl.value,
     this.companyPhoneControl.value,
     this.passwordControl.value));
+
  }
 
   public setType(state: CompanyType){

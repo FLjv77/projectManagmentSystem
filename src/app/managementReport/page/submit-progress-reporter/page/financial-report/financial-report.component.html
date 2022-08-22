@@ -3,47 +3,36 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header class="">
         <mat-panel-title>
-          <div class="row set-font-vazir w-100 detail-activity">
-            <div class="col-12 col-md-6 my-auto">
-              <div class="font-weight-bold title-activity px-2">نام فعالیت</div>
-            </div>
-            <div class="col-12 col-md-6 my-auto">
-              <div class="font-weight-bold title-activity px-2 text-left">۴۵%</div>
-            </div>
-        </div>
+          <mat-checkbox>
+            <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
+          </mat-checkbox>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
 
-      <div class="set-font-vazir title-for-child-activity"></div>
+      <div class="set-font-Raymon title-for-child-activity"></div>
 
       <div class="p-right-child-activity">
           <div class="row set-font-vazir w-100 detail-activity">
               <div class="col-12 col-md-6 my-auto">
-                <div class="font-weight-bold title-activity px-2">نام زیر فعالیت</div>
+                <mat-checkbox>
+                  <div class="set-font-Raymon font-weight-bold title-activity px-2">نام زیر فعالیت</div>
+                </mat-checkbox>
               </div>
               <div class="col-12 col-md-6 my-auto">
-                <div class="font-weight-bold title-activity px-2 text-left">۷۹%</div>
+                <app-input-style [label]="'%'" [haveLimit]="true" [minValue]="0" [maxValue]="100" [inputCustomStyle]="inputCustomStyle" class="w-100"
+                [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'" [inputFormControl]="ProgressFormControl"></app-input-style>
               </div>
           </div>
         </div>
-
-
-
-
-
     </mat-expansion-panel>
-
-
   </mat-accordion>
 </div>
 
-<div class="row">
-    <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
-            [inputFormControl]="reporterNameFormControl"></app-input-style> -->
 
-    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
-            [inputFormControl]="registrationDateFormControl"></app-date-picker-jalaly>
+<div class="row">
+  <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نام گزارش دهنده'" [inputId]="'2'"
+            [inputFormControl]="reporterNameFormControl"></app-input-style>
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ پرداخت'" [inputId]="'paymentDateFormControl'"
             [inputFormControl]="paymentDateFormControl"></app-date-picker-jalaly>
@@ -57,9 +46,14 @@
   <app-upload-file-input [inputFormControl]="financialDocumentsFormControl" [inputLabel]="'بارگذاری مستندات مالی'"></app-upload-file-input>
 
 
-    <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button ">
+    <div *ngIf="getValue()" class="row col-12 mt-3" style="direction: ltr;">
+        <button type="button" class="ok-button " (click)="submitAllocationReport()">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
     </div>
+
+
+    <div *ngIf="showProgress" class="row col-12 mt-3" style="direction: ltr;">
+      <div class="spinner-border progress-color" role="status"></div>
+   </div>
 </div>
