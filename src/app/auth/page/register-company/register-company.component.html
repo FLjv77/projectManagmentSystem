@@ -1,7 +1,7 @@
 <div class="back-ground-main d-ltr">
   <div class="row w-100 h-100">
 
-    <div class="col-5 back-ground-dark boxShadow d-rtl" style="overflow-y: scroll;">
+    <div class="col-md-5 col-12 back-ground-dark boxShadow d-rtl" style="overflow-y: scroll;">
       <div class="row py-4">
         <app-boolean-custom-toggle [isFirstValueSelected]="false" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
         <div class="col-10 col-sm-8 mx-auto mt-3">
@@ -36,7 +36,7 @@
       <app-button-style [buttonText]="'عضویت'" (click)="registerCompany()"></app-button-style>
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goLogin()">ورود</p>
     </div>
-    <div class="col-7 d-rtl">
+    <div class="col-md-7 col-12 d-rtl">
       <div class="title-login text-center set-font-Raymon">
         درباره ی سرویس بیشتر بدانید...
       </div>
