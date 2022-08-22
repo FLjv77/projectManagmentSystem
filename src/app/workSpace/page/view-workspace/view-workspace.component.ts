@@ -41,6 +41,20 @@ export class ViewWorkspaceComponent implements OnInit {
   public changeToPersian(num:string){
     return this.numberFormaterService.covertToFrNumber(num)
   }
+  checkPage() {
+    // return i = this.SelectedPage;
+  }
+  public changeSelectedPage() {
+    // this.showItemsSkeleton.emit(true);
+    // this.examFormStructureSelectedDto.emit(this.formPagingStructure.examFormPagSelcedDtos[index]);
+    // this.currentPageIndexSelected.emit(index);
+    // this.SelectedPage = index;
+    // this.checkPage(index);
+    // this.showFormacellDetail.emit(false);
+    // setTimeout(() => {
+    //   this.showItemsSkeleton.emit(false);
+    // }, 500);
+  }
 }
 
 export enum ProjectState {
