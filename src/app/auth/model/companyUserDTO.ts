@@ -13,7 +13,7 @@ export class CompanyUserRegisterDTO{
 }
 
 export class CreateCompanyDTO {
-    constructor(companyName: string,companyRegisterNumber: string,companyEconomicCode: string,companyAreaExpertise: CompanyType){
+    constructor(companyName: string,companyRegisterNumber: string,companyEconomicCode: string,companyAreaExpertise: CompanyType[]){
         this.companyName = companyName;
         this.companyRegisterNumber = companyRegisterNumber;
         this.companyEconomicCode = companyEconomicCode;
@@ -22,7 +22,7 @@ export class CreateCompanyDTO {
     companyName: string;
     companyRegisterNumber: string;
     companyEconomicCode: string;
-    companyAreaExpertise: CompanyType;
+    companyAreaExpertise: CompanyType[];
 }
 
 export enum CompanyType{
