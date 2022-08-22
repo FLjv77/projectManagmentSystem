@@ -22,11 +22,11 @@ export class AuthService {
     return this.http.post<ApiResult<boolean>>(url.createSupervisorUser, user, {headers});
   }
 
-  async CreateCompanyUser(companyUserRegisterDTO: CompanyUserRegisterDTO): Promise<ApiResult<boolean> | undefined> {
+  public CreateCompanyUser(companyUserRegisterDTO: CompanyUserRegisterDTO): Observable<ApiResult<boolean>> {
     const headers = new HttpHeaders({
-      'handleError': JSON.stringify(companyUserRegisterDTO.handelErrorTDO)
+     // 'handleError': JSON.stringify(companyUserRegisterDTO.handelErrorTDO)
     });
-    return await this.http.post<ApiResult<boolean>>(url.CreateCompanyUser ,'' ,{headers}).toPromise();
+    return this.http.post<ApiResult<boolean>>(url.CreateCompanyUser, companyUserRegisterDTO);
   }
 
 public generateToken(loginData: FormData): Observable<ApiResult<AccessToken>> {

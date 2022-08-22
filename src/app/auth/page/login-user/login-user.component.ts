@@ -61,7 +61,6 @@ export class LoginUserComponent implements OnInit {
         this.chageSpinnerState(false);
       }, (err: HttpErrorResponse) => {
         this.handleDisplayErrorService.showError(err.error.StatusCode);
-        console.log(err);
         this.chageSpinnerState(false);
       });
   }
