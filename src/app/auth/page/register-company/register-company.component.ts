@@ -58,10 +58,9 @@ export class RegisterCompanyComponent implements OnInit {
       this.companyUserRegisterDTO = new CompanyUserRegisterDTO(this.createCompanyDTO = new CreateCompanyDTO(this.companyNameControl.value,this.companyNumberControl.value,this.companyEconomicCodeControl.value,this.companyType),
       this.companyUserNameControl.value,
       this.companyPhoneControl.value,
-      this.passwordControl.value)).then((res : ApiResult<boolean> | undefined)=>{
-        console.log(res != undefined && res.statusCode);
+      this.passwordControl.value)).subscribe((res : ApiResult<boolean> | undefined)=>{
         if(res != undefined && res.statusCode == 405 && res.isSuccess == true){
-          
+
           this.goLogin();
         }
       });

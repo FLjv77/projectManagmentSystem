@@ -10,7 +10,6 @@ export class CompanyUserRegisterDTO{
     userName: string;
     phoneNumber: string;
     password: string;
-    handelErrorTDO: HandelErrorTDO;
 }
 
 export class CreateCompanyDTO {

@@ -1,1 +1,5 @@
-@import "../progress-report/progress-report.component.scss";
+@import "../../../../../../assets/style/colorPalette.scss";
+
+.progress-color {
+  color: $icon-color;
+}
