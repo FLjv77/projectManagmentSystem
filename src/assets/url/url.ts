@@ -7,7 +7,9 @@ export const url = {
   createSupervisorUser: 'User/CreateSupervisorUser',
   auth: 'Auth/Token',
   CreateProject: 'Project/CreateProject',
+  CreateActivity: 'Project/CreateActivity',
   registerAllocationReport: 'Project/RegisterAllocationReport/',
   modifyDependentActivity: 'Project/ModifyDependentActivity/',
-  showDependentActivities: 'Project/ShowDependentActivities/'
+  showDependentActivities: 'Project/ShowDependentActivities/',
+  allocationReportVerification: 'Project/AllocationReportVerification/'
 }
