@@ -7,18 +7,21 @@
               <span class="mx-auto set-font-Raymon">نظارت بر گزارش تخصیص </span>
             </div>
             <div class="row mt-5 mx-auto">
-
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارشگر'" [inputId]="'reporterNameFormControl'"
               [inputFormControl]="reporterNameFormControl"></app-input-style>
                 <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت نظر'" [inputId]="'1'"
                 [inputFormControl]="recordDateFormControl"></app-date-picker-jalaly>
                 <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه پرداختی مورد تایید'" [inputId]="'2'"
-                [inputFormControl]="approvedProgressPercentageFormControl"></app-input-style>
+                [inputFormControl]="approvedAllocationFormControl"></app-input-style>
                 <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'توضیحات'" [inputId]="'3'"
                 [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
             </div>
             <div class="row mx-auto mt-5">
-                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">ثبت</button>
+                <button [disabled]="checkActivation()" (click)="submmitReport()" class="add-user-button-modal set-font-vazir px-5 py-2 w-auto mx-auto ok-button-modal">
+                  <div *ngIf="!showSpinner">ثبت</div>
+
+                  <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
+                </button>
             </div>
           </div>
           <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
