@@ -1,9 +1,9 @@
 import { OutputInfo } from './../../model/createProject';
-import { projectType } from './../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {ActivatedRoute} from "@angular/router";
 import {ProjectType} from "../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
+import { aarayStyle } from './page/basic-project-information/basic-project-information.component';
 
 @Component({
   selector: 'app-project-creation-levels',
@@ -19,6 +19,13 @@ export class ProjectCreationLevelsComponent implements OnInit {
   public objective : string;
   public bottleneck : string;
   public challenge : string;
+  public projectName : string;
+  public projectDeliveryDate : string;
+  public descreption : string;
+  public parentId : string;
+  public contributors : string;
+  public infrastructureCost : number;
+  public humanResourceCost : number;
 
   constructor(
     private activeRouting: ActivatedRoute
@@ -48,14 +55,22 @@ export class ProjectCreationLevelsComponent implements OnInit {
   }
 
   public setObjectivFild($event: OutputInfo){
-    console.log($event);
     this.objective = $event.inputs[0];
     this.bottleneck = $event.inputs[1];
     this.challenge = $event.inputs[2];
     this.setSelectStep($event.state);
-    console.log('obj = ' + this.objective);
-    console.log('bot = ' + this.bottleneck);
-    console.log('cha = ' + this.challenge);
+  }
+
+  public setBasicFild($event : aarayStyle){
+    this.projectName = $event.info.inputs[0];
+    this.projectDeliveryDate = $event.info.inputs[1];
+    this.descreption = $event.info.inputs[2];
+    this.infrastructureCost = $event.infrastructureCost;
+    this.humanResourceCost = $event.humanResourceCost;
+    this.contributors = $event.info.inputs[3];
+    this.parentId = $event.info.inputs[4];
+    this.setSelectStep($event.info.state);
+    console.log($event);
   }
 
 }

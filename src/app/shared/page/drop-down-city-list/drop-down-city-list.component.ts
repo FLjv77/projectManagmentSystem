@@ -11,8 +11,10 @@ export class DropDownCityListComponent implements OnInit {
   @Input() placeholder: string;
   @Input() addInput: boolean;
   public title: string = 'انتخاب پروژه';
+  public valueSelect: string | string[];
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
+  public array : Array<string | string[]>;
   constructor() { }
 
   ngOnInit(): void {
@@ -43,7 +45,20 @@ export class DropDownCityListComponent implements OnInit {
         id: 'Basic 2'
       }
     ];
+  }
 
+  public remove(index: number){
+    this.array.splice(index, 1);
+  }
+
+  public add(name: string | string[]){
+    if (name != null) 
+    this.array = new Array<string>();
+    this.array.push(name);
+  }
+
+  public setValue(event: string | string[]){
+    this.valueSelect = event;
   }
 
 }
