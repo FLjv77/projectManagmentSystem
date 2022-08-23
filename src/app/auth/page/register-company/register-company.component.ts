@@ -1,9 +1,9 @@
 import { ApiResult } from './../../model/authDTO';
 import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 import { Component, OnInit } from '@angular/core';
-import {InputCustomStyle} from "../../../shared/page/component/input-style/input-style.component";
-import {FormControl} from "@angular/forms";
-import {Router} from "@angular/router";
+import { InputCustomStyle } from "../../../shared/page/component/input-style/input-style.component";
+import { FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 import { CompanyType, CompanyUserRegisterDTO, CreateCompanyDTO } from '../../model/companyUserDTO';
 
 @Component({
@@ -54,10 +54,17 @@ export class RegisterCompanyComponent implements OnInit {
   }
 
   public registerCompany(){
-    this.authService.CreateCompanyUser( this.companyUserRegisterDTO = new CompanyUserRegisterDTO(this.createCompanyDTO = new CreateCompanyDTO(this.companyNameControl.value,this.companyNumberControl.value,this.companyEconomicCodeControl.value,this.companyType),
+    this.authService.CreateCompanyUser( this.companyUserRegisterDTO =
+      new CompanyUserRegisterDTO(this.createCompanyDTO = new CreateCompanyDTO
+        (this.companyNameControl.value,this.companyNumberControl.value,
+          this.companyEconomicCodeControl.value,
+          [this.companyType]),
     this.companyUserNameControl.value,
     this.companyPhoneControl.value,
-    this.passwordControl.value));
+    this.passwordControl.value)).subscribe((res: ApiResult<boolean>) => {
+      console.log(res);
+    });
+
  }
 
   public setType(state: CompanyType){
