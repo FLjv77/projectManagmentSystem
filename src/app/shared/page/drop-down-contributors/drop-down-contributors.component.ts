@@ -1,5 +1,5 @@
 import { Select2OptionData } from 'ng-select2';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-contributors',
@@ -12,6 +12,7 @@ export class DropDownContributorsComponent implements OnInit {
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
+  @Output() name = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -42,6 +43,9 @@ export class DropDownContributorsComponent implements OnInit {
         id: 'Basic 2'
       }
     ];
+    if (this.placeHolder.id != 'none') {
+      this.name.emit(this.placeHolder.text);
+    }
 
   }
 

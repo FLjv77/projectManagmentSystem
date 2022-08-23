@@ -35,10 +35,4 @@ public generateToken(loginData: FormData): Observable<ApiResult<AccessToken>> {
     });
     return this.http.post<ApiResult<AccessToken>>(url.auth, loginData, {headers});
   }
-  public CreateProject(companyId: string): Observable<ApiResult<string>>{
-    const headers = new HttpHeaders({
-      'Authorization': 'true',
-    });
-    return this.http.post<ApiResult<string>>(url.auth + '/' + companyId , {headers});
-  }
 }
