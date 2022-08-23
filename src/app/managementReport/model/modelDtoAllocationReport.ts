@@ -1,5 +1,3 @@
-import { DateTime } from "src/app/shared/model/dateTime";
-
 export class RequestAllocationReportDTO {
   constructor(projectReportId: string, allocationReport: AllocationReportDTO) {
     this.allocationReport = allocationReport;
@@ -34,4 +32,29 @@ export class AllocationReportDTO {
 export class ShareLevelOfActivityDTO {
   activityId: string;
   shareLevelOfActivity: number;
+}
+
+export class RequestAllocationVerificationDTO {
+  allocationReportId: string;
+  allocationVerificationDTO: AllocationVerificationDTO;
+
+  constructor(allocationReportId: string,
+    allocationVerificationDTO: AllocationVerificationDTO) {
+      this.allocationReportId = allocationReportId;
+      this.allocationVerificationDTO = allocationVerificationDTO;
+  }
+}
+
+export class AllocationVerificationDTO {
+  constructor(status: Status, commentBody: string) {
+    this.status = status;
+    this.commentBody = commentBody;
+  }
+
+  status: Status;
+  commentBody: string;
+}
+
+export enum Status {
+  accept, reject, acceptWithModified
 }

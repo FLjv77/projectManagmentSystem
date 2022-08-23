@@ -9,5 +9,6 @@ export const url = {
   CreateProject: 'Project/CreateProject',
   registerAllocationReport: 'Project/RegisterAllocationReport/',
   modifyDependentActivity: 'Project/ModifyDependentActivity/',
-  showDependentActivities: 'Project/ShowDependentActivities/'
+  showDependentActivities: 'Project/ShowDependentActivities/',
+  allocationReportVerification: 'Project/AllocationReportVerification/'
 }
