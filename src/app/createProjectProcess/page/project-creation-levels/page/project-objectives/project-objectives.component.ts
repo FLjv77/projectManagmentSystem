@@ -39,13 +39,11 @@ export class ProjectObjectivesComponent implements OnInit {
 
   public inputInfo: OutputInfo;
   public goToNext(state: projectType){
-    console.log('اول11');
-    console.log('اول');
-    this.inputInfo.inputs[0] = this.projectObjectiveFormControl.value;
+    this.inputInfo = new OutputInfo([], 8);
+    this.inputInfo.inputs.push(this.projectObjectiveFormControl.value);
     this.inputInfo.inputs.push(this.projectTheBottleneckFormControl.value);
     this.inputInfo.inputs.push(this.projectChallengeFormControl.value);
     this.inputInfo.state = state;
-    console.log('اخر');
     this.objectiveInputValue.emit(this.inputInfo);
   }
   

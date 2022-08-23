@@ -60,6 +60,10 @@ export class CreateActivityDTO{
 }
 
 export class OutputInfo {
+    constructor(inputs : Array<string> , state: projectType){
+        this.inputs = inputs;
+        this.state = state;
+    }
     inputs : Array<string>;
     state: projectType;
 }
