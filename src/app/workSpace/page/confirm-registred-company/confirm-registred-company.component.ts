@@ -1,3 +1,4 @@
+import { CompanyStatus } from './../../model/comanyModel';
 import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -11,7 +12,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 export class ConfirmRegistredCompanyComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public modalState: boolean;
+  public modalState: CompanyStatus = 0;
   constructor(private handleModalService:HandleModalService) { }
 
   ngOnInit(): void {
@@ -23,7 +24,7 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
     this.path2 = new DisplayPathModel('احراز شرکت', false, '');
   }
 
-  public openModalConfirm(value:boolean){
+  public openModalConfirm(value: CompanyStatus){
     this.modalState = value;
     this.handleModalService.openModal('confirmed-company');
   }

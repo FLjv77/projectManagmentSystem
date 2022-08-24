@@ -11,5 +11,6 @@ export const url = {
   registerAllocationReport: 'Project/RegisterAllocationReport/',
   modifyDependentActivity: 'Project/ModifyDependentActivity/',
   showDependentActivities: 'Project/ShowDependentActivities/',
-  allocationReportVerification: 'Project/AllocationReportVerification/'
+  allocationReportVerification: 'Project/AllocationReportVerification/',
+  CompanyModify: 'Holding/CompanyModify/'
 }
