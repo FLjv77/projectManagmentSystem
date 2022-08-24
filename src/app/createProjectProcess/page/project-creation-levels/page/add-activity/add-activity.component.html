@@ -19,7 +19,6 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
             [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
 
-
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
             [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
 
@@ -28,9 +27,11 @@
     </div>
 
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
-            تایید و ادامه
-        </button>
+      <button (click)="createActivity()" type="button"
+        class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
+        <div *ngIf="!showSpinner"> تایید و ادامه</div>
+        <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
+      </button>
     </div>
 </div>
 

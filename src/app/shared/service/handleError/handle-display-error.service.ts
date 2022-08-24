@@ -54,7 +54,7 @@ export class HandleDisplayErrorService {
         container: 'set-font-vazir',
       },
       buttonsStyling: false
-    })
+    });
 
     swalWithBootstrapButtons.fire({
       icon: 'error',
