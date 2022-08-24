@@ -1,4 +1,4 @@
-import { CreateProjectDTO, CreateActivityDTO } from './../../model/createProject';
+import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from './../../model/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
@@ -19,10 +19,11 @@ export class CreaterojectService {
     return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject, {headers});
   }
 
-  public CreateActivity(projectId : string,createActivity: CreateActivityDTO): Observable<ApiResult<string>>{
-    const headers = new HttpHeaders({
-      'Authorization': 'true',
-    });
-    return this.http.post<ApiResult<string>>(url.CreateActivity + '/' + projectId ,createActivity, {headers});
-  }  
+  public CreateParentActivity(projectId : string, createActivity: CreateParentActivityDTO): Observable<ApiResult<string>>{
+    return this.http.post<ApiResult<string>>(url.CreateActivity + '/' + projectId , createActivity);
+  }
+
+  public CreateActivity(projectId : string, createActivity: CreateActivityDTO): Observable<ApiResult<string>>{
+    return this.http.post<ApiResult<string>>(url.CreateActivity + '/' + projectId , createActivity);
+  }
 }
