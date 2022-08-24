@@ -48,7 +48,7 @@ export class Participant{
     lastName: string;
 }
 
-export class CreateActivityDTO{
+export class CreateParentActivityDTO {
     name: string;
     startOfActivity: string;
     endOfActivity: string;
@@ -56,11 +56,61 @@ export class CreateActivityDTO{
     timeWeight:	number;
     costWeight:	number;
     description: string;
-    parentProjectId: string;
+
+    constructor(
+      name: string,
+      startOfActivity: string,
+      endOfActivity: string,
+      approximateCost: number,
+      timeWeight:	number,
+      costWeight:	number,
+      description: string
+    ) {
+      this.name = name;
+      this.startOfActivity = startOfActivity;
+      this.endOfActivity = endOfActivity;
+      this.approximateCost = approximateCost;
+      this.timeWeight = timeWeight;
+      this.costWeight = costWeight;
+      this.description = description;
+    }
 }
 
+
+export class CreateActivityDTO {
+  name: string;
+  startOfActivity: string;
+  endOfActivity: string;
+  approximateCost: number;
+  timeWeight:	number;
+  costWeight:	number;
+  description: string;
+  parentProjectId: string;
+
+  constructor(
+    name: string,
+    startOfActivity: string,
+    endOfActivity: string,
+    approximateCost: number,
+    timeWeight:	number,
+    costWeight:	number,
+    description: string,
+    parentProjectId: string
+  ) {
+    this.name = name;
+    this.startOfActivity = startOfActivity;
+    this.endOfActivity = endOfActivity;
+    this.approximateCost = approximateCost;
+    this.timeWeight = timeWeight;
+    this.costWeight = costWeight;
+    this.description = description;
+    this.parentProjectId = parentProjectId;
+  }
+}
+
+
 export class OutputInfo {
-    constructor(inputs : Array<string> , state: projectType){
+    constructor(inputs : Array<string> , state: number){
         this.inputs = inputs;
         this.state = state;
     }

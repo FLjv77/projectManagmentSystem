@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {Select2OptionData} from "ng-select2";
 
 @Component({
@@ -12,6 +12,7 @@ export class DropDownProjectListComponent implements OnInit {
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
+  @Output() parentid = new EventEmitter<string>();
 
   constructor() { }
 

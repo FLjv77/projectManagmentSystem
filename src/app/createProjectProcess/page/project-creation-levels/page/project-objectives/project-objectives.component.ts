@@ -1,5 +1,4 @@
 import { OutputInfo } from './../../../../model/createProject';
-import { ProjectType, projectType } from './../../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -38,7 +37,7 @@ export class ProjectObjectivesComponent implements OnInit {
   } 
 
   public inputInfo: OutputInfo;
-  public goToNext(state: projectType){
+  public goToNext(state: number){
     this.inputInfo = new OutputInfo([], 8);
     this.inputInfo.inputs.push(this.projectObjectiveFormControl.value);
     this.inputInfo.inputs.push(this.projectTheBottleneckFormControl.value);
@@ -46,5 +45,5 @@ export class ProjectObjectivesComponent implements OnInit {
     this.inputInfo.state = state;
     this.objectiveInputValue.emit(this.inputInfo);
   }
-  
+
 }

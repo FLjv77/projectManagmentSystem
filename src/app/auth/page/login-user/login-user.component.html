@@ -10,9 +10,7 @@
 
       <button (click)="submitLogin()" [disabled]="checkAbelityButton()" class="button-project mx-auto px-4 py-2 mt-3 d-flex justify-content-center set-font-vazir">
         <span *ngIf="!showSpinner">ورود</span>
-
-        <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status">
-        </div>
+        <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
       </button>
 
       <p class="pointer register-text text-center set-font-vazir mt-3" (click)="goRegister()">عضویت</p>

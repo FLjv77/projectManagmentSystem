@@ -1,17 +1,26 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-step-create-project',
   templateUrl: './step-create-project.component.html',
   styleUrls: ['./step-create-project.component.scss']
 })
-export class StepCreateProjectComponent implements OnInit {
+export class StepCreateProjectComponent implements OnInit, AfterViewInit {
   @Output() selectStep = new EventEmitter<number>();
-  public state: number=8;
+  @Input() select : number = 0;
+  public state: number = 8;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.state = this.select;
+    let id = document.getElementById(this.state.toString());
+    if(id){
+      id.className = 'select-step';
+    }
   }
 
   public selectSteps(id:number){

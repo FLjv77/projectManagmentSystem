@@ -20,7 +20,7 @@
                 </mat-radio-group>
             </div>
             <div class="col-md-9 col-12 my-auto">
-                <app-drop-down-project-list *ngIf="checkbox==true"></app-drop-down-project-list>
+                <app-drop-down-project-list *ngIf="checkbox==true" (parentid)="setParentId($event)"></app-drop-down-project-list>
             </div>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
@@ -45,13 +45,13 @@
     <div class="row">
         <div class="col-12">
             <i class="material-icons d-inline icon-styles">dvr</i>
-            <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مشارکت کنندگان</h4>
+            <h4 class="title-page d-inline set-font-Raymon">اطلاعات مشارکت کنندگان</h4>
         </div>
         <app-drop-down-contributors class="mt-1" (name)="setContributors($event)"></app-drop-down-contributors>
     </div>
 
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="goToNext()">
+        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="goToNext(9)">
             تایید و ادامه
         </button>
     </div>
