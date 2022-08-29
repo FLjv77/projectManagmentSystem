@@ -13,4 +13,5 @@ export const url = {
   showDependentActivities: 'Project/ShowDependentActivities/',
   allocationReportVerification: 'Project/AllocationReportVerification/',
   GetMyCompany: 'Company/GetMyCompany'
+  CompanyModify: 'Holding/CompanyModify/'
 }
