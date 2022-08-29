@@ -1,4 +1,4 @@
-import { OutputInfo } from './../../model/createProject';
+import { OutputInfo } from '../../model/createProjectModel/createProject';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {ActivatedRoute} from "@angular/router";

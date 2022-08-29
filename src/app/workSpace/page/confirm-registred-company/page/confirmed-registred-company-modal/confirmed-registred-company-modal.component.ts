@@ -1,3 +1,5 @@
+import { CompanyVerificationDToService } from './../../../../service/CompanyVerificationDTo/company-verification-dto.service';
+import { CompanyStatus, CompanyVerificationDTo } from './../../../../model/comanyModel';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ConfirmedRegistredCompanyModalComponent implements OnInit {
 
-  @Input() modalState: boolean;
+  @Input() modalState: CompanyStatus;
+  public companyId: string;
+  public message: string = '';
 
-  constructor() { }
+  constructor(private companyVerificationService: CompanyVerificationDToService) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +21,9 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
   closeModal() {
     const modal = document.getElementById('confirmed-company');
     modal?.classList.add('out');
+  }
+
+  public submit(modalState: CompanyStatus){
+    this.companyVerificationService.CreateParentActivity(this.companyId, new CompanyVerificationDTo(modalState,this.message));
   }
 }
