@@ -1,3 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { CompanySelectedDTO } from './../../model/companyModel';
+import { CompanyListService } from './../../service/companyListDTO/company-list.service';
 import { NumberFormaterService } from './../../../shared/service/number/number-formater.service';
 import { HandleModalService } from '../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,14 +15,20 @@ import {Router} from "@angular/router";
   styleUrls: ['./company-list.component.scss']
 })
 export class CompanyListComponent implements OnInit {
+
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public showSpinner: boolean = false;
+
   constructor(private handleModalService : HandleModalService,
               private router: Router,
-              private numberFormaterService:NumberFormaterService) { }
+              private numberFormaterService:NumberFormaterService,
+              private companyListService: CompanyListService,
+              private handleDisplayErrorService:HandleDisplayErrorService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.getCompanyList();
   }
 
   public openMdalAddCompony(){
@@ -46,5 +57,23 @@ export class CompanyListComponent implements OnInit {
 
   public editCompany() {
     this.handleModalService.openModal('company-profile-modal');
+  }
+
+  public getCompanyList(){
+    this.companyListService.GetMyCompany().subscribe((res: ApiResult<CompanySelectedDTO>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        
+      } else {
+        this.handleDisplayErrorService.showError(res.statusCode);
+      }
+      this.chageSpinnerState(false);
+    }, (err: HttpErrorResponse) => {
+      this.handleDisplayErrorService.showError(err.error.StatusCode);
+      this.chageSpinnerState(false);
+    });;
+  }
+
+  private chageSpinnerState(state: boolean) {
+    this.showSpinner = state;
   }
 }
