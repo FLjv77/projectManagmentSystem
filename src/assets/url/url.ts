@@ -12,6 +12,9 @@ export const url = {
   modifyDependentActivity: 'Project/ModifyDependentActivity/',
   showDependentActivities: 'Project/ShowDependentActivities/',
   allocationReportVerification: 'Project/AllocationReportVerification/',
-  GetMyCompany: 'Company/GetMyCompany'
-  CompanyModify: 'Holding/CompanyModify/'
+  GetMyCompany: 'Company/GetMyCompany',
+  CompanyModify: 'Holding/CompanyModify/',
+  getProjectsGeneralInfoOfCompany: 'Project/GetProjectsGeneralInfoOfCompany/',
+  GetProjectGeneralPropertiesById: 'Project/GetProjectGeneralPropertiesById/',
+  getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/'
 }

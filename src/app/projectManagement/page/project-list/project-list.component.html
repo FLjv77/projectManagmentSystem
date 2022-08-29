@@ -1,161 +1,40 @@
 <div class="wrapper">
-    <app-display-user-path [showCompanyList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
+  <app-display-user-path [showCompanyList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
 
-  <div class="row px-3">
-    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="project-card position-relative">
-        <div class="d-flex">
-          <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
-          <div class="d-inline-block px-2 set-font-Raymon project-title">
-            نام پروژه
-            <div class="set-font-vazir project-detail mt-3">تاریخ ایجاد</div>
-            <div class="set-font-vazir project-detail mt-1">مهلت اجرا</div>
-          </div>
-        </div>
-        <circle-progress class="cycle-progress"
-                         [percent]="67"
-                         [radius]="30"
-                         [titleFontSize]="'15'"
-                         [outerStrokeWidth]="6"
-                         [titleColor]="'#646262'"
-                         [showSubtitle]="false"
-                         [innerStrokeWidth]="5"
-                         [outerStrokeColor]="'#ff0000'"
-                        [innerStrokeWidth]= "0"
-                        [animation]="true"
-                        [backgroundColor]="'#FFFDF1'"
-                        [animationDuration]="300"
-        ></circle-progress>
-        <div class="project-description text-justify set-font-vazir">
-          طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که اساسا مورد استفاده قرار گیرد.
-        </div>
-
-        <div class="container-icon d-flex justify-content-center">
-          <img src="../../../../assets/icon/projectShortCut/more.svg" (click)="goEditProject()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-          <img src="../../../../assets/icon/projectShortCut/Group 199.svg" (click)="goInformationActivity()"class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-          <img src="../../../../assets/icon/projectShortCut/Group 202.svg" (click)="sendReport()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+<div class="row px-3" *ngIf="projectList">
+  <div *ngFor="let item of projectList"
+   class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+    <div class="project-card position-relative">
+      <div class="d-flex">
+        <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
+        <div class="d-inline-block px-2 set-font-Raymon project-title">
+          {{item.projectName}}
         </div>
       </div>
-    </div>
 
-    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="project-card position-relative">
-        <div class="d-flex">
-          <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
-          <div class="d-inline-block px-2 set-font-Raymon project-title">
-            نام پروژه
-            <div class="set-font-vazir project-detail mt-3">تاریخ ایجاد</div>
-            <div class="set-font-vazir project-detail mt-1">مهلت اجرا</div>
-          </div>
+      <div class="d-block">
+        <div class="set-font-vazir project-detail mt-3">
+          <span class="pl-1">تاریخ شروع:</span>
+          {{item.startTimeOfProject.timeInterval}}
         </div>
-        <circle-progress class="cycle-progress"
-                         [percent]="67"
-                         [radius]="30"
-                         [titleFontSize]="'15'"
-                         [outerStrokeWidth]="6"
-                         [titleColor]="'#646262'"
-                         [showSubtitle]="false"
-                         [innerStrokeWidth]="5"
-                         [outerStrokeColor]="'#ff0000'"
-                         [innerStrokeWidth]= "0"
-                         [animation]="true"
-                         [backgroundColor]="'#FFFDF1'"
-                         [animationDuration]="300"
-        ></circle-progress>
-        <div class="project-description text-justify set-font-vazir">
-          طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که اساسا مورد استفاده قرار گیرد.
-        </div>
-
-        <div class="container-icon d-flex justify-content-center">
-          <img src="../../../../assets/icon/projectShortCut/more.svg" (click)="goEditProject()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-          <img src="../../../../assets/icon/projectShortCut/Group 199.svg" (click)="goInformationActivity()"class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-          <img src="../../../../assets/icon/projectShortCut/Group 202.svg" (click)="sendReport()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
+        <div class="set-font-vazir project-detail mt-1">
+          <span class="pl-1">تاریخ تحویل:</span>
+          {{item.projectDeliveryTime.timeInterval}}
         </div>
       </div>
-    </div>
+      <div class="project-description text-justify set-font-vazir">
+        {{item.projectDescription}}
+      </div>
 
-    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="project-card position-relative">
-        <div class="d-flex">
-          <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
-          <div class="d-inline-block px-2 set-font-Raymon project-title">
-            نام پروژه
-            <div class="set-font-vazir project-detail mt-3">تاریخ ایجاد</div>
-            <div class="set-font-vazir project-detail mt-1">مهلت اجرا</div>
-          </div>
-        </div>
-        <circle-progress class="cycle-progress"
-                         [percent]="80"
-                         [radius]="30"
-                         [titleFontSize]="'15'"
-                         [outerStrokeWidth]="6"
-                         [titleColor]="'#646262'"
-                         [showSubtitle]="false"
-                         [innerStrokeWidth]="5"
-                         [outerStrokeColor]="'#ffd500'"
-                         [innerStrokeWidth]= "0"
-                         [animation]="true"
-                         [backgroundColor]="'#FFFDF1'"
-                         [animationDuration]="300"
-        ></circle-progress>
-        <div class="project-description text-justify set-font-vazir">
-          طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که اساسا مورد استفاده قرار گیرد.
-        </div>
-
-        <div class="container-icon d-flex justify-content-center">
-          <img src="../../../../assets/icon/projectShortCut/more.svg" (click)="goEditProject()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-          <img src="../../../../assets/icon/projectShortCut/Group 199.svg" (click)="goInformationActivity()"class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-          <img src="../../../../assets/icon/projectShortCut/Group 202.svg" (click)="sendReport()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-        </div>
+      <div class="container-icon d-flex justify-content-center">
+        <img src="../../../../assets/icon/projectShortCut/more.svg" (click)="goEditProject(item.companyId)" class="short-cut-icon"
+        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
+        <img src="../../../../assets/icon/projectShortCut/Group 199.svg" (click)="goInformationActivity()"class="short-cut-icon"
+        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
+        <img src="../../../../assets/icon/projectShortCut/Group 202.svg" (click)="sendReport()" class="short-cut-icon"
+        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
       </div>
     </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
-      <div class="project-card position-relative">
-        <div class="d-flex">
-          <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
-          <div class="d-inline-block px-2 set-font-Raymon project-title">
-            نام پروژه
-            <div class="set-font-vazir project-detail mt-3">تاریخ ایجاد</div>
-            <div class="set-font-vazir project-detail mt-1">مهلت اجرا</div>
-          </div>
-        </div>
-        <circle-progress class="cycle-progress"
-                         [percent]="100"
-                         [radius]="30"
-                         [titleFontSize]="'15'"
-                         [outerStrokeWidth]="6"
-                         [titleColor]="'#646262'"
-                         [showSubtitle]="false"
-                         [innerStrokeWidth]="5"
-                         [outerStrokeColor]="'#4ef55e'"
-                         [innerStrokeWidth]= "0"
-                         [animation]="true"
-                         [backgroundColor]="'#FFFDF1'"
-                         [animationDuration]="300"
-        ></circle-progress>
-        <div class="project-description text-justify set-font-vazir">
-          طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که اساسا مورد استفاده قرار گیرد.
-        </div>
-
-        <div class="container-icon d-flex justify-content-center">
-          <img src="../../../../assets/icon/projectShortCut/more.svg" (click)="goEditProject()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-          <img src="../../../../assets/icon/projectShortCut/Group 199.svg" (click)="goInformationActivity()"class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-          <img src="../../../../assets/icon/projectShortCut/Group 202.svg" (click)="sendReport()" class="short-cut-icon"
-          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-        </div>
-      </div>
-    </div>
-
   </div>
+</div>
 </div>
