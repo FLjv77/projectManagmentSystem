@@ -58,30 +58,20 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public inputInfo: aarayStyle;
   public goToNext(state: number) {
+    console.log(this.projectStartDateFormControl.value);
+
     this.commonDataForCreateProjectService.setBasicInformationProject(
       this.checkbox ? 'parentIdProject' : '',
       this.projectNameFormControl.value,
       this.descreptionFormControl.value,
-      this.projectDeliveryDateFormControl.value,
+      '2022-09-29T06:51:03.531Z', // this.projectDeliveryDateFormControl.value,
       this.infrastructureCostFormControl.value,
       this.humanResourceCostFormControl.value,
-      [], this.projectStartDateFormControl.value
+      [],
+      '2022-08-29T06:51:03.531Z' //this.projectStartDateFormControl.value
     );
-    /*
-    let hhh = new OutputInfo([],1);
-    this.inputInfo = new aarayStyle(hhh,0,0);
-    this.inputInfo.info.inputs.push(this.projectNameFormControl.value);
-    this.inputInfo.info.inputs.push(this.projectDeliveryDateFormControl.value);
-    this.inputInfo.info.inputs.push(this.descreptionFormControl.value);
-    this.inputInfo.info.inputs.push(this.contributors);
-    this.inputInfo.info.inputs.push(this.parentId);
-    this.inputInfo.infrastructureCost = this.initialCapitalProjectFormControl.value;
-    this.inputInfo.humanResourceCost = this.projectProfitFormControl.value;
-    this.inputInfo.info.state = state;
-    this.basicInputValue.emit(this.inputInfo);
-    */
 
-
+    document.getElementById('locationInformation')?.click();
   }
 
   public setParentId($event: string){

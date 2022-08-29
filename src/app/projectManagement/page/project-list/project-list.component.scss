@@ -1,7 +1,8 @@
-@import "../../../../assets/style/colorPalette";
+@import "../../../../assets/style/colorPalette.scss";
 @import "../../../../assets/style/base.scss";
+
 .project-card {
-  background-color: $lite-yellow-back-ground;
+  background-color: $background-card;
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   padding-top: 10px;
@@ -28,7 +29,7 @@
 
 .project-title {
   text-align: right;
-  font-size: 20px;
+  font-size: 17px;
   color: $dark-back-ground;
   margin-top: 18px;
   @media (max-width: 500px) {
@@ -36,16 +37,16 @@
     margin-top: 10px;
   }
 }
+
 .project-detail {
   text-align: right;
   font-size: 12px;
   color: $text-color-normal;
-  margin-right: 10px;
   @media (max-width: 500px) {
     font-size: 10px;
-    margin-right: 5px;
   }
 }
+
 .project-description {
   font-size: 14px;
   color: $text-color-normal;
@@ -58,7 +59,7 @@
   }
 }
 .cycle-progress {
-  position: absolute; left: -90px; top: 5px; width: 60%;
+  position: absolute; left: -90px; top: 5px; width: 45%;
   @media (max-width: 1100px) {
     left: -85px;
   }
@@ -79,7 +80,10 @@
   }
 }
 .container-icon {
-  margin-top: 43px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
   @media (max-width: 500px) {
     margin-top: 23px;
   }
