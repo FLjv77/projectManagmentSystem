@@ -1,11 +1,11 @@
 <div class="row mx-auto">
     <div class="col-12 mx-auto">
         <div class="margin-right-steps">
-            <div #8 class="py-2 px-4 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
+            <div #8 id="projectTarget" class="py-2 px-4 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
                 <span class="d-block text-nowrap text-center">اهداف پروژه</span>
             </div>
             <div class="border-step"></div>
-            <div #1 class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
+            <div #1 id="basicInformationProject" class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
                 <span class="d-block text-nowrap text-center">اطلاعات اولیه</span>
             </div>
             <div class="border-step"></div>

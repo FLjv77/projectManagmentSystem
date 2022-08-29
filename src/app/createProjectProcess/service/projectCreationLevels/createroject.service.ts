@@ -1,4 +1,4 @@
-import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from './../../model/createProject';
+import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
@@ -13,10 +13,7 @@ export class CreaterojectService {
   constructor(private http: HttpClient) { }
 
   public CreateProject(companyId: string,createProject: CreateProjectDTO): Observable<ApiResult<string>>{
-    const headers = new HttpHeaders({
-      'Authorization': 'true',
-    });
-    return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject, {headers});
+    return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject);
   }
 
   public CreateParentActivity(projectId : string, createActivity: CreateParentActivityDTO): Observable<ApiResult<string>>{
