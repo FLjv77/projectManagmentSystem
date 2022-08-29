@@ -4,7 +4,7 @@ import { HandleModalService } from './../../../../../shared/service/handleModalS
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
-import { CreateActivityDTO, CreateParentActivityDTO } from '../../../../model/createProject';
+import { CreateActivityDTO, CreateParentActivityDTO } from '../../../../model/createProjectModel/createProject';
 import { ApiResult } from '../../../../../auth/model/authDTO';
 import { HandleDisplayErrorService } from '../../../../../shared/service/handleError/handle-display-error.service';
 import { HttpErrorResponse } from '@angular/common/http';

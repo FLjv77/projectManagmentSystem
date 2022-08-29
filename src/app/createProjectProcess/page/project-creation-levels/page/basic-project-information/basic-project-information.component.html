@@ -23,6 +23,9 @@
                 <app-drop-down-project-list *ngIf="checkbox==true" (parentid)="setParentId($event)"></app-drop-down-project-list>
             </div>
 
+      <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
+      [inputFormControl]="projectStartDateFormControl"></app-date-picker-jalaly>
+
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
                               [inputFormControl]="projectDeliveryDateFormControl"></app-date-picker-jalaly>
 
@@ -36,10 +39,10 @@
             <h4 class="title-page mt-3 d-inline set-font-Raymon">اطلاعات مالی</h4>
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه زیرساخت'" [inputId]="'4'"
-            [inputFormControl]="initialCapitalProjectFormControl" [unit]="3"></app-input-style>
+            [inputFormControl]="infrastructureCostFormControl" [unit]="3"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه منابع انسانی'" [inputId]="'5'"
-            [inputFormControl]="projectProfitFormControl" [unit]="3"></app-input-style>
+            [inputFormControl]="humanResourceCostFormControl" [unit]="3"></app-input-style>
     </div>
 
     <div class="row">
