@@ -12,7 +12,4 @@ export class CompanyListService {
 
   constructor(private http:HttpClient) { }
 
-  public GetMyCompany(): Observable<ApiResult<CompanySelectedDTO>> {
-    return this.http.get<ApiResult<CompanySelectedDTO>>(url.GetMyCompany);
-  }
 }
