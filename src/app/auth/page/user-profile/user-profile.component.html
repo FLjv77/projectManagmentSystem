@@ -2,117 +2,64 @@
     <div class="col-12">
         <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
     </div>
-    <div class="row mx-4 d-md-flex d-block mb-2">
+    <div class="row mx-4 d-md-flex d-block mb-2" *ngIf="companyInformation">
         <div class="col-md-6 col-12 background-yellow">
             <div class="row">
                 <div class="row col-12 my-2">
                     <div class="col-xl-3 col-lg-4 col-12 d-inline my-auto text-lg-end text-center">
-                        <img src="../../../../assets/image/workSpace/sakh3.jpg" class="profile-style" alt="">
+                        <img src="../../../../assets/image/workSpace/sakh3.jpg" class="profile-style boxShadow" alt="">
                     </div>
                     <div class="col-xl-9 col-lg-8 col-12 d-inline my-auto">
-                        <h1 class="set-font-Raymon d-block text-lg-end text-center">نام کاربر</h1>
-                        <h2 class="set-font-Raymon d-block text-lg-end text-center">نام کاربری</h2>
+                        <h1 class="set-font-Raymon d-block text-lg-end text-center">نام شرکت</h1>
+                        <h2 class="set-font-Raymon d-block text-lg-end text-center">{{companyInformation.companyName}}</h2>
                     </div>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-6 col-12 text-sm-end text-center">
+                <div class="col-12 text-sm-end text-center set-font-vazir">
                     <div class="text-nowrap">
-                        <i class="material-icons icons">person</i>
-                        <span class="mx-2">نام و نام خانوادگی</span>
+                        <i class="material-icons icons">business</i>
+                        <span class="mx-2"> شماره ثبت: {{companyInformation.companyRegisterNumber}}</span>
                     </div>
                     <div class="text-nowrap">
-                        <i class="material-icons icons">email</i>
-                        <span class="mx-2">email@email.com</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-12 text-sm-end text-center">
-                    <div class="text-nowrap">
-                        <i class="material-icons icons">local_phone</i>
-                        <span class="mx-2">{{changeToPersian('09131311313')}}</span>
-                    </div>
-                    <div class="text-nowrap">
-                        <i class="material-icons icons">date_range</i>
-                        <span class="mx-2">{{changeToPersian('1400/02/20')}}</span>
+                        <i class="material-icons icons">home_repair_service</i>
+                        <span class="mx-2"> کد اقتصادی: {{companyInformation.companyEconomicCode}}</span>
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 pt-3">
                     <app-drop-down-role-user></app-drop-down-role-user>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-12 background-gray">
             <div class="row">
-                <h1 class="set-font-Raymon text-center text-white pt-3">دسترسی سریع</h1>
+                <h1 class="set-font-Raymon text-center text-white pt-3">زمینه های فعالیت</h1>
             </div>
             <div class="row mx-auto">
-                <div class="mx-auto scroll-list-company">
-                    <div class="row list-result-project set-font-vazir py-2">
-                        <div class="col-lg-4 col-12 my-auto">نام شرکت</div>
-                        <div class="col-12 col-lg-8 d-flex justify-content-end">
-                          <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                          <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                          <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                          <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                        </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                        <div class="col-lg-4 col-12 my-auto">نام شرکت</div>
-                        <div class="col-12 col-lg-8 d-flex justify-content-end">
-                          <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                          <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                          <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                          <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                        </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                        <div class="col-lg-4 col-12 my-auto">نام شرکت</div>
-                        <div class="col-12 col-lg-8 d-flex justify-content-end">
-                          <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                          <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                          <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                          <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                        </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                        <div class="col-lg-4 col-12 my-auto">نام شرکت</div>
-                        <div class="col-12 col-lg-8 d-flex justify-content-end">
-                          <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                          <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                          <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                          <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                            mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                        </div>
-                    </div>
-                    <div class="row list-result-project set-font-vazir py-2">
-                      <div class="col-lg-4 col-12 my-auto">نام شرکت</div>
-                      <div class="col-12 col-lg-8 d-flex justify-content-end">
-                        <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                        <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                        <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                          mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                      </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <div class="field-of-project text-center set-font-Raymon pt-3 {{checkCompanyType(2) ? 'boxShadow' : 'active-field' }} mx-2">
+                    <span class="icon-size material-icons">home</span>
+                    <div class="py-2 text-field ">مسکن</div>
                   </div>
-                </div>
+
+                  <div class="field-of-project text-center set-font-Raymon pt-3 {{checkCompanyType(3) ? 'boxShadow' : 'active-field' }} mx-2">
+                    <span class="material-icons icon-size">swap_calls</span>
+                    <div class="py-2 text-field ">راه</div>
+                  </div>
+              </div>
+              <div class="col-12 d-flex justify-content-center mt-3">
+                  <div class="field-of-project text-center set-font-Raymon pt-3 {{checkCompanyType(1) ? 'boxShadow' : 'active-field' }} mx-2">
+                    <span class="icon-size material-icons">water_drop</span>
+                    <div class="py-2 text-field ">آب</div>
+                  </div>
+
+                  <div class="field-of-project text-center set-font-Raymon pt-3 {{checkCompanyType(0) ? 'boxShadow' : 'active-field' }} mx-2">
+                    <span class="icon-size material-icons">heart_broken</span>
+                    <div class="py-2 text-field ">سلامت</div>
+                  </div>
+              </div>
+
+
             </div>
         </div>
     </div>

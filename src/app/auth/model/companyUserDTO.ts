@@ -25,6 +25,6 @@ export class CreateCompanyDTO {
     companyAreaExpertise: CompanyType[];
 }
 
-export enum CompanyType{
+export enum CompanyType {
     health, waterSupply, housing, roadConstruction
 }
