@@ -28,7 +28,6 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
-    this.getCompanyList();
   }
 
   public openMdalAddCompony(){
@@ -57,20 +56,6 @@ export class CompanyListComponent implements OnInit {
 
   public editCompany() {
     this.handleModalService.openModal('company-profile-modal');
-  }
-
-  public getCompanyList(){
-    this.companyListService.GetMyCompany().subscribe((res: ApiResult<CompanySelectedDTO>) => {
-      if(res.isSuccess && res.statusCode == 200) {
-        
-      } else {
-        this.handleDisplayErrorService.showError(res.statusCode);
-      }
-      this.chageSpinnerState(false);
-    }, (err: HttpErrorResponse) => {
-      this.handleDisplayErrorService.showError(err.error.StatusCode);
-      this.chageSpinnerState(false);
-    });;
   }
 
   private chageSpinnerState(state: boolean) {

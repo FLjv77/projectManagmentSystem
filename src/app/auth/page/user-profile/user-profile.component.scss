@@ -9,3 +9,24 @@
         height: 460px;
     }
 }
+
+.text-field {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.icon-size {
+  font-size: 40px;
+}
+
+.field-of-project {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  background-color: #FFFF;
+  color: $text-color-normal;
+}
+
+.active-field {
+  opacity: 0.75;
+}
