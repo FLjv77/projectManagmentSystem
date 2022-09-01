@@ -58,3 +58,18 @@ export class AllocationVerificationDTO {
 export enum Status {
   accept, reject, acceptWithModified
 }
+
+export class ProgressReportDTO {
+  constructor(progressReporterName:	string,progressDescription:	string,progressPercentage:	number,progressCommitmentDate:	string,activityIds:	ShareLevelOfActivityDTO[]){
+    this.progressReporterName = progressReporterName;
+    this.progressDescription = progressDescription;
+    this.progressPercentage = progressPercentage;
+    this.progressCommitmentDate = progressCommitmentDate;
+    this.activityIds = activityIds;
+  }
+  progressReporterName:	string;
+  progressDescription:	string;
+  progressPercentage:	number;
+  progressCommitmentDate:	string;
+  activityIds:	ShareLevelOfActivityDTO[];
+}

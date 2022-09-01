@@ -16,5 +16,6 @@ export const url = {
   CompanyModify: 'Holding/CompanyModify/',
   getProjectsGeneralInfoOfCompany: 'Project/GetProjectsGeneralInfoOfCompany/',
   GetProjectGeneralPropertiesById: 'Project/GetProjectGeneralPropertiesById/',
-  getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/'
+  getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/',
+  RegisterProgressReport: 'Project/RegisterProgressReport/'
 }

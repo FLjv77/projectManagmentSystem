@@ -1,6 +1,9 @@
+import { ShareLevelOfActivityDTO } from './../../../../model/modelDtoAllocationReport';
+import { ReportConnectionToApiService } from './../../../../service/reportConnectionToApi/report-connection-to-api.service';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
+import { ProgressReportDTO } from 'src/app/managementReport/model/modelDtoAllocationReport';
 
 @Component({
   selector: 'app-progress-report',
@@ -16,7 +19,10 @@ export class ProgressReportComponent implements OnInit {
   public descreptionFormControl = new FormControl();
   public fileFormControl = new FormControl();
 
-  constructor() { }
+  public projectId: string;
+  public listId: ShareLevelOfActivityDTO[];
+
+  constructor(private reportConnectionToApiService: ReportConnectionToApiService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -36,5 +42,13 @@ export class ProgressReportComponent implements OnInit {
         return true;
       }
       else{return false}
+  }
+
+  public sendProgressReport(){
+    this.reportConnectionToApiService.RegisterProgressReport(
+      this.projectId, new ProgressReportDTO(this.reporterNameFormControl.value,this.descreptionFormControl.value
+        ,this.ProgressFormControl.value,this.registrationDateFormControl.value,this.listId)).subscribe(res =>{
+          console.log(res);
+        });
   }
 }
