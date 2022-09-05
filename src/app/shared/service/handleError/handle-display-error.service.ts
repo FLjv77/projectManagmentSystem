@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HandleDisplayErrorService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   public getMessage(code: number): string {
     let res = '';
@@ -71,6 +72,11 @@ export class HandleDisplayErrorService {
       }
     });
 
+    if(errorCode == 401) {
+      setTimeout(() => {
+        this.router.navigate(['../../auth/loginUser']);
+      }, 1000);
+    }
   }
 }
 

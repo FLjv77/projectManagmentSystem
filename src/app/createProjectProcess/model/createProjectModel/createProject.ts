@@ -9,21 +9,14 @@ export class CreateProjectDTO {
     humanResourceCost:	number;
     participants: Participant[];
     targetId: string;
-
-
-
-
     startTimeOfProject: string;
-
     country: string;
     state: string;
     city: string;
     section: string;
     region:	string;
-
     longitude: number;
     latitude: number;
-
     interCities: string[];
     interRegions: string[];
 }

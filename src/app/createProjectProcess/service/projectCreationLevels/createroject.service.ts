@@ -4,6 +4,7 @@ import { ApiResult } from './../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TargetsOfProjectSelectedDto } from '../../model/createProjectModel/target';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class CreaterojectService {
 
   public CreateActivity(projectId : string, createActivity: CreateActivityDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.CreateActivity + '/' + projectId , createActivity);
+  }
+
+  public getTargetsOfProject(): Observable<ApiResult<TargetsOfProjectSelectedDto[]>> {
+    return this.http.get<ApiResult<TargetsOfProjectSelectedDto[]>>(url.GetTargetsOfProject);
   }
 }
