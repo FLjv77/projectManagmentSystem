@@ -14,6 +14,7 @@ export const url = {
   allocationReportVerification: 'Project/AllocationReportVerification/',
   GetMyCompany: 'Company/GetMyCompany',
   CompanyModify: 'Holding/CompanyModify/',
+  GetTargetsOfProject: 'Project/GetTargetsOfProject',
   getProjectsGeneralInfoOfCompany: 'Project/GetProjectsGeneralInfoOfCompany/',
   GetProjectGeneralPropertiesById: 'Project/GetProjectGeneralPropertiesById/',
   getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/',
@@ -24,5 +25,4 @@ export const url = {
   ModifySocialTransformationSpeceficDetail: 'Project/ModifySocialTransformationSpeceficDetail/',
   ModifyRevivalIndustrySpeceficDetail: 'Project/ModifyRevivalIndustrySpeceficDetail/',
   ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
-
 }

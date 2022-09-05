@@ -29,13 +29,21 @@ export class LoginUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initInputStyle()
+    this.checkIsLogin();
+    this.initInputStyle();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#ffffff', '#ffffff', '#ffffff'
     )
+  }
+
+  private checkIsLogin() {
+    let token = localStorage.getItem(url.tokenName);
+    if(token) {
+      this.router.navigate(['../../dashboard'])
+    }
   }
 
   public submitLogin() {
