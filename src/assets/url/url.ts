@@ -14,5 +14,15 @@ export const url = {
   allocationReportVerification: 'Project/AllocationReportVerification/',
   GetMyCompany: 'Company/GetMyCompany',
   CompanyModify: 'Holding/CompanyModify/',
-  GetTargetsOfProject: 'Project/GetTargetsOfProject'
+  GetTargetsOfProject: 'Project/GetTargetsOfProject',
+  getProjectsGeneralInfoOfCompany: 'Project/GetProjectsGeneralInfoOfCompany/',
+  GetProjectGeneralPropertiesById: 'Project/GetProjectGeneralPropertiesById/',
+  getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/',
+  RegisterProgressReport: 'Project/RegisterProgressReport/',
+  ModifyWaterShedAndCanalsSpeceficDetail: 'Project/ModifyWaterShedAndCanalsSpeceficDetail/',
+  ModifyRuralRoadSpeceficDetail: 'Project/ModifyRuralRoadSpeceficDetail/',
+  ModifyKnowledgeBasedSpeceficDetail: 'Project/ModifyKnowledgeBasedSpeceficDetail/',
+  ModifySocialTransformationSpeceficDetail: 'Project/ModifySocialTransformationSpeceficDetail/',
+  ModifyRevivalIndustrySpeceficDetail: 'Project/ModifyRevivalIndustrySpeceficDetail/',
+  ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
 }

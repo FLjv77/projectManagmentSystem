@@ -1,3 +1,4 @@
+import { CompanySelectedDTO } from './../../../workSpace/model/companyModel';
 import { CompanyUserRegisterDTO } from './../../model/companyUserDTO';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -35,4 +36,10 @@ public generateToken(loginData: FormData): Observable<ApiResult<AccessToken>> {
     });
     return this.http.post<ApiResult<AccessToken>>(url.auth, loginData, {headers});
   }
+
+public getMyCompany(): Observable<ApiResult<CompanySelectedDTO>> {
+  return this.http.get<ApiResult<CompanySelectedDTO>>(url.GetMyCompany);
 }
+}
+
+
