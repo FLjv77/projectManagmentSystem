@@ -17,5 +17,12 @@ export const url = {
   getProjectsGeneralInfoOfCompany: 'Project/GetProjectsGeneralInfoOfCompany/',
   GetProjectGeneralPropertiesById: 'Project/GetProjectGeneralPropertiesById/',
   getProjectsWithDynamicFilter: 'Project/GetProjectsWithDynamicFilter/',
-  RegisterProgressReport: 'Project/RegisterProgressReport/'
+  RegisterProgressReport: 'Project/RegisterProgressReport/',
+  ModifyWaterShedAndCanalsSpeceficDetail: 'Project/ModifyWaterShedAndCanalsSpeceficDetail/',
+  ModifyRuralRoadSpeceficDetail: 'Project/ModifyRuralRoadSpeceficDetail/',
+  ModifyKnowledgeBasedSpeceficDetail: 'Project/ModifyKnowledgeBasedSpeceficDetail/',
+  ModifySocialTransformationSpeceficDetail: 'Project/ModifySocialTransformationSpeceficDetail/',
+  ModifyRevivalIndustrySpeceficDetail: 'Project/ModifyRevivalIndustrySpeceficDetail/',
+  ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
+
 }
