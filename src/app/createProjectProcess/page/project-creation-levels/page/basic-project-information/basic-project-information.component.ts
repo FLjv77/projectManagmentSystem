@@ -18,6 +18,8 @@ export class BasicProjectInformationComponent implements OnInit {
   public descreptionFormControl = new FormControl();
   public infrastructureCostFormControl = new FormControl();
   public humanResourceCostFormControl = new FormControl();
+  public startDate: string;
+  public deliveryDate: string;
   public inputCustomStyle: InputCustomStyle;
   public checkbox: boolean;
   public contributors: string = '';
@@ -58,17 +60,18 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public inputInfo: aarayStyle;
   public goToNext(state: number) {
-    console.log(this.projectStartDateFormControl.value);
+    console.log(      this.projectDeliveryDateFormControl.value,
+      );
 
     this.commonDataForCreateProjectService.setBasicInformationProject(
       this.checkbox ? 'parentIdProject' : '',
       this.projectNameFormControl.value,
       this.descreptionFormControl.value,
-      '2022-09-29T06:51:03.531Z', // this.projectDeliveryDateFormControl.value,
+      this.deliveryDate,
       this.infrastructureCostFormControl.value,
       this.humanResourceCostFormControl.value,
       [],
-      '2022-08-29T06:51:03.531Z' //this.projectStartDateFormControl.value
+      this.startDate
     );
 
     document.getElementById('locationInformation')?.click();

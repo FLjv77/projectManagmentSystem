@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import { TargetsOfProjectSelectedDto } from '../../model/createProjectModel/target';
@@ -13,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './select-project-type.component.html',
   styleUrls: ['./select-project-type.component.scss']
 })
-export class SelectProjectTypeComponent implements OnInit {
+export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
   private projectType: ProjectType;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
@@ -23,14 +23,17 @@ export class SelectProjectTypeComponent implements OnInit {
     private handleDisplayErrorService: HandleDisplayErrorService,
     private createrojectService: CreaterojectService) { }
 
-  ngOnInit(): void {
-    this.initDisplayPath();
+  ngAfterViewInit(): void {
     this.getTargets();
   }
 
-  public goToCreateProjectSteps(type: ProjectType) {
+  ngOnInit(): void {
+    this.initDisplayPath();
+  }
+
+  public goToCreateProjectSteps(type: ProjectType, name: string) {
     this.projectType = type;
-    this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType}});
+    this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType, targetId: this.getIdTarget(name)}});
   }
 
   private getTargets() {
@@ -47,5 +50,16 @@ export class SelectProjectTypeComponent implements OnInit {
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('ساخت پروژه', false, '');
+  }
+
+  private getIdTarget(projectType: string): string {
+    let res = '';
+    if(this.types) {
+      this.types.find((type: TargetsOfProjectSelectedDto) => {
+      if(type.objectiveTitle == projectType) {
+        res = type.targetId;
+      }});
+    }
+    return res;
   }
 }

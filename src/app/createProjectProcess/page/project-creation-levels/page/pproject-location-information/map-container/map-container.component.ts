@@ -1,7 +1,7 @@
 import { NumberFormaterService } from './../../../../../../shared/service/number/number-formater.service';
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DisplayPathModel} from "../../../../../../shared/model/displayPathModel";
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
@@ -44,6 +44,7 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
   public formControl = new FormControl();
 
   constructor(private router: Router,
+    private activeRouting: ActivatedRoute,
     private numberFormaterService: NumberFormaterService) { }
 
   ngOnInit(): void {
@@ -155,6 +156,16 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     this.selectedAddressToSetLocation = this.addressList.length - 1;
   }
 
+  public beckAndSaveLocation() {
+    let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
+    let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+
+    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)), type: projectType, targetId: id}})
+    setTimeout(() => {
+      document.getElementById('locationInformation')?.click();
+    }, 200);
+  }
+
   public getInputControler(index: number): FormControl {
     return this.addressList[index].titleControler;
   }
@@ -174,6 +185,14 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   public checkAddNewAddress(): boolean {
     return !this.addressList[this.addressList.length - 1].layer;
+  }
+
+  private getListLocation(addressInfo: AdressInformation[]): Location[] {
+    let locations = new Array<Location>();
+    for(let i=0; i<addressInfo.length; i++) {
+      locations.push(addressInfo[i].location);
+    }
+    return locations;
   }
  }
 
