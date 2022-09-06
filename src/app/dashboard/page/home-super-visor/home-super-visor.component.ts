@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DisplayPathModel } from '../../../shared/model/displayPathModel';
 
 @Component({
@@ -13,7 +14,7 @@ import { DisplayPathModel } from '../../../shared/model/displayPathModel';
 export class HomeSuperVisorComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -22,6 +23,16 @@ export class HomeSuperVisorComponent implements OnInit {
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('داشبورد', false, '');
     this.path2 = new DisplayPathModel('خانه', false, '');
+  }
+
+  public goToEditProject() {
+    this.router.navigate(['../../projectManagement/editProject'])
+  }
+  public goToActivityProject() {
+    this.router.navigate(['../../projectManagement/InformationActivity'])
+  }
+  public goToChartPage() {
+    this.router.navigate(['../../projectManagement/chart'])
   }
 
 }

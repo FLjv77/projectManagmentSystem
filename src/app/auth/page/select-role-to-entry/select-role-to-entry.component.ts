@@ -1,3 +1,4 @@
+import { url } from 'src/assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
@@ -15,8 +16,8 @@ export class SelectRoleToEntryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public goToDashboard() {
-    this.router.navigate(['../../dashboard/home']);
+  public goToDashboard(url: string) {
+    this.router.navigate([url]);
   }
 
 }

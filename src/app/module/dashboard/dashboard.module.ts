@@ -12,6 +12,7 @@ import {TotalChartForOrganizationComponent} from "../../dashboard/page/home/page
 import {TotalChartForCompanyComponent} from "../../dashboard/page/home-company-manager/page/total-chart-for-company/total-chart-for-company.component";
 import { HomeSuperVisorComponent } from 'src/app/dashboard/page/home-super-visor/home-super-visor.component';
 import { ChartForHomeSupervisorComponent } from '../../dashboard/page/home-super-visor/page/chart-for-home-supervisor/chart-for-home-supervisor.component';
+import { ProjectManagementModule } from '../project-management/project-management.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ChartForHomeSupervisorComponent } from '../../dashboard/page/home-super
         CommonModule,
         DashboardRoutingModule,
         SharedModule,
+        ProjectManagementModule,
         MatTooltipModule,
       NgxEchartsModule.forRoot({
         echarts: () => import('echarts')
