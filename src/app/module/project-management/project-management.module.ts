@@ -85,6 +85,7 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     ProgressReportActivityComponent,
     RecordFinancialReportModalComponent,
     RecordProgressReportModalComponent,
+    ProjectListComponent
   ]
 })
 export class ProjectManagementModule { }
