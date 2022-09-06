@@ -22,7 +22,6 @@ export class FinancialReportProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -30,45 +29,28 @@ export class FinancialReportProjectComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
-  private subscribeChangeFormCoontrol() {
-    this.reporterNameFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
 
-    this.saveDateFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.paymentDateFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.progressFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.descreptionReportFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.uploadDocumentationProjectFormControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-  }
-
-  private checkValidationForm() {
-    if(
-      this.reporterNameFormControl.value &&
-      this.saveDateFormControl.value &&
-      this.paymentDateFormControl.value &&
-      this.progressFormControl.value &&
+  public getValue(){
+    if(this.reporterNameFormControl.value && this.saveDateFormControl.value && this.progressFormControl.value &&
       this.descreptionReportFormControl.value &&
-      this.uploadDocumentationProjectFormControl.value
-    ) {
-      this.validationForm.emit(true);
-    } else {
-      this.validationForm.emit(false);
-    }
+      this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
+      this.descreptionReportFormControl.valid){
+        return true;
+      }
+      else{return false}
   }
+
+  public getValue1(){
+    if(this.uploadDocumentationProjectFormControl.value){
+        return true;
+      }
+      else{return false}
+  }
+
+  public getValueAll(){
+    return true;
+  }
+
+  public sendInfo(){}
+
 }

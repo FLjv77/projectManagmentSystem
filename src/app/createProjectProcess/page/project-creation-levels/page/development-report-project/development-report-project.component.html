@@ -16,14 +16,22 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش پیشرفت'" [inputId]="'4'"
             [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
 
-      <app-upload-file-input [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگذاری مستندات پیشرفت پروژه'"></app-upload-file-input>
+        <div class="row col-12 mt-3 {{getValue() ? 'opacity-bold':'opacity-light'}}" style="direction: ltr;">
+            <button type="button" class="ok-button" [disabled]="!getValue()" (click)="sendInfo()">
+                <img src="../../../../../../assets/image/createProject/ok-button.svg" alt="">
+            </button>
+        </div>
 
+      <app-upload-file-input class="col-sm-10 col-12" [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگذاری مستندات پیشرفت پروژه'"></app-upload-file-input>
+    <div class="row col-sm-2 col-12 mt-3 {{getValue1() ? 'opacity-bold':'opacity-light'}}" style="direction: ltr;">
+        <button type="button" class="ok-button" [disabled]="!getValue1()">
+            <img src="../../../../../../assets/image/createProject/ok-button.svg" alt="">
+        </button>
     </div>
-    <app-financial-report-project (validationForm)="handleSubOption($event)"></app-financial-report-project>
-
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
+        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValueAll() ? 'opacity-bold':''}}" [disabled]="!getValueAll()">
             تایید و ادامه
         </button>
+    </div>
     </div>
 </div>

@@ -24,10 +24,10 @@
             </div>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
-      [inputFormControl]="projectStartDateFormControl"></app-date-picker-jalaly>
+      [inputFormControl]="projectStartDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
-                              [inputFormControl]="projectDeliveryDateFormControl"></app-date-picker-jalaly>
+                              [inputFormControl]="projectDeliveryDateFormControl" (changeValue)="deliveryDate = $event"></app-date-picker-jalaly>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'توضیحات'" [inputId]="'3'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>

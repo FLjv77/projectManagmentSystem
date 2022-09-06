@@ -45,7 +45,10 @@
     <img src="../../../../../../../assets/icon/userManagment/confirmCompanyRequest.svg" class="submit-address-button">
   </div>
 
-  <button (click)="addNewLocation()" [disabled]="checkAddNewAddress()" class="add-address-button set-font-vazir p-2 mt-2 mx-auto d-flex justify-content-center">افزودن آدرس جدید</button>
+  <div class="row mx-auto d-flex justify-content-center">
+    <button (click)="addNewLocation()" [disabled]="checkAddNewAddress()" class="mx-2 add-address-button set-font-vazir d-inline p-2 mt-2">افزودن </button>
+    <button (click)="beckAndSaveLocation()" [disabled]="checkAddNewAddress()" class="mx-2 add-address-button set-font-vazir d-inline p-2 mt-2">ذخیره </button>
+  </div>
 
 </div>
 

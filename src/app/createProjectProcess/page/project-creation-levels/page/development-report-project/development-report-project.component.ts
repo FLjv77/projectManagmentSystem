@@ -1,3 +1,5 @@
+import { ProgressReportDTO } from 'src/app/managementReport/model/modelDtoAllocationReport';
+import { ReportConnectionToApiService } from './../../../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
@@ -15,9 +17,10 @@ export class DevelopmentReportProjectComponent implements OnInit {
   public descreptionReportFormControl = new FormControl();
   public uploadDocumentationProjectFormControl = new FormControl();
   public valueInputReport: boolean;
+  private projectId: string;
 
 
-  constructor() {}
+  constructor(private reportConnectionToApiService: ReportConnectionToApiService) {}
 
 
   ngOnInit(): void {
@@ -31,16 +34,27 @@ export class DevelopmentReportProjectComponent implements OnInit {
   }
   public getValue(){
     if(this.reporterNameFormControl.value && this.saveDateFormControl.value && this.progressFormControl.value &&
-      this.descreptionReportFormControl.value && this.uploadDocumentationProjectFormControl.value &&
+      this.descreptionReportFormControl.value &&
       this.reporterNameFormControl.valid && this.saveDateFormControl.valid && this.progressFormControl.valid &&
-      this.descreptionReportFormControl.valid && this.uploadDocumentationProjectFormControl.valid && this.valueInputReport == true){
+      this.descreptionReportFormControl.valid){
+        return true;
+      }
+      else{return false}
+  }
+  
+  public getValue1(){
+    if(this.uploadDocumentationProjectFormControl.value){
         return true;
       }
       else{return false}
   }
 
-  public handleSubOption(value:boolean){
-    this.valueInputReport = value;
-    this.getValue();
+  public getValueAll(){
+    return true;
+  }
+
+  public sendInfo(){
+    // this.reportConnectionToApiService.RegisterProgressReport(this.projectId , new ProgressReportDTO(this.reporterNameFormControl.value,
+    //   this.descreptionReportFormControl.value,this.progressFormControl.value,this.saveDateFormControl.value,))
   }
 }

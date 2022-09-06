@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {noop} from "rxjs";
 import {InputCustomStyle} from "../input-style/input-style.component";
+import * as moment from "jalali-moment";
 
 @Component({
   selector: 'app-date-picker-jalaly',
@@ -21,7 +22,7 @@ export class DatePickerJalalyComponent implements OnInit {
   @Input() isDatePiker: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
-  constructor() {
+  constructor(  ) {
   }
 
   ngOnInit(): void {}
@@ -37,13 +38,20 @@ export class DatePickerJalalyComponent implements OnInit {
   }
 
   private subscribeChangeInputValue() {
-    this.inputFormControl.valueChanges.subscribe((value: string) => {
+    this.inputFormControl.valueChanges.subscribe((value: any) => {
+      console.log(value._d);
+
       this.changeValue.emit(value);
     })
   }
 
   ngAfterViewInit(): void {
-    this.subscribeChangeInputValue();
   }
 
+
+  onChange(event: any) {
+    let x = moment(event.value).format("YYYY-MM-DD");
+    x = x + 'T00:00:00.000Z';
+    this.changeValue.emit(x);
+  }
 }

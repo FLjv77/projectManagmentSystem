@@ -12,7 +12,7 @@ export class CompanyVerificationDToService {
 
   constructor(private http: HttpClient) { }
 
-  public CreateParentActivity(companyId: string,CompanyVerification: CompanyVerificationDTo): Observable<ApiResult<CompanyStatus>>{
+  public CompanyModify(companyId: string,CompanyVerification: CompanyVerificationDTo): Observable<ApiResult<CompanyStatus>>{
     return this.http.post<ApiResult<CompanyStatus>>(url.CompanyModify + companyId ,CompanyVerification);
   }
 

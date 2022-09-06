@@ -1,4 +1,4 @@
-import { AllocationReportDTO, ShareLevelOfActivityDTO } from './../../../../model/modelDtoAllocationReport';
+import { ShareLevelOfActivityDTO } from './../../../../model/modelDtoAllocationReport';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -44,16 +44,12 @@ export class FinancialReportComponent implements OnInit {
 
   public submitAllocationReport() {
     this.setSpinnerState(true);
-    let allocation = new  AllocationReportDTO(
-      this.reporterNameFormControl.value,
-      this.descreptionReportFormControl.value,
-      this.reportedCostFormControl.value,
-      this.paymentDateFormControl.value,
-      this.activityIds
-    );
     this.reportConnectionToApiService.registerAllocationReport(
-      new RequestAllocationReportDTO(
-        this.projectId, allocation
+      this.projectId ,new RequestAllocationReportDTO(this.reporterNameFormControl.value,
+        this.descreptionReportFormControl.value,
+        this.reportedCostFormControl.value,
+        this.paymentDateFormControl.value,
+        this.activityIds
       )
     ).subscribe((res: ApiResult<string>) => {
       this.setSpinnerState(false);

@@ -13,8 +13,8 @@ export class ReportConnectionToApiService {
 
   constructor(private http: HttpClient) { }
 
-  public registerAllocationReport(report: RequestAllocationReportDTO): Observable<ApiResult<string>> {
-    return this.http.post<ApiResult<string>>(url.registerAllocationReport + report.projectId, report.allocationReport);
+  public registerAllocationReport(projectId: string,requestAllocationReportDTO: RequestAllocationReportDTO): Observable<ApiResult<string>> {
+    return this.http.post<ApiResult<string>>(url.registerAllocationReport + projectId, requestAllocationReportDTO);
   }
 
   public allocationReportVerification(requestAllocationVerification: RequestAllocationVerificationDTO): Observable<ApiResult<boolean>> {
@@ -24,4 +24,8 @@ export class ReportConnectionToApiService {
   public RegisterProgressReport(projectId: string, progressReportDTO: ProgressReportDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
+
+  // public UploadDocumentsOfProgressReport(progressReportId: string): Observable<ApiResult<any>>{
+  //   return this.http.post<ApiResult<any>>(url.UploadDocumentsOfProgressReport + progressReportId,);
+  // }
 }
