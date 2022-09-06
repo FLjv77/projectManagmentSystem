@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -8,6 +8,7 @@ import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { ApiResult } from '../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Location } from './map-container/map-container.component';
 
 @Component({
   selector: 'app-pproject-location-information',
@@ -21,14 +22,18 @@ export class PProjectLocationInformationComponent implements OnInit {
   public LocationFormControl = new FormControl();
   public checkCity: boolean;
   public checkVillage: boolean;
+  private locations: Location[];
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
+    private activeRouting: ActivatedRoute,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private createrojectService: CreaterojectService) { }
 
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getLocation();
   }
 
   private initInputStyle() {
@@ -36,6 +41,16 @@ export class PProjectLocationInformationComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+
+  private getLocation() {
+    let location = this.activeRouting.snapshot.queryParamMap.get('locations');
+    let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
+    let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+    if (location !== null) this.locations = JSON.parse(location);
+
+    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
+  }
+
   public getValue() {
     /*
     if(this.LocationFormControl.valid && this.LocationFormControl.value &&
@@ -49,7 +64,12 @@ export class PProjectLocationInformationComponent implements OnInit {
   }
 
   public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
+    let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
+    let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+
+    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
+
+    this.router.navigate(['../../createProject/selectLocationOnMap'], {queryParams: {type: projectType, targetId: id}});
   }
 
   public changeValue(value:number){
@@ -63,16 +83,13 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public goNextStep() {
     this.commonDataForCreateProjectService.setLocationInformation(
-      'Isfahan', 'Kashan', 'Kashan', 'Kashan', 35, 52, [], []
+      'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
     );
 
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
     ).subscribe((res: ApiResult<string>) => {
-      console.log(res);
     }, (err: HttpErrorResponse) => {
-      console.log(err);
-
     });
   }
 }

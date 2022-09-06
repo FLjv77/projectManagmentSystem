@@ -41,8 +41,6 @@ export class CommonDataForCreateProjectService {
 
   public setTargetInformaton(targetId: string) {
     this.createProjectData.targetId = targetId;
-
-    console.log(this.createProjectData);
   }
 
   public setLocationInformation(
