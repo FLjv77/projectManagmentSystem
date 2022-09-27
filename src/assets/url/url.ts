@@ -25,4 +25,5 @@ export const url = {
   ModifySocialTransformationSpeceficDetail: 'Project/ModifySocialTransformationSpeceficDetail/',
   ModifyRevivalIndustrySpeceficDetail: 'Project/ModifyRevivalIndustrySpeceficDetail/',
   ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
+  GetCompaniesWithRegisterationStatus: 'Holding/GetCompaniesWithRegisterationStatus'
 }

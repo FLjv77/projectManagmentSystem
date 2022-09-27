@@ -2,6 +2,9 @@ import { CompanyStatus } from './../../model/comanyModel';
 import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
+import { CompanyListService } from '../../service/companyListDTO/company-list.service';
+import { CompanySelectedDTO } from '../../model/companyModel';
+import { ApiResult } from 'src/app/auth/model/authDTO';
 
 @Component({
   selector: 'app-confirm-registred-company',
@@ -13,10 +16,12 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public modalState: CompanyStatus = 0;
-  constructor(private handleModalService:HandleModalService) { }
+  constructor(private handleModalService:HandleModalService,
+              private companyList: CompanyListService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.CompanySelected();
   }
 
   private initDisplayPath() {
@@ -27,6 +32,12 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
   public openModalConfirm(value: CompanyStatus){
     this.modalState = value;
     this.handleModalService.openModal('confirmed-company');
+  }
+
+  public CompanySelected(){
+    this.companyList.CompanySelected(1,1).subscribe((res: ApiResult<CompanySelectedDTO[]>)=>{
+      console.log(res);
+    })
   }
 
 }
