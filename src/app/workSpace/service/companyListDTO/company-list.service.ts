@@ -12,4 +12,8 @@ export class CompanyListService {
 
   constructor(private http:HttpClient) { }
 
+  public CompanySelected (pageId: number, take: number): Observable<ApiResult<CompanySelectedDTO[]>>{
+    return this.http.get<ApiResult<CompanySelectedDTO[]>>(url.GetCompaniesWithRegisterationStatus
+      + '?pageId=' + pageId + '&take=' + take);
+  }
 }
