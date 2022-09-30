@@ -25,9 +25,6 @@ export const url = {
   ModifySocialTransformationSpeceficDetail: 'Project/ModifySocialTransformationSpeceficDetail/',
   ModifyRevivalIndustrySpeceficDetail: 'Project/ModifyRevivalIndustrySpeceficDetail/',
   ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
-<<<<<<< HEAD
-  GetCompaniesWithRegisterationStatus: 'Holding/GetCompaniesWithRegisterationStatus'
-=======
+  GetCompaniesWithRegisterationStatus: 'Holding/GetCompaniesWithRegisterationStatus',
   UploadDocumentsOfProgressReport: 'Media/UploadDocumentsOfProgressReport/',
->>>>>>> 4c5cbed458ff444ebf98f2498daf75929eecdc66
 }
