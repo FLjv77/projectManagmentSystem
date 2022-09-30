@@ -1,4 +1,4 @@
-@import '../../../../assets//style/colorPalette.scss';
+@import '../../../../assets/style/colorPalette.scss';
 
 .visit-report {
   color: $icon-color;
@@ -7,8 +7,8 @@
 
 .container-report {
   border-radius: 7px;
-  height: 300px;
-  overflow-y: scroll;
+  min-height: 470px;
+  //overflow-y: scroll;
   background-color: $lite-yellow-back-ground;
 }
 

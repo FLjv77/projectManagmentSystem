@@ -1,3 +1,4 @@
+import { url } from 'src/assets/url/url';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {noop} from "rxjs";
@@ -53,6 +54,7 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['../../advancedSearch']);
   }
   public logout(){
+    localStorage.removeItem(url.tokenName);
     this.router.navigate(['../../auth/loginUser']);
   }
   public GoHome(){

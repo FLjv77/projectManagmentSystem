@@ -24,6 +24,6 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
   }
 
   public submit(modalState: CompanyStatus){
-    this.companyVerificationService.CreateParentActivity(this.companyId, new CompanyVerificationDTo(modalState,this.message));
+    this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message));
   }
 }

@@ -4,6 +4,7 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {ActivatedRoute} from "@angular/router";
 import {ProjectType} from "../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import { aarayStyle } from './page/basic-project-information/basic-project-information.component';
+import { CommonDataForCreateProjectService } from '../../service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-project-creation-levels',
@@ -28,7 +29,8 @@ export class ProjectCreationLevelsComponent implements OnInit {
   public humanResourceCost : number;
 
   constructor(
-    private activeRouting: ActivatedRoute
+    private activeRouting: ActivatedRoute,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,11 @@ export class ProjectCreationLevelsComponent implements OnInit {
 
   private getQueryParam() {
     let type = this.activeRouting.snapshot.queryParamMap.get('type');
+    let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+
+    console.log(id);
+
+    this.commonDataForCreateProjectService.setTargetInformaton(id? id : '');
     if (type !== null) this.projectType = type;
   }
 

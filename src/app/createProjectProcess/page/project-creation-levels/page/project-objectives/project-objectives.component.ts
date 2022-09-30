@@ -50,7 +50,6 @@ export class ProjectObjectivesComponent implements OnInit {
     this.objectiveInputValue.emit(this.inputInfo);
     */
 
-    this.commonDataForCreateProjectService.setTargetInformaton(this.projectObjectiveFormControl.value);
     document.getElementById('basicInformationProject')?.click();
   }
 

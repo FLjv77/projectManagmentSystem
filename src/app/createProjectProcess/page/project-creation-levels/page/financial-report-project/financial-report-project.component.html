@@ -1,5 +1,6 @@
+<div class="bg-levels mx-4 mt-2">
     <div class="row">
-      <div class="col-12 d-block my-auto mt-4">
+      <div class="col-12 d-block my-auto">
         <i class="material-icons d-inline icon-styles">insert_chart</i>
         <h4 class="title-page d-inline set-font-Raymon">گزارش تخصیص</h4>
       </div>
@@ -18,5 +19,21 @@
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'8'"
                        [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
 
-      <app-upload-file-input [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگذاری مستندات تخصیص پروژه'"></app-upload-file-input>
+      <div class="row col-12 mt-3 {{getValue() ? 'opacity-bold':'opacity-light'}}" style="direction: ltr;">
+        <button type="button" class="ok-button" [disabled]="!getValue()" (click)="sendInfo()">
+          <img src="../../../../../../assets/image/createProject/ok-button.svg" alt="">
+        </button>
+      </div>
+      <app-upload-file-input class="col-sm-10 col-12" [inputFormControl]="uploadDocumentationProjectFormControl" [inputLabel]="'بارگذاری مستندات تخصیص پروژه'"></app-upload-file-input>
+      <div class="row col-sm-2 col-12 mt-3 {{getValue1() ? 'opacity-bold':'opacity-light'}}" style="direction: ltr;">
+        <button type="button" class="ok-button" [disabled]="!getValue1()">
+            <img src="../../../../../../assets/image/createProject/ok-button.svg" alt="">
+        </button>
+      </div>
     </div>
+    <div class="my-2" style="direction: ltr;">
+      <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValueAll() ? 'opacity-bold':''}}" [disabled]="!getValueAll()">
+          تایید و ادامه
+      </button>
+    </div>
+</div>
