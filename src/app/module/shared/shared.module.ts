@@ -74,7 +74,8 @@ import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/
     DropDownCityListComponent,
     DropDownVillageListComponent,
     DropDownActivitiesComponent,
-    DropDownRoleUserComponent
+    DropDownRoleUserComponent,
+    DropDownCompanyListComponent
   ],
     exports: [
       NavebarComponent,
@@ -103,7 +104,8 @@ import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/
       DropDownCityListComponent,
       DropDownVillageListComponent,
       DropDownActivitiesComponent,
-      DropDownRoleUserComponent
+      DropDownRoleUserComponent,
+      DropDownCompanyListComponent
     ],
   imports: [
     CommonModule,

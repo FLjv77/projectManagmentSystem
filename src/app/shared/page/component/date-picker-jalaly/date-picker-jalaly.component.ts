@@ -37,14 +37,6 @@ export class DatePickerJalalyComponent implements OnInit {
     }
   }
 
-  private subscribeChangeInputValue() {
-    this.inputFormControl.valueChanges.subscribe((value: any) => {
-      console.log(value._d);
-
-      this.changeValue.emit(value);
-    })
-  }
-
   ngAfterViewInit(): void {
   }
 

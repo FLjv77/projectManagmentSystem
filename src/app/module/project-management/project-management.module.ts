@@ -60,7 +60,7 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     ActivityByDetailComponent,
     CreateNewActivityComponent,
     CreateNewSubActivityComponent,
-    SubmitAddActivityComponent
+    SubmitAddActivityComponent,
   ],
   imports: [
     CommonModule,
