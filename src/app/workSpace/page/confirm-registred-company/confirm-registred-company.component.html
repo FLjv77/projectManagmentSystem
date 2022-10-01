@@ -2,168 +2,30 @@
     <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
   <div class="px-3">
     <div class="mt-4 wrapper-content">
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
+      <div *ngFor="let list of list ;let i = index" class="row list-result-project set-font-vazir py-2 mt-2">
         <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2" (click)="CompanySelected()">
-          نام شرکت
+          {{list.companyName}}
         </div>
         <div class="col-12 col-lg-3 my-auto">
           <div class="d-flex py-2">
             <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
+            <span class="px-2 company-detail"mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="تاریخ ثبت">تاریخ ثبت</span>
           </div>
         </div>
         <div class="col-12 col-lg-3 my-auto">
           <div class="d-flex py-2">
             <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
+            <span class="px-2 company-detail"mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="شماره ثبت">{{list.companyRegisterNumber}}</span>
           </div>
         </div>
         <div class="col-12 col-lg-3">
           <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
-          </div>
-        </div>
-      </div>
-      <div class="row list-result-project set-font-vazir py-2 mt-2">
-        <div class="col-12 col-lg-3 font-weight-bold company-detail my-auto py-2">
-          نام شرکت
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/time.svg" class="icon-size">
-            <span class="px-2 company-detail">تاریخ ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 my-auto">
-          <div class="d-flex py-2">
-            <img src="../../../../assets/icon/userManagment/submitNumber.svg" class="icon-size">
-            <span class="px-2 company-detail">شماره ثبت</span>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="d-flex my-auto justify-content-end">
-            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1)" class="button-size pointer">
-            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/confirmCompanyRequest.svg" (click)="openModalConfirm(1,list.companyId)" class="button-size pointer">
+            <img src="../../../../assets/icon/userManagment/rejectCompanyRequest.svg" (click)="openModalConfirm(2,list.companyId)" class="button-size pointer">
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<app-confirmed-registred-company-modal [modalState]="modalState"></app-confirmed-registred-company-modal>
+<app-confirmed-registred-company-modal [modalState]="modalState" [companyId]="companyId" (refresh)="setRefresh($event)"></app-confirmed-registred-company-modal>
