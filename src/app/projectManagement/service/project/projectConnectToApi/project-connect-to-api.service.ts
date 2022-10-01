@@ -16,7 +16,7 @@ export class ProjectConnectToApiService {
     return this.http.get<ApiResult<ProjectSelectedDTO[]>>(url.getProjectsGeneralInfoOfCompany + getProjectsGeneralInfoOfCompanyDto.companyId + '?projectSortedBy=' + (getProjectsGeneralInfoOfCompanyDto.projectSortedBy ? getProjectsGeneralInfoOfCompanyDto.projectSortedBy : ProjectSortedBy.none.toString));
   }
 
-  public getProjectGeneralProperties(projectId: string): Observable<ApiResult<ProjectSelectedDTO>> {
-    return this.http.get<ApiResult<ProjectSelectedDTO>>(url.GetProjectGeneralPropertiesById);
+  public getProjectGeneralProperties(projectId: string|null): Observable<ApiResult<ProjectSelectedDTO>> {
+    return this.http.get<ApiResult<ProjectSelectedDTO>>(url.GetProjectGeneralPropertiesById + projectId);
   }
 }

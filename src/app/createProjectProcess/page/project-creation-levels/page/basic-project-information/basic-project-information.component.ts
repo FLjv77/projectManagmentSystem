@@ -4,6 +4,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import {Router} from "@angular/router";
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { HandleModalService } from 'src/app/shared/service/handleModalService/handle-modal.service';
 
 @Component({
   selector: 'app-basic-project-information',
@@ -24,9 +25,12 @@ export class BasicProjectInformationComponent implements OnInit {
   public checkbox: boolean;
   public contributors: string = '';
   public parentId: string = '';
+  public inputInfo1: OutputInfo;
   @Output() basicInputValue = new EventEmitter<aarayStyle>();
 
-  constructor(private commonDataForCreateProjectService: CommonDataForCreateProjectService) { }
+  constructor(private commonDataForCreateProjectService: CommonDataForCreateProjectService,
+              private handleModalService:HandleModalService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -59,10 +63,11 @@ export class BasicProjectInformationComponent implements OnInit {
   }
 
   public inputInfo: aarayStyle;
-  public goToNext(state: number) {
-    console.log(      this.projectDeliveryDateFormControl.value,
-      );
+  public openModal() {
+    this.handleModalService.openModal('create-project');
+  }
 
+  public goToNext(){
     this.commonDataForCreateProjectService.setBasicInformationProject(
       this.checkbox ? 'parentIdProject' : '',
       this.projectNameFormControl.value,
@@ -73,12 +78,22 @@ export class BasicProjectInformationComponent implements OnInit {
       [],
       this.startDate
     );
-
     document.getElementById('locationInformation')?.click();
   }
 
   public setParentId($event: string){
     this.parentId = $event;
+  }
+
+  public createProject(event: boolean){
+    if (event==false) {
+      this.goToNext();
+      this.router.navigate(['../projectManagement/projectList']);
+    }
+    else if(event==true){
+      this.goToNext();
+      this.inputInfo1.state = 9;
+    }
   }
 
 }

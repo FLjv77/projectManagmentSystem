@@ -1,0 +1,27 @@
+<div id="create-project">
+    <div class="modal-background">
+      <div class="modal">
+        <div class="my-modal-small-content text-center mx-auto">
+          <div class="">
+            <div class="header-modal">
+              <span class="mx-auto set-font-Raymon">ساخت پروژه</span>
+            </div>
+            <div class="row mt-5 mx-auto set-font-vazir">
+                <div class="row mt-5 mx-auto set-font-vazir">
+                    <h2>برای تکمیل اطلاعات گزینه تایید و ادامه و برای ساخت پروژه و خروج گزینه تایید و خروج را کلیک کنید.
+                    </h2>
+                </div>
+            </div>
+            <div class="row mx-auto mt-5">
+                <div class="mx-auto mt-5 set-font-vazir">
+                    <button class="no-button-modal px-5 py-2 w-auto mx-1" (click)="submit(false)">تایید و خروج</button>
+                    <button class="add-user-button-modal px-5 py-2 w-auto mx-1" (click)="submit(true)">تایید و ادامه</button>
+                </div>
+            </div>
+          </div>
+          <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
+        </div>
+      </div>
+    </div>
+</div>
+  

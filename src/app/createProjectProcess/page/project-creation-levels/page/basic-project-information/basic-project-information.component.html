@@ -54,9 +54,10 @@
     </div>
 
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="goToNext(9)">
+        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="openModal()">
             تایید و ادامه
         </button>
     </div>
 
 </div>
+<app-create-project-modal (createProject)="createProject($event)"></app-create-project-modal>
