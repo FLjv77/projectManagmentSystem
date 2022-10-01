@@ -13,9 +13,13 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
     '../../../../assets/style/base.scss','../../../advancedSearch/page/advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
 export class ConfirmRegistredCompanyComponent implements OnInit {
+
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public modalState: CompanyStatus = 0;
+  public list: CompanySelectedDTO[] = [];
+  public companyId: string;
+  
   constructor(private handleModalService:HandleModalService,
               private companyList: CompanyListService) { }
 
@@ -29,15 +33,23 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
     this.path2 = new DisplayPathModel('احراز شرکت', false, '');
   }
 
-  public openModalConfirm(value: CompanyStatus){
+  public openModalConfirm(value: CompanyStatus,id: string){
     this.modalState = value;
+    this.companyId = id;
     this.handleModalService.openModal('confirmed-company');
   }
 
   public CompanySelected(){
     this.companyList.CompanySelected(1,1).subscribe((res: ApiResult<CompanySelectedDTO[]>)=>{
-      console.log(res);
+      console.log(res.data);
+      this.list = res.data;
     })
+  }
+
+  public setRefresh(event: boolean){
+    if(event==true){
+      this.CompanySelected();
+    }
   }
 
 }

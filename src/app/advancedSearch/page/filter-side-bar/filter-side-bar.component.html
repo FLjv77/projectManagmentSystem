@@ -1,4 +1,5 @@
-<div class="content-filter mt-3">
+<div class="content-filter position-relative mt-3">
+  <div class="disable-filter" *ngIf="!activeFilter"></div>
   <p class="set-font-Raymon text-center py-3 title-filter">فیلتر ها</p>
   <hr class="opacity-hr">
   <mat-accordion>
@@ -8,7 +9,7 @@
           وضعیت پروژه
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-state></app-filter-project-state>
+      <app-filter-project-state (projectStatus)="setProjectState($event)"></app-filter-project-state>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -17,8 +18,7 @@
           زمان شروع
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-start-time></app-filter-project-start-time>
-
+      <app-filter-project-start-time (startTimeOfProjectUpperBound)="setEndTime($event)" (startTimeOfProjectLowerBound)="setStartTime($event)"></app-filter-project-start-time>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -30,14 +30,17 @@
       <app-filter-project-end-time></app-filter-project-end-time>
     </mat-expansion-panel>
 
+    <!--
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title class="filter-type set-font-vazir">
           نام شرکت
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-company-name></app-filter-project-company-name>
+      <app-drop-down-company-list></app-drop-down-company-list>
     </mat-expansion-panel>
+    -->
+
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>

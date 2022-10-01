@@ -4,11 +4,16 @@
   <div class="wrapper-content">
     <div class="row">
       <div class="col-12 col-lg-3">
-        <app-filter-side-bar></app-filter-side-bar>
+        <app-filter-side-bar
+        (projectStatus)="setProjectState($event)"
+        (startTimeOfProjectUpperBound)="setEndTime($event)"
+        (startTimeOfProjectLowerBound)="setStartTime($event)"
+        ></app-filter-side-bar>
       </div>
       <div class="col-12 col-lg-9">
         <div class="row">
           <div class="col-12 col-md-6">
+            <!--
             <mat-form-field class="mat-form-field-infix w-100" appearance="fill">
               <mat-label class="font-weight-bold set-font-vazir">نمایش گزارش بر اساس</mat-label>
               <mat-select class="text-right set-font-vazir">
@@ -26,11 +31,14 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
+            -->
+
+            <app-drop-down-company-list></app-drop-down-company-list>
+
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-5">
             <mat-radio-group class="example-radio-group font-size-small">
               <mat-label class="font-weight-bold set-font-vazir px-4 title-check-box">نوع نمایش</mat-label>
-
               <mat-radio-button [checked]="true" (click)="changeShowChart(true)" class="px-1 example-radio-button set-font-vazir text-right mt-3" [value]="0">
                 <span class="px-2">نموداری</span>
               </mat-radio-button>
@@ -39,12 +47,14 @@
               </mat-radio-button>
             </mat-radio-group>
           </div>
+          <div class="col-12 col-md-1">
+            <span (click)="searchProject()" class="material-icons pointer search-button">
+              check_circle
+            </span>
+          </div>
         </div>
         <app-advanced-search-according-to-company *ngIf="!showChart"></app-advanced-search-according-to-company>
-
-
         <div class="row mt-3" *ngIf="showChart">
-
           <app-advanced-search-according-to-progress *ngIf="reportState == 0"></app-advanced-search-according-to-progress>
           <app-advanced-search-according-to-cost *ngIf="reportState == 1"></app-advanced-search-according-to-cost>
           <app-advanced-search-according-to-time *ngIf="reportState == 2"></app-advanced-search-according-to-time>

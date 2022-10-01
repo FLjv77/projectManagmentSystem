@@ -1,18 +1,6 @@
-<div class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl {{customStyle}}">
-<!--  <mat-form-field class="mat-form-field-infix w-100" appearance="fill">
-    <mat-label class="font-weight-bold set-font-vazir">نام شرکت</mat-label>
-    <mat-select class="text-right set-font-vazir">
-      <mat-option class="text-right set-font-vazir">
-        شرکت اول
-      </mat-option>
-      <mat-option class="text-right set-font-vazir">
-        شرکت دوم
-      </mat-option>
-      <mat-option class="text-right set-font-vazir">
-        شرکت سوم
-      </mat-option>
-    </mat-select>
-  </mat-form-field>-->
-  <ng-select2 [data]="companyData" [placeholder]="'انتخاب شرکت'" [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
+<div *ngIf="companyData.length > 0"
+  class="set-font-vazir pt-2 d-flex justify-content-center mx-auto row d-rtl {{customStyle}}">
+  <ng-select2 [data]="companyData" [placeholder]="'انتخاب شرکت'" (valueChanged)="selectedCompany($event)"
+  [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
 
 </div>

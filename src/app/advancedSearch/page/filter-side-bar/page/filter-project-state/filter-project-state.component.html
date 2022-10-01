@@ -1,12 +1,15 @@
 <mat-radio-group
   class="example-radio-group font-size-small row">
-  <mat-radio-button class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+  <mat-radio-button (click)="setProjectState(3)" class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="3">
     <span class="px-2">تکمیل شده</span>
   </mat-radio-button>
-  <mat-radio-button class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+  <mat-radio-button (click)="setProjectState(2)" class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="2">
     <span class="px-2">در حال انجام</span>
   </mat-radio-button>
-  <mat-radio-button class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+  <mat-radio-button (click)="setProjectState(1)" class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="1">
     <span class="px-2">متمم</span>
+  </mat-radio-button>
+  <mat-radio-button (click)="setProjectState(0)" class="px-1 col-12 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+    <span class="px-2">در حال مذاکره</span>
   </mat-radio-button>
 </mat-radio-group>

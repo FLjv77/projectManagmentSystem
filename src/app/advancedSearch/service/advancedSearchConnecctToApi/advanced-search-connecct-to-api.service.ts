@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ApiResult } from '../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
 import { ProjectSelectedDTO } from '../../../projectManagement/model/project/projectDto';
@@ -10,6 +10,7 @@ import { GetProjectsWithDynamicFilterDto } from '../../model/advanceSearch';
   providedIn: 'root'
 })
 export class AdvancedSearchConnecctToApiService {
+  public companyIdSelected = new EventEmitter<string | string[]>();
 
   constructor(private http: HttpClient) { }
 
