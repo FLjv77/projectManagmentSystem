@@ -1,29 +1,32 @@
 <div class="wrapper set-font-vazir">
   <app-display-user-path [showProjectList]="false" [path1]="path1" [path2]="path2"></app-display-user-path>
 
-  <div class="row mx-auto text-center color-text">
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+  <div *ngIf="compans" class="row mx-auto text-center color-text">
+        <div *ngFor="let item of compans" class="col-xl-3 col-lg-4 col-md-6 col-12">
             <div class="bg-company mx-auto my-2">
                 <div class="row mx-3 bg-title">
                     <div class="col-4">
                         <img src="../../../../assets/image/workSpace/sakh3.jpg" class="company-profile my-2" alt="">
                     </div>
                     <div class="col-8">
-                        <h2 class="mt-3 set-font-Raymon">نام شرکت</h2>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <h2 class="mt-3 set-font-Raymon">{{item.companyName}}</h2>
+                        <p>
+                          <span>فعالیت شرکت:</span>
+                          <span class="font-bold px-2">{{getCompanyType(item.companyAreaExpertise)}}</span>
+                        </p>
                     </div>
                     <div class="col-12 text-start">
-                        ایجاد شده در {{changeToPersian('23')}} روز پیش
+                        شماره ثبت شرکت {{changeToPersian(item.companyRegisterNumber)}}
                     </div>
                 </div>
                 <div class="row mx-auto my-5 text-center">
-                   <div class="col-12 my-1">پروژه های تکمیل شده : {{changeToPersian('20')}}</div>
-                   <div class="col-12 my-1">پروژه های در حال انجام کار : {{changeToPersian('2')}}</div>
-                   <div class="col-12 my-1">آدرس : بلوار قطب راوندی - بلوار قطب راوندی - بلوار قطب رواندی</div>
+                   <div class="col-12 my-1">پروژه های تکمیل شده : {{changeToPersian('-')}}</div>
+                   <div class="col-12 my-1">پروژه های در حال انجام کار : {{changeToPersian('-')}}</div>
+                   <div class="col-12 my-1">وضعیت تایید : {{getCompanyState(item.companyStatus)}}</div>
                 </div>
                 <div class="row mx-3 bg-footer">
                     <div class="mx-auto text-center text-nowrap">
-                        <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
+                        <img (click)="goProjectList(item.companyId)" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
                         <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
                         mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
@@ -35,105 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-            <div class="bg-company mx-auto my-2">
-                <div class="row mx-3 bg-title">
-                    <div class="col-4">
-                        <img src="../../../../assets/image/workSpace/sakh3.jpg" class="company-profile my-2" alt="">
-                    </div>
-                    <div class="col-8">
-                        <h2 class="mt-3 set-font-Raymon">نام شرکت</h2>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    </div>
-                    <div class="col-12 text-start">
-                        ایجاد شده در {{changeToPersian('23')}} روز پیش
-                    </div>
-                </div>
-                <div class="row mx-auto my-5 text-center">
-                   <div class="col-12 my-1">پروژه های تکمیل شده : {{changeToPersian('20')}}</div>
-                   <div class="col-12 my-1">پروژه های در حال انجام کار : {{changeToPersian('2')}}</div>
-                   <div class="col-12 my-1">آدرس : بلوار قطب راوندی - بلوار قطب راوندی - بلوار قطب رواندی</div>
-                </div>
-                <div class="row mx-3 bg-footer">
-                    <div class="mx-auto text-center text-nowrap">
-                        <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                        <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                        <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-            <div class="bg-company mx-auto my-2">
-                <div class="row mx-3 bg-title">
-                    <div class="col-4">
-                        <img src="../../../../assets/image/workSpace/sakh3.jpg" class="company-profile my-2" alt="">
-                    </div>
-                    <div class="col-8">
-                        <h2 class="mt-3 set-font-Raymon">نام شرکت</h2>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    </div>
-                    <div class="col-12 text-start">
-                        ایجاد شده در {{changeToPersian('23')}} روز پیش
-                    </div>
-                </div>
-                <div class="row mx-auto my-5 text-center">
-                   <div class="col-12 my-1">پروژه های تکمیل شده : {{changeToPersian('20')}}</div>
-                   <div class="col-12 my-1">پروژه های در حال انجام کار : {{changeToPersian('2')}}</div>
-                   <div class="col-12 my-1">آدرس : بلوار قطب راوندی - بلوار قطب راوندی - بلوار قطب رواندی</div>
-                </div>
-                <div class="row mx-3 bg-footer">
-                    <div class="mx-auto text-center text-nowrap">
-                        <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                        <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                        <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-            <div class="bg-company mx-auto my-2">
-                <div class="row mx-3 bg-title">
-                    <div class="col-4">
-                        <img src="../../../../assets/image/workSpace/sakh3.jpg" class="company-profile my-2" alt="">
-                    </div>
-                    <div class="col-8">
-                        <h2 class="mt-3 set-font-Raymon">نام شرکت</h2>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                    </div>
-                    <div class="col-12 text-start">
-                        ایجاد شده در {{changeToPersian('23')}} روز پیش
-                    </div>
-                </div>
-                <div class="row mx-auto my-5 text-center">
-                   <div class="col-12 my-1">پروژه های تکمیل شده : {{changeToPersian('20')}}</div>
-                   <div class="col-12 my-1">پروژه های در حال انجام کار : {{changeToPersian('2')}}</div>
-                   <div class="col-12 my-1">آدرس : بلوار قطب راوندی - بلوار قطب راوندی - بلوار قطب رواندی</div>
-                </div>
-                <div class="row mx-3 bg-footer">
-                    <div class="mx-auto text-center text-nowrap">
-                        <img (click)="goProjectList()" src="../../../../assets/icon/projectShortCut/Group%20201.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="پروژه ها">
-                        <img (click)="goUserList()" src="../../../../assets/icon/projectShortCut/Group 204.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="کاربران">
-                        <img (click)="editCompany()" src="../../../../assets/icon/projectShortCut/edit icon.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="ویرایش">
-                        <img (click)="goToWorkSpaceProfile()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
-                        mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 

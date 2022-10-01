@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { ProjectConnectToApiService } from '../../service/project/projectConnectToApi/project-connect-to-api.service';
 import { GetProjectsGeneralInfoOfCompanyDto, ProjectSelectedDTO } from '../../model/project/projectDto';
 import { ApiResult } from '../../../auth/model/authDTO';
@@ -12,21 +12,29 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./project-list.component.scss', '../../../../assets/style/base.scss']
 })
 export class ProjectListComponent implements OnInit, AfterViewInit {
-  private companyId: string = '09e8ff21-ad1f-ed11-bec9-b1f673a1bda0';
+  private companyId: string;
 
   public projectList: ProjectSelectedDTO[];
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   constructor(
     private router: Router,
+    private activeRouting: ActivatedRoute,
     private projectConnectToApiService: ProjectConnectToApiService) { }
 
   ngAfterViewInit(): void {
+    this.getQueryParam();
     this.getProjectList();
   }
 
   ngOnInit(): void {
     this.initDisplayPath();
+  }
+
+
+  private getQueryParam() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('idCompany');
+    if(id) this.companyId = id;
   }
 
   private getProjectList() {
@@ -35,6 +43,8 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
         this.companyId, 1
       )
     ).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
+      console.log(res);
+
       if(res.isSuccess && res.statusCode == 200) {
         this.projectList = res.data;
       } else {
@@ -42,7 +52,6 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
       }
 
     }, (err: HttpErrorResponse) => {
-      console.log(err);
 
     });
   }
