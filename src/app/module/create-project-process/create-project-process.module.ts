@@ -43,6 +43,7 @@ import {WaterInformationPurificationTypeComponent} from "../../createProjectProc
 import {WaterInformationWaterSealTypeComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/page/water-information-water-seal-type/water-information-water-seal-type.component";
 import {WaterInformationTransferLineTypeComponent} from "../../createProjectProcess/page/specializedInformation/specialized-information-rural-water/page/water-information-transfer-line-type/water-information-transfer-line-type.component";
 import { MatTreeModule } from '@angular/material/tree';
+import { CreateProjectModalComponent } from 'src/app/createProjectProcess/page/project-creation-levels/page/basic-project-information/page/create-project-modal/create-project-modal.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { MatTreeModule } from '@angular/material/tree';
     WaterInformationTransferLineTypeComponent,
     SpecializedInformationOnEmploymentComponent,
     SpecializedInformationInTheOfFoodSafetyComponent,
+    CreateProjectModalComponent
   ],
   imports: [
     CommonModule,
@@ -96,7 +98,8 @@ import { MatTreeModule } from '@angular/material/tree';
   ],
   providers: [
     IranStateAndZoneService,
-    TreeDiagramActivityModalComponent
+    TreeDiagramActivityModalComponent,
+    CreateProjectModalComponent
   ]
 })
 export class CreateProjectProcessModule { }

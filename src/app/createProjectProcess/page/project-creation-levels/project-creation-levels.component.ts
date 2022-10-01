@@ -42,8 +42,6 @@ export class ProjectCreationLevelsComponent implements OnInit {
     let type = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
-    console.log(id);
-
     this.commonDataForCreateProjectService.setTargetInformaton(id? id : '');
     if (type !== null) this.projectType = type;
   }
