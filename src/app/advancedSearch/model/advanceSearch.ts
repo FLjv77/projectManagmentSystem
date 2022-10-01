@@ -24,14 +24,16 @@ export enum ReportState {
 export class GetProjectsWithDynamicFilterDto {
   constructor(companyId: string) {
     this.companyId = companyId;
+    this.pageCount = 100;
+    this.pageId = 1;
   }
   companyId: string;
   complementationStatus: ComplementationStatus;
   projectStatus: ProjectStatus;
-  startTimeOfProjectUpperBound: DateTime;
-  startTimeOfProjectLowerBound: DateTime;
-  projectDeliveryTimeUpperBound: DateTime;
-  projectDeliveryTimeLowerBound: DateTime;
+  startTimeOfProjectUpperBound: string;
+  startTimeOfProjectLowerBound: string;
+  projectDeliveryTimeUpperBound: string;
+  projectDeliveryTimeLowerBound: string;
   companyName: string;
   infrastructureUpperCost: number;
   infrastructureLowerCost: number

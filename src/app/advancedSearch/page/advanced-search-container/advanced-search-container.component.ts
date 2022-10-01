@@ -1,6 +1,9 @@
+import { AdvancedSearchConnecctToApiService } from './../../service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
-import {ReportState} from "../../model/advanceSearch";
+import {GetProjectsWithDynamicFilterDto, ProjectStatus, ReportState} from "../../model/advanceSearch";
+import { ApiResult } from '../../../auth/model/authDTO';
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 
 @Component({
   selector: 'app-advanced-search-container',
@@ -15,8 +18,15 @@ export class AdvancedSearchContainerComponent implements OnInit {
   public showChart: boolean = true;
   public optionsIncome: any;
   public reportState: ReportState = 0;
+  private selectedCompanyId: string;
+  private projectStatus: ProjectStatus;
+  private startTimeOfProjectLowerBound: string;
+  private startTimeOfProjectUpperBound: string;
+  private getProjectsWithDynamicFilter: GetProjectsWithDynamicFilterDto;
 
-  constructor() { }
+  constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
+    this.setSelectedCompanyId();
+  }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -33,5 +43,35 @@ export class AdvancedSearchContainerComponent implements OnInit {
 
   public changeShowChart(value: boolean) {
     this.showChart = value;
+  }
+
+  public setSelectedCompanyId() {
+    this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((id: string) => {
+      this.selectedCompanyId = id;
+      this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(id);
+    });
+  }
+
+
+  public setProjectState(state: ProjectStatus) {
+    this.projectStatus = state;
+    this.getProjectsWithDynamicFilter.projectStatus = state;
+  }
+
+  public setStartTime(event: string) {
+    this.getProjectsWithDynamicFilter.startTimeOfProjectLowerBound = (event);
+  }
+
+  public setEndTime(event: string) {
+    this.getProjectsWithDynamicFilter.startTimeOfProjectUpperBound = (event);
+  }
+
+  public searchProject() {
+    this.advancedSearchConnecctToApiService.getProjectsWithDynamicFilter(
+      this.getProjectsWithDynamicFilter
+    ).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
+      console.log(res);
+
+    })
   }
 }

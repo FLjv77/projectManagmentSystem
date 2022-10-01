@@ -11,6 +11,29 @@ export class GetProjectsGeneralInfoOfCompanyDto {
   }
 }
 
+export class ProjectSelectedDTOResualt {
+  projectSelectedDTOs: ProjectSelectedDTO[];
+  "dynamicProjectFilterDTO": {
+    "companyName": "compa",
+    "customDateFormat": 0,
+    "projectSortedBy": 0,
+    "pageId": 1,
+    "pageCount": 0,
+    "activePage": 0,
+    "startPage": 0,
+    "endPage": 0,
+    "takeEntity": 4,
+    "skipEntity": 0
+  }
+  pageId: number;
+  pageCount: number;
+  activePage: number;
+  startPage: number;
+  endPage: number;
+  takeEntity: number;
+  skipEntity: number;
+}
+
 export class ProjectSelectedDTO {
   projectName:	string;
   projectDescription: string;
