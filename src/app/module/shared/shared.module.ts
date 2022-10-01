@@ -43,9 +43,11 @@ import { NgSelect2Module } from 'ng-select2';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { CompanyProfileModalComponent } from 'src/app/shared/page/company-profile-modal/company-profile-modal.component';
 import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/upload-file-input.component';
+import { EmptyResultComponent } from '../../shared/page/empty-result/empty-result.component';
 
 @NgModule({
   declarations: [
+    EmptyResultComponent,
     NavebarComponent,
     SidebarComponent,
     UserProfileImageComponent,
@@ -105,7 +107,8 @@ import { UploadFileInputComponent } from 'src/app/shared/page/upload-file-input/
       DropDownVillageListComponent,
       DropDownActivitiesComponent,
       DropDownRoleUserComponent,
-      DropDownCompanyListComponent
+      DropDownCompanyListComponent,
+      EmptyResultComponent,
     ],
   imports: [
     CommonModule,

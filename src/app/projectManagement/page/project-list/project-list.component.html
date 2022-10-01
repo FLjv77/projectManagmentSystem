@@ -3,7 +3,7 @@
 
 <div class="row px-3" *ngIf="projectList">
   <div *ngFor="let item of projectList"
-   class="col-xl-3 col-lg-4 col-md-6 col-12 mx-auto d-flex justify-content-center">
+   class="col-xl-3 col-lg-4 col-md-6 col-12 mt-3 mx-auto d-flex justify-content-center">
     <div class="project-card position-relative">
       <div class="d-flex">
         <img class="project-profile boxShadow" src="../../../../assets/image/workSpace/sakh3.jpg">
@@ -36,5 +36,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="!projectList">
+  <app-empty-result></app-empty-result>
 </div>
 </div>

@@ -34,6 +34,7 @@
     "ng-select2": "^1.4.1",
     "ngx-daily-gantt-chart": "^1.5.2",
     "ngx-echarts": "^14.0.0",
+    "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.4.0",
     "select2": "^4.1.0-rc.0",
     "sweetalert2": "^11.4.26",

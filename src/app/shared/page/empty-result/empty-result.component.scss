@@ -1,0 +1,17 @@
+@import '../../../../assets/style/colorPalette.scss';
+.img-size {
+  width: 450px;
+
+
+  @media (max-width: 706px) {
+    width: 350px;
+  }
+  @media (max-width: 576px) {
+    width: 250px;
+  }
+}
+
+.empty-text {
+  font-size: 22px;
+  color: $text-color-normal;
+}
