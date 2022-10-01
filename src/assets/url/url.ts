@@ -27,4 +27,9 @@ export const url = {
   ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
   GetCompaniesWithRegisterationStatus: 'Holding/GetCompaniesWithRegisterationStatus',
   UploadDocumentsOfProgressReport: 'Media/UploadDocumentsOfProgressReport/',
+  GetProgressReports :'Project/GetProgressReports',
+  GetAllocationReports:'Project/GetAllocationReports',
+  GetProgressReportsForSupervisor:'Project/GetProgressReportsForSupervisor',
+  GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor',
+  GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter'
 }
