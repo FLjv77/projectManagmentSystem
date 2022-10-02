@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div *ngIf="!projectList">
+<div *ngIf="!projectList||projectList.length==0">
   <app-empty-result></app-empty-result>
 </div>
 </div>

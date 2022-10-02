@@ -77,8 +77,10 @@ export class CompanyListComponent implements OnInit {
     this.path2 = new DisplayPathModel('لیست شرکت', false, '');
   }
 
-  public goToWorkSpaceProfile() {
-    this.router.navigate(['../../workspace/workSpaceProfile']);
+  public goToWorkSpaceProfile(item: CompanySelectedDTO) {
+    this.router.navigate(['../../workspace/workSpaceProfile'] , {queryParams: {companyName: item.companyName,
+      companyAreaExpertise: item.companyAreaExpertise,companyEconomicCode: item.companyEconomicCode,
+      companyStatus: item.companyStatus, idCompany: item.companyId}});
   }
 
   public changeToPersian(num:string){

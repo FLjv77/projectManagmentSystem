@@ -5,3 +5,10 @@
     color: $text-color-normal;
     font-weight: bold;
 }
+
+.error{
+    background-color: rgba($color: $red-color, $alpha: 0.2);
+    color: $red-color;
+    border-radius: 5px;
+    font-weight: bold;
+}

@@ -2,10 +2,10 @@ import { DateTime } from './../../../shared/model/dateTime';
 import { Participant } from '../../../createProjectProcess/model/createProjectModel/createProject';
 
 export class GetProjectsGeneralInfoOfCompanyDto {
-  companyId: string;
+  companyId: string | string[];
   projectSortedBy: ProjectSortedBy;
 
-  constructor(companyId: string, projectSortedBy: ProjectSortedBy) {
+  constructor(companyId: string | string[], projectSortedBy: ProjectSortedBy) {
     this.companyId = companyId;
     this.projectSortedBy = projectSortedBy;
   }

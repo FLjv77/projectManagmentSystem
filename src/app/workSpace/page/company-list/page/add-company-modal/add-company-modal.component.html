@@ -4,28 +4,40 @@
         <div class="my-modal-content text-center mx-auto">
           <div class="modal-scroll">
             <div class="header-modal">
-                <span class="mx-auto set-font-Raymon">تایید درخواست</span>
+                <span class="mx-auto set-font-Raymon">ایجاد شرکت جدید</span>
             </div>
-            <div class="row mt-5 mx-auto">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'1'"
-                [inputFormControl]="companyNameFormControl"></app-input-style>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'ایمیل کاربر'" [inputId]="'2'"
-                [inputFormControl]="registreCompanyNumberFormControl"></app-input-style>
-                <mat-radio-group
-                    aria-labelledby="example-radio-group-label" class="example-radio-group font-size-small mt-5">
-                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                        <span class="px-2 txet-radio">مسکن</span>
-                    </mat-radio-button>
-                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                        <span class="px-2 txet-radio">راه سازی</span>
-                    </mat-radio-button>
-                    <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                        <span class="px-2 txet-radio">آب رسانی</span>
-                    </mat-radio-button>
-                </mat-radio-group>
+            <div class="row mt-1 mx-auto">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyName'" [type]="'text'" [inputFormControl]="companyNameControl" [inputLabel]="'نام شرکت'" class="col-12"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyUserName'" [type]="'text'" [inputFormControl]="companyUserNameControl" [inputLabel]="'نام کاربری شرکت'" class="col-6"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyPhone'" [type]="'phone'" [inputFormControl]="companyPhoneControl" [inputLabel]="'شماره تماس شرکت'" class="col-6"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyNumber'" [type]="'text'" [inputFormControl]="companyNumberControl" [inputLabel]="'شماره ثبت شرکت'" class="col-6"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyEconomicCodeControl'" [type]="'text'" [inputFormControl]="companyEconomicCodeControl" [inputLabel]="' کد اقتصادی شرکت'" class="col-6"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3" class="col-12"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="col-12"></app-input-style>
+    
+              <label id="example-radio-group-label" class="mt-2 set-font-vazir col-12 text-right font-weight-bold">حوزه کاربری شرکت</label>
+              <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="example-radio-group font-size-small">
+                <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0" (click)="setType(2)">
+                  <span class="px-1">مسکن</span>
+                </mat-radio-button>
+                <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1" (click)="setType(3)">
+                  <span class="px-1">راه سازی</span>
+                </mat-radio-button>
+                <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2" (click)="setType(1)">
+                  <span class="px-1">آب رسانی</span>
+                </mat-radio-button>
+                <mat-radio-button class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0" (click)="setType(0)">
+                  <span class="px-1">سلامت</span>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div *ngIf="showError" class="error mx-2 set-font-vazir">
+              <span>تمام فیلدهای بالا را پرکنید.</span>
             </div>
             <div class="row mx-auto mt-5 text-center">
-                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">افزودن</button>
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal" (click)="addCompany()">افزودن</button>
             </div>
           </div>
           <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
