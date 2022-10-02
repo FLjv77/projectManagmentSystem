@@ -5,6 +5,7 @@ import { ProjectConnectToApiService } from '../../service/project/projectConnect
 import { GetProjectsGeneralInfoOfCompanyDto, ProjectSelectedDTO } from '../../model/project/projectDto';
 import { ApiResult } from '../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 
 @Component({
   selector: 'app-project-list',
@@ -12,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./project-list.component.scss', '../../../../assets/style/base.scss']
 })
 export class ProjectListComponent implements OnInit, AfterViewInit {
-  private companyId: string;
+  private companyId: string | string[];
 
   public projectList: ProjectSelectedDTO[];
   public path1: DisplayPathModel;
@@ -20,11 +21,16 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private activeRouting: ActivatedRoute,
-    private projectConnectToApiService: ProjectConnectToApiService) { }
+    private projectConnectToApiService: ProjectConnectToApiService,
+    private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) {
+      this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((res: string | string[])=>{
+        this.companyId = res;
+        this.getProjectList();
+      })
+     }
 
   ngAfterViewInit(): void {
     this.getQueryParam();
-    this.getProjectList();
   }
 
   ngOnInit(): void {
@@ -41,9 +47,8 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     this.projectConnectToApiService.getProjectsGeneralInfoOfCompany(
       new GetProjectsGeneralInfoOfCompanyDto(
         this.companyId, 1
-      )
-    ).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
-      console.log(res);
+      )).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
+      console.log(res.data);
 
       if(res.isSuccess && res.statusCode == 200) {
         this.projectList = res.data;

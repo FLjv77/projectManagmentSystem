@@ -3,7 +3,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-create-project-modal',
   templateUrl: './create-project-modal.component.html',
-  styleUrls: ['./create-project-modal.component.scss','../../../../../../../../assets/style/modalStyle.scss']
+  styleUrls: ['./create-project-modal.component.scss','../../../../../../../../assets/style/modalStyle.scss'
+,'../../../../../../../userManagement/page/add-user-modal/add-user-modal.component.scss']
 })
 export class CreateProjectModalComponent implements OnInit {
 
