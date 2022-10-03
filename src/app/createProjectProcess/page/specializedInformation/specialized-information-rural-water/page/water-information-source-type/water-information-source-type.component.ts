@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { TankWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-source-type',
@@ -22,6 +23,8 @@ export class WaterInformationSourceTypeComponent implements OnInit {
   @Output() validationForm = new EventEmitter<boolean>();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public typeProjectList: Array<number> = [];
+  public tankList: TankWaterShedAndCanals[] = [];
 
   constructor() { }
 
@@ -96,11 +99,21 @@ export class WaterInformationSourceTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.tankList[i].constructionType = this.typeProjectList[i];
+      this.tankList[i].currentTankStatus = this.sourceStaffControl.value;
+      this.tankList[i].tankVolume = this.sourceVolumeControl.value;
+      this.tankList[i].currentTankStatus = this.sourceStateControl.value;
+    }
   }
 }

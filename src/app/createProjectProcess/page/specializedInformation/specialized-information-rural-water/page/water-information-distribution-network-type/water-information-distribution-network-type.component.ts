@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { DistributionNetworkWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-distribution-network-type',
@@ -20,9 +21,12 @@ export class WaterInformationDistributionNetworkTypeComponent implements OnInit 
   public ownerShipTypeControl = new FormControl();
   public groundTypeControl = new FormControl();
   public number = new FormControl();
+  public description = new FormControl();
   @Output() validationForm = new EventEmitter<boolean>();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public distributionNetwork: DistributionNetworkWaterShedAndCanals[] = [];
+  public typeProjectList: Array<number>;
 
   constructor() { }
 
@@ -103,11 +107,23 @@ export class WaterInformationDistributionNetworkTypeComponent implements OnInit 
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.distributionNetwork[i].description = this.description.value;
+      this.distributionNetwork[i].constructionType = this.typeProjectList[i];
+      this.distributionNetwork[i].boosterPumpOnline = this.pompControl.value;
+      this.distributionNetwork[i].distributionNetworkStatus = this.networkStateControl.value;
+      this.distributionNetwork[i].transferLineLength = this.lenPipeControl.value;
+      this.distributionNetwork[i].typeOfPipe = this.typePipeControl.value;
+    }
   }
 }

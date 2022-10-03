@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { FountainWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-fountain-type',
@@ -16,9 +17,12 @@ export class WaterInformationFountainTypeComponent implements OnInit {
   public ownerShipTypeControl = new FormControl();
   public groundTypeControl = new FormControl();
   public number = new FormControl();
+  public description = new FormControl();
   @Output() validationForm = new EventEmitter<boolean>();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public typeProjectList: Array<number> =[];
+  public fountain: FountainWaterShedAndCanals[] = [];
 
   constructor() { }
 
@@ -78,11 +82,19 @@ export class WaterInformationFountainTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.fountain[i].description = this.description.value;
+      this.fountain[i].constructionType = this.typeProjectList[i];
+    }
   }
 }

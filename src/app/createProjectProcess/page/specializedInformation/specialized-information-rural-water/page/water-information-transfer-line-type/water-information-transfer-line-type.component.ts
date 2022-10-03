@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit,EventEmitter, Output} from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-transfer-line-type',
@@ -23,6 +24,8 @@ export class WaterInformationTransferLineTypeComponent implements OnInit {
   public number = new FormControl();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public typeProjectList: Array<number> = [];
+  public transferLineList: TransferLineWaterShedAndCanals[] = [];
 
   constructor() { }
 
@@ -109,11 +112,23 @@ export class WaterInformationTransferLineTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.transferLineList[i].constructionType = this.typeProjectList[i];
+      this.transferLineList[i].transferLineStatus = this.transferLineControl.value;
+      this.transferLineList[i].transferLineType = this.pipeTypeControl.value;
+      this.transferLineList[i].transferLineLenght = this.pipeLenControl.value;
+      this.transferLineList[i].transferLineSource = this.fromWhereControl.value;
+      this.transferLineList[i].transferLineDestination = this.toWhereControl.value;
+    }
   }
 }

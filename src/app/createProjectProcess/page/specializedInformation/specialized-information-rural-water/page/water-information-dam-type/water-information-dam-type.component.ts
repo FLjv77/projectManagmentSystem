@@ -2,6 +2,8 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
+import { DamWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-dam-type',
@@ -21,8 +23,11 @@ export class WaterInformationDamTypeComponent implements OnInit {
   public ownerShipTypeControl = new FormControl();
   public groundTypeControl = new FormControl();
   public number = new FormControl();
+  public description = new FormControl();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public typeProjectList : Array<number> = [];
+  public damWaterShedAndCanalsList : DamWaterShedAndCanals[] = [];
 
   @Output() validationForm = new EventEmitter<boolean>();
 
@@ -87,18 +92,10 @@ export class WaterInformationDamTypeComponent implements OnInit {
   }
 
   private checkValidationForm() {
-    if(
-      this.damStateControl.value &&
-      this.capacityWaterControl.value &&
-      this.riverNameControl.value &&
-      this.staffControl.value &&
-      this.volumeDamControl.value &&
-      this.regionControl.value && 
-      this.stabilityResourceControl.value &&
-      this.debeyControl.value &&
-      this.ownerShipTypeControl.value &&
-      this.groundTypeControl.value &&
-      this.number.value
+    if(this.damStateControl.value &&this.capacityWaterControl.value &&this.riverNameControl.value &&
+      this.staffControl.value &&this.volumeDamControl.value &&this.regionControl.value && 
+      this.stabilityResourceControl.value &&this.debeyControl.value &&this.ownerShipTypeControl.value &&
+      this.groundTypeControl.value &&this.number.value
     ) {
       this.validationForm.emit(true);
     } else {
@@ -110,11 +107,23 @@ export class WaterInformationDamTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
   
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.damWaterShedAndCanalsList[i].damDescription = this.description.value;
+      this.damWaterShedAndCanalsList[i].constructionType = this.typeProjectList[i];
+      this.damWaterShedAndCanalsList[i].damMaterialType = this.staffControl.value;
+      this.damWaterShedAndCanalsList[i].riverName = this.riverNameControl.value;
+      this.damWaterShedAndCanalsList[i].wateringCapacity = this.capacityWaterControl.value;
+      this.damWaterShedAndCanalsList[i].damTankVolume = this.volumeDamControl.value;
+    }
   }
 }

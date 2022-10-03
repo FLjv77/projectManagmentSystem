@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DisplayPathModel} from "../../../../../../shared/model/displayPathModel";
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { number } from 'echarts';
 
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
