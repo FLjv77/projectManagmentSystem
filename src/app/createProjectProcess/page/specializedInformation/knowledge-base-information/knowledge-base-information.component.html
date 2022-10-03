@@ -6,33 +6,47 @@
       </div>
 
       <div>
-        <div *ngFor="let list of arrayList , let i = index" class="row">
+        <div *ngFor="let list of knowledgeBaseds , let i = index" class="row mt-5">
           <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            <h4 class="title-page d-inline set-font-Raymon px-2 pb-3">پروژه از نوع : </h4>
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+            <mat-radio-button (click)="setTypeProject(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">احداث</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+            <mat-radio-button (click)="setTypeProject(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
               <span class="px-2">تکمیل و توسعه</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+            <mat-radio-button (click)="setTypeProject(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
               <span class="px-2">مرمت</span>
             </mat-radio-button>
           </mat-radio-group>
 
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'" [inputId]="'numberCompany'" [type]="'number'" [inputFormControl]="numberCompany"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'" [inputId]="'AreaOfExpertise'" [inputFormControl]="AreaOfExpertise"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'"
+          [inputId]="'numberCompany' + i" [type]="'number'" [inputFormControl]="numberCompanyControlList[i]"
+          (changeValue)="setNumberOfCompany($event, i)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'"
+          [inputId]="'AreaOfExpertise' + i" [inputFormControl]="AreaOfExpertise[i]"
+          (changeValue)="set_AreaOfExpertise($event, i)" ></app-input-style>
 
           <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
           </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="3" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'loanAmount'" [type]="'number'" [inputFormControl]="loanAmount"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'numberAmount'" [type]="'number'" [inputFormControl]="numberAmount"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'" [inputId]="'reasonAmount'" [inputFormControl]="reasonAmount"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="3" class="col-md-6 col-12" [inputLabel]="'میزان'"
+           [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]"
+           (changeValue)="set_loanAmount($event, i)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '"
+           [inputId]="'numberAmount' + i" [type]="'number'" [inputFormControl]="numberAmount[i]"
+           (changeValue)="set_numberAmount($event, i)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'"
+           [inputId]="'reasonAmount' + i" [inputFormControl]="reasonAmount[i]"
+           (changeValue)="set_reasonAmount($event, i)"></app-input-style>
+
           <div *ngIf="i-1>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteList(i)">
                 <button class="button-add-activity">
@@ -54,7 +68,9 @@
 
 
       <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+        <button (click)="createSpecializeInfo()" type="button"
+        class="ok-button-text opacity-light px-4 py-2 {{!checkValidation() ? 'opacity-bold':''}}"
+        [disabled]="checkValidation()">
             تایید و ادامه
         </button>
       </div>

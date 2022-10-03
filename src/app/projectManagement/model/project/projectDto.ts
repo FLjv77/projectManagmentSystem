@@ -35,6 +35,7 @@ export class ProjectSelectedDTOResualt {
 }
 
 export class ProjectSelectedDTO {
+  projectId: string;
   projectName:	string;
   projectDescription: string;
   projectTargets: string;

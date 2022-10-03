@@ -1,5 +1,6 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'app-filter-project-human-resource-cost',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-project-human-resource-cost.component.scss', '../../../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
 export class FilterProjectHumanResourceCostComponent implements OnInit {
+  @Output() handleMaxValue = new EventEmitter<number>();
+  @Output() handleMinValue = new EventEmitter<number>();
+
   public maxValue: number = 0;
   public minValue: number = 0;
-  
+
   constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
@@ -20,6 +24,14 @@ export class FilterProjectHumanResourceCostComponent implements OnInit {
       return Math.round(value / 1000);
     }
     return value;
+  }
+
+  public changeMax(event: MatSliderChange) {
+    if(event.value) this.handleMaxValue.emit(event.value);
+  }
+
+  public changeMin(event: MatSliderChange) {
+    if(event.value) this.handleMinValue.emit(event.value);
   }
 
   public getNumberWithSeparator(value: number): string {

@@ -4,6 +4,7 @@ import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/servi
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { CompanyListService } from 'src/app/workSpace/service/companyListDTO/company-list.service';
 import { ApiResult } from '../../../auth/model/authDTO';
+import { url } from '../../../../assets/url/url';
 
 @Component({
   selector: 'app-drop-down-company-list',
@@ -14,6 +15,7 @@ export class DropDownCompanyListComponent implements OnInit {
 
   public placeHolder: Select2OptionData;
   public companyData: Array<Select2OptionData>;
+  public show: boolean = false;
   @Output() companyIdSelected = new EventEmitter<string | string[]>();
   @Input() customStyle: string;
   constructor(private companyListService: CompanyListService,

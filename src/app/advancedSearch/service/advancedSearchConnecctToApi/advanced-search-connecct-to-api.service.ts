@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { ApiResult } from '../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
-import { ProjectSelectedDTO } from '../../../projectManagement/model/project/projectDto';
+import { ProjectSelectedDTO, ProjectSelectedDTOResualt } from '../../../projectManagement/model/project/projectDto';
 import { HttpClient } from '@angular/common/http';
 import { url } from '../../../../assets/url/url';
 import { GetProjectsWithDynamicFilterDto } from '../../model/advanceSearch';
@@ -11,10 +11,20 @@ import { GetProjectsWithDynamicFilterDto } from '../../model/advanceSearch';
 })
 export class AdvancedSearchConnecctToApiService {
   public companyIdSelected = new EventEmitter<string | string[]>();
+  public projectListHandel = new EventEmitter<ProjectSelectedDTO[]>();
 
   constructor(private http: HttpClient) { }
 
-  public getProjectsWithDynamicFilter(getProjectsWithDynamicFilterDto: GetProjectsWithDynamicFilterDto):Observable<ApiResult<ProjectSelectedDTO[]>> {
-    return this.http.get<ApiResult<ProjectSelectedDTO[]>>(url.getProjectsWithDynamicFilter + getProjectsWithDynamicFilterDto.companyId);
-  }
+  public getProjectsWithDynamicFilter(getProjectsWithDynamicFilterDto: GetProjectsWithDynamicFilterDto):Observable<ApiResult<ProjectSelectedDTOResualt>> {
+    return this.http.get<ApiResult<ProjectSelectedDTOResualt>>(
+      url.getProjectsWithDynamicFilter +
+      getProjectsWithDynamicFilterDto.companyId +
+      ((getProjectsWithDynamicFilterDto.projectStatus != undefined) ? ('?projectStatus=' + getProjectsWithDynamicFilterDto.projectStatus) + '&' : '') +
+      ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('?startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
+      ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('?startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '')
+
+      )
+
+      }
 }
+

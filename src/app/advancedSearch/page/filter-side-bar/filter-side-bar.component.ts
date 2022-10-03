@@ -26,16 +26,16 @@ export class FilterSideBarComponent implements OnInit {
   @Output() humanResourceLowerCost = new EventEmitter<number>;
   @Output() totaltProjectUpperCost = new EventEmitter<number>;
   @Output() totalProjectLowerCost = new EventEmitter<number>;
+  @Output() projectType = new EventEmitter<string>;
 
   @Output() projectTargets = new EventEmitter<string>;
 
   constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
     this.setSelectedCompanyId();
   }
+
   ngOnInit(): void {
   }
-
-
 
   public setSelectedCompanyId() {
     this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((id: string) => {
@@ -44,6 +44,34 @@ export class FilterSideBarComponent implements OnInit {
     });
   }
 
+  public getProjectType(event: string) {
+    this.projectType.emit(event);
+  }
+
+  public changeMaxI(event: number) {
+    this.infrastructureUpperCost.emit(event);
+  }
+
+  public changeMinI(event: number) {
+    this.infrastructureLowerCost.emit(event);
+  }
+
+  public changeMax(event: number) {
+    this.humanResourceUpperCost.emit(event);
+  }
+
+  public changeMin(event: number) {
+    this.humanResourceLowerCost.emit(event);
+  }
+
+
+  public changeMaxT(event: number) {
+    this.totaltProjectUpperCost.emit(event);
+  }
+
+  public changeMinT(event: number) {
+    this.totalProjectLowerCost.emit(event);
+  }
 
   public setProjectState(state: ProjectStatus) {
     this.projectStatus.emit(state);
@@ -54,6 +82,14 @@ export class FilterSideBarComponent implements OnInit {
   }
 
   public setEndTime(event: string) {
+    this.startTimeOfProjectUpperBound.emit(event);
+  }
+
+  public setStartTimeEnd(event: string) {
+    this.startTimeOfProjectLowerBound.emit(event);
+  }
+
+  public setEndTimeEnd(event: string) {
     this.startTimeOfProjectUpperBound.emit(event);
   }
 }

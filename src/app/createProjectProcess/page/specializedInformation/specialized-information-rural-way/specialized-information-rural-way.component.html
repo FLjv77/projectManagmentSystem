@@ -9,15 +9,14 @@
             <div class="col-12 mt-2">
               <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
             </div>
-            <mat-radio-group [value]="0"
-              class="example-radio-group font-size-small">
-              <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+            <mat-radio-group [value]="0" class="example-radio-group font-size-small">
+              <mat-radio-button (click)="setTypeProject(0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
                 <span class="px-2">احداث</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <mat-radio-button (click)="setTypeProject(1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
                 <span class="px-2">تکمیل و توسعه</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <mat-radio-button (click)="setTypeProject(2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
                 <span class="px-2">مرمت</span>
               </mat-radio-button>
             </mat-radio-group>
@@ -28,13 +27,13 @@
             </div>
             <mat-radio-group [value]="0"
               class="example-radio-group font-size-small">
-              <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <mat-radio-button (click)="setWayType(1,0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
                 <span class="px-2">آسفالته</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <mat-radio-button (click)="setWayType(1,1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
                 <span class="px-2">شوسه</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <mat-radio-button (click)="setWayType(1,2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
                 <span class="px-2">خاکی</span>
               </mat-radio-button>
             </mat-radio-group>
@@ -44,19 +43,23 @@
             </div>
             <mat-radio-group [value]="0"
               class="example-radio-group font-size-small">
-              <mat-radio-button (click)="setWayType(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <mat-radio-button (click)="setWayType(2,0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
                 <span class="px-2">آسفالته</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setWayType(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <mat-radio-button (click)="setWayType(2,1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
                 <span class="px-2">شوسه</span>
               </mat-radio-button>
-              <mat-radio-button (click)="setWayType(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <mat-radio-button (click)="setWayType(2,2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
                 <span class="px-2">خاکی</span>
               </mat-radio-button>
             </mat-radio-group>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength"></app-input-style>
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth"></app-input-style>
+            <app-input-style [id]="'roadLength'+i" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" 
+            [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength"></app-input-style>
+            <app-input-style [id]="'roadWidth'+i" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0" 
+            [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth"></app-input-style>
+            <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
+            [inputFormControl]="LocationFormControl"></app-input-style>
             <div *ngIf="i-1>=0" class="row mx-auto">
               <div class="mx-auto text-start" (click)="deleteList(i)">
                   <button class="button-add-activity">
@@ -77,7 +80,7 @@
           </div>
 
           <div class="my-2" style="direction: ltr;">
-            <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+            <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()" (click)="sendWayInfo()">
                 تایید و ادامه
             </button>
           </div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { SocialTransformationAddicion } from 'src/app/createProjectProcess/model/specializedInformation/modifySocialTransformationSpeceficDetail';
 
 @Component({
   selector: 'app-social-transformation-information',
@@ -18,14 +19,14 @@ export class SocialTransformationInformationComponent implements OnInit {
   public Capacity = new FormControl();
   public numberCamp = new FormControl();
   public budget = new FormControl();
-  public numberIntroduction = new FormControl();
+  public numberIntroduction = new Array<FormControl>();
   public typeCrime = new FormControl();
   public amountPrisonerGivenFacilities = new FormControl();
   public prisonerBudget = new FormControl();
   public numberElectricalBonds = new FormControl();
   public amountDivorceGivenFacilities = new FormControl();
   public consultantWorkshops = new FormControl();
-  public campBudget = new FormControl();
+  public campBudget =  new Array<FormControl>();
   public numberTargetPatients = new FormControl();
   public numberDrugPackagesSpecificPatients = new FormControl();
   public volumeTreatmentFacilities = new FormControl();
@@ -40,13 +41,14 @@ export class SocialTransformationInformationComponent implements OnInit {
   public numberSubsistencePackages = new FormControl();
   public costSubsistencePackages = new FormControl();
   public numberChildrenCovered = new FormControl();
-  public LocationFormControl = new FormControl();
+
+
   public number = new FormControl();
   public number1 = new FormControl();
   public number2 = new FormControl();
   public number3 = new FormControl();
   public number4 = new FormControl();
-  public arrayList0: Array<string> = ['2223'];
+  public arrayListAddicion: Array<SocialTransformationAddicion> = new Array<SocialTransformationAddicion>();
   public arrayList1: Array<string> = ['2223'];
   public arrayList2: Array<string> = ['2223'];
   public arrayList3: Array<string> = ['2223'];
@@ -85,6 +87,7 @@ export class SocialTransformationInformationComponent implements OnInit {
 
   public checkValidation(): boolean {
     let res = false;
+    /*
     if(
       this.numberIntroduction.value &&
       this.campBudget.value &&
@@ -116,6 +119,8 @@ export class SocialTransformationInformationComponent implements OnInit {
       this.volumeTreatmentFacilities.value &&
       this.numberTargetPatients.value
     ) res = true;
+
+    */
     return res;
   }
 
@@ -126,6 +131,7 @@ export class SocialTransformationInformationComponent implements OnInit {
   public setProjectSocial(state: number) {
     if (state==0) {
       this.select0 = !this.select0;
+      this.addListAddicion();
     }
     else if (state==1) {
       this.select1 = !this.select1;
@@ -157,8 +163,19 @@ export class SocialTransformationInformationComponent implements OnInit {
     listName.push('222');
   }
 
+  public addListAddicion(){
+    this.campBudget.push(new FormControl());
+    this.numberIntroduction.push(new FormControl());
+
+    this.arrayListAddicion.push(new SocialTransformationAddicion());
+  }
+
   public deleteList(list:Array<string>, index: number){
     list.splice(index, 1);
+  }
+
+  public deleteListAddicion(index: number){
+    this.arrayListAddicion.splice(index, 1);
   }
 
 }

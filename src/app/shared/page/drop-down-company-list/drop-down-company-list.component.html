@@ -1,6 +1,8 @@
-<div *ngIf="companyData.length > 0"
-  class="set-font-vazir pt-2 d-flex justify-content-center mx-auto row d-rtl {{customStyle}}">
-  <ng-select2 [data]="companyData" [placeholder]="'انتخاب شرکت'" (valueChanged)="selectedCompany($event)"
-  [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
-
+<div>
+  <div *ngIf="companyData.length > 0"
+    class="set-font-vazir pt-2 d-flex justify-content-center mx-auto row d-rtl {{customStyle}}">
+    <ng-select2 [data]="companyData" [placeholder]="'انتخاب شرکت'" (valueChanged)="selectedCompany($event)"
+    [(ngModel)]="placeHolder" class="set-font-vazir"></ng-select2>
+  </div>
 </div>
+

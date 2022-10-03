@@ -27,7 +27,7 @@
           زمان خاتمه
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-end-time></app-filter-project-end-time>
+      <app-filter-project-end-time (endTimeOfProjectUpperBound)="setEndTimeEnd($event)" (endTimeOfProjectLowerBound)="setStartTimeEnd($event)"></app-filter-project-end-time>
     </mat-expansion-panel>
 
     <!--
@@ -48,7 +48,7 @@
           هزینه زیرساخت
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-infrastructure-cost></app-filter-project-infrastructure-cost>
+      <app-filter-project-infrastructure-cost (handleMaxValue)="changeMaxI($event)" (handleMinValue)="changeMinI($event)"></app-filter-project-infrastructure-cost>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -57,7 +57,7 @@
           هزینه کل
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-total-cost></app-filter-project-total-cost>
+      <app-filter-project-total-cost (handleMaxValue)="changeMaxT($event)" (handleMinValue)="changeMinT($event)"></app-filter-project-total-cost>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -66,7 +66,7 @@
           هزینه منابع انسانی
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-human-resource-cost></app-filter-project-human-resource-cost>
+      <app-filter-project-human-resource-cost (handleMaxValue)="changeMax($event)" (handleMinValue)="changeMin($event)"></app-filter-project-human-resource-cost>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -75,7 +75,7 @@
           نوع پروژه
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-filter-project-type></app-filter-project-type>
+      <app-filter-project-type (projectType)="getProjectType($event)"></app-filter-project-type>
     </mat-expansion-panel>
 
     <mat-expansion-panel>

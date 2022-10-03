@@ -1,6 +1,9 @@
 import { ConstructionTypestring } from './modifyWaterShedAndCanalsSpeceficDetail';
 
 export class RuralRoadSpeceficDetailDTO {
+    constructor(ruralRoads: RuralRoad[]){
+        this.ruralRoads=ruralRoads;
+    }
     ruralRoads: RuralRoad[];
 }
 

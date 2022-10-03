@@ -13,10 +13,7 @@ export class SocialTransformationSpeceficDetailDTO {
 }
 
 export class SocialTransformationAddicion {
-    constructor(numberOfIntroducingToCamp: number,addictionBudget: number){
-        this.numberOfIntroducingToCamp = numberOfIntroducingToCamp;
-        this.addictionBudget = addictionBudget;
-    }
+    constructor() {}
     numberOfIntroducingToCamp: number;
     addictionBudget: number;
 }

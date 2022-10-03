@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-water-seal-type',
@@ -28,6 +29,8 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
   public number = new FormControl();
   public arrayList: Array<string> = ['2223'];
   public typeProject: projectType;
+  public typeProjectList: Array<number> = [];
+  public dikeList: DikeWaterShedAndCanals[] = [];
 
   constructor() { }
 
@@ -122,12 +125,28 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.dikeList[i].constructionType = this.typeProjectList[i];
+      this.dikeList[i].riverName = this.riverNameControl.value;
+      this.dikeList[i].riverWidth = this.riverWidthControl.value;
+      this.dikeList[i].waterProviderResourceStatus = this.resourceSaveWaterStateControl.value;
+      this.dikeList[i].pumping = this.pompControl.value;
+      this.dikeList[i].dam = this.stopFloodControl.value;
+      this.dikeList[i].dikeMaterialType = this.stuffWaterSealControl.value;
+      this.dikeList[i].width = this.widthControl.value;
+      this.dikeList[i].height = this.heightControl.value;
+      this.dikeList[i].length = this.lenControl.value;
+    }
   }
   
 }

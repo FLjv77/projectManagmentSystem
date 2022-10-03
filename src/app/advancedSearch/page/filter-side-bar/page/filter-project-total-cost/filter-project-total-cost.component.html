@@ -7,6 +7,7 @@
     <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
     <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
+    (change)="changeMin($event)"
       class="w-100"
       thumbLabel
       [displayWith]="formatLabel"
@@ -28,6 +29,7 @@
     <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
     <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
+    (change)="changeMax($event)"
       class="w-100"
       thumbLabel
       [displayWith]="formatLabel"

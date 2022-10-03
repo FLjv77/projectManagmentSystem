@@ -26,7 +26,7 @@ export class SpecializedInformationService {
   }
 
   public ModifyKnowledgeBasedSpeceficDetail(projectId : string, knowledgeBasedSpeceficDetailDTO: KnowledgeBasedSpeceficDetailDTO): Observable<ApiResult<KnowledgeBasedSpeceficDetailDTO>>{
-    return this.http.post<ApiResult<KnowledgeBasedSpeceficDetailDTO>>(url.ModifyKnowledgeBasedSpeceficDetail + projectId , knowledgeBasedSpeceficDetailDTO);
+    return this.http.put<ApiResult<KnowledgeBasedSpeceficDetailDTO>>(url.ModifyKnowledgeBasedSpeceficDetail + projectId , knowledgeBasedSpeceficDetailDTO);
   }
 
   public ModifySocialTransformationSpeceficDetail(projectId : string, socialTransformationSpeceficDetailDTO: SocialTransformationSpeceficDetailDTO): Observable<ApiResult<SocialTransformationSpeceficDetailDTO>>{

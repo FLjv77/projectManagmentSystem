@@ -1,5 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {Select2OptionData} from "ng-select2";
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { GetProjectsGeneralInfoOfCompanyDto, ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-drop-down-project-list',
@@ -9,15 +15,59 @@ import {Select2OptionData} from "ng-select2";
 export class DropDownProjectListComponent implements OnInit {
 
   @Input() placeholder: string;
+  @Input() companyId: string;
+  @Output() parentid = new EventEmitter<string>();
+
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
-  @Output() parentid = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private projectConnectToApiService: ProjectConnectToApiService,
+  ) { }
 
   ngOnInit(): void {
     this.initProjectList();
+    this.getProjectList();
+  }
+
+  public setParentId(id: any) {
+    this.parentid.emit(id);
+  }
+
+  private getProjectList() {
+    if(!this.companyId) {
+      let company = localStorage.getItem(url.CompanyInfo);
+      if(company) {
+        let c = new CompanySelectedDTO();
+        c = JSON.parse(company);
+        this.companyId = c.companyId;
+      }
+    }
+
+    if(this.companyId) {
+      this.projectConnectToApiService.getProjectsGeneralInfoOfCompany(
+        new GetProjectsGeneralInfoOfCompanyDto(
+          this.companyId, 1
+        )).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
+        if(res.isSuccess && res.statusCode == 200) {
+          for(let i=0; i<res.data.length; i++) {
+            let obj = {
+              text: res.data[i].projectName,
+              id: res.data[i].projectId
+            }
+            this.projectData.push(obj);
+          }
+
+        } else {
+
+        }
+
+      }, (err: HttpErrorResponse) => {
+
+      });
+    }
+
   }
 
   public setProject(name: string){
@@ -30,32 +80,7 @@ export class DropDownProjectListComponent implements OnInit {
       id: 'none'
     }
 
-    this.projectData = [
-      {
-        text: 'پروژه 1',
-        id: 'Basic 1'
-      },
-      {
-        text: 'پروژه 2',
-        id: 'Basic 2'
-      },
-      {
-        text: 'پروژه 3',
-        id: 'Basic 2'
-      },
-      {
-        text: 'پروژه 4',
-        id: 'Basic 2'
-      },
-      {
-        text: 'پروژه 5',
-        id: 'Basic 3'
-      },
-      {
-        text: 'پروژه 6',
-        id: 'Basic 4'
-      }
-    ];
+    this.projectData = [];
 
   }
 }
