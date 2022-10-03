@@ -2,6 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
+import { PitWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-well-type',
@@ -23,6 +24,8 @@ export class WaterInformationWellTypeComponent implements OnInit {
   public typeProject: projectType;
   @Output() validationForm = new EventEmitter<boolean>();
   public arrayList: Array<string> = ['2223'];
+  public typeProjectList: Array<number> = [];
+  public pitList: PitWaterShedAndCanals[] = [];
 
   constructor() { }
 
@@ -102,11 +105,22 @@ export class WaterInformationWellTypeComponent implements OnInit {
     this.arrayList.push('222');
   }
 
-  public setTypeProject(state: projectType){
+  public setTypeProject(state: projectType,index: number){
     this.typeProject = state;
+    this.typeProjectList[index] = state;
   }
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createList(){
+    for (let i = 0; i < this.arrayList.length; i++) {
+      this.pitList[i].constructionType = this.typeProjectList[i];
+      this.pitList[i].coveredLandArea = this.amountOfSurfaceControl.value;
+      this.pitList[i].pitDiameter = this.widthWellControl.value;
+      this.pitList[i].tubeLenght = this.lenPipeControl.value;
+      this.pitList[i].coolLenght = this.lenColControl.value;
+    }
   }
 }

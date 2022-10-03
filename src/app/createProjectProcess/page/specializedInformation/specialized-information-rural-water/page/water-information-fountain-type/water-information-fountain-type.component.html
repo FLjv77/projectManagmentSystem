@@ -11,23 +11,24 @@
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+            <mat-radio-button (click)="setTypeProject(0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">احداث</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+            <mat-radio-button (click)="setTypeProject(1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
               <span class="px-2">تکمیل و توسعه</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+            <mat-radio-button (click)="setTypeProject(2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
               <span class="px-2">مرمت</span>
             </mat-radio-button>
           </mat-radio-group>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
+        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'توضیحات'" [inputId]="'description'" [inputFormControl]="description" [textarea]="true"></app-input-style>
         <div *ngIf="i-1>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteList(i)">
               <button class="button-add-activity">
