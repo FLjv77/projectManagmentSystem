@@ -54,6 +54,8 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['../../advancedSearch']);
   }
   public logout(){
+    localStorage.removeItem(url.CompanyInfo);
+    localStorage.removeItem(url.userRole);
     localStorage.removeItem(url.tokenName);
     this.router.navigate(['../../auth/loginUser']);
   }

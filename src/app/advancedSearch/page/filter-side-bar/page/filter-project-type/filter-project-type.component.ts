@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-project-type',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-project-type.component.scss']
 })
 export class FilterProjectTypeComponent implements OnInit {
+  @Output() projectType = new EventEmitter<string>;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public setProjectType(type: string) {
+    this.projectType.emit(type);
+  }
 }

@@ -48,8 +48,6 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
       new GetProjectsGeneralInfoOfCompanyDto(
         this.companyId, 1
       )).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
-      console.log(res.data);
-
       if(res.isSuccess && res.statusCode == 200) {
         this.projectList = res.data;
       } else {

@@ -7,14 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CurrentUserUserNameComponent implements OnInit {
   @Input() styleUserName: string;
-  public userName: string;
+  @Input() userName: string;
   constructor() { }
 
   ngOnInit(): void {
-    this.setUserName();
-  }
-
-  private setUserName() {
-    this.userName = 'نام کاربری';
   }
 }

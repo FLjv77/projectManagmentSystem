@@ -63,9 +63,6 @@ export class BasicProjectInformationComponent implements OnInit {
   }
 
   public inputInfo: aarayStyle;
-  public openModal() {
-    this.handleModalService.openModal('create-project');
-  }
 
   public goToNext(){
     this.commonDataForCreateProjectService.setBasicInformationProject(
@@ -81,21 +78,9 @@ export class BasicProjectInformationComponent implements OnInit {
     document.getElementById('locationInformation')?.click();
   }
 
-  public setParentId($event: string){
-    this.parentId = $event;
+  public setParentId(event: string){
+    this.parentId = event;
   }
-
-  public createProject(event: boolean){
-    if (event==false) {
-      this.goToNext();
-      this.router.navigate(['../projectManagement/projectList']);
-    }
-    else if(event==true){
-      this.goToNext();
-      this.inputInfo1.state = 9;
-    }
-  }
-
 }
 
 export class aarayStyle{
