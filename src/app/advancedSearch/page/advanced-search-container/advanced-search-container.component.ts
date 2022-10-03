@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {GetProjectsWithDynamicFilterDto, ProjectStatus, ReportState} from "../../model/advanceSearch";
 import { ApiResult } from '../../../auth/model/authDTO';
-import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { ProjectSelectedDTO, ProjectSelectedDTOResualt } from 'src/app/projectManagement/model/project/projectDto';
+import { UserRole } from '../../../shared/model/naveBarModel';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-advanced-search-container',
@@ -15,7 +19,7 @@ import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/proj
 export class AdvancedSearchContainerComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public showChart: boolean = true;
+  public showChart: boolean = false;
   public optionsIncome: any;
   public reportState: ReportState = 0;
   private selectedCompanyId: string;
@@ -23,6 +27,7 @@ export class AdvancedSearchContainerComponent implements OnInit {
   private startTimeOfProjectLowerBound: string;
   private startTimeOfProjectUpperBound: string;
   private getProjectsWithDynamicFilter: GetProjectsWithDynamicFilterDto;
+  public currentUserIsAdmin: boolean;
 
   constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
     this.setSelectedCompanyId();
@@ -30,6 +35,22 @@ export class AdvancedSearchContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.checkIsUserAdmin();
+  }
+
+  private checkIsUserAdmin() {
+    let userRole = localStorage.getItem(url.userRole);
+
+    if(userRole == 'notAdmin') {
+      let company = localStorage.getItem(url.CompanyInfo);
+      if(company) {
+        let c = new CompanySelectedDTO();
+        c = JSON.parse(company)
+        this.advancedSearchConnecctToApiService.companyIdSelected.emit(c.companyId);
+        this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(c.companyId);
+      }
+    }
+    this.currentUserIsAdmin = (userRole == 'admin');
   }
 
   public setReportState(state: ReportState) {
@@ -49,29 +70,31 @@ export class AdvancedSearchContainerComponent implements OnInit {
     this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((id: string) => {
       this.selectedCompanyId = id;
       this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(id);
+      this.searchProject();
     });
   }
-
 
   public setProjectState(state: ProjectStatus) {
     this.projectStatus = state;
     this.getProjectsWithDynamicFilter.projectStatus = state;
+    this.searchProject();
   }
 
   public setStartTime(event: string) {
     this.getProjectsWithDynamicFilter.startTimeOfProjectLowerBound = (event);
+    this.searchProject();
   }
 
   public setEndTime(event: string) {
     this.getProjectsWithDynamicFilter.startTimeOfProjectUpperBound = (event);
+    this.searchProject();
   }
 
   public searchProject() {
     this.advancedSearchConnecctToApiService.getProjectsWithDynamicFilter(
       this.getProjectsWithDynamicFilter
-    ).subscribe((res: ApiResult<ProjectSelectedDTO[]>) => {
-      console.log(res);
-
+    ).subscribe((res: ApiResult<ProjectSelectedDTOResualt>) => {
+      this.advancedSearchConnecctToApiService.projectListHandel.emit(res.data.projectSelectedDTOs);
     })
   }
 }

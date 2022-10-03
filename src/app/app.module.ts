@@ -13,11 +13,23 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {AuthModule} from "./module/auth/auth.module";
 import { AuthInterceptor } from './interseptor/interseptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  bgsColor: "#FFFFF",
+  bgsPosition: POSITION.bottomCenter,
+  bgsSize: 40,
+  bgsType: SPINNER.rectangleBounce, // background spinner type
+  fgsType: SPINNER.chasingDots, // foreground spinner type
+  pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
+  pbThickness: 5, // progress bar thickness
+};
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -33,6 +45,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     WorkspaceModule,
     UserManagementModule,
     ManagementReportModule,
+    NgxUiLoaderHttpModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

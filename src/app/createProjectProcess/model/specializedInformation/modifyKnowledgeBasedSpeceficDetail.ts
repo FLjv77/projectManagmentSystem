@@ -1,15 +1,15 @@
 import { ConstructionTypestring } from './modifyWaterShedAndCanalsSpeceficDetail';
 
 export class KnowledgeBasedSpeceficDetailDTO {
-    knowledgeBaseds: KnowledgeBased[];
+  constructor(knowledgeBaseds: KnowledgeBased[]) {
+    this.knowledgeBaseds = knowledgeBaseds;
+  }
+  knowledgeBaseds: KnowledgeBased[];
 }
 
 export class KnowledgeBased {
-    constructor(constructionType:ConstructionTypestring,countOfCompany:number,areaExpert:string,loansAndFacilities:	KnowledgeBasedLoansAndFacilities){
-        this.constructionType = constructionType;
-        this.countOfCompany = countOfCompany;
-        this.areaExpert = areaExpert;
-        this.loansAndFacilities = loansAndFacilities;
+    constructor() {
+      this.loansAndFacilities = new KnowledgeBasedLoansAndFacilities();
     }
     constructionType: ConstructionTypestring;
     countOfCompany:	number;
@@ -18,11 +18,7 @@ export class KnowledgeBased {
 }
 
 export class KnowledgeBasedLoansAndFacilities {
-    constructor(amount:	number,count:number,description: string){
-        this.amount = amount;
-        this.count = count;
-        this.description = description;
-    }
+    constructor(){}
     amount:	number;
     count:	number;
     description: string;

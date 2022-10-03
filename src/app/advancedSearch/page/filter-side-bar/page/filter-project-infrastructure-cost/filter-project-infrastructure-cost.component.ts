@@ -1,5 +1,6 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'app-filter-project-infrastructure-cost',
@@ -10,7 +11,10 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
 
   public maxValue: number = 0;
   public minValue: number = 0;
-  
+
+  @Output() handleMaxValue = new EventEmitter<number>();
+  @Output() handleMinValue = new EventEmitter<number>();
+
   constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
@@ -21,6 +25,14 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
       return Math.round(value / 1000);
     }
     return value;
+  }
+
+  public changeMax(event: MatSliderChange) {
+    if(event.value) this.handleMaxValue.emit(event.value);
+  }
+
+  public changeMin(event: MatSliderChange) {
+    if(event.value) this.handleMinValue.emit(event.value);
   }
 
   public getNumberWithSeparator(value: number): string {

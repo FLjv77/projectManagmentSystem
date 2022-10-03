@@ -28,4 +28,5 @@ export class CreaterojectService {
   public getTargetsOfProject(): Observable<ApiResult<TargetsOfProjectSelectedDto[]>> {
     return this.http.get<ApiResult<TargetsOfProjectSelectedDto[]>>(url.GetTargetsOfProject);
   }
+
 }

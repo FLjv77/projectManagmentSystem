@@ -31,5 +31,7 @@ export const url = {
   GetAllocationReports:'Project/GetAllocationReports',
   GetProgressReportsForSupervisor:'Project/GetProgressReportsForSupervisor',
   GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor',
-  GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter'
+  GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter',
+  CompanyInfo: 'CompanyInfo',
+  userRole: 'userRole'
 }

@@ -98,6 +98,7 @@
 }
 
 .label-unit {
+  right: 80%;
   position: absolute;
   left: 0px;
   font-size: medium;
@@ -117,4 +118,8 @@
 
 .unit-text {
   font-size: 15px;
+}
+
+::ng-deep .mat-form-field .mat-form-field-underline {
+  display: none !important;
 }

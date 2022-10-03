@@ -2,13 +2,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { theme } from 'highcharts';
-import { throwIfEmpty } from 'rxjs';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { ApiResult } from '../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from './map-container/map-container.component';
+import { HandleModalService } from 'src/app/shared/service/handleModalService/handle-modal.service';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from '../../../../../workSpace/model/companyModel';
 
 @Component({
   selector: 'app-pproject-location-information',
@@ -17,7 +18,7 @@ import { Location } from './map-container/map-container.component';
               '../basic-project-information/basic-project-information.component.scss']
 })
 export class PProjectLocationInformationComponent implements OnInit {
-  private companyId: string = '09e8ff21-ad1f-ed11-bec9-b1f673a1bda0';
+  private companyId: string;
   public inputCustomStyle: InputCustomStyle;
   public LocationFormControl = new FormControl();
   public checkCity: boolean;
@@ -27,6 +28,7 @@ export class PProjectLocationInformationComponent implements OnInit {
   constructor(
     private router: Router,
     private activeRouting: ActivatedRoute,
+    private handleModalService: HandleModalService,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private createrojectService: CreaterojectService) { }
 
@@ -34,6 +36,16 @@ export class PProjectLocationInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.getLocation();
+    this.setCompanyId();
+  }
+
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    }
   }
 
   private initInputStyle() {
@@ -60,7 +72,7 @@ export class PProjectLocationInformationComponent implements OnInit {
       else {return false}
       */
 
-      return true;
+    return true;
   }
 
   public goOnMap() {
@@ -81,14 +93,29 @@ export class PProjectLocationInformationComponent implements OnInit {
     }
   }
 
+  public openModal() {
+    this.handleModalService.openModal('create-project');
+  }
+
+  public createProject(event: boolean){
+    if (event==false) {
+      this.router.navigate(['../projectManagement/projectList']);
+    }
+    else if(event==true){
+      document.getElementById('detailInformation')?.click();
+    }
+  }
+
   public goNextStep() {
     this.commonDataForCreateProjectService.setLocationInformation(
       'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
     );
-
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
     ).subscribe((res: ApiResult<string>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.openModal();
+      }
     }, (err: HttpErrorResponse) => {
     });
   }

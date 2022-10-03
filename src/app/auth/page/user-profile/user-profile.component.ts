@@ -64,9 +64,7 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
   private getCompanyInformation(){
     this.authService.getMyCompany().subscribe((res: ApiResult<CompanySelectedDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        console.log(res);
         this.companyInformation = res.data;
-
       } else {
         this.handleDisplayErrorService.showError(res.statusCode);
       }

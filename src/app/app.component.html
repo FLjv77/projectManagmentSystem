@@ -1,4 +1,5 @@
 <div class="vw-100 vh-100 scroll-w-hidden" (click)="closeSideBarOnClickOutSide($event)">
+  <ngx-ui-loader style="z-index: 99999999;"></ngx-ui-loader>
   <router-outlet>
     <app-sidebar *ngIf="checkShowNavAndSideBar()"></app-sidebar>
     <app-navebar *ngIf="checkShowNavAndSideBar()"></app-navebar>
