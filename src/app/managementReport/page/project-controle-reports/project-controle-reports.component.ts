@@ -19,6 +19,7 @@ export class ProjectControleReportsComponent implements OnInit {
     this.initDisplayPath();
     this.getReports();
     this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
+      console.log('1111111111111111111111');
       console.log(res);
     });
   }

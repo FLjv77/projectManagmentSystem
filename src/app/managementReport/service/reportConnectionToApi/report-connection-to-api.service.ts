@@ -54,8 +54,8 @@ export class ReportConnectionToApiService {
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReportsForSupervisor + projectId);
   }
 
-  public GetUsersWithDynamicFilter(): Observable<ApiResult<boolean>>{
-    return this.http.get<ApiResult<boolean>>(url.GetUsersWithDynamicFilter);
+  public GetUsersWithDynamicFilter(): Observable<ApiResult<any>>{
+    return this.http.get<ApiResult<any>>(url.GetUsersWithDynamicFilter);
   }
 
   // public UploadDocumentsOfProgressReport(progressReportId: string): Observable<ApiResult<any>>{

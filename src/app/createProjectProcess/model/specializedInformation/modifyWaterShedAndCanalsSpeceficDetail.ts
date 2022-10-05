@@ -43,24 +43,28 @@ export enum ConstructionTypestring {
 }
 
 export class FountainWaterShedAndCanals {
-    constructor ( constructionType: ConstructionTypestring,description: string){
-        this.constructionType = constructionType;
-        this.description = description;
+    constructor ( 
+        // constructionType: ConstructionTypestring,description: string
+        ){
+        // this.constructionType = constructionType;
+        // this.description = description;
     }
     constructionType: ConstructionTypestring;
     description: string;
 }
 
 export class DamWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,damStatus: string,wateringCapacity: string,
-                riverName: string,damMaterialType: string,damTankVolume: number,damDescription: string){
-        this.constructionType = constructionType;
-        this.damStatus = damStatus;
-        this.wateringCapacity = wateringCapacity;
-        this.riverName = riverName;
-        this.damMaterialType = damMaterialType;
-        this.damTankVolume = damTankVolume;
-        this.damDescription = damDescription;
+    constructor(
+        // constructionType: ConstructionTypestring,damStatus: string,wateringCapacity: string,
+        //         riverName: string,damMaterialType: string,damTankVolume: number,damDescription: string
+                ){
+        // this.constructionType = constructionType;
+        // this.damStatus = damStatus;
+        // this.wateringCapacity = wateringCapacity;
+        // this.riverName = riverName;
+        // this.damMaterialType = damMaterialType;
+        // this.damTankVolume = damTankVolume;
+        // this.damDescription = damDescription;
     }
     constructionType: ConstructionTypestring;
     damStatus: string;
@@ -72,14 +76,16 @@ export class DamWaterShedAndCanals {
 }
 
 export class DistributionNetworkWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,description: string,distributionNetworkStatus: string,
-                boosterPumpOnline: string,typeOfPipe: string,transferLineLength: string){
-        this.constructionType = constructionType;
-        this.description = description;
-        this.distributionNetworkStatus = distributionNetworkStatus;
-        this.boosterPumpOnline = boosterPumpOnline;
-        this.typeOfPipe = typeOfPipe;
-        this.transferLineLength = transferLineLength;
+    constructor(
+        // constructionType: ConstructionTypestring,description: string,distributionNetworkStatus: string,
+        //         boosterPumpOnline: string,typeOfPipe: string,transferLineLength: string
+                ){
+        // this.constructionType = constructionType;
+        // this.description = description;
+        // this.distributionNetworkStatus = distributionNetworkStatus;
+        // this.boosterPumpOnline = boosterPumpOnline;
+        // this.typeOfPipe = typeOfPipe;
+        // this.transferLineLength = transferLineLength;
     }
     constructionType: ConstructionTypestring;
     description: string;
@@ -90,12 +96,14 @@ export class DistributionNetworkWaterShedAndCanals {
 }
 
 export class TankWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,currentTankStatus: string,
-                tankMaterialType: string,tankVolume: string){
-        this.constructionType = constructionType;
-        this.currentTankStatus = currentTankStatus;
-        this.tankMaterialType = tankMaterialType;
-        this.tankVolume = tankVolume;
+    constructor(
+        // constructionType: ConstructionTypestring,currentTankStatus: string,
+        //         tankMaterialType: string,tankVolume: string
+                ){
+        // this.constructionType = constructionType;
+        // this.currentTankStatus = currentTankStatus;
+        // this.tankMaterialType = tankMaterialType;
+        // this.tankVolume = tankVolume;
     }
     constructionType: ConstructionTypestring;
     currentTankStatus: string;
@@ -104,21 +112,25 @@ export class TankWaterShedAndCanals {
 }
 
 export class PumpStationWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,pumpStationStatus: string){
-        this.constructionType = constructionType;
-        this.pumpStationStatus = pumpStationStatus;
+    constructor(
+        //constructionType: ConstructionTypestring,pumpStationStatus: string
+        ){
+        // this.constructionType = constructionType;
+        // this.pumpStationStatus = pumpStationStatus;
     }
     constructionType: ConstructionTypestring;
     pumpStationStatus: string;
 }
 
 export class RefineryWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,refineryStatus: string,
-                electricalEquipmentStatus: string,refineryCapacity: string){
-        this.constructionType = constructionType;
-        this.refineryStatus = refineryStatus;
-        this.electricalEquipmentStatus = electricalEquipmentStatus;
-        this.refineryCapacity = refineryCapacity;
+    constructor(
+        // constructionType: ConstructionTypestring,refineryStatus: string,
+        //         electricalEquipmentStatus: string,refineryCapacity: string
+                ){
+        // this.constructionType = constructionType;
+        // this.refineryStatus = refineryStatus;
+        // this.electricalEquipmentStatus = electricalEquipmentStatus;
+        // this.refineryCapacity = refineryCapacity;
     }
     constructionType: ConstructionTypestring;
     refineryStatus: string;

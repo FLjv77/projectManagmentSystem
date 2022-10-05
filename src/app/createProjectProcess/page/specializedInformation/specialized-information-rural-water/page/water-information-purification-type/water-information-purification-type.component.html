@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngFor="let list of arrayList , let i = index" class="row">
+    <div *ngFor="let list of RefineryWaterShedAndCanalsList , let i = index" class="row">
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">تصفیه خانه : </h4>
         </div>
@@ -28,13 +28,16 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت تصفیه خانه'"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="informationStateControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="informationStateControl[i]"
+                     (changeValue)="setInformationState($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت تاسیسات برقی'"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="electricStateControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="electricStateControl[i]"
+                     (changeValue)="setElectricState($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'ظرفیت'" [type]="'number'"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="capacityStateControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="capacityStateControl[i]"
+                     (changeValue)="setCapacityState($event, i)"></app-input-style>
 
                      <div *ngIf="i-1>=0" class="row mx-auto">
                       <div class="mx-auto text-start" (click)="deleteList(i)">

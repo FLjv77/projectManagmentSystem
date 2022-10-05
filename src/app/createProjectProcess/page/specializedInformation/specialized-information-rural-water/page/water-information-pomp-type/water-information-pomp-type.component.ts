@@ -2,7 +2,8 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import { PumpStationWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { ConstructionTypestring, PumpStationWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { arrayMax } from 'highcharts';
 
 @Component({
   selector: 'app-water-information-pomp-type',
@@ -11,24 +12,21 @@ import { PumpStationWaterShedAndCanals } from 'src/app/createProjectProcess/mode
 })
 export class WaterInformationPompTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public pompStateControl = new FormControl();
-  public regionControl = new FormControl();
-  public stabilityResourceControl = new FormControl();
-  public debeyControl = new FormControl();
-  public ownerShipTypeControl = new FormControl();
-  public groundTypeControl = new FormControl();
-  public number = new FormControl();
-  @Output() validationForm = new EventEmitter<boolean>();
-  public arrayList: Array<string> = ['2223'];
-  public typeProject: projectType;
+  public pompStateControl = new Array<FormControl>();
+  @Output() pumpStation = new EventEmitter<PumpStationWaterShedAndCanals[]>();
+  public typeProject: ConstructionTypestring;
   public typeProjectList: Array<number> = [];
-  public pumpStation: PumpStationWaterShedAndCanals[] = [];
+  public PumpStationWaterShedAndCanalsList: PumpStationWaterShedAndCanals[] = [];
+
+  public lengthList: number;
+  public lengthListDeleted: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.subscribeChangeFormCoontrol();
+    this.PumpStationWaterShedAndCanalsList = new Array<PumpStationWaterShedAndCanals>;
+    this.addList();
   }
 
   private initInputStyle() {
@@ -37,70 +35,53 @@ export class WaterInformationPompTypeComponent implements OnInit {
     )
   }
 
-  private subscribeChangeFormCoontrol() {
-    this.pompStateControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
+  private subscribeChangeFormCoontrol(i: number) {
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+      || this.lengthList != this.lengthListDeleted) {
+      this.checkValidationForm(i);
+    }
 
-    this.regionControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.stabilityResourceControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.debeyControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.ownerShipTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.groundTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.number.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.pompStateControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
   }
 
-  private checkValidationForm() {
-    if(
-      this.pompStateControl.value &&
-      this.regionControl.value && 
-      this.stabilityResourceControl.value &&
-      this.debeyControl.value &&
-      this.ownerShipTypeControl.value &&
-      this.groundTypeControl.value &&
-      this.number.value
-    ) {
-      this.validationForm.emit(true);
+  private checkValidationForm(i: number) {
+    if(this.pompStateControl[i].value) {
+      this.pumpStation.emit(this.PumpStationWaterShedAndCanalsList);
     } else {
-      this.validationForm.emit(false);
+      this.pumpStation.emit(this.PumpStationWaterShedAndCanalsList);
     }
   }
 
   public addList(){
-    this.arrayList.push('222');
+    this.pompStateControl.push(new FormControl());
+    this.PumpStationWaterShedAndCanalsList.push(new PumpStationWaterShedAndCanals());
+    this.lengthList = this.PumpStationWaterShedAndCanalsList.length;
   }
 
-  public setTypeProject(state: projectType,index: number){
+  public setTypeProject(state: ConstructionTypestring,index: number){
     this.typeProject = state;
-    this.typeProjectList[index] = state;
+    this.PumpStationWaterShedAndCanalsList[index].constructionType = state;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setPompState(event: string, index: number) {
+    this.PumpStationWaterShedAndCanalsList[index].pumpStationStatus = event;
+    this.subscribeChangeFormCoontrol(index);
   }
 
   public deleteList(index: number){
-    this.arrayList.splice(index, 1);
+    this.PumpStationWaterShedAndCanalsList.splice(index, 1);
+    this.lengthListDeleted = this.PumpStationWaterShedAndCanalsList.length;
+    this.subscribeChangeFormCoontrol(index);
   }
 
-  public createList(){
-    for (let i = 0; i < this.arrayList.length; i++) {
-      this.pumpStation[i].pumpStationStatus = this.pompStateControl.value;
-      this.pumpStation[i].constructionType = this.typeProjectList[i];
-    }
-  }
+  // public createList(){
+  //   for (let i = 0; i < this.arrayList.length; i++) {
+  //     this.pumpStation[i].pumpStationStatus = this.pompStateControl.value;
+  //     this.pumpStation[i].constructionType = this.typeProjectList[i];
+  //   }
+  // }
 }

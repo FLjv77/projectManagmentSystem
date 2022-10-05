@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngFor="let list of arrayList , let i = index" class="row">
+    <div *ngFor="let list of TankWaterShedAndCanalsList , let i = index" class="row">
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">مخزن : </h4>
         </div>
@@ -28,11 +28,14 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت مخزن موجود'"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="sourceStateControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceStateControl[i]"
+                     (changeValue)="setSourceState($event, i)"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس مخزن '"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="sourceStaffControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceStaffControl[i]"
+                     (changeValue)="setSourceStaff($event, i)"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="2" class="col-12 mt-2" [inputLabel]="'حجم مخزن '" [type]="'number'"
-                     [inputId]="'resourceSaveWaterStateControl'" [inputFormControl]="sourceVolumeControl"></app-input-style>
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceVolumeControl[i]"
+                     (changeValue)="setSourceVolume($event, i)"></app-input-style>
 
                      <div *ngIf="i-1>=0" class="row mx-auto">
                       <div class="mx-auto text-start" (click)="deleteList(i)">

@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngFor="let list of arrayList , let i = index" class="row">
+    <div *ngFor="let list of PumpStationWaterShedAndCanalsList , let i = index" class="row">
         <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">ایستگاه پمپاژ : </h4>
         </div>
@@ -28,9 +28,8 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2"
-                     [inputLabel]="'وضعیت ایستگاه'"
-                     [inputId]="'pompStateControl'"
-                     [inputFormControl]="pompStateControl"></app-input-style>
+                     [inputLabel]="'وضعیت ایستگاه'" [inputId]="'pompStateControl'"
+                     [inputFormControl]="pompStateControl[i]" (changeValue)="setPompState($event, i)"></app-input-style>
 
         <div *ngIf="i-1>=0" class="row mx-auto">
                       <div class="mx-auto text-start" (click)="deleteList(i)">

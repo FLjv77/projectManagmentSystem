@@ -2,7 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import { RefineryWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { ConstructionTypestring, RefineryWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-purification-type',
@@ -11,26 +11,23 @@ import { RefineryWaterShedAndCanals } from 'src/app/createProjectProcess/model/s
 })
 export class WaterInformationPurificationTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public informationStateControl = new FormControl();
-  public electricStateControl = new FormControl();
-  public capacityStateControl = new FormControl();
-  public regionControl = new FormControl();
-  public stabilityResourceControl = new FormControl();
-  public debeyControl = new FormControl();
-  public ownerShipTypeControl = new FormControl();
-  public groundTypeControl = new FormControl();
-  public number = new FormControl();
-  @Output() validationForm = new EventEmitter<boolean>();
-  public arrayList: Array<string> = ['2223'];
-  public typeProject: projectType;
+  public informationStateControl = new Array<FormControl>();
+  public electricStateControl = new Array<FormControl>();
+  public capacityStateControl = new Array<FormControl>();
+  @Output() Refinery = new EventEmitter<RefineryWaterShedAndCanals[]>();
+  public typeProject: ConstructionTypestring;
   public typeProjectList: Array<number> = [];
-  public refineryList: RefineryWaterShedAndCanals[] = [];
+  public RefineryWaterShedAndCanalsList: RefineryWaterShedAndCanals[] = [];
+
+  public lengthList: number;
+  public lengthListDeleted: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.subscribeChangeFormCoontrol();
+    this.RefineryWaterShedAndCanalsList = new Array<RefineryWaterShedAndCanals>;
+    this.addList();
   }
 
   private initInputStyle() {
@@ -39,82 +36,79 @@ export class WaterInformationPurificationTypeComponent implements OnInit {
     )
   }
 
-  private subscribeChangeFormCoontrol() {
-    this.informationStateControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+  private subscribeChangeFormCoontrol(i: number) {
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+      || this.lengthList != this.lengthListDeleted) {
+      this.checkValidationForm(i);
+    }
+
+    this.informationStateControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.electricStateControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.electricStateControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.capacityStateControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.capacityStateControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
-
-    this.regionControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.stabilityResourceControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.debeyControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.ownerShipTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.groundTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.number.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
   }
 
-  private checkValidationForm() {
+  private checkValidationForm(i: number) {
     if(
-      this.informationStateControl.value &&
-      this.electricStateControl.value &&
-      this.capacityStateControl.value &&
-      this.regionControl.value && 
-      this.stabilityResourceControl.value &&
-      this.debeyControl.value &&
-      this.ownerShipTypeControl.value &&
-      this.groundTypeControl.value &&
-      this.number.value
+      this.informationStateControl[i].value &&
+      this.electricStateControl[i].value &&
+      this.capacityStateControl[i].value
     ) {
-      this.validationForm.emit(true);
+      this.Refinery.emit(this.RefineryWaterShedAndCanalsList);
     } else {
-      this.validationForm.emit(false);
+      this.Refinery.emit(this.RefineryWaterShedAndCanalsList);
     }
   }
 
   public addList(){
-    this.arrayList.push('222');
+    this.informationStateControl.push(new FormControl());
+    this.electricStateControl.push(new FormControl());
+    this.capacityStateControl.push(new FormControl());
+    this.RefineryWaterShedAndCanalsList.push(new RefineryWaterShedAndCanals());
+    this.lengthList = this.RefineryWaterShedAndCanalsList.length;
   }
-  public setTypeProject(state: projectType,index: number){
+
+  public setTypeProject(state: ConstructionTypestring,index: number){
     this.typeProject = state;
-    this.typeProjectList[index] = state;
+    this.RefineryWaterShedAndCanalsList[index].constructionType = state;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setInformationState(event: string, index: number) {
+    this.RefineryWaterShedAndCanalsList[index].refineryStatus = event;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setCapacityState(event: string, index: number) {
+    this.RefineryWaterShedAndCanalsList[index].refineryCapacity = event;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setElectricState(event: string, index: number) {
+    this.RefineryWaterShedAndCanalsList[index].electricalEquipmentStatus = event;
+    this.subscribeChangeFormCoontrol(index);
   }
 
   public deleteList(index: number){
-    this.arrayList.splice(index, 1);
+    this.RefineryWaterShedAndCanalsList.splice(index, 1);
+    this.lengthListDeleted = this.RefineryWaterShedAndCanalsList.length;
+    this.subscribeChangeFormCoontrol(index);
   }
 
-  public createList(){
-    for (let i = 0; i < this.arrayList.length; i++) {
-      this.refineryList[i].constructionType = this.typeProjectList[i];
-      this.refineryList[i].refineryStatus = this.informationStateControl.value;
-      this.refineryList[i].refineryCapacity = this.capacityStateControl.value;
-      this.refineryList[i].electricalEquipmentStatus = this.electricStateControl.value;
-    }
-  }
+  // public createList(){
+  //   for (let i = 0; i < this.arrayList.length; i++) {
+  //     this.refineryList[i].constructionType = this.typeProjectList[i];
+  //     this.refineryList[i].refineryStatus = this.informationStateControl.value;
+  //     this.refineryList[i].refineryCapacity = this.capacityStateControl.value;
+  //     this.refineryList[i].electricalEquipmentStatus = this.electricStateControl.value;
+  //   }
+  // }
   
 }

@@ -2,7 +2,7 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import { FountainWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { ConstructionTypestring, FountainWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-water-information-fountain-type',
@@ -11,24 +11,21 @@ import { FountainWaterShedAndCanals } from 'src/app/createProjectProcess/model/s
 })
 export class WaterInformationFountainTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public regionControl = new FormControl();
-  public stabilityResourceControl = new FormControl();
-  public debeyControl = new FormControl();
-  public ownerShipTypeControl = new FormControl();
-  public groundTypeControl = new FormControl();
-  public number = new FormControl();
-  public description = new FormControl();
-  @Output() validationForm = new EventEmitter<boolean>();
-  public arrayList: Array<string> = ['2223'];
-  public typeProject: projectType;
+  public description = new Array<FormControl>();
+  @Output() fountainList = new EventEmitter<FountainWaterShedAndCanals[]>();
+  public typeProject: ConstructionTypestring;
   public typeProjectList: Array<number> =[];
-  public fountain: FountainWaterShedAndCanals[] = [];
+  public FountainWaterShedAndCanalsList: FountainWaterShedAndCanals[];
+
+  public lengthList: number;
+  public lengthListDeleted: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.subscribeChangeFormCoontrol();
+    this.FountainWaterShedAndCanalsList = new Array<FountainWaterShedAndCanals>;
+    this.addList();
   }
 
   private initInputStyle() {
@@ -37,64 +34,52 @@ export class WaterInformationFountainTypeComponent implements OnInit {
     )
   }
 
-  private subscribeChangeFormCoontrol() {
-    this.regionControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
+  private subscribeChangeFormCoontrol(i:number) {
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+      || this.lengthList != this.lengthListDeleted) {
+      this.checkValidationForm(i);
+    }
 
-    this.stabilityResourceControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.debeyControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.ownerShipTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.groundTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.number.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.description[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
   }
 
-  private checkValidationForm() {
-    if(
-      this.regionControl.value && 
-      this.stabilityResourceControl.value &&
-      this.debeyControl.value &&
-      this.ownerShipTypeControl.value &&
-      this.groundTypeControl.value &&
-      this.number.value
-    ) {
-      this.validationForm.emit(true);
+  private checkValidationForm(i: number) {
+    if(this.description[i].value) {
+      this.fountainList.emit(this.FountainWaterShedAndCanalsList);
     } else {
-      this.validationForm.emit(false);
+      this.fountainList.emit(this.FountainWaterShedAndCanalsList);
     }
   }
 
   public addList(){
-    this.arrayList.push('222');
+    this.description.push(new FormControl());
+    this.FountainWaterShedAndCanalsList.push(new FountainWaterShedAndCanals());
+    this.lengthList = this.FountainWaterShedAndCanalsList.length;
   }
 
-  public setTypeProject(state: projectType,index: number){
+  public setTypeProject(state: ConstructionTypestring,index: number){
     this.typeProject = state;
-    this.typeProjectList[index] = state;
+    this.FountainWaterShedAndCanalsList[index].constructionType = state;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setDescription(event: string, index: number) {
+    this.FountainWaterShedAndCanalsList[index].description = event;
+    this.subscribeChangeFormCoontrol(index);
   }
 
   public deleteList(index: number){
-    this.arrayList.splice(index, 1);
+    this.FountainWaterShedAndCanalsList.splice(index, 1);
+    this.lengthListDeleted = this.FountainWaterShedAndCanalsList.length;
+    this.subscribeChangeFormCoontrol(index);
   }
 
-  public createList(){
-    for (let i = 0; i < this.arrayList.length; i++) {
-      this.fountain[i].description = this.description.value;
-      this.fountain[i].constructionType = this.typeProjectList[i];
-    }
-  }
+  // public createList(){
+  //   for (let i = 0; i < this.arrayList.length; i++) {
+  //     this.fountain[i].description = this.description.value;
+  //     this.fountain[i].constructionType = this.typeProjectList[i];
+  //   }
+  // }
 }

@@ -5,6 +5,7 @@ import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateA
 import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
 import {GroundType, ProjectRuralWater} from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
+import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-specialized-information-rural-water',
@@ -59,6 +60,13 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public inputSelect6: boolean = false;
   public inputSelect7: boolean = false;
   public inputSelect8: boolean = false;
+
+  public damList: DamWaterShedAndCanals[] = [];
+  public networkWater: DistributionNetworkWaterShedAndCanals[] = [];
+  public FountainList: FountainWaterShedAndCanals[] = [];
+  public PumpStationList: PumpStationWaterShedAndCanals[] = [];
+  public RefineryList: RefineryWaterShedAndCanals[] = [];
+  public TankList: TankWaterShedAndCanals[] = [];
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
 
@@ -166,6 +174,38 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   //     (this.equipmentControl.value || this.equipmentList) &&
   //     (this.requirementControl.value || this.requirementList) && this.projectRuralWaterArea >= 0 && this.groundType >= 0;
   // }
+
+  public setDamList(list: DamWaterShedAndCanals[]){
+    this.damList = list;
+    this.inputSelect2 = true;
+  }
+
+  public setNetworkWaterShedList(list: DistributionNetworkWaterShedAndCanals[]){
+    this.networkWater = list;
+    this.inputSelect3 = true;
+  }
+
+  public setFountainList(list: FountainWaterShedAndCanals[]){
+    this.FountainList = list;
+    this.inputSelect1 = true;
+  }
+
+  public setPumpStation(list: PumpStationWaterShedAndCanals[]){
+    this.PumpStationList = list;
+    this.inputSelect5 = true;
+  }
+
+  public setRefinery(list: RefineryWaterShedAndCanals[]){
+    this.RefineryList = list;
+    this.inputSelect6 = true;
+  }
+
+  public setTank(list: TankWaterShedAndCanals[]){
+    this.TankList = list;
+    console.log(this.TankList);
+    
+    this.inputSelect4 = true;
+  }
 
   public handleSubOption(num:number,state: boolean) {
     if (num==0) {
