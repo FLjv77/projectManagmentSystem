@@ -166,14 +166,16 @@ export class DikeWaterShedAndCanals {
 }
 
 export class TransferLineWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,transferLineStatus: string,transferLineType: string,
-                transferLineLenght: number,transferLineSource:	number,transferLineDestination: number){
-        this.constructionType = constructionType;
-        this.transferLineStatus = transferLineStatus;
-        this.transferLineType = transferLineType;
-        this.transferLineLenght = transferLineLenght;
-        this.transferLineSource = transferLineSource;
-        this.transferLineDestination = transferLineDestination;
+    constructor(
+        // constructionType: ConstructionTypestring,transferLineStatus: string,transferLineType: string,
+        //         transferLineLenght: number,transferLineSource:	number,transferLineDestination: number
+                ){
+        // this.constructionType = constructionType;
+        // this.transferLineStatus = transferLineStatus;
+        // this.transferLineType = transferLineType;
+        // this.transferLineLenght = transferLineLenght;
+        // this.transferLineSource = transferLineSource;
+        // this.transferLineDestination = transferLineDestination;
     }
     constructionType: ConstructionTypestring;
     transferLineStatus: string;

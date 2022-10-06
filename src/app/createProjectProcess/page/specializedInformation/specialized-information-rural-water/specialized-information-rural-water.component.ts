@@ -5,7 +5,7 @@ import {StateAndZoneIranModel} from "../../../model/stateAndZoneIranModel/stateA
 import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
 import {GroundType, ProjectRuralWater} from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
-import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 
 @Component({
   selector: 'app-specialized-information-rural-water',
@@ -67,6 +67,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public PumpStationList: PumpStationWaterShedAndCanals[] = [];
   public RefineryList: RefineryWaterShedAndCanals[] = [];
   public TankList: TankWaterShedAndCanals[] = [];
+  public TransferLineList: TransferLineWaterShedAndCanals[] = [];
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
 
@@ -202,9 +203,12 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
 
   public setTank(list: TankWaterShedAndCanals[]){
     this.TankList = list;
-    console.log(this.TankList);
-    
     this.inputSelect4 = true;
+  }
+
+  public setTransferLine(list: TransferLineWaterShedAndCanals[]){
+    this.TransferLineList = list;
+    this.inputSelect8 = true;
   }
 
   public handleSubOption(num:number,state: boolean) {

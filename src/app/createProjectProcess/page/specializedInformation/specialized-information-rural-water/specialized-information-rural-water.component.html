@@ -87,7 +87,7 @@
           </section>
         </div>
 
-        <app-water-information-transfer-line-type (validationForm)="handleSubOption(8,$event)" *ngIf="select8"></app-water-information-transfer-line-type>
+        <app-water-information-transfer-line-type (transferLineList)="setTransferLine($event)" *ngIf="select8"></app-water-information-transfer-line-type>
         <app-water-information-water-seal-type (validationForm)="handleSubOption(7,$event)" *ngIf="select7"></app-water-information-water-seal-type>
         <app-water-information-purification-type (Refinery)="setRefinery($event)" *ngIf="select6"></app-water-information-purification-type>
         <app-water-information-pomp-type (pumpStation)="setPumpStation($event)" *ngIf="select5"></app-water-information-pomp-type>
