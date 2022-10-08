@@ -1,3 +1,7 @@
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { KnowledgeBased } from 'src/app/createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
+import { RoadTypestring } from './../../../model/specializedInformation/modifyRuralRoadSpeceficDetail';
+import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -20,33 +24,35 @@ import { Location } from '../../project-creation-levels/page/pproject-location-i
 })
 export class SpecializedInformationRuralWayComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public roadWidth = new FormControl();
-  public roadLength = new FormControl();
+  public roadWidth = new Array<FormControl>();
+  public roadLength = new Array<FormControl>();
   public LocationFormControl = new FormControl();
-  public projectId: string;
-  // public number = new FormControl();
-
-  public wayType: WayType;
-  public targetWayType: WayType;
+  public projectId: string|null;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
   public typeProject: projectType;
-  public arrayList: Array<string> = ['2223'];
-  public ruralRoadSpeceficDetail : RuralRoadSpeceficDetailDTO;
-  public typeProjectList: Array<number> = [];
-  public WayTypeList: Array<number> = [];
   public targetWayTypeList: Array<number> = [];
-  public ruralRoadList :Array<RuralRoad> =[];
+  public ruralRoadList :Array<RuralRoad>;
   private locations: Location[];
+  private index: number;
 
   constructor(private router:Router, private activeRouting:ActivatedRoute,
-              private specializedInformationService:SpecializedInformationService) { }
+              private specializedInformationService:SpecializedInformationService,
+              private activeRoute :ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
+    this.ruralRoadList = new Array<RuralRoad>;
+    this.addList();
     this.getLocation();
+    this.getQuery();
+  }
+
+  private getQuery(){
+    //this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
+    this.projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
   }
 
   private initDisplayPath() {
@@ -62,41 +68,52 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   }
 
   public checkValidation(): boolean {
-    let res = false;
-    if(
-      this.roadWidth.value &&
-      this.roadLength.value 
-      //&& this.number.value
-    ) res = true;
+    let res = true;
+    for(let i=0; i<this.ruralRoadList.length; i++) {
+      if(
+        this.roadWidth[i].value &&
+        this.roadLength[i].value) res = true;
+        else {
+          res = false; break;
+        }
+    }
     return res;
   }
 
-  public setWayType(num:number,state: WayType,index: number) {
-    if (num==1) {
-      this.wayType = state;
-      this.WayTypeList[index] = state;
-    }
-    else if(num==2){
-      this.targetWayType = state;
-      this.targetWayTypeList[index] = state;
-    }
-    
+  public setWayType1(state: RoadTypestring,index: number) {
+    this.ruralRoadList[index].currentRoadType = state;
   }
 
-  public setTypeProject(state: projectType,index: number){
-    this.typeProject = state;
-    this.typeProjectList[index] = state;
+  public setWayType2(state: RoadTypestring,index: number) {
+    this.ruralRoadList[index].targetRoadType = state;
   }
 
-  public addList(){
-    this.arrayList.push('222');
+  public setTypeProject(state: ConstructionTypestring, index: number) {
+    this.ruralRoadList[index].constructionType = state;
+  }
+
+  public set_roadWidth(state: string, index: number) {
+    this.ruralRoadList[index].roadWidth = Number(state);
+  }
+
+  public set_roadLength(state: string, index: number) {
+    this.ruralRoadList[index].roadLength = Number(state);
+    this.ruralRoadList[this.index].latitude = 0;
+    this.ruralRoadList[this.index].roadLongitude = 0;
+  }
+
+  public addList() {
+    this.roadWidth.push(new FormControl());
+    this.roadLength.push(new FormControl());
+    this.ruralRoadList.push(new RuralRoad());
   }
 
   public deleteList(index: number){
-    this.arrayList.splice(index, 1);
+    this.ruralRoadList.splice(index, 1);
   }
 
-  public goOnMap() {
+  public goOnMap(i: number) {
+    this.index = i;
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
@@ -108,22 +125,22 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   private getLocation() {
     let location = this.activeRouting.snapshot.queryParamMap.get('locations');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
-    if (location !== null) this.locations = JSON.parse(location);
+    if (location !== null) {
+      this.locations[this.index] = JSON.parse(location);
+      //this.ruralRoadList[this.index].latitude = this.locations[0].x_pos;
+      //this.ruralRoadList[this.index].roadLongitude = this.locations[0].y_pos;
+    }
+
+    
 
     this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
   }
 
   public sendWayInfo(){
-    for (let i = 0; i < this.arrayList.length; i++) {
-      this.ruralRoadList[i].constructionType = this.typeProjectList[i];
-      this.ruralRoadList[i].currentRoadType = this.WayTypeList[i];
-      this.ruralRoadList[i].targetRoadType = this.targetWayTypeList[i];
-      this.ruralRoadList[i].roadLength = this.roadLength.value;
-      this.ruralRoadList[i].roadWidth = this.roadWidth.value;
-      this.ruralRoadList[i].roadLongitude = this.locations[0].x_pos;
-      this.ruralRoadList[i].latitude = this.locations[0].y_pos;
-      console.log(this.ruralRoadList)
-    }
-    this.specializedInformationService.ModifyRuralRoadSpeceficDetail(this.projectId,this.ruralRoadSpeceficDetail);
+    this.specializedInformationService.ModifyRuralRoadSpeceficDetail(this.projectId, new RuralRoadSpeceficDetailDTO(this.ruralRoadList))
+    .subscribe((res: ApiResult<RuralRoadSpeceficDetailDTO>)=>{
+      console.log(res);
+      
+    });
   }
 }

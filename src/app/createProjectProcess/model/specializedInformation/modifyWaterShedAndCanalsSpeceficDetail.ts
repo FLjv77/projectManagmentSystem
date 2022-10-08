@@ -23,13 +23,15 @@ export enum WaterShedAndCanalsScopestring {
 }
 
 export class PitWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,coveredLandArea: string,pitDiameter: string,
-                tubeLenght: string,coolLenght:	string){
-        this.constructionType = constructionType;
-        this.coveredLandArea = coveredLandArea;
-        this.pitDiameter = pitDiameter;
-        this.tubeLenght = tubeLenght;
-        this.coolLenght = coolLenght;
+    constructor(
+        // constructionType: ConstructionTypestring,coveredLandArea: string,pitDiameter: string,
+        //         tubeLenght: string,coolLenght:	string
+                ){
+        // this.constructionType = constructionType;
+        // this.coveredLandArea = coveredLandArea;
+        // this.pitDiameter = pitDiameter;
+        // this.tubeLenght = tubeLenght;
+        // this.coolLenght = coolLenght;
     }
     constructionType: ConstructionTypestring;
     coveredLandArea: string;
@@ -139,19 +141,21 @@ export class RefineryWaterShedAndCanals {
 }
 
 export class DikeWaterShedAndCanals {
-    constructor(constructionType: ConstructionTypestring,riverName: string,waterProviderResourceStatus: string,
-                pumping: number,dam: string,riverWidth: number,dikeMaterialType: number,width: number,length: number,
-                height: number){
-        this.constructionType = constructionType;
-        this.riverName = riverName;
-        this.waterProviderResourceStatus = waterProviderResourceStatus;
-        this.pumping = pumping;
-        this.dam = dam;
-        this.riverWidth = riverWidth;
-        this.dikeMaterialType = dikeMaterialType;
-        this.width = width;
-        this.length = length;
-        this.height = height;
+    constructor(
+        // constructionType: ConstructionTypestring,riverName: string,waterProviderResourceStatus: string,
+        //         pumping: number,dam: string,riverWidth: number,dikeMaterialType: number,width: number,length: number,
+        //         height: number
+                ){
+        // this.constructionType = constructionType;
+        // this.riverName = riverName;
+        // this.waterProviderResourceStatus = waterProviderResourceStatus;
+        // this.pumping = pumping;
+        // this.dam = dam;
+        // this.riverWidth = riverWidth;
+        // this.dikeMaterialType = dikeMaterialType;
+        // this.width = width;
+        // this.length = length;
+        // this.height = height;
     }
     constructionType: ConstructionTypestring;
     riverName: string;

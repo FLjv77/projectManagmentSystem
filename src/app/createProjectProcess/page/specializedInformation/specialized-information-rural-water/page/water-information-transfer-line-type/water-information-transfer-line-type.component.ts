@@ -1,10 +1,7 @@
-import { projectType } from './../../../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Component, OnInit,EventEmitter, Output} from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 import { ConstructionTypestring, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { arrayMax } from 'highcharts';
-import { number } from 'echarts';
 
 @Component({
   selector: 'app-water-information-transfer-line-type',
