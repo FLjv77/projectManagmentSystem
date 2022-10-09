@@ -445,7 +445,6 @@ export class TimeLineChartActivityComponent implements OnInit {
   }
 
   createGanttOptionData(siries: any){
-    console.log(siries);
     siries.forEach((elem: any) =>{
       elem.point = { events: { click: this.updateSelectedElement } }
     });
@@ -576,7 +575,6 @@ export class TimeLineChartActivityComponent implements OnInit {
   }
 
   updateSelectedElement(){
-    console.log(this)
   }
 
 }

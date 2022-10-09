@@ -30,14 +30,14 @@ export class SpecializedInformationService {
   }
 
   public ModifySocialTransformationSpeceficDetail(projectId : string, socialTransformationSpeceficDetailDTO: SocialTransformationSpeceficDetailDTO): Observable<ApiResult<SocialTransformationSpeceficDetailDTO>>{
-    return this.http.post<ApiResult<SocialTransformationSpeceficDetailDTO>>(url.ModifySocialTransformationSpeceficDetail + projectId , socialTransformationSpeceficDetailDTO);
+    return this.http.put<ApiResult<SocialTransformationSpeceficDetailDTO>>(url.ModifySocialTransformationSpeceficDetail + projectId , socialTransformationSpeceficDetailDTO);
   }
 
   public ModifyRevivalIndustrySpeceficDetail(projectId : string, revivalIndustrySpeceficDetailDTO: RevivalIndustrySpeceficDetailDTO): Observable<ApiResult<RevivalIndustrySpeceficDetailDTO>>{
-    return this.http.post<ApiResult<RevivalIndustrySpeceficDetailDTO>>(url.ModifyRevivalIndustrySpeceficDetail + projectId , revivalIndustrySpeceficDetailDTO);
+    return this.http.put<ApiResult<RevivalIndustrySpeceficDetailDTO>>(url.ModifyRevivalIndustrySpeceficDetail + projectId , revivalIndustrySpeceficDetailDTO);
   }
 
   public ModifyGetHealthSpeceficDetail(projectId : string, healthSpeceficDetailDTO: HealthSpeceficDetailDTO): Observable<ApiResult<HealthSpeceficDetailDTO>>{
-    return this.http.post<ApiResult<HealthSpeceficDetailDTO>>(url.ModifyGetHealthSpeceficDetail + projectId , healthSpeceficDetailDTO);
+    return this.http.put<ApiResult<HealthSpeceficDetailDTO>>(url.ModifyGetHealthSpeceficDetail + projectId , healthSpeceficDetailDTO);
   }
 }

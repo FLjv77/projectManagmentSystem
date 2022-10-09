@@ -3,13 +3,31 @@ import { ConstructionTypestring } from './modifyWaterShedAndCanalsSpeceficDetail
 export class SocialTransformationSpeceficDetailDTO {
     addicions: SocialTransformationAddicion[];
     campConstructions: SocialTransformationCampConstruction[];
-    divorces: SocialTransformationDivorce;
+    divorces: SocialTransformationDivorce[];
     unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[];
-    needies: SocialTransformationNeedy[];
     bannedFromEducations: SocialTransformationBannedFromEducation[];
     segmentations: SocialTransformationSegmentation[];
-    childLabours: SocialTransformationChildLabour[];
     specialPatients: SocialTransformationSpecialPatient[];
+    Needies = [];
+    Divorces = [];
+    ChildLabours = [];
+    constructor(
+      addicions: SocialTransformationAddicion[],
+      campConstructions: SocialTransformationCampConstruction[],
+      divorces: SocialTransformationDivorce[],
+      unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[],
+      bannedFromEducations: SocialTransformationBannedFromEducation[],
+      segmentations: SocialTransformationSegmentation[],
+      specialPatients: SocialTransformationSpecialPatient[]
+    ) {
+      this.addicions = addicions;
+      this.campConstructions = campConstructions;
+      this.divorces = divorces;
+      this.unintentionalPrisoners = unintentionalPrisoners;
+      this.bannedFromEducations = bannedFromEducations;
+      this.segmentations = segmentations;
+      this.specialPatients = specialPatients;
+    }
 }
 
 export class SocialTransformationAddicion {
@@ -19,33 +37,20 @@ export class SocialTransformationAddicion {
 }
 
 export class SocialTransformationCampConstruction {
-    constructor(numberOfCamp: number,addictedCapacity: number,numberOfFloor: number){
-        this.numberOfCamp = numberOfCamp;
-        this.addictedCapacity = addictedCapacity;
-        this.numberOfFloor = numberOfFloor;
-    }
+    constructor(){}
     numberOfCamp: number;
     addictedCapacity: number;
     numberOfFloor: number;
 }
 
 export class SocialTransformationDivorce {
-    constructor(numberOfConsultationWorkShopn: number,amountOfFacilities: number){
-        this.numberOfConsultationWorkShopn = numberOfConsultationWorkShopn;
-        this.amountOfFacilities = amountOfFacilities;
-    }
+    constructor() {}
     numberOfConsultationWorkShopn: number;
     amountOfFacilities: number;
 }
 
 export class SocialTransformationUnintentionalPrisoner {
-    constructor(constructionType: ConstructionTypestring,amountOfElectronicFootCuffs: number,cost: string,
-                amountOfFacilities:	number,crimeType:	string){
-        this.constructionType = constructionType;
-        this.amountOfElectronicFootCuffs = amountOfElectronicFootCuffs;
-        this.cost = cost;
-        this.amountOfFacilities = amountOfFacilities;
-        this.crimeType = crimeType;
+    constructor(){
     }
     constructionType: ConstructionTypestring;
     amountOfElectronicFootCuffs: number;
@@ -55,31 +60,20 @@ export class SocialTransformationUnintentionalPrisoner {
 }
 
 export class SocialTransformationBannedFromEducation {
-    constructor(amountOfEducationalPackage:	number,educationalCost: number,coveredPerson: number){
-        this.amountOfEducationalPackage = amountOfEducationalPackage;
-        this.educationalCost = educationalCost;
-        this.coveredPerson = coveredPerson;
-    }
+    constructor() {}
     amountOfEducationalPackage:	number;
     educationalCost: number;
     coveredPerson: number;
 }
 
 export class  SocialTransformationSegmentation {
-    constructor(subsitencePackage:number,costOfPackage:number){
-        this.subsitencePackage = subsitencePackage;
-        this.costOfPackage = costOfPackage;
-    }
+    constructor() {}
     subsitencePackage:	number;
     costOfPackage:	number;
 }
 
 export class SocialTransformationSpecialPatient {
-    constructor(numberOfDrugPackages: number,amountOfMedicineFacilities:number,numberOfCoveredPatients: number){
-        this.numberOfDrugPackages = numberOfDrugPackages;
-        this.amountOfMedicineFacilities = amountOfMedicineFacilities;
-        this.numberOfCoveredPatients = numberOfCoveredPatients;
-    }
+    constructor() {}
     numberOfDrugPackages: number;
     amountOfMedicineFacilities:	number;
     numberOfCoveredPatients: number;

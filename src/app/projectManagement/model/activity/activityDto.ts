@@ -20,6 +20,33 @@ export class CreateActivityDependency{
   dependencyActivity: DependencyActivitystring;
 }
 
+export class CreateActivityDTO {
+  name: string;
+  startOfActivity: string;
+  endOfActivity: string
+  approximateCost: number;
+  timeWeight: number;
+  costWeight: number;
+  description: string;
+  constructor(
+    name: string,
+    startOfActivity: string,
+    endOfActivity: string,
+    approximateCost: number,
+    timeWeight: number,
+    costWeight: number,
+    description: string,
+  ) {
+    this.name = name;
+    this.startOfActivity = startOfActivity;
+    this.endOfActivity = endOfActivity;
+    this.approximateCost = approximateCost;
+    this.timeWeight = timeWeight;
+    this.costWeight = timeWeight;
+    this.description = description;
+  }
+  }
+
 export enum DependencyActivitystring {
   none, fs, ss, ff, sf
 }

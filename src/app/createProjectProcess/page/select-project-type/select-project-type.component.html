@@ -1,6 +1,7 @@
 <div class="wrapper set-font-Raymon">
-  <app-display-user-path [path1]="path1"></app-display-user-path>
-    <div class="mx-4 bg-levels px-0">
+  <app-display-user-path (companyIdSelected)="saveSelectedCompanyId($event)" [path1]="path1" [showCompanyList]="true"></app-display-user-path>
+    <div class="mx-4 bg-levels px-0 position-relative">
+      <div *ngIf="!companyId" class="glass-disable"></div>
         <div class="circle__row">
             <div (click)="goToCreateProjectSteps(9, 'آب خیر وقنوات')" class="circle">
               <img class="circle--image" src="../../../../assets/image/projectType/ssss.png" />

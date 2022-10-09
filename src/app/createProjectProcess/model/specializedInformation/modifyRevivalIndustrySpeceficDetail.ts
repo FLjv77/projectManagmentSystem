@@ -1,11 +1,12 @@
 export class RevivalIndustrySpeceficDetailDTO {
+  constructor(revivalIndustries:	RevivalIndustry[]) {
+    this.revivalIndustries = revivalIndustries;
+  }
     revivalIndustries:	RevivalIndustry[];
 }
 
 export class RevivalIndustry {
-    constructor(amountOfFacilities: number,numberOfIndustry: number){
-        this.amountOfFacilities = amountOfFacilities;
-        this.numberOfIndustry = numberOfIndustry;
+    constructor(){
     }
     amountOfFacilities: number;
     numberOfIndustry: number;
