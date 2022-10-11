@@ -1,24 +1,39 @@
 import { ConstructionTypestring } from './modifyWaterShedAndCanalsSpeceficDetail';
 
 export class HealthSpeceficDetailDTO {
-    hospitals: HealthHospital[];
-    healthHouses: HealthHealthHouse[];
-    insurances: HealthInsurance[];
-    healthPharmacies: HealthPharmacy[];
-    healthBathrooms: HealthBathroom[];
-    healthToilets: HealthToilet[];
-    healthVaccinations: HealthVaccination[];
-    treatments:	HealthTreatment[];
-    medicines: HealthMedicine[];
+  constructor(  hospitals: HealthHospital[],
+    healthHouses: HealthHealthHouse[],
+    insurances: HealthInsurance[],
+    healthPharmacies: HealthPharmacy[],
+    healthBathrooms: HealthBathroom[],
+    healthToilets: HealthToilet[],
+    healthVaccinations: HealthVaccination[],
+    treatments:	HealthTreatment[],
+    medicines: HealthMedicine[]) {
+
+      this.hospitals = hospitals;
+      this.healthHouses = healthHouses;
+      this.insurances = insurances;
+      this.healthPharmacies = healthPharmacies;
+      this.healthBathrooms = healthBathrooms;
+      this.healthToilets = healthToilets;
+      this.healthVaccinations = healthVaccinations;
+      this.treatments = treatments;
+      this.medicines = medicines;
+  }
+  hospitals: HealthHospital[];
+  healthHouses: HealthHealthHouse[];
+  insurances: HealthInsurance[];
+  healthPharmacies: HealthPharmacy[];
+  healthBathrooms: HealthBathroom[];
+  healthToilets: HealthToilet[];
+  healthVaccinations: HealthVaccination[];
+  treatments:	HealthTreatment[];
+  medicines: HealthMedicine[];
 }
 
 export class HealthHospital {
-    constructor(constructionType: ConstructionTypestring,numberofHospital: number,countOfFloors: number,countOfBeds: number){
-        this.constructionType = constructionType;
-        this.numberofHospital = numberofHospital;
-        this.countOfBeds = countOfBeds;
-        this.countOfFloors = countOfFloors;
-    }
+    constructor() {}
     constructionType: ConstructionTypestring;
     numberofHospital: number;
     countOfFloors: number;
@@ -26,15 +41,7 @@ export class HealthHospital {
 }
 
 export class HealthHealthHouse {
-    constructor(constructionType: ConstructionTypestring,numberOfHealthHouse: number,
-                meterage: number,numberOfBeds: number,numberOfDoctor: number,numberOfNurse: number){
-        this.constructionType = constructionType;
-        this.numberOfHealthHouse = numberOfHealthHouse;
-        this.meterage = meterage;
-        this.numberOfBeds = numberOfBeds;
-        this.numberOfDoctor = numberOfDoctor;
-        this.numberOfNurse = numberOfNurse;
-    }
+    constructor() {}
     constructionType: ConstructionTypestring;
     numberOfHealthHouse: number;
     meterage: number;
@@ -44,54 +51,39 @@ export class HealthHealthHouse {
 }
 
 export class HealthInsurance {
-    constructor(numberOfPeopleCoveredByInsurance: number){
-        this.numberOfPeopleCoveredByInsurance = numberOfPeopleCoveredByInsurance;
-    }
+    constructor() {}
     numberOfPeopleCoveredByInsurance: number;
 }
 
 export class HealthPharmacy {
-    constructor(numberOfPharmacy: number){
-        this.numberOfPharmacy = numberOfPharmacy;
-    }
+    constructor() {}
     numberOfPharmacy: number;
 }
 
 export class HealthBathroom {
-    constructor(numberOfBathroom: number){
-        this.numberOfBathroom = numberOfBathroom;
-    }
+    constructor() {}
     numberOfBathroom: number;
 }
 
 export class HealthToilet {
-    constructor(numberOfToilet: number){
-        this.numberOfToilet = numberOfToilet;
+    constructor() {
     }
     numberOfToilet: number;
 }
 
 export class HealthVaccination {
-    constructor(numberOfVaccination: number){
-        this.numberOfVaccination = numberOfVaccination;
-    }
+    constructor() {}
     numberOfVaccination: number;
 }
 
 export class HealthTreatment {
-    constructor(typeOfDisease:	string,numberOftTreatment:	string){
-        this.typeOfDisease = typeOfDisease;
-        this.numberOftTreatment = numberOftTreatment;
-    }
+    constructor() {}
     typeOfDisease:	string;
     numberOftTreatment:	string;
 }
 
 export class HealthMedicine {
-    constructor(typeOfMedicine:	string,countOfMedicine: string){
-        this.typeOfMedicine = typeOfMedicine;
-        this.countOfMedicine = countOfMedicine;
-    }
+    constructor() {}
     typeOfMedicine:	string;
     countOfMedicine: string;
 }

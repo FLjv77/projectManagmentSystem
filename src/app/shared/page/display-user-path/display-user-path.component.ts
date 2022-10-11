@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DisplayPathModel} from "../../model/displayPathModel";
 import {Router} from "@angular/router";
 
@@ -15,6 +15,8 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path3: DisplayPathModel;
   @Input() showProjectList: boolean;
   @Input() showCompanyList: boolean;
+  @Output() companyIdSelected = new EventEmitter<string | string[]>();
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

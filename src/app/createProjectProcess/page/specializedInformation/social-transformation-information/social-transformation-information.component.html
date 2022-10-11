@@ -74,10 +74,10 @@
               </mat-radio-group>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'"
-              [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]"></app-input-style>
+              [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"
-              [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]"></app-input-style>
+              [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
 
               <div *ngIf="i-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteListAddicion(i)">
@@ -100,7 +100,7 @@
 
 
           <div *ngIf="select1">
-            <div *ngFor="let list1 of arrayList1 , let j = index" class="row">
+            <div *ngFor="let list1 of arrayListBuildingCamp , let j = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">ساخت کمپ : </h4>
               </div>
@@ -120,11 +120,17 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberCamp'" [type]="'number'" [inputFormControl]="numberCamp"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'ظرفیت بیمار یا معتاد'" [inputId]="'Capacity'" [type]="'number'" [inputFormControl]="Capacity"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [inputId]="'numberFloors'" [type]="'number'" [inputFormControl]="numberFloors"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+              [inputId]="'numberCamp' + j" [type]="'number'" [inputFormControl]="numberCamp[j]" (changeValue)="observeChange_numberCamp($event, j)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'ظرفیت بیمار یا معتاد'"
+               [inputId]="'Capacity' + j" [type]="'number'" [inputFormControl]="Capacity[j]" (changeValue)="observeChange_Capacity($event, j)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+               [inputId]="'numberFloors' + j" [type]="'number'" [inputFormControl]="numberFloors[j]" (changeValue)="observeChange_numberFloors($event, j)"></app-input-style>
+
               <div *ngIf="j-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList1,j)">
+                <div class="mx-auto text-start" (click)="deleteListBuildingCamp(j)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -133,7 +139,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList1)">
+              <div class="mx-auto text-start" (click)="addListBuildingCamp()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن کارگاه جدید">
@@ -142,8 +148,9 @@
             </div>
           </div>
 
+
           <div *ngIf="select2">
-            <div *ngFor="let list2 of arrayList2 , let k = index" class="row">
+            <div *ngFor="let list2 of arrayListDivorce; let k = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">طلاق : </h4>
               </div>
@@ -163,10 +170,14 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'" [inputId]="'consultantWorkshops'" [type]="'number'" [inputFormControl]="consultantWorkshops"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountDivorceGivenFacilities'" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'"
+               [inputId]="'consultantWorkshops' + k" [type]="'number'" [inputFormControl]="consultantWorkshops[k]" (changeValue)="observeChange_amountDivorceGivenFacilities($event, k)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
+              [inputId]="'amountDivorceGivenFacilities' + k" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities[k]" (changeValue)="observeChange_consultantWorkshops($event, k)"></app-input-style>
+
               <div *ngIf="k-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList2,k)">
+                <div class="mx-auto text-start" (click)="deleteListDivorce(k)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -175,7 +186,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList2)">
+              <div class="mx-auto text-start" (click)="addListDivorce()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن پروژه طلاق جدید">
@@ -185,7 +196,7 @@
           </div>
 
           <div *ngIf="select3">
-            <div *ngFor="let list3 of arrayList3 , let l = index" class="row">
+            <div *ngFor="let list3 of arrayListUnintentionalPrisoner , let l = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">زندانیان غیرعمد : </h4>
               </div>
@@ -205,12 +216,20 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'" [inputId]="'numberElectricalBonds'" [type]="'number'" [inputFormControl]="numberElectricalBonds"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'" [inputId]="'prisonerBudget'" [type]="'number'" [inputFormControl]="prisonerBudget"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'" [inputId]="'amountPrisonerGivenFacilities'" [type]="'number'" [inputFormControl]="amountPrisonerGivenFacilities"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع جرم جهت آزادی'" [inputId]="'typeCrime'" [inputFormControl]="typeCrime"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'"
+              [inputId]="'numberElectricalBonds' + l" [type]="'number'" [inputFormControl]="numberElectricalBonds[l]" (changeValue)="observeChange_numberElectricalBonds($event, l)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'"
+              [inputId]="'prisonerBudget' + l" [type]="'number'" [inputFormControl]="prisonerBudget[l]" (changeValue)="observeChange_prisonerBudget($event, l)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
+              [inputId]="'amountPrisonerGivenFacilities' + l" [type]="'number'" (changeValue)="observeChange_amountPrisonerGivenFacilities($event, l)" [inputFormControl]="amountPrisonerGivenFacilities[l]"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع جرم جهت آزادی'"
+              [inputId]="'typeCrime' + l" [inputFormControl]="typeCrime[l]" (changeValue)="observeChange_typeCrime($event, l)"></app-input-style>
+
               <div *ngIf="l-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList3,l)">
+                <div class="mx-auto text-start" (click)="deleteListUnintentionalPrisoner(l)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -219,7 +238,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList3)">
+              <div class="mx-auto text-start" (click)="addListUnintentionalPrisoner()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن پروژه زندانیان جدید">
@@ -228,7 +247,8 @@
             </div>
           </div>
 
-          <div *ngIf="select4">
+          <!--
+                      <div *ngIf="select4">
             <div *ngFor="let list4 of arrayList4 , let m = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2"> توان خواه: </h4>
@@ -274,8 +294,10 @@
             </div>
           </div>
 
+          -->
+
           <div *ngIf="select5">
-            <div *ngFor="let list5 of arrayList5 , let n = index" class="row">
+            <div *ngFor="let list5 of arraySocialTransformationBannedFromEducation , let n = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2"> بازماندگان از تحصیل: </h4>
               </div>
@@ -295,12 +317,17 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number1'" [type]="'number'" [inputFormControl]="number1"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'" [inputId]="'numberEducationalPackages'" [type]="'number'" [inputFormControl]="numberEducationalPackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational'" [type]="'number'" [inputFormControl]="costEducational"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'" [inputId]="'numberPeopleCovered'" [type]="'number'" [inputFormControl]="numberPeopleCovered"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'"
+               [inputId]="'numberEducationalPackages' + n" [type]="'number'" [inputFormControl]="numberEducationalPackages[n]" (changeValue)="observeChange_numberEducationalPackages($event , n)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational' + n"
+              [type]="'number'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'"
+               [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>
+
               <div *ngIf="n-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList5,n)">
+                <div class="mx-auto text-start" (click)="deleteListSocialTransformationBannedFromEducation(n)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -309,7 +336,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList5)">
+              <div class="mx-auto text-start" (click)="addListSocialTransformationBannedFromEducation()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن پروژه بازماندگان جدید">
@@ -319,7 +346,7 @@
           </div>
 
           <div *ngIf="select6">
-            <div *ngFor="let list6 of arrayList6 , let p = index" class="row">
+            <div *ngFor="let list6 of arrayListSocialTransformationSegmentation , let p = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2"> دهک بندی: </h4>
               </div>
@@ -339,11 +366,14 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number2'" [type]="'number'" [inputFormControl]="number2"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'" [inputId]="'numberSubsistencePackages'" [type]="'number'" [inputFormControl]="numberSubsistencePackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'" [inputId]="'costSubsistencePackages'" [type]="'number'" [inputFormControl]="costSubsistencePackages"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'"
+              [inputId]="'numberSubsistencePackages' + p" [type]="'number'" [inputFormControl]="numberSubsistencePackages[p]" (changeValue)="observeChange_numberSubsistencePackages($event, p)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'"
+              [inputId]="'costSubsistencePackages' + p" [type]="'number'" [inputFormControl]="costSubsistencePackages[p]"  (changeValue)="observeChange_costSubsistencePackages($event, p)"></app-input-style>
+
               <div *ngIf="p-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList6,p)">
+                <div class="mx-auto text-start" (click)="deleteListSocialTransformationSegmentation(p)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -352,7 +382,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList6)">
+              <div class="mx-auto text-start" (click)="addListSocialTransformationSegmentation()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن دهک بندی جدید">
@@ -361,6 +391,7 @@
             </div>
           </div>
 
+          <!--
           <div *ngIf="select7">
             <div *ngFor="let list7 of arrayList7 , let r = index" class="row">
               <div class="col-12 mt-5">
@@ -401,9 +432,11 @@
               </div>
             </div>
           </div>
+          -->
+
 
           <div *ngIf="select8">
-            <div *ngFor="let list8 of arrayList8 , let d = index" class="row">
+            <div *ngFor="let list8 of arrayListSocialTransformationSpecialPatient; let d = index" class="row">
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">  بیماران خاص: </h4>
               </div>
@@ -423,12 +456,17 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number4'" [type]="'number'" [inputFormControl]="number4"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [inputId]="'numberDrugPackagesSpecificPatients'" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'" [inputId]="'volumeTreatmentFacilities'" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'" [inputId]="'numberTargetPatients'" [type]="'number'" [inputFormControl]="numberTargetPatients"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'"
+               [inputId]="'numberDrugPackagesSpecificPatients' + d" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients[d]" (changeValue)="observeChange_numberDrugPackagesSpecificPatients($event, d)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'"
+               [inputId]="'volumeTreatmentFacilities' + d" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities[d]" (changeValue)="observeChange_volumeTreatmentFacilities($event, d)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'"
+              [inputId]="'numberTargetPatients' + d" [type]="'number'" [inputFormControl]="numberTargetPatients[d]" (changeValue)="observeChange_numberTargetPatients($event, d)"></app-input-style>
+
               <div *ngIf="d-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList8,d)">
+                <div class="mx-auto text-start" (click)="deleteListSocialTransformationSpecialPatient(d)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -437,7 +475,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList8)">
+              <div class="mx-auto text-start" (click)="addListSocialTransformationSpecialPatient()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                       mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیماران خاص جدید">
@@ -448,7 +486,7 @@
         </div>
 
         <div class="my-2" style="direction: ltr;">
-          <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+          <button (click)="SetDetailInformation()" type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
               تایید و ادامه
           </button>
         </div>

@@ -47,6 +47,9 @@ export class PProjectLocationInformationComponent implements OnInit {
       let c = new CompanySelectedDTO();
       c = JSON.parse(com);
       this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
     }
   }
 

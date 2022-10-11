@@ -7,10 +7,10 @@
         [inputFormControl]="activityNameFormControl"></app-input-style>
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
-        [inputFormControl]="startDateFormControl"></app-date-picker-jalaly>
+        [inputFormControl]="startDateFormControl" (changeValue)="endDate = $event"></app-date-picker-jalaly>
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
-        [inputFormControl]="endDateFormControl"></app-date-picker-jalaly>
+        [inputFormControl]="endDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
         [inputFormControl]="activityPriceFormControl"></app-input-style>
@@ -27,7 +27,7 @@
 </div>
 
 <div class="row col-12 my-2" style="direction: ltr;">
-    <button type="button" class="ok-button" [disabled]="!getValue()">
+    <button (click)="createActivity()" type="button" class="ok-button" [disabled]="!getValue()">
         <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
     </button>
 </div>
