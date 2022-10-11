@@ -62,7 +62,5 @@ export class CommonDataForCreateProjectService {
     this.createProjectData.latitude = latitude;
     this.createProjectData.interCities = interCities;
     this.createProjectData.interRegions = interRegions;
-
-    console.log(this.createProjectData);
   }
 }

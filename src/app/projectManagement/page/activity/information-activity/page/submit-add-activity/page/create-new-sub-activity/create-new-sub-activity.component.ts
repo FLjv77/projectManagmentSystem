@@ -1,6 +1,7 @@
 import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-new-sub-activity',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-new-sub-activity.component.scss','../create-new-activity/create-new-activity.component.scss']
 })
 export class CreateNewSubActivityComponent implements OnInit {
-
+  public projectId: string;
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
   public startDateFormControl = new FormControl();
@@ -18,10 +19,13 @@ export class CreateNewSubActivityComponent implements OnInit {
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
 
-  constructor() { }
+  constructor(
+    private activeRouting: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.setProjectId();
   }
 
   private initInputStyle() {
@@ -30,7 +34,12 @@ export class CreateNewSubActivityComponent implements OnInit {
     )
   }
 
-  public getValue(){
+  private setProjectId() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+    if(id) this.projectId = id;
+  }
+
+  public getValue() {
     if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
       this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
       this.descreptionActivityFormControl.value &&
@@ -40,6 +49,6 @@ export class CreateNewSubActivityComponent implements OnInit {
         return true;
       }
       else{return false}
-  } 
+  }
 
 }

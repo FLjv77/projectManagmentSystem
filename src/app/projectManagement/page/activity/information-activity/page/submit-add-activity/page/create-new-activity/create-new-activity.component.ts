@@ -1,6 +1,11 @@
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
 import { Component, OnInit } from '@angular/core';
+import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
+import { CreateActivityDTO } from 'src/app/projectManagement/model/activity/activityDto';
+import { ActivatedRoute } from '@angular/router';
+import { ApiResult } from '../../../../../../../../auth/model/authDTO';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
 
 @Component({
   selector: 'app-create-new-activity',
@@ -9,25 +14,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateNewActivityComponent implements OnInit {
 
+  private projectId: string;
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
   public startDateFormControl = new FormControl();
   public endDateFormControl = new FormControl();
+  public startDate: string;
+  public endDate: string;
   public activityPriceFormControl = new FormControl();
   public timeWeightActivityFormControl = new FormControl();
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
 
-  constructor() { }
+  constructor(
+    private activityConnectToApiService: ActivityConnectToApiService,
+    private activeRouting: ActivatedRoute,
+    private handleDisplayErrorService: HandleDisplayErrorService
+    ) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.setProjectId();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private setProjectId() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+    if(id) this.projectId = id;
   }
 
   public getValue(){
@@ -40,6 +58,31 @@ export class CreateNewActivityComponent implements OnInit {
         return true;
       }
       else{return false}
-  } 
+  }
 
+  public createActivity() {
+    this.activityConnectToApiService.createActivities(
+      new CreateActivityDTO(
+        this.activityNameFormControl.value,
+        this.startDate,
+        this.endDate,
+        this.activityPriceFormControl.value,
+        this.timeWeightActivityFormControl.value,
+        this.priceWeightActivityFormControl.value,
+        this.descreptionActivityFormControl.value
+      ), this.projectId
+    ).subscribe((res: ApiResult<string>) => {
+      if(res.isSuccess && res.isSuccess) {
+        this.activityNameFormControl.reset();
+        this.activityPriceFormControl.reset();
+        this.timeWeightActivityFormControl.reset();
+        this.descreptionActivityFormControl.reset();
+        this.priceWeightActivityFormControl.reset();
+        this.startDateFormControl.reset();
+        this.endDateFormControl.reset();
+
+        this.handleDisplayErrorService.showSuccessAlert('فعالیت ایجاد شد');
+      }
+    });
+  }
 }

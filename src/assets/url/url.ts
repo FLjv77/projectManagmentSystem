@@ -7,7 +7,7 @@ export const url = {
   createSupervisorUser: 'User/CreateSupervisorUser',
   auth: 'Auth/Token',
   CreateProject: 'Project/CreateProject',
-  CreateActivity: 'Project/CreateActivity',
+  CreateActivity: 'Project/CreateActivity/',
   registerAllocationReport: 'Project/RegisterAllocationReport/',
   modifyDependentActivity: 'Project/ModifyDependentActivity/',
   showDependentActivities: 'Project/ShowDependentActivities/',
@@ -33,5 +33,6 @@ export const url = {
   GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor',
   GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter',
   CompanyInfo: 'CompanyInfo',
-  userRole: 'userRole'
+  userRole: 'userRole',
+  showHierarchicalStructureActivities: 'Project/ShowHierarchicalStructureActivities/'
 }

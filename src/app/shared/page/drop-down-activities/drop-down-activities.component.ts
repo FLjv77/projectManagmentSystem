@@ -1,5 +1,7 @@
 import { Select2OptionData } from 'ng-select2';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
+import { ApiResult } from '../../../auth/model/authDTO';
 
 @Component({
   selector: 'app-drop-down-activities',
@@ -9,18 +11,32 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DropDownActivitiesComponent implements OnInit {
 
   @Input() placeholder: string;
+  @Input() projectId: string;
+
   public title: string = 'انتخاب فعالیت اصلی';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
 
-  constructor() { }
+  constructor(
+    private activityConnectToApiService: ActivityConnectToApiService
+  ) { }
 
   ngOnInit(): void {
     this.initProjectList();
+    this.getProjectctivity();
   }
 
   public setProject(name: string){
     this.title = name;
+  }
+
+  private getProjectctivity() {
+    this.activityConnectToApiService.showDependentActivities(
+      this.projectId
+    ).subscribe((res: ApiResult<any>) => {
+      console.log(res);
+
+    });
   }
 
   private initProjectList() {

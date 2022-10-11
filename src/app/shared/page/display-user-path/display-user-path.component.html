@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-5 col-12 pb-md-3 pt-md-3 pb-2">
-        <app-drop-down-company-list [customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
+        <app-drop-down-company-list (companyIdSelected)="companyIdSelected.emit($event)" [customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
         <app-drop-down-project-list class="w-100" *ngIf="showProjectList"></app-drop-down-project-list>
       </div>
       <div class="col-md-2 col-12 d-flex justify-content-end my-auto back-icon-container">

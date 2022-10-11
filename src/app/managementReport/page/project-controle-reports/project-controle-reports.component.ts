@@ -18,9 +18,8 @@ export class ProjectControleReportsComponent implements OnInit {
   ngOnInit(): void {
     this.initDisplayPath();
     this.getReports();
-    this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
-      console.log(res);
-    });
+    this.getUserByDynamickFilter();
+
   }
 
   private initDisplayPath() {
@@ -28,7 +27,13 @@ export class ProjectControleReportsComponent implements OnInit {
     this.path2 = new DisplayPathModel('مدیریت گزارش ها', false, '');
   }
 
+  private getUserByDynamickFilter() {
+    this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
+      console.log(res);
+    });
+  }
+
   private getReports(){
-    
+
   }
 }

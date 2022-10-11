@@ -7,6 +7,8 @@ import { CreaterojectService } from '../../service/projectCreationLevels/creater
 import { ApiResult } from '../../../auth/model/authDTO';
 import { HandleDisplayErrorService } from '../../../shared/service/handleError/handle-display-error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-select-project-type',
@@ -18,6 +20,7 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
+  public companyId: string | string[];
   public types: TargetsOfProjectSelectedDto[];
   constructor(private router: Router,
     private handleDisplayErrorService: HandleDisplayErrorService,
@@ -29,11 +32,21 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.setCompanyId();
+  }
+
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    }
   }
 
   public goToCreateProjectSteps(type: ProjectType, name: string) {
     this.projectType = type;
-    this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType, targetId: this.getIdTarget(name)}});
+    this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType, targetId: this.getIdTarget(name), companyId: this.companyId}});
   }
 
   private getTargets() {
@@ -61,5 +74,9 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
       }});
     }
     return res;
+  }
+
+  public saveSelectedCompanyId(companyId: string | string[]) {
+    this.companyId = companyId;
   }
 }

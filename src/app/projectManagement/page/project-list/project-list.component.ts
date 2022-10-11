@@ -6,6 +6,8 @@ import { GetProjectsGeneralInfoOfCompanyDto, ProjectSelectedDTO } from '../../mo
 import { ApiResult } from '../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-project-list',
@@ -41,6 +43,15 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   private getQueryParam() {
     let id = this.activeRouting.snapshot.queryParamMap.get('idCompany');
     if(id) this.companyId = id;
+    else {
+      let com = localStorage.getItem(url.CompanyInfo);
+      if(com) {
+        let c = new CompanySelectedDTO();
+        c = JSON.parse(com);
+        this.companyId = c.companyId;
+      }
+    }
+    this.getProjectList();
   }
 
   private getProjectList() {
@@ -68,8 +79,8 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     this.router.navigate(['../../projectManagement/editProject'], {queryParams: { projectId: projectId }});
   }
 
-  public goInformationActivity(){
-    this.router.navigate(['../../projectManagement/InformationActivity'])
+  public goInformationActivity(projectId: string) {
+    this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: projectId}})
   }
 
   public sendReport(){
