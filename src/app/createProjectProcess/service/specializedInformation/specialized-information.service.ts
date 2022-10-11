@@ -21,7 +21,7 @@ export class SpecializedInformationService {
     return this.http.post<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
   }
 
-  public ModifyRuralRoadSpeceficDetail(projectId : string, ruralRoadSpeceficDetailDTO: RuralRoadSpeceficDetailDTO): Observable<ApiResult<RuralRoadSpeceficDetailDTO>>{
+  public ModifyRuralRoadSpeceficDetail(projectId : string|null, ruralRoadSpeceficDetailDTO: RuralRoadSpeceficDetailDTO): Observable<ApiResult<RuralRoadSpeceficDetailDTO>>{
     return this.http.post<ApiResult<RuralRoadSpeceficDetailDTO>>(url.ModifyRuralRoadSpeceficDetail + projectId , ruralRoadSpeceficDetailDTO);
   }
 

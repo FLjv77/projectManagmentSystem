@@ -2,8 +2,8 @@ import { projectType } from './../../../../../model/EnumForSpecializeInformation
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {InputCustomStyle} from "../../../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
-import { DamWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { ConstructionTypestring, DamWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-water-information-dam-type',
@@ -12,30 +12,28 @@ import { DamWaterShedAndCanals } from 'src/app/createProjectProcess/model/specia
 })
 export class WaterInformationDamTypeComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
-  public damStateControl = new FormControl();
-  public capacityWaterControl = new FormControl();
-  public riverNameControl = new FormControl();
-  public staffControl = new FormControl();
-  public volumeDamControl = new FormControl();
-  public regionControl = new FormControl();
-  public stabilityResourceControl = new FormControl();
-  public debeyControl = new FormControl();
-  public ownerShipTypeControl = new FormControl();
-  public groundTypeControl = new FormControl();
-  public number = new FormControl();
-  public description = new FormControl();
-  public arrayList: Array<string> = ['2223'];
-  public typeProject: projectType;
+  public damStateControl = new Array<FormControl>();
+  public capacityWaterControl = new Array<FormControl>();
+  public riverNameControl = new Array<FormControl>();
+  public staffControl = new Array<FormControl>();
+  public volumeDamControl = new Array<FormControl>();
+  public description = new Array<FormControl>();
+  public typeProject: ConstructionTypestring;
   public typeProjectList : Array<number> = [];
-  public damWaterShedAndCanalsList : DamWaterShedAndCanals[] = [];
+  public damWaterShedAndCanalsList : DamWaterShedAndCanals[];
 
-  @Output() validationForm = new EventEmitter<boolean>();
+  public lengthList: number;
+  public lengthListDeleted: number;
+
+  @Output() damList = new EventEmitter<DamWaterShedAndCanals[]>();
 
   constructor() { }
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.subscribeChangeFormCoontrol();
+    this.damWaterShedAndCanalsList = new Array<DamWaterShedAndCanals>;
+    this.addList();
+    //this.subscribeChangeFormCoontrol();
   }
 
   private initInputStyle() {
@@ -44,86 +42,95 @@ export class WaterInformationDamTypeComponent implements OnInit {
     )
   }
 
-  private subscribeChangeFormCoontrol() {
-    this.damStateControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+  private subscribeChangeFormCoontrol(i: number) {
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
+      || this.lengthList != this.lengthListDeleted) {
+      this.checkValidationForm(i);
+    }
+
+    this.damStateControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.capacityWaterControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.capacityWaterControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.riverNameControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.riverNameControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.staffControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.staffControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.volumeDamControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.volumeDamControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
-    this.regionControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.stabilityResourceControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.debeyControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.ownerShipTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.groundTypeControl.valueChanges.subscribe(() => {
-      this.checkValidationForm();
-    });
-
-    this.number.valueChanges.subscribe(() => {
-      this.checkValidationForm();
+    this.description[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
     });
 
   }
 
-  private checkValidationForm() {
-    if(this.damStateControl.value &&this.capacityWaterControl.value &&this.riverNameControl.value &&
-      this.staffControl.value &&this.volumeDamControl.value &&this.regionControl.value && 
-      this.stabilityResourceControl.value &&this.debeyControl.value &&this.ownerShipTypeControl.value &&
-      this.groundTypeControl.value &&this.number.value
+  private checkValidationForm(i: number) {
+    if(this.damStateControl[i].value &&this.capacityWaterControl[i].value &&this.riverNameControl[i].value &&
+      this.staffControl[i].value &&this.volumeDamControl[i].value && this.description[i].value
     ) {
-      this.validationForm.emit(true);
+      this.damList.emit(this.damWaterShedAndCanalsList);
     } else {
-      this.validationForm.emit(false);
+      this.damList.emit(this.damWaterShedAndCanalsList);
     }
   }
 
-  public addList(){
-    this.arrayList.push('222');
+  public addList() {
+    this.description.push(new FormControl());
+    this.volumeDamControl.push(new FormControl());
+    this.staffControl.push(new FormControl());
+    this.riverNameControl.push(new FormControl());
+    this.capacityWaterControl.push(new FormControl());
+    this.damStateControl.push(new FormControl());
+    this.damWaterShedAndCanalsList.push(new DamWaterShedAndCanals());
+    this.lengthList = this.damWaterShedAndCanalsList.length;
   }
   
-  public setTypeProject(state: projectType,index: number){
+  public setTypeProject(state: ConstructionTypestring,index: number){
     this.typeProject = state;
-    this.typeProjectList[index] = state;
+    this.damWaterShedAndCanalsList[index].constructionType = state;
+    this.subscribeChangeFormCoontrol(index);
   }
 
   public deleteList(index: number){
-    this.arrayList.splice(index, 1);
+    this.damWaterShedAndCanalsList.splice(index, 1);
+    this.lengthListDeleted = this.damWaterShedAndCanalsList.length;
+    this.subscribeChangeFormCoontrol(index);
   }
 
-  public createList(){
-    for (let i = 0; i < this.arrayList.length; i++) {
-      this.damWaterShedAndCanalsList[i].damDescription = this.description.value;
-      this.damWaterShedAndCanalsList[i].constructionType = this.typeProjectList[i];
-      this.damWaterShedAndCanalsList[i].damMaterialType = this.staffControl.value;
-      this.damWaterShedAndCanalsList[i].riverName = this.riverNameControl.value;
-      this.damWaterShedAndCanalsList[i].wateringCapacity = this.capacityWaterControl.value;
-      this.damWaterShedAndCanalsList[i].damTankVolume = this.volumeDamControl.value;
-    }
+  public setCapacityWater(event: string, index: number) {
+    this.damWaterShedAndCanalsList[index].wateringCapacity = event;
+    this.subscribeChangeFormCoontrol(index);
   }
+
+  public setDescription(event: string, index: number) {
+    this.damWaterShedAndCanalsList[index].damDescription = event;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setStaff(event: string, index: number) {
+    this.damWaterShedAndCanalsList[index].damMaterialType = event;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setVolumeDam(event: string, index: number) {
+    this.damWaterShedAndCanalsList[index].damTankVolume = Number(event);
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+  public setRiverName(event: string, index: number) {
+    this.damWaterShedAndCanalsList[index].riverName = event;
+    this.subscribeChangeFormCoontrol(index);
+  }
+
+
 }

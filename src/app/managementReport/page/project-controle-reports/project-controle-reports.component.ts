@@ -18,8 +18,11 @@ export class ProjectControleReportsComponent implements OnInit {
   ngOnInit(): void {
     this.initDisplayPath();
     this.getReports();
+    this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
+      console.log('1111111111111111111111');
+      console.log(res);
+    });
     this.getUserByDynamickFilter();
-
   }
 
   private initDisplayPath() {

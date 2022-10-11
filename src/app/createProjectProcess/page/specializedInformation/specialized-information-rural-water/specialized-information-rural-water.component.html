@@ -4,11 +4,11 @@
             <i class="material-icons d-inline icon-styles">water_drop</i>
             <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
           </div>
-          <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
 
           <!-- <div class="row mt-3">
             <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
@@ -87,19 +87,20 @@
           </section>
         </div>
 
-        <app-water-information-transfer-line-type (validationForm)="handleSubOption(8,$event)" *ngIf="select8"></app-water-information-transfer-line-type>
-        <app-water-information-water-seal-type (validationForm)="handleSubOption(7,$event)" *ngIf="select7"></app-water-information-water-seal-type>
-        <app-water-information-purification-type (validationForm)="handleSubOption(6,$event)" *ngIf="select6"></app-water-information-purification-type>
-        <app-water-information-pomp-type (validationForm)="handleSubOption(5,$event)" *ngIf="select5"></app-water-information-pomp-type>
-        <app-water-information-source-type (validationForm)="handleSubOption(4,$event)" *ngIf="select4"></app-water-information-source-type>
-        <app-water-information-distribution-network-type (validationForm)="handleSubOption(3,$event)" *ngIf="select3"></app-water-information-distribution-network-type>
-        <app-water-information-dam-type (validationForm)="handleSubOption(2,$event)" *ngIf="select2"></app-water-information-dam-type>
-        <app-water-information-fountain-type (validationForm)="handleSubOption(1,$event)" *ngIf="select1"></app-water-information-fountain-type>
-        <app-water-information-well-type (validationForm)="handleSubOption(0,$event)" *ngIf="select0"></app-water-information-well-type>
+        <app-water-information-transfer-line-type (transferLineList)="setTransferLine($event)" *ngIf="select8"></app-water-information-transfer-line-type>
+        <app-water-information-water-seal-type (Dike)="setDikeList($event)" *ngIf="select7"></app-water-information-water-seal-type>
+        <app-water-information-purification-type (Refinery)="setRefinery($event)" *ngIf="select6"></app-water-information-purification-type>
+        <app-water-information-pomp-type (pumpStation)="setPumpStation($event)" *ngIf="select5"></app-water-information-pomp-type>
+        <app-water-information-source-type (Tank)="setTank($event)" *ngIf="select4"></app-water-information-source-type>
+        <app-water-information-distribution-network-type (networkWaterShedList)="setNetworkWaterShedList($event)" *ngIf="select3"></app-water-information-distribution-network-type>
+        <app-water-information-dam-type (damList)="setDamList($event)" *ngIf="select2"></app-water-information-dam-type>
+        <app-water-information-fountain-type (fountainList)="setFountainList($event)" *ngIf="select1"></app-water-information-fountain-type>
+        <app-water-information-well-type (Pit)="setPit($event)" *ngIf="select0"></app-water-information-well-type>
 
 
         <div class="my-2" style="direction: ltr;">
-          <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" [disabled]="!checkValidation()">
+          <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" 
+          [disabled]="!checkValidation()" (click)="sendInfo()">
               تایید و ادامه
           </button>
         </div>

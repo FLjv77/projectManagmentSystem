@@ -25,6 +25,8 @@ export class PProjectLocationInformationComponent implements OnInit {
   public checkVillage: boolean;
   private locations: Location[];
 
+  private projectId: string;
+
   constructor(
     private router: Router,
     private activeRouting: ActivatedRoute,
@@ -102,7 +104,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public createProject(event: boolean){
     if (event==false) {
-      this.router.navigate(['../projectManagement/projectList']);
+      this.router.navigate(['../projectManagement/projectList'] , {queryParams: {projectId : this.projectId}});
     }
     else if(event==true){
       document.getElementById('detailInformation')?.click();
@@ -118,6 +120,7 @@ export class PProjectLocationInformationComponent implements OnInit {
     ).subscribe((res: ApiResult<string>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.openModal();
+        this.projectId = res.data;
       }
     }, (err: HttpErrorResponse) => {
     });
