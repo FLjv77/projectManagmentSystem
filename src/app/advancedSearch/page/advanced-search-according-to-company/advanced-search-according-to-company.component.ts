@@ -14,7 +14,6 @@ export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
   public showList: boolean = false;
   public projectList: ProjectSelectedDTO[] = [];
 
-
   constructor(private router: Router,
     private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
       this.subscribeProjectSelected();

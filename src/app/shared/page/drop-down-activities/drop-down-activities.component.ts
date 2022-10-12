@@ -1,7 +1,8 @@
 import { Select2OptionData } from 'ng-select2';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { ApiResult } from '../../../auth/model/authDTO';
+import { showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 
 @Component({
   selector: 'app-drop-down-activities',
@@ -12,6 +13,7 @@ export class DropDownActivitiesComponent implements OnInit {
 
   @Input() placeholder: string;
   @Input() projectId: string;
+  @Output() activityId = new EventEmitter<string>();
 
   public title: string = 'انتخاب فعالیت اصلی';
   public projectData: Array<Select2OptionData>;
@@ -31,12 +33,23 @@ export class DropDownActivitiesComponent implements OnInit {
   }
 
   private getProjectctivity() {
-    this.activityConnectToApiService.showDependentActivities(
+    this.activityConnectToApiService.showActivities(
       this.projectId
-    ).subscribe((res: ApiResult<any>) => {
-      console.log(res);
+    ).subscribe((res: ApiResult<showActivityDto[]>) => {
+      console.log(res.data);
 
+      for(let i=0; i<res.data.length; i++) {
+        let obj = {
+          text: res.data[i].activityName,
+          id: res.data[i].activityId
+        }
+        this.projectData.push(obj);
+      }
     });
+  }
+
+  public onSelectActivity(event: any) {
+    this.activityId.emit(event);
   }
 
   private initProjectList() {
@@ -45,32 +58,7 @@ export class DropDownActivitiesComponent implements OnInit {
       id: 'none'
     }
 
-    this.projectData = [
-      {
-        text: 'فعالیت 1',
-        id: 'Basic 1'
-      },
-      {
-        text: 'فعالیت 2',
-        id: 'Basic 2'
-      },
-      {
-        text: 'فعالیت 3',
-        id: 'Basic 2'
-      },
-      {
-        text: 'فعالیت 4',
-        id: 'Basic 2'
-      },
-      {
-        text: 'فعالیت 5',
-        id: 'Basic 3'
-      },
-      {
-        text: 'فعالیت 6',
-        id: 'Basic 4'
-      }
-    ];
+    this.projectData = [];
 
   }
 }

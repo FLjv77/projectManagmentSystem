@@ -1,9 +1,8 @@
-<div class="row d-rtl mr-0">
+<div *ngIf="TREE_DATA.length > 0" class="row d-rtl mr-0">
   <div class="col-md-3 col-12 px-0 mx-0">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node class="set-font-vazir pr-4" *matTreeNodeDef="let node">
         <span class="material-icons leaf-box">inventory</span>
-
         {{node.name}}
       </mat-tree-node>
       <mat-tree-node class="set-font-vazir" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
