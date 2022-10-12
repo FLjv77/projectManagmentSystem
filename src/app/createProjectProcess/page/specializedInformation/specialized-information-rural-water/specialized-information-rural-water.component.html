@@ -9,6 +9,10 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'" class="col-12 mt-2"
+                                 [inputFormControl]="equipmentControl"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'" class="col-12 mt-2"
+                                 [inputFormControl]="requirementControl"></app-input-style>
 
           <!-- <div class="row mt-3">
             <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">

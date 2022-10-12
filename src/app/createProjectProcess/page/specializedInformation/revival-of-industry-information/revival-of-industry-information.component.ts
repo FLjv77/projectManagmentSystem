@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { InputCustomStyle } from './../../../../shared/page/component/input-style/input-style.component';
 import { Router } from '@angular/router';
@@ -17,7 +18,7 @@ import { ApiResult } from '../../../../auth/model/authDTO';
 })
 
 export class RevivalOfIndustryInformationComponent implements OnInit {
-  private projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
+  private projectId : string|null;
   public revivalIndustrySpeceficDetailDTO: Array<RevivalIndustry> = new Array<RevivalIndustry>();
   public inputCustomStyle: InputCustomStyle;
   public amountGrantedFacilities = new Array<FormControl>();
@@ -25,11 +26,17 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
   public typeProject: projectType;
 
   constructor(private router: Router,
-    private specializedInformationService: SpecializedInformationService) {}
+    private specializedInformationService: SpecializedInformationService,
+    private activeRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.initInputStyle();
     this.addList();
+    this.getQuery();
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initInputStyle() {

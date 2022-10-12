@@ -26,6 +26,7 @@ export class EditProjectInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initDisplayPath();
     this.getProjectId();
+    this.getProjectDetail();
   }
 
   private getProjectId() {
@@ -38,6 +39,7 @@ export class EditProjectInformationComponent implements OnInit {
       (res: ApiResult<ProjectSelectedDTO>) => {
         if(res.isSuccess && res.statusCode == 200) {
           this.projectDetail = res.data;
+          
           this.handleDisplayError.showError(res.statusCode);
         }
       }, (err: HttpErrorResponse) => {

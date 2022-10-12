@@ -1,3 +1,7 @@
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
@@ -23,18 +27,27 @@ export class EditeDetailInformationComponent implements OnInit {
   private selectedState: StateAndZoneIranModel;
   public projectRemoveMarginalization: ProjectRemoveMarginalization;
   private selectedZone: string;
+  public projectId: string | null;
+  public select: number = 0;
 
-  constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
+  constructor(private iranStateAndZoneService: IranStateAndZoneService,
+              private activeRoute: ActivatedRoute,
+              private projectConnectToApiService :ProjectConnectToApiService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
+    this.getQuryParam();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getQuryParam(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
   }
 
   public addRequirement() {
@@ -90,6 +103,27 @@ export class EditeDetailInformationComponent implements OnInit {
       (this.requirementControl.value || this.requirementList);
   }
 
-
+  public getInfo(){
+    console.log('fjfjfjfjfjfj');
+    
+    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
+    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      if (res.data.objectiveTitle == 'رفع حاشیه نشینی') {
+        this.select = 1;
+      }
+      else if (res.data.objectiveTitle == 'راه روستایی') {
+        this.select = 2;
+      }
+      console.log(res.data)
+      // this.projectNameFormControl.setValue(res.data.projectName);
+      // this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
+      // this.descreptionFormControl.setValue(res.data.projectDescription);
+      // this.objectivesFormControl.setValue(res.data.projectTargets);
+      // this.projectChallengeFormControl.setValue(res.data.projectChallange);
+      // this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
+      // this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
+      // this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+    });
+  }
 
 }

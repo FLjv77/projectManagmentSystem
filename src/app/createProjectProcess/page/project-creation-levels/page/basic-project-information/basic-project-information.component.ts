@@ -26,6 +26,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public contributors: string = '';
   public parentId: string = '';
   public inputInfo1: OutputInfo;
+  public contributorsList : contributors[] = [];
   @Output() basicInputValue = new EventEmitter<aarayStyle>();
 
   constructor(private commonDataForCreateProjectService: CommonDataForCreateProjectService,
@@ -81,6 +82,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public setParentId(event: string){
     this.parentId = event;
   }
+
 }
 
 export class aarayStyle{
@@ -89,4 +91,14 @@ export class aarayStyle{
     this.infrastructureCost = infrastructureCost;
     this.humanResourceCost = humanResourceCost;
   }
+}
+
+
+export class contributors {
+  constructor(name: string,family: string) {
+    this.name = name;
+    this.family = family;
+  }
+  name: string;
+  family: string;
 }

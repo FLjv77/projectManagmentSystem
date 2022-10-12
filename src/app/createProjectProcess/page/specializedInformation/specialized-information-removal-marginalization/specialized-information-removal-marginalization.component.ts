@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -37,18 +38,25 @@ export class SpecializedInformationRemovalMarginalizationComponent implements On
   public select1: boolean = false;
   public select2: boolean = false;
   public select3: boolean = false;
+  private projectId: string|null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
+    this.getQuery();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initDisplayPath() {

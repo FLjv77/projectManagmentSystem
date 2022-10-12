@@ -1,4 +1,6 @@
-import { PitWaterShedAndCanals } from './../../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
+import { ActivatedRoute } from '@angular/router';
+import { PitWaterShedAndCanals, WaterShedAndCanalsSpeceficDetailBehaviorDTO } from './../../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
@@ -7,6 +9,7 @@ import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-st
 import {GroundType, ProjectRuralWater} from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals, DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-specialized-information-rural-water',
@@ -66,13 +69,21 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public TransferLineList: TransferLineWaterShedAndCanals[] = [];
   public DikeList: DikeWaterShedAndCanals[] = [];
   public PitWaterList: PitWaterShedAndCanals[] = [];
+  private projectId: string|null;
 
-  constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
+  constructor(private iranStateAndZoneService: IranStateAndZoneService,
+    private activeRoute:ActivatedRoute,
+    private specializedInformationService:SpecializedInformationService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
+    this.getQuery();
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initDisplayPath() {
@@ -279,6 +290,21 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   }
 
   public sendInfo(){
-
+    let list = new WaterShedAndCanalsSpeceficDetailBehaviorDTO;
+    list.currentDebye = this.debeyControl.value;
+    list.consumability = this.regionControl.value;
+    list.resourceStability = this.stabilityResourceControl.value;
+    list.typeOfLand = this.groundTypeControl.value;
+    list.ownerShipType = this.ownerShipTypeControl.value;
+    list.dam = this.damList;
+    list.dike = this.DikeList;
+    list.distributionNetwork = this.networkWater;
+    list.equipment = this.equipmentControl.value;
+    list.fountain = this.FountainList;
+    list.pit = this.PitWaterList;
+    list.pumpStation = this.PumpStationList;
+    list.refinery = this.RefineryList;
+    list.requirements = this.requirementControl.value;
+    this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail(this.projectId,list);
   }
 }
