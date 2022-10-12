@@ -17,7 +17,7 @@ export class SpecializedInformationService {
 
   constructor(private http: HttpClient) { }
 
-  public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
+  public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string|null, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
     return this.http.post<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
   }
 

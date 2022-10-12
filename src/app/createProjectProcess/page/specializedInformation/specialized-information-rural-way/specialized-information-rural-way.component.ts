@@ -1,5 +1,4 @@
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { KnowledgeBased } from 'src/app/createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
 import { RoadTypestring } from './../../../model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
