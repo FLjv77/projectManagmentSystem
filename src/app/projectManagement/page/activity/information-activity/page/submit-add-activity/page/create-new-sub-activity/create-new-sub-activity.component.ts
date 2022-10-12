@@ -2,6 +2,10 @@ import { InputCustomStyle } from './../../../../../../../../shared/page/componen
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CreateActivityDTO } from 'src/app/projectManagement/model/activity/activityDto';
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
 
 @Component({
   selector: 'app-create-new-sub-activity',
@@ -9,19 +13,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./create-new-sub-activity.component.scss','../create-new-activity/create-new-activity.component.scss']
 })
 export class CreateNewSubActivityComponent implements OnInit {
+
   public projectId: string;
+  private createActivityModel: CreateActivityDTO;
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
   public startDateFormControl = new FormControl();
   public endDateFormControl = new FormControl();
+  public startDate: string;
+  public endDate: string;
   public activityPriceFormControl = new FormControl();
   public timeWeightActivityFormControl = new FormControl();
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
 
   constructor(
-    private activeRouting: ActivatedRoute
-  ) { }
+    private activityConnectToApiService: ActivityConnectToApiService,
+    private activeRouting: ActivatedRoute,
+    private handleDisplayErrorService: HandleDisplayErrorService
+    ) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -39,7 +49,7 @@ export class CreateNewSubActivityComponent implements OnInit {
     if(id) this.projectId = id;
   }
 
-  public getValue() {
+  public getValue(){
     if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
       this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
       this.descreptionActivityFormControl.value &&
@@ -51,4 +61,36 @@ export class CreateNewSubActivityComponent implements OnInit {
       else{return false}
   }
 
+  public setParentActivityId(id: string) {
+    this.createActivityModel = new CreateActivityDTO(
+      '','','',0,0,0,''
+    );
+    this.createActivityModel.parentActivityId = id;
+  }
+
+  public createActivity() {
+    this.createActivityModel.approximateCost = this.activityPriceFormControl.value;
+    this.createActivityModel.costWeight = this.priceWeightActivityFormControl.value;
+    this.createActivityModel.description = this.descreptionActivityFormControl.value;
+    this.createActivityModel.endOfActivity = this.endDate;
+    this.createActivityModel.name = this.activityNameFormControl.value;
+    this.createActivityModel.startOfActivity = this.startDate;
+    this.createActivityModel.timeWeight = this.timeWeightActivityFormControl.value;
+
+    this.activityConnectToApiService.createActivities(
+      this.createActivityModel, this.projectId
+    ).subscribe((res: ApiResult<string>) => {
+      if(res.isSuccess && res.isSuccess) {
+        this.activityNameFormControl.reset();
+        this.activityPriceFormControl.reset();
+        this.timeWeightActivityFormControl.reset();
+        this.descreptionActivityFormControl.reset();
+        this.priceWeightActivityFormControl.reset();
+        this.startDateFormControl.reset();
+        this.endDateFormControl.reset();
+
+        this.handleDisplayErrorService.showSuccessAlert('فعالیت ایجاد شد');
+      }
+    });
+  }
 }

@@ -1,9 +1,9 @@
 <mat-accordion>
   <mat-expansion-panel
   #mep="matExpansionPanel" [disabled]="true">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header *ngFor="let item of activityList">
       <mat-panel-title class="positon-relative">
-        <input class="px-1 input-detail set-font-Raymon font-weight-bold" value="نام فعالیت" [disabled]="!isEditMode">
+        <input class="px-1 input-detail set-font-Raymon font-weight-bold" [value]="item.activityName" [disabled]="!isEditMode">
         <div class="open-panel" (click)="mep.expanded = !mep.expanded">
           <span class="material-icons">more</span>
         </div>
@@ -12,21 +12,26 @@
         <div class="row px-2 set-font-vazir w-100">
           <div class="col-12 col-sm-6 col-md-4 detail-activity">
             <div class="d-flex">
-              <img src="../../../../../../../assets/icon/projectShortCut/progress.svg" class="icon-progress-and-weight mt-1">
-              <input class="px-1 input-detail" value="درصد پیشرفت" [disabled]="!isEditMode">
+              <span class="material-icons icon-progress-and-weight">
+                schedule
+                </span>
+              <input class="px-1 input-detail" [value]="item.startOfActivity.year + '/' + item.startOfActivity.month + '/' + item.startOfActivity.day" [disabled]="!isEditMode">
             </div>
           </div>
           <div class="col-12 col-sm-6 col-md-4 detail-activity">
             <div class="d-flex">
-              <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-              <input class="px-1 input-detail" value="وزن مالی" [disabled]="!isEditMode">
+
+              <span class="material-icons icon-progress-and-weight">
+                schedule
+              </span>
+              <input class="px-1 input-detail" [value]="item.endOfActivity.year + '/' + item.endOfActivity.month + '/' + item.endOfActivity.day" [disabled]="!isEditMode">
 
             </div>
           </div>
           <div class="col-12 col-sm-6 col-md-4 detail-activity">
             <div class="d-flex">
               <img src="../../../../../../../assets/icon/projectShortCut/weight.svg" class="icon-progress-and-weight mt-1">
-              <input class="px-1 input-detail" value="وزن پیشرفت" [disabled]="!isEditMode">
+              <input class="px-1 input-detail" [value]="item.approximateCost" [disabled]="!isEditMode">
             </div>
           </div>
         </div>
@@ -41,7 +46,8 @@
     </mat-expansion-panel-header>
 
 
-    <div class="set-font-Raymon title-for-child-activity"></div>
+    <!--
+          <div class="set-font-Raymon title-for-child-activity"></div>
 
     <div class="p-right-child-activity position-relative">
       <div class="row set-font-vazir w-100">
@@ -78,8 +84,7 @@
       </div>
 
     </div>
-
-
+    -->
 
 
 

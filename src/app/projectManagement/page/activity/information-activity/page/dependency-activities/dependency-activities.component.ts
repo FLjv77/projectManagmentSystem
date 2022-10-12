@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateActivityDependency, DependencyActivitystring, RequestCreateActivityDependency } from 'src/app/projectManagement/model/activity/activityDto';
+import { CreateActivityDependency, DependencyActivitystring, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { ApiResult } from '../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HandleDisplayErrorService } from '../../../../../../shared/service/handleError/handle-display-error.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dependency-activities',
@@ -11,16 +12,22 @@ import { HandleDisplayErrorService } from '../../../../../../shared/service/hand
   styleUrls: ['./dependency-activities.component.scss', '../progress-report-activity/progress-report-activity.component.scss']
 })
 export class DependencyActivitiesComponent implements OnInit {
-
   public disableChangeMatrix: boolean[][];
-  public activityList = [];
+  public activityList: showActivityDto[];
   private projectId: string;
   constructor(
+    private activeRouting: ActivatedRoute,
     private activityConnectToApiService: ActivityConnectToApiService,
     private handleError: HandleDisplayErrorService) { }
 
   ngOnInit(): void {
-    this.getActivityList()
+    this.setProjectId();
+    this.getProjectctivity();
+  }
+
+  private setProjectId() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+    if(id) this.projectId = id;
   }
 
   private getActivityList() {
@@ -35,14 +42,31 @@ export class DependencyActivitiesComponent implements OnInit {
     }
   }
 
+  private getProjectctivity() {
+    this.activityConnectToApiService.showActivities(
+      this.projectId
+    ).subscribe((res: ApiResult<showActivityDto[]>) => {
+      console.log(res);
+
+      if(res.isSuccess && res.statusCode == 200) {
+              this.activityList = res.data;
+      this.getActivityList();
+
+      console.log(this.activityList);
+      }
+
+
+    });
+  }
+
   public changeActivityDependency(sourceActivityIndex: number, destinationActivityIndex: number, state: DependencyActivitystring) {
     this.disableChangeState(sourceActivityIndex, destinationActivityIndex ,true);
     this.activityConnectToApiService.modifyDependentActivity(
       new RequestCreateActivityDependency(
         this.projectId,
         new CreateActivityDependency(
-          this.activityList[sourceActivityIndex],
-          this.activityList[destinationActivityIndex],
+          this.activityList[sourceActivityIndex].activityId,
+          this.activityList[destinationActivityIndex].activityId,
           state
         )
       )

@@ -28,15 +28,24 @@ export class AdvancedSearchContainerComponent implements OnInit {
   private startTimeOfProjectUpperBound: string;
   private getProjectsWithDynamicFilter: GetProjectsWithDynamicFilterDto;
   public currentUserIsAdmin: boolean;
+  public projectList: ProjectSelectedDTO[] = [];
 
   constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
     this.setSelectedCompanyId();
+    this.subscribeProjectSelected();
   }
 
   ngOnInit(): void {
     this.initDisplayPath();
     this.checkIsUserAdmin();
   }
+
+  private subscribeProjectSelected() {
+    this.advancedSearchConnecctToApiService.projectListHandel.subscribe((res: ProjectSelectedDTO[]) => {
+      this.projectList = res;
+    });
+  }
+
 
   private checkIsUserAdmin() {
     let userRole = localStorage.getItem(url.userRole);

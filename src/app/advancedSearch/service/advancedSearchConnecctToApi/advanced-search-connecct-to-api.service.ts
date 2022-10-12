@@ -23,6 +23,7 @@ export class AdvancedSearchConnecctToApiService {
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('?startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('?startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '')
 
+      +'?pageId=1&pageCount=500'
       )
 
       }

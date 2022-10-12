@@ -1,3 +1,4 @@
+import { DateTime } from '../../../shared/model/dateTime';
 export class RequestCreateActivityDependency {
   constructor(projectId: string, createActivityDependency: CreateActivityDependency) {
     this.projectId = projectId;
@@ -28,6 +29,8 @@ export class CreateActivityDTO {
   timeWeight: number;
   costWeight: number;
   description: string;
+  parentActivityId: string;
+
   constructor(
     name: string,
     startOfActivity: string,
@@ -45,6 +48,24 @@ export class CreateActivityDTO {
     this.costWeight = timeWeight;
     this.description = description;
   }
+}
+
+export class showActivityDto {
+  activityName: string;
+  approximateCost: number;
+  endOfActivity: DateTime;
+  startOfActivity: DateTime;
+  activityId: string;
+}
+
+export class ActivityHierarchicalStructureSelectedDTO {
+  activityId: string;
+  parentActivityId: string;
+  activityName: string;
+  startOfActivity: DateTime;
+  endOfActivity: DateTime;
+  approximateCost: number;
+  childActivities: ActivityHierarchicalStructureSelectedDTO[];
   }
 
 export enum DependencyActivitystring {

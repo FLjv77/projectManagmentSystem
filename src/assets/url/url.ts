@@ -34,5 +34,6 @@ export const url = {
   GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter',
   CompanyInfo: 'CompanyInfo',
   userRole: 'userRole',
-  showHierarchicalStructureActivities: 'Project/ShowHierarchicalStructureActivities/'
+  showHierarchicalStructureActivities: 'Project/ShowHierarchicalStructureActivities/',
+  showActivities: 'Project/ShowActivities/'
 }
