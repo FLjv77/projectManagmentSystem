@@ -1,5 +1,5 @@
 export class WaterShedAndCanalsSpeceficDetailBehaviorDTO {
-    waterShedAndCanalsScope: WaterShedAndCanalsScopestring;
+    //waterShedAndCanalsScope: WaterShedAndCanalsScopestring;
     consumability: string;
     resourceStability: string;
     currentDebye: number;

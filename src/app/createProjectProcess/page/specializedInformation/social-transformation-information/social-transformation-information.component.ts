@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../shared/page/component/input-style/input-style.component';
@@ -15,7 +16,7 @@ import { ApiResult } from '../../../../auth/model/authDTO';
 '../../project-creation-levels/page/basic-project-information/basic-project-information.component.scss']
 })
 export class SocialTransformationInformationComponent implements OnInit {
-  private projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
+  private projectId : string|null;
 
   public inputCustomStyle: InputCustomStyle;
   public numberFloors =  new Array<FormControl>();
@@ -81,16 +82,22 @@ export class SocialTransformationInformationComponent implements OnInit {
   public typeProject: projectType;
 
   constructor(private router:Router,
-    private specializedInformationService: SpecializedInformationService) { }
+    private specializedInformationService: SpecializedInformationService,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   public goOnMap() {

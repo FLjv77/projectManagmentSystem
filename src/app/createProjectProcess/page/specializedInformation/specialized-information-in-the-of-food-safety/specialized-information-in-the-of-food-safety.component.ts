@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -18,17 +19,24 @@ export class SpecializedInformationInTheOfFoodSafetyComponent implements OnInit 
   public budget = new FormControl();
   public typeProject: projectType;
   public arrayList : Array<string> = ['125'];
+  private projectId : string|null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   public goOnMap() {

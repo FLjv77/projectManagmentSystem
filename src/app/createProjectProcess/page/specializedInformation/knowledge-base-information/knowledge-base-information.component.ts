@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../shared/page/component/input-style/input-style.component';
@@ -17,7 +18,7 @@ import { ConstructionTypestring } from 'src/app/createProjectProcess/model/speci
 })
 export class KnowledgeBaseInformationComponent implements OnInit {
   public knowledgeBaseds: KnowledgeBased[];
-  private projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
+  private projectId : string|null;
   public inputCustomStyle: InputCustomStyle;
   public numberCompanyControlList = new Array<FormControl>();
   public AreaOfExpertise = new Array<FormControl>();
@@ -28,12 +29,18 @@ export class KnowledgeBaseInformationComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private specializedInformationService: SpecializedInformationService) {}
+    private specializedInformationService: SpecializedInformationService,
+    private activeRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.initInputStyle();
     this.knowledgeBaseds = new Array<KnowledgeBased>();
     this.addList();
+    this.getQuery();
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initInputStyle() {

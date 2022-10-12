@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -32,17 +33,24 @@ export class SpecializedInformationOnEmploymentComponent implements OnInit {
   public arrayList0: Array<string> = ['2223'];
   public arrayList1: Array<string> = ['2223'];
   public arrayList2: Array<string> = ['2223'];
+  private projectId: string|null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   public goOnMap() {

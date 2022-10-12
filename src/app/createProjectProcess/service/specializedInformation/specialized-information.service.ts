@@ -17,7 +17,7 @@ export class SpecializedInformationService {
 
   constructor(private http: HttpClient) { }
 
-  public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
+  public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string|null, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
     return this.http.post<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
   }
 
@@ -25,19 +25,19 @@ export class SpecializedInformationService {
     return this.http.post<ApiResult<RuralRoadSpeceficDetailDTO>>(url.ModifyRuralRoadSpeceficDetail + projectId , ruralRoadSpeceficDetailDTO);
   }
 
-  public ModifyKnowledgeBasedSpeceficDetail(projectId : string, knowledgeBasedSpeceficDetailDTO: KnowledgeBasedSpeceficDetailDTO): Observable<ApiResult<KnowledgeBasedSpeceficDetailDTO>>{
+  public ModifyKnowledgeBasedSpeceficDetail(projectId : string|null, knowledgeBasedSpeceficDetailDTO: KnowledgeBasedSpeceficDetailDTO): Observable<ApiResult<KnowledgeBasedSpeceficDetailDTO>>{
     return this.http.put<ApiResult<KnowledgeBasedSpeceficDetailDTO>>(url.ModifyKnowledgeBasedSpeceficDetail + projectId , knowledgeBasedSpeceficDetailDTO);
   }
 
-  public ModifySocialTransformationSpeceficDetail(projectId : string, socialTransformationSpeceficDetailDTO: SocialTransformationSpeceficDetailDTO): Observable<ApiResult<SocialTransformationSpeceficDetailDTO>>{
+  public ModifySocialTransformationSpeceficDetail(projectId : string|null, socialTransformationSpeceficDetailDTO: SocialTransformationSpeceficDetailDTO): Observable<ApiResult<SocialTransformationSpeceficDetailDTO>>{
     return this.http.put<ApiResult<SocialTransformationSpeceficDetailDTO>>(url.ModifySocialTransformationSpeceficDetail + projectId , socialTransformationSpeceficDetailDTO);
   }
 
-  public ModifyRevivalIndustrySpeceficDetail(projectId : string, revivalIndustrySpeceficDetailDTO: RevivalIndustrySpeceficDetailDTO): Observable<ApiResult<RevivalIndustrySpeceficDetailDTO>>{
+  public ModifyRevivalIndustrySpeceficDetail(projectId : string|null, revivalIndustrySpeceficDetailDTO: RevivalIndustrySpeceficDetailDTO): Observable<ApiResult<RevivalIndustrySpeceficDetailDTO>>{
     return this.http.put<ApiResult<RevivalIndustrySpeceficDetailDTO>>(url.ModifyRevivalIndustrySpeceficDetail + projectId , revivalIndustrySpeceficDetailDTO);
   }
 
-  public ModifyGetHealthSpeceficDetail(projectId : string, healthSpeceficDetailDTO: HealthSpeceficDetailDTO): Observable<ApiResult<HealthSpeceficDetailDTO>>{
+  public ModifyGetHealthSpeceficDetail(projectId : string|null, healthSpeceficDetailDTO: HealthSpeceficDetailDTO): Observable<ApiResult<HealthSpeceficDetailDTO>>{
     return this.http.put<ApiResult<HealthSpeceficDetailDTO>>(url.ModifyGetHealthSpeceficDetail + projectId , healthSpeceficDetailDTO);
   }
 }

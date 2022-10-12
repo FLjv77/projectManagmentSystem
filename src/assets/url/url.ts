@@ -35,5 +35,6 @@ export const url = {
   CompanyInfo: 'CompanyInfo',
   userRole: 'userRole',
   showHierarchicalStructureActivities: 'Project/ShowHierarchicalStructureActivities/',
-  showActivities: 'Project/ShowActivities/'
+  showActivities: 'Project/ShowActivities/',
+  ModifyProjectParticipant:'Project/ModifyProjectParticipant/'
 }
