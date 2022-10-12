@@ -51,8 +51,7 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   }
 
   private getQuery(){
-    //this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
-    this.projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initDisplayPath() {
@@ -130,8 +129,6 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
       //this.ruralRoadList[this.index].latitude = this.locations[0].x_pos;
       //this.ruralRoadList[this.index].roadLongitude = this.locations[0].y_pos;
     }
-
-    
 
     this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
   }

@@ -45,14 +45,6 @@
             [inputFormControl]="humanResourceCostFormControl" [unit]="3"></app-input-style>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <i class="material-icons d-inline icon-styles">dvr</i>
-            <h4 class="title-page d-inline set-font-Raymon">اطلاعات مشارکت کنندگان</h4>
-        </div>
-        <app-drop-down-contributors class="mt-1" (name)="setContributors($event)"></app-drop-down-contributors>
-    </div>
-
     <div class="my-2" style="direction: ltr;">
         <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="goToNext()">
             تایید و ادامه

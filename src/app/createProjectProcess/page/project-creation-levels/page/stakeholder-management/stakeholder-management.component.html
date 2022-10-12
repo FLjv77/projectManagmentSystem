@@ -227,8 +227,49 @@
 
     </div>
 
+    <div class="row">
+        <div class="row">
+            <div class="col-12">
+                <i class="material-icons d-inline icon-styles">dvr</i>
+                <h4 class="title-page d-inline set-font-Raymon">اطلاعات مشارکت کنندگان</h4>
+            </div>
+            <div *ngIf="contributorsList" class="col-11">
+                <div *ngFor="let list of contributorsList , let i = index" class="row my-2 lists">
+                    <div class="row col-11">
+                        <div class="col-6 my-auto">
+                            <span class="d-inline">{{i+1}}.
+                                نام کاربری :</span>
+                            <span class="d-inline">{{list.userName}}</span>
+                        </div>
+                        <div class="col-6 my-auto">
+                            <span class="d-inline">نام و نام خانوادگی :</span>
+                            <span class="d-inline">{{list.familyName}}</span>
+                        </div>
+                    </div>
+                    <div class="col-1 pt-1">
+                        <button (click)="remove(contributorsList , i)" class="remove-button"><img src="../../../../../../assets/image/createProject/remove.svg" alt=""></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-11">
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'نام'" [inputId]="'contributorsName'"
+                    [inputFormControl]="contributorsNameFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'نام خانوادگی'" [inputId]="'contributorsFamily'"
+                    [inputFormControl]="contributorsFamilyFormControl"></app-input-style>
+            </div>
+            <div class="col-1">
+                <button *ngIf="contributorsNameFormControl.value && contributorsFamilyFormControl.value &&
+                contributorsNameFormControl.valid && contributorsFamilyFormControl.valid" class="button-add"
+                         (click)="add(contributorsList,contributorsNameFormControl.value ,contributorsFamilyFormControl.value)">
+                    <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+                </button>
+            </div>
+            <!-- <app-drop-down-contributors class="mt-1" (name)="setContributors($event)"></app-drop-down-contributors> -->
+        </div>
+    </div>
+
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text px-4 py-2">
+        <button type="button" class="ok-button-text px-4 py-2" (click)="sendContributorsList()">
             تایید و ادامه
         </button>
     </div>

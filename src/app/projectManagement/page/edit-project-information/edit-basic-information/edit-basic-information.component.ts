@@ -15,10 +15,13 @@ export class EditBasicInformationComponent implements OnInit {
   public projectNameFormControl = new FormControl();
   public projectDeliveryDateFormControl = new FormControl();
   public descreptionFormControl = new FormControl();
-  public initialCapitalProjectFormControl = new FormControl();
-  public projectProfitFormControl = new FormControl();
+  public humanResourceCostFormControl = new FormControl();
+  public infrastructureCostFormControl = new FormControl();
   public addressFormControl = new FormControl();
   public LocationFormControl = new FormControl();
+  public objectivesFormControl = new FormControl();
+  public projectTheBottleneckFormControl = new FormControl();
+  public projectChallengeFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
   public projectId: string | null;
 
@@ -39,10 +42,10 @@ export class EditBasicInformationComponent implements OnInit {
 
   public getValue(){
     if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
-      this.initialCapitalProjectFormControl.value && this.projectProfitFormControl.value && this.addressFormControl.value &&
+      this.infrastructureCostFormControl.value && this.humanResourceCostFormControl.value && this.addressFormControl.value &&
       this.LocationFormControl.value &&
       this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
-      this.initialCapitalProjectFormControl.valid && this.projectProfitFormControl.valid && this.addressFormControl.valid &&
+      this.infrastructureCostFormControl.valid && this.humanResourceCostFormControl.valid && this.addressFormControl.valid &&
       this.LocationFormControl.valid){
       return true;
     }
@@ -55,11 +58,19 @@ export class EditBasicInformationComponent implements OnInit {
 
   public getQuryParam(){
     this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
-    console.log(this.projectId);
   }
 
   public getInfo(){
     this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
-    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{console.log(res.data)});
+    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      this.projectNameFormControl.setValue(res.data.projectName);
+      this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
+      this.descreptionFormControl.setValue(res.data.projectDescription);
+      this.objectivesFormControl.setValue(res.data.projectTargets);
+      this.projectChallengeFormControl.setValue(res.data.projectChallange);
+      this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
+      this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
+      this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+    });
   }
 }

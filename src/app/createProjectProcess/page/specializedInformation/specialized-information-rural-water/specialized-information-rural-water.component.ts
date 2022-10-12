@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { PitWaterShedAndCanals } from './../../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -66,13 +67,20 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
   public TransferLineList: TransferLineWaterShedAndCanals[] = [];
   public DikeList: DikeWaterShedAndCanals[] = [];
   public PitWaterList: PitWaterShedAndCanals[] = [];
+  private projectId: string|null;
 
-  constructor(private iranStateAndZoneService: IranStateAndZoneService) { }
+  constructor(private iranStateAndZoneService: IranStateAndZoneService,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.initDisplayPath();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
+    this.getQuery();
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   private initDisplayPath() {
