@@ -110,6 +110,8 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
     this.addressList[this.selectedAddressToSetLocation].location = new Location(this.selectedX, this.selectedY);
     this.addressList[this.selectedAddressToSetLocation].layer = marker;
+
+    this.changeLocation();
   }
 
   public removeAddress(index: number) {

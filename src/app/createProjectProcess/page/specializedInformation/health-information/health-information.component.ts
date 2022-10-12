@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { projectType } from './../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { Router } from '@angular/router';
@@ -17,7 +18,6 @@ import { ApiResult } from '../../../../auth/model/authDTO';
   '../../project-creation-levels/page/basic-project-information/basic-project-information.component.scss']
 })
 export class HealthInformationComponent implements OnInit {
-  private projectId = 'ad48c232-5e43-ed11-beca-c55a16b26941';
 
   public inputCustomStyle: InputCustomStyle;
   public numberOfPeopleCoveredByInsurance = new Array<FormControl>();
@@ -63,20 +63,27 @@ export class HealthInformationComponent implements OnInit {
   public select6: boolean = false;
   public select7: boolean = false;
   public select8: boolean = false;
+  public projectId: string|null;
 
   public hospitalList: Array<HealthHospital> = new Array<HealthHospital>();
 
   constructor(private router:Router,
-    private specializedInformationService: SpecializedInformationService) { }
+    private specializedInformationService: SpecializedInformationService,
+    private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private getQuery(){
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
 
   public createProjectDetail() {

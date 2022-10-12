@@ -63,7 +63,12 @@ export class PProjectLocationInformationComponent implements OnInit {
     let location = this.activeRouting.snapshot.queryParamMap.get('locations');
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
-    if (location !== null) this.locations = JSON.parse(location);
+    if (location !== null) {
+      this.locations = JSON.parse(location);
+      console.log(this.locations);
+
+      this.LocationFormControl.setValue(this.locations[0].x_pos + ' - ' + this.locations[0].y_pos);
+    }
 
     this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
   }

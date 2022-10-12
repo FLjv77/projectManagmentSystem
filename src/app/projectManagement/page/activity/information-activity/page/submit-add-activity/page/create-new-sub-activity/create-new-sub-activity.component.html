@@ -4,7 +4,7 @@
         <h4 class="title-page d-inline set-font-Raymon">ایجاد فعالیت اصلی</h4>
     </div>
     <div class="col-12">
-        <app-drop-down-activities [projectId]="projectId"></app-drop-down-activities>
+        <app-drop-down-activities (activityId)="setParentActivityId($event)" [projectId]="projectId"></app-drop-down-activities>
     </div>
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام زیر فعالیت'" [inputId]="'1'"
                 [inputFormControl]="activityNameFormControl"></app-input-style>
@@ -21,7 +21,6 @@
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی زیر فعالیت'" [inputId]="'5'"
                 [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
 
-
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی زیر فعالیت'" [inputId]="'6'"
                 [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
 
@@ -31,7 +30,7 @@
 </div>
 
 <div class="row col-12 my-2" style="direction: ltr;">
-    <button type="button" class="ok-button" [disabled]="!getValue()">
+    <button (click)="createActivity()" type="button" class="ok-button" [disabled]="!getValue()">
         <img src="../../../../assets/image/createProject/ok-button.svg" alt="" class="opacity-light {{getValue() ? 'opacity-bold':''}}" alt="">
     </button>
 </div>

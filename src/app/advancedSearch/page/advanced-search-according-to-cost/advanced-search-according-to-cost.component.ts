@@ -1,5 +1,7 @@
 import { Cost } from './../../model/advanceSearch';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { AdvancedSearchConnecctToApiService } from '../../service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 
 @Component({
   selector: 'app-advanced-search-according-to-cost',
@@ -8,15 +10,66 @@ import { Component, OnInit } from '@angular/core';
   '../../../projectManagement/page/chart-report-project/chart-report-project.component.scss',
    '../advanced-search-according-to-allocation/advanced-search-according-to-allocation.component.scss']
 })
-export class AdvancedSearchAccordingToCostComponent implements OnInit {
+export class AdvancedSearchAccordingToCostComponent implements OnInit, AfterViewInit {
   public cost: Cost;
   public optionsCost: any;
+  @Input() projectList: ProjectSelectedDTO[];
+  private projectListName: string[] = [];
+  private projectListCostHumanResource: number[] = [];
+  private projectListCostInfrastructureCost: number[] = [];
+  private projectListCostTotal: number[] = [];
 
-  constructor() { }
+  constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {}
 
-  ngOnInit(): void {
-    this.initChartIncome();
+  ngAfterViewInit(): void {
+    this.subscribeProjectSelected();
   }
+
+  ngOnInit(): void {}
+
+  private subscribeProjectSelected() {
+    if(this.projectList) {
+      this.getListProject();
+      this.getListProjectCostTotal();
+      this.getListProjectCostHumanResource();
+      this.getListProjectCostInfrastructureCost();
+
+      this.initChartIncome();
+    }
+
+    this.advancedSearchConnecctToApiService.projectListHandel.subscribe((res: ProjectSelectedDTO[]) => {
+      this.projectList = res;
+      this.getListProject();
+      this.initChartIncome();
+      this.getListProjectCostHumanResource();
+      this.getListProjectCostInfrastructureCost();
+      this.getListProjectCostTotal();
+    });
+  }
+
+  private getListProject() {
+    for(let i=0; i<this.projectList.length; i++) {
+      this.projectListName.push(this.projectList[i].projectName);
+    }
+ }
+
+ private getListProjectCostHumanResource() {
+  for(let i=0; i<this.projectList.length; i++) {
+    this.projectListCostHumanResource.push(this.projectList[i].humanResourceCost);
+  }
+}
+
+private getListProjectCostInfrastructureCost() {
+  for(let i=0; i<this.projectList.length; i++) {
+    this.projectListCostInfrastructureCost.push(this.projectList[i].infrastructureCost);
+  }
+}
+
+private getListProjectCostTotal() {
+  for(let i=0; i<this.projectList.length; i++) {
+    this.projectListCostTotal.push(this.projectList[i].infrastructureCost + this.projectList[i].humanResourceCost);
+  }
+}
 
   private initChartIncome() {
     this.optionsCost = {
@@ -30,7 +83,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
         }
       },
       legend: {
-        data: ['شرکت-1', 'شرکت-2', 'شرکت-3', 'شرکت-4', 'شرکت-5']
+        data: ['هزینه منابع انسانی','هزینه زیر ساخت','هزینه کل']
       },
       grid: {
         left: '3%',
@@ -45,7 +98,7 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
           },
           type: 'category',
           boundaryGap: false,
-          data: ['مهر', 'شهریور', 'مرداد', 'تیر', 'خرداد', 'اردیبهشت', 'فروردین']
+          data: this.projectListName
         }
       ],
       yAxis: [
@@ -60,50 +113,28 @@ export class AdvancedSearchAccordingToCostComponent implements OnInit {
       ],
       series: [
         {
-          name: 'شرکت-1',
+          name: 'هزینه منابع انسانی',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [120, 132, 101, 134, 90, 230, 210],
+          data: this.projectListCostHumanResource,
           itemStyle: {color: '#519D9E'}
         },
         {
-          name: 'شرکت-2',
+          name: 'هزینه زیر ساخت',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [220, 182, 191, 234, 290, 330, 310],
-          itemStyle: {color: '#39e4e7'}
+          data: this.projectListCostInfrastructureCost,
+          itemStyle: {color: '#519D9E'}
         },
         {
-          name: 'شرکت-3',
+          name: 'هزینه کل',
           type: 'line',
           stack: 'counts',
           areaStyle: { normal: {} },
-          data: [150, 232, 201, 154, 190, 330, 410],
-          itemStyle: {color: '#AEAEAE'}
-        },
-        {
-          name: 'شرکت-4',
-          type: 'line',
-          stack: 'counts',
-          areaStyle: { normal: {} },
-          data: [320, 332, 301, 334, 390, 330, 320],
-          itemStyle: {color: '#9acecf'}
-        },
-        {
-          name: 'شرکت-5',
-          type: 'line',
-          stack: 'counts',
-          label: {
-            normal: {
-              show: true,
-              position: 'top'
-            }
-          },
-          areaStyle: { normal: {} },
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-          itemStyle: {color: '#525252cc'}
+          data: this.projectListCostTotal,
+          itemStyle: {color: '#4c6666'}
         }
       ]
     };
