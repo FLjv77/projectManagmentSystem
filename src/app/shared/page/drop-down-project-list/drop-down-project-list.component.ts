@@ -1,3 +1,4 @@
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {Select2OptionData} from "ng-select2";
@@ -16,7 +17,7 @@ export class DropDownProjectListComponent implements OnInit {
 
   @Input() placeholder: string;
   @Input() companyId: string| string[];
-  @Output() parentid = new EventEmitter<string>();
+  @Output() parentid = new EventEmitter<string|string[]>();
 
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
@@ -24,6 +25,7 @@ export class DropDownProjectListComponent implements OnInit {
 
   constructor(
     private projectConnectToApiService: ProjectConnectToApiService,
+    private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService
   ) { }
 
   ngOnInit(): void {
@@ -31,8 +33,9 @@ export class DropDownProjectListComponent implements OnInit {
     this.getProjectList();
   }
 
-  public setParentId(id: any) {
+  public setParentId(id: string|string[]) {
     this.parentid.emit(id);
+    this.advancedSearchConnecctToApiService.projectIdSelected.emit(id);
   }
 
   private getProjectList() {

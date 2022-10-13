@@ -26,7 +26,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public checkbox: boolean;
   public contributors: string = '';
-  public parentId: string = '';
+  public parentId: string|string[] = '';
   public inputInfo1: OutputInfo;
   public contributorsList : contributors[] = [];
   public companyId: string;
@@ -97,7 +97,7 @@ export class BasicProjectInformationComponent implements OnInit {
     document.getElementById('locationInformation')?.click();
   }
 
-  public setParentId(event: string){
+  public setParentId(event: string|string[]){
     this.parentId = event;
   }
 
