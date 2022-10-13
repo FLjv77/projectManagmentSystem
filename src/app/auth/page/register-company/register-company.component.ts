@@ -63,6 +63,9 @@ export class RegisterCompanyComponent implements OnInit {
     this.companyPhoneControl.value,
     this.passwordControl.value)).subscribe((res: ApiResult<boolean>) => {
       console.log(res);
+      if(res.statusCode == 200 && res.isSuccess == true){
+        this.router.navigate(['../../auth/loginUser']);
+      }
     });
 
  }

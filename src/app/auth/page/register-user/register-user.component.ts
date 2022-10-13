@@ -43,8 +43,9 @@ export class RegisterUserComponent implements OnInit {
       this.phoneNumberControl.value,
       this.passwordControl.value
     )).subscribe((res: ApiResult<boolean>) => {
-      console.log(res);
+      console.log(res.data);
       this.showSpinner = false;
+      this.router.navigate(['../../dashboard']);
     }, (err: HttpErrorResponse) => {
       this.showSpinner = false;
     });

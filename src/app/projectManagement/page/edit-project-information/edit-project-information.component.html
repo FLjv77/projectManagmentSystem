@@ -1,7 +1,8 @@
 <div class="wrapper">
-  <app-display-user-path [showCompanyList]="true" [showProjectList]="true" [path2]="path2" [path1]="path1" [path3]="path3"></app-display-user-path>
+  <app-display-user-path [showProjectList]="true" [showCompanyList]="true" [path2]="path2" 
+  [path1]="path1" [path3]="path3" (projectIdSelected)="setProjectId($event)"></app-display-user-path>
   <div class="bg-levels mx-4 mt-2">
-    <div class="set-font-vazir">
+    <div class="set-font-vazir" *ngIf="projectId != null">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active set-font-Raymon tab-text" id="basicInformation-tab" data-bs-toggle="tab" data-bs-target="#basicInformation" type="button" role="tab" aria-controls="basicInformation" aria-selected="true">اطلاعات اولیه</button>

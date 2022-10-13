@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {ActivatedRoute, Router} from "@angular/router";

@@ -15,7 +15,7 @@ import { url } from 'src/assets/url/url';
 export class DropDownProjectListComponent implements OnInit {
 
   @Input() placeholder: string;
-  @Input() companyId: string;
+  @Input() companyId: string| string[];
   @Output() parentid = new EventEmitter<string>();
 
   public title: string = 'انتخاب پروژه';

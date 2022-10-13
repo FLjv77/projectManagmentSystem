@@ -17,7 +17,8 @@ export class EditProjectInformationComponent implements OnInit {
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
   private projectDetail: ProjectSelectedDTO;
-  private projectId: string;
+  public projectId: string|string[];
+  public setValues: boolean = false;
 
   constructor(private activeRouting: ActivatedRoute,
     private handleDisplayError: HandleDisplayErrorService,
@@ -34,8 +35,12 @@ export class EditProjectInformationComponent implements OnInit {
     if (id) this.projectId = id;
   }
 
+  public setProjectId(event: string|string[]){
+    this.projectId = event;
+  }
+
   private getProjectDetail() {
-    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId).subscribe(
+    this.projectConnectToApiService.getProjectGeneralProperties1(this.projectId).subscribe(
       (res: ApiResult<ProjectSelectedDTO>) => {
         if(res.isSuccess && res.statusCode == 200) {
           this.projectDetail = res.data;

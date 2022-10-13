@@ -19,4 +19,8 @@ export class ProjectConnectToApiService {
   public getProjectGeneralProperties(projectId: string|null): Observable<ApiResult<ProjectSelectedDTO>> {
     return this.http.get<ApiResult<ProjectSelectedDTO>>(url.GetProjectGeneralPropertiesById + projectId);
   }
+
+  public getProjectGeneralProperties1(projectId: string|string[]): Observable<ApiResult<ProjectSelectedDTO>> {
+    return this.http.get<ApiResult<ProjectSelectedDTO>>(url.GetProjectGeneralPropertiesById + projectId);
+  }
 }

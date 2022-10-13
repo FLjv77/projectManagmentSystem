@@ -1,3 +1,4 @@
+import { AllocationReportPaginationSelectedDto, AllocationReportSelectedDto, ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from './../../model/getReports';
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from '../../service/reportConnectionToApi/report-connection-to-api.service';
@@ -12,17 +13,19 @@ export class ProjectControleReportsComponent implements OnInit {
 
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public projectId: string| string[];
+  public listAllocationReport: Array<AllocationReportSelectedDto>;
+  public listProgressReport: Array<ProgressReportSelectedDto>;
 
   constructor(private reportConnectionToApiService:ReportConnectionToApiService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
-    this.getReports();
-    this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
-      console.log('1111111111111111111111');
-      console.log(res);
-    });
-    this.getUserByDynamickFilter();
+    // this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
+    //   console.log('1111111111111111111111');
+    //   console.log(res);
+    // });
+    //this.getUserByDynamickFilter();
   }
 
   private initDisplayPath() {
@@ -30,13 +33,27 @@ export class ProjectControleReportsComponent implements OnInit {
     this.path2 = new DisplayPathModel('مدیریت گزارش ها', false, '');
   }
 
-  private getUserByDynamickFilter() {
-    this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
-      console.log(res);
-    });
+  public setProjectId($event: string|string[]){
+    this.projectId = $event;
+    this.getReports();
   }
 
-  private getReports(){
+  // private getUserByDynamickFilter() {
+  //   this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
+  //     console.log(res);
+  //   });
+  // }
 
+  private getReports(){
+    console.log('kkkkkkkkkkkkkk');
+    
+    this.reportConnectionToApiService.GetAllocationReports(this.projectId).subscribe
+    ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
+      this.listAllocationReport = res.data.allocationReportSelectedDtos;
+    });
+    this.reportConnectionToApiService.GetProgressReports(this.projectId).subscribe((
+      res: ApiResult<ProgressReportPaginationSelectedDto>)=>{
+        this.listProgressReport = res.data.progressReportSelectedDtos;
+      })
   }
 }

@@ -20,7 +20,7 @@
                 </mat-radio-group>
             </div>
             <div class="col-md-9 col-12 my-auto">
-                <app-drop-down-project-list *ngIf="checkbox==true" (parentid)="setParentId($event)"></app-drop-down-project-list>
+                <app-drop-down-project-list *ngIf="checkbox==true" (parentid)="setParentId($event)" [companyId]="companyId"></app-drop-down-project-list>
             </div>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
