@@ -30,7 +30,6 @@ export class BasicProjectInformationComponent implements OnInit {
   @Output() basicInputValue = new EventEmitter<aarayStyle>();
 
   constructor(private commonDataForCreateProjectService: CommonDataForCreateProjectService,
-              private handleModalService:HandleModalService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -85,7 +84,7 @@ export class BasicProjectInformationComponent implements OnInit {
 
 }
 
-export class aarayStyle{
+export class aarayStyle {
   constructor(public info : OutputInfo,public infrastructureCost: number,public humanResourceCost: number){
     this.info = info;
     this.infrastructureCost = infrastructureCost;

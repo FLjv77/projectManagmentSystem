@@ -57,7 +57,7 @@ export class EditBasicInformationComponent implements OnInit {
   }
 
   public getQuryParam(){
-    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   }
 
   public getInfo(){

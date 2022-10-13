@@ -1,4 +1,4 @@
-import { CompanyStatus } from './../../model/comanyModel';
+import { CompanyStatusstring } from './../../model/companyModel';
 import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -16,7 +16,7 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
 
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public modalState: CompanyStatus = 0;
+  public modalState: CompanyStatusstring = 0;
   public list: CompanySelectedDTO[] = [];
   public companyId: string;
   
@@ -33,7 +33,7 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
     this.path2 = new DisplayPathModel('احراز شرکت', false, '');
   }
 
-  public openModalConfirm(value: CompanyStatus,id: string){
+  public openModalConfirm(value: CompanyStatusstring,id: string){
     this.modalState = value;
     this.companyId = id;
     this.handleModalService.openModal('confirmed-company');
@@ -41,8 +41,21 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
 
   public CompanySelected(){
     this.companyList.CompanySelected(1,1).subscribe((res: ApiResult<CompanySelectedDTO[]>)=>{
-      console.log(res.data);
-      this.list = res.data;
+      this.list = new Array<CompanySelectedDTO>;
+    this.companyList.CompanySelected(
+      1, 100
+    ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].companyStatus == 0) {
+            this.list.push(res.data[i]);
+          }
+        }
+        console.log(this.list);
+        
+        //this.compans = res.data;
+      }
+    });
     })
   }
 

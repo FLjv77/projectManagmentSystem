@@ -49,7 +49,7 @@ export class EditDeveloperInformationormationComponent implements OnInit {
   }
 
   public getQuryParam(){
-    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   }
 
   public add(list: Array<userList>, userName:string, family:string){

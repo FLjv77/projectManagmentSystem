@@ -1,19 +1,16 @@
+import { CompanyStatusstring } from './companyModel';
 export class CompanyVerificationDTo {
-    constructor(companyStatus: CompanyStatus,message: string){
+    constructor(companyStatus: CompanyStatusstring,message: string){
         this.companyStatus = companyStatus;
         this.message = message;
     }
-    companyStatus: CompanyStatus;
+    companyStatus: CompanyStatusstring;
     message: string;
-}
-
-export enum CompanyStatus {
-    notChecked, checkedAndConfirmed, checkedAndRejected
 }
 
 export class CompanySelectedDTO {
     constructor(companyId: string,companyName: string,companyRegisterNumber: string,
-        companyEconomicCode: string,companyStatus: CompanyStatus,companyAreaExpertise: CompanyType[])
+        companyEconomicCode: string,companyStatus: CompanyStatusstring,companyAreaExpertise: CompanyType[])
         {
             this.companyId = companyId;
             this.companyName = companyName;
@@ -26,7 +23,7 @@ export class CompanySelectedDTO {
     companyName: string;
     companyRegisterNumber: string;
     companyEconomicCode: string;
-    companyStatus: CompanyStatus;
+    companyStatus: CompanyStatusstring;
     companyAreaExpertise: CompanyType[];
 }
 

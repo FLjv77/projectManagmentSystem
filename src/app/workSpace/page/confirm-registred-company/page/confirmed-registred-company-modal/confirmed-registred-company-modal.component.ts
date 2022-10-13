@@ -1,5 +1,6 @@
+import { CompanyStatusstring } from './../../../../model/companyModel';
 import { CompanyVerificationDToService } from './../../../../service/CompanyVerificationDTo/company-verification-dto.service';
-import { CompanyStatus, CompanyVerificationDTo } from './../../../../model/comanyModel';
+import { CompanyVerificationDTo } from './../../../../model/comanyModel';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 
@@ -10,7 +11,7 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
 })
 export class ConfirmedRegistredCompanyModalComponent implements OnInit {
 
-  @Input() modalState: CompanyStatus;
+  @Input() modalState: CompanyStatusstring;
   @Input() companyId: string;
   @Output() refresh = new EventEmitter<boolean>();
 
@@ -26,10 +27,10 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
     modal?.classList.add('out');
   }
 
-  public submit(modalState: CompanyStatus,state:boolean){
+  public submit(modalState: CompanyStatusstring,state:boolean){
     if (modalState==1 && state==true) {
       this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message))
-      .subscribe((res:ApiResult<CompanyStatus>)=>{console.log(res.data)});
+      .subscribe((res:ApiResult<CompanyStatusstring>)=>{console.log(res.data)});
       this.closeModal();
       this.refresh.emit(true);
     }
@@ -39,7 +40,15 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
     else if (modalState==2 && state==false){
       this.closeModal();
     }
-    else if(modalState==2 && state==true){
+    else if (modalState==2 && state==true){
+      this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message))
+      .subscribe((res: ApiResult<CompanyStatusstring>)=>{
+        console.log(res);
+      });
+      this.closeModal();
+      this.refresh.emit(true);
+    }
+    else if(modalState==1 && state==true){
       this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message));
       this.closeModal();
       this.refresh.emit(true);

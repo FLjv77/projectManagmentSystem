@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import { TargetsOfProjectSelectedDto } from '../../model/createProjectModel/target';
 import {ProjectType} from "../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";

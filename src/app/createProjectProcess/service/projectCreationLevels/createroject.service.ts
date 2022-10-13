@@ -15,7 +15,7 @@ export class CreaterojectService {
 
   constructor(private http: HttpClient) { }
 
-  public CreateProject(companyId: string,createProject: CreateProjectDTO): Observable<ApiResult<string>>{
+  public CreateProject(companyId: string|null,createProject: CreateProjectDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject);
   }
 
