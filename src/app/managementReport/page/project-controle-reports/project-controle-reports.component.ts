@@ -47,11 +47,11 @@ export class ProjectControleReportsComponent implements OnInit {
   private getReports(){
     console.log('kkkkkkkkkkkkkk');
     
-    this.reportConnectionToApiService.GetAllocationReports(this.projectId).subscribe
+    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
     ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
       this.listAllocationReport = res.data.allocationReportSelectedDtos;
     });
-    this.reportConnectionToApiService.GetProgressReports(this.projectId).subscribe((
+    this.reportConnectionToApiService.GetProgressReportsForSupervisor(this.projectId).subscribe((
       res: ApiResult<ProgressReportPaginationSelectedDto>)=>{
         this.listProgressReport = res.data.progressReportSelectedDtos;
       })

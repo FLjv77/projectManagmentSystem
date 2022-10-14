@@ -28,6 +28,7 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
   }
 
   public submit(modalState: CompanyStatusstring,state:boolean){
+    console.log(this.companyId);
     if (modalState==1 && state==true) {
       this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message))
       .subscribe((res:ApiResult<CompanyStatusstring>)=>{console.log(res.data)});
@@ -40,16 +41,9 @@ export class ConfirmedRegistredCompanyModalComponent implements OnInit {
     else if (modalState==2 && state==false){
       this.closeModal();
     }
-    else if (modalState==2 && state==true){
+    else if (modalState==2 && state==true) {
       this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message))
-      .subscribe((res: ApiResult<CompanyStatusstring>)=>{
-        console.log(res);
-      });
-      this.closeModal();
-      this.refresh.emit(true);
-    }
-    else if(modalState==1 && state==true){
-      this.companyVerificationService.CompanyModify(this.companyId, new CompanyVerificationDTo(modalState,this.message));
+      .subscribe((res:ApiResult<CompanyStatusstring>)=>{console.log(res.data)});
       this.closeModal();
       this.refresh.emit(true);
     }

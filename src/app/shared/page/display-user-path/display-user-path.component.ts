@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DisplayPathModel} from "../../model/displayPathModel";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-display-user-path',
@@ -20,9 +20,16 @@ export class DisplayUserPathComponent implements OnInit {
   public showProjectSelect: boolean = false;
   public companyId: string| string[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private activeRouting: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+  }
+
+  public getQuery(){
+    let id = this.activeRouting.snapshot.queryParamMap.get('companyId');
+    if (id) this.companyId = id;
   }
 
   public projectListAndCompanyListIsActive(): string {
@@ -70,7 +77,6 @@ export class DisplayUserPathComponent implements OnInit {
   }
 
   public setId($event: string|string[]){
-    //this.showProjectSelect = false;
     this.companyId = $event;
     this.companyIdSelected.emit($event);
     this.showProjectSelect = true;
