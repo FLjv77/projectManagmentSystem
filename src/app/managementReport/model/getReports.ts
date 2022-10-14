@@ -182,3 +182,42 @@ export class ProgressReportDynamicFilter {
     reportStatus: Status;
     userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string;
 }
+
+
+export class ProgressReportDTO {
+  constructor(
+    progressReporterName: string,
+    progressDescription: string,
+    progressPercentage: number,
+    progressCommitmentDate: string,
+    activityIds: ShareLevelOfActivityDTO[]
+  ) {
+    this.progressReporterName = progressReporterName;
+    this.progressDescription = progressDescription;
+    this.progressPercentage = progressPercentage;
+    this.progressCommitmentDate = progressCommitmentDate;
+    this.activityIds = activityIds;
+  }
+  progressReporterName: string;
+  progressDescription: string;
+  progressPercentage: number;
+  progressCommitmentDate: string;
+  activityIds: ShareLevelOfActivityDTO[];
+}
+
+  export class ShareLevelOfActivityDTO {
+    constructor(
+      activityId: string, shareLevelOfActivity: number
+    ) {
+      this.activityId = activityId;
+      this.shareLevelOfActivity = shareLevelOfActivity;
+    }
+
+    activityId: string;
+    shareLevelOfActivity: number;
+  }
+
+export class PrepareShareLevelOfActivityDTO {
+  shareLevelOfActivity: ShareLevelOfActivityDTO;
+  isExist: boolean;
+}
