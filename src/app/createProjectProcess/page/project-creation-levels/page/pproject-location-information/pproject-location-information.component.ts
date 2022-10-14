@@ -32,13 +32,12 @@ export class PProjectLocationInformationComponent implements OnInit {
     private activeRouting: ActivatedRoute,
     private handleModalService: HandleModalService,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
-    private createrojectService: CreaterojectService) { }
-
+    private createrojectService: CreaterojectService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.getLocation();
     this.setCompanyId();
+    this.getLocation();
   }
 
   private setCompanyId() {
@@ -65,12 +64,10 @@ export class PProjectLocationInformationComponent implements OnInit {
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
     if (location !== null) {
       this.locations = JSON.parse(location);
-      console.log(this.locations);
-
       this.LocationFormControl.setValue(this.locations[0].x_pos + ' - ' + this.locations[0].y_pos);
     }
 
-    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
+    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
   }
 
   public getValue() {
@@ -89,9 +86,8 @@ export class PProjectLocationInformationComponent implements OnInit {
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
-    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
-
-    this.router.navigate(['../../createProject/selectLocationOnMap'], {queryParams: {type: projectType, targetId: id}});
+    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
+    this.router.navigate(['../../createProject/selectLocationOnMap'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
   }
 
   public changeValue(value:number){
@@ -109,10 +105,20 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public createProject(event: boolean){
     if (event==false) {
-      this.router.navigate(['../projectManagement/projectList'] , {queryParams: {projectId : this.projectId}});
+      this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
     }
     else if(event==true){
-      document.getElementById('detailInformation')?.click();
+      let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
+      let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+
+      this.router.navigate(['../../createProject/startCreatProject'],
+       {queryParams: {type: projectType, targetId: id, companyId: this.companyId, projectId: this.projectId}});
+      this.commonDataForCreateProjectService.selectStep.emit(4);
+
+      setTimeout(() => {
+        document.getElementById('detailInformation')?.click();
+      }, 200);
+
     }
   }
 
@@ -130,4 +136,5 @@ export class PProjectLocationInformationComponent implements OnInit {
     }, (err: HttpErrorResponse) => {
     });
   }
+
 }

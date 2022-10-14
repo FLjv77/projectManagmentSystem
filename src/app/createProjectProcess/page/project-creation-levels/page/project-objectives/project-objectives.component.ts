@@ -41,16 +41,17 @@ export class ProjectObjectivesComponent implements OnInit {
 
   public inputInfo: OutputInfo;
   public goToNext(state: number) {
-    /*
     this.inputInfo = new OutputInfo([], 8);
     this.inputInfo.inputs.push(this.projectObjectiveFormControl.value);
     this.inputInfo.inputs.push(this.projectTheBottleneckFormControl.value);
     this.inputInfo.inputs.push(this.projectChallengeFormControl.value);
     this.inputInfo.state = state;
     this.objectiveInputValue.emit(this.inputInfo);
-    */
+    this.commonDataForCreateProjectService.selectStep.emit(2);
 
-    document.getElementById('basicInformationProject')?.click();
+    setTimeout(() => {
+      document.getElementById('basicInformationProject')?.click();
+    }, 200);
   }
 
 }

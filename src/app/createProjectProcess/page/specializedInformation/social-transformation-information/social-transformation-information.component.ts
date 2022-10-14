@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocialTransformationAddicion, SocialTransformationBannedFromEducation, SocialTransformationCampConstruction, SocialTransformationDivorce, SocialTransformationSegmentation, SocialTransformationSpeceficDetailDTO, SocialTransformationSpecialPatient, SocialTransformationUnintentionalPrisoner } from 'src/app/createProjectProcess/model/specializedInformation/modifySocialTransformationSpeceficDetail';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ApiResult } from '../../../../auth/model/authDTO';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-social-transformation-information',
@@ -82,6 +83,7 @@ export class SocialTransformationInformationComponent implements OnInit {
   public typeProject: projectType;
 
   constructor(private router:Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
     private activeRoute:ActivatedRoute) { }
 
@@ -118,7 +120,11 @@ export class SocialTransformationInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(5);
 
+        setTimeout(() => {
+          document.getElementById('stackHolderInformation')?.click();
+        }, 200);
       }
     });
   }

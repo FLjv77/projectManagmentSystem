@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { RevivalIndustry, RevivalIndustrySpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRevivalIndustrySpeceficDetail';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ApiResult } from '../../../../auth/model/authDTO';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-revival-of-industry-information',
@@ -26,6 +27,7 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
   public typeProject: projectType;
 
   constructor(private router: Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
     private activeRoute:ActivatedRoute) {}
 
@@ -56,7 +58,13 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
         this.revivalIndustrySpeceficDetailDTO
       )
     ).subscribe((res: ApiResult<RevivalIndustrySpeceficDetailDTO>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(5);
 
+        setTimeout(() => {
+          document.getElementById('stackHolderInformation')?.click();
+        }, 200);
+      }
     })
   }
 

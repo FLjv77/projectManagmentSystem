@@ -8,6 +8,7 @@ import { SpecializedInformationService } from 'src/app/createProjectProcess/serv
 import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-knowledge-base-information',
@@ -29,6 +30,7 @@ export class KnowledgeBaseInformationComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
     private activeRoute:ActivatedRoute) {}
 
@@ -56,7 +58,13 @@ export class KnowledgeBaseInformationComponent implements OnInit {
         this.knowledgeBaseds
       )
     ).subscribe((res: ApiResult<KnowledgeBasedSpeceficDetailDTO>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(5);
 
+        setTimeout(() => {
+          document.getElementById('stackHolderInformation')?.click();
+        }, 200);
+      }
     });
   }
 

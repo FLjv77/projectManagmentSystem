@@ -11,6 +11,7 @@ import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { RuralRoad, RuralRoadSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { Location } from '../../project-creation-levels/page/pproject-location-information/map-container/map-container.component';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-specialized-information-rural-way',
@@ -38,6 +39,7 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
 
   constructor(private router:Router, private activeRouting:ActivatedRoute,
               private specializedInformationService:SpecializedInformationService,
+              private commonDataForCreateProjectService: CommonDataForCreateProjectService,
               private activeRoute :ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -135,8 +137,14 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
   public sendWayInfo(){
     this.specializedInformationService.ModifyRuralRoadSpeceficDetail(this.projectId, new RuralRoadSpeceficDetailDTO(this.ruralRoadList))
     .subscribe((res: ApiResult<RuralRoadSpeceficDetailDTO>)=>{
-      console.log(res);
-      
+
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(5);
+
+        setTimeout(() => {
+          document.getElementById('stackHolderInformation')?.click();
+        }, 200);
+      }
     });
   }
 }

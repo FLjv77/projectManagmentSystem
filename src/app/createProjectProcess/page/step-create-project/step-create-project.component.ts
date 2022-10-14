@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, AfterViewInit } from '@angular/core';
+import { CommonDataForCreateProjectService } from '../../service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-step-create-project',
@@ -6,11 +7,11 @@ import { Component, OnInit, Output, EventEmitter, Input, AfterViewInit } from '@
   styleUrls: ['./step-create-project.component.scss']
 })
 export class StepCreateProjectComponent implements OnInit, AfterViewInit {
-  @Output() selectStep = new EventEmitter<number>();
   @Input() select : number = 0;
-  public state: number = 8;
+  public state: number = 1;
 
-  constructor() { }
+  constructor(
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,7 @@ export class StepCreateProjectComponent implements OnInit, AfterViewInit {
 
   public selectSteps(id:number){
     this.state = id;
-    this.selectStep.emit(id);
+    this.commonDataForCreateProjectService.selectStep.emit(id);
   }
 
 }
