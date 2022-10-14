@@ -1,35 +1,35 @@
 <div class="row mx-auto">
     <div class="col-12 mx-auto">
         <div class="margin-right-steps">
-            <button [disabled]="state < 1" #8 id="projectTarget" class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
+            <button #1 id="projectTarget" class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
                 <span class="d-block text-nowrap text-center">اهداف پروژه</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 2" #1 id="basicInformationProject" class="py-2 px-4 {{state==2 ? 'select-step':'steps'}}" (click)="selectSteps(2)">
+            <button #2 id="basicInformationProject" class="py-2 px-4 {{state==2 ? 'select-step':'steps'}}" (click)="selectSteps(2)">
                 <span class="d-block text-nowrap text-center">اطلاعات اولیه</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 3" #9 id="locationInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
+            <button #3 id="locationInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
                 <span class="d-block text-nowrap text-center">اطلاعات مکانی</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 4" #7 id="detailInformation" class="py-2 px-3 {{state==4 ? 'select-step':'steps'}}" (click)="selectSteps(4)">
+            <button  #4 id="detailInformation" class="py-2 px-3 {{state==4 ? 'select-step':'steps'}}" (click)="selectSteps(4)">
                 <span class="d-block text-nowrap text-center">شناسنامه تخصصی</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 5" #2 id="stackHolderInformation" class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
+            <button #5 id="stackHolderInformation" class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
                 <span class="d-block text-nowrap text-center"> ذی نفعان</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 6" #3 class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
+            <button #6 class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
                 <span class="d-block text-nowrap text-center"> منابع بازیابی</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 7" #4 class="py-2 px-4 {{state==7 ? 'select-step':'steps'}}" (click)="selectSteps(7)">
+            <button #7 class="py-2 px-4 {{state==7 ? 'select-step':'steps'}}" (click)="selectSteps(7)">
                 <span class="d-block text-nowrap text-center">افزودن فعالیت</span>
             </button>
             <div class="border-step"></div>
-            <button [disabled]="state < 8" #5 class="py-2 px-4 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
+            <button  #8 class="py-2 px-4 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
                 <span class="d-block text-nowrap text-center"> آپلود تصاویر</span>
             </button>
             <!-- <div class="border-step"></div>
