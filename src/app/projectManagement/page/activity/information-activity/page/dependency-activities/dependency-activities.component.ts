@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dependency-activities.component.scss', '../progress-report-activity/progress-report-activity.component.scss']
 })
 export class DependencyActivitiesComponent implements OnInit {
-  public disableChangeMatrix: boolean[][];
+  public disableChangeMatrix: boolean[][] = [[]];
   public activityList: showActivityDto[];
   private projectId: string;
   constructor(
@@ -30,15 +30,13 @@ export class DependencyActivitiesComponent implements OnInit {
     if(id) this.projectId = id;
   }
 
-  private getActivityList() {
-    this.initDisableChangeMatrix();
-  }
-
-  private initDisableChangeMatrix() {
-    for(let i=0; i < this.activityList.length; i++) {
-      for(let t=0; i < this.activityList.length; t++) {
-        this.disableChangeMatrix[i][t] = false;
-      }
+  private initDisableChangeMatrix(len: number) {
+    let arrayBool = [];
+    for(let i=0; i < len; i++) {
+      arrayBool.push(false);
+    }
+    for(let i=0; i < len; i++) {
+      this.disableChangeMatrix.push(arrayBool);
     }
   }
 
@@ -46,16 +44,10 @@ export class DependencyActivitiesComponent implements OnInit {
     this.activityConnectToApiService.showActivities(
       this.projectId
     ).subscribe((res: ApiResult<showActivityDto[]>) => {
-      console.log(res);
-
       if(res.isSuccess && res.statusCode == 200) {
-              this.activityList = res.data;
-      this.getActivityList();
-
-      console.log(this.activityList);
+        this.activityList = res.data;
+        this.initDisableChangeMatrix(res.data.length);
       }
-
-
     });
   }
 

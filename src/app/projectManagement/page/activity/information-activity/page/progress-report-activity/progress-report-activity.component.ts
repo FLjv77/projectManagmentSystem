@@ -1,5 +1,5 @@
 import { NumberFormaterService } from './../../../../../../shared/service/number/number-formater.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressReportActivityComponent implements OnInit {
 
+  private projectId: string;
   constructor(private handleModalService : HandleModalService,
-              private router: Router,
-              private numberFormaterService:NumberFormaterService) { }
+    private activeRouting: ActivatedRoute,
+    private router: Router,
+    private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
+    this.setProjectId();
   }
 
   public openMdalRecordProgress(){
@@ -22,11 +25,17 @@ export class ProgressReportActivityComponent implements OnInit {
   }
 
   public newReport(){
-    this.router.navigate(['../../managementReport/submitProgressReporter']);
+    this.router.navigate(['../../managementReport/submitProgressReporter'], {queryParams: { projectId: this.projectId}});
   }
 
   public changeToPersian(num:string){
     return this.numberFormaterService.covertToFrNumber(num)
   }
-  
+
+  private setProjectId() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+    if(id) this.projectId = id;
+  }
+
+
 }

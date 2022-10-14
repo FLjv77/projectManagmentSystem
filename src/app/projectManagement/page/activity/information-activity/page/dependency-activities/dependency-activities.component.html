@@ -2,29 +2,30 @@
   <div class="col-12 mt-2 mx-0 px-0 overflow-table">
     <table *ngIf="activityList" class="table table-bordered table-style">
       <thead>
-      <tr *ngFor="let item of activityList">
-        <th scope="col">{{item.activityName}}</th>
+      <tr>
+        <th scope="col">نام فعالیت</th>
+        <th *ngFor="let item of activityList" scope="col">{{item.activityName}}</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of activityList">
+      <tr *ngFor="let item of activityList; let i=index;">
         <th scope="row">{{item.activityName}}</th>
-        <td *ngFor="let subItem of activityList">
+        <td *ngFor="let subItem of activityList; let j=index">
           <mat-form-field class="select-style">
             <mat-select [value]="'none'" class="d-rtl set-font-vazir text-right font-size-small">
               <mat-option class="set-font-vazir text-right" [value]="'none'">
                 تعیین نشده
               </mat-option>
-              <mat-option [value]="'FF'">
+              <mat-option (click)="changeActivityDependency(i, j, 3)" [value]="'FF'">
                 FF
               </mat-option>
-              <mat-option [value]="'FS'">
+              <mat-option (click)="changeActivityDependency(i, j, 1)" [value]="'FS'">
                 FS
               </mat-option>
-              <mat-option [value]="'SF'">
+              <mat-option (click)="changeActivityDependency(i, j, 4)" [value]="'SF'">
                 SF
               </mat-option>
-              <mat-option [value]="'SS'">
+              <mat-option (click)="changeActivityDependency(i, j, 2)" [value]="'SS'">
                 SS
               </mat-option>
             </mat-select>

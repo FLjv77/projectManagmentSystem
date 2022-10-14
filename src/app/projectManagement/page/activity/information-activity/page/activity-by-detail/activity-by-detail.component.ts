@@ -65,7 +65,7 @@ export class ActivityByDetailComponent implements OnInit {
   }
 
 
-public togglePanel() {
-    this.panelOpenState = !this.panelOpenState
-}
+  public togglePanel() {
+      this.panelOpenState = !this.panelOpenState
+  }
 }
