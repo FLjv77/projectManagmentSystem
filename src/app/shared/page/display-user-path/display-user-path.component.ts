@@ -72,6 +72,7 @@ export class DisplayUserPathComponent implements OnInit {
   public setId($event: string|string[]){
     //this.showProjectSelect = false;
     this.companyId = $event;
+    this.companyIdSelected.emit($event);
     this.showProjectSelect = true;
   }
 }

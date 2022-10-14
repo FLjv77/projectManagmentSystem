@@ -3,3 +3,7 @@
   (valueChanged)="setParentId($event)"
   [(ngModel)]="placeHolder"></ng-select2>
 </div>
+
+<div *ngIf="projectData.length == 0">
+  <span class="set-font-vazir font-weight-bold" style="color: rgb(112, 112, 112);">پروژه ای برای این شرکت وجود ندارد</span>
+</div>

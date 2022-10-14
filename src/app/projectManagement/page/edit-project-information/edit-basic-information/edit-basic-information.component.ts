@@ -30,21 +30,25 @@ export class EditBasicInformationComponent implements OnInit {
   constructor(private router: Router, private activeRoute: ActivatedRoute,
               private projectConnectToApiService :ProjectConnectToApiService,
               private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) { 
-                this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((res: string | string[])=>{
+                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
                   this.projectIdSelect = res;
-                  console.log(this.projectIdSelect);
+                  console.log(res);
                   
+                  if (this.projectIdSelect) {
+                    console.log(this.projectIdSelect);
                   this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
-    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-      this.projectNameFormControl.setValue(res.data.projectName);
-      this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
-      this.descreptionFormControl.setValue(res.data.projectDescription);
-      this.objectivesFormControl.setValue(res.data.projectTargets);
-      this.projectChallengeFormControl.setValue(res.data.projectChallange);
-      this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
-      this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
-      this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
-    });
+                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+                    console.log(res.data);
+                    this.projectNameFormControl.setValue(res.data.projectName);
+                    this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
+                    this.descreptionFormControl.setValue(res.data.projectDescription);
+                    this.objectivesFormControl.setValue(res.data.projectTargets);
+                    this.projectChallengeFormControl.setValue(res.data.projectChallange);
+                    this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
+                    this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
+                    this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+                  });
+                  }
                 })
               }
 
@@ -81,7 +85,8 @@ export class EditBasicInformationComponent implements OnInit {
   }
 
   public getInfo(){
-    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
+    if (this.projectId) {
+      this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
       this.projectNameFormControl.setValue(res.data.projectName);
       this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
@@ -92,5 +97,6 @@ export class EditBasicInformationComponent implements OnInit {
       this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
       this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
     });
+    }
   }
 }

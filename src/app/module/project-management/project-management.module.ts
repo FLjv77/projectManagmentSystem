@@ -1,3 +1,4 @@
+import { HealthComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/health/health.component';
 import { CreateNewActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-activity/create-new-activity.component';
 import { CreateNewSubActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-sub-activity/create-new-sub-activity.component';
 import { SubmitAddActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/submit-add-activity.component';
@@ -61,6 +62,7 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     CreateNewActivityComponent,
     CreateNewSubActivityComponent,
     SubmitAddActivityComponent,
+    HealthComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +87,8 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     ProgressReportActivityComponent,
     RecordFinancialReportModalComponent,
     RecordProgressReportModalComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    HealthComponent
   ]
 })
 export class ProjectManagementModule { }
