@@ -34,11 +34,17 @@ export class CompanyListComponent implements OnInit {
   }
 
   private getCompanyList() {
+    this.compans = new Array<CompanySelectedDTO>;
     this.companyListService.CompanySelected(
       1, 100
     ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.compans = res.data;
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].companyStatus == 1) {
+            this.compans.push(res.data[i]);
+          }
+        }
+        //this.compans = res.data;
       }
     });
   }

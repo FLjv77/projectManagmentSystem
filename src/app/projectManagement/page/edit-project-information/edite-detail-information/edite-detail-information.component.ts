@@ -1,3 +1,4 @@
+import { AdvancedSearchConnecctToApiService } from './../../../../advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
@@ -28,11 +29,27 @@ export class EditeDetailInformationComponent implements OnInit {
   public projectRemoveMarginalization: ProjectRemoveMarginalization;
   private selectedZone: string;
   public projectId: string | null;
+  public projectIdSelect: string|string[];
   public select: number = 0;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
               private activeRoute: ActivatedRoute,
-              private projectConnectToApiService :ProjectConnectToApiService) { }
+              private projectConnectToApiService :ProjectConnectToApiService,
+              private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) {
+                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
+                  this.projectIdSelect = res;
+                  console.log(res);
+                  
+                  if (this.projectIdSelect) {
+                    console.log(this.projectIdSelect);
+                  this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
+                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+                    console.log(res.data);
+                    
+                  });
+                  }
+                })
+               }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -114,15 +131,20 @@ export class EditeDetailInformationComponent implements OnInit {
       else if (res.data.objectiveTitle == 'راه روستایی') {
         this.select = 2;
       }
+      else if (res.data.objectiveTitle == 'آب خیر وقنوات') {
+        this.select = 3;
+      }
+      else if (res.data.objectiveTitle == 'دانش بنیان') {
+        this.select = 4;
+      }
+      else if (res.data.objectiveTitle == 'تحول اجتماعی') {
+        this.select = 5;
+      }
+      else if (res.data.objectiveTitle == 'سلامت') {
+        this.select = 6;
+      }
       console.log(res.data)
-      // this.projectNameFormControl.setValue(res.data.projectName);
-      // this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
-      // this.descreptionFormControl.setValue(res.data.projectDescription);
-      // this.objectivesFormControl.setValue(res.data.projectTargets);
-      // this.projectChallengeFormControl.setValue(res.data.projectChallange);
-      // this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
-      // this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
-      // this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+      
     });
   }
 

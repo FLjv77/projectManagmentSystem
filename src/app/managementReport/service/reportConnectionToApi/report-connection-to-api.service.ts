@@ -26,24 +26,32 @@ export class ReportConnectionToApiService {
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
 
-  public GetAllocationReports(projectId: string,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
-    pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
-    skipEntity:number): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
+  public GetAllocationReports(projectId: string|string[]
+    // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
+    // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
+    // skipEntity:number
+    ): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReports
-    + '?projectId=' + projectId + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
-    userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
-    + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
-    takeEntity + '&skipEntity=' + skipEntity);
+    + '?projectId=' + projectId 
+    // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
+    // userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
+    // + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
+    // takeEntity + '&skipEntity=' + skipEntity
+    );
   }
 
-  public GetProgressReports(projectId: string,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
-    pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
-    skipEntity:number): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
+  public GetProgressReports(projectId: string|string[]
+    // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
+    // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
+    // skipEntity:number
+    ): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReports
-    + '?projectId=' + projectId + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
-    userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
-    + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
-    takeEntity + '&skipEntity=' + skipEntity);
+    + '?projectId=' + projectId 
+    // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
+    // userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
+    // + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
+    // takeEntity + '&skipEntity=' + skipEntity
+    );
   }
 
   public GetProgressReportsForSupervisor(projectId: string): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{

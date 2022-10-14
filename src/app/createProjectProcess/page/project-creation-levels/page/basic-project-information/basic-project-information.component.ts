@@ -1,8 +1,10 @@
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 import { OutputInfo } from '../../../../model/createProjectModel/createProject';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 import { HandleModalService } from 'src/app/shared/service/handleModalService/handle-modal.service';
 
@@ -24,17 +26,33 @@ export class BasicProjectInformationComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public checkbox: boolean;
   public contributors: string = '';
-  public parentId: string = '';
+  public parentId: string|string[] = '';
   public inputInfo1: OutputInfo;
   public contributorsList : contributors[] = [];
+  public companyId: string;
   @Output() basicInputValue = new EventEmitter<aarayStyle>();
 
   constructor(private commonDataForCreateProjectService: CommonDataForCreateProjectService,
-              private handleModalService:HandleModalService,
-              private router: Router) { }
+              private router: Router,
+              private activeRouting:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.setCompanyId();
+  }
+
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+      console.log(this.companyId);
+      
+    }
   }
 
   private initInputStyle() {
@@ -79,13 +97,13 @@ export class BasicProjectInformationComponent implements OnInit {
     document.getElementById('locationInformation')?.click();
   }
 
-  public setParentId(event: string){
+  public setParentId(event: string|string[]){
     this.parentId = event;
   }
 
 }
 
-export class aarayStyle{
+export class aarayStyle {
   constructor(public info : OutputInfo,public infrastructureCost: number,public humanResourceCost: number){
     this.info = info;
     this.infrastructureCost = infrastructureCost;

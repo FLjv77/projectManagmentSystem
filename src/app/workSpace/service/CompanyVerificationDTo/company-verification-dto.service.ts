@@ -1,4 +1,5 @@
-import { CompanyVerificationDTo, CompanyStatus } from './../../model/comanyModel';
+import { CompanyStatusstring } from './../../model/companyModel';
+import { CompanyVerificationDTo } from './../../model/comanyModel';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { url } from 'src/assets/url/url';
@@ -12,8 +13,8 @@ export class CompanyVerificationDToService {
 
   constructor(private http: HttpClient) { }
 
-  public CompanyModify(companyId: string,CompanyVerification: CompanyVerificationDTo): Observable<ApiResult<CompanyStatus>>{
-    return this.http.post<ApiResult<CompanyStatus>>(url.CompanyModify + companyId ,CompanyVerification);
+  public CompanyModify(companyId: string,CompanyVerification: CompanyVerificationDTo): Observable<ApiResult<CompanyStatusstring>>{
+    return this.http.post<ApiResult<CompanyStatusstring>>(url.CompanyModify + companyId ,CompanyVerification);
   }
 
 }

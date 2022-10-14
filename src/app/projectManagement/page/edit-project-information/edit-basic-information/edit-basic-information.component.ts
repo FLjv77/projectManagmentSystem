@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -24,9 +25,32 @@ export class EditBasicInformationComponent implements OnInit {
   public projectChallengeFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
   public projectId: string | null;
+  public projectIdSelect: string| string[];
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
-              private projectConnectToApiService :ProjectConnectToApiService) { }
+              private projectConnectToApiService :ProjectConnectToApiService,
+              private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) { 
+                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
+                  this.projectIdSelect = res;
+                  console.log(res);
+                  
+                  if (this.projectIdSelect) {
+                    console.log(this.projectIdSelect);
+                  this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
+                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+                    console.log(res.data);
+                    this.projectNameFormControl.setValue(res.data.projectName);
+                    this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
+                    this.descreptionFormControl.setValue(res.data.projectDescription);
+                    this.objectivesFormControl.setValue(res.data.projectTargets);
+                    this.projectChallengeFormControl.setValue(res.data.projectChallange);
+                    this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
+                    this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
+                    this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+                  });
+                  }
+                })
+              }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -57,11 +81,12 @@ export class EditBasicInformationComponent implements OnInit {
   }
 
   public getQuryParam(){
-    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   }
 
   public getInfo(){
-    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
+    if (this.projectId) {
+      this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
       this.projectNameFormControl.setValue(res.data.projectName);
       this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
@@ -72,5 +97,6 @@ export class EditBasicInformationComponent implements OnInit {
       this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
       this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
     });
+    }
   }
 }

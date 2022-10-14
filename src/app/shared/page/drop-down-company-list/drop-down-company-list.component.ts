@@ -31,11 +31,13 @@ export class DropDownCompanyListComponent implements OnInit {
       1, 50
     ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {
       for(let i=0; i<res.data.length; i++) {
-        let obj = {
-          text: res.data[i].companyName,
-          id: res.data[i].companyId
+        if (res.data[i].companyStatus == 1) {
+          let obj = {
+            text: res.data[i].companyName,
+            id: res.data[i].companyId
+          }
+          this.companyData.push(obj);
         }
-        this.companyData.push(obj);
       }
     });
   }
