@@ -1,1 +1,163 @@
-<p>health works!</p>
+<div class="row">
+    <div *ngIf="hospitalList.length!=0">
+        <div *ngFor="let Hospital of hospitalList , let i = index" class="row">
+
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
+          </div>
+
+      <div class="col-12 mt-2">
+        <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+      </div>
+      <mat-radio-group [value]="0"
+        class="example-radio-group font-size-small">
+        <mat-radio-button (click)="set_type_numberHospital(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+          <span class="px-2">احداث</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="set_type_numberHospital(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+          <span class="px-2">تکمیل و توسعه</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="set_type_numberHospital(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+          <span class="px-2">مرمت</span>
+        </mat-radio-button>
+      </mat-radio-group>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
+           [inputId]="'numberHospital' + i" [inputFormControl]="numberHospital[i]" [type]="'number'" (changeValue)="observeChange_numberHospital($event, i)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+           [inputId]="'NumberOfFloors' + i" [type]="'number'" [inputFormControl]="NumberOfFloors[i]" (changeValue)="observeChange_NumberOfFloors($event, i)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
+           [inputId]="'numberOfBedsHospital' + i" [type]="'number'" [inputFormControl]="numberOfBedsHospital[i]" (changeValue)="observeChange_numberOfBedsHospital($event, i)"></app-input-style>
+
+        </div>
+      </div>
+
+      <div *ngIf="HealthHomeList.length!=0">
+        <div *ngFor="let item of HealthHomeList , let j = index" class="row">
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
+          </div>
+
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="set_type_numberHospital(0, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="set_type_numberHospital(1, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="set_type_numberHospital(2, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
+          [inputId]="'numberHealthHome' + j" [inputFormControl]="numberHealthHome[j]" [type]="'number'" (changeValue)="observeChange_numberHealthHome($event, j)"></app-input-style>
+
+          <app-input-style [label]="'متر'" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'"
+          [inputId]="'Meterage' + j" [inputFormControl]="Meterage[j]" [unit]="0" [type]="'number'" (changeValue)="observeChange_Meterage($event, j)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
+          [inputId]="'numberOfBedsHealthHouse' + j" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse[j]" (changeValue)="observeChange_numberOfBedsHealthHouse($event, j)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پزشک'"
+           [inputId]="'numberDoctors' + j" [type]="'number'" [inputFormControl]="numberDoctors[j]" (changeValue)="observeChange_numberDoctors($event, j)"></app-input-style>
+
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'"
+           [inputId]="'numberNurses' + j" [type]="'number'" [inputFormControl]="numberNurses[j]" (changeValue)="observeChange_numberNurses($event, j)"></app-input-style>
+
+        </div>
+      </div>
+      </div>
+
+      <div *ngIf="insuranceList.length!=0" class="row">
+        <div *ngFor="let item of insuranceList; let v = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
+          [inputId]="'numberOfPeopleCoveredByInsurance' + v" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance[v]" (changeValue)="observeChange_numberOfPeopleCoveredByInsurance($event, v)"></app-input-style>
+
+        </div>
+      </div>
+
+      <div *ngIf="healthPharmacyList.length!=0" class="row">
+        <div *ngFor="let item of healthPharmacyList; let t = index" class="row">
+
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
+          [inputId]="'numberpharmacy' + t" [type]="'number'" [inputFormControl]="numberpharmacy[t]" (changeValue)="observeChange_numberpharmacy($event, t)"></app-input-style>
+        </div>
+      </div>
+
+      <div *ngIf="bathRoomList.length!=0" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
+        </div>
+        <div *ngFor="let item of bathRoomList; let x = index" class="row">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'"
+          [inputId]="'numberBathroom' + x" [type]="'number'" [inputFormControl]="numberBathroom[x]" (changeValue)="observeChange_numberBathroom($event, x)"></app-input-style>
+        </div>
+      </div>
+
+      <div *ngIf="WCList.length!=0" class="row">
+        <div *ngFor="let item of  WCList;let j = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
+          [inputId]="'numberWC' + j" [type]="'number'" [inputFormControl]="numberWC[j]" (changeValue)="observeChange_numberWC($event, j)"></app-input-style>
+        </div>
+     </div>
+
+      <div *ngIf="HealthVaccinationList.length!=0" class="row">
+        <div *ngFor="let item of HealthVaccinationList; let j = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
+          [inputId]="'numberVaccination' + j" [type]="'number'" [inputFormControl]="numberVaccination[j]" (changeValue)="observeChange_numberVaccination($event, j)"></app-input-style>
+        </div>
+    </div>
+
+      <div *ngIf="diseaseList.length!=0" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
+        </div>
+        <div class="col-12">
+          <div *ngFor="let list1 of diseaseList; let i = index" class="row">
+            <div class="col-12">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'"
+              [inputId]="'TypeOfDisease' + i" [inputFormControl]="TypeOfDisease[i]" (changeValue)="observeChange_TypeOfDisease($event, i)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
+              [inputId]="'NumberOfTreatments' + i" [type]="'number'" [inputFormControl]="NumberOfTreatments[i]" (changeValue)="observeChange_NumberOfTreatments($event, i)"></app-input-style>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="medicineList.length!=0" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
+        </div>
+        <div class="col-12">
+          <div *ngFor="let list2 of medicineList; let i = index" class="row my-2">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'"
+              [inputId]="'typeOfMedicine' + i" [inputFormControl]="typeOfMedicine[i]" (changeValue)="observeChange_typeOfMedicine($event, i)"></app-input-style>
+
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+               [inputId]="'numberOfMedicine' + i" [type]="'number'" [inputFormControl]="numberOfMedicine[i]" (changeValue)="observeChange_numberOfMedicine($event, i)"></app-input-style>
+
+               <div *ngIf="i-1>=0" class="row mx-auto">
+          </div>
+        </div>
+      </div>
+</div>
