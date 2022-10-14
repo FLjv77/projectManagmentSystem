@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { HealthBathroom, HealthHealthHouse, HealthHospital, HealthInsurance, HealthMedicine, HealthPharmacy, HealthSpeceficDetailDTO, HealthToilet, HealthTreatment, HealthVaccination } from 'src/app/createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { ApiResult } from '../../../../auth/model/authDTO';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-health-information',
@@ -68,6 +69,7 @@ export class HealthInformationComponent implements OnInit {
   public hospitalList: Array<HealthHospital> = new Array<HealthHospital>();
 
   constructor(private router:Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
     private activeRoute:ActivatedRoute) { }
 
@@ -101,7 +103,13 @@ export class HealthInformationComponent implements OnInit {
         this.medicineList
       )
     ).subscribe((res: ApiResult<HealthSpeceficDetailDTO>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(5);
 
+        setTimeout(() => {
+          document.getElementById('stackHolderInformation')?.click();
+        }, 200);
+      }
     });
   }
 

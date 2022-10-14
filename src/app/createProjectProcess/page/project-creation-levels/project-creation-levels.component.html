@@ -3,17 +3,17 @@
 
   <div class="row mx-auto">
             <div class="col-sm-3 col-12 mx-auto">
-                <app-step-create-project (selectStep)="setSelectStep($event)" [select]="selectSteps"></app-step-create-project>
+                <app-step-create-project [select]="selectSteps"></app-step-create-project>
             </div>
             <div class="col-sm-9 col-12 mx-auto">
-                <app-basic-project-information *ngIf="selectSteps == 1" (basicInputValue)="setBasicFild($event)"></app-basic-project-information>
-                <app-stakeholder-management *ngIf="selectSteps == 2"></app-stakeholder-management>
-               <app-recovery-resources *ngIf="selectSteps == 3"></app-recovery-resources>
-                <app-add-activity *ngIf="selectSteps == 4"></app-add-activity>
-                <app-upload-images *ngIf="selectSteps == 5"></app-upload-images>
+                <app-basic-project-information *ngIf="selectSteps == 2" (basicInputValue)="setBasicFild($event)"></app-basic-project-information>
+                <app-stakeholder-management *ngIf="selectSteps == 5"></app-stakeholder-management>
+                <app-recovery-resources *ngIf="selectSteps == 6"></app-recovery-resources>
+                <app-add-activity *ngIf="selectSteps == 7"></app-add-activity>
+                <app-upload-images *ngIf="selectSteps == 8"></app-upload-images>
                 <!-- <app-development-report-project *ngIf="selectSteps == 6"></app-development-report-project>
                 <app-financial-report-project *ngIf="selectSteps == 10"></app-financial-report-project> -->
-              <div *ngIf="selectSteps == 7">
+              <div *ngIf="selectSteps == 4">
                 <app-specialized-information-rural-water *ngIf="checkWhichSpecializedComponent(9)"></app-specialized-information-rural-water>
                 <app-specialized-information-rural-housing *ngIf="checkWhichSpecializedComponent(0)"></app-specialized-information-rural-housing>
                 <app-specialized-information-rural-way *ngIf="checkWhichSpecializedComponent(2)"></app-specialized-information-rural-way>
@@ -25,8 +25,8 @@
                 <app-specialized-information-on-employment *ngIf="checkWhichSpecializedComponent(7)"></app-specialized-information-on-employment>
                 <!-- <app-specialized-information-in-the-of-food-safety *ngIf="checkWhichSpecializedComponent(6)"></app-specialized-information-in-the-of-food-safety> -->
               </div>
-                <app-project-objectives *ngIf="selectSteps == 8" (objectiveInputValue)="setObjectivFild($event)"></app-project-objectives>
-                <app-pproject-location-information *ngIf="selectSteps == 9"></app-pproject-location-information>
+                <app-project-objectives *ngIf="selectSteps == 1" (objectiveInputValue)="setObjectivFild($event)"></app-project-objectives>
+                <app-pproject-location-information *ngIf="selectSteps == 3"></app-pproject-location-information>
             </div>
     </div>
 </div>

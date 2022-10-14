@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { CreateProjectDTO, Participant } from '../../../model/createProjectModel/createProject';
 import { noop } from 'rxjs';
 
@@ -7,6 +7,7 @@ import { noop } from 'rxjs';
 })
 
 export class CommonDataForCreateProjectService {
+  public selectStep = new EventEmitter<number>();
   private createProjectData: CreateProjectDTO;
   constructor() {
     this.initProjectData();

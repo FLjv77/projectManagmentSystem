@@ -5,6 +5,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DisplayPathModel} from "../../../../../../shared/model/displayPathModel";
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -30,7 +33,7 @@ L.Marker.prototype.options.icon = iconDefault;
   '../../../../../../../assets/style/base.scss']
 })
 export class MapContainerComponent implements OnInit, AfterViewInit  {
-
+  private companyId: string;
   private selectedX: number;
   private selectedY: number;
   public selectedAddressToSetLocation: number = 0;
@@ -44,6 +47,7 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
   constructor(private router: Router,
     private activeRouting: ActivatedRoute,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private numberFormaterService: NumberFormaterService) { }
 
   ngOnInit(): void {
@@ -51,6 +55,7 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     this.initDisplayPath();
     this.addNewLocation();
     this.initInputStyle();
+    this.setCompanyId();
   }
 
   ngAfterViewInit(): void {
@@ -78,6 +83,18 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
       this.selectedX = e.latlng.lat;
       this.selectedY = e.latlng.lng;
     });
+  }
+
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
   }
 
   private initInputStyle() {
@@ -161,9 +178,16 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
-    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)), type: projectType, targetId: id}})
+    this.router.navigate(['../../createProject/startCreatProject'],
+    {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)),
+      type: projectType, targetId: id, companyId: this.companyId}});
+
     setTimeout(() => {
-      document.getElementById('locationInformation')?.click();
+      this.commonDataForCreateProjectService.selectStep.emit(3);
+
+      setTimeout(() => {
+        document.getElementById('locationInformation')?.click();
+      }, 200);
     }, 200);
   }
 

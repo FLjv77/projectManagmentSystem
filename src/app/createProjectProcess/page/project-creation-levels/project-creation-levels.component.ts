@@ -16,7 +16,7 @@ export class ProjectCreationLevelsComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
-  public selectSteps: number = 8;
+  public selectSteps: number = 1;
   public objective : string;
   public bottleneck : string;
   public challenge : string;
@@ -31,7 +31,11 @@ export class ProjectCreationLevelsComponent implements OnInit {
   constructor(
     private activeRouting: ActivatedRoute,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService
-  ) { }
+  ) {
+    this.commonDataForCreateProjectService.selectStep.subscribe((res: number) => {
+      this.setSelectStep(res);
+    });
+   }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -75,7 +79,6 @@ export class ProjectCreationLevelsComponent implements OnInit {
     this.contributors = $event.info.inputs[3];
     this.parentId = $event.info.inputs[4];
     this.setSelectStep($event.info.state);
-    console.log($event);
   }
 
 }

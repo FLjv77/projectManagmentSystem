@@ -50,8 +50,6 @@ export class BasicProjectInformationComponent implements OnInit {
     } else {
       let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
       if(idC) this.companyId = idC;
-      console.log(this.companyId);
-      
     }
   }
 
@@ -94,7 +92,12 @@ export class BasicProjectInformationComponent implements OnInit {
       [],
       this.startDate
     );
-    document.getElementById('locationInformation')?.click();
+
+    this.commonDataForCreateProjectService.selectStep.emit(3);
+
+    setTimeout(() => {
+      document.getElementById('locationInformation')?.click();
+    }, 200);
   }
 
   public setParentId(event: string|string[]){
