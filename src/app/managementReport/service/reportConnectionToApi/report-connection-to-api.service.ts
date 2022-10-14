@@ -26,7 +26,7 @@ export class ReportConnectionToApiService {
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
 
-  public GetAllocationReports(projectId: string|string[]
+  public GetAllocationReports(projectId: string
     // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
     // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
     // skipEntity:number
@@ -40,7 +40,7 @@ export class ReportConnectionToApiService {
     );
   }
 
-  public GetProgressReports(projectId: string|string[]
+  public GetProgressReports(projectId: string
     // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
     // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
     // skipEntity:number
@@ -54,11 +54,11 @@ export class ReportConnectionToApiService {
     );
   }
 
-  public GetProgressReportsForSupervisor(projectId: string): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
+  public GetProgressReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReportsForSupervisor + projectId);
   }
 
-  public GetAllocationReportsForSupervisor(projectId: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
+  public GetAllocationReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReportsForSupervisor + projectId);
   }
 

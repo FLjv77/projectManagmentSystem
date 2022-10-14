@@ -4,7 +4,6 @@ import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/servi
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { CompanyListService } from 'src/app/workSpace/service/companyListDTO/company-list.service';
 import { ApiResult } from '../../../auth/model/authDTO';
-import { url } from '../../../../assets/url/url';
 
 @Component({
   selector: 'app-drop-down-company-list',
@@ -36,6 +35,8 @@ export class DropDownCompanyListComponent implements OnInit {
             text: res.data[i].companyName,
             id: res.data[i].companyId
           }
+          console.log(res.data);
+          
           this.companyData.push(obj);
         }
       }

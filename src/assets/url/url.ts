@@ -30,7 +30,7 @@ export const url = {
   GetProgressReports :'Project/GetProgressReports',
   GetAllocationReports:'Project/GetAllocationReports',
   GetProgressReportsForSupervisor:'Project/GetProgressReportsForSupervisor',
-  GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor',
+  GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor/',
   GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter',
   CompanyInfo: 'CompanyInfo',
   userRole: 'userRole',

@@ -16,7 +16,7 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
 
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public modalState: CompanyStatusstring = 0;
+  public modalState: CompanyStatusstring;
   public list: CompanySelectedDTO[] = [];
   public companyId: string;
   
@@ -40,11 +40,13 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
   }
 
   public CompanySelected(){
-    this.companyList.CompanySelected(1,1).subscribe((res: ApiResult<CompanySelectedDTO[]>)=>{
+    this.companyList.CompanySelected(1,5).subscribe((res: ApiResult<CompanySelectedDTO[]>)=>{
       this.list = new Array<CompanySelectedDTO>;
     this.companyList.CompanySelected(
       1, 100
     ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {
+      console.log(res.data);
+      
       if(res.isSuccess && res.statusCode == 200) {
         for (let i = 0; i < res.data.length; i++) {
           if (res.data[i].companyStatus == 0) {
