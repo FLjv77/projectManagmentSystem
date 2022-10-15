@@ -1,3 +1,17 @@
+import { WellComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/well/well.component';
+import { TransferLineComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/transfer-line/transfer-line.component';
+import { SourceComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/source/source.component';
+import { WaterSealComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/water-seal/water-seal.component';
+import { PurificationComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/purification/purification.component';
+import { PompComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/pomp/pomp.component';
+import { FountainComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/fountain/fountain.component';
+import { DistributionNetworkComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/distribution-network/distribution-network.component';
+import { DamComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/dam/dam.component';
+import { RuralWaterComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/rural-water.component';
+import { RuralWayComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-way/rural-way.component';
+import { RemovalMarginalizationComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/removal-marginalization/removal-marginalization.component';
+import { SocialTransformationComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/social-transformation/social-transformation.component';
+import { KnowledgeBaseComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/knowledge-base/knowledge-base.component';
 import { HealthComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/health/health.component';
 import { CreateNewActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-activity/create-new-activity.component';
 import { CreateNewSubActivityComponent } from './../../projectManagement/page/activity/information-activity/page/submit-add-activity/page/create-new-sub-activity/create-new-sub-activity.component';
@@ -62,7 +76,21 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     CreateNewActivityComponent,
     CreateNewSubActivityComponent,
     SubmitAddActivityComponent,
-    HealthComponent
+    HealthComponent,
+    KnowledgeBaseComponent,
+    SocialTransformationComponent,
+    RemovalMarginalizationComponent,
+    RuralWayComponent,
+    RuralWaterComponent,
+    DamComponent,
+    DistributionNetworkComponent,
+    FountainComponent,
+    PompComponent,
+    PurificationComponent,
+    SourceComponent,
+    TransferLineComponent,
+    WaterSealComponent,
+    WellComponent,
   ],
   imports: [
     CommonModule,
@@ -88,7 +116,21 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     RecordFinancialReportModalComponent,
     RecordProgressReportModalComponent,
     ProjectListComponent,
-    HealthComponent
+    HealthComponent,
+    KnowledgeBaseComponent,
+    SocialTransformationComponent,
+    RemovalMarginalizationComponent,
+    RuralWayComponent,
+    RuralWaterComponent,
+    DamComponent,
+    DistributionNetworkComponent,
+    FountainComponent,
+    PompComponent,
+    PurificationComponent,
+    SourceComponent,
+    TransferLineComponent,
+    WaterSealComponent,
+    WellComponent,
   ]
 })
 export class ProjectManagementModule { }

@@ -1,6 +1,7 @@
+import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router} from "@angular/router";
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
@@ -18,7 +19,7 @@ export class NavebarComponent implements OnInit {
   public isFullScreen: boolean = false;
   public companyName: string = 'ادمین';
   constructor(
-    private router: Router,
+    private router: Router, private reportConnectionToApiService:ReportConnectionToApiService,
     private authService: AuthService,
     private handleDisplayErrorService: HandleDisplayErrorService,
   ) { }
@@ -61,7 +62,8 @@ export class NavebarComponent implements OnInit {
 
   private checkCurrentUserIsSuperAdmin(){
     this.authService.getMyCompany().subscribe((res: ApiResult<CompanySelectedDTO>) => {
-      if(res.isSuccess && res.statusCode == 200) {
+      this.reportConnectionToApiService.CompanyIdForSuper.emit(res.data.companyId);
+        if(res.isSuccess && res.statusCode == 200) {
         this.companyInformation = res.data;
         localStorage.removeItem(url.CompanyInfo);
         localStorage.removeItem(url.userRole);

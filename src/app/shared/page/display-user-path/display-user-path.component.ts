@@ -1,3 +1,5 @@
+import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DisplayPathModel} from "../../model/displayPathModel";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -14,6 +16,7 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path2: DisplayPathModel;
   @Input() path3: DisplayPathModel;
   @Input() showProjectList: boolean;
+  @Input() super: boolean;
   @Input() showCompanyList: boolean;
   @Output() companyIdSelected = new EventEmitter<string | string[]>();
   @Output() projectIdSelected = new EventEmitter<string| string[]>();
@@ -21,7 +24,14 @@ export class DisplayUserPathComponent implements OnInit {
   public companyId: string| string[];
 
   constructor(private router: Router,
-    private activeRouting: ActivatedRoute) { }
+    private activeRouting: ActivatedRoute,
+    private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
+    private reportConnectionToApiService:ReportConnectionToApiService) { 
+      this.reportConnectionToApiService.CompanyIdForSuper.subscribe((res: string|string[])=>{
+        this.companyId = res;
+      }) 
+    }
+
 
   ngOnInit(): void {
     

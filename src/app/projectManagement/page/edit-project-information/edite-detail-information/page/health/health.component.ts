@@ -50,12 +50,119 @@ export class HealthComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.addList();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public addList(){
+    this.addHealthBathroom();
+    this.addHealthHome();
+    this.addHealthMedicine();
+    this.addHealthPharmacyList();
+    this.addHealthToilet();
+    this.addHealthTreatment();
+    this.addHealthVaccination();
+    this.addHospital();
+    this.addInsuranceList();
+  }
+
+  public addHealthHome(){
+    this.HealthHomeList.push(new HealthHealthHouse());
+
+    this.numberHealthHome.push(new FormControl());
+    this.Meterage.push(new FormControl());
+    this.numberOfBedsHealthHouse.push(new FormControl());
+    this.numberNurses.push(new FormControl());
+    this.numberDoctors.push(new FormControl());
+  }
+
+  public deleteHealthHome(index: number){
+    this.HealthHomeList.splice(index, 1);
+  }
+
+  public addHospital(){
+    this.NumberOfFloors.push(new FormControl());
+    this.numberOfBedsHospital.push(new FormControl());
+    this.numberHospital.push(new FormControl());
+
+    this.hospitalList.push(new HealthHospital());
+  }
+
+  public deleteListHealthHospital(index: number){
+    this.hospitalList.splice(index, 1);
+  }
+
+  public addInsuranceList(){
+    this.insuranceList.push(new HealthInsurance());
+
+    this.numberOfPeopleCoveredByInsurance.push(new FormControl());
+  }
+
+  public deleteInsuranceList(index: number){
+    this.insuranceList.splice(index, 1);
+  }
+
+  public addHealthPharmacyList(){
+    this.healthPharmacyList.push(new HealthPharmacy());
+    this.numberpharmacy.push(new FormControl());
+    this.numberOfPeopleCoveredByInsurance.push(new FormControl());
+  }
+
+  public deletehealthPharmacyList(index: number){
+    this.healthPharmacyList.splice(index, 1);
+  }
+
+  public addHealthBathroom(){
+    this.bathRoomList.push(new HealthBathroom());
+    this.numberBathroom.push(new FormControl());
+  }
+
+  public deleteHealthBathroomList(index: number){
+    this.bathRoomList.splice(index, 1);
+  }
+
+  public addHealthToilet(){
+    this.WCList.push(new HealthToilet());
+    this.numberWC.push(new FormControl());
+  }
+
+  public deleteHealthToiletList(index: number){
+    this.WCList.splice(index, 1);
+  }
+
+  public addHealthVaccination(){
+    this.HealthVaccinationList.push(new HealthVaccination());
+    this.numberVaccination.push(new FormControl());
+  }
+
+  public deleteHealthVaccination(index: number){
+    this.HealthVaccinationList.splice(index, 1);
+  }
+
+  public addHealthTreatment(){
+    this.diseaseList.push(new HealthTreatment());
+    this.TypeOfDisease.push(new FormControl());
+    this.NumberOfTreatments.push(new FormControl());
+  }
+
+  public deleteHealthTreatment(index: number){
+    this.diseaseList.splice(index, 1);
+  }
+
+  public addHealthMedicine(){
+    this.medicineList.push(new HealthMedicine());
+
+    this.numberOfMedicine.push(new FormControl());
+    this.typeOfMedicine.push(new FormControl());
+  }
+
+  public deleteHealthMedicine(index: number){
+    this.medicineList.splice(index, 1);
   }
 
   public observeChange_numberOfPeopleCoveredByInsurance(event: string, index: number) {

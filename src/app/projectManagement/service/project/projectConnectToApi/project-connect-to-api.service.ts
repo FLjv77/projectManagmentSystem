@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

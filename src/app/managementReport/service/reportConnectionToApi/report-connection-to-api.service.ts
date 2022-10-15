@@ -1,6 +1,6 @@
 import { ProgressReportDTO } from './../../model/modelDtoAllocationReport';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { RequestAllocationReportDTO, RequestAllocationVerificationDTO } from '../../model/modelDtoAllocationReport';
@@ -11,6 +11,8 @@ import { AllocationReportPaginationSelectedDto, ProgressReportPaginationSelected
   providedIn: 'root'
 })
 export class ReportConnectionToApiService {
+
+  public CompanyIdForSuper = new EventEmitter<string|string[]>();
 
   constructor(private http: HttpClient) { }
 
