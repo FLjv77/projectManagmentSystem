@@ -23,6 +23,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public humanResourceCostFormControl = new FormControl();
   public startDate: string;
   public deliveryDate: string;
+
   public inputCustomStyle: InputCustomStyle;
   public checkbox: boolean;
   public contributors: string = '';
@@ -39,6 +40,17 @@ export class BasicProjectInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.setCompanyId();
+    this.checkValueIsSetBefor();
+  }
+
+  private checkValueIsSetBefor() {
+    let projectInfo = this.commonDataForCreateProjectService.getCreateProject();
+    if(projectInfo.projectName) this.projectNameFormControl.setValue(projectInfo.projectName);
+    if(projectInfo.projectDeliveryTime) this.projectDeliveryDateFormControl.setValue(projectInfo.projectDeliveryTime);
+    if(projectInfo.startTimeOfProject) this.projectStartDateFormControl.setValue(projectInfo.startTimeOfProject);
+    if(projectInfo.projectDescription) this.descreptionFormControl.setValue(projectInfo.projectDescription);
+    if(projectInfo.infrastructureCost) this.infrastructureCostFormControl.setValue(projectInfo.infrastructureCost);
+    if(projectInfo.humanResourceCost) this.humanResourceCostFormControl.setValue(projectInfo.humanResourceCost);
   }
 
   private setCompanyId() {

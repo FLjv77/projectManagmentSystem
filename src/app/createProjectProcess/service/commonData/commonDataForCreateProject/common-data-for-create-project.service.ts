@@ -1,3 +1,5 @@
+
+
 import { EventEmitter, Injectable } from '@angular/core';
 import { CreateProjectDTO, Participant } from '../../../model/createProjectModel/createProject';
 import { noop } from 'rxjs';
@@ -9,6 +11,10 @@ import { noop } from 'rxjs';
 export class CommonDataForCreateProjectService {
   public selectStep = new EventEmitter<number>();
   private createProjectData: CreateProjectDTO;
+  public goal: string;
+  public galo: string;
+  public chalenge: string;
+
   constructor() {
     this.initProjectData();
   }
@@ -35,13 +41,18 @@ export class CommonDataForCreateProjectService {
       this.createProjectData.humanResourceCost  = humanResourceCost;
       this.createProjectData.participants = participants;
 
-
-      console.log(this.createProjectData);
-
   }
 
   public setTargetInformaton(targetId: string) {
     this.createProjectData.targetId = targetId;
+  }
+
+  public setObjective(goal: string,
+ galo: string,
+ chalenge: string) {
+  this.goal = goal;
+  this.galo = galo;
+  this.chalenge = chalenge;
   }
 
   public setLocationInformation(

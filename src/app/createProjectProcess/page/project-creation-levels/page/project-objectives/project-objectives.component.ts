@@ -23,6 +23,14 @@ export class ProjectObjectivesComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.checkValueIsSet();
+  }
+
+  private checkValueIsSet() {
+    if(this.commonDataForCreateProjectService.chalenge) this.projectChallengeFormControl.setValue(this.commonDataForCreateProjectService.chalenge);
+    if(this.commonDataForCreateProjectService.goal) this.projectObjectiveFormControl.setValue(this.commonDataForCreateProjectService.goal);
+    if(this.commonDataForCreateProjectService.galo) this.projectTheBottleneckFormControl.setValue(this.commonDataForCreateProjectService.galo);
+
   }
 
   private initInputStyle() {
@@ -41,14 +49,12 @@ export class ProjectObjectivesComponent implements OnInit {
 
   public inputInfo: OutputInfo;
   public goToNext(state: number) {
-    this.inputInfo = new OutputInfo([], 8);
-    this.inputInfo.inputs.push(this.projectObjectiveFormControl.value);
-    this.inputInfo.inputs.push(this.projectTheBottleneckFormControl.value);
-    this.inputInfo.inputs.push(this.projectChallengeFormControl.value);
-    this.inputInfo.state = state;
-    this.objectiveInputValue.emit(this.inputInfo);
     this.commonDataForCreateProjectService.selectStep.emit(2);
-
+    this.commonDataForCreateProjectService.setObjective(
+      this.projectObjectiveFormControl.value,
+      this.projectTheBottleneckFormControl.value,
+      this.projectChallengeFormControl.value
+    );
     setTimeout(() => {
       document.getElementById('basicInformationProject')?.click();
     }, 200);
