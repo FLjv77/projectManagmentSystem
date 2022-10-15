@@ -19,7 +19,7 @@
     </div>
 
     <div class="my-2" style="direction: ltr;">
-        <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
+        <button (click)="createResourceInformation()" type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
             تایید و ادامه
         </button>
     </div>

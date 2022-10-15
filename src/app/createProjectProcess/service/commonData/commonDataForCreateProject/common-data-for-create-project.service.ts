@@ -19,6 +19,13 @@ export class CommonDataForCreateProjectService {
     this.initProjectData();
   }
 
+  public initCreateProjectData() {
+    this.createProjectData = new CreateProjectDTO();
+    this.goal = '';
+    this.galo = '';
+    this.chalenge = '';
+  }
+
   private initProjectData() {
     this.createProjectData = new CreateProjectDTO();
   }

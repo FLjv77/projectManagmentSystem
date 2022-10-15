@@ -9,6 +9,7 @@ import { HandleDisplayErrorService } from '../../../shared/service/handleError/h
 import { HttpErrorResponse } from '@angular/common/http';
 import { url } from 'src/assets/url/url';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { CommonDataForCreateProjectService } from '../../service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-select-project-type',
@@ -23,6 +24,7 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
   public companyId: string | string[];
   public types: TargetsOfProjectSelectedDto[];
   constructor(private router: Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private handleDisplayErrorService: HandleDisplayErrorService,
     private createrojectService: CreaterojectService) { }
 
@@ -46,6 +48,7 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
 
   public goToCreateProjectSteps(type: ProjectType, name: string) {
     this.projectType = type;
+    this.commonDataForCreateProjectService.initCreateProjectData();
     this.router.navigate(['createProject/startCreatProject'], {queryParams: {type: this.projectType, targetId: this.getIdTarget(name), companyId: this.companyId}});
   }
 
@@ -79,6 +82,6 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
   public saveSelectedCompanyId(companyId: string | string[]) {
     this.companyId = companyId;
     console.log(this.companyId);
-    
+
   }
 }
