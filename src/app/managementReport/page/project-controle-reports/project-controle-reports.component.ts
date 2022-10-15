@@ -41,10 +41,10 @@ export class ProjectControleReportsComponent implements OnInit {
   // }
 
   private getReports(){
-    console.log('kkkkkkkkkkkkkk');
     
     if (this.projectId) {
       this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
+
     ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
       this.listAllocationReport = res.data.allocationReportSelectedDtos;
     });

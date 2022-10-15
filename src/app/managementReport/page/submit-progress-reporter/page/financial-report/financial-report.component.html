@@ -1,59 +1,61 @@
 <div class="mt-3">
+
   <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="">
-        <mat-panel-title>
-          <mat-checkbox>
-            <div class="set-font-Raymon font-weight-bold title-activity px-2">نام فعالیت</div>
-          </mat-checkbox>
+    <mat-expansion-panel #mep="matExpansionPanel" [disabled]="true">
+      <mat-expansion-panel-header *ngFor="let item of activityList; let i=index">
+        <mat-panel-title class="positon-relative set-font-Raymon font-weight-bold">
+          {{item.activityName}}
         </mat-panel-title>
-      </mat-expansion-panel-header>
-
-
-      <div class="set-font-Raymon title-for-child-activity"></div>
-
-      <div class="p-right-child-activity">
-          <div class="row set-font-vazir w-100 detail-activity">
-              <div class="col-12 col-md-6 my-auto">
-                <mat-checkbox>
-                  <div class="set-font-Raymon font-weight-bold title-activity px-2">نام زیر فعالیت</div>
-                </mat-checkbox>
-              </div>
-              <div class="col-12 col-md-6 my-auto">
-                <app-input-style [label]="'%'" [haveLimit]="true" [minValue]="0" [maxValue]="100" [inputCustomStyle]="inputCustomStyle" class="w-100"
-                [type]="'number'" [inputLabel]="'درصد پیشرفت گزارش شده'" [inputId]="'3'" [inputFormControl]="ProgressFormControl"></app-input-style>
-              </div>
+        <mat-panel-description class="position-relative pb-2">
+          <div class="row px-2 set-font-vazir w-100">
+            <div class="col-12 col-md-8 detail-activity">
+              <app-input-style *ngIf="listPrepareShareLevelOfActivity[i].isExist" [inputCustomStyle]="inputCustomStyle"
+               class="w-100"
+              [type]="'number'" [inputLabel]="'سهم فعالیت'" [inputId]="'progressAmountControl' + i"
+              (changeValue)="changePersentOfActivity(i, $event)" [inputFormControl]="progressAmountControl[i]">
+            </app-input-style>
+            </div>
           </div>
-        </div>
+
+          <div *ngIf="!listPrepareShareLevelOfActivity[i].isExist" class="edit-pen">
+            <span (click)="changeEditMode(i)" class="material-icons">check_box_outline_blank</span>
+          </div>
+          <div *ngIf="listPrepareShareLevelOfActivity[i].isExist" class="edit-pen">
+            <span (click)="changeEditMode(i)" class="material-icons">check_box</span>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
     </mat-expansion-panel>
+
   </mat-accordion>
 </div>
 
-
 <div class="row">
-  <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نام گزارش دهنده'" [inputId]="'2'"
-            [inputFormControl]="reporterNameFormControl"></app-input-style>
 
-    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ پرداخت'" [inputId]="'paymentDateFormControl'"
-            [inputFormControl]="paymentDateFormControl"></app-date-picker-jalaly>
+  <div class="col-12 my-auto">
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="w-100"
+    [type]="'number'" [inputLabel]="'میزان تخصیص'" [inputId]="'5'" [inputFormControl]="reportAmounttFormControl"></app-input-style>
+  </div>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'میزان تخصیص کل'" [inputId]="'3'"
-            [inputFormControl]="reportedCostFormControl"></app-input-style>
-
-    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'شرح گزارش هزینه'" [inputId]="'4'"
-            [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>
-
-  <app-upload-file-input [inputFormControl]="financialDocumentsFormControl" [inputLabel]="'بارگذاری مستندات مالی'"></app-upload-file-input>
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12 col-md-6 mt-2" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
+            [inputFormControl]="registrationDateFormControl" (changeValue)="registrationDate = $event"></app-date-picker-jalaly>
 
 
-    <div *ngIf="getValue()" class="row col-12 mt-3" style="direction: ltr;">
-        <button type="button" class="ok-button " (click)="submitAllocationReport()">
+    <div class="col-12 col-md-6 my-auto">
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="w-100"
+      [type]="'text'" [inputLabel]="'نام گزارش دهنده'" [inputId]="'3'" [inputFormControl]="reporterNameFormControl"></app-input-style>
+    </div>
+
+    <app-input-style [inputCustomStyle]="inputCustomStyle"
+                     [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'4'"
+            [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
+
+  <app-upload-file-input [inputFormControl]="fileFormControl" [inputLabel]="'بارگذاری مستندات تخصیص پروژه'"></app-upload-file-input>
+
+
+  <div class="row col-12 my-2" style="direction: ltr;">
+        <button type="button" class="ok-button" (click)="sendProgressReport()">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
     </div>
-
-
-    <div *ngIf="showProgress" class="row col-12 mt-3" style="direction: ltr;">
-      <div class="spinner-border progress-color" role="status"></div>
-   </div>
 </div>
