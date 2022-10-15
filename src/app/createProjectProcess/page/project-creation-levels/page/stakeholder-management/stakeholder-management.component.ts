@@ -125,3 +125,4 @@ export class StakeholderManagementComponent implements OnInit {
     // this.createrojectService.ModifyProjectParticipant(this.projectId ,this.contributorsList).subscribe((res:ApiResult<ParticipantRequest[]>)=>{console.log(res.data);
     // })
 }
+

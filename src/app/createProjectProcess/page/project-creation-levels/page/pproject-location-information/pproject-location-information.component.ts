@@ -55,7 +55,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   private checkValueIsSet() {
     let projectInfo = this.commonDataForCreateProjectService.getCreateProject();
-    if(projectInfo.projectName) this.LocationFormControl.setValue(projectInfo.latitude + ' - ' + projectInfo.longitude);
+    if(projectInfo.latitude) this.LocationFormControl.setValue(projectInfo.latitude + ' - ' + projectInfo.longitude);
   }
 
   private initInputStyle() {

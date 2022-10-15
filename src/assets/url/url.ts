@@ -36,5 +36,7 @@ export const url = {
   userRole: 'userRole',
   showHierarchicalStructureActivities: 'Project/ShowHierarchicalStructureActivities/',
   showActivities: 'Project/ShowActivities/',
-  ModifyProjectParticipant:'Project/ModifyProjectParticipant/'
+  ModifyProjectParticipant:'Project/ModifyProjectParticipant/',
+  ModifyProjectResourceInformation:'Project/ModifyProjectResourceInformation/',
+  UploadDocumentsOfProject: 'Media/UploadDocumentsOfProject/'
 }

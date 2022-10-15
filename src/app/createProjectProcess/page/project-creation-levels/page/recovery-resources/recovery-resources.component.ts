@@ -1,6 +1,11 @@
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
+import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
+import { ActivatedRoute } from '@angular/router';
+import { ResourceInformation } from '../stakeholder-management/stakeholder-management.component';
+import { ApiResult } from '../../../../../auth/model/authDTO';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-recovery-resources',
@@ -14,12 +19,22 @@ export class RecoveryResourcesComponent implements OnInit {
   public TimeResourceFormControl = new FormControl();
   public startDateFormControl = new FormControl();
   public endDateFormControl = new FormControl();
+  public projectId: string = '130a88e5-ae4c-ed11-beca-c55a16b26941';
 
-  constructor() { }
+  constructor(private createrojectService: CreaterojectService,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService,
+    private activeRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
+  }
+
+
+  private getQuery(){
+    let id = this.activeRoute.snapshot.queryParamMap.get("projectId");
+    if (id) this.projectId = id;
   }
 
   private initInputStyle() {
@@ -28,11 +43,29 @@ export class RecoveryResourcesComponent implements OnInit {
     )
   }
   public getValue(){
-    if(this.resourceNameFormControl.value && this.addressResourceFormControl.value && this.TimeResourceFormControl.value &&
-      this.resourceNameFormControl.valid && this.addressResourceFormControl.valid && this.TimeResourceFormControl.valid){
+    if(this.resourceNameFormControl.value && this.addressResourceFormControl.value){
         return true;
       }
       else{return false}
+  }
+
+  public createResourceInformation() {
+    this.createrojectService.ModifyProjectResourceInformation(
+      this.projectId,
+      new ResourceInformation(
+        this.resourceNameFormControl.value,
+        this.addressResourceFormControl.value
+      )
+    ).subscribe((res: ApiResult<boolean>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(8);
+
+        setTimeout(() => {
+          document.getElementById('uploadInformation')?.click();
+        }, 200);
+      }
+
+    });
   }
 
 }

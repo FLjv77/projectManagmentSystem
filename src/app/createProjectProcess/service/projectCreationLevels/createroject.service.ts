@@ -1,4 +1,6 @@
 import { Participant } from './../../model/createProjectModel/createProject';
+import { ResourceInformation, userListRequest } from './../../page/project-creation-levels/page/stakeholder-management/stakeholder-management.component';
+
 import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';
@@ -32,6 +34,16 @@ export class CreaterojectService {
 
   public ModifyProjectParticipant(projectId: string|null,userListRequest:Participant[]): Observable<ApiResult<Participant[]>>{
     return this.http.post<ApiResult<Participant[]>>(url.ModifyProjectParticipant + projectId , userListRequest);
+  }
+
+  public ModifyProjectResourceInformation(projectId: string, data: ResourceInformation): Observable<ApiResult<boolean>>{
+    return this.http.put<ApiResult<boolean>>(url.ModifyProjectResourceInformation + projectId , data);
+  }
+
+  public UploadDocumentsOfProject(projectId: string, imageForm: File): Observable<ApiResult<boolean>>{
+    const imageFormData = new FormData();
+    imageFormData.append('media', imageForm);
+    return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProject + projectId , imageFormData);
   }
 
 }

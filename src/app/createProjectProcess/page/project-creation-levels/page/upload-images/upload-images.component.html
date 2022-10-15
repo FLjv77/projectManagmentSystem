@@ -8,9 +8,6 @@
             [inputFormControl]="tiltleImageFormControl"></app-input-style>
         <div class="container-upload-image px-2 position-relative mt-4">
           <img *ngIf="imgURL" class="preview-image" [src]="imgURL">
-          <div *ngIf="loading" class="spinner-border spinner-upload-image progress-circle" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
           <input #imageInput class="form-control" style="width: 1px; height: 1px; opacity: 0;" type="file" (change)="onChange($event)">
           <i *ngIf="!loading && !imgURL" class="material-icons bg-color pointer container-upload-image-button-upload" (click)="imageInput.click()">cloud_upload</i>
 
@@ -20,7 +17,7 @@
         </div>
     </div>
     <div class="my-2" style="direction: ltr;">
-      <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()">
+      <button (click)="onUpload()" type="button" class="ok-button-text opacity-light px-4 py-2">
           تایید و ادامه
       </button>
     </div>
