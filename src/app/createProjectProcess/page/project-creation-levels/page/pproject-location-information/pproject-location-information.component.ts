@@ -38,6 +38,7 @@ export class PProjectLocationInformationComponent implements OnInit {
     this.initInputStyle();
     this.setCompanyId();
     this.getLocation();
+    this.checkValueIsSet();
   }
 
   private setCompanyId() {
@@ -50,6 +51,11 @@ export class PProjectLocationInformationComponent implements OnInit {
       let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
       if(idC) this.companyId = idC;
     }
+  }
+
+  private checkValueIsSet() {
+    let projectInfo = this.commonDataForCreateProjectService.getCreateProject();
+    if(projectInfo.projectName) this.LocationFormControl.setValue(projectInfo.latitude + ' - ' + projectInfo.longitude);
   }
 
   private initInputStyle() {
@@ -107,7 +113,7 @@ export class PProjectLocationInformationComponent implements OnInit {
     if (event==false) {
       this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
     }
-    else if(event==true){
+    else if(event==true) {
       let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
       let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
