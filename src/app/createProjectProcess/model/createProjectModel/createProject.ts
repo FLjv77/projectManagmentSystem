@@ -22,12 +22,14 @@ export class CreateProjectDTO {
 }
 
 export class Participant{
+    tag: string;
     firstName: string;
     lastName: string;
 
-    constructor(fName: string, lName: string) {
+    constructor(fName: string, lName: string , tag: string) {
       this.firstName = fName;
       this.lastName = lName;
+      this.tag = tag;
     }
 }
 

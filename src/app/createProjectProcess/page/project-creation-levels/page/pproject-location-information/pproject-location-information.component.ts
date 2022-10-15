@@ -137,6 +137,8 @@ export class PProjectLocationInformationComponent implements OnInit {
     ).subscribe((res: ApiResult<string>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.openModal();
+        console.log(res);
+        
         this.projectId = res.data;
       }
     }, (err: HttpErrorResponse) => {

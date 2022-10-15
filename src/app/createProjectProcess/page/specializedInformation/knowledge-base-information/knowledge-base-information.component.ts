@@ -59,10 +59,10 @@ export class KnowledgeBaseInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<KnowledgeBasedSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(5);
+        this.commonDataForCreateProjectService.selectStep.emit(6);
 
         setTimeout(() => {
-          document.getElementById('stackHolderInformation')?.click();
+          document.getElementById('recoveryResources')?.click();
         }, 200);
       }
     });

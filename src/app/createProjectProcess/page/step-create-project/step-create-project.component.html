@@ -9,7 +9,11 @@
                 <span class="d-block text-nowrap text-center">اطلاعات اولیه</span>
             </button>
             <div class="border-step"></div>
-            <button #3 id="locationInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
+            <button #3 id="stackHolderInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
+                <span class="d-block text-nowrap text-center"> ذی نفعان</span>
+            </button>
+            <div class="border-step"></div>
+            <button #5 id="locationInformation" class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
                 <span class="d-block text-nowrap text-center">اطلاعات مکانی</span>
             </button>
             <div class="border-step"></div>
@@ -17,11 +21,8 @@
                 <span class="d-block text-nowrap text-center">شناسنامه تخصصی</span>
             </button>
             <div class="border-step"></div>
-            <button #5 id="stackHolderInformation" class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
-                <span class="d-block text-nowrap text-center"> ذی نفعان</span>
-            </button>
-            <div class="border-step"></div>
-            <button #6 class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
+            
+            <button #6 id="recoveryResources" class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
                 <span class="d-block text-nowrap text-center"> منابع بازیابی</span>
             </button>
             <div class="border-step"></div>
