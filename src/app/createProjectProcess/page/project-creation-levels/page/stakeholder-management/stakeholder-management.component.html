@@ -10,11 +10,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{i+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list1.userName}}</span>
+                        <span class="d-inline">{{list1.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list1.familyName}}</span>
+                        <span class="d-inline">{{list1.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -32,7 +32,7 @@
         <div class="col-1">
             <button *ngIf="employerNameFormControl.value && employerFirstAndLastNameFormControl.value &&
                     employerNameFormControl.valid && employerFirstAndLastNameFormControl.valid" class="button-add"
-                     (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value)">
+                     (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value,1)">
                 <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
             </button>
         </div>
@@ -49,11 +49,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{j+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list2.userName}}</span>
+                        <span class="d-inline">{{list2.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list2.familyName}}</span>
+                        <span class="d-inline">{{list2.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -72,7 +72,7 @@
             <button *ngIf="supervisorNameFormControl.value && supervisorFirstAndLastNameFormControl.value &&
                     supervisorNameFormControl.valid && supervisorFirstAndLastNameFormControl.valid" class="button-add">
                 <img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""
-                (click)="add(supervisorList,supervisorNameFormControl.value ,supervisorFirstAndLastNameFormControl.value)">
+                (click)="add(supervisorList,supervisorNameFormControl.value ,supervisorFirstAndLastNameFormControl.value,2)">
             </button>
         </div>
 
@@ -88,11 +88,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{k+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list3.userName}}</span>
+                        <span class="d-inline">{{list3.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list3.familyName}}</span>
+                        <span class="d-inline">{{list3.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -110,7 +110,7 @@
         <div class="col-1">
             <button *ngIf="executorNameFormControl.value && executorFirstAndLastNameFormControl.value &&
                     executorNameFormControl.valid && executorFirstAndLastNameFormControl.valid" class="button-add"
-                    (click)="add(executorList,executorNameFormControl.value ,executorFirstAndLastNameFormControl.value)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+                    (click)="add(executorList,executorNameFormControl.value ,executorFirstAndLastNameFormControl.value,3)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>
@@ -125,11 +125,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{l+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list4.userName}}</span>
+                        <span class="d-inline">{{list4.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list4.familyName}}</span>
+                        <span class="d-inline">{{list4.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -147,7 +147,7 @@
         <div class="col-1">
             <button *ngIf="contractorsNameFormControl.value && ContractorsFirstAndLastNameFormControl.value &&
                     contractorsNameFormControl.valid && ContractorsFirstAndLastNameFormControl.valid" class="button-add"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""
-                    (click)="add(contractorsList,contractorsNameFormControl.value ,ContractorsFirstAndLastNameFormControl.value)"></button>
+                    (click)="add(contractorsList,contractorsNameFormControl.value ,ContractorsFirstAndLastNameFormControl.value,4)"></button>
         </div>
 
     </div>
@@ -162,11 +162,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{m+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list5.userName}}</span>
+                        <span class="d-inline">{{list5.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list5.familyName}}</span>
+                        <span class="d-inline">{{list5.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -184,7 +184,7 @@
         <div class="col-1">
             <button *ngIf="consultantNameFormControl.value && consultantFirstAndLastNameFormControl.value &&
                     consultantNameFormControl.valid && consultantFirstAndLastNameFormControl.valid" class="button-add"
-                    (click)="add(consultantList,consultantNameFormControl.value ,consultantFirstAndLastNameFormControl.value)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+                    (click)="add(consultantList,consultantNameFormControl.value ,consultantFirstAndLastNameFormControl.value,5)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>
@@ -200,11 +200,11 @@
                     <div class="col-6 my-auto">
                         <span class="d-inline">{{m+1}}.
                             نام کاربری :</span>
-                        <span class="d-inline">{{list5.userName}}</span>
+                        <span class="d-inline">{{list5.firstName}}</span>
                     </div>
                     <div class="col-6 my-auto">
                         <span class="d-inline">نام و نام خانوادگی :</span>
-                        <span class="d-inline">{{list5.familyName}}</span>
+                        <span class="d-inline">{{list5.lastName}}</span>
                     </div>
                 </div>
                 <div class="col-1 pt-1">
@@ -213,16 +213,16 @@
             </div>
         </div>
         <div class="row col-11">
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'9'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'12'"
             [inputFormControl]="investorNameFormControl"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'10'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'13'"
             [inputFormControl]="investorFirstAndLastNameFormControl"></app-input-style>
         </div>
         <div class="col-1">
             <button *ngIf="investorNameFormControl.value && investorFirstAndLastNameFormControl.value &&
             investorNameFormControl.valid && investorFirstAndLastNameFormControl.valid" class="button-add"
-                    (click)="add(investorList,investorNameFormControl.value ,investorFirstAndLastNameFormControl.value)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+                    (click)="add(investorList,investorNameFormControl.value ,investorFirstAndLastNameFormControl.value,6)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
         </div>
 
     </div>
@@ -239,11 +239,11 @@
                         <div class="col-6 my-auto">
                             <span class="d-inline">{{i+1}}.
                                 نام کاربری :</span>
-                            <span class="d-inline">{{list.userName}}</span>
+                            <span class="d-inline">{{list.firstName}}</span>
                         </div>
                         <div class="col-6 my-auto">
                             <span class="d-inline">نام و نام خانوادگی :</span>
-                            <span class="d-inline">{{list.familyName}}</span>
+                            <span class="d-inline">{{list.lastName}}</span>
                         </div>
                     </div>
                     <div class="col-1 pt-1">
@@ -260,7 +260,7 @@
             <div class="col-1">
                 <button *ngIf="contributorsNameFormControl.value && contributorsFamilyFormControl.value &&
                 contributorsNameFormControl.valid && contributorsFamilyFormControl.valid" class="button-add"
-                         (click)="add(contributorsList,contributorsNameFormControl.value ,contributorsFamilyFormControl.value)">
+                         (click)="add(contributorsList,contributorsNameFormControl.value ,contributorsFamilyFormControl.value,7)">
                     <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
                 </button>
             </div>

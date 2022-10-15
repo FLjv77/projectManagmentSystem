@@ -82,4 +82,8 @@ export class CommonDataForCreateProjectService {
     this.createProjectData.interCities = interCities;
     this.createProjectData.interRegions = interRegions;
   }
+
+  public setParticipant(participants: Array<Participant>){
+    this.createProjectData.participants = participants;
+  }
 }

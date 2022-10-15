@@ -7,7 +7,8 @@
             </div>
             <div class="col-sm-9 col-12 mx-auto">
                 <app-basic-project-information *ngIf="selectSteps == 2" (basicInputValue)="setBasicFild($event)"></app-basic-project-information>
-                <app-stakeholder-management *ngIf="selectSteps == 5"></app-stakeholder-management>
+                <!-- <app-stakeholder-management *ngIf="selectSteps == 5"></app-stakeholder-management> -->
+                <app-stakeholder-management *ngIf="selectSteps == 3"></app-stakeholder-management>
                 <app-recovery-resources *ngIf="selectSteps == 6"></app-recovery-resources>
                 <app-add-activity *ngIf="selectSteps == 7"></app-add-activity>
                 <app-upload-images *ngIf="selectSteps == 8"></app-upload-images>
@@ -26,7 +27,7 @@
                 <!-- <app-specialized-information-in-the-of-food-safety *ngIf="checkWhichSpecializedComponent(6)"></app-specialized-information-in-the-of-food-safety> -->
               </div>
                 <app-project-objectives *ngIf="selectSteps == 1" (objectiveInputValue)="setObjectivFild($event)"></app-project-objectives>
-                <app-pproject-location-information *ngIf="selectSteps == 3"></app-pproject-location-information>
+                <app-pproject-location-information *ngIf="selectSteps == 5"></app-pproject-location-information>
             </div>
     </div>
 </div>

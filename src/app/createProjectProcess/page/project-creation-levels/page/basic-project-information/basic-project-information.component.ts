@@ -108,7 +108,7 @@ export class BasicProjectInformationComponent implements OnInit {
     this.commonDataForCreateProjectService.selectStep.emit(3);
 
     setTimeout(() => {
-      document.getElementById('locationInformation')?.click();
+      document.getElementById('stackHolderInformation')?.click();
     }, 200);
   }
 

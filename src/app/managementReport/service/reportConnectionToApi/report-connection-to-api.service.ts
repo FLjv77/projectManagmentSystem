@@ -48,11 +48,11 @@ export class ReportConnectionToApiService {
     );
   }
 
-  public GetProgressReportsForSupervisor(projectId: string): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
+  public GetProgressReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReportsForSupervisor + projectId);
   }
 
-  public GetAllocationReportsForSupervisor(projectId: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
+  public GetAllocationReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReportsForSupervisor + projectId);
   }
 

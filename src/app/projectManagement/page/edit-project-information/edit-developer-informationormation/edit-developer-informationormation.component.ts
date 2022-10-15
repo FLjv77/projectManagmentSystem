@@ -1,3 +1,4 @@
+import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
 import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
@@ -5,7 +6,6 @@ import { ProjectConnectToApiService } from 'src/app/projectManagement/service/pr
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
-import {userList} from "../../../../createProjectProcess/page/project-creation-levels/page/stakeholder-management/stakeholder-management.component";
 
 @Component({
   selector: 'app-edit-developer-informationormation',
@@ -26,12 +26,12 @@ export class EditDeveloperInformationormationComponent implements OnInit {
   public consultantFirstAndLastNameFormControl = new FormControl();
   public investorNameFormControl = new FormControl();
   public investorFirstAndLastNameFormControl = new FormControl();
-  public employerList: Array<userList> = [];
-  public supervisorList: Array<userList> = [];
-  public executorList: Array<userList> = [];
-  public contractorsList: Array<userList> = [];
-  public consultantList: Array<userList> = [];
-  public investorList: Array<userList> = [];
+  public employerList: Array<Participant> = [];
+  public supervisorList: Array<Participant> = [];
+  public executorList: Array<Participant> = [];
+  public contractorsList: Array<Participant> = [];
+  public consultantList: Array<Participant> = [];
+  public investorList: Array<Participant> = [];
   public projectId: string | null;
 
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
@@ -52,11 +52,9 @@ export class EditDeveloperInformationormationComponent implements OnInit {
     this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   }
 
-  public add(list: Array<userList>, userName:string, family:string){
-    if (!this.employerList && userName != null && family != null) this.employerList = new Array<userList>();
-    let employers = new userList;
-    employers.userName = userName;
-    employers.familyName = family;
+  public add(list: Array<Participant>, userName:string, family:string){
+    if (!this.employerList && userName != null && family != null) this.employerList = new Array<Participant>();
+    let employers = new Participant(userName,family,'');
     list.push(employers);
     this.employerNameFormControl.reset();
     this.employerFirstAndLastNameFormControl.reset();
@@ -87,7 +85,7 @@ export class EditDeveloperInformationormationComponent implements OnInit {
     });
   }
 
-  public remove(list : Array<userList>, index: number){
+  public remove(list : Array<Participant>, index: number){
     list.splice(index, 1);
   }
 
