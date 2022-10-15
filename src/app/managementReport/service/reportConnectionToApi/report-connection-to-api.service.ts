@@ -26,17 +26,9 @@ export class ReportConnectionToApiService {
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
 
-  public GetAllocationReports(projectId: string
-    // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
-    // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
-    // skipEntity:number
-    ): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
+  public GetAllocationReports(projectId: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReports
-    + '?projectId=' + projectId 
-    // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
-    // userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
-    // + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
-    // takeEntity + '&skipEntity=' + skipEntity
+    + '?projectId=' + projectId
     );
   }
 
@@ -46,19 +38,19 @@ export class ReportConnectionToApiService {
     // skipEntity:number
     ): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReports
-    + '?projectId=' + projectId 
-    // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' + 
+    + '?projectId=' + projectId + '&activePage=1&takeEntity=30'
+    // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' +
     // userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
     // + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
     // takeEntity + '&skipEntity=' + skipEntity
     );
   }
 
-  public GetProgressReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
+  public GetProgressReportsForSupervisor(projectId: string): Observable<ApiResult<ProgressReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReportsForSupervisor + projectId);
   }
 
-  public GetAllocationReportsForSupervisor(projectId: string|string[]): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
+  public GetAllocationReportsForSupervisor(projectId: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>>{
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReportsForSupervisor + projectId);
   }
 

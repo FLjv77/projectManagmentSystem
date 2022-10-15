@@ -45,8 +45,7 @@ export class ProjectControleReportsComponent implements OnInit {
   // }
 
   private getReports(){
-    console.log('kkkkkkkkkkkkkk');
-    
+    /*
     this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
     ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
       this.listAllocationReport = res.data.allocationReportSelectedDtos;
@@ -55,5 +54,7 @@ export class ProjectControleReportsComponent implements OnInit {
       res: ApiResult<ProgressReportPaginationSelectedDto>)=>{
         this.listProgressReport = res.data.progressReportSelectedDtos;
       })
+    */
+
   }
 }

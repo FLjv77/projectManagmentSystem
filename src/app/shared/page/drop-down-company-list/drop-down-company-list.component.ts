@@ -35,8 +35,6 @@ export class DropDownCompanyListComponent implements OnInit {
             text: res.data[i].companyName,
             id: res.data[i].companyId
           }
-          console.log(res.data);
-          
           this.companyData.push(obj);
         }
       }

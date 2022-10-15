@@ -2,6 +2,9 @@ import { NumberFormaterService } from './../../../../../../shared/service/number
 import { ActivatedRoute, Router } from '@angular/router';
 import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
+import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { ProgressReportPaginationSelectedDto } from 'src/app/managementReport/model/getReports';
 
 @Component({
   selector: 'app-progress-report-activity',
@@ -14,10 +17,12 @@ export class ProgressReportActivityComponent implements OnInit {
   constructor(private handleModalService : HandleModalService,
     private activeRouting: ActivatedRoute,
     private router: Router,
+    private reportConnectionToApiService: ReportConnectionToApiService,
     private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
     this.setProjectId();
+    this.getReport();
   }
 
   public openMdalRecordProgress(){
@@ -37,5 +42,12 @@ export class ProgressReportActivityComponent implements OnInit {
     if(id) this.projectId = id;
   }
 
+  private getReport() {
+    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
+      this.projectId
+    ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
+      console.log(res);
 
+    });
+  }
 }
