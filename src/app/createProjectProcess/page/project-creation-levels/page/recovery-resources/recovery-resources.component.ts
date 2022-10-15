@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { ActivatedRoute } from '@angular/router';
-import { ResourceInformation } from '../stakeholder-management/stakeholder-management.component';
 import { ApiResult } from '../../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { ResourceInformation } from 'src/app/createProjectProcess/model/createProjectModel/createProject';
 
 @Component({
   selector: 'app-recovery-resources',

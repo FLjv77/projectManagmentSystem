@@ -1,6 +1,4 @@
-import { Participant } from './../../model/createProjectModel/createProject';
-import { ResourceInformation, userListRequest } from './../../page/project-creation-levels/page/stakeholder-management/stakeholder-management.component';
-
+import { Participant, ResourceInformation } from './../../model/createProjectModel/createProject';
 import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';

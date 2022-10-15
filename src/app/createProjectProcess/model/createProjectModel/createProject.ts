@@ -102,3 +102,12 @@ export class OutputInfo {
     inputs : Array<string>;
     state: projectType;
 }
+export class ResourceInformation {
+  constructor(resourceName: string,
+    resourceApiAddress: string) {
+      this.resourceName = resourceName;
+      this.resourceApiAddress = resourceApiAddress;
+  }
+  resourceName: string;
+  resourceApiAddress: string;
+}
