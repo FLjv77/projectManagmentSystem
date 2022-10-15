@@ -14,7 +14,7 @@ export class ProjectControleReportsComponent implements OnInit {
 
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public projectId: string| string[];
+  public projectId: string;
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
 
@@ -29,7 +29,7 @@ export class ProjectControleReportsComponent implements OnInit {
     this.path2 = new DisplayPathModel('مدیریت گزارش ها', false, '');
   }
 
-  public setProjectId($event: string|string[]){
+  public setProjectId($event: any) {
     this.projectId = $event;
     this.getReports();
   }
@@ -41,7 +41,7 @@ export class ProjectControleReportsComponent implements OnInit {
   // }
 
   private getReports(){
-    
+
     if (this.projectId) {
       this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
 

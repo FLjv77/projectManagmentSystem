@@ -85,6 +85,16 @@ export class StakeholderManagementComponent implements OnInit {
 
 }
 
+export class ResourceInformation {
+  constructor(resourceName: string,
+    resourceApiAddress: string) {
+      this.resourceName = resourceName;
+      this.resourceApiAddress = resourceApiAddress;
+  }
+  resourceName: string;
+  resourceApiAddress: string;
+}
+
 export class userListRequest{
   constructor(userName : string,familyName : string) {
     this.userName = userName;
