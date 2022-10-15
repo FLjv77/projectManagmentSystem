@@ -1,3 +1,4 @@
+import { priceUnit } from './../../../shared/model/unit';
 import { AllocationReportPaginationSelectedDto, AllocationReportSelectedDto, ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from './../../model/getReports';
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
@@ -17,15 +18,10 @@ export class ProjectControleReportsComponent implements OnInit {
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
 
-  constructor(private reportConnectionToApiService:ReportConnectionToApiService) { }
+  constructor(private reportConnectionToApiService:ReportConnectionToApiService){ }
 
   ngOnInit(): void {
     this.initDisplayPath();
-    // this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
-    //   console.log('1111111111111111111111');
-    //   console.log(res);
-    // });
-    //this.getUserByDynamickFilter();
   }
 
   private initDisplayPath() {
@@ -47,7 +43,8 @@ export class ProjectControleReportsComponent implements OnInit {
   private getReports(){
     console.log('kkkkkkkkkkkkkk');
     
-    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
+    if (this.projectId) {
+      this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
     ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
       this.listAllocationReport = res.data.allocationReportSelectedDtos;
     });
@@ -55,5 +52,6 @@ export class ProjectControleReportsComponent implements OnInit {
       res: ApiResult<ProgressReportPaginationSelectedDto>)=>{
         this.listProgressReport = res.data.progressReportSelectedDtos;
       })
+    }
   }
 }

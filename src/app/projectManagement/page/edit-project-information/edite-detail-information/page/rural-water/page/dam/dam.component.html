@@ -1,0 +1,64 @@
+<div class="row">
+    <div *ngFor="let list of damWaterShedAndCanalsList , let i = index" class="row">
+        <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">سد : </h4>
+        </div>
+
+        <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          </div>
+          <mat-radio-group [value]="0"
+            class="example-radio-group font-size-small">
+            <mat-radio-button (click)="setTypeProject(0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+              <span class="px-2">احداث</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+              <span class="px-2">تکمیل و توسعه</span>
+            </mat-radio-button>
+            <mat-radio-button (click)="setTypeProject(2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+              <span class="px-2">مرمت</span>
+            </mat-radio-button>
+          </mat-radio-group>
+
+        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'توضیحات'" [inputId]="'description'+i" 
+        [inputFormControl]="description[i]" [textarea]="true" (changeValue)="setDescription($event, i)"></app-input-style>
+        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت سد'"
+                 [inputId]="'damStateControl'" [inputFormControl]="damStateControl"></app-input-style> -->
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'ظرفیت آبدهی'" [type]="'number'"
+                 [inputId]="'capacityWaterControl'+i" [inputFormControl]="capacityWaterControl[i]"
+                 (changeValue)="setCapacityWater($event, i)"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
+                 [inputId]="'riverNameControl'" [inputFormControl]="riverNameControl[i]"
+                 (changeValue)="setRiverName($event, i)"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس سد'"
+                 [inputId]="'staffControl'" [inputFormControl]="staffControl[i]"
+                 (changeValue)="setStaff($event, i)"></app-input-style>
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'حجم مخزن سد'"
+                 [inputId]="'volumeDamControl'" [inputFormControl]="volumeDamControl[i]" [type]="'number'"
+                 (changeValue)="setVolumeDam($event, i)"></app-input-style>
+        <div *ngIf="i-1>=0" class="row mx-auto">
+          <div class="mx-auto text-start" (click)="deleteList(i)">
+            <button class="button-add-activity">
+              <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                          mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+            </button>
+          </div>
+        </div>
+      </div>
+
+    <div class="row mx-auto">
+        <div class="mx-auto text-start" (click)="addList()">
+            <button class="button-add-activity">
+                <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن سد جدید">
+            </button>
+        </div>
+      </div>
+</div>
