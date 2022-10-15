@@ -1,19 +1,5 @@
 export class AllocationReportPaginationSelectedDto {
-    constructor(pageId: number,pageCount: number,activePage: number,startPage: number,
-        endPage: number,takeEntity: number,skipEntity: number,
-        allocationReportSelectedDtos: AllocationReportSelectedDto[],
-        allocationReportDynamicFilter: AllocationReportDynamicFilter)
-        {
-            this.pageId=pageId;
-            this.pageCount=pageCount;
-            this.activePage=activePage;
-            this.startPage=startPage;
-            this.endPage=endPage;
-            this.takeEntity=takeEntity;
-            this.skipEntity=skipEntity;
-            this.allocationReportDynamicFilter=allocationReportDynamicFilter;
-            this.allocationReportSelectedDtos=allocationReportSelectedDtos;
-        }
+    constructor() {}
     pageId: number;
     pageCount: number;
     activePage: number;
@@ -26,16 +12,7 @@ export class AllocationReportPaginationSelectedDto {
 }
 
 export class AllocationReportSelectedDto {
-    constructor(allocationReportId: string,allocationReporterName: string,
-        allocationDescription: string,amountOfAllocation: number,allocationCommitmentDate: CustomDateTimeFormat,
-        paymentTime: CustomDateTimeFormat){
-            this.allocationReportId=allocationReportId;
-            this.allocationReporterName=allocationReporterName;
-            this.allocationDescription=allocationDescription;
-            this.amountOfAllocation=amountOfAllocation;
-            this.allocationCommitmentDate=allocationCommitmentDate;
-            this.paymentTime=paymentTime;
-        }
+    constructor() {}
     allocationReportId: string;
     allocationReporterName: string;
     allocationDescription: string;
@@ -220,4 +197,12 @@ export class ProgressReportDTO {
 export class PrepareShareLevelOfActivityDTO {
   shareLevelOfActivity: ShareLevelOfActivityDTO;
   isExist: boolean;
+
+  constructor(
+    shareLevelOfActivity: ShareLevelOfActivityDTO,
+    isExist: boolean
+  ) {
+    this.shareLevelOfActivity = shareLevelOfActivity;
+    this.isExist = isExist;
+  }
 }

@@ -80,7 +80,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   }
 
   public goInformationActivity(projectId: string) {
-    this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectIdEdit: projectId}})
+    this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: projectId}})
   }
 
   public sendReport(){

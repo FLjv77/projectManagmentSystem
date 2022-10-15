@@ -11,12 +11,17 @@ export class InformationActivityComponent implements OnInit {
   public path2: DisplayPathModel;
   public path3: DisplayPathModel;
 
+  public selectedTab: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
     this.initDisplayPath();
   }
 
+  public setSelectedTab(tabInex: number) {
+    this.selectedTab = tabInex;
+  }
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت شرکت', false, '');
