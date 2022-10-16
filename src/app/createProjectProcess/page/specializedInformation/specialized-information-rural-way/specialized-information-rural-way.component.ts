@@ -47,7 +47,7 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     this.initDisplayPath();
     this.ruralRoadList = new Array<RuralRoad>;
     this.addList();
-    this.getLocation();
+    //this.getLocation();
     this.getQuery();
   }
 
@@ -98,8 +98,8 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
 
   public set_roadLength(state: string, index: number) {
     this.ruralRoadList[index].roadLength = Number(state);
-    this.ruralRoadList[this.index].latitude = 0;
-    this.ruralRoadList[this.index].roadLongitude = 0;
+    this.ruralRoadList[index].latitude = 0;
+    this.ruralRoadList[index].roadLongitude = 0;
   }
 
   public addList() {

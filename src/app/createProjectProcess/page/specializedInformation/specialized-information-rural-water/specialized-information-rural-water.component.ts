@@ -1,3 +1,5 @@
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { ApiResult } from './../../../../auth/model/authDTO';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ActivatedRoute } from '@angular/router';
 import { PitWaterShedAndCanals, WaterShedAndCanalsSpeceficDetailBehaviorDTO } from './../../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
@@ -73,7 +75,8 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
     private activeRoute:ActivatedRoute,
-    private specializedInformationService:SpecializedInformationService) { }
+    private specializedInformationService:SpecializedInformationService,
+    private commonDataForCreateProjectService:CommonDataForCreateProjectService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -304,7 +307,20 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     list.pit = this.PitWaterList;
     list.pumpStation = this.PumpStationList;
     list.refinery = this.RefineryList;
+    list.tank = this.TankList;
+    list.transferLine = this.TransferLineList;
     list.requirements = this.requirementControl.value;
-    this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail(this.projectId,list);
-  }
+    this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail(this.projectId,list)
+    .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
+      console.log(res.data);
+      if(res.isSuccess && res.statusCode == 200) {
+        this.commonDataForCreateProjectService.selectStep.emit(6);
+
+        setTimeout(() => {
+          document.getElementById('recoveryResources')?.click();
+        }, 200);
+      }
+    });
+  };
 }
+

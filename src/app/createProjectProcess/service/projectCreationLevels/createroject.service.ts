@@ -38,6 +38,10 @@ export class CreaterojectService {
     return this.http.put<ApiResult<boolean>>(url.ModifyProjectResourceInformation + projectId , data);
   }
 
+  public ModifyProjectResourceInformation1(projectId: string|string[], data: ResourceInformation): Observable<ApiResult<boolean>>{
+    return this.http.put<ApiResult<boolean>>(url.ModifyProjectResourceInformation + projectId , data);
+  }
+
   public UploadDocumentsOfProject(projectId: string, imageForm: File): Observable<ApiResult<boolean>>{
     const imageFormData = new FormData();
     imageFormData.append('media', imageForm);

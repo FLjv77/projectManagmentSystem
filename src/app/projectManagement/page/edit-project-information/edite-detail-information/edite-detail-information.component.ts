@@ -3,7 +3,7 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 import {StateAndZoneIranModel} from "../../../../createProjectProcess/model/stateAndZoneIranModel/stateAndZoneIranModel";
@@ -28,9 +28,11 @@ export class EditeDetailInformationComponent implements OnInit {
   private selectedState: StateAndZoneIranModel;
   public projectRemoveMarginalization: ProjectRemoveMarginalization;
   private selectedZone: string;
-  public projectId: string | null;
+  //public projectId: string | null;
   public projectIdSelect: string|string[];
-  public select: number = 0;
+  public select: string;
+  @Input() projectId: string | string[];
+  public data:ProjectSelectedDTO;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
               private activeRoute: ActivatedRoute,
@@ -44,8 +46,7 @@ export class EditeDetailInformationComponent implements OnInit {
                     console.log(this.projectIdSelect);
                   this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
                     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-                    console.log(res.data);
-                    
+                    this.data = res.data;
                   });
                   }
                 })
@@ -54,7 +55,8 @@ export class EditeDetailInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
-    this.getQuryParam();
+    //this.getQuryParam();
+    this.getInfo();
   }
 
   private initInputStyle() {
@@ -63,9 +65,12 @@ export class EditeDetailInformationComponent implements OnInit {
     )
   }
 
-  public getQuryParam(){
-    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectId');
-  }
+  // public getQuryParam(){
+  //   let id = this.activeRoute.snapshot.queryParamMap.get('projectId');
+  //   if(id){
+  //     this.projectId = id;
+  //   }
+  // }
 
   public addRequirement() {
     if (!this.requirementList) this.requirementList = new Array<string>();
@@ -121,31 +126,13 @@ export class EditeDetailInformationComponent implements OnInit {
   }
 
   public getInfo(){
-    console.log('fjfjfjfjfjfj');
-    
-    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
-    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-      if (res.data.objectiveTitle == 'رفع حاشیه نشینی') {
-        this.select = 1;
-      }
-      else if (res.data.objectiveTitle == 'راه روستایی') {
-        this.select = 2;
-      }
-      else if (res.data.objectiveTitle == 'آب خیر وقنوات') {
-        this.select = 3;
-      }
-      else if (res.data.objectiveTitle == 'دانش بنیان') {
-        this.select = 4;
-      }
-      else if (res.data.objectiveTitle == 'تحول اجتماعی') {
-        this.select = 5;
-      }
-      else if (res.data.objectiveTitle == 'سلامت') {
-        this.select = 6;
-      }
-      console.log(res.data)
-      
+    if (this.projectId) {
+      this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
+      .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      this.select = res.data.objectiveTitle;
+      this.data = res.data;      
     });
+    }
   }
 
 }

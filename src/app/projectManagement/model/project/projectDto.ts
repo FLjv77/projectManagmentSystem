@@ -1,3 +1,5 @@
+import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from './../../../createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
+import { HealthBathroom, HealthHealthHouse, HealthMedicine, HealthTreatment, HealthVaccination, HealthToilet, HealthPharmacy, HealthInsurance, HealthHospital } from './../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { DateTime } from './../../../shared/model/dateTime';
 import { Participant } from '../../../createProjectProcess/model/createProjectModel/createProject';
 
@@ -54,10 +56,25 @@ export class ProjectSelectedDTO {
   initialInvestment: number;
   expectedProfitOfTheProject: number;
   resourceName: string;
+  projectSpeceficDetail: projectSpeceficDetail;
   resourceApiAddress: string;
   address:	AddressSelectedDTO;
   complementationStatus: ProjectComplementationStatus;
   projectStatus: ProjectDevelopeStatus;
+}
+
+export class projectSpeceficDetail{
+  constructor() {}
+  healthBathrooms: Array<HealthBathroom>;
+  healthHouses: Array<HealthHealthHouse>;
+  medicines: Array<HealthMedicine>;
+  treatments: Array<HealthTreatment>;
+  healthVaccinations: Array<HealthVaccination>;
+  healthToilets: Array<HealthToilet>;
+  healthPharmacies: Array<HealthPharmacy>;
+  insurances: Array<HealthInsurance>;
+  hospitals: Array<HealthHospital>;
+  knowledgeBaseds: Array<KnowledgeBased>;
 }
 
 export class AddressSelectedDTO {

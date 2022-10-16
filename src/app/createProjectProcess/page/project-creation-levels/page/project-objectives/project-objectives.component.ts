@@ -28,9 +28,9 @@ export class ProjectObjectivesComponent implements OnInit {
 
   private checkValueIsSet() {
     //this.commonDataForCreateProjectService.initCreateProjectData();
-    if(this.commonDataForCreateProjectService.chalenge) this.projectChallengeFormControl.setValue(this.commonDataForCreateProjectService.chalenge);
-    if(this.commonDataForCreateProjectService.goal) this.projectObjectiveFormControl.setValue(this.commonDataForCreateProjectService.goal);
-    if(this.commonDataForCreateProjectService.galo) this.projectTheBottleneckFormControl.setValue(this.commonDataForCreateProjectService.galo);
+    if(this.commonDataForCreateProjectService.projectChallange) this.projectChallengeFormControl.setValue(this.commonDataForCreateProjectService.projectChallange);
+    if(this.commonDataForCreateProjectService.projectTargets) this.projectObjectiveFormControl.setValue(this.commonDataForCreateProjectService.projectTargets);
+    if(this.commonDataForCreateProjectService.projectBottleNeck) this.projectTheBottleneckFormControl.setValue(this.commonDataForCreateProjectService.projectBottleNeck);
 
   }
 

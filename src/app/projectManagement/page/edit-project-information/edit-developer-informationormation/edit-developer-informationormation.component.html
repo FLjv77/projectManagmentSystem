@@ -1,12 +1,21 @@
 <div class="p-3">
   <div class="row">
     <div class="col-12">
+      <button class="mx-auto float-left w-auto edit-button">
+        <i class="material-icons d-inline">edit</i>
+      </button>
+      <div class="col-12">
+        <i class="material-icons d-inline icon-styles">gps_fixed</i>
+        <h4 class="title-page d-inline set-font-Raymon">اهداف پروژه</h4>
+      </div>
+    </div>
+    <div class="col-12">
       <i class="material-icons d-inline icon-styles">assignment_ind</i>
       <h4 class="title-page d-inline set-font-Raymon">انتخاب کارفرما</h4>
     </div>
     <div *ngIf="employerList" class="col-11">
       <div *ngFor="let list1 of employerList , let i = index" class="row my-2 lists">
-        <div class="row col-11">
+        <div class="row col-11 py-3">
           <div class="col-6 my-auto">
                         <span class="d-inline">{{i+1}}.
                             نام کاربری :</span>
@@ -17,24 +26,26 @@
             <span class="d-inline">{{list1.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(employerList , i)" class="remove-button"><img src="../../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'1'"
-                       [inputFormControl]="employerNameFormControl"></app-input-style>
-
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'2'"
-                       [inputFormControl]="employerFirstAndLastNameFormControl"></app-input-style>
-    </div>
-    <div class="col-1">
-      <button *ngIf="employerNameFormControl.value && employerFirstAndLastNameFormControl.value &&
-                    employerNameFormControl.valid && employerFirstAndLastNameFormControl.valid" class="button-add"
-              (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value)">
-        <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
-      </button>
+    <div *ngIf="edit" class="row">
+      <div class="row col-11">
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'1'"
+                         [inputFormControl]="employerNameFormControl"></app-input-style>
+  
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'2'"
+                         [inputFormControl]="employerFirstAndLastNameFormControl"></app-input-style>
+      </div>
+      <div *ngIf="edit" class="col-1">
+        <button *ngIf="employerNameFormControl.value && employerFirstAndLastNameFormControl.value &&
+                      employerNameFormControl.valid && employerFirstAndLastNameFormControl.valid" class="button-add"
+                (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value)">
+          <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
+        </button>
+      </div>
     </div>
 
   </div>
@@ -45,7 +56,7 @@
     </div>
     <div *ngIf="supervisorList" class="col-11">
       <div *ngFor="let list2 of supervisorList , let j = index" class="row my-2 lists">
-        <div class="row col-11">
+        <div class="row col-11 py-3">
           <div class="col-6 my-auto">
                         <span class="d-inline">{{j+1}}.
                             نام کاربری :</span>
@@ -56,19 +67,19 @@
             <span class="d-inline">{{list2.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(supervisorList ,j)" class="remove-button"><img src="../../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
+    <div *ngIf="edit" class="row col-11">
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'3'"
                        [inputFormControl]="supervisorNameFormControl"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'4'"
                        [inputFormControl]="supervisorFirstAndLastNameFormControl"></app-input-style>
     </div>
-    <div class="col-1">
+    <div *ngIf="edit" class="col-1">
       <button *ngIf="supervisorNameFormControl.value && supervisorFirstAndLastNameFormControl.value &&
                     supervisorNameFormControl.valid && supervisorFirstAndLastNameFormControl.valid" class="button-add">
         <img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -84,7 +95,7 @@
     </div>
     <div *ngIf="executorList" class="col-11">
       <div *ngFor="let list3 of executorList , let k = index" class="row my-2 lists">
-        <div class="row col-11">
+        <div class="row col-11 py-3">
           <div class="col-6 my-auto">
                         <span class="d-inline">{{k+1}}.
                             نام کاربری :</span>
@@ -95,19 +106,19 @@
             <span class="d-inline">{{list3.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(executorList ,k)" class="remove-button"><img src="../../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
+    <div *ngIf="edit" class="row col-11">
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'5'"
                        [inputFormControl]="executorNameFormControl"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'6'"
                        [inputFormControl]="executorFirstAndLastNameFormControl"></app-input-style>
     </div>
-    <div class="col-1">
+    <div *ngIf="edit" class="col-1">
       <button *ngIf="executorNameFormControl.value && executorFirstAndLastNameFormControl.value &&
                     executorNameFormControl.valid && executorFirstAndLastNameFormControl.valid" class="button-add"
               (click)="add(executorList,executorNameFormControl.value ,executorFirstAndLastNameFormControl.value)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
@@ -132,19 +143,19 @@
             <span class="d-inline">{{list4.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(contractorsList ,l)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
+    <div *ngIf="edit" class="row col-11">
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'7'"
                        [inputFormControl]="contractorsNameFormControl"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'8'"
                        [inputFormControl]="ContractorsFirstAndLastNameFormControl"></app-input-style>
     </div>
-    <div class="col-1">
+    <div *ngIf="edit" class="col-1">
       <button *ngIf="contractorsNameFormControl.value && ContractorsFirstAndLastNameFormControl.value &&
                     contractorsNameFormControl.valid && ContractorsFirstAndLastNameFormControl.valid" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""
                                                                                                                               (click)="add(contractorsList,contractorsNameFormControl.value ,ContractorsFirstAndLastNameFormControl.value)"></button>
@@ -158,7 +169,7 @@
     </div>
     <div *ngIf="consultantList" class="col-11">
       <div *ngFor="let list5 of consultantList , let m = index" class="row my-2 lists">
-        <div class="row col-11">
+        <div class="row col-11 py-3">
           <div class="col-6 my-auto">
                         <span class="d-inline">{{m+1}}.
                             نام کاربری :</span>
@@ -169,19 +180,19 @@
             <span class="d-inline">{{list5.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(consultantList ,m)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
+    <div *ngIf="edit" class="row col-11">
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'9'"
                        [inputFormControl]="consultantNameFormControl"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'10'"
                        [inputFormControl]="consultantFirstAndLastNameFormControl"></app-input-style>
     </div>
-    <div class="col-1">
+    <div *ngIf="edit" class="col-1">
       <button *ngIf="consultantNameFormControl.value && consultantFirstAndLastNameFormControl.value &&
                     consultantNameFormControl.valid && consultantFirstAndLastNameFormControl.valid" class="button-add"
               (click)="add(consultantList,consultantNameFormControl.value ,consultantFirstAndLastNameFormControl.value)"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
@@ -207,29 +218,23 @@
             <span class="d-inline">{{list5.lastName}}</span>
           </div>
         </div>
-        <div class="col-1 pt-1">
+        <div *ngIf="edit" class="col-1 pt-1">
           <button (click)="remove(investorList ,m)" class="remove-button"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
       </div>
     </div>
-    <div class="row col-11">
+    <div *ngIf="edit" class="row col-11">
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام کاربری'" [inputId]="'9'"
                        [inputFormControl]="investorNameFormControl"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی'" [inputId]="'10'"
                        [inputFormControl]="investorFirstAndLastNameFormControl"></app-input-style>
     </div>
-    <div class="col-1">
+    <div *ngIf="edit" class="col-1">
       <button *ngIf="investorNameFormControl.value && investorFirstAndLastNameFormControl.value &&
             investorNameFormControl.valid && investorFirstAndLastNameFormControl.valid" class="button-add"
               (click)="add(investorList,investorNameFormControl.value ,investorFirstAndLastNameFormControl.value)"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
     </div>
 
-  </div>
-
-  <div class="row col-12 my-2" style="direction: ltr;">
-    <button type="button" class="ok-button">
-      <img src="../../../../../assets/image/createProject/ok-button.svg" alt="">
-    </button>
   </div>
 </div>

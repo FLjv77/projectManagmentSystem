@@ -1,8 +1,10 @@
+import { threadId } from 'worker_threads';
+import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
 import { InputCustomStyle } from './../../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring } from './../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { HealthMedicine, HealthHealthHouse, HealthInsurance, HealthTreatment, HealthPharmacy, HealthBathroom, HealthVaccination, HealthToilet, HealthHospital } from './../../../../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-health',
@@ -11,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HealthComponent implements OnInit {
 
+  @Input() data: ProjectSelectedDTO;
   public medicineList: Array<HealthMedicine> = new Array<HealthMedicine>();
   public diseaseList: Array<HealthTreatment> = new Array<HealthTreatment>();
   public insuranceList: Array<HealthInsurance> = new Array<HealthInsurance>();
@@ -51,12 +54,98 @@ export class HealthComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.data) {
+      this.bathRoomList = this.data.projectSpeceficDetail.healthBathrooms;
+      this.HealthHomeList = this.data.projectSpeceficDetail.healthHouses;
+      this.HealthVaccinationList = this.data.projectSpeceficDetail.healthVaccinations;
+      this.healthPharmacyList = this.data.projectSpeceficDetail.healthPharmacies;
+      this.WCList = this.data.projectSpeceficDetail.healthToilets;
+      this.hospitalList = this.data.projectSpeceficDetail.hospitals;
+      this.insuranceList = this.data.projectSpeceficDetail.insurances;
+      this.medicineList = this.data.projectSpeceficDetail.medicines;
+      this.diseaseList = this.data.projectSpeceficDetail.treatments;
+      this.getBathRoomList();
+      this.getHospitalList();
+      this.getHealthHomeList();
+      this.getInsuranceList();
+      this.getHealthPharmacyList();
+      this.getWCList();
+      this.getHealthVaccinationList();
+      this.getDiseaseList();
+      this.getMedicineList();
+    }
+  }
+
+  public getMedicineList(){
+    for (let i = 0; i < this.medicineList.length; i++) {
+      this.numberOfMedicine[i].setValue(this.medicineList[i].countOfMedicine);    
+      this.typeOfMedicine[i].setValue(this.medicineList[i].typeOfMedicine);    
+    }
+  }
+
+  public getDiseaseList(){
+    for (let i = 0; i < this.diseaseList.length; i++) {
+      this.TypeOfDisease[i].setValue(this.diseaseList[i].typeOfDisease);    
+      this.NumberOfTreatments[i].setValue(this.diseaseList[i].numberOftTreatment);    
+    }
+  }
+
+  public getWCList(){
+    for (let i = 0; i < this.WCList.length; i++) {
+      this.numberWC[i].setValue(this.WCList[i].numberOfToilet);    
+    }
+  }
+
+  public getHealthVaccinationList(){
+    for (let i = 0; i < this.HealthVaccinationList.length; i++) {
+      this.numberVaccination[i].setValue(this.HealthVaccinationList[i].numberOfVaccination);    
+    }
+  }
+
+  public getHealthPharmacyList(){
+    for (let i = 0; i < this.healthPharmacyList.length; i++) {
+      this.numberpharmacy[i].setValue(this.healthPharmacyList[i].numberOfPharmacy);    
+    }
+  }
+
+  public getInsuranceList(){
+    for (let i = 0; i < this.insuranceList.length; i++) {
+      this.numberOfPeopleCoveredByInsurance[i].setValue(this.insuranceList[i].numberOfPeopleCoveredByInsurance);    
+    }
+  }
+
+  public getBathRoomList(){
+    for (let i = 0; i < this.bathRoomList.length; i++) {
+      this.numberBathroom[i].setValue(this.bathRoomList[i].numberOfBathroom);    
+    }
+  }
+
+  public getHospitalList(){
+    for (let i = 0; i < this.hospitalList.length; i++) {
+      this.numberOfBedsHospital[i].setValue(this.hospitalList[i].countOfBeds);    
+      this.NumberOfFloors[i].setValue(this.hospitalList[i].countOfFloors);    
+      this.numberHospital[i].setValue(this.hospitalList[i].numberofHospital);    
+    }
+  }
+
+  public getHealthHomeList(){
+    for (let i = 0; i < this.HealthHomeList.length; i++) {
+      this.Meterage[i].setValue(this.HealthHomeList[i].meterage);
+      this.numberOfBedsHealthHouse[i].setValue(this.HealthHomeList[i].numberOfBeds);
+      this.numberDoctors[i].setValue(this.HealthHomeList[i].numberOfDoctor);
+      this.numberHealthHome[i].setValue(this.HealthHomeList[i].numberOfHealthHouse);
+      this.numberNurses[i].setValue(this.HealthHomeList[i].numberOfNurse);
+    }
   }
 
   public addList(){
@@ -83,6 +172,22 @@ export class HealthComponent implements OnInit {
 
   public deleteHealthHome(index: number){
     this.HealthHomeList.splice(index, 1);
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.hospitalList) {
+      if(this.hospitalList[index].constructionType == state) res = true;
+    }
+    return res;
+  }
+
+  public setValue1(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.HealthHomeList) {
+      if(this.HealthHomeList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   public addHospital(){

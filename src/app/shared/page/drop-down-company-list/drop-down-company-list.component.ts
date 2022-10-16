@@ -18,7 +18,7 @@ export class DropDownCompanyListComponent implements OnInit {
   @Output() companyIdSelected = new EventEmitter<string | string[]>();
   @Input() customStyle: string;
   constructor(private companyListService: CompanyListService,
-    private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) { }
+    private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {}
 
   ngOnInit(): void {
     this.initListCompany();
@@ -42,6 +42,7 @@ export class DropDownCompanyListComponent implements OnInit {
   }
 
   public selectedCompany(event: string | string[]) {
+    this.advancedSearchConnecctToApiService.changed.emit(true);
     this.companyIdSelected.emit(event);
     this.advancedSearchConnecctToApiService.companyIdSelected.emit(event);
   }
