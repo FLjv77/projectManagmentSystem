@@ -11,6 +11,7 @@ import { GetProjectsWithDynamicFilterDto } from '../../model/advanceSearch';
 })
 export class AdvancedSearchConnecctToApiService {
   public companyIdSelected = new EventEmitter<string | string[]>();
+  public changed = new EventEmitter<boolean>();
   public projectIdSelected = new EventEmitter<string | string[]>();
   public projectListHandel = new EventEmitter<ProjectSelectedDTO[]>();
 

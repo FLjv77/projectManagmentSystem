@@ -11,9 +11,9 @@ import { noop } from 'rxjs';
 export class CommonDataForCreateProjectService {
   public selectStep = new EventEmitter<number>();
   private createProjectData: CreateProjectDTO;
-  public goal: string;
-  public galo: string;
-  public chalenge: string;
+  public projectTargets: string;
+  public projectBottleNeck: string;
+  public projectChallange: string;
 
   constructor() {
     this.initProjectData();
@@ -21,9 +21,9 @@ export class CommonDataForCreateProjectService {
 
   public initCreateProjectData() {
     this.createProjectData = new CreateProjectDTO();
-    this.goal = '';
-    this.galo = '';
-    this.chalenge = '';
+    this.projectTargets = '';
+    this.projectBottleNeck = '';
+    this.projectChallange = '';
   }
 
   private initProjectData() {
@@ -54,12 +54,12 @@ export class CommonDataForCreateProjectService {
     this.createProjectData.targetId = targetId;
   }
 
-  public setObjective(goal: string,
- galo: string,
- chalenge: string) {
-  this.goal = goal;
-  this.galo = galo;
-  this.chalenge = chalenge;
+  public setObjective(projectTargets: string,
+    projectBottleNeck: string,
+    projectChallange: string) {
+  this.projectTargets = projectTargets;
+  this.projectBottleNeck = projectBottleNeck;
+  this.projectChallange = projectChallange;
   }
 
   public setLocationInformation(

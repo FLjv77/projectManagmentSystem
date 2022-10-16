@@ -1,0 +1,17 @@
+@import '../../../../../assets/style/colorPalette.scss';
+
+.edit-button {
+    background-color: $icon-color;
+    float: left;
+    left: 0px;
+    border: none;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 7px;
+    i {
+        color: white;
+        font-size: 23px;
+    }
+}

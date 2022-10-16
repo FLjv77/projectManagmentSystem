@@ -26,7 +26,15 @@ export class DropDownProjectListComponent implements OnInit {
   constructor(
     private projectConnectToApiService: ProjectConnectToApiService,
     private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService
-  ) { }
+  ) { 
+    this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((res:string|string[])=>{
+      if (res) {
+        this.companyId = res;
+        this.projectData = [];
+        this.getProjectList();
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.initProjectList();
@@ -69,6 +77,7 @@ export class DropDownProjectListComponent implements OnInit {
       }, (err: HttpErrorResponse) => {
 
       });
+      this.advancedSearchConnecctToApiService.changed.emit(false);
     }
 
   }

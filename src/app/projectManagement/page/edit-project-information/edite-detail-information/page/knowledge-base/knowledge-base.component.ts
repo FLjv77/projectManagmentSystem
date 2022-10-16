@@ -1,3 +1,4 @@
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ActivatedRoute } from '@angular/router';
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-knowledge-base',
@@ -15,6 +16,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./knowledge-base.component.scss']
 })
 export class KnowledgeBaseComponent implements OnInit {
+
+  @Input() data: ProjectSelectedDTO;
   public knowledgeBaseds: KnowledgeBased[];
   private projectId : string|null;
   public inputCustomStyle: InputCustomStyle;
@@ -35,6 +38,7 @@ export class KnowledgeBaseComponent implements OnInit {
     this.initInputStyle();
     this.knowledgeBaseds = new Array<KnowledgeBased>();
     this.addList();
+    this.getData();
     //this.getQuery();
   }
 
@@ -46,6 +50,29 @@ export class KnowledgeBaseComponent implements OnInit {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.data.projectSpeceficDetail.knowledgeBaseds) {
+      console.log(this.data.projectSpeceficDetail.knowledgeBaseds);
+      
+      this.knowledgeBaseds = this.data.projectSpeceficDetail.knowledgeBaseds;
+      for (let i = 0; i < this.knowledgeBaseds.length; i++) {
+        this.numberCompanyControlList[i].setValue(this.knowledgeBaseds[i].countOfCompany);
+        this.AreaOfExpertise[i].setValue(this.knowledgeBaseds[i].areaExpert);
+        this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.amount);
+        this.numberAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.count);
+        this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.description);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.knowledgeBaseds) {
+      if(this.knowledgeBaseds[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   public editSpecializeInfo() {

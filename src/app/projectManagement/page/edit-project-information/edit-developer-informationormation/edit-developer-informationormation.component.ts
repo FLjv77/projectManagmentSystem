@@ -1,9 +1,11 @@
+import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
 import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -32,14 +34,47 @@ export class EditDeveloperInformationormationComponent implements OnInit {
   public contractorsList: Array<Participant> = [];
   public consultantList: Array<Participant> = [];
   public investorList: Array<Participant> = [];
-  public projectId: string | null;
+  public projectIdSelect: string | string[];
+  @Input() projectId: string | string[];
+  public edit:boolean=false;
 
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
-              private activeRoute:ActivatedRoute) { }
+              private activeRoute:ActivatedRoute,
+              private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
+              private createrojectService:CreaterojectService) {
+                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
+                  this.projectIdSelect = res;
+                  if (this.projectIdSelect) {
+                    console.log(this.projectIdSelect);
+                    this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
+                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+                    
+                  });
+                  }
+                })}
 
   ngOnInit(): void {
     this.initInputStyle();
     this.getInfo();
+  }
+
+  public saved(){
+    // this.createrojectService.CreateProject(
+    //   this.companyId, this.commonDataForCreateProjectService.getCreateProject()
+    // ).subscribe((res: ApiResult<string>) => {
+    //   if(res.isSuccess && res.statusCode == 200) {
+    //     this.openModal();
+    //     console.log(res);
+
+    //     this.projectId = res.data;
+    //   }
+    // }, (err: HttpErrorResponse) => {
+    // });
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
   }
 
   private initInputStyle() {
@@ -48,9 +83,9 @@ export class EditDeveloperInformationormationComponent implements OnInit {
     )
   }
 
-  public getQuryParam(){
-    this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
-  }
+  // public getQuryParam(){
+  //   this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
+  // }
 
   public add(list: Array<Participant>, userName:string, family:string){
     if (!this.employerList && userName != null && family != null) this.employerList = new Array<Participant>();
@@ -71,18 +106,31 @@ export class EditDeveloperInformationormationComponent implements OnInit {
   }
 
   public getInfo(){
-    this.projectConnectToApiService.getProjectGeneralProperties(this.projectId)
+    if (this.projectId) {
+      this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-      //console.log(res.data)
-      // this.projectNameFormControl.setValue(res.data.projectName);
-      // this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
-      // this.descreptionFormControl.setValue(res.data.projectDescription);
-      // this.objectivesFormControl.setValue(res.data.projectTargets);
-      // this.projectChallengeFormControl.setValue(res.data.projectChallange);
-      // this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
-      // this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
-      // this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
+      for (let i = 0; i < res.data.participants.length; i++) {
+        if (res.data.participants[i].tag == 'کارفرما') {
+          this.employerList.push(res.data.participants[i]);
+        }
+        else if (res.data.participants[i].tag == 'ناظر') {
+          this.supervisorList.push(res.data.participants[i]);
+        }
+        else if (res.data.participants[i].tag == 'مجری') {
+          this.executorList.push(res.data.participants[i]);
+        }
+        else if (res.data.participants[i].tag == 'پیمان کار') {
+          this.contractorsList.push(res.data.participants[i]);
+        }
+        else if (res.data.participants[i].tag == 'مشاور') {
+          this.consultantList.push(res.data.participants[i]);
+        }
+        else if (res.data.participants[i].tag == 'سرمایه گذار') {
+          this.investorList.push(res.data.participants[i]);
+        }
+      }
     });
+    }
   }
 
   public remove(list : Array<Participant>, index: number){
