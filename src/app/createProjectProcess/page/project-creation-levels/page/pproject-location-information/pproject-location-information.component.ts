@@ -119,7 +119,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
       this.router.navigate(['../../createProject/startCreatProject'],
        {queryParams: {type: projectType, targetId: id, companyId: this.companyId, projectId: this.projectId}});
-      this.commonDataForCreateProjectService.selectStep.emit(4);
+      this.commonDataForCreateProjectService.selectStep.emit(5);
 
       setTimeout(() => {
         document.getElementById('detailInformation')?.click();
@@ -138,7 +138,7 @@ export class PProjectLocationInformationComponent implements OnInit {
       if(res.isSuccess && res.statusCode == 200) {
         this.openModal();
         console.log(res);
-        
+
         this.projectId = res.data;
       }
     }, (err: HttpErrorResponse) => {

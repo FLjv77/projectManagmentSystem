@@ -64,7 +64,7 @@ export class StakeholderManagementComponent implements OnInit {
     if (!this.employerList && userName != null && family != null) this.employerList = new Array<Participant>();
     if (num==1) {
       this.tagName = 'کارفرما'
-    } 
+    }
     else if (num==2) {
       this.tagName = 'ناظر'
     }
@@ -84,7 +84,7 @@ export class StakeholderManagementComponent implements OnInit {
       this.tagName = 'سرمایه گذار'
     }
     let employers = new Participant(userName,family,this.tagName);
-    
+
     list.push(employers);
     this.list.push(employers);
     console.log(this.list);
@@ -114,10 +114,8 @@ export class StakeholderManagementComponent implements OnInit {
 
   public sendContributorsList(){
       this.commonDataForCreateProjectService.setParticipant(this.list);
-      console.log(this.commonDataForCreateProjectService.setParticipant(this.list));
-      
-      this.commonDataForCreateProjectService.selectStep.emit(5);
-  
+      this.commonDataForCreateProjectService.selectStep.emit(4);
+
       setTimeout(() => {
         document.getElementById('locationInformation')?.click();
       }, 200);

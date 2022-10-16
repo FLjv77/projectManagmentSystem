@@ -40,6 +40,7 @@ export class ProjectCreationLevelsComponent implements OnInit {
   ngOnInit(): void {
     this.initDisplayPath();
     this.getQueryParam();
+
   }
 
   private getQueryParam() {

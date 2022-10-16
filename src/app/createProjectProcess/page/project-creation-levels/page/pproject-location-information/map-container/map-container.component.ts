@@ -182,13 +182,13 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)),
       type: projectType, targetId: id, companyId: this.companyId}});
 
-    setTimeout(() => {
-      this.commonDataForCreateProjectService.selectStep.emit(3);
-
       setTimeout(() => {
-        document.getElementById('locationInformation')?.click();
+        this.commonDataForCreateProjectService.selectStep.emit(4);
+
+        setTimeout(() => {
+          document.getElementById('locationInformation')?.click();
+        }, 200);
       }, 200);
-    }, 200);
   }
 
   public getInputControler(index: number): FormControl {
