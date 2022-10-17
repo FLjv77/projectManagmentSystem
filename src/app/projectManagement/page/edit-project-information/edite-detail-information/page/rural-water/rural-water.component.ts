@@ -56,6 +56,16 @@ export class RuralWaterComponent implements OnInit {
 
   public getData(){
     if (this.data) {
+      console.log(this.data);
+      
+      this.debeyControl.setValue(this.data.projectSpeceficDetail.currentDebye);
+      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.consumability);
+      this.groundTypeControl.setValue(this.data.projectSpeceficDetail.typeOfLand);
+      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.treatments);
+      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.equipment);
+      this.ownerShipTypeControl.setValue(this.data.projectSpeceficDetail.ownerShipType);
+      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.requirements);
+
       this.damList = this.data.projectSpeceficDetail.dam;
       this.networkWater = this.data.projectSpeceficDetail.distributionNetwork;
       this.FountainList = this.data.projectSpeceficDetail.fountain;

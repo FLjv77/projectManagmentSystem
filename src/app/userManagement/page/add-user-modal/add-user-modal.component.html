@@ -7,15 +7,19 @@
               <span class="mx-auto set-font-Raymon">افزودن کاربر جدید</span>
             </div>
             <div class="row mt-5 mx-auto">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'1'"
+                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام کاربر'" [inputId]="'userName'"
                 [inputFormControl]="userNameFormControl"></app-input-style>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'ایمیل کاربر'" [inputId]="'2'"
-                [inputFormControl]="userEmailFormControl"></app-input-style>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نقش کاربر'" [inputId]="'3'"
-                [inputFormControl]="userRoleFormControl"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'phoneNumber'" [type]="'phone'" [inputFormControl]="phoneNumberControl" [inputLabel]="'شماره همراه'"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" class="mt-3"></app-input-style>
+                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'repeatPassword'" [type]="'password'" [inputFormControl]="repeatPasswordControl" [inputLabel]="'تکرار رمز عبور'" class="mt-3"></app-input-style>
+                
+                <div class="col-12 text-right mt-2">
+                  <input id="" name="" type="checkbox" class="form-check-input mx-2" value=""  (click)="setCheckbox()"/>
+                  <label id="_label" class="form-check-label font-weight-bold" style="font-size: 15px;" for="">این کاربر با نقش ناظر ذخیره شود</label>
+                </div>
             </div>
             <div class="row mx-auto mt-5">
-                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">افزودن</button>
+                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal" (click)="addUser()">افزودن</button>
             </div>
           </div>
           <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
