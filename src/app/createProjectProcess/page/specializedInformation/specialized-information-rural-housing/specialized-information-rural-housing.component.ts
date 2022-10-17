@@ -10,6 +10,7 @@ import {
 } from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-state-and-zone.service";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-specialized-information-rural-housing',
@@ -50,7 +51,9 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
   public arrayList: Array<string> = ['2223'];
 
 
-  constructor(private router:Router) { }
+  constructor(private router: Router,
+    private specializedInformationService: SpecializedInformationService,
+    ) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -109,6 +112,10 @@ export class SpecializedInformationRuralHousingComponent implements OnInit {
 
   public deleteList(index: number){
     this.arrayList.splice(index, 1);
+  }
+
+  public createSpecializeInfo() {
+
   }
 
 }

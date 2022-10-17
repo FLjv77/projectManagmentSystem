@@ -18,11 +18,11 @@ export class SpecializedInformationService {
   constructor(private http: HttpClient) { }
 
   public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string|null, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
-    return this.http.post<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
+    return this.http.put<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
   }
 
   public ModifyRuralRoadSpeceficDetail(projectId : string|null, ruralRoadSpeceficDetailDTO: RuralRoadSpeceficDetailDTO): Observable<ApiResult<RuralRoadSpeceficDetailDTO>>{
-    return this.http.post<ApiResult<RuralRoadSpeceficDetailDTO>>(url.ModifyRuralRoadSpeceficDetail + projectId , ruralRoadSpeceficDetailDTO);
+    return this.http.put<ApiResult<RuralRoadSpeceficDetailDTO>>(url.ModifyRuralRoadSpeceficDetail + projectId , ruralRoadSpeceficDetailDTO);
   }
 
   public ModifyKnowledgeBasedSpeceficDetail(projectId : string|null, knowledgeBasedSpeceficDetailDTO: KnowledgeBasedSpeceficDetailDTO): Observable<ApiResult<KnowledgeBasedSpeceficDetailDTO>>{

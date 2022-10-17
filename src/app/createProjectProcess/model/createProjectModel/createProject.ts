@@ -21,7 +21,7 @@ export class CreateProjectDTO {
     interRegions: string[];
 }
 
-export class Participant{
+export class Participant {
     tag: string;
     firstName: string;
     lastName: string;

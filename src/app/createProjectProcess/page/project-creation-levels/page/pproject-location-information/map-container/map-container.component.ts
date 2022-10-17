@@ -201,7 +201,7 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
 
     + ' - ' + (this.addressList[index].location.y_pos.toString()).substring(0, 5)
   }
-    else return 'تایین نشده';
+    else return 'تعیین نشده';
   }
 
   public setSelectedAddress(index: number) {
