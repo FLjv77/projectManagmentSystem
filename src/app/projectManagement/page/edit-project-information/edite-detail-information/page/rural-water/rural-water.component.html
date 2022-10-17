@@ -13,18 +13,12 @@
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'" class="col-12 mt-2"
                            [inputFormControl]="requirementControl"></app-input-style>
 
-    <app-dam></app-dam>
-    <app-fountain></app-fountain>
-    <app-distribution-network></app-distribution-network>
-    <app-purification></app-purification>
-    <app-source></app-source>
-    <app-transfer-line></app-transfer-line>
-    <app-water-seal></app-water-seal>
-    <app-well></app-well>
-
-
-  <div class="my-2" style="direction: ltr;">
-    <button type="button" class="ok-button-text opacity-light px-4 py-2" (click)="editInfo()">
-        تایید و ادامه
-    </button>
-  </div>
+    <app-dam *ngIf="damList.length!=0" [dam]="damList"></app-dam>
+    <app-fountain *ngIf="FountainList.length!=0" [Fountain]="FountainList"></app-fountain>
+    <app-distribution-network *ngIf="networkWater.length!=0" [network]="networkWater"></app-distribution-network>
+    <app-purification *ngIf="RefineryList.length!=0" [RefineryList]="RefineryList"></app-purification>
+    <app-source *ngIf="TankList.length!=0" [TankList]="TankList"></app-source>
+    <app-transfer-line *ngIf="TransferLineList.length!=0" [TransferLine]="TransferLineList"></app-transfer-line>
+    <app-water-seal *ngIf="DikeList.length!=0" [DikeList]="DikeList"></app-water-seal>
+    <app-well *ngIf="PitWaterList.length!=0" [PitWaterList]="PitWaterList"></app-well>
+    <app-pomp *ngIf="PumpStationList.length!=0" [Pump]="PumpStationList"></app-pomp>

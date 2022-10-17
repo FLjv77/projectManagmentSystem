@@ -1,3 +1,5 @@
+import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ActivatedRoute } from '@angular/router';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
@@ -7,7 +9,7 @@ import { projectType } from './../../../../../../createProjectProcess/model/Enum
 import { SocialTransformationAddicion, SocialTransformationCampConstruction, SocialTransformationDivorce, SocialTransformationUnintentionalPrisoner, SocialTransformationSegmentation, SocialTransformationSpecialPatient, SocialTransformationBannedFromEducation, SocialTransformationSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifySocialTransformationSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-social-transformation',
@@ -16,7 +18,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialTransformationComponent implements OnInit {
   private projectId : string|null;
-
+  @Input() data: ProjectSelectedDTO;
   public inputCustomStyle: InputCustomStyle;
   public numberFloors =  new Array<FormControl>();
   public Capacity =  new Array<FormControl>();
@@ -79,7 +81,7 @@ export class SocialTransformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.addList();
-    //this.getQuery();
+    this.getData();
   }
 
   private initInputStyle() {
@@ -88,9 +90,24 @@ export class SocialTransformationComponent implements OnInit {
     )
   }
 
-  // private getQuery(){
-  //   this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
-  // }
+  public getData(){
+    if (this.data) {
+      // this.ruralRoadList = this.data.projectSpeceficDetail.ruralRoads;
+      // console.log(this.ruralRoadList.length);
+      // for (let i = 0; i < this.ruralRoadList.length; i++) {
+      //   this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);    
+      //   this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);    
+      // }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    // if(this.ruralRoadList) {
+    //   if(this.ruralRoadList[index].constructionType == state) res = true;
+    // }
+    return res;
+  }
 
   public addList(){
     this.addListAddicion();

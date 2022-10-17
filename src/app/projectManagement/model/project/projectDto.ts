@@ -1,3 +1,7 @@
+import { RuralRoad } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
+import { DamWaterShedAndCanals, DikeWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { WaterShedAndCanalsSpeceficDetailBehaviorDTO, PitWaterShedAndCanals } from './../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
+import { RevivalIndustry } from 'src/app/createProjectProcess/model/specializedInformation/modifyRevivalIndustrySpeceficDetail';
 import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from './../../../createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
 import { HealthBathroom, HealthHealthHouse, HealthMedicine, HealthTreatment, HealthVaccination, HealthToilet, HealthPharmacy, HealthInsurance, HealthHospital } from './../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { DateTime } from './../../../shared/model/dateTime';
@@ -75,6 +79,25 @@ export class projectSpeceficDetail{
   insurances: Array<HealthInsurance>;
   hospitals: Array<HealthHospital>;
   knowledgeBaseds: Array<KnowledgeBased>;
+  revivalIndustries: Array<RevivalIndustry>;
+  WaterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO;
+  consumability: String;
+  currentDebye: number;
+  dam: Array<DamWaterShedAndCanals>;
+  dike: Array<DikeWaterShedAndCanals>;
+  distributionNetwork: Array<DistributionNetworkWaterShedAndCanals>
+  equipment: string;
+  fountain: Array<FountainWaterShedAndCanals>;
+  ownerShipType: number;
+  pit: Array<PitWaterShedAndCanals>;
+  pumpStation: Array<PumpStationWaterShedAndCanals>;
+  refinery: Array<RefineryWaterShedAndCanals>;
+  requirements: string;
+  resourceStability: string;
+  tank: Array<TankWaterShedAndCanals>;
+  transferLine: Array<TransferLineWaterShedAndCanals>;
+  typeOfLand: number;
+  ruralRoads: Array<RuralRoad>;
 }
 
 export class AddressSelectedDTO {
@@ -99,4 +122,26 @@ export enum ProjectDevelopeStatus {
 
 export enum ProjectSortedBy {
   none, nearestCreationDate, farthestCreationDate
+}
+
+
+export class UpdateProjectDTO {
+  projectName: string;
+  projectDescription: string;
+  projectTargets: string;
+  projectChallange: string;
+  projectBottleNeck: string;
+  startTimeOfProject: string;
+  projectDeliveryTime: string;
+  infrastructureCost: number;
+  humanResourceCost: number;
+  country: string;
+  state: string;
+  city: string;
+  section: string;
+  region: string;
+  longitude: number;
+  latitude: number;
+  interCities: Array<string>;
+  interRegions: Array<string>;
 }

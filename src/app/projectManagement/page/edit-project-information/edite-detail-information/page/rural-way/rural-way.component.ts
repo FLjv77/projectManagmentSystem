@@ -1,3 +1,4 @@
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { Router } from '@angular/router';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
@@ -9,7 +10,7 @@ import { FormControl } from '@angular/forms';
 import { projectType } from './../../../../../../createProjectProcess/model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { RuralRoadSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-rural-way',
@@ -27,6 +28,7 @@ export class RuralWayComponent implements OnInit {
   public ruralRoadList :Array<RuralRoad>;
   private locations: Location[];
   private index: number;
+  @Input() data: ProjectSelectedDTO;
 
   constructor(private router:Router, private activeRouting:ActivatedRoute,
               private specializedInformationService:SpecializedInformationService,
@@ -36,18 +38,32 @@ export class RuralWayComponent implements OnInit {
     this.initInputStyle();
     this.ruralRoadList = new Array<RuralRoad>;
     this.addList();
-    //this.getLocation();
-    //this.getQuery();
+    this.getData();
   }
 
-  // private getQuery(){
-  //   this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
-  // }
+  public getData(){
+    if (this.data) {
+      this.ruralRoadList = this.data.projectSpeceficDetail.ruralRoads;
+      console.log(this.ruralRoadList.length);
+      for (let i = 0; i < this.ruralRoadList.length; i++) {
+        this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);    
+        this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);    
+      }
+    }
+  }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.ruralRoadList) {
+      if(this.ruralRoadList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   public checkValidation(): boolean {

@@ -1,7 +1,7 @@
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-transfer-line',
@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
   styleUrls: ['./transfer-line.component.scss']
 })
 export class TransferLineComponent implements OnInit {
+
+  @Input() TransferLine: TransferLineWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public transferLineControl = new Array<FormControl>();
   public pipeTypeControl = new Array<FormControl>();
@@ -27,13 +29,35 @@ export class TransferLineComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.TransferLineWaterShedAndCanalsList = new Array<TransferLineWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.TransferLine) {
+      this.TransferLineWaterShedAndCanalsList = this.TransferLine;
+      for (let i = 0; i < this.TransferLineWaterShedAndCanalsList.length; i++) {
+        this.toWhereControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineSource);
+        this.fromWhereControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineDestination);
+        this.pipeLenControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineLenght);
+        this.pipeTypeControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineType);
+        this.transferLineControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineDestination);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.TransferLineWaterShedAndCanalsList) {
+      if(this.TransferLineWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i: number) {

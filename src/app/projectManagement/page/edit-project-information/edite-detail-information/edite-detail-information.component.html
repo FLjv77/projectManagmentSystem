@@ -1,19 +1,18 @@
 <div class="p-3">
   <div class="row">
     <div class="col-12">
-      <button class="mx-auto float-left w-auto edit-button">
+      <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
         <i class="material-icons d-inline">edit</i>
       </button>
-      <div class="col-12">
-        <i class="material-icons d-inline icon-styles">gps_fixed</i>
-        <h4 class="title-page d-inline set-font-Raymon">اهداف پروژه</h4>
-      </div>
+      <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+        <i class="material-icons d-inline">check</i>
+      </button>
     </div>
     <app-health *ngIf="select=='سلامت'" [data]="data"></app-health>
     <app-knowledge-base *ngIf="select=='دانش بنیان'" [data]="data"></app-knowledge-base>
     <app-social-transformation *ngIf="select=='تحول اجتماعی'"></app-social-transformation>
-    <app-rural-water *ngIf="select=='آب خیر وقنوات'"></app-rural-water>
-    <app-rural-way *ngIf="select=='راه روستایی'"></app-rural-way>
-    <app-removal-marginalization *ngIf="select=='رفع حاشیه نشینی'"></app-removal-marginalization>
+    <app-rural-water *ngIf="select=='آب خیر وقنوات'" [data]="data"></app-rural-water>
+    <app-rural-way *ngIf="select=='راه روستایی'" [data]="data"></app-rural-way>
+    <app-revival-industry *ngIf="select=='احیای صنعت'" [data]="data"></app-revival-industry>
   </div>
 </div>

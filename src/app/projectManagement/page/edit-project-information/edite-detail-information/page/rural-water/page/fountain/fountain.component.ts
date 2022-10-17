@@ -1,7 +1,7 @@
 import { FountainWaterShedAndCanals, ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-fountain',
@@ -10,6 +10,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FountainComponent implements OnInit {
 
+  @Input() Fountain: FountainWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public description = new Array<FormControl>();
   @Output() fountainList = new EventEmitter<FountainWaterShedAndCanals[]>();
@@ -26,12 +27,30 @@ export class FountainComponent implements OnInit {
     this.initInputStyle();
     this.FountainWaterShedAndCanalsList = new Array<FountainWaterShedAndCanals>;
     this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.Fountain) {
+      this.FountainWaterShedAndCanalsList = this.Fountain;
+      for (let i = 0; i < this.FountainWaterShedAndCanalsList.length; i++) {
+        this.description[i].setValue(this.FountainWaterShedAndCanalsList[i].description);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.FountainWaterShedAndCanalsList) {
+      if(this.FountainWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i:number) {

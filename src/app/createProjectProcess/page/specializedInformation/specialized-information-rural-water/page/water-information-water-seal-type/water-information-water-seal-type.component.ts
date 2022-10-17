@@ -33,6 +33,7 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.DikeWaterShedAndCanalsList = new Array<DikeWaterShedAndCanals>;
+    this.addList();
   }
 
   private initInputStyle() {

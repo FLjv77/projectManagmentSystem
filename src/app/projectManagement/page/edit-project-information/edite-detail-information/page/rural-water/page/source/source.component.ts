@@ -1,7 +1,7 @@
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, TankWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-source',
@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
   styleUrls: ['./source.component.scss']
 })
 export class SourceComponent implements OnInit {
+
+  @Input() TankList: TankWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public sourceStateControl = new Array<FormControl>();
   public sourceStaffControl = new Array<FormControl>();
@@ -26,12 +28,32 @@ export class SourceComponent implements OnInit {
     this.initInputStyle();
     this.TankWaterShedAndCanalsList = new Array<TankWaterShedAndCanals>;
     this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.TankList) {
+      this.TankWaterShedAndCanalsList = this.TankList;
+      for (let i = 0; i < this.TankWaterShedAndCanalsList.length; i++) {
+        this.sourceVolumeControl[i].setValue(this.TankWaterShedAndCanalsList[i].tankVolume);
+        this.sourceStaffControl[i].setValue(this.TankWaterShedAndCanalsList[i].tankMaterialType);
+        this.sourceStateControl[i].setValue(this.TankWaterShedAndCanalsList[i].currentTankStatus);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.TankWaterShedAndCanalsList) {
+      if(this.TankWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i :number) {
