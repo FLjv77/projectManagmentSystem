@@ -9,7 +9,7 @@
       <li class="{{selectSubmenueUser == 2 ? 'selectMenue':''}}" (click)="setSelected(2)">ویرایش پروژه</li>
       <li class="{{selectSubmenueUser == 3 ? 'selectMenue':''}}" (click)="setSelected(3)">مشاهده پروژه</li>
       <li class="{{selectSubmenueUser == 4 ? 'selectMenue':''}}" (click)="setSelected(4)">ارسال گزارش</li>
-      <li class="{{selectSubmenueUser == 5 ? 'selectMenue':''}}" (click)="setSelected(5)">مدیریت گزارش ها</li>
+      <li *ngIf="showReport" class="{{selectSubmenueUser == 5 ? 'selectMenue':''}}" (click)="setSelected(5)">مدیریت گزارش ها</li>
     </ul>
   </div>
 </div>

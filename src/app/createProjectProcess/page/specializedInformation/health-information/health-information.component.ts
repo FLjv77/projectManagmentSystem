@@ -9,8 +9,8 @@ import { SpecializedInformationService } from 'src/app/createProjectProcess/serv
 import { HealthBathroom, HealthHealthHouse, HealthHospital, HealthInsurance, HealthMedicine, HealthPharmacy, HealthSpeceficDetailDTO, HealthToilet, HealthTreatment, HealthVaccination } from 'src/app/createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
-import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-health-information',

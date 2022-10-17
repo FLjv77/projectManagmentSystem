@@ -49,7 +49,7 @@ export class CheckedReportsComponent implements OnInit {
   }
 
   private getReportAllocation() {
-    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(
+    this.reportConnectionToApiService.GetAllocationReports(
       this.projectId
     ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {
@@ -59,7 +59,7 @@ export class CheckedReportsComponent implements OnInit {
   }
 
   private getReportProgress() {
-    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
+    this.reportConnectionToApiService.GetProgressReports(
       this.projectId
     ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {

@@ -12,8 +12,8 @@ import { SpecializedInformationService } from 'src/app/createProjectProcess/serv
 import { RuralRoad, RuralRoadSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { Location } from '../../project-creation-levels/page/pproject-location-information/map-container/map-container.component';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
-import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-specialized-information-rural-way',

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
 import { sidebarState, SelectSubmenueProjectManagement } from './../../../../model/sidebarModel';
 import { Component, OnInit } from '@angular/core';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-project-management-setting-menu',
@@ -13,6 +14,7 @@ export class ProjectManagementSettingMenuComponent implements OnInit {
 
   public selectSubmenueUser: SelectSubmenueProjectManagement = 0;
   public state: sidebarState = 0;
+  public showReport: boolean = false;
 
   constructor(private sidebarControleServiceService:SidebarControleServiceService,
               private router:Router) {
@@ -30,6 +32,11 @@ export class ProjectManagementSettingMenuComponent implements OnInit {
     }
     else if (this.state == 3){
       this.sidebarControleServiceService.state.emit(0);
+    }
+
+    let company = localStorage.getItem(url.CompanyInfo);
+    if(company) {
+      this.showReport = true;
     }
   }
 
