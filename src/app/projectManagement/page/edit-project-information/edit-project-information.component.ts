@@ -33,7 +33,7 @@ export class EditProjectInformationComponent implements OnInit {
 
   private getProjectId() {
     let id = this.activeRouting.snapshot.queryParamMap.get('projectIdEdit');
-    if (id) this.projectId = id; this.show = id; 
+    if (id) this.projectId = id; this.show = id;
   }
 
   public setProjectId(event: string|string[]){
@@ -44,11 +44,7 @@ export class EditProjectInformationComponent implements OnInit {
     this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId).subscribe(
       (res: ApiResult<ProjectSelectedDTO>) => {
         if(res.isSuccess && res.statusCode == 200) {
-          console.log(res.data);
-          
           this.projectDetail = res.data;
-          
-          this.handleDisplayError.showError(res.statusCode);
         }
       }, (err: HttpErrorResponse) => {
         this.handleDisplayError.showError(err.error.StatusCode);

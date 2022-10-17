@@ -14,12 +14,14 @@ import { url } from 'src/assets/url/url';
 })
 export class ProjectControleReportsComponent implements OnInit {
   public allocationReportSelectedDtos: AllocationReportSelectedDto[];
+  public progressReportSelectedDtos:	ProgressReportSelectedDto[];
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public projectId: string;
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
   public companyId: string;
+  public checkedReport: boolean = false;
 
   constructor(private reportConnectionToApiService:ReportConnectionToApiService){ }
 
@@ -34,8 +36,10 @@ export class ProjectControleReportsComponent implements OnInit {
   }
 
   public setProjectId($event: any) {
-    this.projectId = $event;
-    this.getReportProgress();
+    this.projectId = '';
+    setTimeout(() => {
+      this.projectId = $event;
+    }, 200);
   }
 
 
@@ -46,25 +50,5 @@ export class ProjectControleReportsComponent implements OnInit {
       c = JSON.parse(com);
       this.companyId = c.companyId;
     }
-  }
-
-  private getReport() {
-    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(
-      this.projectId
-    ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
-      if(res.isSuccess && res.statusCode == 200) {
-        this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
-      }
-    });
-  }
-
-
-  private getReportProgress() {
-    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
-      this.projectId
-    ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
-      if(res.isSuccess && res.statusCode == 200) {
-      }
-    });
   }
 }

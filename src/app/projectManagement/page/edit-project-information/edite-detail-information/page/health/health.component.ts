@@ -83,10 +83,7 @@ constructor(
   }
 
   public getData(){
-    console.log(this.data);
-
     if (this.data) {
-      /*
       this.bathRoomList = this.data.projectSpeceficDetail.healthBathrooms;
       this.HealthHomeList = this.data.projectSpeceficDetail.healthHouses;
       this.HealthVaccinationList = this.data.projectSpeceficDetail.healthVaccinations;
@@ -96,6 +93,7 @@ constructor(
       this.insuranceList = this.data.projectSpeceficDetail.insurances;
       this.medicineList = this.data.projectSpeceficDetail.medicines;
       this.diseaseList = this.data.projectSpeceficDetail.treatments;
+
       this.getBathRoomList();
       this.getHospitalList();
       this.getHealthHomeList();
@@ -105,12 +103,14 @@ constructor(
       this.getHealthVaccinationList();
       this.getDiseaseList();
       this.getMedicineList();
-      */
     }
   }
 
   public getMedicineList() {
     for (let i = 0; i < this.medicineList.length; i++) {
+      this.numberOfMedicine.push(new FormControl());
+      this.typeOfMedicine.push(new FormControl());
+
       this.numberOfMedicine[i].setValue(this.medicineList[i].countOfMedicine);
       this.typeOfMedicine[i].setValue(this.medicineList[i].typeOfMedicine);
     }
@@ -118,6 +118,9 @@ constructor(
 
   public getDiseaseList() {
     for (let i = 0; i < this.diseaseList.length; i++) {
+      this.TypeOfDisease.push(new FormControl());
+      this.NumberOfTreatments.push(new FormControl());
+
       this.TypeOfDisease[i].setValue(this.diseaseList[i].typeOfDisease);
       this.NumberOfTreatments[i].setValue(this.diseaseList[i].numberOftTreatment);
     }
@@ -125,44 +128,66 @@ constructor(
 
   public getWCList() {
     for (let i = 0; i < this.WCList.length; i++) {
+      this.numberWC.push(new FormControl());
+
       this.numberWC[i].setValue(this.WCList[i].numberOfToilet);
     }
   }
 
   public getHealthVaccinationList(){
     for (let i = 0; i < this.HealthVaccinationList.length; i++) {
+      this.numberVaccination.push(new FormControl());
+
       this.numberVaccination[i].setValue(this.HealthVaccinationList[i].numberOfVaccination);
     }
   }
 
   public getHealthPharmacyList(){
     for (let i = 0; i < this.healthPharmacyList.length; i++) {
+      this.numberpharmacy.push(new FormControl());
+
       this.numberpharmacy[i].setValue(this.healthPharmacyList[i].numberOfPharmacy);
     }
   }
 
   public getInsuranceList(){
     for (let i = 0; i < this.insuranceList.length; i++) {
+      this.numberOfPeopleCoveredByInsurance.push(new FormControl());
+
       this.numberOfPeopleCoveredByInsurance[i].setValue(this.insuranceList[i].numberOfPeopleCoveredByInsurance);
     }
   }
 
   public getBathRoomList(){
     for (let i = 0; i < this.bathRoomList.length; i++) {
+      this.numberBathroom.push(new FormControl());
       this.numberBathroom[i].setValue(this.bathRoomList[i].numberOfBathroom);
     }
   }
 
   public getHospitalList(){
     for (let i = 0; i < this.hospitalList.length; i++) {
+      this.numberOfBedsHospital.push(new FormControl());
+      this.NumberOfFloors.push(new FormControl());
+      this.numberHospital.push(new FormControl());
+
       this.numberOfBedsHospital[i].setValue(this.hospitalList[i].countOfBeds);
       this.NumberOfFloors[i].setValue(this.hospitalList[i].countOfFloors);
       this.numberHospital[i].setValue(this.hospitalList[i].numberofHospital);
     }
   }
 
+
   public getHealthHomeList(){
+    console.log(this.HealthHomeList);
+
     for (let i = 0; i < this.HealthHomeList.length; i++) {
+      this.Meterage.push(new FormControl());
+      this.numberOfBedsHealthHouse.push(new FormControl());
+      this.numberDoctors.push(new FormControl());
+      this.numberHealthHome.push(new FormControl());
+      this.numberNurses.push(new FormControl());
+
       this.Meterage[i].setValue(this.HealthHomeList[i].meterage);
       this.numberOfBedsHealthHouse[i].setValue(this.HealthHomeList[i].numberOfBeds);
       this.numberDoctors[i].setValue(this.HealthHomeList[i].numberOfDoctor);
@@ -170,6 +195,7 @@ constructor(
       this.numberNurses[i].setValue(this.HealthHomeList[i].numberOfNurse);
     }
   }
+
 
   public addList(){
     this.addHealthBathroom();
@@ -376,9 +402,8 @@ constructor(
   public getInfo(){
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
-    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+    .subscribe((res: ApiResult<ProjectSelectedDTO>) => {
       console.log(res);
-
     });
     }
   }
