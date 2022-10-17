@@ -297,8 +297,8 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     list.currentDebye = this.debeyControl.value;
     list.consumability = this.regionControl.value;
     list.resourceStability = this.stabilityResourceControl.value;
-    list.typeOfLand = this.groundTypeControl.value;
-    list.ownerShipType = this.ownerShipTypeControl.value;
+    list.typeOfLand = 0; //this.groundTypeControl.value;
+    list.ownerShipType = 0; //this.ownerShipTypeControl.value;
     list.dam = this.damList;
     list.dike = this.DikeList;
     list.distributionNetwork = this.networkWater;

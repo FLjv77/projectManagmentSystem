@@ -8,7 +8,7 @@
              class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'"
             [inputFormControl]="projectNameFormControl"></app-input-style>
             <div class="col-md-3 col-12">
-                <mat-radio-group
+                <mat-radio-group [value]="checkboxValue"
                     aria-labelledby="example-radio-group-label"
                     class="example-radio-group font-size-small text-light">
                     <mat-radio-button (click)="checked(false)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">

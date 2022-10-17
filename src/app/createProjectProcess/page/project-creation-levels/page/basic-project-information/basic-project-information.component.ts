@@ -26,6 +26,8 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public inputCustomStyle: InputCustomStyle;
   public checkbox: boolean;
+  public checkboxValue: number;
+
   public contributors: string = '';
   public parentId: string|string[] = '';
   public inputInfo1: OutputInfo;
@@ -51,6 +53,13 @@ export class BasicProjectInformationComponent implements OnInit {
     if(projectInfo.projectDescription) this.descreptionFormControl.setValue(projectInfo.projectDescription);
     if(projectInfo.infrastructureCost) this.infrastructureCostFormControl.setValue(projectInfo.infrastructureCost);
     if(projectInfo.humanResourceCost) this.humanResourceCostFormControl.setValue(projectInfo.humanResourceCost);
+    if(projectInfo.parentProjectId) {
+      this.checkbox = true;
+      this.checkboxValue = 1;
+    } else {
+      this.checkbox = false;
+      this.checkboxValue = 0;
+    }
   }
 
   private setCompanyId() {
@@ -83,8 +92,9 @@ export class BasicProjectInformationComponent implements OnInit {
       }
   }
 
-  public checked(value:boolean){
+  public checked(value: boolean){
     this.checkbox = value;
+    this.checkboxValue = value ? 1 : 0;
   }
 
   public setContributors($event: string){

@@ -15,6 +15,15 @@ export class CommonDataForCreateProjectService {
   public projectBottleNeck: string;
   public projectChallange: string;
 
+  public name1: Participant;
+  public name2: Participant;
+  public name3: Participant;
+  public name4: Participant;
+  public name5: Participant;
+  public name6: Participant;
+  public name7: Participant;
+
+
   constructor() {
     this.initProjectData();
   }
@@ -24,6 +33,15 @@ export class CommonDataForCreateProjectService {
     this.projectTargets = '';
     this.projectBottleNeck = '';
     this.projectChallange = '';
+
+    this.name1 = new Participant('', '', '');
+    this.name2 = new Participant('', '', '');
+    this.name3 = new Participant('', '', '');
+    this.name4 = new Participant('', '', '');
+    this.name5 = new Participant('', '', '');
+    this.name6 = new Participant('', '', '');
+    this.name7 = new Participant('', '', '');
+
   }
 
   private initProjectData() {

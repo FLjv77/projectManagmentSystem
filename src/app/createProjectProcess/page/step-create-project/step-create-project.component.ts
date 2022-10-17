@@ -21,8 +21,6 @@ export class StepCreateProjectComponent implements OnInit, AfterViewInit {
 
   private subscribeChangeSteps() {
     this.commonDataForCreateProjectService.selectStep.subscribe((res: number) => {
-      console.log(res);
-
       if(res > this.currentStep) this.currentStep = res;
 
     });
