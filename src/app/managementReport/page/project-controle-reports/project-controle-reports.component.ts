@@ -4,6 +4,8 @@ import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from '../../service/reportConnectionToApi/report-connection-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-project-controle-reports',
@@ -11,17 +13,19 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
   styleUrls: ['./project-controle-reports.component.scss']
 })
 export class ProjectControleReportsComponent implements OnInit {
-
+  public allocationReportSelectedDtos: AllocationReportSelectedDto[];
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public projectId: string;
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
+  public companyId: string;
 
   constructor(private reportConnectionToApiService:ReportConnectionToApiService){ }
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.setCompanyId();
   }
 
   private initDisplayPath() {
@@ -31,27 +35,36 @@ export class ProjectControleReportsComponent implements OnInit {
 
   public setProjectId($event: any) {
     this.projectId = $event;
-    this.getReports();
+    this.getReportProgress();
   }
 
-  // private getUserByDynamickFilter() {
-  //   this.reportConnectionToApiService.GetUsersWithDynamicFilter().subscribe((res: ApiResult<boolean>)=>{
-  //     console.log(res);
-  //   });
-  // }
 
-  private getReports(){
-
-    if (this.projectId) {
-      this.reportConnectionToApiService.GetAllocationReportsForSupervisor(this.projectId).subscribe
-
-    ((res:ApiResult<AllocationReportPaginationSelectedDto>)=>{
-      this.listAllocationReport = res.data.allocationReportSelectedDtos;
-    });
-    this.reportConnectionToApiService.GetProgressReportsForSupervisor(this.projectId).subscribe((
-      res: ApiResult<ProgressReportPaginationSelectedDto>)=>{
-        this.listProgressReport = res.data.progressReportSelectedDtos;
-      })
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
     }
+  }
+
+  private getReport() {
+    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(
+      this.projectId
+    ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
+      }
+    });
+  }
+
+
+  private getReportProgress() {
+    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
+      this.projectId
+    ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+      }
+    });
   }
 }

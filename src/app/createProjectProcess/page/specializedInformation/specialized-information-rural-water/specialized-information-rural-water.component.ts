@@ -1,7 +1,7 @@
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 import { ApiResult } from './../../../../auth/model/authDTO';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PitWaterShedAndCanals, WaterShedAndCanalsSpeceficDetailBehaviorDTO } from './../../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -12,6 +12,8 @@ import {GroundType, ProjectRuralWater} from "../../../model/EnumForSpecializeInf
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals, DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { tileLayer } from 'leaflet';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-specialized-information-rural-water',
@@ -75,6 +77,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
     private activeRoute:ActivatedRoute,
+    private router: Router,
     private specializedInformationService:SpecializedInformationService,
     private commonDataForCreateProjectService:CommonDataForCreateProjectService) { }
 
@@ -83,6 +86,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     this.initDisplayPath();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private getQuery(){
@@ -99,6 +103,19 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
   }
 
   // public addRequirement() {
@@ -312,13 +329,9 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     list.requirements = this.requirementControl.value;
     this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail(this.projectId,list)
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
-      console.log(res.data);
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
       }
     });
   };

@@ -16,7 +16,6 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path2: DisplayPathModel;
   @Input() path3: DisplayPathModel;
   @Input() showProjectList: boolean;
-  @Input() super: boolean;
   @Input() showCompanyList: boolean;
   @Output() companyIdSelected = new EventEmitter<string | string[]>();
   @Output() projectIdSelected = new EventEmitter<string| string[]>();
@@ -26,15 +25,15 @@ export class DisplayUserPathComponent implements OnInit {
   constructor(private router: Router,
     private activeRouting: ActivatedRoute,
     private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
-    private reportConnectionToApiService:ReportConnectionToApiService) { 
+    private reportConnectionToApiService:ReportConnectionToApiService) {
       this.reportConnectionToApiService.CompanyIdForSuper.subscribe((res: string|string[])=>{
         this.companyId = res;
-      }) 
+      })
     }
 
 
   ngOnInit(): void {
-    
+
   }
 
   public getQuery(){
@@ -88,7 +87,7 @@ export class DisplayUserPathComponent implements OnInit {
 
   public setId($event: string|string[]){
     this.companyId = $event;
-    
+
     this.companyIdSelected.emit($event);
     this.showProjectSelect = true;
   }

@@ -86,12 +86,7 @@ export class HandleDisplayErrorService {
       cancelButtonColor: '#d33',
       confirmButtonText: 'متوجه شدم',
     }).then((result: any) => {
-      if (result.dismiss === Swal.DismissReason.timer) {
-        // document.location.href  = handleError.link;
-      }
-      else {
-        // document.location.href  = handleError.link;
-      }
+
     });
 
     if(errorCode == 401) {

@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
+import { InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from '../../../../../auth/model/authDTO';
@@ -29,8 +29,15 @@ export class RecoveryResourcesComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.getQuery();
+    this.checkValueHasSet();
   }
 
+  private checkValueHasSet() {
+    if(this.commonDataForCreateProjectService.recoveryInfo) {
+      this.resourceNameFormControl.setValue(this.commonDataForCreateProjectService.recoveryInfo.resourceName);
+      this.addressResourceFormControl.setValue(this.commonDataForCreateProjectService.recoveryInfo.resourceApiAddress);
+    }
+  }
 
   private getQuery(){
     let id = this.activeRoute.snapshot.queryParamMap.get("projectId");
@@ -42,6 +49,7 @@ export class RecoveryResourcesComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
+
   public getValue(){
     if(this.resourceNameFormControl.value && this.addressResourceFormControl.value){
         return true;
@@ -59,7 +67,10 @@ export class RecoveryResourcesComponent implements OnInit {
     ).subscribe((res: ApiResult<boolean>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.commonDataForCreateProjectService.selectStep.emit(8);
-
+        this.commonDataForCreateProjectService.recoveryInfo = new ResourceInformation(
+          this.resourceNameFormControl.value,
+          this.addressResourceFormControl.value
+        );
         setTimeout(() => {
           document.getElementById('uploadInformation')?.click();
         }, 200);

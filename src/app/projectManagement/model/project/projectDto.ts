@@ -24,7 +24,7 @@ export class ProjectSelectedDTOResualt {
     "activePage": 0,
     "startPage": 0,
     "endPage": 0,
-    "takeEntity": 4,
+    "takeEntity": 100,
     "skipEntity": 0
   }
   pageId: number;
@@ -54,6 +54,7 @@ export class ProjectSelectedDTO {
   humanResourceCost: number;
   participants: Participant[];
   initialInvestment: number;
+  projectDeliveryTimeAsNumber: number;
   expectedProfitOfTheProject: number;
   resourceName: string;
   projectSpeceficDetail: projectSpeceficDetail;

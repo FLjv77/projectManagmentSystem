@@ -24,8 +24,6 @@ export class AdvancedSearchConnecctToApiService {
       ((getProjectsWithDynamicFilterDto.projectStatus != undefined) ? ('?projectStatus=' + getProjectsWithDynamicFilterDto.projectStatus) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('?startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('?startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '')
-
-     // +'&activePage=1&takeEntity=30'
       )
 
       }

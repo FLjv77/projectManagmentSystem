@@ -1,5 +1,10 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
 import { Component, OnInit } from '@angular/core';
+import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
+import { AllocationReportPaginationSelectedDto, AllocationReportSelectedDto } from 'src/app/managementReport/model/getReports';
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { url } from 'src/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-checked-reports',
@@ -8,11 +13,12 @@ import { Component, OnInit } from '@angular/core';
 ,'../../../view-chart-progress-roport/view-chart-progress-roport.component.scss']
 })
 export class CheckedReportsComponent implements OnInit {
-
   public openCloseAnswer1:boolean = false;
   public openCloseAnswer2:boolean = false;
 
-  constructor(private numberFormaterService:NumberFormaterService) { }
+  constructor(private numberFormaterService:NumberFormaterService,
+    private reportConnectionToApiService: ReportConnectionToApiService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -35,9 +41,8 @@ export class CheckedReportsComponent implements OnInit {
         else{this.openCloseAnswer2 = true}
       }
     }
-    
-    
   }
+
 
   public changeToPersian(num:string){
     return this.numberFormaterService.covertToFrNumber(num)

@@ -6,6 +6,7 @@ import { CreaterojectService } from 'src/app/createProjectProcess/service/projec
 import { ApiResult } from '../../../../../auth/model/authDTO';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { url } from '../../../../../../assets/url/url';
+import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 
 @Component({
   selector: 'app-upload-images',
@@ -26,6 +27,7 @@ export class UploadImagesComponent implements OnInit {
     private createrojectService: CreaterojectService,
     private activeRoute: ActivatedRoute,
     private router: Router,
+    private commonDataForCreateProjectService: CommonDataForCreateProjectService
   ) { }
 
   ngOnInit(): void {
@@ -70,7 +72,11 @@ export class UploadImagesComponent implements OnInit {
     this.loading = true;
     this.createrojectService.UploadDocumentsOfProject(this.projectId, this.file)
       .subscribe((res: ApiResult<boolean>) => {
-        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
+        this.commonDataForCreateProjectService.selectStep.emit(6);
+
+        setTimeout(() => {
+          document.getElementById('recoveryResources')?.click();
+        }, 200);
       });
   }
 

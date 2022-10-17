@@ -1,7 +1,9 @@
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../shared/page/component/input-style/input-style.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { AdvancedSearchConnecctToApiService } from '../../service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 
 @Component({
   selector: 'app-advanced-search-according-to-time',
@@ -12,74 +14,64 @@ import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 })
 export class AdvancedSearchAccordingToTimeComponent implements OnInit {
   options: any;
+  @Input() projectList: ProjectSelectedDTO[];
+  private projectListName: string[] = [];
+  private projectTime: number[] = [];
 
-  constructor() { }
+  constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {}
 
-  ngOnInit(): void {
-    const dataAxis = [
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
-      'F',
-      'G',
-      'H',
-      'I',
-      'J',
-      'K',
-      'L',
-      'M',
-      'N',
-      'O',
-      'P',
-      'Q',
-      'R',
-      'S',
-      'T',
-    ];
-    const data = [
-      220,
-      182,
-      191,
-      234,
-      290,
-      330,
-      310,
-      123,
-      442,
-      321,
-      90,
-      149,
-      210,
-      122,
-      133,
-      334,
-      198,
-      123,
-      125,
-      220,
-    ];
-    const yMax = 500;
-    const dataShadow = [];
+  ngAfterViewInit(): void {
+    this.subscribeProjectSelected();
+  }
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < data.length; i++) {
-      dataShadow.push(yMax);
+  private subscribeProjectSelected() {
+    if(this.projectList) {
+      this.getListProject();
+      this.getData();
+      this.initChart();
     }
 
+    this.advancedSearchConnecctToApiService.projectListHandel.subscribe((res: ProjectSelectedDTO[]) => {
+      this.projectList = res;
+      this.getListProject();
+      this.getData();
+      this.initChart();
+    });
+
+  }
+
+  private getListProject() {
+    for(let i=0; i<this.projectList.length; i++) {
+      this.projectListName.push(this.projectList[i].projectName);
+    }
+ }
+
+ private getData() {
+  for(let i=0; i<this.projectList.length; i++) {
+    this.projectTime.push(this.projectList[i].projectDeliveryTimeAsNumber);
+  }
+
+
+ }
+
+  ngOnInit(): void {
+
+  }
+
+  private initChart() {
+    let data = this.projectTime;
     this.options = {
       xAxis: {
-        data: dataAxis,
+        data: this.projectListName,
         axisLabel: {
           inside: true,
-          color: '#fff',
+          color: '#999',
         },
         axisTick: {
-          show: false,
+          show: true,
         },
         axisLine: {
-          show: false,
+          show: true,
         },
         z: 10,
       },
@@ -110,7 +102,7 @@ export class AdvancedSearchAccordingToTimeComponent implements OnInit {
           },
           barGap: '-100%',
           barCategoryGap: '40%',
-          data: dataShadow,
+          data: data,
           animation: false,
         },
         {
@@ -123,13 +115,12 @@ export class AdvancedSearchAccordingToTimeComponent implements OnInit {
               color: '#4dd9db',
             }
           },
-          data,
+          data
         },
       ],
     };
   }
 
   onChartEvent(event: any, type: string) {
-    console.log('chart event:', type, event);
   }
 }

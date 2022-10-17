@@ -44,9 +44,12 @@ export class FinancialReportActivityComponent implements OnInit {
   }
 
   private getReport() {
-    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(
+    this.reportConnectionToApiService.GetAllocationReports(
       this.projectId
     ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
+      }
     });
   }
 }

@@ -1,4 +1,4 @@
-<div class="col-12 px-3 mx-auto">
+<div class="col-12 px-3 mx-auto mt-3">
   <div class="container-chart boxShadow p-2">
     <p class="title-chart set-font-vazir py-3">زمان باقی مانده پروژه ها</p>
     <div echarts [options]="options" class="demo-chart" (chartinit)="onChartEvent($event, 'chartInit')" (chartclick)="onChartEvent($event, 'chartClick')" (chartdblclick)="onChartEvent($event, 'chartDblClick')" (chartmousedown)="onChartEvent($event, 'chartMouseDown')" (chartmouseup)="onChartEvent($event, 'chartMouseUp')" (chartmouseover)="onChartEvent($event, 'chartMouseOver')" (chartmouseout)="onChartEvent($event, 'chartMouseOut')" (chartglobalout)="onChartEvent($event, 'chartGlobalOut')" (chartcontextmenu)="onChartEvent($event, 'chartContextMenu')" (chartdatazoom)="onChartEvent($event, 'chartDataZoom')">
