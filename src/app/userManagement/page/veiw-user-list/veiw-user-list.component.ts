@@ -15,11 +15,16 @@ export class VeiwUserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.getUser();
   }
 
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('مدیریت کاربران', false, '');
     this.path2 = new DisplayPathModel('مشاهده کاربران', false, '');
+  }
+
+  public getUser(){
+    
   }
 
   public openMdalAddUser(){

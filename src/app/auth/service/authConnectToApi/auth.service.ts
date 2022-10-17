@@ -1,3 +1,4 @@
+import { SupervisorUserRegisterDTO } from './../../model/userDTO';
 import { CompanySelectedDTO } from './../../../workSpace/model/companyModel';
 import { CompanyUserRegisterDTO } from './../../model/companyUserDTO';
 
@@ -15,12 +16,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  public holdingUserRegister(user: HoldingUserRegisterDTO): Observable<ApiResult<boolean>> {
+  public CreateSupervisorUser(user: SupervisorUserRegisterDTO): Observable<ApiResult<boolean>> {
     const headers = new HttpHeaders({
       'Authorization': 'true'
     });
 
     return this.http.post<ApiResult<boolean>>(url.createSupervisorUser, user, {headers});
+  }
+
+  public holdingUserRegister(user: HoldingUserRegisterDTO): Observable<ApiResult<boolean>> {
+    const headers = new HttpHeaders({
+      'Authorization': 'true'
+    });
+
+    return this.http.post<ApiResult<boolean>>(url.createHoldingUser, user, {headers});
   }
 
   public CreateCompanyUser(companyUserRegisterDTO: CompanyUserRegisterDTO): Observable<ApiResult<boolean>> {

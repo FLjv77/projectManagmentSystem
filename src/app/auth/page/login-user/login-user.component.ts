@@ -86,7 +86,7 @@ export class LoginUserComponent implements OnInit {
   }
 
   public goRegister() {
-    this.router.navigate(['../../auth/registerUser']);
+    this.router.navigate(['../../auth/registerCompany']);
   }
 
   public checkAbelityButton(): boolean {

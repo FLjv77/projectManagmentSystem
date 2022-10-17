@@ -3,7 +3,7 @@
 
     <div class="col-md-5 col-12 back-ground-dark boxShadow d-rtl" style="overflow-y: scroll;">
       <div class="row py-4">
-        <app-boolean-custom-toggle [isFirstValueSelected]="false" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle>
+        <!-- <app-boolean-custom-toggle [isFirstValueSelected]="false" (handleSelectedValue)="changeLoginType($event)" [secondValue]="'شرکت'" [firstValue]="'کاربر'" class="mt-4 mx-auto d-flex justify-content-center"></app-boolean-custom-toggle> -->
         <div class="col-10 col-sm-8 mx-auto mt-3">
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyName'" [type]="'text'" [inputFormControl]="companyNameControl" [inputLabel]="'نام شرکت'"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'companyUserName'" [type]="'text'" [inputFormControl]="companyUserNameControl" [inputLabel]="'نام کاربری شرکت'"></app-input-style>
