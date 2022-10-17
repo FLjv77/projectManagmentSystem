@@ -54,9 +54,20 @@ export class HealthComponent implements OnInit {
   public numberOfBedsHealthHouse= new Array<FormControl>();
   public numberNurses= new Array<FormControl>();
   public numberDoctors= new Array<FormControl>();
-  constructor(
+
+constructor(
     private activeRoute: ActivatedRoute,
     private projectConnectToApiService :ProjectConnectToApiService) { }
+
+  public select0: boolean = false;
+  public select1: boolean = true;
+  public select2: boolean = false;
+  public select3: boolean = false;
+  public select4: boolean = false;
+  public select5: boolean = false;
+  public select6: boolean = false;
+  public select7: boolean = false;
+  public select8: boolean = false;
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -371,4 +382,61 @@ export class HealthComponent implements OnInit {
     });
     }
   }
+
+ public setProjectRuralWaterArea(state: number) {
+    if (state==0) {
+      this.select0 = !this.select0;
+      this.hospitalList = new Array<HealthHospital>();
+      this.addHospital();
+    }
+    else if (state==1) {
+      this.select1 = !this.select1;
+      this.HealthHomeList = new Array<HealthHealthHouse>();
+      this.addHealthHome();
+    }
+    else if (state==2) {
+      this.select2 = !this.select2;
+      this.insuranceList = new Array<HealthInsurance>();
+      this.addInsuranceList();
+    }
+    else if (state==3) {
+      this.select3 = !this.select3;
+      this.healthPharmacyList = new Array<HealthPharmacy>();
+      this.addHealthPharmacyList();
+    }
+    else if (state==4) {
+      this.select4 = !this.select4;
+      this.bathRoomList = new Array<HealthBathroom>();
+      this.addHealthBathroom();
+    }
+    else if (state==5) {
+      this.select5 = !this.select5;
+      this.WCList = new Array<HealthToilet>();
+      this.addHealthToilet();
+    }
+    else if (state==6) {
+      this.select6 = !this.select6;
+      this.HealthVaccinationList = new Array<HealthVaccination>();
+      this.addHealthVaccination();
+    }
+    else if (state==7) {
+      this.select7 = !this.select7;
+      this.diseaseList = new Array<HealthTreatment>();
+      this.addHealthTreatment();
+    }
+    else if (state==8) {
+      this.select8 = !this.select8;
+      this.medicineList = new Array<HealthMedicine>();
+      this.addHealthMedicine();
+    }
+  }
+
+  public setChecked(state: boolean){
+    let res;
+    if (state == true){
+      res=true;
+    }
+    return res;
+  }
+
 }

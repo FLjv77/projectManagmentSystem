@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="knowledgeBaseds" class="row">
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">wb_incandescent</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی دانش بنیان</h4>
@@ -24,22 +24,27 @@
 
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'"
-        [inputId]="'numberCompany' + i" [type]="'number'" [inputFormControl]="numberCompanyControlList[i]"></app-input-style>
+          [inputId]="'numberCompany' + i" [type]="'number'" [inputFormControl]="numberCompanyControlList[i]"
+          (changeValue)="setNumberOfCompany($event, i)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'"
-        [inputId]="'AreaOfExpertise' + i" [inputFormControl]="AreaOfExpertise[i]"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حوزه تخصصی'"
+          [inputId]="'AreaOfExpertise' + i" [inputFormControl]="AreaOfExpertise[i]"
+          (changeValue)="set_AreaOfExpertise($event, i)" ></app-input-style>
 
-        <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
-        </div>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="3" class="col-md-6 col-12" [inputLabel]="'میزان'"
-         [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]"></app-input-style>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="3" class="col-md-6 col-12" [inputLabel]="'میزان'"
+           [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]"
+           (changeValue)="set_loanAmount($event, i)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '"
-         [inputId]="'numberAmount' + i" [type]="'number'" [inputFormControl]="numberAmount[i]"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '"
+           [inputId]="'numberAmount' + i" [type]="'number'" [inputFormControl]="numberAmount[i]"
+           (changeValue)="set_numberAmount($event, i)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'"
-         [inputId]="'reasonAmount' + i" [inputFormControl]="reasonAmount[i]"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'دلیل گرفتن وام یا تسهیلات'"
+           [inputId]="'reasonAmount' + i" [inputFormControl]="reasonAmount[i]"
+           (changeValue)="set_reasonAmount($event, i)"></app-input-style>
 
         <!-- <div *ngIf="i-1>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteList(i)">

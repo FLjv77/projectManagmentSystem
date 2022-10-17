@@ -1,7 +1,7 @@
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, RefineryWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-purification',
@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
   styleUrls: ['./purification.component.scss']
 })
 export class PurificationComponent implements OnInit {
+
+  @Input() RefineryList: RefineryWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public informationStateControl = new Array<FormControl>();
   public electricStateControl = new Array<FormControl>();
@@ -27,12 +29,32 @@ export class PurificationComponent implements OnInit {
     this.initInputStyle();
     this.RefineryWaterShedAndCanalsList = new Array<RefineryWaterShedAndCanals>;
     this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.RefineryList) {
+      this.RefineryWaterShedAndCanalsList = this.RefineryList;
+      for (let i = 0; i < this.RefineryWaterShedAndCanalsList.length; i++) {
+        this.informationStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].refineryStatus);
+        this.electricStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].electricalEquipmentStatus);
+        this.capacityStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].refineryCapacity);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.RefineryWaterShedAndCanalsList) {
+      if(this.RefineryWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i: number) {

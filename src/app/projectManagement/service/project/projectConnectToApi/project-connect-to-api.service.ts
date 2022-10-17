@@ -1,3 +1,4 @@
+import { UpdateProjectDTO } from './../../../model/project/projectDto';
 import { Injectable, EventEmitter } from '@angular/core';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
@@ -26,5 +27,9 @@ export class ProjectConnectToApiService {
 
   public getProjectGeneralProperties1(projectId: string|null): Observable<ApiResult<ProjectSelectedDTO>> {
     return this.http.get<ApiResult<ProjectSelectedDTO>>(url.GetProjectGeneralPropertiesById + projectId);
+  }
+
+  public ModifyProjectGeneralInfo(projectId : string|string[],updateProjectDTO: UpdateProjectDTO): Observable<ApiResult<boolean>>{
+    return this.http.put<ApiResult<boolean>>(url.ModifyProjectGeneralInfo + projectId,updateProjectDTO);
   }
 }

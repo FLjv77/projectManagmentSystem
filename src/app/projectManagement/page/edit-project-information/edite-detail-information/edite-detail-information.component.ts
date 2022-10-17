@@ -3,7 +3,7 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 import {StateAndZoneIranModel} from "../../../../createProjectProcess/model/stateAndZoneIranModel/stateAndZoneIranModel";
@@ -16,7 +16,7 @@ import {IranStateAndZoneService} from "../../../../createProjectProcess/service/
   templateUrl: './edite-detail-information.component.html',
   styleUrls: ['./edite-detail-information.component.scss',  '../../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss']
 })
-export class EditeDetailInformationComponent implements OnInit {
+export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
   public inputCustomStyle: InputCustomStyle;
   public regionControl = new FormControl();
   public regionPopulationControl = new FormControl();
@@ -33,24 +33,12 @@ export class EditeDetailInformationComponent implements OnInit {
   public select: string;
   @Input() projectId: string | string[];
   public data:ProjectSelectedDTO;
+  public edit:boolean=false;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
               private activeRoute: ActivatedRoute,
               private projectConnectToApiService :ProjectConnectToApiService,
-              private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) {
-                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
-                  this.projectIdSelect = res;
-                  console.log(res);
-                  
-                  if (this.projectIdSelect) {
-                    console.log(this.projectIdSelect);
-                  this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
-                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-                    this.data = res.data;
-                  });
-                  }
-                })
-               }
+              private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -59,18 +47,26 @@ export class EditeDetailInformationComponent implements OnInit {
     this.getInfo();
   }
 
+  ngAfterViewInit(): void {
+    this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
+      this.projectIdSelect = res;
+      console.log(res);
+      
+      if (this.projectIdSelect) {
+        console.log(this.projectIdSelect);
+      this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
+        .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+        this.data = res.data;
+      });
+      }
+    })
+  }
+
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
-
-  // public getQuryParam(){
-  //   let id = this.activeRoute.snapshot.queryParamMap.get('projectId');
-  //   if(id){
-  //     this.projectId = id;
-  //   }
-  // }
 
   public addRequirement() {
     if (!this.requirementList) this.requirementList = new Array<string>();
@@ -133,6 +129,25 @@ export class EditeDetailInformationComponent implements OnInit {
       this.data = res.data;      
     });
     }
+  }
+
+  public saved(){
+    // this.createrojectService.CreateProject(
+    //   this.companyId, this.commonDataForCreateProjectService.getCreateProject()
+    // ).subscribe((res: ApiResult<string>) => {
+    //   if(res.isSuccess && res.statusCode == 200) {
+    //     this.openModal();
+    //     console.log(res);
+
+    //     this.projectId = res.data;
+    //   }
+    // }, (err: HttpErrorResponse) => {
+    // });
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
   }
 
 }

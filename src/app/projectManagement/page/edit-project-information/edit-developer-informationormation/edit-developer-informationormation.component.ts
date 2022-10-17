@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -14,7 +14,7 @@ import {FormControl} from "@angular/forms";
   templateUrl: './edit-developer-informationormation.component.html',
   styleUrls: ['./edit-developer-informationormation.component.scss',  '../../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss']
 })
-export class EditDeveloperInformationormationComponent implements OnInit {
+export class EditDeveloperInformationormationComponent implements OnInit, AfterViewInit {
   public inputCustomStyle: InputCustomStyle;
   public employerNameFormControl = new FormControl();
   public employerFirstAndLastNameFormControl = new FormControl();
@@ -41,21 +41,24 @@ export class EditDeveloperInformationormationComponent implements OnInit {
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
               private activeRoute:ActivatedRoute,
               private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
-              private createrojectService:CreaterojectService) {
-                this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
-                  this.projectIdSelect = res;
-                  if (this.projectIdSelect) {
-                    console.log(this.projectIdSelect);
-                    this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
-                    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-                    
-                  });
-                  }
-                })}
+              private createrojectService:CreaterojectService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
     this.getInfo();
+  }
+
+  ngAfterViewInit(): void {
+    this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
+      this.projectIdSelect = res;
+      if (this.projectIdSelect) {
+        console.log(this.projectIdSelect);
+        this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
+        .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+        
+      });
+      }
+    })
   }
 
   public saved(){

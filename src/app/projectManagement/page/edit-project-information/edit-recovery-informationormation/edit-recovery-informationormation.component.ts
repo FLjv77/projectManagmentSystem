@@ -5,7 +5,7 @@ import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/proj
 import { ApiResult } from './../../../../auth/model/authDTO';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
 import {FormControl} from "@angular/forms";
 
@@ -15,7 +15,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./edit-recovery-informationormation.component.scss',
     '../../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss']
 })
-export class EditRecoveryInformationormationComponent implements OnInit {
+export class EditRecoveryInformationormationComponent implements OnInit,AfterViewInit {
   public inputCustomStyle: InputCustomStyle;
   public resourceNameFormControl = new FormControl();
   public addressResourceFormControl = new FormControl();
@@ -26,7 +26,17 @@ export class EditRecoveryInformationormationComponent implements OnInit {
 
   constructor(private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
               private projectConnectToApiService:ProjectConnectToApiService,
-              private createrojectService:CreaterojectService) {
+              private createrojectService:CreaterojectService) { }
+
+
+  ngOnInit(): void {
+    this.initInputStyle();
+    this.getInfo();
+    document.getElementById('1')?.ariaDisabled;
+    document.getElementById('2')?.ariaDisabled;
+  }
+
+  ngAfterViewInit(): void {
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
       if (this.projectIdSelect) {
@@ -38,14 +48,6 @@ export class EditRecoveryInformationormationComponent implements OnInit {
       });
       }
     })
-   }
-
-
-  ngOnInit(): void {
-    this.initInputStyle();
-    this.getInfo();
-    document.getElementById('1')?.ariaDisabled;
-    document.getElementById('2')?.ariaDisabled;
   }
 
   private initInputStyle() {

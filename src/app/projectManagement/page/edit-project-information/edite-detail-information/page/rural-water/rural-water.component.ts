@@ -1,3 +1,4 @@
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { IranStateAndZoneService } from './../../../../../../createProjectProcess/service/iranStateAndZone/iran-state-and-zone.service';
 import { RefineryWaterShedAndCanals, PitWaterShedAndCanals, WaterShedAndCanalsSpeceficDetailBehaviorDTO } from './../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
@@ -6,7 +7,7 @@ import { ProjectRuralWater, GroundType } from './../../../../../../createProject
 import { StateAndZoneIranModel } from './../../../../../../createProjectProcess/model/stateAndZoneIranModel/stateAndZoneIranModel';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-rural-water',
@@ -14,6 +15,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rural-water.component.scss']
 })
 export class RuralWaterComponent implements OnInit {
+
+  @Input() data: ProjectSelectedDTO;
   public inputCustomStyle: InputCustomStyle;
   public regionControl = new FormControl();
   public requirementControl = new FormControl();
@@ -48,17 +51,32 @@ export class RuralWaterComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.iranStateAndZoneList = this.iranStateAndZoneService.getIranStateAndZoneList();
-    //this.getQuery();
+    this.getData();
   }
 
-  // private getQuery(){
-  //   this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
-  // }
+  public getData(){
+    if (this.data) {
+      this.damList = this.data.projectSpeceficDetail.dam;
+      this.networkWater = this.data.projectSpeceficDetail.distributionNetwork;
+      this.FountainList = this.data.projectSpeceficDetail.fountain;
+      this.PumpStationList = this.data.projectSpeceficDetail.pumpStation;
+      this.RefineryList = this.data.projectSpeceficDetail.refinery;
+      this.TankList = this.data.projectSpeceficDetail.tank;
+      this.TransferLineList = this.data.projectSpeceficDetail.transferLine;
+      this.DikeList = this.data.projectSpeceficDetail.dike;
+      this.PitWaterList = this.data.projectSpeceficDetail.pit;
+      this.setValueInputs();
+    }
+  }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public setValueInputs(){
+
   }
 
   public checkShowAddButtonRequirement(): boolean {

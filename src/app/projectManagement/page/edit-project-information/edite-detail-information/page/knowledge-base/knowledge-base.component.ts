@@ -55,15 +55,18 @@ export class KnowledgeBaseComponent implements OnInit {
   public getData(){
     if (this.data.projectSpeceficDetail.knowledgeBaseds) {
       console.log(this.data.projectSpeceficDetail.knowledgeBaseds);
-      
       this.knowledgeBaseds = this.data.projectSpeceficDetail.knowledgeBaseds;
-      for (let i = 0; i < this.knowledgeBaseds.length; i++) {
-        this.numberCompanyControlList[i].setValue(this.knowledgeBaseds[i].countOfCompany);
-        this.AreaOfExpertise[i].setValue(this.knowledgeBaseds[i].areaExpert);
-        this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.amount);
-        this.numberAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.count);
-        this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.description);
-      }
+      this.setResult();
+    }
+  }
+
+  public setResult(){
+    for (let i = 0; i < this.knowledgeBaseds.length; i++) {
+      this.numberCompanyControlList[i].setValue(this.knowledgeBaseds[i].countOfCompany);
+      this.AreaOfExpertise[i].setValue(this.knowledgeBaseds[i].areaExpert);
+      this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.amount);
+      this.numberAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.count);
+      this.reasonAmount[i].setValue(this.knowledgeBaseds[i].loansAndFacilities.description);
     }
   }
 

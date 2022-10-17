@@ -1,3 +1,4 @@
+import { RevivalIndustryComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/revival-industry/revival-industry.component';
 import { WellComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/well/well.component';
 import { TransferLineComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/transfer-line/transfer-line.component';
 import { SourceComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/source/source.component';
@@ -9,7 +10,6 @@ import { DistributionNetworkComponent } from './../../projectManagement/page/edi
 import { DamComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/page/dam/dam.component';
 import { RuralWaterComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-water/rural-water.component';
 import { RuralWayComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/rural-way/rural-way.component';
-import { RemovalMarginalizationComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/removal-marginalization/removal-marginalization.component';
 import { SocialTransformationComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/social-transformation/social-transformation.component';
 import { KnowledgeBaseComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/knowledge-base/knowledge-base.component';
 import { HealthComponent } from './../../projectManagement/page/edit-project-information/edite-detail-information/page/health/health.component';
@@ -79,7 +79,6 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     HealthComponent,
     KnowledgeBaseComponent,
     SocialTransformationComponent,
-    RemovalMarginalizationComponent,
     RuralWayComponent,
     RuralWaterComponent,
     DamComponent,
@@ -91,6 +90,7 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     TransferLineComponent,
     WaterSealComponent,
     WellComponent,
+    RevivalIndustryComponent
   ],
   imports: [
     CommonModule,
@@ -119,7 +119,6 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     HealthComponent,
     KnowledgeBaseComponent,
     SocialTransformationComponent,
-    RemovalMarginalizationComponent,
     RuralWayComponent,
     RuralWaterComponent,
     DamComponent,
@@ -131,6 +130,7 @@ import {ActivityByDetailComponent} from "../../projectManagement/page/activity/i
     TransferLineComponent,
     WaterSealComponent,
     WellComponent,
+    RevivalIndustryComponent
   ]
 })
 export class ProjectManagementModule { }
