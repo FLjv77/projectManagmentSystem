@@ -33,18 +33,20 @@ export class RevivalIndustryComponent implements OnInit {
     this.addList();
     this.getData();
   }
-  
+
   public getData(){
     if (this.data) {
       this.revivalIndustrySpeceficDetailDTO = this.data.projectSpeceficDetail.revivalIndustries;
-      console.log(this.revivalIndustrySpeceficDetailDTO.length);
-      
+
       this.setValueInputs();
     }
   }
 
   public setValueInputs() {
     for (let i = 0; i < this.revivalIndustrySpeceficDetailDTO.length; i++) {
+      this.amountGrantedFacilities.push(new FormControl());
+      this.numberIndustries.push(new FormControl());
+
       this.amountGrantedFacilities[i].setValue(this.revivalIndustrySpeceficDetailDTO[i].amountOfFacilities);
       this.numberIndustries[i].setValue(this.revivalIndustrySpeceficDetailDTO[i].numberOfIndustry);
     }

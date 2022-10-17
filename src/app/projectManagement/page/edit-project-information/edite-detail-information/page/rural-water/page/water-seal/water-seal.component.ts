@@ -46,6 +46,16 @@ export class WaterSealComponent implements OnInit {
     if (this.DikeList) {
       this.DikeWaterShedAndCanalsList = this.DikeList;
       for (let i = 0; i < this.DikeWaterShedAndCanalsList.length; i++) {
+        this.stopFloodControl.push(new FormControl());
+        this.stuffWaterSealControl.push(new FormControl());
+        this.heightControl.push(new FormControl());
+        this.lenControl.push(new FormControl());
+        this.pompControl.push(new FormControl());
+        this.riverNameControl.push(new FormControl());
+        this.riverWidthControl.push(new FormControl());
+        this.resourceSaveWaterStateControl.push(new FormControl());
+        this.widthControl.push(new FormControl());
+
         this.stopFloodControl[i].setValue(this.DikeWaterShedAndCanalsList[i].dam);
         this.stuffWaterSealControl[i].setValue(this.DikeWaterShedAndCanalsList[i].dikeMaterialType);
         this.heightControl[i].setValue(this.DikeWaterShedAndCanalsList[i].height);
@@ -68,7 +78,7 @@ export class WaterSealComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

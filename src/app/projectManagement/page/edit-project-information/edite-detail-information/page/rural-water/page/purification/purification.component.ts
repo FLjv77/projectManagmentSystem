@@ -42,6 +42,10 @@ export class PurificationComponent implements OnInit {
     if (this.RefineryList) {
       this.RefineryWaterShedAndCanalsList = this.RefineryList;
       for (let i = 0; i < this.RefineryWaterShedAndCanalsList.length; i++) {
+        this.informationStateControl.push(new FormControl());
+        this.electricStateControl.push(new FormControl());
+        this.capacityStateControl.push(new FormControl());
+
         this.informationStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].refineryStatus);
         this.electricStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].electricalEquipmentStatus);
         this.capacityStateControl[i].setValue(this.RefineryWaterShedAndCanalsList[i].refineryCapacity);
@@ -58,7 +62,7 @@ export class PurificationComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }
@@ -122,5 +126,5 @@ export class PurificationComponent implements OnInit {
     this.lengthListDeleted = this.RefineryWaterShedAndCanalsList.length;
     this.subscribeChangeFormCoontrol(index);
   }
-  
+
 }

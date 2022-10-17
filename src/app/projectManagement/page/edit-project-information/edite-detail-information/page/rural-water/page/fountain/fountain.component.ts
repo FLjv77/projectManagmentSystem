@@ -40,6 +40,7 @@ export class FountainComponent implements OnInit {
     if (this.Fountain) {
       this.FountainWaterShedAndCanalsList = this.Fountain;
       for (let i = 0; i < this.FountainWaterShedAndCanalsList.length; i++) {
+        this.description.push(new FormControl());
         this.description[i].setValue(this.FountainWaterShedAndCanalsList[i].description);
       }
     }
@@ -54,7 +55,7 @@ export class FountainComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i:number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

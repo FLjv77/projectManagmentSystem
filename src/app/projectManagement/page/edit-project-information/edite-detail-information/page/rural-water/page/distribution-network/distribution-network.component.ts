@@ -36,6 +36,12 @@ export class DistributionNetworkComponent implements OnInit {
     if (this.network) {
       this.distributionNetwork = this.network;
       for (let i = 0; i < this.distributionNetwork.length; i++) {
+        this.networkStateControl.push(new FormControl());
+        this.pompControl.push(new FormControl());
+        this.lenPipeControl.push(new FormControl());
+        this.typePipeControl.push(new FormControl());
+        this.description.push(new FormControl());
+
         this.networkStateControl[i].setValue(this.distributionNetwork[i].distributionNetworkStatus);
         this.pompControl[i].setValue(this.distributionNetwork[i].boosterPumpOnline);
         this.lenPipeControl[i].setValue(this.distributionNetwork[i].transferLineLength);
@@ -61,7 +67,7 @@ export class DistributionNetworkComponent implements OnInit {
 
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

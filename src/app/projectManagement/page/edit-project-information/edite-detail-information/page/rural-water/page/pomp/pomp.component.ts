@@ -40,6 +40,7 @@ export class PompComponent implements OnInit {
     if (this.Pump) {
       this.PumpStationWaterShedAndCanalsList = this.Pump;
       for (let i = 0; i < this.PumpStationWaterShedAndCanalsList.length; i++) {
+        this.pompStateControl.push(new FormControl());
         this.pompStateControl[i].setValue(this.PumpStationWaterShedAndCanalsList[i].pumpStationStatus);
       }
     }
@@ -54,7 +55,7 @@ export class PompComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

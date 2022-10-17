@@ -41,6 +41,10 @@ export class SourceComponent implements OnInit {
     if (this.TankList) {
       this.TankWaterShedAndCanalsList = this.TankList;
       for (let i = 0; i < this.TankWaterShedAndCanalsList.length; i++) {
+        this.sourceVolumeControl.push(new FormControl());
+        this.sourceStaffControl.push(new FormControl());
+        this.sourceStateControl.push(new FormControl());
+
         this.sourceVolumeControl[i].setValue(this.TankWaterShedAndCanalsList[i].tankVolume);
         this.sourceStaffControl[i].setValue(this.TankWaterShedAndCanalsList[i].tankMaterialType);
         this.sourceStateControl[i].setValue(this.TankWaterShedAndCanalsList[i].currentTankStatus);
@@ -57,7 +61,7 @@ export class SourceComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i :number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

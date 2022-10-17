@@ -43,6 +43,12 @@ export class TransferLineComponent implements OnInit {
     if (this.TransferLine) {
       this.TransferLineWaterShedAndCanalsList = this.TransferLine;
       for (let i = 0; i < this.TransferLineWaterShedAndCanalsList.length; i++) {
+        this.toWhereControl.push(new FormControl());
+        this.fromWhereControl.push(new FormControl());
+        this.pipeLenControl.push(new FormControl());
+        this.pipeTypeControl.push(new FormControl());
+        this.transferLineControl.push(new FormControl());
+
         this.toWhereControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineSource);
         this.fromWhereControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineDestination);
         this.pipeLenControl[i].setValue(this.TransferLineWaterShedAndCanalsList[i].transferLineLenght);
@@ -61,7 +67,7 @@ export class TransferLineComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }

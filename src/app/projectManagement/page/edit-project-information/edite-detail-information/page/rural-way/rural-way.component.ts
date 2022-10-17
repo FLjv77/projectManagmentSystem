@@ -44,10 +44,12 @@ export class RuralWayComponent implements OnInit {
   public getData(){
     if (this.data) {
       this.ruralRoadList = this.data.projectSpeceficDetail.ruralRoads;
-      console.log(this.ruralRoadList.length);
       for (let i = 0; i < this.ruralRoadList.length; i++) {
-        this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);    
-        this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);    
+        this.roadWidth.push(new FormControl());
+        this.roadLength.push(new FormControl());
+
+        this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);
+        this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);
       }
     }
   }

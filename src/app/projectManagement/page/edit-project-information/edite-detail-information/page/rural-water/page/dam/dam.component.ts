@@ -40,6 +40,12 @@ export class DamComponent implements OnInit {
     if (this.dam) {
       this.damWaterShedAndCanalsList = this.dam;
       for (let i = 0; i < this.damWaterShedAndCanalsList.length; i++) {
+        this.description.push(new FormControl());
+        this.capacityWaterControl.push(new FormControl());
+        this.riverNameControl.push(new FormControl());
+        this.staffControl.push(new FormControl());
+        this.volumeDamControl.push(new FormControl());
+
         this.description[i].setValue(this.damWaterShedAndCanalsList[i].damDescription);
         this.capacityWaterControl[i].setValue(this.damWaterShedAndCanalsList[i].wateringCapacity);
         this.riverNameControl[i].setValue(this.damWaterShedAndCanalsList[i].riverName);
@@ -102,7 +108,7 @@ export class DamComponent implements OnInit {
     this.damWaterShedAndCanalsList.push(new DamWaterShedAndCanals());
     this.lengthList = this.damWaterShedAndCanalsList.length;
   }
-  
+
   public setTypeProject(state: ConstructionTypestring,index: number){
     this.typeProject = state;
     this.damWaterShedAndCanalsList[index].constructionType = state;

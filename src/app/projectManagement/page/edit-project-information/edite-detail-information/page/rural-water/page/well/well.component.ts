@@ -42,6 +42,11 @@ export class WellComponent implements OnInit {
     if (this.PitWaterList) {
       this.PitWaterShedAndCanalsList = this.PitWaterList;
       for (let i = 0; i < this.PitWaterShedAndCanalsList.length; i++) {
+        this.lenColControl.push(new FormControl());
+        this.lenPipeControl.push(new FormControl());
+        this.widthWellControl.push(new FormControl());
+        this.amountOfSurfaceControl.push(new FormControl());
+
         this.lenColControl[i].setValue(this.PitWaterShedAndCanalsList[i].coolLenght);
         this.lenPipeControl[i].setValue(this.PitWaterShedAndCanalsList[i].tubeLenght);
         this.widthWellControl[i].setValue(this.PitWaterShedAndCanalsList[i].pitDiameter);
@@ -59,7 +64,7 @@ export class WellComponent implements OnInit {
   }
 
   private subscribeChangeFormCoontrol(i: number) {
-    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2 
+    if (this.typeProject == 0 || this.typeProject == 1 || this.typeProject == 2
       || this.lengthList != this.lengthListDeleted) {
       this.checkValidationForm(i);
     }
