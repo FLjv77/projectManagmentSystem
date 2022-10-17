@@ -24,6 +24,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() maxValue: number;
   @Input() minValue: number;
   @Input() unit: Units;
+  @Input() disabled: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {

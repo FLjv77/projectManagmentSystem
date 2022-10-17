@@ -29,6 +29,7 @@ export const url = {
   UploadDocumentsOfProgressReport: 'Media/UploadDocumentsOfProgressReport/',
   GetProgressReports :'Project/GetProgressReports',
   GetAllocationReports:'Project/GetAllocationReports',
+  ModifyProjectGeneralInfo:'Project/ModifyProjectGeneralInfo/',
   GetProgressReportsForSupervisor:'Project/GetProgressReportsForSupervisor/',
   GetAllocationReportsForSupervisor:'Project/GetAllocationReportsForSupervisor/',
   GetUsersWithDynamicFilter:'Holding/GetUsersWithDynamicFilter',

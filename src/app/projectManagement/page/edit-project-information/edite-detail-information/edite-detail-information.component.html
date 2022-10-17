@@ -1,8 +1,11 @@
 <div class="p-3">
   <div class="row">
     <div class="col-12">
-      <button class="mx-auto float-left w-auto edit-button">
+      <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
         <i class="material-icons d-inline">edit</i>
+      </button>
+      <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+        <i class="material-icons d-inline">check</i>
       </button>
     </div>
     <app-health *ngIf="select=='سلامت'" [data]="data"></app-health>

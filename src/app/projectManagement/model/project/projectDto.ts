@@ -123,3 +123,25 @@ export enum ProjectDevelopeStatus {
 export enum ProjectSortedBy {
   none, nearestCreationDate, farthestCreationDate
 }
+
+
+export class UpdateProjectDTO {
+  projectName: string;
+  projectDescription: string;
+  projectTargets: string;
+  projectChallange: string;
+  projectBottleNeck: string;
+  startTimeOfProject: string;
+  projectDeliveryTime: string;
+  infrastructureCost: number;
+  humanResourceCost: number;
+  country: string;
+  state: string;
+  city: string;
+  section: string;
+  region: string;
+  longitude: number;
+  latitude: number;
+  interCities: Array<string>;
+  interRegions: Array<string>;
+}
