@@ -9,15 +9,15 @@
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2 pb-3">پروژه از نوع : </h4>
         </div>
-        <mat-radio-group
+        <mat-radio-group [value]="list.constructionType"
           class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(0,i)">
+          <mat-radio-button (click)="setTypeProject(0, i)" [value]="0" class="px-2 example-radio-button set-font-vazir text-right mt-3">
             <span class="px-2">احداث</span>
           </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(1,i)">
+          <mat-radio-button (click)="setTypeProject(1, i)" [value]="1" class="px-2 example-radio-button set-font-vazir text-right mt-3">
             <span class="px-2">تکمیل و توسعه</span>
           </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(2,i)">
+          <mat-radio-button (click)="setTypeProject(2, i)" [value]="2" class="px-2 example-radio-button set-font-vazir text-right mt-3">
             <span class="px-2">مرمت</span>
           </mat-radio-button>
         </mat-radio-group>

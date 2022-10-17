@@ -46,15 +46,15 @@
       <div class="col-12 mt-2">
         <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
       </div>
-      <mat-radio-group [value]="0"
+      <mat-radio-group [value]="Hospital.constructionType"
         class="example-radio-group font-size-small">
-        <mat-radio-button (click)="set_type_numberHospital(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(0,i)">
+        <mat-radio-button (click)="set_type_numberHospital(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
           <span class="px-2">احداث</span>
         </mat-radio-button>
-        <mat-radio-button (click)="set_type_numberHospital(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(1,i)">
+        <mat-radio-button (click)="set_type_numberHospital(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
           <span class="px-2">تکمیل و توسعه</span>
         </mat-radio-button>
-        <mat-radio-button (click)="set_type_numberHospital(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(2,i)">
+        <mat-radio-button (click)="set_type_numberHospital(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
           <span class="px-2">مرمت</span>
         </mat-radio-button>
       </mat-radio-group>
@@ -81,15 +81,15 @@
           <div class="col-12 mt-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
-          <mat-radio-group [value]="0"
+          <mat-radio-group [value]="item.constructionType"
             class="example-radio-group font-size-small">
-            <mat-radio-button (click)="set_type_numberHospital(0, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0" [checked]="setValue1(0,j)">
+            <mat-radio-button (click)="set_type_numberHospital(0, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
               <span class="px-2">احداث</span>
             </mat-radio-button>
-            <mat-radio-button (click)="set_type_numberHospital(1, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1" [checked]="setValue1(0,j)">
+            <mat-radio-button (click)="set_type_numberHospital(1, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
               <span class="px-2">تکمیل و توسعه</span>
             </mat-radio-button>
-            <mat-radio-button (click)="set_type_numberHospital(2, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2" [checked]="setValue1(0,j)">
+            <mat-radio-button (click)="set_type_numberHospital(2, j)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
               <span class="px-2">مرمت</span>
             </mat-radio-button>
           </mat-radio-group>

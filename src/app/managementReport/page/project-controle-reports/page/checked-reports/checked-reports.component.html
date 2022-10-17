@@ -1,19 +1,19 @@
 
-<div class="bg-levels mx-auto my-3 set-font-vazir">
+<div *ngFor="let item of progressReportSelectedDtos" class="bg-levels mx-auto my-3 set-font-vazir">
     <div class="text-report">
-        <h3 class="set-font-Raymon title-efficiency px-5 d-inline py-1">شرکت داده پردازان | پروژه فلان فلان | گزارش تخصیص</h3>
-        <p class="mt-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+        <h3 class="set-font-Raymon title-efficiency px-5 d-inline py-1"> گزارش پیشرفت</h3>
+        <p class="mt-3">{{item.progressDescription}}</p>
         <div class="row bg-answer-report py-2" id="answer1">
             <div class="col-6 text-end d-inline-block">
                 <span class="text-style text-nowrap">
-                   درصد پیشرفت تایید شده:{{changeToPersian('45')}}% 
+                   درصد پیشرفت تایید شده:{{changeToPersian(item.progressPercentage.toString())}}%
                 </span>
             </div>
             <div class="col-6 text-start d-inline-block">
                 <span class="text-style text-nowrap">
                     <i class="material-icons icon-Report">access_time
                     </i>
-                    {{changeToPersian('23')}} روز پیش 
+                    {{item.progressCommitmentDate.timeInterval}}
                 </span>
             </div>
             <p class="col-12">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
@@ -31,12 +31,12 @@
                 <span class="mx-2 text-style text-nowrap d-inline-block">
                     <i class="material-icons icon-Report">record_voice_over
                     </i>
-                    فرزاد محسنی
+                    {{item.progressReporterName}}
                 </span>
                 <span class="mx-2 text-style text-nowrap d-inline-block">
                     <i class="material-icons icon-Report">access_time
                     </i>
-                    {{changeToPersian('23')}} روز پیش 
+                    {{changeToPersian('23')}} روز پیش
                 </span>
             </div>
         </div>
@@ -45,19 +45,19 @@
 
 <div class="bg-levels mx-auto my-3 set-font-vazir">
     <div class="text-report">
-        <h3 class="set-font-Raymon title-progress px-5 d-inline py-1">شرکت داده پردازان | پروژه فلان فلان | گزارش پیشرفت</h3>
+        <h3 class="set-font-Raymon title-progress px-5 d-inline py-1">شرکت داده پردازان | پروژه فلان فلان | گزارش تخصیص</h3>
         <p class="mt-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
         <div class="row bg-answer-report py-2" id="answer2">
             <div class="col-6 text-end d-inline-block">
                 <span class="text-style text-nowrap">
-                   درصد پیشرفت تایید شده:{{changeToPersian('45')}}% 
+                   درصد پیشرفت تایید شده:{{changeToPersian('45')}}%
                 </span>
             </div>
             <div class="col-6 text-start d-inline-block">
                 <span class="text-style text-nowrap">
                     <i class="material-icons icon-Report">access_time
                     </i>
-                    {{changeToPersian('23')}} روز پیش 
+                    {{changeToPersian('23')}} روز پیش
                 </span>
             </div>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
@@ -80,7 +80,7 @@
                 <span class="mx-2 text-style text-nowrap d-inline-block">
                     <i class="material-icons icon-Report">access_time
                     </i>
-                    {{changeToPersian('23')}} روز پیش 
+                    {{changeToPersian('23')}} روز پیش
                 </span>
             </div>
         </div>

@@ -32,8 +32,8 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
   public projectIdSelect: string|string[];
   public select: string;
   @Input() projectId: string | string[];
-  public data:ProjectSelectedDTO;
-  public edit:boolean=false;
+  public data: ProjectSelectedDTO;
+  public edit: boolean=false;
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
               private activeRoute: ActivatedRoute,
@@ -50,13 +50,10 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
   ngAfterViewInit(): void {
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
-      console.log(res);
-      
       if (this.projectIdSelect) {
-        console.log(this.projectIdSelect);
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-        this.data = res.data;
+          this.data = res.data;
       });
       }
     })
@@ -126,7 +123,7 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
       .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
       this.select = res.data.objectiveTitle;
-      this.data = res.data;      
+      this.data = res.data;
     });
     }
   }

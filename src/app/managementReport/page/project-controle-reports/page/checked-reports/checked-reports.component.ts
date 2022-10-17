@@ -1,10 +1,8 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
-import { AllocationReportPaginationSelectedDto, AllocationReportSelectedDto } from 'src/app/managementReport/model/getReports';
+import { AllocationReportPaginationSelectedDto, AllocationReportSelectedDto, ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from 'src/app/managementReport/model/getReports';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { url } from 'src/assets/url/url';
-import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-checked-reports',
@@ -13,6 +11,11 @@ import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 ,'../../../view-chart-progress-roport/view-chart-progress-roport.component.scss']
 })
 export class CheckedReportsComponent implements OnInit {
+
+  public allocationReportSelectedDtos: AllocationReportSelectedDto[];
+  public progressReportSelectedDtos:	ProgressReportSelectedDto[];
+  @Input() projectId: string;
+
   public openCloseAnswer1:boolean = false;
   public openCloseAnswer2:boolean = false;
 
@@ -21,6 +24,8 @@ export class CheckedReportsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.getReportAllocation();
+    this.getReportProgress();
   }
 
   public openAnswer(id: number){
@@ -43,9 +48,28 @@ export class CheckedReportsComponent implements OnInit {
     }
   }
 
+  private getReportAllocation() {
+    this.reportConnectionToApiService.GetAllocationReportsForSupervisor(
+      this.projectId
+    ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
+      }
+    });
+  }
+
+  private getReportProgress() {
+    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
+      this.projectId
+    ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.progressReportSelectedDtos = res.data.progressReportSelectedDtos;
+      }
+    });
+  }
 
   public changeToPersian(num:string){
-    return this.numberFormaterService.covertToFrNumber(num)
+    return this.numberFormaterService.covertToFrNumber(num);
   }
 
 }
