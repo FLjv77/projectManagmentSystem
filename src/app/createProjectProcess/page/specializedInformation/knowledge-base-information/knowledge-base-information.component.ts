@@ -9,6 +9,8 @@ import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from 'src/app/createP
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-knowledge-base-information',
@@ -39,6 +41,7 @@ export class KnowledgeBaseInformationComponent implements OnInit {
     this.knowledgeBaseds = new Array<KnowledgeBased>();
     this.addList();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private getQuery(){
@@ -51,6 +54,18 @@ export class KnowledgeBaseInformationComponent implements OnInit {
     )
   }
 
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
+  }
   public createSpecializeInfo() {
     this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail(
       this.projectId,
@@ -59,11 +74,8 @@ export class KnowledgeBaseInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<KnowledgeBasedSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
       }
     });
   }

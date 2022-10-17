@@ -29,7 +29,7 @@ export class BasicProjectInformationComponent implements OnInit {
   public checkboxValue: number;
 
   public contributors: string = '';
-  public parentId: string|string[] = '';
+  public parentId: string = '';
   public inputInfo1: OutputInfo;
   public contributorsList : contributors[] = [];
   public companyId: string;
@@ -105,7 +105,7 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public goToNext(){
     this.commonDataForCreateProjectService.setBasicInformationProject(
-      this.checkbox ? 'parentIdProject' : '',
+      this.checkbox ? this.parentId : '',
       this.projectNameFormControl.value,
       this.descreptionFormControl.value,
       this.deliveryDate,
@@ -122,7 +122,7 @@ export class BasicProjectInformationComponent implements OnInit {
     }, 200);
   }
 
-  public setParentId(event: string|string[]){
+  public setParentId(event: any){
     this.parentId = event;
   }
 

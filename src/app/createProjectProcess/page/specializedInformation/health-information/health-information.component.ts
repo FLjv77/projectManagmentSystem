@@ -9,6 +9,8 @@ import { SpecializedInformationService } from 'src/app/createProjectProcess/serv
 import { HealthBathroom, HealthHealthHouse, HealthHospital, HealthInsurance, HealthMedicine, HealthPharmacy, HealthSpeceficDetailDTO, HealthToilet, HealthTreatment, HealthVaccination } from 'src/app/createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-health-information',
@@ -76,6 +78,7 @@ export class HealthInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private initInputStyle() {
@@ -83,7 +86,18 @@ export class HealthInformationComponent implements OnInit {
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
   }
-
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
+  }
   private getQuery(){
     this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
   }
@@ -104,11 +118,8 @@ export class HealthInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<HealthSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
       }
     });
   }

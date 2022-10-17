@@ -8,6 +8,8 @@ import { RevivalIndustry, RevivalIndustrySpeceficDetailDTO } from 'src/app/creat
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-revival-of-industry-information',
@@ -35,6 +37,7 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
     this.initInputStyle();
     this.addList();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private getQuery(){
@@ -51,6 +54,19 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
+  }
+
   public createDetailInfo() {
     this.specializedInformationService.ModifyRevivalIndustrySpeceficDetail(
       this.projectId,
@@ -59,11 +75,8 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<RevivalIndustrySpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
       }
     })
   }

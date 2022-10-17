@@ -24,8 +24,8 @@ export enum ReportState {
 export class GetProjectsWithDynamicFilterDto {
   constructor(companyId: string) {
     this.companyId = companyId;
-    this.pageCount = 100;
-    this.pageId = 1;
+    this.takeEntity = 10;
+    this.activePage = 1;
   }
   companyId: string;
   complementationStatus: ComplementationStatus;

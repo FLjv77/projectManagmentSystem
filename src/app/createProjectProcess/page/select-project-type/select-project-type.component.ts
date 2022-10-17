@@ -81,7 +81,5 @@ export class SelectProjectTypeComponent implements OnInit, AfterViewInit {
 
   public saveSelectedCompanyId(companyId: string | string[]) {
     this.companyId = companyId;
-    console.log(this.companyId);
-
   }
 }

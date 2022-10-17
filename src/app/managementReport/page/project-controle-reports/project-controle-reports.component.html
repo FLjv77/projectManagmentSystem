@@ -1,10 +1,10 @@
 <div class="wrapper">
     <div class="col-12">
-        <app-display-user-path [path1]="path1" [path2]="path2" [showProjectList]="true"
-        (projectIdSelected)="setProjectId($event)" [super]="true"></app-display-user-path>
+        <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
     </div>
     <div class="bg-levels mx-4 mt-2">
-      <div class=" set-font-vazir">
+      <app-drop-down-project-list (parentid)="setProjectId($event)" class="w-100" [companyId]="companyId"></app-drop-down-project-list>
+      <div class=" set-font-vazir pt-3">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active set-font-Raymon tab-text" id="checkedReport-tab" data-bs-toggle="tab" data-bs-target="#checkedReport" type="button" role="tab" aria-controls="checkedReport" aria-selected="true">گزارش های بررسی شده</button>

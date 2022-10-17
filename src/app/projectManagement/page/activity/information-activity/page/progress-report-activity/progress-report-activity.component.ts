@@ -4,7 +4,7 @@ import { HandleModalService } from './../../../../../../shared/service/handleMod
 import { Component, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { ProgressReportPaginationSelectedDto } from 'src/app/managementReport/model/getReports';
+import { ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from 'src/app/managementReport/model/getReports';
 
 @Component({
   selector: 'app-progress-report-activity',
@@ -12,6 +12,7 @@ import { ProgressReportPaginationSelectedDto } from 'src/app/managementReport/mo
   styleUrls: ['./progress-report-activity.component.scss']
 })
 export class ProgressReportActivityComponent implements OnInit {
+  public progressReportSelected:	ProgressReportSelectedDto[];
 
   private projectId: string;
   constructor(private handleModalService : HandleModalService,
@@ -43,11 +44,12 @@ export class ProgressReportActivityComponent implements OnInit {
   }
 
   private getReport() {
-    this.reportConnectionToApiService.GetProgressReportsForSupervisor(
+    this.reportConnectionToApiService.GetProgressReports(
       this.projectId
     ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
-      console.log(res);
-
+      if(res.isSuccess && res.statusCode == 200) {
+        this.progressReportSelected = res.data.progressReportSelectedDtos;
+      }
     });
   }
 }

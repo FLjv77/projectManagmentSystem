@@ -8,6 +8,8 @@ import { SocialTransformationAddicion, SocialTransformationBannedFromEducation, 
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ApiResult } from '../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-social-transformation-information',
@@ -90,6 +92,7 @@ export class SocialTransformationInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private initInputStyle() {
@@ -106,6 +109,19 @@ export class SocialTransformationInformationComponent implements OnInit {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
+  }
+
   public SetDetailInformation() {
     this.specializedInformationService.ModifySocialTransformationSpeceficDetail(
       this.projectId,
@@ -120,11 +136,8 @@ export class SocialTransformationInformationComponent implements OnInit {
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
       }
     });
   }

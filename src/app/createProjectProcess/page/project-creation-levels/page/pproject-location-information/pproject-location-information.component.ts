@@ -68,12 +68,26 @@ export class PProjectLocationInformationComponent implements OnInit {
     let location = this.activeRouting.snapshot.queryParamMap.get('locations');
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
+    let p_id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+
     if (location !== null) {
       this.locations = JSON.parse(location);
       this.LocationFormControl.setValue(this.locations[0].x_pos + ' - ' + this.locations[0].y_pos);
+
+      this.commonDataForCreateProjectService.setLocationInformation(
+        'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
+      );
     }
 
-    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
+    if(p_id) {
+      this.router.navigate(['../../createProject/startCreatProject'],
+      {queryParams: {type: projectType, targetId: id, companyId: this.companyId, projectId: p_id}});
+    } else {
+      this.router.navigate(['../../createProject/startCreatProject'],
+      {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
+    }
+
+
   }
 
   public getValue() {
@@ -137,8 +151,6 @@ export class PProjectLocationInformationComponent implements OnInit {
     ).subscribe((res: ApiResult<string>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.openModal();
-        console.log(res);
-
         this.projectId = res.data;
       }
     }, (err: HttpErrorResponse) => {

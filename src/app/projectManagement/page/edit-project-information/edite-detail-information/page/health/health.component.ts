@@ -5,6 +5,11 @@ import { FormControl } from '@angular/forms';
 import { ConstructionTypestring } from './../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { HealthMedicine, HealthHealthHouse, HealthInsurance, HealthTreatment, HealthPharmacy, HealthBathroom, HealthVaccination, HealthToilet, HealthHospital } from './../../../../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
+import { ApiResult } from 'src/app/auth/model/authDTO';
 
 @Component({
   selector: 'app-health',
@@ -23,7 +28,7 @@ export class HealthComponent implements OnInit {
   public WCList: Array<HealthToilet> = new Array<HealthToilet>();
   public HealthVaccinationList: Array<HealthVaccination> = new Array<HealthVaccination>();
   public hospitalList: Array<HealthHospital> = new Array<HealthHospital>();
-
+  public projectId: string|null;
 
   public inputCustomStyle: InputCustomStyle;
   public numberOfPeopleCoveredByInsurance = new Array<FormControl>();
@@ -50,6 +55,10 @@ export class HealthComponent implements OnInit {
   public numberNurses= new Array<FormControl>();
   public numberDoctors= new Array<FormControl>();
 
+constructor(
+    private activeRoute: ActivatedRoute,
+    private projectConnectToApiService :ProjectConnectToApiService) { }
+
   public select0: boolean = false;
   public select1: boolean = true;
   public select2: boolean = false;
@@ -60,10 +69,9 @@ export class HealthComponent implements OnInit {
   public select7: boolean = false;
   public select8: boolean = false;
 
-  constructor() { }
-
   ngOnInit(): void {
     this.initInputStyle();
+    this.getQuery();
     this.addList();
     this.getData();
   }
@@ -75,7 +83,10 @@ export class HealthComponent implements OnInit {
   }
 
   public getData(){
+    console.log(this.data);
+
     if (this.data) {
+      /*
       this.bathRoomList = this.data.projectSpeceficDetail.healthBathrooms;
       this.HealthHomeList = this.data.projectSpeceficDetail.healthHouses;
       this.HealthVaccinationList = this.data.projectSpeceficDetail.healthVaccinations;
@@ -94,58 +105,59 @@ export class HealthComponent implements OnInit {
       this.getHealthVaccinationList();
       this.getDiseaseList();
       this.getMedicineList();
+      */
     }
   }
 
-  public getMedicineList(){
+  public getMedicineList() {
     for (let i = 0; i < this.medicineList.length; i++) {
-      this.numberOfMedicine[i].setValue(this.medicineList[i].countOfMedicine);    
-      this.typeOfMedicine[i].setValue(this.medicineList[i].typeOfMedicine);    
+      this.numberOfMedicine[i].setValue(this.medicineList[i].countOfMedicine);
+      this.typeOfMedicine[i].setValue(this.medicineList[i].typeOfMedicine);
     }
   }
 
-  public getDiseaseList(){
+  public getDiseaseList() {
     for (let i = 0; i < this.diseaseList.length; i++) {
-      this.TypeOfDisease[i].setValue(this.diseaseList[i].typeOfDisease);    
-      this.NumberOfTreatments[i].setValue(this.diseaseList[i].numberOftTreatment);    
+      this.TypeOfDisease[i].setValue(this.diseaseList[i].typeOfDisease);
+      this.NumberOfTreatments[i].setValue(this.diseaseList[i].numberOftTreatment);
     }
   }
 
-  public getWCList(){
+  public getWCList() {
     for (let i = 0; i < this.WCList.length; i++) {
-      this.numberWC[i].setValue(this.WCList[i].numberOfToilet);    
+      this.numberWC[i].setValue(this.WCList[i].numberOfToilet);
     }
   }
 
   public getHealthVaccinationList(){
     for (let i = 0; i < this.HealthVaccinationList.length; i++) {
-      this.numberVaccination[i].setValue(this.HealthVaccinationList[i].numberOfVaccination);    
+      this.numberVaccination[i].setValue(this.HealthVaccinationList[i].numberOfVaccination);
     }
   }
 
   public getHealthPharmacyList(){
     for (let i = 0; i < this.healthPharmacyList.length; i++) {
-      this.numberpharmacy[i].setValue(this.healthPharmacyList[i].numberOfPharmacy);    
+      this.numberpharmacy[i].setValue(this.healthPharmacyList[i].numberOfPharmacy);
     }
   }
 
   public getInsuranceList(){
     for (let i = 0; i < this.insuranceList.length; i++) {
-      this.numberOfPeopleCoveredByInsurance[i].setValue(this.insuranceList[i].numberOfPeopleCoveredByInsurance);    
+      this.numberOfPeopleCoveredByInsurance[i].setValue(this.insuranceList[i].numberOfPeopleCoveredByInsurance);
     }
   }
 
   public getBathRoomList(){
     for (let i = 0; i < this.bathRoomList.length; i++) {
-      this.numberBathroom[i].setValue(this.bathRoomList[i].numberOfBathroom);    
+      this.numberBathroom[i].setValue(this.bathRoomList[i].numberOfBathroom);
     }
   }
 
   public getHospitalList(){
     for (let i = 0; i < this.hospitalList.length; i++) {
-      this.numberOfBedsHospital[i].setValue(this.hospitalList[i].countOfBeds);    
-      this.NumberOfFloors[i].setValue(this.hospitalList[i].countOfFloors);    
-      this.numberHospital[i].setValue(this.hospitalList[i].numberofHospital);    
+      this.numberOfBedsHospital[i].setValue(this.hospitalList[i].countOfBeds);
+      this.NumberOfFloors[i].setValue(this.hospitalList[i].countOfFloors);
+      this.numberHospital[i].setValue(this.hospitalList[i].numberofHospital);
     }
   }
 
@@ -357,7 +369,21 @@ export class HealthComponent implements OnInit {
     this.medicineList[index].countOfMedicine = event;
   }
 
-  public setProjectRuralWaterArea(state: number) {
+  private getQuery() {
+    this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectIdEdit");
+  }
+
+  public getInfo(){
+    if (this.projectId) {
+      this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
+    .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      console.log(res);
+
+    });
+    }
+  }
+
+ public setProjectRuralWaterArea(state: number) {
     if (state==0) {
       this.select0 = !this.select0;
       this.hospitalList = new Array<HealthHospital>();

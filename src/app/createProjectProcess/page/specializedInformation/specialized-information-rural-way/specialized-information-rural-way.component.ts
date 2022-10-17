@@ -12,6 +12,8 @@ import { SpecializedInformationService } from 'src/app/createProjectProcess/serv
 import { RuralRoad, RuralRoadSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { Location } from '../../project-creation-levels/page/pproject-location-information/map-container/map-container.component';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+import { url } from '../../../../../../dist/comprehensiveProjectManagement/assets/url/url';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-specialized-information-rural-way',
@@ -47,8 +49,8 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     this.initDisplayPath();
     this.ruralRoadList = new Array<RuralRoad>;
     this.addList();
-    //this.getLocation();
     this.getQuery();
+    this.setCompanyId();
   }
 
   private getQuery(){
@@ -134,16 +136,25 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
     this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id}});
   }
 
+  private companyId: string;
+  private setCompanyId() {
+    let com = localStorage.getItem(url.CompanyInfo);
+    if(com) {
+      let c = new CompanySelectedDTO();
+      c = JSON.parse(com);
+      this.companyId = c.companyId;
+    } else {
+      let idC = this.activeRoute.snapshot.queryParamMap.get('companyId');
+      if(idC) this.companyId = idC;
+    }
+  }
+
   public sendWayInfo(){
     this.specializedInformationService.ModifyRuralRoadSpeceficDetail(this.projectId, new RuralRoadSpeceficDetailDTO(this.ruralRoadList))
     .subscribe((res: ApiResult<RuralRoadSpeceficDetailDTO>)=>{
 
       if(res.isSuccess && res.statusCode == 200) {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
-
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
+        this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
       }
     });
   }
