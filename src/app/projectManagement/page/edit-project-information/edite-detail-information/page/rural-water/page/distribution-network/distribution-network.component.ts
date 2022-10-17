@@ -1,7 +1,7 @@
 import { DistributionNetworkWaterShedAndCanals, ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-distribution-network',
@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
   styleUrls: ['./distribution-network.component.scss']
 })
 export class DistributionNetworkComponent implements OnInit {
+
+  @Input() network: DistributionNetworkWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public networkStateControl = new Array<FormControl>();
   public pompControl = new Array<FormControl>();
@@ -27,12 +29,34 @@ export class DistributionNetworkComponent implements OnInit {
     this.initInputStyle();
     this.distributionNetwork = new Array<DistributionNetworkWaterShedAndCanals>;
     this.addList();
+    this.getData();
+  }
+
+  public getData(){
+    if (this.network) {
+      this.distributionNetwork = this.network;
+      for (let i = 0; i < this.distributionNetwork.length; i++) {
+        this.networkStateControl[i].setValue(this.distributionNetwork[i].distributionNetworkStatus);
+        this.pompControl[i].setValue(this.distributionNetwork[i].boosterPumpOnline);
+        this.lenPipeControl[i].setValue(this.distributionNetwork[i].transferLineLength);
+        this.typePipeControl[i].setValue(this.distributionNetwork[i].typeOfPipe);
+        this.description[i].setValue(this.distributionNetwork[i].description);
+      }
+    }
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.distributionNetwork) {
+      if(this.distributionNetwork[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
 

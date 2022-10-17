@@ -1,7 +1,7 @@
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, PumpStationWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-pomp',
@@ -10,6 +10,7 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
 })
 export class PompComponent implements OnInit {
 
+  @Input() Pump: PumpStationWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public pompStateControl = new Array<FormControl>();
   @Output() pumpStation = new EventEmitter<PumpStationWaterShedAndCanals[]>();
@@ -26,12 +27,30 @@ export class PompComponent implements OnInit {
     this.initInputStyle();
     this.PumpStationWaterShedAndCanalsList = new Array<PumpStationWaterShedAndCanals>;
     this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.Pump) {
+      this.PumpStationWaterShedAndCanalsList = this.Pump;
+      for (let i = 0; i < this.PumpStationWaterShedAndCanalsList.length; i++) {
+        this.pompStateControl[i].setValue(this.PumpStationWaterShedAndCanalsList[i].pumpStationStatus);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.PumpStationWaterShedAndCanalsList) {
+      if(this.PumpStationWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i: number) {

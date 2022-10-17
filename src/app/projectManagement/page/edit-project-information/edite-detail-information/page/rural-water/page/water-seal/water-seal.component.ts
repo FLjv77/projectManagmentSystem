@@ -1,7 +1,7 @@
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 
 @Component({
   selector: 'app-water-seal',
@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter,Output } from '@angular/core';
   styleUrls: ['./water-seal.component.scss']
 })
 export class WaterSealComponent implements OnInit {
+
+  @Input() DikeList: DikeWaterShedAndCanals[];
   @Output() Dike = new EventEmitter<DikeWaterShedAndCanals[]>();
   public inputCustomStyle: InputCustomStyle;
   public riverNameControl = new Array<FormControl>();
@@ -31,12 +33,38 @@ export class WaterSealComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.DikeWaterShedAndCanalsList = new Array<DikeWaterShedAndCanals>;
+    this.getData();
   }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.DikeList) {
+      this.DikeWaterShedAndCanalsList = this.DikeList;
+      for (let i = 0; i < this.DikeWaterShedAndCanalsList.length; i++) {
+        this.stopFloodControl[i].setValue(this.DikeWaterShedAndCanalsList[i].dam);
+        this.stuffWaterSealControl[i].setValue(this.DikeWaterShedAndCanalsList[i].dikeMaterialType);
+        this.heightControl[i].setValue(this.DikeWaterShedAndCanalsList[i].height);
+        this.lenControl[i].setValue(this.DikeWaterShedAndCanalsList[i].length);
+        this.pompControl[i].setValue(this.DikeWaterShedAndCanalsList[i].pumping);
+        this.riverNameControl[i].setValue(this.DikeWaterShedAndCanalsList[i].riverName);
+        this.riverWidthControl[i].setValue(this.DikeWaterShedAndCanalsList[i].riverWidth);
+        this.resourceSaveWaterStateControl[i].setValue(this.DikeWaterShedAndCanalsList[i].waterProviderResourceStatus);
+        this.widthControl[i].setValue(this.DikeWaterShedAndCanalsList[i].width);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.DikeWaterShedAndCanalsList) {
+      if(this.DikeWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i: number) {

@@ -2,7 +2,7 @@ import { ConstructionTypestring } from 'src/app/createProjectProcess/model/speci
 import { PitWaterShedAndCanals } from './../../../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-well',
@@ -10,6 +10,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./well.component.scss']
 })
 export class WellComponent implements OnInit {
+
+  @Input() PitWaterList: PitWaterShedAndCanals[];
   public inputCustomStyle: InputCustomStyle;
   public amountOfSurfaceControl = new Array<FormControl>();
   public widthWellControl = new Array<FormControl>();
@@ -34,6 +36,26 @@ export class WellComponent implements OnInit {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
+  }
+
+  public getData(){
+    if (this.PitWaterList) {
+      this.PitWaterShedAndCanalsList = this.PitWaterList;
+      for (let i = 0; i < this.PitWaterShedAndCanalsList.length; i++) {
+        this.lenColControl[i].setValue(this.PitWaterShedAndCanalsList[i].coolLenght);
+        this.lenPipeControl[i].setValue(this.PitWaterShedAndCanalsList[i].tubeLenght);
+        this.widthWellControl[i].setValue(this.PitWaterShedAndCanalsList[i].pitDiameter);
+        this.amountOfSurfaceControl[i].setValue(this.PitWaterShedAndCanalsList[i].coveredLandArea);
+      }
+    }
+  }
+
+  public setValue(state: ConstructionTypestring,index:number): boolean {
+    let res = false;
+    if(this.PitWaterShedAndCanalsList) {
+      if(this.PitWaterShedAndCanalsList[index].constructionType == state) res = true;
+    }
+    return res;
   }
 
   private subscribeChangeFormCoontrol(i: number) {

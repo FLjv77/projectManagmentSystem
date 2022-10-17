@@ -9,13 +9,13 @@
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
-            <mat-radio-button (click)="setTypeProject(0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+            <mat-radio-button (click)="setTypeProject(0,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(0,i)">
               <span class="px-2">احداث</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+            <mat-radio-button (click)="setTypeProject(1,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(1,i)">
               <span class="px-2">تکمیل و توسعه</span>
             </mat-radio-button>
-            <mat-radio-button (click)="setTypeProject(2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+            <mat-radio-button (click)="setTypeProject(2,i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(2,i)">
               <span class="px-2">مرمت</span>
             </mat-radio-button>
           </mat-radio-group>
@@ -39,7 +39,7 @@
                      (changeValue)="setLenPipe($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
-                     class="col-12 mt-2" [inputLabel]="'طول کول گذاری'" [unit]="0"
+                     class="col-12 mt-2" [inputLabel]="'طول لوله گذاری'" [unit]="0"
                      [inputId]="'lenColControl'+i" [type]="'number'"
                      [inputFormControl]="lenColControl[i]"
                      (changeValue)="setPiLenCol($event, i)"></app-input-style>
