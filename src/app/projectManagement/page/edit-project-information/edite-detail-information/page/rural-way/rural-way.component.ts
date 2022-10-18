@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 import { projectType } from './../../../../../../createProjectProcess/model/EnumForSpecializeInformation/EnumForSpecializeInformation';
 import { RuralRoadSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyRuralRoadSpeceficDetail';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-rural-way',
@@ -18,6 +18,9 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./rural-way.component.scss']
 })
 export class RuralWayComponent implements OnInit {
+
+  @Output() refreshList= new EventEmitter<boolean>();
+  @Input() projectIdSelect: string|string[];
   public inputCustomStyle: InputCustomStyle;
   public roadWidth = new Array<FormControl>();
   public roadLength = new Array<FormControl>();
@@ -29,6 +32,7 @@ export class RuralWayComponent implements OnInit {
   private locations: Location[];
   private index: number;
   @Input() data: ProjectSelectedDTO;
+  public edit: boolean;
 
   constructor(private router:Router, private activeRouting:ActivatedRoute,
               private specializedInformationService:SpecializedInformationService,
@@ -145,5 +149,20 @@ export class RuralWayComponent implements OnInit {
         }, 200);
       }
     });
+  }
+
+  public saved(){
+    this.editList();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
+  }
+
+  public editList(){
+    this.specializedInformationService.ModifyRuralRoadSpeceficDetail1(this.projectIdSelect,
+      new RuralRoadSpeceficDetailDTO(this.ruralRoadList));
+    this.refreshList.emit(true);
   }
 }

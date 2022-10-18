@@ -7,7 +7,7 @@ import { RevivalIndustry, RevivalIndustrySpeceficDetailDTO } from 'src/app/creat
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-revival-industry',
@@ -22,6 +22,9 @@ export class RevivalIndustryComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public amountGrantedFacilities = new Array<FormControl>();
   public numberIndustries = new Array<FormControl>();
+  @Output() refreshList= new EventEmitter<boolean>();
+  @Input() projectIdSelect: string|string[];
+  public edit: boolean;
   public typeProject: projectType;
 
   constructor(private router: Router,
@@ -113,5 +116,20 @@ export class RevivalIndustryComponent implements OnInit {
 
   public deleteList(index: number) {
     this.revivalIndustrySpeceficDetailDTO.splice(index, 1);
+  }
+
+  public saved(){
+    this.editList();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
+  }
+
+  public editList(){
+    this.specializedInformationService.ModifyRevivalIndustrySpeceficDetail1(this.projectIdSelect
+      ,new RevivalIndustrySpeceficDetailDTO(this.revivalIndustrySpeceficDetailDTO));
+    this.refreshList.emit(true);
   }
 }

@@ -11,6 +11,7 @@ import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 export class FountainComponent implements OnInit {
 
   @Input() Fountain: FountainWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public description = new Array<FormControl>();
   @Output() fountainList = new EventEmitter<FountainWaterShedAndCanals[]>();

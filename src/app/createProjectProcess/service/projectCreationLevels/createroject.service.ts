@@ -48,4 +48,13 @@ export class CreaterojectService {
     return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProject + projectId , imageFormData);
   }
 
+  public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<any>> {
+    return this.http.get<ApiResult<any>>(
+      url.SearchLocation +
+      (stateName? '?' + stateName : '') +
+      (cityName? '&' + cityName : '') +
+      (regionName? '&' + regionName : '') +
+      (ruralName? '&' + ruralName : '')
+      );
+  }
 }

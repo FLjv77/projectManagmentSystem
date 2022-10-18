@@ -1,4 +1,12 @@
 <div class="row">
+  <div class="col-12">
+    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+      <i class="material-icons d-inline">edit</i>
+    </button>
+    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+      <i class="material-icons d-inline">check</i>
+    </button>
+  </div>
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">water_drop</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
@@ -13,12 +21,13 @@
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'" class="col-12 mt-2"
                            [inputFormControl]="requirementControl"></app-input-style>
 
-    <app-dam *ngIf="damList.length!=0" [dam]="damList"></app-dam>
-    <app-fountain *ngIf="FountainList.length!=0" [Fountain]="FountainList"></app-fountain>
-    <app-distribution-network *ngIf="networkWater.length!=0" [network]="networkWater"></app-distribution-network>
-    <app-purification *ngIf="RefineryList.length!=0" [RefineryList]="RefineryList"></app-purification>
-    <app-source *ngIf="TankList.length!=0" [TankList]="TankList"></app-source>
-    <app-transfer-line *ngIf="TransferLineList.length!=0" [TransferLine]="TransferLineList"></app-transfer-line>
-    <app-water-seal *ngIf="DikeList.length!=0" [DikeList]="DikeList"></app-water-seal>
-    <app-well *ngIf="PitWaterList.length!=0" [PitWaterList]="PitWaterList"></app-well>
-    <app-pomp *ngIf="PumpStationList.length!=0" [Pump]="PumpStationList"></app-pomp>
+    <app-dam *ngIf="damList" [dam]="damList" [edit]="edit"></app-dam>
+    <app-fountain *ngIf="FountainList" [Fountain]="FountainList" [edit]="edit"></app-fountain>
+    <app-distribution-network *ngIf="networkWater" [network]="networkWater" [edit]="edit"></app-distribution-network>
+    <app-purification *ngIf="RefineryList" [RefineryList]="RefineryList" [edit]="edit"></app-purification>
+    <app-source *ngIf="TankList" [TankList]="TankList" [edit]="edit"></app-source>
+    <app-transfer-line *ngIf="TransferLineList" [TransferLine]="TransferLineList" [edit]="edit"></app-transfer-line>
+    <app-water-seal *ngIf="DikeList" [DikeList]="DikeList" [edit]="edit"></app-water-seal>
+    <app-well *ngIf="PitWaterList" [PitWaterList]="PitWaterList" [edit]="edit"></app-well>
+    <app-pomp *ngIf="PumpStationList" [Pump]="PumpStationList" [edit]="edit"></app-pomp>
+</div>

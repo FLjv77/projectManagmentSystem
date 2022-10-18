@@ -1,4 +1,13 @@
-<div *ngIf="revivalIndustrySpeceficDetailDTO" class="row">
+<div class="row">
+  <div class="col-12">
+    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+      <i class="material-icons d-inline">edit</i>
+    </button>
+    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+      <i class="material-icons d-inline">check</i>
+    </button>
+  </div>
+  <div *ngIf="revivalIndustrySpeceficDetailDTO" class="row">
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">business</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی احیای صنعت</h4>
@@ -46,3 +55,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>

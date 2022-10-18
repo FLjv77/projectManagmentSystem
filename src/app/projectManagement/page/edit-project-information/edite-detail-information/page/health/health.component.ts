@@ -1,15 +1,17 @@
 import { threadId } from 'worker_threads';
-import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
+import { ProjectSelectedDTO, projectSpeceficDetail } from './../../../../../model/project/projectDto';
 import { InputCustomStyle } from './../../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring } from './../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { HealthMedicine, HealthHealthHouse, HealthInsurance, HealthTreatment, HealthPharmacy, HealthBathroom, HealthVaccination, HealthToilet, HealthHospital } from './../../../../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
-import { Component, Input, OnInit } from '@angular/core';
+import { HealthMedicine, HealthHealthHouse, HealthInsurance, HealthTreatment, HealthPharmacy, HealthBathroom, HealthVaccination, HealthToilet, HealthHospital, HealthSpeceficDetailDTO } from './../../../../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
+import { outputAst } from '@angular/compiler';
+import { VirtualAction } from 'rxjs';
 
 @Component({
   selector: 'app-health',
@@ -29,6 +31,7 @@ export class HealthComponent implements OnInit {
   public HealthVaccinationList: Array<HealthVaccination> = new Array<HealthVaccination>();
   public hospitalList: Array<HealthHospital> = new Array<HealthHospital>();
   public projectId: string|null;
+  @Input() projectIdSelect: string| string[];
 
   public inputCustomStyle: InputCustomStyle;
   public numberOfPeopleCoveredByInsurance = new Array<FormControl>();
@@ -54,8 +57,9 @@ export class HealthComponent implements OnInit {
   public numberOfBedsHealthHouse= new Array<FormControl>();
   public numberNurses= new Array<FormControl>();
   public numberDoctors= new Array<FormControl>();
+  @Output() refreshList = new EventEmitter<boolean>();
 
-constructor(
+constructor(private specializedInformationService:SpecializedInformationService,
     private activeRoute: ActivatedRoute,
     private projectConnectToApiService :ProjectConnectToApiService) { }
 
@@ -68,6 +72,7 @@ constructor(
   public select6: boolean = false;
   public select7: boolean = false;
   public select8: boolean = false;
+  public edit: boolean=false;
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -464,4 +469,20 @@ constructor(
     return res;
   }
 
+  public saved(){
+    this.editList();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
+  }
+
+  public editList(){
+    let list = new HealthSpeceficDetailDTO(this.hospitalList,this.HealthHomeList,this.insuranceList,
+      this.healthPharmacyList, this.bathRoomList,this.WCList, this.HealthVaccinationList,
+      this.diseaseList,this.medicineList);
+    this.specializedInformationService.ModifyGetHealthSpeceficDetail1(this.projectIdSelect,list);
+    this.refreshList.emit(true);
+  }
 }

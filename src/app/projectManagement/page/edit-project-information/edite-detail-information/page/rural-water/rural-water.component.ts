@@ -1,3 +1,5 @@
+import { ApiResult } from './../../../../../../auth/model/authDTO';
+import { EditBasicInformationComponent } from './../../../edit-basic-information/edit-basic-information.component';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { IranStateAndZoneService } from './../../../../../../createProjectProcess/service/iranStateAndZone/iran-state-and-zone.service';
@@ -7,7 +9,7 @@ import { ProjectRuralWater, GroundType } from './../../../../../../createProject
 import { StateAndZoneIranModel } from './../../../../../../createProjectProcess/model/stateAndZoneIranModel/stateAndZoneIranModel';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-rural-water',
@@ -17,6 +19,7 @@ import { Component, OnInit,Input } from '@angular/core';
 export class RuralWaterComponent implements OnInit {
 
   @Input() data: ProjectSelectedDTO;
+  @Input() projectIdSelect: string|string[];
   public inputCustomStyle: InputCustomStyle;
   public regionControl = new FormControl();
   public requirementControl = new FormControl();
@@ -44,6 +47,8 @@ export class RuralWaterComponent implements OnInit {
   public PitWaterList: PitWaterShedAndCanals[] = [];
   private projectId: string|null;
   private groundType: GroundType;
+  public edit: boolean;
+  @Output() refreshList= new EventEmitter<boolean>();
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
     private specializedInformationService:SpecializedInformationService) { }
@@ -116,7 +121,7 @@ export class RuralWaterComponent implements OnInit {
   }
 
   public setDamList(list: DamWaterShedAndCanals[]){
-    this.damList = list;
+    this.damList = list;    
   }
 
   public setNetworkWaterShedList(list: DistributionNetworkWaterShedAndCanals[]){
@@ -166,7 +171,22 @@ export class RuralWaterComponent implements OnInit {
     list.pit = this.PitWaterList;
     list.pumpStation = this.PumpStationList;
     list.refinery = this.RefineryList;
+    list.tank = this.TankList;
     list.requirements = this.requirementControl.value;
-    this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail(this.projectId,list);
+    this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail1(this.projectIdSelect,list)
+    .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
+      if (res.statusCode==200 && res.isSuccess==true) {
+        this.refreshList.emit(true);
+      }
+    });
+  }
+
+  public saved(){
+    this.editInfo();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
   }
 }

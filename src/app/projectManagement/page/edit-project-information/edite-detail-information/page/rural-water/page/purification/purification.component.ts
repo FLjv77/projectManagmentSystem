@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class PurificationComponent implements OnInit {
 
   @Input() RefineryList: RefineryWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public informationStateControl = new Array<FormControl>();
   public electricStateControl = new Array<FormControl>();

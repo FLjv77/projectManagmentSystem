@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class DamComponent implements OnInit {
 
   @Input() dam: DamWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   //public damStateControl = new Array<FormControl>();
   public capacityWaterControl = new Array<FormControl>();

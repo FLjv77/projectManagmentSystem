@@ -39,5 +39,6 @@ export const url = {
   showActivities: 'Project/ShowActivities/',
   ModifyProjectParticipant:'Project/ModifyProjectParticipant/',
   ModifyProjectResourceInformation:'Project/ModifyProjectResourceInformation/',
-  UploadDocumentsOfProject: 'Media/UploadDocumentsOfProject/'
+  UploadDocumentsOfProject: 'Media/UploadDocumentsOfProject/',
+  SearchLocation: 'Region/SearchLocation'
 }

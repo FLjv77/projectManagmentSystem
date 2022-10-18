@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter ,Output} from '@angular/core';
 
 @Component({
   selector: 'app-knowledge-base',
@@ -18,6 +18,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class KnowledgeBaseComponent implements OnInit {
 
   @Input() data: ProjectSelectedDTO;
+  @Input() projectIdSelect: string|string[];
   public knowledgeBaseds: KnowledgeBased[];
   private projectId : string|null;
   public inputCustomStyle: InputCustomStyle;
@@ -27,7 +28,9 @@ export class KnowledgeBaseComponent implements OnInit {
   public loanAmount = new Array<FormControl>();
   public reasonAmount = new Array<FormControl>();
   public LocationFormControl = new Array<FormControl>();
+  @Output() refreshList= new EventEmitter<boolean>();
 
+  public edit: boolean;
   constructor(
     private router: Router,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
@@ -150,6 +153,21 @@ export class KnowledgeBaseComponent implements OnInit {
 
   public deleteList(index: number){
     this.knowledgeBaseds.splice(index, 1);
+  }
+
+  public saved(){
+    this.editList();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
+  }
+
+  public editList(){
+    this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
+      new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds));
+    this.refreshList.emit(true);
   }
 
 }

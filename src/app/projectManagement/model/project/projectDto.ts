@@ -89,7 +89,7 @@ export class projectSpeceficDetail{
   distributionNetwork: Array<DistributionNetworkWaterShedAndCanals>
   equipment: string;
   fountain: Array<FountainWaterShedAndCanals>;
-  ownerShipType: number;
+  ownerShipType: string;
   pit: Array<PitWaterShedAndCanals>;
   pumpStation: Array<PumpStationWaterShedAndCanals>;
   refinery: Array<RefineryWaterShedAndCanals>;
@@ -97,7 +97,7 @@ export class projectSpeceficDetail{
   resourceStability: string;
   tank: Array<TankWaterShedAndCanals>;
   transferLine: Array<TransferLineWaterShedAndCanals>;
-  typeOfLand: number;
+  typeOfLand: string;
   ruralRoads: Array<RuralRoad>;
 }
 

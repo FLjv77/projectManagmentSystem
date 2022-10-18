@@ -122,29 +122,16 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
       .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-      this.select = res.data.objectiveTitle;
-      this.data = res.data;
+        this.select = res.data.objectiveTitle;
+        this.data = res.data;
     });
     }
   }
 
-  public saved(){
-    // this.createrojectService.CreateProject(
-    //   this.companyId, this.commonDataForCreateProjectService.getCreateProject()
-    // ).subscribe((res: ApiResult<string>) => {
-    //   if(res.isSuccess && res.statusCode == 200) {
-    //     this.openModal();
-    //     console.log(res);
-
-    //     this.projectId = res.data;
-    //   }
-    // }, (err: HttpErrorResponse) => {
-    // });
-    this.edit = false;
-  }
-
-  public editForm(){
-    this.edit = true;
+  public setRefresh(event:boolean){
+    if (event==true) {
+      this.getInfo();
+    }
   }
 
 }

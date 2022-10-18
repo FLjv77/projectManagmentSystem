@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class WaterSealComponent implements OnInit {
 
   @Input() DikeList: DikeWaterShedAndCanals[];
+  @Input() edit: boolean;
   @Output() Dike = new EventEmitter<DikeWaterShedAndCanals[]>();
   public inputCustomStyle: InputCustomStyle;
   public riverNameControl = new Array<FormControl>();

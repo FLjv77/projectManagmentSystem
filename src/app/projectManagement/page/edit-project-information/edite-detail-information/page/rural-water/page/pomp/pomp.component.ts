@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class PompComponent implements OnInit {
 
   @Input() Pump: PumpStationWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public pompStateControl = new Array<FormControl>();
   @Output() pumpStation = new EventEmitter<PumpStationWaterShedAndCanals[]>();

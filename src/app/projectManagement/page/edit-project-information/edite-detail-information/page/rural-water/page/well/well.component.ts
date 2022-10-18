@@ -12,6 +12,7 @@ import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 export class WellComponent implements OnInit {
 
   @Input() PitWaterList: PitWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public amountOfSurfaceControl = new Array<FormControl>();
   public widthWellControl = new Array<FormControl>();

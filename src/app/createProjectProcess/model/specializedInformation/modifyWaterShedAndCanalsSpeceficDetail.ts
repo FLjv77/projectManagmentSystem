@@ -3,8 +3,8 @@ export class WaterShedAndCanalsSpeceficDetailBehaviorDTO {
     consumability: string;
     resourceStability: string;
     currentDebye: number;
-    ownerShipType: number;
-    typeOfLand: number;
+    ownerShipType: string;
+    typeOfLand: string;
     requirements: string;
     equipment: string;
     pit: PitWaterShedAndCanals[];

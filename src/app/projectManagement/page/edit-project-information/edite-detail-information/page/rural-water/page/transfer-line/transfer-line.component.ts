@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class TransferLineComponent implements OnInit {
 
   @Input() TransferLine: TransferLineWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public transferLineControl = new Array<FormControl>();
   public pipeTypeControl = new Array<FormControl>();

@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class SourceComponent implements OnInit {
 
   @Input() TankList: TankWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public sourceStateControl = new Array<FormControl>();
   public sourceStaffControl = new Array<FormControl>();

@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
 export class DistributionNetworkComponent implements OnInit {
 
   @Input() network: DistributionNetworkWaterShedAndCanals[];
+  @Input() edit: boolean;
   public inputCustomStyle: InputCustomStyle;
   public networkStateControl = new Array<FormControl>();
   public pompControl = new Array<FormControl>();

@@ -45,7 +45,7 @@
                      [inputFormControl]="lenColControl[i]"
                      (changeValue)="setPiLenCol($event, i)"></app-input-style>
 
-                     <div *ngIf="i-1>=0" class="row mx-auto">
+                     <div *ngIf="i>=0 && edit" class="row mx-auto">
                       <div class="mx-auto text-start" (click)="deleteList(i)">
                           <button class="button-add-activity">
                               <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -55,7 +55,7 @@
                     </div>
     </div>
 
-    <div class="row mx-auto">
+    <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addList()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
