@@ -19,7 +19,7 @@
             </app-checked-reports>
           </div>
           <div class="tab-pane fade" id="uncheckedReport" role="tabpanel" aria-labelledby="profile-tab">
-            <app-unreviewed-reports></app-unreviewed-reports>
+            <app-unreviewed-reports  *ngIf="projectId" [projectId]="projectId"></app-unreviewed-reports>
           </div>
       </div>
     </div>

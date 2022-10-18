@@ -134,14 +134,15 @@ export class SocialTransformationInformationComponent implements OnInit {
         this.arrayListSocialTransformationSegmentation,
         this.arrayListSocialTransformationSpecialPatient
       )
-    );
-    this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
-    // .subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
-    //   if(res.isSuccess && res.statusCode == 200) {
-        
+    ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
+      this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
-    //   }
-    // });
+       if(res.isSuccess && res.statusCode == 200) {
+            this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
+
+
+       }
+     });
   }
 
   public checkValidation(): boolean {

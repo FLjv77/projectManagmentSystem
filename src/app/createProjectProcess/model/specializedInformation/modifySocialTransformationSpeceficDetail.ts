@@ -8,9 +8,6 @@ export class SocialTransformationSpeceficDetailDTO {
     bannedFromEducations: SocialTransformationBannedFromEducation[];
     segmentations: SocialTransformationSegmentation[];
     specialPatients: SocialTransformationSpecialPatient[];
-    Needies = [];
-    Divorces = [];
-    ChildLabours = [];
     constructor(
       addicions: SocialTransformationAddicion[],
       campConstructions: SocialTransformationCampConstruction[],

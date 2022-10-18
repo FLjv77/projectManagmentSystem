@@ -1,6 +1,10 @@
 import { projectType } from '../EnumForSpecializeInformation/EnumForSpecializeInformation';
 export class CreateProjectDTO {
     constructor(){}
+
+    projectTargets: string;
+    projectChallange: string;
+    projectBottleNeck: string;
     parentProjectId: string;
     projectName: string;
     projectDescription:	string;

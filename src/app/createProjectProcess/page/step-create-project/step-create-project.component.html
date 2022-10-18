@@ -1,32 +1,32 @@
 <div class="row mx-auto">
     <div class="col-12 mx-auto">
         <div class="margin-right-steps">
-            <button #1 id="projectTarget" class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
+            <div #1 id="projectTarget" class="py-2 px-4 {{state==1 ? 'select-step':'steps'}}" (click)="selectSteps(1)">
                 <span class="d-block text-nowrap text-center">اهداف پروژه</span>
-            </button>
+            </div>
             <div class="border-step"></div>
-            <button #2 id="basicInformationProject" class="py-2 px-4 {{state==2 ? 'select-step':'steps'}}" (click)="selectSteps(2)">
+            <div #2 id="basicInformationProject" class="py-2 px-4 {{state==2 ? 'select-step':'steps'}}" (click)="selectSteps(2)">
                 <span class="d-block text-nowrap text-center">اطلاعات اولیه</span>
-            </button>
+            </div>
             <div class="border-step"></div>
-            <button #3 id="stackHolderInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
+            <div #3 id="stackHolderInformation" class="py-2 px-4 {{state==3 ? 'select-step':'steps'}}" (click)="selectSteps(3)">
                 <span class="d-block text-nowrap text-center"> ذی نفعان</span>
-            </button>
+            </div>
             <div class="border-step"></div>
-            <button #5 id="locationInformation" class="py-2 px-4 {{state==4 ? 'select-step':'steps'}}" (click)="selectSteps(4)">
+            <div #5 id="locationInformation" class="py-2 px-4 {{state==4 ? 'select-step':'steps'}}" (click)="selectSteps(4)">
                 <span class="d-block text-nowrap text-center">اطلاعات مکانی</span>
-            </button>
+            </div>
 
             <div class="border-step"></div>
-            <button  id="detailInformation" #8 class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
+            <div  id="detailInformation" #8 class="py-2 px-4 {{state==5 ? 'select-step':'steps'}}" (click)="selectSteps(5)">
                 <span class="d-block text-nowrap text-center"> آپلود تصاویر</span>
-            </button>
+            </div>
 
             <div class="border-step"></div>
-            <button #6 id="recoveryResources" class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
+            <div #6 id="recoveryResources" class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
 
                 <span class="d-block text-nowrap text-center"> منابع بازیابی</span>
-            </button>
+            </div>
             <!--
             <div class="border-step"></div>
             <button #7 class="py-2 px-4 {{state==7 ? 'select-step':'steps'}}" (click)="selectSteps(7)">
@@ -36,9 +36,9 @@
 
 
             <div class="border-step"></div>
-            <button  #4 id="uploadInformation" class="py-2 px-3 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
+            <div  #4 id="uploadInformation" class="py-2 px-3 {{state==8 ? 'select-step':'steps'}}" (click)="selectSteps(8)">
                 <span class="d-block text-nowrap text-center">شناسنامه تخصصی</span>
-            </button>
+            </div>
             <!-- <div class="border-step"></div>
             <div #6 class="py-2 px-4 {{state==6 ? 'select-step':'steps'}}" (click)="selectSteps(6)">
                 <span class="d-block text-nowrap text-center"> گزارش پیشرفت</span>

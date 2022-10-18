@@ -3,6 +3,7 @@ import {FormControl} from "@angular/forms";
 import {noop} from "rxjs";
 import {InputCustomStyle} from "../input-style/input-style.component";
 import * as moment from "jalali-moment";
+import { Moment } from 'jalali-moment';
 
 @Component({
   selector: 'app-date-picker-jalaly',
@@ -10,7 +11,7 @@ import * as moment from "jalali-moment";
   styleUrls: ['./date-picker-jalaly.component.scss', '../input-style/input-style.component.scss']
 })
 export class DatePickerJalalyComponent implements OnInit {
-
+  minDate: Date;
   @Input() inputId: string;
   @Input() inputLabel: string;
   @Input() inputError: string;
@@ -25,7 +26,11 @@ export class DatePickerJalalyComponent implements OnInit {
   constructor(  ) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  const currentYear = new Date().getDate();
+  this.minDate = new Date(currentYear);
+  }
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();

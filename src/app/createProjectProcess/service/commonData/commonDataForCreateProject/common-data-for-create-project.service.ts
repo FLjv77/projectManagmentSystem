@@ -12,6 +12,7 @@ export class CommonDataForCreateProjectService {
   public selectStep = new EventEmitter<number>();
   private createProjectData: CreateProjectDTO;
   public recoveryInfo: ResourceInformation;
+
   public projectTargets: string;
   public projectBottleNeck: string;
   public projectChallange: string;
@@ -76,9 +77,13 @@ export class CommonDataForCreateProjectService {
   public setObjective(projectTargets: string,
     projectBottleNeck: string,
     projectChallange: string) {
-  this.projectTargets = projectTargets;
-  this.projectBottleNeck = projectBottleNeck;
-  this.projectChallange = projectChallange;
+    this.projectTargets = projectTargets;
+    this.projectBottleNeck = projectBottleNeck;
+    this.projectChallange = projectChallange;
+
+    this.createProjectData.projectBottleNeck = projectBottleNeck;
+    this.createProjectData.projectTargets = projectTargets;
+    this.createProjectData.projectChallange = projectChallange;
   }
 
   public setLocationInformation(
