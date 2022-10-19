@@ -30,7 +30,8 @@ export class WellComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.PitWaterShedAndCanalsList = new Array<PitWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
+    this.getData();
   }
 
   private initInputStyle() {
@@ -41,6 +42,7 @@ export class WellComponent implements OnInit {
 
   public getData(){
     if (this.PitWaterList) {
+      console.log(this.PitWaterList);
       this.PitWaterShedAndCanalsList = this.PitWaterList;
       for (let i = 0; i < this.PitWaterShedAndCanalsList.length; i++) {
         this.lenColControl.push(new FormControl());

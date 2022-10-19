@@ -162,7 +162,9 @@ export class RuralWayComponent implements OnInit {
 
   public editList(){
     this.specializedInformationService.ModifyRuralRoadSpeceficDetail1(this.projectIdSelect,
-      new RuralRoadSpeceficDetailDTO(this.ruralRoadList));
+      new RuralRoadSpeceficDetailDTO(this.ruralRoadList)).subscribe((res:ApiResult<RuralRoadSpeceficDetailDTO>)=>{
+        this.ruralRoadList = res.data.ruralRoads;
+      });
     this.refreshList.emit(true);
   }
 }

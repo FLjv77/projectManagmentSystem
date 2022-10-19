@@ -27,7 +27,7 @@ export class FountainComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.FountainWaterShedAndCanalsList = new Array<FountainWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
     this.getData();
   }
 

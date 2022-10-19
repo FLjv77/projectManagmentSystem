@@ -25,7 +25,6 @@ export class RuralWaterComponent implements OnInit {
   public requirementControl = new FormControl();
   public equipmentControl = new FormControl();
 
-  public ableToUseControl = new FormControl();
   public stabilityResourceControl = new FormControl();
   public debeyControl = new FormControl();
   public ownerShipTypeControl = new FormControl();
@@ -61,13 +60,14 @@ export class RuralWaterComponent implements OnInit {
 
   public getData(){
     if (this.data) {
+      console.log(this.data.projectSpeceficDetail.pit);
       this.debeyControl.setValue(this.data.projectSpeceficDetail.currentDebye);
-      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.consumability);
+      this.regionControl.setValue(this.data.projectSpeceficDetail.consumability);
       this.groundTypeControl.setValue(this.data.projectSpeceficDetail.typeOfLand);
-      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.treatments);
-      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.equipment);
+      this.stabilityResourceControl.setValue(this.data.projectSpeceficDetail.resourceStability);
+      this.equipmentControl.setValue(this.data.projectSpeceficDetail.equipment);
       this.ownerShipTypeControl.setValue(this.data.projectSpeceficDetail.ownerShipType);
-      this.ableToUseControl.setValue(this.data.projectSpeceficDetail.requirements);
+      this.requirementControl.setValue(this.data.projectSpeceficDetail.requirements);
 
       this.damList = this.data.projectSpeceficDetail.dam;
       this.networkWater = this.data.projectSpeceficDetail.distributionNetwork;
@@ -78,7 +78,6 @@ export class RuralWaterComponent implements OnInit {
       this.TransferLineList = this.data.projectSpeceficDetail.transferLine;
       this.DikeList = this.data.projectSpeceficDetail.dike;
       this.PitWaterList = this.data.projectSpeceficDetail.pit;
-      this.setValueInputs();
     }
   }
 
@@ -86,10 +85,6 @@ export class RuralWaterComponent implements OnInit {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
     )
-  }
-
-  public setValueInputs(){
-
   }
 
   public checkShowAddButtonRequirement(): boolean {
@@ -173,9 +168,28 @@ export class RuralWaterComponent implements OnInit {
     list.refinery = this.RefineryList;
     list.tank = this.TankList;
     list.requirements = this.requirementControl.value;
+    console.log(list);
+    
     this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail1(this.projectIdSelect,list)
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
-      if (res.statusCode==200 && res.isSuccess==true) {
+      if (res.statusCode==200 && res.isSuccess==true) {        
+        this.debeyControl.setValue(res.data.currentDebye);
+        this.regionControl.setValue(res.data.consumability);
+        this.groundTypeControl.setValue(res.data.typeOfLand);
+        this.stabilityResourceControl.setValue(res.data.resourceStability);
+        this.equipmentControl.setValue(res.data.equipment);
+        this.ownerShipTypeControl.setValue(res.data.ownerShipType);
+        this.requirementControl.setValue(res.data.requirements);
+
+        this.damList = res.data.dam;
+        this.networkWater = res.data.distributionNetwork;
+        this.FountainList = res.data.fountain;
+        this.PumpStationList = res.data.pumpStation;
+        this.RefineryList = res.data.refinery;
+        this.TankList = res.data.tank;
+        this.TransferLineList = res.data.transferLine;
+        this.DikeList = res.data.dike;
+        this.PitWaterList = res.data.pit;
         this.refreshList.emit(true);
       }
     });
