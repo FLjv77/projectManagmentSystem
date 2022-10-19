@@ -1,35 +1,42 @@
 <div class="wrapper">
     <div class="col-12">
-        <app-display-user-path [showCompanyList]="true" [showProjectList]="true" [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path>
+        <app-display-user-path [path1]="path1" [path2]="path2" [path3]="path3"></app-display-user-path>
     </div>
     <div class="bg-levels mx-4 mt-2">
       <div class=" set-font-vazir">
         <ul class="nav nav-tabs mx-0" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button (click)="setSelectedTab(0)" class="nav-link active set-font-Raymon tab-text" id="activityRelationships-tab" data-bs-toggle="tab" data-bs-target="#activityRelationships" type="button" role="tab" aria-controls="activityRelationships" aria-selected="true">مشاهده فعالیت ها</button>
+            <button (click)="setSelectedTab(0)" class="nav-link active set-font-Raymon tab-text" id="activityCreate-tab" data-bs-toggle="tab" data-bs-target="#activityCreate" type="button" role="tab" aria-controls="activityRelationships" aria-selected="true">افزودن فعالیت </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button (click)="setSelectedTab(1)" class="nav-link set-font-Raymon tab-text" id="dependencyActivities-tab" data-bs-toggle="tab" data-bs-target="#dependencyActivities" type="button" role="tab" aria-controls="dependencyActivities" aria-selected="false">وابستگی فعالیت ها</button>
+            <button (click)="setSelectedTab(1)" class="nav-link set-font-Raymon tab-text" id="activityRelationships-tab" data-bs-toggle="tab" data-bs-target="#activityRelationships" type="button" role="tab" aria-controls="activityRelationships" aria-selected="false">مشاهده فعالیت ها</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button (click)="setSelectedTab(2)" class="nav-link set-font-Raymon tab-text" id="progressReportActivity-tab" data-bs-toggle="tab" data-bs-target="#progressReportActivity" type="button" role="tab" aria-controls="progressReportActivity" aria-selected="false">گزارش پیشرفت </button>
+            <button (click)="setSelectedTab(2)" class="nav-link set-font-Raymon tab-text" id="dependencyActivities-tab" data-bs-toggle="tab" data-bs-target="#dependencyActivities" type="button" role="tab" aria-controls="dependencyActivities" aria-selected="false">وابستگی فعالیت ها</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button (click)="setSelectedTab(3)" class="nav-link set-font-Raymon tab-text" id="financialReportActivity-tab" data-bs-toggle="tab" data-bs-target="#financialReportActivity" type="button" role="tab" aria-controls="financialReportActivity" aria-selected="false">گزارش تخصیص </button>
+            <button (click)="setSelectedTab(3)" class="nav-link set-font-Raymon tab-text" id="progressReportActivity-tab" data-bs-toggle="tab" data-bs-target="#progressReportActivity" type="button" role="tab" aria-controls="progressReportActivity" aria-selected="false">گزارش پیشرفت </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button (click)="setSelectedTab(4)" class="nav-link set-font-Raymon tab-text" id="financialReportActivity-tab" data-bs-toggle="tab" data-bs-target="#financialReportActivity" type="button" role="tab" aria-controls="financialReportActivity" aria-selected="false">گزارش تخصیص </button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="activityCreate" role="tabpanel" aria-labelledby="home-tab">
+            <app-submit-add-activity *ngIf="selectedTab == 0"></app-submit-add-activity>
+          </div>
+
           <div class="tab-pane fade show active" id="activityRelationships" role="tabpanel" aria-labelledby="home-tab">
-            <app-activity-relationships *ngIf="selectedTab == 0"></app-activity-relationships>
+            <app-activity-relationships *ngIf="selectedTab == 1"></app-activity-relationships>
           </div>
           <div class="tab-pane fade" id="dependencyActivities" role="tabpanel" aria-labelledby="profile-tab">
-            <app-dependency-activities *ngIf="selectedTab == 1"></app-dependency-activities>
+            <app-dependency-activities *ngIf="selectedTab == 2"></app-dependency-activities>
           </div>
           <div class="tab-pane fade" id="progressReportActivity" role="tabpanel" aria-labelledby="contact-tab">
-            <app-progress-report-activity *ngIf="selectedTab == 2"></app-progress-report-activity>
+            <app-progress-report-activity *ngIf="selectedTab == 3"></app-progress-report-activity>
           </div>
           <div class="tab-pane fade" id="financialReportActivity" role="tabpanel" aria-labelledby="contact-tab">
-            <app-financial-report-activity *ngIf="selectedTab == 3"></app-financial-report-activity>
+            <app-financial-report-activity *ngIf="selectedTab == 4"></app-financial-report-activity>
         </div>
       </div>
     </div>

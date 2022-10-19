@@ -95,8 +95,8 @@ export class SocialTransformationComponent implements OnInit {
       // this.ruralRoadList = this.data.projectSpeceficDetail.ruralRoads;
       // console.log(this.ruralRoadList.length);
       // for (let i = 0; i < this.ruralRoadList.length; i++) {
-      //   this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);    
-      //   this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);    
+      //   this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);
+      //   this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);
       // }
     }
   }
@@ -133,7 +133,8 @@ export class SocialTransformationComponent implements OnInit {
         this.arrayListUnintentionalPrisoner,
         this.arraySocialTransformationBannedFromEducation,
         this.arrayListSocialTransformationSegmentation,
-        this.arrayListSocialTransformationSpecialPatient
+        this.arrayListSocialTransformationSpecialPatient,
+        [], []
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {

@@ -1,6 +1,6 @@
 import { url } from 'src/assets/url/url';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {noop} from "rxjs";
 import {SidebarControleServiceService} from "../../service/sidebarControleService/sidebar-controle-service.service";
 
@@ -11,9 +11,15 @@ import {SidebarControleServiceService} from "../../service/sidebarControleServic
 })
 export class SidebarComponent implements OnInit {
   public sideBarIsCollapse: boolean = false;
+  public showReport: boolean = false;
+
   constructor( private router: Router,
+               private sidebarControleServiceService: SidebarControleServiceService,
                private sidebarControleService: SidebarControleServiceService) {
     this.subscribeSideBarIsOpen();
+    this.sidebarControleServiceService.showReport.subscribe((res: boolean) => {
+      this.showReport = res;
+    });
   }
 
   ngOnInit(): void {

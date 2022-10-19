@@ -1,5 +1,5 @@
 <div *ngIf="TREE_DATA.length > 0" class="row d-rtl mr-0">
-  <div class="col-md-3 col-12 px-0 mx-0">
+  <div class="col-12 px-0 mx-0">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node class="set-font-vazir pr-4" *matTreeNodeDef="let node">
         <span class="material-icons leaf-box">inventory</span>
@@ -14,9 +14,8 @@
       </mat-tree-node>
     </mat-tree>
   </div>
+</div>
 
-  <div class="col-md-9 col-12 px-0 mx-0">
-    <app-submit-add-activity></app-submit-add-activity>
-  </div>
-
+<div *ngIf="TREE_DATA.length == 0">
+  <app-empty-result></app-empty-result>
 </div>

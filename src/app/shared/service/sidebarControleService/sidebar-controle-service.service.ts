@@ -8,6 +8,8 @@ import {Subject} from "rxjs";
 export class SidebarControleServiceService {
   public sideBarIsOpen = new Subject<boolean>();
   public state = new EventEmitter<sidebarState>();
+  public showReport = new EventEmitter<boolean>();
+
 
   constructor() { }
 }

@@ -8,6 +8,7 @@ import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { UserRole } from '../../model/naveBarModel';
 import { HandleDisplayErrorService } from '../../service/handleError/handle-display-error.service';
 import { url } from 'src/assets/url/url';
+import { SidebarControleServiceService } from '../../service/sidebarControleService/sidebar-controle-service.service';
 
 @Component({
   selector: 'app-navebar',
@@ -22,6 +23,7 @@ export class NavebarComponent implements OnInit {
     private router: Router, private reportConnectionToApiService:ReportConnectionToApiService,
     private authService: AuthService,
     private handleDisplayErrorService: HandleDisplayErrorService,
+    private sidebarControleServiceService: SidebarControleServiceService
   ) { }
 
   ngOnInit(): void {
@@ -69,6 +71,7 @@ export class NavebarComponent implements OnInit {
         localStorage.removeItem(url.userRole);
         localStorage.setItem(url.CompanyInfo, JSON.stringify(res.data));
         localStorage.setItem(url.userRole, 'notAdmin');
+        this.sidebarControleServiceService.showReport.emit(true);
         this.companyName = res.data.companyName;
       } else {
         this.handleDisplayErrorService.showError(res.statusCode);

@@ -132,7 +132,9 @@ export class SocialTransformationInformationComponent implements OnInit {
         this.arrayListUnintentionalPrisoner,
         this.arraySocialTransformationBannedFromEducation,
         this.arrayListSocialTransformationSegmentation,
-        this.arrayListSocialTransformationSpecialPatient
+        this.arrayListSocialTransformationSpecialPatient,
+        [],
+        []
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});

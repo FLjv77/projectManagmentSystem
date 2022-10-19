@@ -38,5 +38,9 @@
               </tr>
             </tbody>
         </table>
+
+        <div *ngIf="progressReportSelected.length == 0">
+          <app-empty-result></app-empty-result>
+        </div>
     </div>
 </div>
