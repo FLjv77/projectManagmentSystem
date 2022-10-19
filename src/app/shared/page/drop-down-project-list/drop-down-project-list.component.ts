@@ -18,6 +18,8 @@ export class DropDownProjectListComponent implements OnInit {
   @Input() placeholder: string;
   @Input() companyId: string| string[];
   @Output() parentid = new EventEmitter<string|string[]>();
+  public showSpinner: boolean=false;
+  public empty: boolean=false;
 
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
@@ -57,6 +59,7 @@ export class DropDownProjectListComponent implements OnInit {
     }
 
     if(this.companyId) {
+      this.showSpinner = true;
       this.projectConnectToApiService.getProjectsGeneralInfoOfCompany(
         new GetProjectsGeneralInfoOfCompanyDto(
           this.companyId, 1
@@ -68,7 +71,12 @@ export class DropDownProjectListComponent implements OnInit {
               id: res.data[i].projectId
             }
             this.projectData.push(obj);
+            if (this.projectData.length==0) {
+              this.empty=true;
+            }
+            else{this.empty=false;}
           }
+          this.showSpinner = false;
 
         } else {
 

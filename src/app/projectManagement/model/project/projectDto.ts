@@ -2,10 +2,11 @@ import { RuralRoad } from 'src/app/createProjectProcess/model/specializedInforma
 import { DamWaterShedAndCanals, DikeWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { WaterShedAndCanalsSpeceficDetailBehaviorDTO, PitWaterShedAndCanals } from './../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { RevivalIndustry } from 'src/app/createProjectProcess/model/specializedInformation/modifyRevivalIndustrySpeceficDetail';
-import { KnowledgeBased, KnowledgeBasedSpeceficDetailDTO } from './../../../createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
+import { KnowledgeBased } from './../../../createProjectProcess/model/specializedInformation/modifyKnowledgeBasedSpeceficDetail';
 import { HealthBathroom, HealthHealthHouse, HealthMedicine, HealthTreatment, HealthVaccination, HealthToilet, HealthPharmacy, HealthInsurance, HealthHospital } from './../../../createProjectProcess/model/specializedInformation/modifyGetHealthSpeceficDetail';
 import { DateTime } from './../../../shared/model/dateTime';
 import { Participant } from '../../../createProjectProcess/model/createProjectModel/createProject';
+import { SocialTransformationAddicion, SocialTransformationCampConstruction, SocialTransformationDivorce, SocialTransformationUnintentionalPrisoner, SocialTransformationSegmentation, SocialTransformationSpecialPatient, SocialTransformationBannedFromEducation } from 'src/app/createProjectProcess/model/specializedInformation/modifySocialTransformationSpeceficDetail';
 
 export class GetProjectsGeneralInfoOfCompanyDto {
   companyId: string | string[];
@@ -99,6 +100,13 @@ export class projectSpeceficDetail{
   transferLine: Array<TransferLineWaterShedAndCanals>;
   typeOfLand: string;
   ruralRoads: Array<RuralRoad>;
+  addicions: Array<SocialTransformationAddicion>;
+  campConstructions: Array<SocialTransformationCampConstruction>;
+  divorces: Array<SocialTransformationDivorce>;
+  unintentionalPrisoners: Array<SocialTransformationUnintentionalPrisoner>;
+  bannedFromEducations: Array<SocialTransformationBannedFromEducation>;
+  segmentations: Array<SocialTransformationSegmentation>;
+  specialPatients: Array<SocialTransformationSpecialPatient>;
 }
 
 export class AddressSelectedDTO {

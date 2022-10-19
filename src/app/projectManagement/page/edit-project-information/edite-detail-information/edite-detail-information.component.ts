@@ -17,6 +17,7 @@ import {IranStateAndZoneService} from "../../../../createProjectProcess/service/
   styleUrls: ['./edite-detail-information.component.scss',  '../../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss']
 })
 export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
+  
   public inputCustomStyle: InputCustomStyle;
   public regionControl = new FormControl();
   public regionPopulationControl = new FormControl();
@@ -28,7 +29,6 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
   private selectedState: StateAndZoneIranModel;
   public projectRemoveMarginalization: ProjectRemoveMarginalization;
   private selectedZone: string;
-  //public projectId: string | null;
   public projectIdSelect: string|string[];
   public select: string;
   @Input() projectId: string | string[];
@@ -53,6 +53,7 @@ export class EditeDetailInformationComponent implements OnInit ,AfterViewInit{
       if (this.projectIdSelect) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+          this.select = res.data.objectiveTitle;
           this.data = res.data;
       });
       }

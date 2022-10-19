@@ -129,7 +129,12 @@ export class RevivalIndustryComponent implements OnInit {
 
   public editList(){
     this.specializedInformationService.ModifyRevivalIndustrySpeceficDetail1(this.projectIdSelect
-      ,new RevivalIndustrySpeceficDetailDTO(this.revivalIndustrySpeceficDetailDTO));
-    this.refreshList.emit(true);
+      ,new RevivalIndustrySpeceficDetailDTO(this.revivalIndustrySpeceficDetailDTO))
+      .subscribe((res:ApiResult<RevivalIndustrySpeceficDetailDTO>)=>{
+        if (res.statusCode==200 && res.isSuccess==true){
+          this.revivalIndustrySpeceficDetailDTO = res.data.revivalIndustries;
+          this.refreshList.emit(true);
+        }
+      });
   }
 }

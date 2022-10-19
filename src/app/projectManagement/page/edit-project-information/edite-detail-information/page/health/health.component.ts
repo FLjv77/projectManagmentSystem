@@ -482,7 +482,20 @@ constructor(private specializedInformationService:SpecializedInformationService,
     let list = new HealthSpeceficDetailDTO(this.hospitalList,this.HealthHomeList,this.insuranceList,
       this.healthPharmacyList, this.bathRoomList,this.WCList, this.HealthVaccinationList,
       this.diseaseList,this.medicineList);
-    this.specializedInformationService.ModifyGetHealthSpeceficDetail1(this.projectIdSelect,list);
-    this.refreshList.emit(true);
+    this.specializedInformationService.ModifyGetHealthSpeceficDetail1(this.projectIdSelect,list)
+    .subscribe((res:ApiResult<HealthSpeceficDetailDTO>)=>{
+      if (res.statusCode==200 && res.isSuccess==true) {
+        this.bathRoomList = res.data.healthBathrooms;
+        this.HealthHomeList = res.data.healthHouses;
+        this.HealthVaccinationList = res.data.healthVaccinations;
+        this.healthPharmacyList = res.data.healthPharmacies;
+        this.WCList = res.data.healthToilets;
+        this.hospitalList = res.data.hospitals;
+        this.insuranceList = res.data.insurances;
+        this.medicineList = res.data.medicines;
+        this.diseaseList = res.data.treatments;
+        this.refreshList.emit(true);
+      }
+    });
   }
 }
