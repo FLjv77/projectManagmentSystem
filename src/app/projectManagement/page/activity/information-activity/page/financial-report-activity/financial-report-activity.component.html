@@ -42,5 +42,9 @@
 
             </tbody>
         </table>
+
+        <div *ngIf="allocationReportSelectedDtos.length == 0">
+          <app-empty-result></app-empty-result>
+        </div>
     </div>
 </div>

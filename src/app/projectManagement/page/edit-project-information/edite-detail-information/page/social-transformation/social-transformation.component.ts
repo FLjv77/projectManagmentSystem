@@ -221,7 +221,8 @@ export class SocialTransformationComponent implements OnInit {
         this.arrayListUnintentionalPrisoner,
         this.arraySocialTransformationBannedFromEducation,
         this.arrayListSocialTransformationSegmentation,
-        this.arrayListSocialTransformationSpecialPatient
+        this.arrayListSocialTransformationSpecialPatient,
+        [], []
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
