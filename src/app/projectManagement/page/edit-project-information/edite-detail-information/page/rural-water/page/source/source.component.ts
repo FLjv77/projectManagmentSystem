@@ -28,7 +28,7 @@ export class SourceComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.TankWaterShedAndCanalsList = new Array<TankWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
     this.getData();
   }
 

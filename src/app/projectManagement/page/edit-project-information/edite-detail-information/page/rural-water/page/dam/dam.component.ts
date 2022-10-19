@@ -33,7 +33,7 @@ export class DamComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.damWaterShedAndCanalsList = new Array<DamWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
     this.getData();
   }
 

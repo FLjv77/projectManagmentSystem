@@ -29,7 +29,7 @@ export class DistributionNetworkComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.distributionNetwork = new Array<DistributionNetworkWaterShedAndCanals>;
-    this.addList();
+    //this.addList();
     this.getData();
   }
 

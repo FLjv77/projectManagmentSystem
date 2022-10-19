@@ -60,6 +60,7 @@ export class RuralWaterComponent implements OnInit {
 
   public getData(){
     if (this.data) {
+      console.log(this.data.projectSpeceficDetail.pit);
       this.debeyControl.setValue(this.data.projectSpeceficDetail.currentDebye);
       this.regionControl.setValue(this.data.projectSpeceficDetail.consumability);
       this.groundTypeControl.setValue(this.data.projectSpeceficDetail.typeOfLand);
@@ -171,7 +172,7 @@ export class RuralWaterComponent implements OnInit {
     
     this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail1(this.projectIdSelect,list)
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
-      if (res.statusCode==200 && res.isSuccess==true) {
+      if (res.statusCode==200 && res.isSuccess==true) {        
         this.debeyControl.setValue(res.data.currentDebye);
         this.regionControl.setValue(res.data.consumability);
         this.groundTypeControl.setValue(res.data.typeOfLand);
