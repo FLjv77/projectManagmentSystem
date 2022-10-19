@@ -8,6 +8,8 @@ export class SocialTransformationSpeceficDetailDTO {
     bannedFromEducations: SocialTransformationBannedFromEducation[];
     segmentations: SocialTransformationSegmentation[];
     specialPatients: SocialTransformationSpecialPatient[];
+    needies: SocialTransformationNeedy[];
+    childLabours: SocialTransformationChildLabour[];
     constructor(
       addicions: SocialTransformationAddicion[],
       campConstructions: SocialTransformationCampConstruction[],
@@ -15,7 +17,9 @@ export class SocialTransformationSpeceficDetailDTO {
       unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[],
       bannedFromEducations: SocialTransformationBannedFromEducation[],
       segmentations: SocialTransformationSegmentation[],
-      specialPatients: SocialTransformationSpecialPatient[]
+      specialPatients: SocialTransformationSpecialPatient[],
+      needies: SocialTransformationNeedy[],
+      childLabours: SocialTransformationChildLabour[]
     ) {
       this.addicions = addicions;
       this.campConstructions = campConstructions;
@@ -24,6 +28,8 @@ export class SocialTransformationSpeceficDetailDTO {
       this.bannedFromEducations = bannedFromEducations;
       this.segmentations = segmentations;
       this.specialPatients = specialPatients;
+      this.needies = needies;
+      this.childLabours = childLabours;
     }
 }
 
@@ -77,15 +83,7 @@ export class SocialTransformationSpecialPatient {
 }
 
 export class SocialTransformationNeedy {
-    constructor(constructionType: ConstructionTypestring,numberOfPerson: number,numberOfMediconPackage: number,
-                packageCost: number,needyEquipmentType:	string,equipmentCost: number){
-        this.constructionType = constructionType;
-        this.numberOfMediconPackage = numberOfMediconPackage;
-        this.numberOfPerson = numberOfPerson;
-        this.packageCost = packageCost;
-        this.needyEquipmentType = needyEquipmentType;
-        this.equipmentCost = equipmentCost;
-    }
+    constructor() {}
     constructionType: ConstructionTypestring;
     numberOfPerson: number;
     numberOfMediconPackage: number;
@@ -95,8 +93,6 @@ export class SocialTransformationNeedy {
 }
 
 export class SocialTransformationChildLabour {
-    constructor(numberOfChildLabour: number){
-        this.numberOfChildLabour = numberOfChildLabour;
-    }
+    constructor(){    }
     numberOfChildLabour: number;
 }
