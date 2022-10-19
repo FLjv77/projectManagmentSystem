@@ -1,28 +1,39 @@
 <div id="record-progress-report">
-    <div class="modal-background d-ltr">
-      <div class="modal">
-        <div class="my-modal-content text-center mx-auto">
-          <div class="modal-scroll">
-            <div class="header-modal">
-              <span class="mx-auto set-font-Raymon">نظارت بر گزارش پیشرفت</span>
-            </div>
-            <div class="row mt-5 mx-auto">
-
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام گزارشگر'" [inputId]="'reporterNameFormControl'"
-              [inputFormControl]="reporterNameFormControl"></app-input-style>
-                <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'تاریخ ثبت نظر'" [inputId]="'1'"
-                [inputFormControl]="recordDateFormControl"></app-date-picker-jalaly>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'درصد پیشرفت مورد تایید'" [inputId]="'2'"
-                [inputFormControl]="approvedProgressPercentageFormControl"></app-input-style>
-                <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'توضیحات'" [inputId]="'3'"
-                [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
-            </div>
-            <div class="row mx-auto mt-5">
-                <button class="add-user-button-modal px-5 py-2 w-auto mx-auto ok-button-modal">ثبت</button>
-            </div>
+  <div class="modal-background d-ltr">
+    <div class="modal">
+      <div class="my-modal-content text-center mx-auto">
+        <div class="modal-scroll">
+          <div class="header-modal">
+            <span class="mx-auto set-font-Raymon">نظارت بر گزارش پیشرفت </span>
           </div>
-          <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
+          <div class="row mt-5 mx-auto">
+
+            <mat-radio-group [value]="0"
+              class="example-radio-group font-size-small col-8 d-ltr">
+              <mat-radio-button (click)="setState(0)" class="px-2 example-radio-button set-font-vazir text-right mt-2" [value]="0">
+                <span class="px-2">احداث</span>
+              </mat-radio-button>
+              <mat-radio-button (click)="setState(1)" class="px-2 example-radio-button set-font-vazir text-right mt-2" [value]="1">
+                <span class="px-2">تکمیل و توسعه</span>
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <div class="col-4 mt-2">
+              <h4 class="title-page d-inline set-font-Raymon px-2">وضعیت گزارش</h4>
+            </div>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'توضیحات'" [inputId]="'3'"
+              [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
+          </div>
+          <div class="row mx-auto mt-5">
+              <button [disabled]="checkActivation()" (click)="submmitReport()"
+               class="add-user-button-modal set-font-vazir px-5 py-2 w-auto mx-auto ok-button-modal">
+                <div *ngIf="!showSpinner">ثبت</div>
+                <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
+              </button>
+          </div>
         </div>
+        <span (click)="closeModal()" class="material-icons my-modal-cancel pointer">close</span>
       </div>
     </div>
+  </div>
 </div>

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { RequestAllocationReportDTO, RequestAllocationVerificationDTO } from '../../model/modelDtoAllocationReport';
 import { url } from 'src/assets/url/url';
-import { AllocationReportPaginationSelectedDto, ProgressReportPaginationSelectedDto } from '../../model/getReports';
+import { AllocationReportPaginationSelectedDto, PrepareShareLevelOfActivityDTO, ProgressReportPaginationSelectedDto, ReportVerificationDTO } from '../../model/getReports';
 
 @Injectable({
   providedIn: 'root'
@@ -21,26 +21,22 @@ export class ReportConnectionToApiService {
   }
 
   public allocationReportVerification(requestAllocationVerification: RequestAllocationVerificationDTO): Observable<ApiResult<boolean>> {
-    return this.http.post<ApiResult<boolean>>(url.allocationReportVerification + requestAllocationVerification.allocationReportId, requestAllocationVerification.allocationVerificationDTO);
+    return this.http.put<ApiResult<boolean>>(url.allocationReportVerification + requestAllocationVerification.allocationReportId, requestAllocationVerification.allocationVerificationDTO);
   }
 
   public RegisterProgressReport(projectId: string, progressReportDTO: ProgressReportDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
 
-  public GetAllocationReports(projectId: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
+  public GetAllocationReports(projectId: string, reportStatus?: number): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReports
-    + '?projectId=' + projectId + '&activePage=1&takeEntity=100'
+    + '?projectId=' + projectId + (reportStatus? ('&reportStatus=' + reportStatus): '') + '&activePage=1&takeEntity=100'
     );
   }
 
-  public GetProgressReports(projectId: string
-    // ,userSupervisorAcceptedOrRejectedNameOrPhoneNumber: string,
-    // pageId: number,pageCount:number,activePage: number,startPage: number,endPage:number,takeEntity:number,
-    // skipEntity:number
-    ): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
+  public GetProgressReports(projectId: string, reportStatus?: number): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReports
-    + '?projectId=' + projectId + '&activePage=1&takeEntity=100'
+    + '?projectId=' + projectId + (reportStatus? ('&reportStatus=' + reportStatus): '') + '&activePage=1&takeEntity=100'
     // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' +
     // userSupervisorAcceptedOrRejectedNameOrPhoneNumber + '&pageId=' + pageId + '&pageCount=' + pageCount
     // + '&activePage=' + activePage + '&startPage=' + startPage + '&endPage=' + endPage + '&takeEntity=' +
@@ -60,7 +56,7 @@ export class ReportConnectionToApiService {
     return this.http.get<ApiResult<any>>(url.GetUsersWithDynamicFilter);
   }
 
-  // public UploadDocumentsOfProgressReport(progressReportId: string): Observable<ApiResult<any>>{
-  //   return this.http.post<ApiResult<any>>(url.UploadDocumentsOfProgressReport + progressReportId,);
-  // }
+  public ProgressReportVerification(data: ReportVerificationDTO, allocationReportId: string): Observable<ApiResult<any>>{
+    return this.http.put<ApiResult<any>>(url.ProgressReportVerification + allocationReportId, data);
+  }
 }

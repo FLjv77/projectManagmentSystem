@@ -19,7 +19,7 @@
       </div>
       <div class="row">
           <div class="col-md-5 col-12">
-            <button class="button-style-report-progress px-4 py-2" (click)="openModalProgress()">گزارش ناظر</button>
+            <button class="button-style-report-progress px-4 py-2" (click)="openModalProgress(item.progressReportId)">گزارش ناظر</button>
           </div>
           <div class="col-md-7 col-12 text-start">
               <span class="mx-2 text-style pointer d-inline-block text-nowrap">
@@ -63,7 +63,7 @@
       <div class="row">
 
         <div class="col-md-5 col-12">
-          <button class="button-style-report-efficiency px-4 py-2" (click)="openModalFinancial()">گزارش ناظر</button>
+          <button class="button-style-report-efficiency px-4 py-2" (click)="openModalFinancial(item.allocationReportId)">گزارش ناظر</button>
       </div>
           <div class="col-md-7 col-12 text-start">
               <span class="mx-2 text-style pointer d-inline-block text-nowrap">
@@ -84,3 +84,6 @@
       </div>
   </div>
 </div>
+
+<app-record-financial-report-modal *ngIf="selectedReportId" [reportId]="selectedReportId"></app-record-financial-report-modal>
+<app-record-progress-report-modal *ngIf="selectedReportId" [reportId]="selectedReportId"></app-record-progress-report-modal>

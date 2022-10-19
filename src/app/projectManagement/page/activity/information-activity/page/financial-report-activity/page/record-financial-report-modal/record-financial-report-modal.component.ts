@@ -1,7 +1,7 @@
 import { ReportConnectionToApiService } from './../../../../../../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AllocationVerificationDTO, RequestAllocationVerificationDTO } from 'src/app/managementReport/model/modelDtoAllocationReport';
 import { ApiResult } from '../../../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,13 +14,14 @@ import { HandleDisplayErrorService } from '../../../../../../../../shared/servic
 })
 export class RecordFinancialReportModalComponent implements OnInit {
 
-  private reportId: string;
+  @Input() reportId: string;
   public inputCustomStyle: InputCustomStyle;
   public recordDateFormControl = new FormControl();
   public reporterNameFormControl = new FormControl();
   public approvedAllocationFormControl = new FormControl();
   public descreptionFormControl = new FormControl();
   public showSpinner: boolean = false;
+  public stateRecord: number = 0;
 
   constructor(private reportConnectionToApiService: ReportConnectionToApiService,
     private handleError: HandleDisplayErrorService) { }
@@ -35,12 +36,16 @@ export class RecordFinancialReportModalComponent implements OnInit {
     )
   }
 
+  public setState(state: number) {
+    this.stateRecord = state;
+  }
+
   public submmitReport() {
     this.changeSpinnerState(true);
     this.reportConnectionToApiService.allocationReportVerification(
       new RequestAllocationVerificationDTO(
         this.reportId, new AllocationVerificationDTO(
-          0, this.descreptionFormControl.value
+          this.stateRecord, this.descreptionFormControl.value
         )
       )
     ).subscribe((res: ApiResult<boolean>) => {
@@ -66,9 +71,6 @@ export class RecordFinancialReportModalComponent implements OnInit {
   }
 
   public checkActivation(): boolean {
-    return !(this.recordDateFormControl.value) ||
-    !(this.reporterNameFormControl.value) ||
-    !(this.approvedAllocationFormControl.value) ||
-    !(this.descreptionFormControl.value) || this.showSpinner;
+    return !(this.descreptionFormControl.value) || this.showSpinner;
   }
 }

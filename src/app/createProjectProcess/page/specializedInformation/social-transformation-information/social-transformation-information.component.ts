@@ -138,9 +138,7 @@ export class SocialTransformationInformationComponent implements OnInit {
       this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
 
        if(res.isSuccess && res.statusCode == 200) {
-            this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
-
-
+          this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
        }
      });
   }

@@ -18,6 +18,7 @@ export class ProjectControleReportsComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
   public projectId: string;
+  public selectedTab: number = 1;
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
   public companyId: string;
@@ -42,6 +43,9 @@ export class ProjectControleReportsComponent implements OnInit {
     }, 200);
   }
 
+  public setSelectedTab(index: number) {
+    this.selectedTab = index;
+  }
 
   private setCompanyId() {
     let com = localStorage.getItem(url.CompanyInfo);

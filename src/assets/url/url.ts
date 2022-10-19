@@ -40,5 +40,7 @@ export const url = {
   ModifyProjectParticipant:'Project/ModifyProjectParticipant/',
   ModifyProjectResourceInformation:'Project/ModifyProjectResourceInformation/',
   UploadDocumentsOfProject: 'Media/UploadDocumentsOfProject/',
-  SearchLocation: 'Region/SearchLocation'
+  SearchLocation: 'Region/SearchLocation',
+  AllocationReportVerification: 'Project/AllocationReportVerification/',
+  ProgressReportVerification: 'Project/ProgressReportVerification/'
 }

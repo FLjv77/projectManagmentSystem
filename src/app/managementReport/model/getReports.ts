@@ -206,3 +206,16 @@ export class PrepareShareLevelOfActivityDTO {
     this.isExist = isExist;
   }
 }
+
+export class ReportVerificationDTO {
+  status: Status;
+  commentBody: string;
+
+  constructor(
+    status: Status,
+    commentBody: string
+  ) {
+    this.status = status;
+    this.commentBody = commentBody;
+  }
+}

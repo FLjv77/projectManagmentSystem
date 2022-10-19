@@ -14,6 +14,7 @@ import { ReportConnectionToApiService } from 'src/app/managementReport/service/r
 export class UnreviewedReportsComponent implements OnInit {
   public allocationReportSelectedDtos: AllocationReportSelectedDto[];
   public progressReportSelectedDtos:	ProgressReportSelectedDto[];
+  public selectedReportId: string;
   @Input() projectId: string;
 
   public openCloseAnswer1:boolean = false;
@@ -72,11 +73,18 @@ export class UnreviewedReportsComponent implements OnInit {
   public changeToPersian(num:string){
     return this.numberFormaterService.covertToFrNumber(num);
   }
-  public openModalFinancial(){
-    this.handleModalService.openModal('record-financial-report');
+
+  public openModalFinancial(reportId: string) {
+    this.selectedReportId = reportId;
+    setTimeout(() => {
+      this.handleModalService.openModal('record-financial-report');
+    }, 250);
   }
 
-  public openModalProgress(){
-    this.handleModalService.openModal('record-progress-report');
+  public openModalProgress(reportId: string) {
+    this.selectedReportId = reportId;
+    setTimeout(() => {
+      this.handleModalService.openModal('record-progress-report');
+    }, 250);
   }
 }
