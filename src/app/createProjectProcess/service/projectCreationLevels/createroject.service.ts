@@ -55,6 +55,6 @@ export class CreaterojectService {
       (cityName? '&' + cityName : '') +
       (regionName? '&' + regionName : '') +
       (ruralName? '&' + ruralName : '')
-      );
+    );
   }
 }

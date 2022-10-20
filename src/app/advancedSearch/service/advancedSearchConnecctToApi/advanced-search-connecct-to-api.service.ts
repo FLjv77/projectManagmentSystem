@@ -30,8 +30,9 @@ export class AdvancedSearchConnecctToApiService {
 
   }
 
-  public ComputeCompanyProjectProgress(companyId: string): Observable<ApiResult<CompanyProjectProgress[]>> {
-    return this.http.get<ApiResult<CompanyProjectProgress[]>>(url.ComputeCompanyProjectProgress + '?companyId=' + companyId);
+  public ComputeCompanyProjectProgress(companyId?: string): Observable<ApiResult<CompanyProjectProgress[]>> {
+    return this.http.get<ApiResult<CompanyProjectProgress[]>>
+    (url.ComputeCompanyProjectProgress + ((companyId != undefined) ? ('?companyId=' + companyId) : ''));
   }
 }
 
