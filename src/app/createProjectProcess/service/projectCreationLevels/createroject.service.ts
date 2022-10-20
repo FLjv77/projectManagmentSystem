@@ -59,6 +59,7 @@ export class CreaterojectService {
       (regionName? '&regionName=' + regionName : '') +
       (ruralName? '&ruralName=' + ruralName : '')
       );
+
   }
   public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State>> {
     return this.http.get<ApiResult<State>>(

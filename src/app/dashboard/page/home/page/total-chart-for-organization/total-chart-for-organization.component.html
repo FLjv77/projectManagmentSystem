@@ -1,15 +1,9 @@
 <div class="row px-0 px-sm-4 d-rtl mx-auto d-flex justify-content-center">
   <div class="col-12 col-lg-6 mx-auto mt-4">
-    <div class="container-chart boxShadow p-2">
-      <p class="title-chart set-font-vazir py-3">هزینه شرکت ها در زمان</p>
-      <div echarts [options]="progressOfCompany" theme="macarons" class="demo-chart"></div>
-    </div>
+    <app-advanced-search-according-to-progress [companyIndex]="1"></app-advanced-search-according-to-progress>
   </div>
   <div class="col-12 col-lg-6 mx-auto mt-4">
-    <div class="container-chart boxShadow p-2">
-      <p class="title-chart set-font-vazir py-3"> پروژه های تکمیل شده شرکت ها</p>
-      <div echarts [options]="doneProjectOfCompany" theme="macarons" class="demo-chart"></div>
-    </div>
+    <app-advanced-search-according-to-progress [companyIndex]="0"></app-advanced-search-according-to-progress>
   </div>
 </div>
 <div class="p-2 d-flex justify-content-center set-font-vazir text-center more-button mx-auto" (click)="goToAllChart()">بیشتر</div>
