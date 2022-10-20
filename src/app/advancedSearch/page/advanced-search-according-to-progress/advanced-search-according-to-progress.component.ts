@@ -14,8 +14,9 @@ import { CompanyProjectProgress } from 'src/app/projectManagement/model/project/
 export class AdvancedSearchAccordingToProgressComponent implements OnInit, AfterViewInit {
   public options: any;
   public options2: any;
-
+  @Input() companyIndex: number;
   @Input() companyId: string;
+  public comName: string;
 
   constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
 
@@ -25,20 +26,24 @@ export class AdvancedSearchAccordingToProgressComponent implements OnInit, After
   }
 
   private getProgressOfProject() {
+    let index = (this.companyIndex != undefined) ? this.companyIndex : 0;
     this.advancedSearchConnecctToApiService.ComputeCompanyProjectProgress(
       this.companyId
     ).subscribe((res: ApiResult<CompanyProjectProgress[]>) => {
       if(res.statusCode == 200 && res.isSuccess) {
+        console.log(res.data);
+
+        this.comName = (this.companyIndex != undefined) ? (res.data[index].companyName) : '';
         let data = new Array<DataForChart>();
         let data2 = new Array<number>();
         let data3 = new Array<number>();
         let dataName = new Array<string>();
 
 
-        for(let i=0; i<res.data[0].projectProgresses.length; i++) {
-          data2.push(res.data[0].projectProgresses[i].projectCurrentProgressPercentage);
-          data3.push(res.data[0].projectProgresses[i].projectNormalProgressPercentage);
-          dataName.push(res.data[0].projectProgresses[i].projectName);
+        for(let i=0; i<res.data[index].projectProgresses.length; i++) {
+          data2.push(res.data[index].projectProgresses[i].projectCurrentProgressPercentage);
+          data3.push(res.data[index].projectProgresses[i].projectNormalProgressPercentage);
+          dataName.push(res.data[index].projectProgresses[i].projectName);
         }
 
         this.initChart2(data2, data3, dataName);

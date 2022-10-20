@@ -68,6 +68,10 @@ import { FilterProjectTotalCostComponent } from 'src/app/advancedSearch/page/fil
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
+  ],
+  exports: [
+    AdvancedSearchAccordingToProgressComponent,
+    AdvancedSearchAccordingToCostComponent,
   ]
 })
 export class AdvancedSearchModule { }

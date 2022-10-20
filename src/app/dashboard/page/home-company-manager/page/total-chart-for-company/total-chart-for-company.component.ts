@@ -1,22 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetProjectsWithDynamicFilterDto } from 'src/app/advancedSearch/model/advanceSearch';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { ProjectSelectedDTO, ProjectSelectedDTOResualt } from 'src/app/projectManagement/model/project/projectDto';
+import { SidebarControleServiceService } from 'src/app/shared/service/sidebarControleService/sidebar-controle-service.service';
+import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { url } from 'src/assets/url/url';
 
 @Component({
   selector: 'app-total-chart-for-company',
   templateUrl: './total-chart-for-company.component.html',
-  styleUrls: ['./total-chart-for-company.component.scss',  '../../../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
+  styleUrls: ['./total-chart-for-company.component.scss',
+   '../../../../../projectManagement/page/chart-report-project/chart-report-project.component.scss']
 })
 export class TotalChartForCompanyComponent implements OnInit {
   public progressOfCompany: any;
   public doneProjectOfCompany: any;
+  private getProjectsWithDynamicFilter: GetProjectsWithDynamicFilterDto;
+  public projectListHandel: ProjectSelectedDTO[];
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService,
+    private sidebarControleServiceService: SidebarControleServiceService
+  ) {
+    this.init();
+  }
 
   ngOnInit(): void {
     this.initChartDoneProjectOfCompany();
     this.initChartProgressOfCompany();
+
+
+  }
+
+  private init() {
+    this.sidebarControleServiceService.showReport.subscribe((res: boolean) => {
+      if(res) {
+        let comp1 = localStorage.getItem(url.CompanyInfo);
+        if(comp1) {
+          let comp: CompanySelectedDTO;
+          comp = JSON.parse(comp1);
+          this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(comp.companyId);
+          this.searchProject();
+        }
+      }
+    });
+  }
+
+  public searchProject() {
+    this.advancedSearchConnecctToApiService.getProjectsWithDynamicFilter(
+      this.getProjectsWithDynamicFilter
+    ).subscribe((res: ApiResult<ProjectSelectedDTOResualt>) => {
+      this.projectListHandel = res.data.projectSelectedDTOs;
+    })
   }
 
   private initChartProgressOfCompany() {

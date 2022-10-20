@@ -1,15 +1,6 @@
 <div class="row px-sm-4 px-0 d-rtl mx-auto d-flex justify-content-center">
-  <div class="col-12 col-lg-6 mx-auto mt-4">
-    <div class="container-chart boxShadow p-2">
-      <p class="title-chart set-font-vazir py-3">پیشرفت پروژه ها در زمان</p>
-      <div echarts [options]="progressOfCompany" theme="macarons" class="demo-chart"></div>
-    </div>
-  </div>
-  <div class="col-12 col-lg-6 mx-auto mt-4">
-    <div class="container-chart boxShadow p-2">
-      <p class="title-chart set-font-vazir py-3">وضعیت پروژه ها</p>
-      <div echarts [options]="doneProjectOfCompany" theme="macarons" class="demo-chart"></div>
-    </div>
+  <div *ngIf="projectListHandel" class="col-12 mx-auto mt-4">
+    <app-advanced-search-according-to-cost [projectList]="projectListHandel"></app-advanced-search-according-to-cost>
   </div>
 </div>
 <div class="p-2 d-flex justify-content-center set-font-vazir text-center more-button mx-auto" (click)="goToAllChart()">بیشتر</div>
