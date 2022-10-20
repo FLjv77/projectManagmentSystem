@@ -59,6 +59,7 @@ export class DropDownProjectListComponent implements OnInit {
     }
 
     if(this.companyId) {
+      this.empty=false;
       this.showSpinner = true;
       this.projectConnectToApiService.getProjectsGeneralInfoOfCompany(
         new GetProjectsGeneralInfoOfCompanyDto(
@@ -71,19 +72,16 @@ export class DropDownProjectListComponent implements OnInit {
               id: res.data[i].projectId
             }
             this.projectData.push(obj);
-            if (this.projectData.length==0) {
-              this.empty=true;
-            }
-            else{this.empty=false;}
+            console.log(this.projectData.length);
           }
           this.showSpinner = false;
 
         } else {
-
-        }
+          }
 
       }, (err: HttpErrorResponse) => {
-
+          this.empty=true;
+          this.showSpinner = false;
       });
       this.advancedSearchConnecctToApiService.changed.emit(false);
     }

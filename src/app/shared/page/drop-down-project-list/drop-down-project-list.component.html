@@ -1,10 +1,10 @@
-<div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
+<div *ngIf="!empty && showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
 <div *ngIf="!empty && !showSpinner" class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl pt-2">
   <ng-select2 [data]="projectData" [placeholder]="'انتخاب پروژه'"
   (valueChanged)="setParentId($event)"
   [(ngModel)]="placeHolder"></ng-select2>
 </div>
 
-<div *ngIf="empty">
-  <span class="set-font-vazir font-weight-bold" style="color: rgb(112, 112, 112);">پروژه ای برای این شرکت وجود ندارد</span>
+<div *ngIf="empty && !showSpinner" class="text-center">
+  <span class="set-font-vazir font-weight-bold mx-auto" style="color: rgb(112, 112, 112);">پروژه ای برای این شرکت وجود ندارد</span>
 </div>
