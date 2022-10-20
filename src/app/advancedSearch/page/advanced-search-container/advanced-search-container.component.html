@@ -33,7 +33,7 @@
             </mat-form-field>
             -->
 
-            <app-drop-down-company-list *ngIf="currentUserIsAdmin"></app-drop-down-company-list>
+            <app-drop-down-company-list (companyIdSelected)="setSelectedCompanyId($event)" *ngIf="currentUserIsAdmin"></app-drop-down-company-list>
 
           </div>
           <div class="col-12 {{currentUserIsAdmin? 'col-md-6' : '' }}">
@@ -51,9 +51,10 @@
         <div class="mt-3" *ngIf="!showChart">
           <app-advanced-search-according-to-company></app-advanced-search-according-to-company>
         </div>
-        <div class="row mt-3" *ngIf="showChart">
-          <app-advanced-search-according-to-cost [projectList]="projectList"></app-advanced-search-according-to-cost>
-          <app-advanced-search-according-to-time [projectList]="projectList"></app-advanced-search-according-to-time>
+        <div class="row mt-3" *ngIf="showChart && updateData">
+          <app-advanced-search-according-to-cost *ngIf="projectList.length > 0" [projectList]="projectList"></app-advanced-search-according-to-cost>
+          <app-advanced-search-according-to-time *ngIf="projectList.length > 0" [projectList]="projectList"></app-advanced-search-according-to-time>
+          <app-advanced-search-according-to-progress [companyId]="selectedCompanyId"></app-advanced-search-according-to-progress>
 
           <!--
           <app-advanced-search-according-to-progress *ngIf="reportState == 0"></app-advanced-search-according-to-progress>

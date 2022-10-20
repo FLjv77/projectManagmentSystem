@@ -64,7 +64,7 @@ export class SocialTransformationInformationComponent implements OnInit {
   public number4 = new FormControl();
   public arrayListAddicion: Array<SocialTransformationAddicion> = new Array<SocialTransformationAddicion>();
   public arrayListBuildingCamp: Array<SocialTransformationCampConstruction> = new Array<SocialTransformationCampConstruction>();
-  public arrayListDivorce: Array<SocialTransformationDivorce> = new Array<SocialTransformationDivorce>();
+  public arrayListDivorce: SocialTransformationDivorce = new SocialTransformationDivorce();
   public arrayListUnintentionalPrisoner: Array<SocialTransformationUnintentionalPrisoner> = new Array<SocialTransformationUnintentionalPrisoner>();
   public arraySocialTransformationBannedFromEducation: Array<SocialTransformationBannedFromEducation> = new Array<SocialTransformationBannedFromEducation>();
   public arrayListSocialTransformationSegmentation: Array<SocialTransformationSegmentation> = new Array<SocialTransformationSegmentation>();
@@ -130,11 +130,11 @@ export class SocialTransformationInformationComponent implements OnInit {
         this.arrayListBuildingCamp,
         this.arrayListDivorce,
         this.arrayListUnintentionalPrisoner,
+        [],
         this.arraySocialTransformationBannedFromEducation,
         this.arrayListSocialTransformationSegmentation,
-        this.arrayListSocialTransformationSpecialPatient,
         [],
-        []
+        this.arrayListSocialTransformationSpecialPatient
       )
     ).subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>) => {
       this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
@@ -270,20 +270,23 @@ export class SocialTransformationInformationComponent implements OnInit {
   }
 
   public deleteListDivorce(index: number){
-    this.arrayListDivorce.splice(index, 1);
+    this.arrayListDivorce = new SocialTransformationDivorce();
   }
 
   public addListDivorce(){
     this.amountDivorceGivenFacilities.push(new FormControl());
     this.consultantWorkshops.push(new FormControl());
 
-    this.arrayListDivorce.push(new SocialTransformationDivorce());
+    this.arrayListDivorce = new SocialTransformationDivorce();
+   /// this.arrayListDivorce.push(new SocialTransformationDivorce());
   }
+
   public observeChange_amountDivorceGivenFacilities(event: string, index: number) {
-    this.arrayListDivorce[index].amountOfFacilities = Number(event);
+    this.arrayListDivorce.amountOfFacilities = Number(event);
   }
+
   public observeChange_consultantWorkshops(event: string, index: number) {
-    this.arrayListDivorce[index].numberOfConsultationWorkShopn = Number(event);
+    this.arrayListDivorce.numberOfConsultationWorkShopn = Number(event);
   }
 
   public deleteListUnintentionalPrisoner(index: number){

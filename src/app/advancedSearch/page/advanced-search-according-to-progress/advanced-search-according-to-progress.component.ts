@@ -1,5 +1,8 @@
 import { Development } from './../../model/advanceSearch';
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import { AdvancedSearchConnecctToApiService } from '../../service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { ApiResult } from '../../../auth/model/authDTO';
+import { CompanyProjectProgress } from 'src/app/projectManagement/model/project/projectDto';
 
 @Component({
   selector: 'app-advanced-search-according-to-progress',
@@ -10,76 +13,85 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 })
 export class AdvancedSearchAccordingToProgressComponent implements OnInit, AfterViewInit {
   public options: any;
+  public options2: any;
+
+  @Input() companyId: string;
+
+  constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
+
+  }
 
   ngOnInit(): void {
+  }
 
+  private getProgressOfProject() {
+    this.advancedSearchConnecctToApiService.ComputeCompanyProjectProgress(
+      this.companyId
+    ).subscribe((res: ApiResult<CompanyProjectProgress[]>) => {
+      if(res.statusCode == 200 && res.isSuccess) {
+        let data = new Array<DataForChart>();
+        let data2 = new Array<number>();
+        let data3 = new Array<number>();
+        let dataName = new Array<string>();
+
+
+        for(let i=0; i<res.data[0].projectProgresses.length; i++) {
+          data2.push(res.data[0].projectProgresses[i].projectCurrentProgressPercentage);
+          data3.push(res.data[0].projectProgresses[i].projectNormalProgressPercentage);
+          dataName.push(res.data[0].projectProgresses[i].projectName);
+        }
+
+        this.initChart2(data2, data3, dataName);
+
+      }
+    })
   }
 
   ngAfterViewInit(): void {
-    this.options = {
-      title: {
-        top: 20,
-        textStyle: {
-          color: '#282828',
+    this.getProgressOfProject();
+  }
+
+  private initChart2(data1: number[], data2: number[], xAxisData: string[]) {
+    this.options2 = {
+      legend: {
+        data: ['پیشرفت انجام شده', 'پیشرف مورد انتظار'],
+        align: 'left',
+      },
+      tooltip: {},
+      xAxis: {
+        data: xAxisData,
+        silent: false,
+        splitLine: {
+          show: false,
         },
       },
-      tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)',
-      },
-      visualMap: {
-        show: false,
-        min: 80,
-        max: 600,
-        inRange: {
-          colorLightness: [0, 1],
-        },
-      },
+      yAxis: {},
       series: [
         {
-          name: 'Counters',
-          type: 'pie',
-          radius: '55%',
-          center: ['50%', '50%'],
-          data: [
-            { value: 335, name: 'پروژه-1' },
-            { value: 310, name: 'پروژه-2' },
-            { value: 274, name: 'پروژه-3' },
-            { value: 235, name: 'پروژه-4' },
-            { value: 400, name: 'پروژه-5' },
-          ].sort((a, b) => a.value - b.value),
-          roseType: 'radius',
-          label: {
-            normal: {
-              textStyle: {
-                color: 'rgba(59,59,59,0.9)',
-                fontFamily: ' Vazir, Raymon, Arial, Helvetica, sans-serif',
-
-              },
-            },
-          },
-          labelLine: {
-            normal: {
-              lineStyle: {
-                color: 'rgba(88,88,88,0.3)',
-              },
-              smooth: 0.2,
-              length: 10,
-              length2: 20,
-            },
-          },
-          itemStyle: {
-            normal: {
-              color: '#23d8db',
-            },
-          },
-
-          animationType: 'scale',
-          animationEasing: 'elasticOut',
-          animationDelay: () => Math.random() * 200,
+          name: 'پیشرفت انجام شده',
+          type: 'bar',
+          data: data1,
+        },
+        {
+          name: 'پیشرف مورد انتظار',
+          type: 'bar',
+          data: data2,
         },
       ],
+      animationEasing: 'elasticOut',
     };
-
   }
+}
+
+
+export class DataForChart {
+  constructor(
+    name: string,
+    value: number
+  ) {
+    this.name = name;
+    this.value = value;
+  }
+  name: string;
+  value: number;
 }

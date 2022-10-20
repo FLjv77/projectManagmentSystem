@@ -5,3 +5,20 @@
     </div>
   </div>
 </div>
+
+<div class="col-12 px-3 mx-auto mt-3">
+  <div class="container-chart boxShadow p-2">
+    <p class="title-chart set-font-vazir py-3">پروژه های با تاخیر</p>
+    <div echarts [options]="options2" class="demo-chart" (chartinit)="onChartEvent($event, 'chartInit')" (chartclick)="onChartEvent($event, 'chartClick')" (chartdblclick)="onChartEvent($event, 'chartDblClick')" (chartmousedown)="onChartEvent($event, 'chartMouseDown')" (chartmouseup)="onChartEvent($event, 'chartMouseUp')" (chartmouseover)="onChartEvent($event, 'chartMouseOver')" (chartmouseout)="onChartEvent($event, 'chartMouseOut')" (chartglobalout)="onChartEvent($event, 'chartGlobalOut')" (chartcontextmenu)="onChartEvent($event, 'chartContextMenu')" (chartdatazoom)="onChartEvent($event, 'chartDataZoom')">
+    </div>
+  </div>
+</div>
+
+
+<div class="col-12 px-3 mx-auto mt-3">
+  <div class="container-chart boxShadow p-2">
+    <p class="title-chart set-font-vazir py-3">تفکیک پروژه ها بر اساس وضعیت</p>
+    <div echarts [options]="options3" class="demo-chart" (chartinit)="onChartEvent($event, 'chartInit')" (chartclick)="onChartEvent($event, 'chartClick')" (chartdblclick)="onChartEvent($event, 'chartDblClick')" (chartmousedown)="onChartEvent($event, 'chartMouseDown')" (chartmouseup)="onChartEvent($event, 'chartMouseUp')" (chartmouseover)="onChartEvent($event, 'chartMouseOver')" (chartmouseout)="onChartEvent($event, 'chartMouseOut')" (chartglobalout)="onChartEvent($event, 'chartGlobalOut')" (chartcontextmenu)="onChartEvent($event, 'chartContextMenu')" (chartdatazoom)="onChartEvent($event, 'chartDataZoom')">
+    </div>
+  </div>
+</div>
