@@ -57,8 +57,8 @@ export class DependencyActivitiesComponent implements OnInit {
       new RequestCreateActivityDependency(
         this.projectId,
         new CreateActivityDependency(
-          this.activityList[sourceActivityIndex].activityId,
-          this.activityList[destinationActivityIndex].activityId,
+          this.activityList[sourceActivityIndex].activityName,
+          this.activityList[destinationActivityIndex].activityName,
           state
         )
       )

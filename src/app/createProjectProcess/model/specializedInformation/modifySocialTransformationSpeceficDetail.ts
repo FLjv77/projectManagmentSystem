@@ -1,98 +1,90 @@
+import { number } from 'echarts';
 import { ConstructionTypestring } from './modifyWaterShedAndCanalsSpeceficDetail';
 
 export class SocialTransformationSpeceficDetailDTO {
-    addicions: SocialTransformationAddicion[];
-    campConstructions: SocialTransformationCampConstruction[];
-    divorces: SocialTransformationDivorce[];
-    unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[];
-    bannedFromEducations: SocialTransformationBannedFromEducation[];
-    segmentations: SocialTransformationSegmentation[];
-    specialPatients: SocialTransformationSpecialPatient[];
-    needies: SocialTransformationNeedy[];
-    childLabours: SocialTransformationChildLabour[];
-    constructor(
-      addicions: SocialTransformationAddicion[],
-      campConstructions: SocialTransformationCampConstruction[],
-      divorces: SocialTransformationDivorce[],
-      unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[],
-      bannedFromEducations: SocialTransformationBannedFromEducation[],
-      segmentations: SocialTransformationSegmentation[],
-      specialPatients: SocialTransformationSpecialPatient[],
-      needies: SocialTransformationNeedy[],
-      childLabours: SocialTransformationChildLabour[]
-    ) {
-      this.addicions = addicions;
-      this.campConstructions = campConstructions;
-      this.divorces = divorces;
-      this.unintentionalPrisoners = unintentionalPrisoners;
-      this.bannedFromEducations = bannedFromEducations;
-      this.segmentations = segmentations;
-      this.specialPatients = specialPatients;
-      this.needies = needies;
-      this.childLabours = childLabours;
-    }
+  addicions: SocialTransformationAddicion[];
+  campConstructions: SocialTransformationCampConstruction[];
+  divorces: SocialTransformationDivorce;
+  unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[];
+  needies: SocialTransformationNeedy[];
+  bannedFromEducations: SocialTransformationBannedFromEducation[];
+  segmentations: SocialTransformationSegmentation[];
+  childLabours: SocialTransformationChildLabour[];
+  specialPatients: SocialTransformationSpecialPatient[];
+
+  constructor(
+    addicions: SocialTransformationAddicion[],
+    campConstructions: SocialTransformationCampConstruction[],
+    divorces: SocialTransformationDivorce,
+    unintentionalPrisoners: SocialTransformationUnintentionalPrisoner[],
+    needies: SocialTransformationNeedy[],
+    bannedFromEducations: SocialTransformationBannedFromEducation[],
+    segmentations: SocialTransformationSegmentation[],
+    childLabours: SocialTransformationChildLabour[],
+    specialPatients: SocialTransformationSpecialPatient[]
+  ) {
+    this.addicions = addicions;
+    this.campConstructions = campConstructions;
+    this.divorces = divorces;
+    this.unintentionalPrisoners = unintentionalPrisoners;
+    this.needies = needies;
+    this.bannedFromEducations = bannedFromEducations;
+    this.segmentations = segmentations;
+    this.childLabours = childLabours;
+    this.specialPatients = specialPatients;
+  }
 }
 
-export class SocialTransformationAddicion {
-    constructor() {}
+  export class SocialTransformationAddicion {
     numberOfIntroducingToCamp: number;
     addictionBudget: number;
-}
+  }
 
-export class SocialTransformationCampConstruction {
-    constructor(){}
+  export class SocialTransformationCampConstruction{
     numberOfCamp: number;
     addictedCapacity: number;
     numberOfFloor: number;
-}
+  }
 
-export class SocialTransformationDivorce {
-    constructor() {}
+  export class 	SocialTransformationDivorce {
     numberOfConsultationWorkShopn: number;
     amountOfFacilities: number;
-}
+  }
 
-export class SocialTransformationUnintentionalPrisoner {
-    constructor(){
-    }
+  export class SocialTransformationUnintentionalPrisoner{
     constructionType: ConstructionTypestring;
     amountOfElectronicFootCuffs: number;
     cost: string;
-    amountOfFacilities:	number;
-    crimeType:	string;
-}
+    amountOfFacilities: number;
+    crimeType: string;
+  }
 
-export class SocialTransformationBannedFromEducation {
-    constructor() {}
-    amountOfEducationalPackage:	number;
-    educationalCost: number;
-    coveredPerson: number;
-}
-
-export class  SocialTransformationSegmentation {
-    constructor() {}
-    subsitencePackage:	number;
-    costOfPackage:	number;
-}
-
-export class SocialTransformationSpecialPatient {
-    constructor() {}
-    numberOfDrugPackages: number;
-    amountOfMedicineFacilities:	number;
-    numberOfCoveredPatients: number;
-}
-
-export class SocialTransformationNeedy {
-    constructor() {}
+  export class SocialTransformationNeedy {
     constructionType: ConstructionTypestring;
     numberOfPerson: number;
     numberOfMediconPackage: number;
     packageCost: number;
-    needyEquipmentType:	string;
+    needyEquipmentType: string;
     equipmentCost: number;
+  }
+
+ export class SocialTransformationBannedFromEducation {
+    amountOfEducationalPackage: number;
+    educationalCost: number;
+    coveredPerson: number;
+ }
+
+export class SocialTransformationSegmentation {
+  subsitencePackage: number;
+  costOfPackage: number;
 }
 
 export class SocialTransformationChildLabour {
-    constructor(){    }
-    numberOfChildLabour: number;
+  numberOfChildLabour: number;
+}
+
+export class SocialTransformationSpecialPatient {
+  numberOfDrugPackages: number;
+  amountOfMedicineFacilities: number;
+  numberOfCoveredPatients: number;
 }

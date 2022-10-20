@@ -52,7 +52,7 @@ export class UnreviewedReportsComponent implements OnInit {
 
   private getReportAllocation() {
     this.reportConnectionToApiService.GetAllocationReports(
-      this.projectId
+      this.projectId, 3
     ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
@@ -62,7 +62,7 @@ export class UnreviewedReportsComponent implements OnInit {
 
   private getReportProgress() {
     this.reportConnectionToApiService.GetProgressReports(
-      this.projectId
+      this.projectId, 3
     ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.progressReportSelectedDtos = res.data.progressReportSelectedDtos;

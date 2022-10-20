@@ -42,5 +42,6 @@ export const url = {
   UploadDocumentsOfProject: 'Media/UploadDocumentsOfProject/',
   SearchLocation: 'Region/SearchLocation',
   AllocationReportVerification: 'Project/AllocationReportVerification/',
-  ProgressReportVerification: 'Project/ProgressReportVerification/'
+  ProgressReportVerification: 'Project/ProgressReportVerification/',
+  ComputeCompanyProjectProgress: 'Holding/ComputeCompanyProjectProgress'
 }

@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { ApiResult } from '../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
-import { ProjectSelectedDTO, ProjectSelectedDTOResualt } from '../../../projectManagement/model/project/projectDto';
+import { CompanyProjectProgress, ProjectSelectedDTO, ProjectSelectedDTOResualt } from '../../../projectManagement/model/project/projectDto';
 import { HttpClient } from '@angular/common/http';
 import { url } from '../../../../assets/url/url';
 import { GetProjectsWithDynamicFilterDto } from '../../model/advanceSearch';
@@ -20,12 +20,18 @@ export class AdvancedSearchConnecctToApiService {
   public getProjectsWithDynamicFilter(getProjectsWithDynamicFilterDto: GetProjectsWithDynamicFilterDto):Observable<ApiResult<ProjectSelectedDTOResualt>> {
     return this.http.get<ApiResult<ProjectSelectedDTOResualt>>(
       url.getProjectsWithDynamicFilter +
-      getProjectsWithDynamicFilterDto.companyId +
-      ((getProjectsWithDynamicFilterDto.projectStatus != undefined) ? ('?projectStatus=' + getProjectsWithDynamicFilterDto.projectStatus) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('?startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('?startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '')
+      getProjectsWithDynamicFilterDto.companyId + '?' +
+      ((getProjectsWithDynamicFilterDto.projectStatus != undefined) ? ('projectStatus=' + getProjectsWithDynamicFilterDto.projectStatus) + '&' : '') +
+      ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
+      ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '') +
+      'activePage=1&takeEntity=100'
+
       )
 
-      }
+  }
+
+  public ComputeCompanyProjectProgress(companyId: string): Observable<ApiResult<CompanyProjectProgress[]>> {
+    return this.http.get<ApiResult<CompanyProjectProgress[]>>(url.ComputeCompanyProjectProgress + '?companyId=' + companyId);
+  }
 }
 

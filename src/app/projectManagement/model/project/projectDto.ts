@@ -20,18 +20,17 @@ export class GetProjectsGeneralInfoOfCompanyDto {
 
 export class ProjectSelectedDTOResualt {
   projectSelectedDTOs: ProjectSelectedDTO[];
-  "dynamicProjectFilterDTO": {
-    "companyName": "compa",
-    "customDateFormat": 0,
-    "projectSortedBy": 0,
-    "pageId": 1,
-    "pageCount": 0,
-    "activePage": 0,
-    "startPage": 0,
-    "endPage": 0,
-    "takeEntity": 100,
-    "skipEntity": 0
-  }
+  dynamicProjectFilterDTO: DynamicProjectFilterDTO;
+  pageId: number;
+  pageCount: number;
+  activePage: number;
+  startPage: number;
+  endPage: number;
+  takeEntity: number;
+  skipEntity: number;
+}
+
+export class DynamicProjectFilterDTO{
   pageId: number;
   pageCount: number;
   activePage: number;
@@ -153,4 +152,17 @@ export class UpdateProjectDTO {
   latitude: number;
   interCities: Array<string>;
   interRegions: Array<string>;
+}
+
+export class CompanyProjectProgress {
+  companyId: string;
+  companyName: string;
+  projectProgresses: ProjectProgress[];
+}
+
+export class ProjectProgress{
+  projectId: string;
+  projectName: string;
+  projectCurrentProgressPercentage: number;
+  projectNormalProgressPercentage: number;
 }

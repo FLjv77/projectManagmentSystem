@@ -22,7 +22,8 @@ export class AdvancedSearchContainerComponent implements OnInit {
   public showChart: boolean = false;
   public optionsIncome: any;
   public reportState: ReportState = 0;
-  private selectedCompanyId: string;
+  public selectedCompanyId: string;
+  public updateData: boolean = true;
   private projectStatus: ProjectStatus;
   private startTimeOfProjectLowerBound: string;
   private startTimeOfProjectUpperBound: string;
@@ -31,7 +32,6 @@ export class AdvancedSearchContainerComponent implements OnInit {
   public projectList: ProjectSelectedDTO[] = [];
 
   constructor(private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService) {
-    this.setSelectedCompanyId();
     this.subscribeProjectSelected();
   }
 
@@ -42,7 +42,10 @@ export class AdvancedSearchContainerComponent implements OnInit {
 
   private subscribeProjectSelected() {
     this.advancedSearchConnecctToApiService.projectListHandel.subscribe((res: ProjectSelectedDTO[]) => {
-      this.projectList = res;
+      this.projectList = [];
+      setTimeout(() => {
+        this.projectList = res;
+      }, 150);
     });
   }
 
@@ -75,12 +78,15 @@ export class AdvancedSearchContainerComponent implements OnInit {
     this.showChart = value;
   }
 
-  public setSelectedCompanyId() {
-    this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((id: string) => {
-      this.selectedCompanyId = id;
-      this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(id);
-      this.searchProject();
-    });
+  public setSelectedCompanyId(id: any) {
+    this.updateData = false;
+    setTimeout(() => {
+      this.updateData = true;
+    }, 200);
+    this.selectedCompanyId = id;
+    this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(id);
+
+    this.searchProject();
   }
 
   public setProjectState(state: ProjectStatus) {
