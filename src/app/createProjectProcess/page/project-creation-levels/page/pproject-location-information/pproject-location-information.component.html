@@ -8,7 +8,7 @@
              [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
             [inputFormControl]="LocationFormControl"></app-input-style>
 
-            <app-drop-down-province-list></app-drop-down-province-list>
+            <app-drop-down-province-list (province)="setProvince($event)"></app-drop-down-province-list>
             <app-drop-down-city-list></app-drop-down-city-list>
             <app-drop-down-village-list></app-drop-down-village-list>
 

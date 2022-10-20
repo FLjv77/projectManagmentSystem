@@ -101,7 +101,7 @@ export class projectSpeceficDetail{
   ruralRoads: Array<RuralRoad>;
   addicions: Array<SocialTransformationAddicion>;
   campConstructions: Array<SocialTransformationCampConstruction>;
-  divorces: Array<SocialTransformationDivorce>;
+  divorces: SocialTransformationDivorce;
   unintentionalPrisoners: Array<SocialTransformationUnintentionalPrisoner>;
   bannedFromEducations: Array<SocialTransformationBannedFromEducation>;
   segmentations: Array<SocialTransformationSegmentation>;

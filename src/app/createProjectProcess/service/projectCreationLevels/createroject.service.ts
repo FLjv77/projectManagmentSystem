@@ -1,10 +1,11 @@
-import { Participant, ResourceInformation } from './../../model/createProjectModel/createProject';
+import { Select2OptionData } from 'ng-select2';
+import { Participant, ResourceInformation, SearchLocationSelectedDto, State } from './../../model/createProjectModel/createProject';
 import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { TargetsOfProjectSelectedDto } from '../../model/createProjectModel/target';
 
 @Injectable({
@@ -13,6 +14,8 @@ import { TargetsOfProjectSelectedDto } from '../../model/createProjectModel/targ
 export class CreaterojectService {
 
   constructor(private http: HttpClient) { }
+
+  public cityList = new EventEmitter<Array<Select2OptionData>>();
 
   public CreateProject(companyId: string|null,createProject: CreateProjectDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject);
@@ -48,13 +51,21 @@ export class CreaterojectService {
     return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProject + projectId , imageFormData);
   }
 
-  public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<any>> {
-    return this.http.get<ApiResult<any>>(
+  public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<SearchLocationSelectedDto>> {
+    return this.http.get<ApiResult<SearchLocationSelectedDto>>(
       url.SearchLocation +
-      (stateName? '?' + stateName : '') +
-      (cityName? '&' + cityName : '') +
-      (regionName? '&' + regionName : '') +
-      (ruralName? '&' + ruralName : '')
+      (stateName? '?stateName=' + stateName :'') +
+      (cityName? '&cityName=' + cityName : '') +
+      (regionName? '&regionName=' + regionName : '') +
+      (ruralName? '&ruralName=' + ruralName : '')
       );
+  }
+  public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State>> {
+    return this.http.get<ApiResult<State>>(
+      url.SearchLocation +'?stateName=' + stateName)
+  }
+  public SearchLocation2(stateName: string, cityName: string| string): Observable<ApiResult<SearchLocationSelectedDto>> {
+    return this.http.get<ApiResult<SearchLocationSelectedDto>>(
+      url.SearchLocation +'?stateName=' + stateName + '&cityName=' + cityName)
   }
 }

@@ -9,7 +9,7 @@ import { projectType } from './../../../../../../createProjectProcess/model/Enum
 import { SocialTransformationAddicion, SocialTransformationCampConstruction, SocialTransformationDivorce, SocialTransformationUnintentionalPrisoner, SocialTransformationSegmentation, SocialTransformationSpecialPatient, SocialTransformationBannedFromEducation, SocialTransformationSpeceficDetailDTO } from 'src/app/createProjectProcess/model/specializedInformation/modifySocialTransformationSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-social-transformation',
@@ -19,10 +19,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SocialTransformationComponent implements OnInit {
   private projectId : string|null;
   @Input() data: ProjectSelectedDTO;
+  @Output() refreshList= new EventEmitter<boolean>();
+  @Input() projectIdSelect: string|string[];
   public inputCustomStyle: InputCustomStyle;
   public numberFloors =  new Array<FormControl>();
   public Capacity =  new Array<FormControl>();
   public numberCamp =  new Array<FormControl>();
+  public edit: boolean;
 
   public budget = new FormControl();
   public numberIntroduction = new Array<FormControl>();
@@ -80,7 +83,7 @@ export class SocialTransformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.addList();
+    //this.addList();
     this.getData();
   }
 
@@ -92,9 +95,11 @@ export class SocialTransformationComponent implements OnInit {
 
   public getData(){
     if (this.data) {
+      console.log(this.data);
+      
       this.arrayListAddicion = this.data.projectSpeceficDetail.addicions;
       this.arrayListBuildingCamp = this.data.projectSpeceficDetail.campConstructions;
-      this.arrayListDivorce = this.data.projectSpeceficDetail.divorces[0];
+      this.arrayListDivorce = this.data.projectSpeceficDetail.divorces;
       this.arrayListUnintentionalPrisoner = this.data.projectSpeceficDetail.unintentionalPrisoners;
       this.arraySocialTransformationBannedFromEducation = this.data.projectSpeceficDetail.bannedFromEducations;
       this.arrayListSocialTransformationSegmentation = this.data.projectSpeceficDetail.segmentations;
@@ -114,8 +119,8 @@ export class SocialTransformationComponent implements OnInit {
       this.numberIntroduction.push(new FormControl());
       this.campBudget.push(new FormControl());
 
-      this.numberIntroduction[i].setValue(this.arrayListAddicion[i].addictionBudget);
-      this.campBudget[i].setValue(this.arrayListAddicion[i].numberOfIntroducingToCamp);
+      this.numberIntroduction[i].setValue(this.arrayListAddicion[i].numberOfIntroducingToCamp);
+      this.campBudget[i].setValue(this.arrayListAddicion[i].addictionBudget);
     }
   }
 
@@ -389,6 +394,33 @@ export class SocialTransformationComponent implements OnInit {
 
   public observeChange_volumeTreatmentFacilities(event: string, index: number) {
     this.arrayListSocialTransformationSpecialPatient[index].amountOfMedicineFacilities = Number(event);
+  }
+
+  public saved(){
+    this.editList();
+    this.edit = false;
+  }
+
+  public editForm(){
+    this.edit = true;
+  }
+
+  public editList(){
+    let list = new SocialTransformationSpeceficDetailDTO(this.arrayListAddicion,this.arrayListBuildingCamp,
+      this.arrayListDivorce,this.arrayListUnintentionalPrisoner,[],this.arraySocialTransformationBannedFromEducation,
+      this.arrayListSocialTransformationSegmentation,[],this.arrayListSocialTransformationSpecialPatient)
+    this.specializedInformationService.ModifySocialTransformationSpeceficDetail1(this.projectIdSelect,list).
+    subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>)=>{
+      console.log(res.data);
+      this.arrayListAddicion = res.data.addicions;
+      this.arrayListBuildingCamp = res.data.campConstructions;
+      this.arrayListDivorce = res.data.divorces;
+      this.arrayListUnintentionalPrisoner = res.data.unintentionalPrisoners;
+      this.arraySocialTransformationBannedFromEducation = res.data.bannedFromEducations;
+      this.arrayListSocialTransformationSegmentation = res.data.segmentations;
+      this.arrayListSocialTransformationSpecialPatient = res.data.specialPatients;
+      
+    })
   }
 
 }

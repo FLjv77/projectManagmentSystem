@@ -1,11 +1,18 @@
 <div class="row">
+  <div class="col-12">
+    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+      <i class="material-icons d-inline">edit</i>
+    </button>
+    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+      <i class="material-icons d-inline">check</i>
+    </button>
+  </div>
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">public</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی تحول اجتماعی</h4>
     </div>
 
-
-    <div *ngIf="arrayListAddicion.length!=0">
+    <div *ngIf="arrayListAddicion">
       <div *ngFor="let list0 of arrayListAddicion , let i = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
@@ -32,7 +39,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"
         [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
 
-        <div *ngIf="i-1>=0" class="row mx-auto">
+        <div *ngIf="i>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListAddicion(i)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -41,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto">
+      <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListAddicion()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -52,7 +59,7 @@
     </div>
 
 
-    <div *ngIf="arrayListBuildingCamp.length!=0">
+    <div *ngIf="arrayListBuildingCamp">
       <div *ngFor="let list1 of arrayListBuildingCamp , let j = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">ساخت کمپ : </h4>
@@ -82,7 +89,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
          [inputId]="'numberFloors' + j" [type]="'number'" [inputFormControl]="numberFloors[j]" (changeValue)="observeChange_numberFloors($event, j)"></app-input-style>
 
-        <div *ngIf="j-1>=0" class="row mx-auto">
+        <div *ngIf="j>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListBuildingCamp(j)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -91,7 +98,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto">
+      <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListBuildingCamp()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -129,7 +136,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
         [inputId]="'amountDivorceGivenFacilities' + k" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities[k]" (changeValue)="observeChange_consultantWorkshops($event, k)"></app-input-style>
 
-        <div *ngIf="k-1>=0" class="row mx-auto">
+        <div *ngIf="k>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListDivorce(k)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -138,7 +145,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto">
+      <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListDivorce()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -148,7 +155,7 @@
       </div>
     </div>
 
-    <div *ngIf="arrayListUnintentionalPrisoner.length!=0">
+    <div *ngIf="arrayListUnintentionalPrisoner">
       <div *ngFor="let list3 of arrayListUnintentionalPrisoner , let l = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">زندانیان غیرعمد : </h4>
@@ -230,7 +237,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'"
          [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>
 
-        <div *ngIf="n-1>=0" class="row mx-auto">
+        <div *ngIf="n>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListSocialTransformationBannedFromEducation(n)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -239,7 +246,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto">
+      <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListSocialTransformationBannedFromEducation()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -325,7 +332,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'"
         [inputId]="'numberTargetPatients' + d" [type]="'number'" [inputFormControl]="numberTargetPatients[d]" (changeValue)="observeChange_numberTargetPatients($event, d)"></app-input-style>
 
-        <div *ngIf="d-1>=0" class="row mx-auto">
+        <div *ngIf="d>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListSocialTransformationSpecialPatient(d)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -334,7 +341,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto">
+      <div *ngIf="edit" class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListSocialTransformationSpecialPatient()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""

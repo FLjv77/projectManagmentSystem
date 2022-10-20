@@ -1,3 +1,5 @@
+import { SearchLocationSelectedDto, State } from './../../../../model/createProjectModel/createProject';
+import { Select2OptionData } from 'ng-select2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
@@ -155,6 +157,22 @@ export class PProjectLocationInformationComponent implements OnInit {
       }
     }, (err: HttpErrorResponse) => {
     });
+  }
+  public cityList: Array<Select2OptionData>;
+
+  public setProvince($event: string|string[]){
+    console.log($event);
+    
+    this.createrojectService.SearchLocation1($event).subscribe((res:ApiResult<State>)=>{
+      console.log(res.data);
+      let list : Select2OptionData;
+      // for (let i = 0; i < res.data.cities.length; i++) {
+      //   list.text = res.data.cities[i].name;
+      //   list.id = res.data.cities[i].name;
+      //   list.push()
+      // }
+      // this.createrojectService.cityList.emit(list);
+    })
   }
 
 }

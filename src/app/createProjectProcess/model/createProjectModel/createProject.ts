@@ -115,3 +115,28 @@ export class ResourceInformation {
   resourceName: string;
   resourceApiAddress: string;
 }
+
+
+export class SearchLocationSelectedDto {
+  states: State[];
+}
+
+export class Rural {
+  id:string;
+  name:string;
+}
+
+export class Region {
+  name:string;
+  rurals:Rural[];
+}
+
+export class City {
+  name:string;
+  regions: Region[];
+}
+
+export class State {
+  name:string;
+  cities:City[];
+}

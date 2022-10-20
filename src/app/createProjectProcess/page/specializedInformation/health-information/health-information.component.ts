@@ -77,8 +77,20 @@ export class HealthInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.addlist();
     this.getQuery();
     this.setCompanyId();
+  }
+
+  public addlist(){
+    this.addHealthBathroom();
+    this.addHealthHome();
+    this.addHealthMedicine();
+    this.addHealthPharmacyList();
+    this.addHealthToilet();
+    this.addHealthTreatment();
+    this.addHealthVaccination();
+    this.addHospital();
   }
 
   private initInputStyle() {
@@ -161,52 +173,53 @@ export class HealthInformationComponent implements OnInit {
   public setProjectRuralWaterArea(state: number) {
     if (state==0) {
       this.select0 = !this.select0;
-      this.hospitalList = new Array<HealthHospital>();
-      this.addHospital();
+      //this.hospitalList = new Array<HealthHospital>();
+      //this.addHospital();
     }
     else if (state==1) {
       this.select1 = !this.select1;
-      this.HealthHomeList = new Array<HealthHealthHouse>();
-      this.addHealthHome();
+      //this.HealthHomeList = new Array<HealthHealthHouse>();
+      //this.addHealthHome();
     }
     else if (state==2) {
       this.select2 = !this.select2;
-      this.insuranceList = new Array<HealthInsurance>();
-      this.addInsuranceList();
+      //this.insuranceList = new Array<HealthInsurance>();
+      //this.addInsuranceList();
     }
     else if (state==3) {
       this.select3 = !this.select3;
-      this.healthPharmacyList = new Array<HealthPharmacy>();
-      this.addHealthPharmacyList();
+      //this.healthPharmacyList = new Array<HealthPharmacy>();
+      //this.addHealthPharmacyList();
     }
     else if (state==4) {
       this.select4 = !this.select4;
-      this.bathRoomList = new Array<HealthBathroom>();
-      this.addHealthBathroom();
+      //this.bathRoomList = new Array<HealthBathroom>();
+      //this.addHealthBathroom();
     }
     else if (state==5) {
       this.select5 = !this.select5;
-      this.WCList = new Array<HealthToilet>();
-      this.addHealthToilet();
+      //this.WCList = new Array<HealthToilet>();
+      //this.addHealthToilet();
     }
     else if (state==6) {
       this.select6 = !this.select6;
-      this.HealthVaccinationList = new Array<HealthVaccination>();
-      this.addHealthVaccination();
+      //this.HealthVaccinationList = new Array<HealthVaccination>();
+      //this.addHealthVaccination();
     }
     else if (state==7) {
       this.select7 = !this.select7;
-      this.diseaseList = new Array<HealthTreatment>();
-      this.addHealthTreatment();
+      //this.diseaseList = new Array<HealthTreatment>();
+      //this.addHealthTreatment();
     }
     else if (state==8) {
       this.select8 = !this.select8;
-      this.medicineList = new Array<HealthMedicine>();
-      this.addHealthMedicine();
+      //this.medicineList = new Array<HealthMedicine>();
+      //this.addHealthMedicine();
     }
   }
 
   public addHospital(){
+    this.hospitalList = new Array<HealthHospital>();
     this.NumberOfFloors.push(new FormControl());
     this.numberOfBedsHospital.push(new FormControl());
     this.numberHospital.push(new FormControl());
@@ -239,6 +252,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthHome(){
+    this.HealthHomeList = new Array<HealthHealthHouse>();
     this.HealthHomeList.push(new HealthHealthHouse());
 
     this.numberHealthHome.push(new FormControl());
@@ -273,6 +287,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addInsuranceList(){
+    this.insuranceList = new Array<HealthInsurance>();
     this.insuranceList.push(new HealthInsurance());
 
     this.numberOfPeopleCoveredByInsurance.push(new FormControl());
@@ -287,6 +302,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthPharmacyList(){
+    this.healthPharmacyList = new Array<HealthPharmacy>();
     this.healthPharmacyList.push(new HealthPharmacy());
     this.numberpharmacy.push(new FormControl());
     this.numberOfPeopleCoveredByInsurance.push(new FormControl());
@@ -301,6 +317,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthBathroom(){
+    this.bathRoomList = new Array<HealthBathroom>();
     this.bathRoomList.push(new HealthBathroom());
     this.numberBathroom.push(new FormControl());
   }
@@ -314,6 +331,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthToilet(){
+    this.WCList = new Array<HealthToilet>();
     this.WCList.push(new HealthToilet());
     this.numberWC.push(new FormControl());
   }
@@ -327,6 +345,8 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthVaccination(){
+    this.medicineList = new Array<HealthMedicine>();
+    this.HealthVaccinationList = new Array<HealthVaccination>();
     this.HealthVaccinationList.push(new HealthVaccination());
     this.numberVaccination.push(new FormControl());
   }
@@ -340,6 +360,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthTreatment(){
+    this.diseaseList = new Array<HealthTreatment>();
     this.diseaseList.push(new HealthTreatment());
     this.TypeOfDisease.push(new FormControl());
     this.NumberOfTreatments.push(new FormControl());

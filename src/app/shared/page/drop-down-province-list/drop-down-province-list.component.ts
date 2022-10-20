@@ -1,5 +1,8 @@
+import { ApiResult } from 'src/app/auth/model/authDTO';
+import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { Select2OptionData } from 'ng-select2';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { event } from 'jquery';
 
 @Component({
   selector: 'app-drop-down-province-list',
@@ -12,7 +15,9 @@ export class DropDownProvinceListComponent implements OnInit {
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
-  constructor() { }
+  @Output() province= new EventEmitter<string | string[]>();
+
+  constructor(private createrojectService:CreaterojectService) { }
 
   ngOnInit(): void {
     this.initProjectList();
@@ -23,6 +28,11 @@ export class DropDownProvinceListComponent implements OnInit {
   }
 
   private initProjectList() {
+    this.createrojectService.SearchLocation().subscribe((res:ApiResult<any>)=>{
+      console.log(res);
+      
+      //this.placeHolder = res.data;
+    })
     this.placeHolder = {
       text: 'انتخاب استان',
       id: 'none'
@@ -31,130 +41,133 @@ export class DropDownProvinceListComponent implements OnInit {
     this.projectData = [
       {
         text: 'اصفهان',
-        id: 'Basic 1'
+        id: 'اصفهان'
       },
       {
         text: 'تهران',
-        id: 'Basic 2'
+        id: 'تهران'
       },
       {
         text: 'سمنان',
-        id: 'Basic 3'
+        id: 'سمنان'
       },
       {
         text: 'یزد',
-        id: 'Basic 3'
+        id: 'یزد'
       },
       {
         text: 'فارس',
-        id: 'Basic 3'
+        id: 'فارس'
       },
       {
         text: 'اردبیل',
-        id: 'Basic 3'
+        id: 'اردبیل'
       },
       {
         text: 'خوزستان',
-        id: 'Basic 3'
+        id: 'خوزستان'
       },
       {
         text: 'خراسان رضوی',
-        id: 'Basic 3'
+        id: 'خراسان رضوی'
       },
       {
         text: 'خراسان شمالی',
-        id: 'Basic 3'
+        id: 'خراسان شمالی'
       },
       {
         text: 'خراسان جنوبی',
-        id: 'Basic 3'
+        id: 'خراسان جنوبی'
       },
       {
         text: 'سیستان و بلوچستان',
-        id: 'Basic 3'
+        id: 'سیستان و بلوچستان'
       },
       {
         text: 'آذربایجان غربی',
-        id: 'Basic 3'
+        id: 'آذربایجان غربی'
       },
       {
         text: 'آذربایجان شرقی',
-        id: 'Basic 3'
+        id: 'آذربایجان شرقی'
       },
       {
         text: 'زنجان',
-        id: 'Basic 3'
+        id: 'زنجان'
       },
       {
         text: 'قزوین',
-        id: 'Basic 3'
+        id: 'قزوین'
       },
       {
         text: 'همدان',
-        id: 'Basic 3'
+        id: 'همدان'
       },
       {
         text: 'کهکیلویه و بویراحمد',
-        id: 'Basic 3'
+        id: 'کهکیلویه و بویراحمد'
       },
       {
         text: 'کردستان',
-        id: 'Basic 3'
+        id: 'کردستان'
       },
       {
         text: 'لرستان',
-        id: 'Basic 3'
+        id: 'لرستان'
       },
       {
         text: 'گیلان',
-        id: 'Basic 3'
+        id: 'گیلان'
       },
       {
         text: 'مازندران',
-        id: 'Basic 3'
+        id: 'مازندران'
       },
       {
         text: 'گلستان',
-        id: 'Basic 3'
+        id: 'گلستان'
       },
       {
         text: 'کرمان',
-        id: 'Basic 3'
+        id: 'کرمان'
       },
       {
         text: 'بوشهر',
-        id: 'Basic 3'
+        id: 'بوشهر'
       },
       {
         text: 'هرمزگان',
-        id: 'Basic 3'
+        id: 'هرمزگان'
       },
       {
         text: 'ایلام',
-        id: 'Basic 3'
+        id: 'ایلام'
       },
       {
         text: 'چهارمحال و بختیاری',
-        id: 'Basic 3'
+        id: 'چهارمحال و بختیاری'
       },
       {
         text: 'قم',
-        id: 'Basic 3'
+        id: 'قم'
       },
       {
         text: 'کرمانشاه',
-        id: 'Basic 3'
+        id: 'کرمانشاه'
       },
       {
         text: 'مرکزی',
-        id: 'Basic 3'
+        id: 'مرکزی'
       },
       {
         text: 'البرز',
-        id: 'Basic 3'
+        id: 'البرز'
       },
     ];
 
+  }
+  public setValue($evnet: string | string[]){
+    this.province.emit($evnet);
   }
 
 }

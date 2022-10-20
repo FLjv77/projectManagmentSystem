@@ -55,6 +55,28 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
         console.log(this.projectIdSelect);
         this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+          if (res) {
+            for (let i = 0; i < res.data.participants.length; i++) {
+              if (res.data.participants[i].tag == 'کارفرما') {
+                this.employerList.push(res.data.participants[i]);
+              }
+              else if (res.data.participants[i].tag == 'ناظر') {
+                this.supervisorList.push(res.data.participants[i]);
+              }
+              else if (res.data.participants[i].tag == 'مجری') {
+                this.executorList.push(res.data.participants[i]);
+              }
+              else if (res.data.participants[i].tag == 'پیمان کار') {
+                this.contractorsList.push(res.data.participants[i]);
+              }
+              else if (res.data.participants[i].tag == 'مشاور') {
+                this.consultantList.push(res.data.participants[i]);
+              }
+              else if (res.data.participants[i].tag == 'سرمایه گذار') {
+                this.investorList.push(res.data.participants[i]);
+              }
+            }
+          }
         
       });
       }
@@ -112,6 +134,8 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      console.log(res.data.participants);
+      
       for (let i = 0; i < res.data.participants.length; i++) {
         if (res.data.participants[i].tag == 'کارفرما') {
           this.employerList.push(res.data.participants[i]);
