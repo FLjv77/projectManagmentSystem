@@ -1,3 +1,4 @@
+import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DisplayPathModel } from '../../../shared/model/displayPathModel';
@@ -14,10 +15,33 @@ import { DisplayPathModel } from '../../../shared/model/displayPathModel';
 export class HomeSuperVisorComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private reportConnectionToApiService:ReportConnectionToApiService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.getReportAllocation();
+    this.getReportProgress();
+  }
+
+  private getReportAllocation() {
+    // this.reportConnectionToApiService.GetAllocationReports(
+    //   this.projectId
+    // ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
+    //   if(res.isSuccess && res.statusCode == 200) {
+    //     this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
+    //   }
+    // });
+  }
+
+  private getReportProgress() {
+    // this.reportConnectionToApiService.GetProgressReports(
+    //   this.projectId
+    // ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
+    //   if(res.isSuccess && res.statusCode == 200) {
+    //     this.progressReportSelectedDtos = res.data.progressReportSelectedDtos;
+    //   }
+    // });
   }
 
   private initDisplayPath() {

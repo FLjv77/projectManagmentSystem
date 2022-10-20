@@ -45,6 +45,10 @@ export class SpecializedInformationService {
     return this.http.put<ApiResult<SocialTransformationSpeceficDetailDTO>>(url.ModifySocialTransformationSpeceficDetail + projectId , socialTransformationSpeceficDetailDTO);
   }
 
+  public ModifySocialTransformationSpeceficDetail1(projectId : string|string[], socialTransformationSpeceficDetailDTO: SocialTransformationSpeceficDetailDTO): Observable<ApiResult<SocialTransformationSpeceficDetailDTO>>{
+    return this.http.put<ApiResult<SocialTransformationSpeceficDetailDTO>>(url.ModifySocialTransformationSpeceficDetail + projectId , socialTransformationSpeceficDetailDTO);
+  }
+
   public ModifyRevivalIndustrySpeceficDetail(projectId : string|null, revivalIndustrySpeceficDetailDTO: RevivalIndustrySpeceficDetailDTO): Observable<ApiResult<RevivalIndustrySpeceficDetailDTO>>{
     return this.http.put<ApiResult<RevivalIndustrySpeceficDetailDTO>>(url.ModifyRevivalIndustrySpeceficDetail + projectId , revivalIndustrySpeceficDetailDTO);
   }

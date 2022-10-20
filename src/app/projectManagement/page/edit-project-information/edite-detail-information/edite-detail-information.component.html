@@ -2,7 +2,7 @@
   <div class="row">
     <app-health *ngIf="select=='سلامت'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-health>
     <app-knowledge-base *ngIf="select=='دانش بنیان'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-knowledge-base>
-    <app-social-transformation *ngIf="select=='تحول اجتماعی'"></app-social-transformation>
+    <app-social-transformation *ngIf="select=='تحول اجتماعی'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-social-transformation>
     <app-rural-water *ngIf="select=='آب خیر وقنوات'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-rural-water>
     <app-rural-way *ngIf="select=='راه روستایی'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-rural-way>
     <app-revival-industry *ngIf="select=='احیای صنعت'" [data]="data" (refreshList)="setRefresh($event)" [projectIdSelect]="projectIdSelect||projectId"></app-revival-industry>
