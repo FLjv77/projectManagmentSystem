@@ -1,6 +1,7 @@
+import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 import { url } from 'src/assets/url/url';
 import { Router } from '@angular/router';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {noop} from "rxjs";
 import {SidebarControleServiceService} from "../../service/sidebarControleService/sidebar-controle-service.service";
 
@@ -13,7 +14,7 @@ export class SidebarComponent implements OnInit {
   public sideBarIsCollapse: boolean = false;
   public showReport: boolean = false;
 
-  constructor( private router: Router,
+  constructor( private router: Router,private authService:AuthService,
                private sidebarControleServiceService: SidebarControleServiceService,
                private sidebarControleService: SidebarControleServiceService) {
     this.subscribeSideBarIsOpen();
@@ -66,7 +67,23 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['../../auth/loginUser']);
   }
   public GoHome(){
-    this.router.navigate(['../../dashboard']);
+    this.router.navigate(['../../dashboard/home']);
+    // this.authService.roleName.subscribe((res: string)=>{
+    //   console.log('jjjj');
+      
+    //   if (res) {
+    //     if (res=='companyAdmin') {
+    //       this.router.navigate(['../../dashboard/homeCompany']);
+    //     }
+    //     else if (res=='supervisor') {
+    //       this.router.navigate(['../../dashboard/homeSupervisor']);
+    //     }
+    //     else if (res=='holdingAdmin') {
+    //       this.router.navigate(['../../dashboard/home']);
+    //     }
+    //   }
+    // })
+    
   }
 
 }
