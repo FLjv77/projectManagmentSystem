@@ -14,6 +14,7 @@ import { HomeSuperVisorComponent } from 'src/app/dashboard/page/home-super-visor
 import { ChartForHomeSupervisorComponent } from '../../dashboard/page/home-super-visor/page/chart-for-home-supervisor/chart-for-home-supervisor.component';
 import { ProjectManagementModule } from '../project-management/project-management.module';
 import { AdvancedSearchModule } from '../advanced-search/advanced-search.module';
+import Swal from 'sweetalert2';
 
 
 @NgModule({

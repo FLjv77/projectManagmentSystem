@@ -43,5 +43,6 @@ export const url = {
   SearchLocation: 'Region/SearchLocation',
   AllocationReportVerification: 'Project/AllocationReportVerification/',
   ProgressReportVerification: 'Project/ProgressReportVerification/',
-  ComputeCompanyProjectProgress: 'Holding/ComputeCompanyProjectProgress'
+  ComputeCompanyProjectProgress: 'Holding/ComputeCompanyProjectProgress',
+  AmIAllowedToMakeThisClaim: 'Auth/AmIAllowedToMakeThisClaim/'
 }

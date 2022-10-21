@@ -1,5 +1,5 @@
 import { Select2OptionData } from 'ng-select2';
-import { Participant, ResourceInformation, SearchLocationSelectedDto, State } from './../../model/createProjectModel/createProject';
+import { Participant, ResourceInformation, SearchLocationSelectedDto, State, City, Region } from './../../model/createProjectModel/createProject';
 import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
 import { url } from 'src/assets/url/url';
 import { ApiResult } from './../../../auth/model/authDTO';
@@ -16,6 +16,8 @@ export class CreaterojectService {
   constructor(private http: HttpClient) { }
 
   public cityList = new EventEmitter<Array<Select2OptionData>>();
+  public regionList = new EventEmitter<Array<Select2OptionData>>();
+  public villageList = new EventEmitter<Array<Select2OptionData>>();
 
   public CreateProject(companyId: string|null,createProject: CreateProjectDTO): Observable<ApiResult<string>>{
     return this.http.post<ApiResult<string>>(url.CreateProject + '/' + companyId ,createProject);
@@ -61,12 +63,18 @@ export class CreaterojectService {
       );
 
   }
-  public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State>> {
-    return this.http.get<ApiResult<State>>(
+  public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State[]>> {
+    return this.http.get<ApiResult<State[]>>(
       url.SearchLocation +'?stateName=' + stateName)
   }
-  public SearchLocation2(stateName: string, cityName: string| string): Observable<ApiResult<SearchLocationSelectedDto>> {
-    return this.http.get<ApiResult<SearchLocationSelectedDto>>(
+  public SearchLocation2(stateName: string|string[], cityName: string| string[]): Observable<ApiResult<City[]>> {
+    return this.http.get<ApiResult<City[]>>(
       url.SearchLocation +'?stateName=' + stateName + '&cityName=' + cityName)
+  }
+
+  public SearchLocation3(stateName: string|string[], cityName: string| string[], regionName: string|string[]): Observable<ApiResult<Region[]>> {
+    return this.http.get<ApiResult<Region[]>>(
+      url.SearchLocation + '?stateName=' + stateName + '&cityName=' + cityName +'&regionName=' + regionName);
+
   }
 }

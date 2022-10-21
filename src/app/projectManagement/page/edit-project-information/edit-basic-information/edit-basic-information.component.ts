@@ -54,7 +54,7 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
         this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
         this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
         this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
-        //this.LocationFormControl.setValue(res.data.address.longitude + '-' + res.data.address.latitude)
+        this.LocationFormControl.setValue(res.data.address.longitude + '-' + res.data.address.latitude)
       });
       }
     })
@@ -79,7 +79,8 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
   }
 
   public goOnMap() {
-    this.router.navigate(['../../createProject/selectLocationOnMap']);
+    this.router.navigate(['../../createProject/selectLocationOnMap'],
+    {queryParams:{address: '../../projectManagement/editProject'}});
   }
 
   public getInfo(){

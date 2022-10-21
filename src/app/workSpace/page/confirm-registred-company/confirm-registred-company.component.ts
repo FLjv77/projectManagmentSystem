@@ -53,9 +53,6 @@ export class ConfirmRegistredCompanyComponent implements OnInit {
             this.list.push(res.data[i]);
           }
         }
-        console.log(this.list);
-        
-        //this.compans = res.data;
       }
     });
     })

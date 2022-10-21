@@ -19,8 +19,31 @@ export class AlertDialogBySweetAlertService {
     });
 
     swalWithBootstrapButtons.fire({
-      position: 'top-end',
+      position: 'center',
       icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 3500,
+      background: '#f7edff',
+      backdrop: `
+      rgba(0,0,0,0)
+    `
+    })
+  }
+
+  public showErrorAlert(message: string) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        title: 'set-font-Raymon',
+        confirmButton: 'set-font-vazir button-project ',
+        container: 'set-font-vazir',
+      },
+      buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+      position: 'center',
+      icon: 'error',
       title: message,
       showConfirmButton: false,
       timer: 3500,
