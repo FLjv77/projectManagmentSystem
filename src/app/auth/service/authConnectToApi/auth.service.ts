@@ -49,6 +49,10 @@ public generateToken(loginData: FormData): Observable<ApiResult<AccessToken>> {
 public getMyCompany(): Observable<ApiResult<CompanySelectedDTO>> {
   return this.http.get<ApiResult<CompanySelectedDTO>>(url.GetMyCompany);
 }
+
+public AmIAllowedToMakeThisClaim(roleClaim: string): Observable<ApiResult<boolean>> {
+  return this.http.get<ApiResult<boolean>>(url.AmIAllowedToMakeThisClaim + roleClaim);
+}
 }
 
 

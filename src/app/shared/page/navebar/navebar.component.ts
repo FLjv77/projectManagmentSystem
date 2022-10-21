@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,8 @@ export class NavebarComponent implements OnInit {
     private router: Router, private reportConnectionToApiService:ReportConnectionToApiService,
     private authService: AuthService,
     private handleDisplayErrorService: HandleDisplayErrorService,
-    private sidebarControleServiceService: SidebarControleServiceService
+    private sidebarControleServiceService: SidebarControleServiceService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService
   ) { }
 
   ngOnInit(): void {
@@ -54,12 +56,22 @@ export class NavebarComponent implements OnInit {
     this.isFullScreen = !this.isFullScreen;
   }
 
-  public changeUserRole(stateRole: UserRole) {
-    switch(stateRole) {
-      case 0 : this.router.navigate(['../../dashboard/home']); break;
-      case 1 : this.router.navigate(['../../dashboard/homeCompany']); break;
-      case 2 : this.router.navigate(['../../dashboard/homeSupervisor']); break;
-    }
+  public changeUserRole(stateRole: UserRole,role: string) {
+    this.authService.AmIAllowedToMakeThisClaim(role).subscribe((res: ApiResult<boolean>)=>{
+      console.log(res.data);
+      if (res.data == true) {
+        this.router.navigate([url]);
+        switch(stateRole) {
+          case 0 : this.router.navigate(['../../dashboard/home']); break;
+          case 1 : this.router.navigate(['../../dashboard/homeCompany']); break;
+          case 2 : this.router.navigate(['../../dashboard/homeSupervisor']); break;
+        }
+      }
+      else {
+        this.alertDialogBySweetAlertService.showErrorAlert('شما دسترسی لازم برای این بخش را ندارید.')
+      }
+    });
+    
   }
 
   private checkCurrentUserIsSuperAdmin(){

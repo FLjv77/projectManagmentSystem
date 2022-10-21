@@ -178,9 +178,17 @@ export class MapContainerComponent implements OnInit, AfterViewInit  {
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
-    this.router.navigate(['../../createProject/startCreatProject'],
-    {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)),
+    if (this.activeRouting.snapshot.queryParamMap.get('address') != null) {
+      let address = this.activeRouting.snapshot.queryParamMap.get('address');
+      this.router.navigate([address],
+      {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)),
       type: projectType, targetId: id, companyId: this.companyId}});
+    }
+    else {
+      this.router.navigate(['../../createProject/startCreatProject'],
+      {queryParams: {locations: JSON.stringify(this.getListLocation(this.addressList)),
+      type: projectType, targetId: id, companyId: this.companyId}});
+    }
 
       setTimeout(() => {
         this.commonDataForCreateProjectService.selectStep.emit(4);
