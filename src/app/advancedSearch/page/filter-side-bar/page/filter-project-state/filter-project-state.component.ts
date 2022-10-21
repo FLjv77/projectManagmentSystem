@@ -18,4 +18,7 @@ export class FilterProjectStateComponent implements OnInit {
     this.projectStatus.emit(state);
   }
 
+  public clearFilter() {
+    this.projectStatus.emit(undefined);
+  }
 }
