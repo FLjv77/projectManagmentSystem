@@ -1,4 +1,5 @@
-import { SearchLocationSelectedDto, State } from './../../../../model/createProjectModel/createProject';
+import { event } from 'jquery';
+import { SearchLocationSelectedDto, State, City, Region } from './../../../../model/createProjectModel/createProject';
 import { Select2OptionData } from 'ng-select2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
@@ -28,6 +29,11 @@ export class PProjectLocationInformationComponent implements OnInit {
   private locations: Location[];
 
   private projectId: string;
+
+  public provinceName: string|string[];
+  public cityName: string|string[];
+  public regionName: string|string[];
+  public villageName: string|string[];
 
   constructor(
     private router: Router,
@@ -146,7 +152,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public goNextStep() {
     this.commonDataForCreateProjectService.setLocationInformation(
-      'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
+      this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
     );
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
@@ -161,18 +167,59 @@ export class PProjectLocationInformationComponent implements OnInit {
   public cityList: Array<Select2OptionData>;
 
   public setProvince($event: string|string[]){
-    console.log($event);
-    
-    this.createrojectService.SearchLocation1($event).subscribe((res:ApiResult<State>)=>{
-      console.log(res.data);
-      let list : Select2OptionData;
-      // for (let i = 0; i < res.data.cities.length; i++) {
-      //   list.text = res.data.cities[i].name;
-      //   list.id = res.data.cities[i].name;
-      //   list.push()
-      // }
-      // this.createrojectService.cityList.emit(list);
+    this.provinceName=$event;
+    this.createrojectService.SearchLocation1(this.provinceName).subscribe((res:ApiResult<State[]>)=>{
+      this.cityList = [];
+      for (let i = 0; i < res.data.length; i++) {
+        let newValue: Select2OptionData = {
+          text: res.data[i].name,
+          id: res.data[i].name
+        };
+        this.cityList.push(newValue);
+      }
+      this.createrojectService.cityList.emit(this.cityList);
     })
+  }
+
+  public regionList: Array<Select2OptionData>;
+
+  public setCity($event: string|string[]){
+    this.cityName=$event;
+    this.createrojectService.SearchLocation2(this.provinceName,this.cityName).subscribe((res:ApiResult<City[]>)=>{
+      this.regionList = [];
+      for (let i = 0; i < res.data.length; i++) {
+        let newValue: Select2OptionData = {
+          text: res.data[i].name,
+          id: res.data[i].name
+        };
+        this.regionList.push(newValue);
+      }
+      this.createrojectService.regionList.emit(this.regionList);
+    })
+  }
+
+  public villageList: Array<Select2OptionData>;
+
+  public setRegion($event: string|string[]){
+    this.regionName=$event;
+    console.log($event);
+    this.createrojectService.SearchLocation3(this.provinceName,this.cityName,this.regionName).subscribe((res:ApiResult<Region[]>)=>{
+      console.log(res.data);
+      this.villageList = [];
+      for (let i = 0; i < res.data.length; i++) {
+        let newValue: Select2OptionData = {
+          text: res.data[i].name,
+          id: res.data[i].name
+        };
+        this.villageList.push(newValue);
+        console.log(this.villageList);
+      }
+      this.createrojectService.villageList.emit(this.villageList);
+    })
+  }
+
+  public setVillage($event: string|string[]){
+    this.villageName=$event;
   }
 
 }

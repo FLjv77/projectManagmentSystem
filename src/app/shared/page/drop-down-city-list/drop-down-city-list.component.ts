@@ -1,6 +1,6 @@
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { Select2OptionData } from 'ng-select2';
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-city-list',
@@ -11,6 +11,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
 
   @Input() placeholder: string;
   @Input() addInput: boolean;
+  @Output() city= new EventEmitter<string | string[]>();
   @Input() cityList: Array<Select2OptionData>;
   public title: string = 'انتخاب پروژه';
   public valueSelect: string | string[];
@@ -20,7 +21,6 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   constructor(private createrojectService:CreaterojectService) { }
 
   ngOnInit(): void {
-    this.initProjectList();
   }
 
   ngAfterViewInit(): void {
@@ -31,28 +31,6 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
 
   public setProject(name: string){
     this.title = name;
-  }
-
-  private initProjectList() {
-    this.placeHolder = {
-      text: 'انتخاب شهر',
-      id: 'none'
-    }
-
-    this.projectData = [
-      {
-        text: 'کاشان',
-        id: 'Basic 1'
-      },
-      {
-        text: 'نطنز',
-        id: 'Basic 2'
-      },
-      {
-        text: 'نایین',
-        id: 'Basic 2'
-      }
-    ];
   }
 
   public remove(index: number){
@@ -66,7 +44,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   }
 
   public setValue(event: string | string[]){
-    this.valueSelect = event;
+    this.city.emit(event);
   }
 
 }

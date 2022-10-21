@@ -87,10 +87,10 @@ export class CommonDataForCreateProjectService {
   }
 
   public setLocationInformation(
-    state: string,
-    city: string,
-    section: string,
-    region:	string,
+    state: string|string[],
+    city: string|string[],
+    section: string|string[],
+    region:	string|string[],
     longitude: number,
     latitude: number,
     interCities: string[],

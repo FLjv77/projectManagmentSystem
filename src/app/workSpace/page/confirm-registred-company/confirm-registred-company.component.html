@@ -28,4 +28,7 @@
     </div>
   </div>
 </div>
+<div *ngIf="!list||list.length==0">
+  <app-empty-result></app-empty-result>
+</div>
 <app-confirmed-registred-company-modal [modalState]="modalState" [companyId]="companyId" (refresh)="setRefresh($event)"></app-confirmed-registred-company-modal>

@@ -14,11 +14,11 @@ export class CreateProjectDTO {
     participants: Participant[];
     targetId: string;
     startTimeOfProject: string;
-    country: string;
-    state: string;
-    city: string;
-    section: string;
-    region:	string;
+    country: string|string[];
+    state: string|string[];
+    city: string|string[];
+    section: string|string[];
+    region:	string|string[];
     longitude: number;
     latitude: number;
     interCities: string[];
