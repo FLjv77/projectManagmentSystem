@@ -8,7 +8,7 @@ import { Component, Input, OnInit, EventEmitter, Output, AfterViewInit } from '@
   styleUrls: ['./drop-down-region-list.component.scss']
 })
 export class DropDownRegionListComponent implements OnInit, AfterViewInit {
-  
+
   @Input() placeholder: string;
   @Input() addInput: boolean;
   @Output() region = new EventEmitter<string | string[]>();
@@ -24,9 +24,7 @@ export class DropDownRegionListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.createrojectService.regionList.subscribe((res:Array<Select2OptionData>)=>{
-      this.projectData = res;
-    })
+    this.projectData = this.regionList;
   }
 
   public setProject(name: string){
@@ -38,12 +36,12 @@ export class DropDownRegionListComponent implements OnInit, AfterViewInit {
   }
 
   public add(name: string | string[]){
-    if (name != null) 
+    if (name != null)
     this.array = new Array<string>();
     this.array.push(name);
   }
 
   public setValue(event: string | string[]){
-    this.region.emit(event);
+     if(event) this.region.emit(event);
   }
 }

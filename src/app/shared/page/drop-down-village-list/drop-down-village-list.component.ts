@@ -25,9 +25,7 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.createrojectService.villageList.subscribe((res:Array<Select2OptionData>)=>{
-      this.projectData = res;
-    })
+    this.projectData = this.villageList;
   }
 
   public setProject(name: string){
@@ -37,16 +35,11 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   public add(name: string | string[]){
     if (name != null) {
       this.array.push(name);
-      console.log(this.array);
     }
   }
 
-  public setValue($event: string|string[]){
-    console.log($event);
-    
-    let name = this.projectData[Number($event)].text;
-    this.valueSelect = name;
-    this.village.emit($event);
+  public setValue(event: string|string[]){
+    if(event) this.village.emit(event);
   }
 
   public remove(index: number){

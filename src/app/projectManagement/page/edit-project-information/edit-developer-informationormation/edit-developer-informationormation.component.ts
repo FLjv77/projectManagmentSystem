@@ -3,7 +3,7 @@ import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/servi
 import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
 import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { ProjectSelectedDTO, UpdateProjectDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -77,7 +77,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
               }
             }
           }
-        
+
       });
       }
     })
@@ -86,7 +86,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   public saved(){
 
     let participants : Array<Participant> = new Array<Participant>;
-    let updateProjectDTO = new UpdateProjectDTO;
+    let updateProjectDTO = new UpdateProjectDTO();
     for (let i = 0; i < this.employerList.length; i++) {
       participants.push(this.employerList[i]);
     }
@@ -105,7 +105,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     for (let i = 0; i < this.supervisorList.length; i++) {
       participants.push(this.supervisorList[i]);
     }
-    updateProjectDTO.participants = participants;
+    //updateProjectDTO.participants = participants;
     updateProjectDTO.city = '';
     updateProjectDTO.country = '';
     updateProjectDTO.region = '';

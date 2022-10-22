@@ -167,11 +167,10 @@ export class PProjectLocationInformationComponent implements OnInit {
   public cityList: Array<Select2OptionData>;
 
   public setProvince($event: string|string[]){
+    console.log(0);
+
     this.provinceName=$event;
-    
-    
     this.createrojectService.SearchLocation1(this.provinceName).subscribe((res:ApiResult<State[]>)=>{
-      console.log(res.data);
       this.cityList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
@@ -180,15 +179,16 @@ export class PProjectLocationInformationComponent implements OnInit {
         };
         this.cityList.push(newValue);
       }
-      this.createrojectService.cityList.emit(this.cityList);
     })
   }
 
   public regionList: Array<Select2OptionData>;
 
-  public setCity($event: string|string[]){
-    this.cityName=$event;
-    this.createrojectService.SearchLocation2(this.provinceName,this.cityName).subscribe((res:ApiResult<City[]>)=>{
+  public setCity(event: string|string[]){
+    console.log(1);
+
+    this.cityName= event;
+    this.createrojectService.SearchLocation2(this.provinceName, this.cityName).subscribe((res:ApiResult<City[]>)=>{
       this.regionList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
@@ -197,17 +197,16 @@ export class PProjectLocationInformationComponent implements OnInit {
         };
         this.regionList.push(newValue);
       }
-      this.createrojectService.regionList.emit(this.regionList);
     })
   }
 
   public villageList: Array<Select2OptionData>;
 
   public setRegion($event: string|string[]){
+    console.log(2);
+
     this.regionName=$event;
-    console.log($event);
     this.createrojectService.SearchLocation3(this.provinceName,this.cityName,this.regionName).subscribe((res:ApiResult<Region[]>)=>{
-      console.log(res.data);
       this.villageList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
@@ -215,9 +214,7 @@ export class PProjectLocationInformationComponent implements OnInit {
           id: res.data[i].name
         };
         this.villageList.push(newValue);
-        console.log(this.villageList);
       }
-      this.createrojectService.villageList.emit(this.villageList);
     })
   }
 
