@@ -25,9 +25,6 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
   public projectTheBottleneckFormControl = new FormControl();
   public projectChallengeFormControl = new FormControl();
   public inputCustomStyle: InputCustomStyle;
-  public x_location: number;
-  public y_location: number;
-
   @Input() projectId: string | string[];
   public projectIdSelect: string| string[];
   public edit:boolean=false;
@@ -45,8 +42,10 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
       if (this.projectIdSelect) {
+        console.log(this.projectIdSelect);
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+        console.log(res.data);
         this.projectNameFormControl.setValue(res.data.projectName);
         this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
         this.descreptionFormControl.setValue(res.data.projectDescription);
@@ -55,12 +54,7 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
         this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
         this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
         this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
-        this.LocationFormControl.setValue(res.data.address.longitude + '-' + res.data.address.latitude);
-        this.x_location = res.data.address.longitude;
-        this.y_location = res.data.address.latitude;
-
-        console.log(this.x_location);
-
+        this.LocationFormControl.setValue(res.data.address.longitude + '-' + res.data.address.latitude)
       });
       }
     })
@@ -101,8 +95,6 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
       this.projectTheBottleneckFormControl.setValue(res.data.projectBottleNeck);
       this.humanResourceCostFormControl.setValue(res.data.humanResourceCost);
       this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
-      this.x_location = res.data.address.latitude;
-      this.y_location = res.data.address.longitude;
     });
     }
   }

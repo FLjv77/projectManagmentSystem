@@ -14,7 +14,7 @@
                      [inputFormControl]="projectTheBottleneckFormControl" [textarea]="true"></app-input-style>
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'چالشها پروژه'" [inputId]="'projectChallenge'"
                      [inputFormControl]="projectChallengeFormControl" [textarea]="true"></app-input-style>
-
+    
   </div>
   <div class="row">
     <div class="col-12">
@@ -44,19 +44,16 @@
                      [inputFormControl]="humanResourceCostFormControl"></app-input-style>
   </div>
 
-  <div class="row position-relative">
+  <div class="row">
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">location_on</i>
       <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مکانی</h4>
-
     </div>
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
                      [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style>
 
     <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
                      [inputFormControl]="LocationFormControl"></app-input-style>
-
-    <app-edit-project-location *ngIf="x_location" [selectedX]="x_location" [selectedY]="y_location"></app-edit-project-location>
   </div>
 
   <div *ngIf="getValue()" class="row col-12 my-2" style="direction: ltr;">

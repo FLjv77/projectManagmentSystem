@@ -5,7 +5,7 @@
   </div>
   <div class="col-12 position-relative set-font-vazir">
     <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
-    <div class="max-value-label">{{changeToPersian('99,999,999,999')}} تومان</div>
+    <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
     (change)="changeMin($event)"
       class="w-100"
@@ -15,7 +15,7 @@
       tickInterval="1000"
       step="1000"
       min="0"
-      max="99999999999"
+      max="100000"
       aria-label="units"></mat-slider>
   </div>
 </div>
@@ -27,7 +27,7 @@
   </div>
   <div class="col-12 position-relative set-font-vazir">
     <div class="min-value-label">{{changeToPersian('0')}} تومان</div>
-    <div class="max-value-label">{{changeToPersian('99,999,999,999')}} تومان</div>
+    <div class="max-value-label">{{changeToPersian('100,000')}} تومان</div>
     <mat-slider
       class="w-100"
       (change)="changeMax($event)"
@@ -37,15 +37,7 @@
       step="1000"
       min="0"
       [(ngModel)]="maxValue"
-      max="99999999999"
+      max="100000"
       aria-label="units"></mat-slider>
   </div>
-</div>
-
-<div (click)="clearFilter()" class="pointer d-flex mt-4 remove-filter">
-  <span class="mt-1 px-2">    حذف فیلتر
-  </span>
-  <span class="material-icons ">
-    block
-  </span>
 </div>

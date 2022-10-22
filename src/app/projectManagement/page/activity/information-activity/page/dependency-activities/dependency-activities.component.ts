@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DependencyActivitiesComponent implements OnInit {
   public disableChangeMatrix: boolean[][] = [[]];
-  public activityList: showActivityDto[] = [];
+  public activityList: showActivityDto[];
   private projectId: string;
   constructor(
     private activeRouting: ActivatedRoute,
@@ -23,7 +23,6 @@ export class DependencyActivitiesComponent implements OnInit {
   ngOnInit(): void {
     this.setProjectId();
     this.getProjectctivity();
-    this.getDependency();
   }
 
   private setProjectId() {
@@ -41,12 +40,6 @@ export class DependencyActivitiesComponent implements OnInit {
     }
   }
 
-  private getDependency() {
-    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<any>) => {
-      console.log((res.data));
-    });
-  }
-
   private getProjectctivity() {
     this.activityConnectToApiService.showActivities(
       this.projectId
@@ -54,7 +47,6 @@ export class DependencyActivitiesComponent implements OnInit {
       if(res.isSuccess && res.statusCode == 200) {
         this.activityList = res.data;
         this.initDisableChangeMatrix(res.data.length);
-        this.getDependency();
       }
     });
   }

@@ -53,9 +53,4 @@ export class FilterProjectTotalCostComponent implements OnInit {
     return this.numberFormaterService.covertToFrNumber(num)
   }
 
-
-  public clearFilter() {
-    this.handleMaxValue.emit(undefined);
-    this.handleMinValue.emit(undefined);
-  }
 }

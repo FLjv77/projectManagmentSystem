@@ -152,8 +152,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public goNextStep() {
     this.commonDataForCreateProjectService.setLocationInformation(
-      //this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
-      'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
+      this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
     );
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
@@ -174,7 +173,7 @@ export class PProjectLocationInformationComponent implements OnInit {
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
           text: res.data[i].name,
-          id: res.data[i].name
+          id: i.toString()
         };
         this.cityList.push(newValue);
       }
@@ -183,17 +182,24 @@ export class PProjectLocationInformationComponent implements OnInit {
   }
 
   public regionList: Array<Select2OptionData>;
-
+  public fillterCity : Array<City> = new Array<City>;
   public setCity($event: string|string[]){
     this.cityName=$event;
-    this.createrojectService.SearchLocation2(this.provinceName,this.cityName).subscribe((res:ApiResult<City[]>)=>{
+    this.createrojectService.SearchLocation2('اصفهان','کاشان').subscribe((res:ApiResult<City[]>)=>{
+      let list : Array<City>;
+      list = res.data;
+      this.fillterCity = list.filter(c=>c.name == this.provinceName);
+      let id = this.fillterCity
       this.regionList = [];
-      for (let i = 0; i < res.data.length; i++) {
+      console.log(res.data);
+      for (let i = 0; i < this.fillterCity.length; i++) {
         let newValue: Select2OptionData = {
           text: res.data[i].name,
           id: res.data[i].name
         };
         this.regionList.push(newValue);
+        console.log(this.regionList);
+        
       }
       this.createrojectService.regionList.emit(this.regionList);
     })
@@ -203,9 +209,9 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public setRegion($event: string|string[]){
     this.regionName=$event;
-    console.log($event);
+    
     this.createrojectService.SearchLocation3(this.provinceName,this.cityName,this.regionName).subscribe((res:ApiResult<Region[]>)=>{
-      console.log(res.data);
+     
       this.villageList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
@@ -213,7 +219,6 @@ export class PProjectLocationInformationComponent implements OnInit {
           id: res.data[i].name
         };
         this.villageList.push(newValue);
-        console.log(this.villageList);
       }
       this.createrojectService.villageList.emit(this.villageList);
     })

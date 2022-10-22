@@ -17,13 +17,13 @@ export class CommonDataForCreateProjectService {
   public projectBottleNeck: string;
   public projectChallange: string;
 
-  public name1: Participant[] = [];
-  public name2: Participant[] = [];
-  public name3: Participant[] = [];
-  public name4: Participant[] = [];
-  public name5: Participant[] = [];
-  public name6: Participant[] = [];
-  public name7: Participant[] = [];
+  public name1: Participant;
+  public name2: Participant;
+  public name3: Participant;
+  public name4: Participant;
+  public name5: Participant;
+  public name6: Participant;
+  public name7: Participant;
 
 
   constructor() {
@@ -36,13 +36,13 @@ export class CommonDataForCreateProjectService {
     this.projectBottleNeck = '';
     this.projectChallange = '';
 
-    this.name1 = new Array<Participant>();
-    this.name2 = new Array<Participant>();
-    this.name3 = new Array<Participant>();
-    this.name4 = new Array<Participant>();
-    this.name5 = new Array<Participant>();
-    this.name6 = new Array<Participant>();
-    this.name7 = new Array<Participant>();
+    this.name1 = new Participant('', '', '');
+    this.name2 = new Participant('', '', '');
+    this.name3 = new Participant('', '', '');
+    this.name4 = new Participant('', '', '');
+    this.name5 = new Participant('', '', '');
+    this.name6 = new Participant('', '', '');
+    this.name7 = new Participant('', '', '');
 
   }
 

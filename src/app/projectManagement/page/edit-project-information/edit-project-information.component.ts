@@ -1,3 +1,5 @@
+import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
+import { url } from './../../../../assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -18,22 +20,35 @@ export class EditProjectInformationComponent implements OnInit {
   public path3: DisplayPathModel;
   public projectDetail: ProjectSelectedDTO;
   public projectId: string|string[];
-  public show: string|null;
-  public setValues: boolean = false;
+  public show: boolean;
+  public setValues: boolean;
 
   constructor(private activeRouting: ActivatedRoute,
     private handleDisplayError: HandleDisplayErrorService,
-    private projectConnectToApiService: ProjectConnectToApiService) { }
+    private projectConnectToApiService: ProjectConnectToApiService,
+    private reportConnectionToApiService:ReportConnectionToApiService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.checkCompany();
     this.getProjectId();
     this.getProjectDetail();
   }
 
+  public checkCompany(){
+    if (url.userRole == 'notAdmin') {
+      this.show=false;
+      this.reportConnectionToApiService.CompanyName.emit(url.companyName);
+    }
+    else if (url.userRole == 'admin') {
+      this.show=true;
+    }
+    else{this.show=true;}
+  }
+
   private getProjectId() {
     let id = this.activeRouting.snapshot.queryParamMap.get('projectIdEdit');
-    if (id) this.projectId = id; this.show = id;
+    if (id) this.projectId = id;
   }
 
   public setProjectId(event: string|string[]){
