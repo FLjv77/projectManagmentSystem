@@ -50,7 +50,6 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {TimeLineChartActivityComponent} from "../../projectManagement/page/activity/information-activity/page/time-line-chart-activity/time-line-chart-activity.component";
 import {ActivityByDetailComponent} from "../../projectManagement/page/activity/information-activity/page/activity-by-detail/activity-by-detail.component";
-import { EditProjectLocationComponent } from 'src/app/projectManagement/page/edit-project-information/edit-project-location/edit-project-location.component';
 
 @NgModule({
   declarations: [
@@ -91,8 +90,7 @@ import { EditProjectLocationComponent } from 'src/app/projectManagement/page/edi
     TransferLineComponent,
     WaterSealComponent,
     WellComponent,
-    RevivalIndustryComponent,
-    EditProjectLocationComponent,
+    RevivalIndustryComponent
   ],
   imports: [
     CommonModule,

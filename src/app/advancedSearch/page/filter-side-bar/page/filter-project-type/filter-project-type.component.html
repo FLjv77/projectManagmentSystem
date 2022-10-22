@@ -1,13 +1,32 @@
-<section class="example-section" *ngIf="types">
-  <p *ngFor="let item of types">
-  <mat-checkbox [checked]="checked" (click)="setProjectType(item.targetId)" class="set-font-vazir">
-    <span class="px-2 check-box-label">{{item.objectiveTitle}}</span>
+<section class="example-section">
+  <p><mat-checkbox (click)="setProjectType('آب خیر وقنوات')" class="set-font-vazir">
+    <span class="px-2 check-box-label">آب خیر وقنوات</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('راه روستایی')" class=" set-font-vazir">
+    <span class="px-2 check-box-label">راه روستایی</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('دانش بنیان')" class=" set-font-vazir">
+    <span class="px-2 check-box-label">دانش بنیان</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('تحول اجتماعی')" class="set-font-vazir">
+    <span class="px-2 check-box-label">تحول اجتماعی</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('احیای صنعت')" class="set-font-vazir">
+    <span class="px-2 check-box-label">احیای صنعت</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('سلامت')" class="set-font-vazir">
+    <span class="px-2 check-box-label">سلامت</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('مسکن')" class="set-font-vazir">
+    <span class="px-2 check-box-label">مسکن</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('رفع حاشیه نشینی')" class="set-font-vazir">
+    <span class="px-2 check-box-label">رفع حاشیه نشینی</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('اشتغال')" class="set-font-vazir">
+    <span class="px-2 check-box-label">اشتغال</span>
+  </mat-checkbox></p>
+  <p><mat-checkbox (click)="setProjectType('امنیت غذایی')" class="set-font-vazir">
+    <span class="px-2 check-box-label">امنیت غذایی</span>
   </mat-checkbox></p>
 </section>
-<div (click)="clearFilter()" class="pointer d-flex mt-4 remove-filter">
-  <span class="mt-1 px-2">    حذف فیلتر
-  </span>
-  <span class="material-icons ">
-    block
-  </span>
-</div>

@@ -152,6 +152,7 @@ export class UpdateProjectDTO {
   latitude: number;
   interCities: Array<string>;
   interRegions: Array<string>;
+  participants: Array<Participant>;
 }
 
 export class CompanyProjectProgress {

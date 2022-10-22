@@ -42,13 +42,10 @@ export class AdvancedSearchContainerComponent implements OnInit {
 
   private subscribeProjectSelected() {
     this.advancedSearchConnecctToApiService.projectListHandel.subscribe((res: ProjectSelectedDTO[]) => {
-      if(res) {
-        this.projectList = [];
-        setTimeout(() => {
-          this.projectList = res;
-        }, 150);
-      }
-
+      this.projectList = [];
+      setTimeout(() => {
+        this.projectList = res;
+      }, 150);
     });
   }
 
@@ -63,7 +60,6 @@ export class AdvancedSearchContainerComponent implements OnInit {
         c = JSON.parse(company)
         this.advancedSearchConnecctToApiService.companyIdSelected.emit(c.companyId);
         this.getProjectsWithDynamicFilter = new GetProjectsWithDynamicFilterDto(c.companyId);
-        this.searchProject();
       }
     }
     this.currentUserIsAdmin = (userRole == 'admin');
@@ -106,41 +102,6 @@ export class AdvancedSearchContainerComponent implements OnInit {
 
   public setEndTime(event: string) {
     this.getProjectsWithDynamicFilter.startTimeOfProjectUpperBound = (event);
-    this.searchProject();
-  }
-
-  public setInfrastructureLowerCost(value: number) {
-    this.getProjectsWithDynamicFilter.infrastructureLowerCost = value;
-    this.searchProject();
-  }
-
-  public setInfrastructureUpperCost(value: number) {
-    this.getProjectsWithDynamicFilter.infrastructureUpperCost = value;
-    this.searchProject();
-  }
-
-  public setHumanResourceUpperCost(value: number) {
-    this.getProjectsWithDynamicFilter.humanResourceUpperCost = value;
-    this.searchProject();
-  }
-
-  public setHumanResourceLowerCost(value: number) {
-    this.getProjectsWithDynamicFilter.humanResourceLowerCost = value;
-    this.searchProject();
-  }
-
-  public setTotalProjectLowerCost(value: number) {
-    this.getProjectsWithDynamicFilter.totalProjectLowerCost = value;
-    this.searchProject();
-  }
-
-  public setTotalProjectUpperCost(value: number) {
-    this.getProjectsWithDynamicFilter.totaltProjectUpperCost = value;
-    this.searchProject();
-  }
-
-  public setProjectType(value: string) {
-    this.getProjectsWithDynamicFilter.projectTargets = value;
     this.searchProject();
   }
 

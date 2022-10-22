@@ -3,7 +3,7 @@ import { CompanySelectedDTO } from './../../../workSpace/model/companyModel';
 import { CompanyUserRegisterDTO } from './../../model/companyUserDTO';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HoldingUserRegisterDTO } from '../../model/userDTO';
 import { Observable } from 'rxjs';
 import { url } from 'src/assets/url/url';
@@ -13,6 +13,8 @@ import { ApiResult, AccessToken } from '../../model/authDTO';
   providedIn: 'root'
 })
 export class AuthService {
+
+  public roleName = new EventEmitter<string>();
 
   constructor(private http: HttpClient) { }
 

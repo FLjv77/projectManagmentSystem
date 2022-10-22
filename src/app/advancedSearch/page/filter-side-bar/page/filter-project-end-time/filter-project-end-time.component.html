@@ -1,5 +1,6 @@
 <div class="row set-font-vazir">
 
+
   <span class="col-1 d-inline m-top-from-and-until">از</span>
   <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-11 d-inline"
                           [inputLabel]="'تاریخ'" [inputId]="'1'" (changeValue)="setStartTime($event)"
@@ -8,14 +9,4 @@
   <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-11 d-inline"
                           [inputLabel]="'تاریخ'" [inputId]="'2'" (changeValue)="setStartTime($event)"
                           [inputFormControl]="endDateEndFormControl"></app-date-picker-jalaly>
-
-
-  <div (click)="clearFilter()" class="pointer d-flex mt-4 remove-filter">
-    <span class="mt-1 px-2">    حذف فیلتر
-    </span>
-    <span class="material-icons ">
-      block
-    </span>
-  </div>
-
 </div>

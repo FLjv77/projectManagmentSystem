@@ -24,14 +24,6 @@ export class AdvancedSearchConnecctToApiService {
       ((getProjectsWithDynamicFilterDto.projectStatus != undefined) ? ('projectStatus=' + getProjectsWithDynamicFilterDto.projectStatus) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound != undefined) ? ('startTimeOfProjectLowerBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectLowerBound) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound != undefined) ? ('startTimeOfProjectUpperBound=' + getProjectsWithDynamicFilterDto.startTimeOfProjectUpperBound) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.infrastructureLowerCost != undefined) ? ('infrastructureLowerCost=' + getProjectsWithDynamicFilterDto.infrastructureLowerCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.infrastructureUpperCost != undefined) ? ('infrastructureUpperCost=' + getProjectsWithDynamicFilterDto.infrastructureUpperCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.humanResourceLowerCost != undefined) ? ('humanResourceLowerCost=' + getProjectsWithDynamicFilterDto.humanResourceLowerCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.humanResourceUpperCost != undefined) ? ('humanResourceUpperCost=' + getProjectsWithDynamicFilterDto.humanResourceUpperCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.totalProjectLowerCost != undefined) ? ('totalProjectLowerCost=' + getProjectsWithDynamicFilterDto.totalProjectLowerCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.totaltProjectUpperCost != undefined) ? ('humanResourceUpperCost=' + getProjectsWithDynamicFilterDto.totaltProjectUpperCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.projectTargets != undefined) ? ('projectTargets=' + getProjectsWithDynamicFilterDto.projectTargets) + '&' : '') +
-
       'activePage=1&takeEntity=100'
 
       )
