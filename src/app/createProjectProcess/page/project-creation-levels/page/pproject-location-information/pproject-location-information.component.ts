@@ -168,7 +168,10 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public setProvince($event: string|string[]){
     this.provinceName=$event;
+    
+    
     this.createrojectService.SearchLocation1(this.provinceName).subscribe((res:ApiResult<State[]>)=>{
+      console.log(res.data);
       this.cityList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
