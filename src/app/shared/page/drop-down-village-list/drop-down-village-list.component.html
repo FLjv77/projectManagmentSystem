@@ -2,10 +2,23 @@
     <div class="{{addInput ? 'col-10':'col-12'}}">
         <ng-select2 [data]="projectData" [placeholder]="'انتخاب روستا'" [(ngModel)]="placeHolder" class="set-font-vazir" (valueChanged)="setValue($event)"></ng-select2>
     </div>
-    <div class="col-1 d-inline">
-        <button *ngIf="addInput" class="button-add">
+    <div *ngIf="addInput" class="col-1 d-inline">
+        <button class="button-add" (click)="add(valueSelect)">
             <img src="../../../../assets/image/createProject/add-icon.svg" alt="">
         </button>
+    </div>
+    <div *ngIf="array" class="col-11">
+        <div *ngFor="let list of array , let i = index" class="row my-2 lists">
+            <div class="row col-11">
+                <div class="col-12 my-auto">
+                    <span class="d-inline">{{i+1}}.
+                        {{array[i]}}</span>
+                </div>
+            </div>
+            <div class="col-1 pt-1">
+                <button (click)="remove(i)" class="remove-button"><img src="../../../../../../assets/image/createProject/remove.svg" alt=""></button>
+            </div>
+        </div>
     </div>
 </div>
   

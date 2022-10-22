@@ -15,7 +15,8 @@ export class DropDownProvinceListComponent implements OnInit {
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
-  @Output() province= new EventEmitter<string | string[]>();
+  @Input() provinceName: string;
+  @Output() province = new EventEmitter<string | string[]>();
 
   constructor(private createrojectService:CreaterojectService) { }
 

@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
@@ -85,26 +84,33 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   }
 
   public saved(){
+    let participants : Array<Participant> = new Array<Participant>;
     let updateProjectDTO = new UpdateProjectDTO;
     for (let i = 0; i < this.employerList.length; i++) {
-      updateProjectDTO.participants.push(this.employerList[i]);
+      participants.push(this.employerList[i]);
     }
     for (let i = 0; i < this.investorList.length; i++) {
-      updateProjectDTO.participants.push(this.investorList[i]);
+      participants.push(this.investorList[i]);
     }
     for (let i = 0; i < this.consultantList.length; i++) {
-      updateProjectDTO.participants.push(this.consultantList[i]);
+      participants.push(this.consultantList[i]);
     }
     for (let i = 0; i < this.contractorsList.length; i++) {
-      updateProjectDTO.participants.push(this.contractorsList[i]);
+      participants.push(this.contractorsList[i]);
     }
     for (let i = 0; i < this.executorList.length; i++) {
-      updateProjectDTO.participants.push(this.executorList[i]);
+      participants.push(this.executorList[i]);
     }
     for (let i = 0; i < this.supervisorList.length; i++) {
-      updateProjectDTO.participants.push(this.supervisorList[i]);
+      participants.push(this.supervisorList[i]);
     }
-
+    updateProjectDTO.participants = participants;
+    updateProjectDTO.city = '';
+    updateProjectDTO.country = '';
+    updateProjectDTO.region = '';
+    updateProjectDTO.section = '';
+    updateProjectDTO.state = '';
+    console.log(participants);
     this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
       res: ApiResult<boolean>
     )=>{console.log(res.data);
@@ -126,9 +132,9 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   //   this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   // }
 
-  public add(list: Array<Participant>, userName:string, family:string){
+  public add(list: Array<Participant>, userName:string, family:string,role: string){
     if (!this.employerList && userName != null && family != null) this.employerList = new Array<Participant>();
-    let employers = new Participant(userName,family,'');
+    let employers = new Participant(role,userName,family);
     list.push(employers);
     this.employerNameFormControl.reset();
     this.employerFirstAndLastNameFormControl.reset();
@@ -149,7 +155,12 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
       console.log(res.data.participants);
-      
+      this.employerList = [];
+      this.supervisorList = [];
+      this.executorList = [];
+      this.contractorsList = [];
+      this.consultantList = [];
+      this.investorList = [];
       for (let i = 0; i < res.data.participants.length; i++) {
         if (res.data.participants[i].tag == 'کارفرما') {
           this.employerList.push(res.data.participants[i]);
