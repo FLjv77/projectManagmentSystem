@@ -53,4 +53,10 @@ export class FilterProjectInfrastructureCostComponent implements OnInit {
   public changeToPersian(num:string){
     return this.numberFormaterService.covertToFrNumber(num)
   }
+
+
+  public clearFilter() {
+    this.handleMaxValue.emit(undefined);
+    this.handleMinValue.emit(undefined);
+  }
 }

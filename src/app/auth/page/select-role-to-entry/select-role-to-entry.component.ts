@@ -1,10 +1,8 @@
-import { url } from 'src/assets/url/url';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
+import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Router} from "@angular/router";
-import { AuthService } from '../../service/authConnectToApi/auth.service';
-import { URL } from 'url';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-select-role-to-entry',
@@ -21,11 +19,12 @@ export class SelectRoleToEntryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public goToDashboard(url1: string,role: string) {
+  public goToDashboard(url: string,role: string) {
+    
     this.authService.AmIAllowedToMakeThisClaim(role).subscribe((res: ApiResult<boolean>)=>{
       console.log(res.data);
       if (res.data == true) {
-        this.router.navigate([url1]);
+        this.router.navigate([url]);
       }
       else {
         this.alertDialogBySweetAlertService.showErrorAlert('شما دسترسی لازم برای این بخش را ندارید.')

@@ -32,4 +32,12 @@ export class FilterProjectStartTimeComponent implements OnInit {
   public setEndTime(event: string) {
     this.startTimeOfProjectUpperBound.emit(event);
   }
+
+
+  public clearFilter() {
+    this.startTimeOfProjectLowerBound.emit(undefined);
+    this.startTimeOfProjectUpperBound.emit(undefined);
+    this.startDateStartFormControl.reset();
+    this.endDateStartFormControl.reset();
+  }
 }
