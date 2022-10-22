@@ -189,20 +189,19 @@ export class PProjectLocationInformationComponent implements OnInit {
   public setCity($event: string|string[]){
     this.cityName=$event;
     this.createrojectService.SearchLocation2('اصفهان','کاشان').subscribe((res:ApiResult<City[]>)=>{
-      console.log(res.data);
       let list : Array<City>;
       list = res.data;
       this.fillterCity = list.filter(c=>c.name == this.provinceName);
       let id = this.fillterCity
       this.regionList = [];
-      //console.log(res.data);
+      console.log(res.data);
       for (let i = 0; i < this.fillterCity.length; i++) {
         let newValue: Select2OptionData = {
           text: res.data[i].name,
           id: res.data[i].name
         };
         this.regionList.push(newValue);
-        //console.log(this.regionList);
+        console.log(this.regionList);
         
       }
       this.createrojectService.regionList.emit(this.regionList);
