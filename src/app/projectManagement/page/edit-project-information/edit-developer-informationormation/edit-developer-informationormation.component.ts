@@ -84,17 +84,38 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   }
 
   public saved(){
-    // this.createrojectService.CreateProject(
-    //   this.companyId, this.commonDataForCreateProjectService.getCreateProject()
-    // ).subscribe((res: ApiResult<string>) => {
-    //   if(res.isSuccess && res.statusCode == 200) {
-    //     this.openModal();
-    //     console.log(res);
 
-    //     this.projectId = res.data;
-    //   }
-    // }, (err: HttpErrorResponse) => {
-    // });
+    let participants : Array<Participant> = new Array<Participant>;
+    let updateProjectDTO = new UpdateProjectDTO;
+    for (let i = 0; i < this.employerList.length; i++) {
+      participants.push(this.employerList[i]);
+    }
+    for (let i = 0; i < this.investorList.length; i++) {
+      participants.push(this.investorList[i]);
+    }
+    for (let i = 0; i < this.consultantList.length; i++) {
+      participants.push(this.consultantList[i]);
+    }
+    for (let i = 0; i < this.contractorsList.length; i++) {
+      participants.push(this.contractorsList[i]);
+    }
+    for (let i = 0; i < this.executorList.length; i++) {
+      participants.push(this.executorList[i]);
+    }
+    for (let i = 0; i < this.supervisorList.length; i++) {
+      participants.push(this.supervisorList[i]);
+    }
+    updateProjectDTO.participants = participants;
+    updateProjectDTO.city = '';
+    updateProjectDTO.country = '';
+    updateProjectDTO.region = '';
+    updateProjectDTO.section = '';
+    updateProjectDTO.state = '';
+    console.log(participants);
+    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
+      res: ApiResult<boolean>
+    )=>{console.log(res.data);
+    })
     this.edit = false;
   }
 
@@ -112,9 +133,9 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   //   this.projectId = this.activeRoute.snapshot.queryParamMap.get('projectIdEdit');
   // }
 
-  public add(list: Array<Participant>, userName:string, family:string){
+  public add(list: Array<Participant>, userName:string, family:string,role: string){
     if (!this.employerList && userName != null && family != null) this.employerList = new Array<Participant>();
-    let employers = new Participant(userName,family,'');
+    let employers = new Participant(role,userName,family);
     list.push(employers);
     this.employerNameFormControl.reset();
     this.employerFirstAndLastNameFormControl.reset();
@@ -135,7 +156,12 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
       console.log(res.data.participants);
-      
+      this.employerList = [];
+      this.supervisorList = [];
+      this.executorList = [];
+      this.contractorsList = [];
+      this.consultantList = [];
+      this.investorList = [];
       for (let i = 0; i < res.data.participants.length; i++) {
         if (res.data.participants[i].tag == 'کارفرما') {
           this.employerList.push(res.data.participants[i]);

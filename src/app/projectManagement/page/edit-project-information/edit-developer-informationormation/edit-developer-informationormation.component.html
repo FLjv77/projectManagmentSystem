@@ -41,7 +41,7 @@
       <div *ngIf="edit" class="col-1">
         <button *ngIf="employerNameFormControl.value && employerFirstAndLastNameFormControl.value &&
                       employerNameFormControl.valid && employerFirstAndLastNameFormControl.valid" class="button-add"
-                (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value)">
+                (click)="add(employerList,employerNameFormControl.value ,employerFirstAndLastNameFormControl.value,'کارفرما')">
           <img src="../../../../../../assets/image/createProject/add-icon.svg" alt="">
         </button>
       </div>
@@ -82,7 +82,7 @@
       <button *ngIf="supervisorNameFormControl.value && supervisorFirstAndLastNameFormControl.value &&
                     supervisorNameFormControl.valid && supervisorFirstAndLastNameFormControl.valid" class="button-add">
         <img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""
-             (click)="add(supervisorList,supervisorNameFormControl.value ,supervisorFirstAndLastNameFormControl.value)">
+             (click)="add(supervisorList,supervisorNameFormControl.value ,supervisorFirstAndLastNameFormControl.value,'ناظر')">
       </button>
     </div>
 
@@ -120,7 +120,7 @@
     <div *ngIf="edit" class="col-1">
       <button *ngIf="executorNameFormControl.value && executorFirstAndLastNameFormControl.value &&
                     executorNameFormControl.valid && executorFirstAndLastNameFormControl.valid" class="button-add"
-              (click)="add(executorList,executorNameFormControl.value ,executorFirstAndLastNameFormControl.value)"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+              (click)="add(executorList,executorNameFormControl.value ,executorFirstAndLastNameFormControl.value,'مجری')"><img src="../../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
     </div>
 
   </div>
@@ -131,7 +131,7 @@
     </div>
     <div *ngIf="contractorsList" class="col-11">
       <div *ngFor="let list4 of contractorsList , let l = index" class="row my-2 lists">
-        <div class="row col-11">
+        <div class="row col-11 py-3">
           <div class="col-6 my-auto">
                         <span class="d-inline">{{l+1}}.
                             نام کاربری :</span>
@@ -157,7 +157,7 @@
     <div *ngIf="edit" class="col-1">
       <button *ngIf="contractorsNameFormControl.value && ContractorsFirstAndLastNameFormControl.value &&
                     contractorsNameFormControl.valid && ContractorsFirstAndLastNameFormControl.valid" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""
-                                                                                                                              (click)="add(contractorsList,contractorsNameFormControl.value ,ContractorsFirstAndLastNameFormControl.value)"></button>
+                                                                                                                              (click)="add(contractorsList,contractorsNameFormControl.value ,ContractorsFirstAndLastNameFormControl.value,'پیمان کار')"></button>
     </div>
 
   </div>
@@ -194,7 +194,7 @@
     <div *ngIf="edit" class="col-1">
       <button *ngIf="consultantNameFormControl.value && consultantFirstAndLastNameFormControl.value &&
                     consultantNameFormControl.valid && consultantFirstAndLastNameFormControl.valid" class="button-add"
-              (click)="add(consultantList,consultantNameFormControl.value ,consultantFirstAndLastNameFormControl.value)"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+              (click)="add(consultantList,consultantNameFormControl.value ,consultantFirstAndLastNameFormControl.value,'مشاور')"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
     </div>
 
   </div>
@@ -232,7 +232,7 @@
     <div *ngIf="edit" class="col-1">
       <button *ngIf="investorNameFormControl.value && investorFirstAndLastNameFormControl.value &&
             investorNameFormControl.valid && investorFirstAndLastNameFormControl.valid" class="button-add"
-              (click)="add(investorList,investorNameFormControl.value ,investorFirstAndLastNameFormControl.value)"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+              (click)="add(investorList,investorNameFormControl.value ,investorFirstAndLastNameFormControl.value,'سرمایه گذار')"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
     </div>
 
   </div>

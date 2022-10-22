@@ -50,8 +50,12 @@
       <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مکانی</h4>
 
     </div>
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
-                     [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style>
+    <app-drop-down-province-list class="col-md-6 col-12"></app-drop-down-province-list>
+    <app-drop-down-city-list class="col-md-6 col-12"></app-drop-down-city-list>
+    <app-drop-down-region-list class="col-md-6 col-12"></app-drop-down-region-list>
+    <app-drop-down-village-list class="col-md-6 col-12"></app-drop-down-village-list>
+    <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
+                     [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style> -->
 
     <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
                      [inputFormControl]="LocationFormControl"></app-input-style>

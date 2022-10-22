@@ -30,10 +30,10 @@ export class Participant {
     firstName: string;
     lastName: string;
 
-    constructor(fName: string, lName: string , tag: string) {
+    constructor(tag: string,fName: string, lName: string) {
+      this.tag = tag;
       this.firstName = fName;
       this.lastName = lName;
-      this.tag = tag;
     }
 }
 
