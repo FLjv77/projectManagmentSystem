@@ -16,6 +16,9 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   public title: string = 'انتخاب پروژه';
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
+  public valueSelect: string| string[];
+  public array : Array<string | string[]> = [];
+
   constructor(private createrojectService:CreaterojectService) { }
 
   ngOnInit(): void {
@@ -31,7 +34,23 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
     this.title = name;
   }
 
+  public add(name: string | string[]){
+    if (name != null) {
+      this.array.push(name);
+      console.log(this.array);
+    }
+  }
+
   public setValue($event: string|string[]){
+    console.log($event);
+    
+    let name = this.projectData[Number($event)].text;
+    this.valueSelect = name;
     this.village.emit($event);
   }
+
+  public remove(index: number){
+    this.array.splice(index, 1);
+  }
+
 }
