@@ -13,6 +13,7 @@ import { AllocationReportPaginationSelectedDto, PrepareShareLevelOfActivityDTO, 
 export class ReportConnectionToApiService {
 
   public CompanyIdForSuper = new EventEmitter<string|string[]>();
+  public CompanyName = new EventEmitter<string>();
 
   constructor(private http: HttpClient) { }
 

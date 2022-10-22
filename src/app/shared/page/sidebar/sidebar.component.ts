@@ -67,7 +67,18 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['../../auth/loginUser']);
   }
   public GoHome(){
-    this.router.navigate(['../../dashboard/home']);
+    console.log(localStorage.getItem(url.RoleHome));
+    
+    if (localStorage.getItem(url.RoleHome) == 'supervisor') {
+      this.router.navigate(['../../dashboard/homeSupervisor']);
+    }
+    else if (localStorage.getItem(url.RoleHome) == 'companyAdmin') {
+      this.router.navigate(['../../dashboard/homeCompany']);
+    }
+    else if (localStorage.getItem(url.RoleHome) == 'holdingAdmin') {
+      this.router.navigate(['../../dashboard/home']);
+    }
+    //this.router.navigate(['../../dashboard/home']);
     // this.authService.roleName.subscribe((res: string)=>{
     //   console.log('jjjj');
       

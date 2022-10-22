@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <app-display-user-path [showCompanyList]="true" [showProjectList]="true" [path2]="path2" 
+  <app-display-user-path *ngIf="show" [showCompanyList]="true" [showProjectList]="true" [path2]="path2" 
+  [path1]="path1" [path3]="path3" (projectIdSelected)="setProjectId($event)"></app-display-user-path>
+  <app-display-user-path *ngIf="!show" [showProjectList]="true" [path2]="path2" 
   [path1]="path1" [path3]="path3" (projectIdSelected)="setProjectId($event)"></app-display-user-path>
   <!-- <app-display-user-path *ngIf="show" [path2]="path2" 
   [path1]="path1" [path3]="path3"></app-display-user-path> -->

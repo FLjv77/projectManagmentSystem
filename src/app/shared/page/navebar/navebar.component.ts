@@ -85,6 +85,8 @@ export class NavebarComponent implements OnInit {
         localStorage.setItem(url.userRole, 'notAdmin');
         this.sidebarControleServiceService.showReport.emit(true);
         this.companyName = res.data.companyName;
+        localStorage.removeItem(url.companyName);
+        localStorage.setItem(url.companyName, this.companyName);
       } else {
         this.handleDisplayErrorService.showError(res.statusCode);
         localStorage.removeItem(url.CompanyInfo);

@@ -1,8 +1,10 @@
+import { url } from 'src/assets/url/url';
 import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DisplayPathModel} from "../../model/displayPathModel";
 import {ActivatedRoute, Router} from "@angular/router";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-display-user-path',
@@ -21,6 +23,7 @@ export class DisplayUserPathComponent implements OnInit {
   @Output() projectIdSelected = new EventEmitter<string| string[]>();
   public showProjectSelect: boolean = false;
   public companyId: string| string[];
+  public role:string|null;
 
   constructor(private router: Router,
     private activeRouting: ActivatedRoute,
@@ -33,6 +36,10 @@ export class DisplayUserPathComponent implements OnInit {
 
 
   ngOnInit(): void {
+   if (localStorage.getItem(url.userRole)!=null) {
+      this.role = url.userRole;
+      this.showProjectSelect=true;
+   }
 
   }
 
