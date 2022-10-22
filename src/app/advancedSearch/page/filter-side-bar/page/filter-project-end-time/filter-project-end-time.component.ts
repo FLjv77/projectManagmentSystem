@@ -29,6 +29,13 @@ export class FilterProjectEndTimeComponent implements OnInit {
     this.endTimeOfProjectUpperBound.emit(event);
   }
 
+  public clearFilter() {
+    this.endTimeOfProjectUpperBound.emit(undefined);
+    this.endTimeOfProjectLowerBound.emit(undefined);
+    this.startDateEndFormControl.reset();
+    this.endDateEndFormControl.reset();
+  }
+
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'

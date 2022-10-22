@@ -1,10 +1,9 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
 import { ActivatedRoute } from '@angular/router';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { ProjectSelectedDTO, UpdateProjectDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {InputCustomStyle} from "../../../../shared/page/component/input-style/input-style.component";
@@ -85,30 +84,17 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   }
 
   public saved(){
-    let updateProjectDTO = new UpdateProjectDTO;
-    for (let i = 0; i < this.employerList.length; i++) {
-      updateProjectDTO.participants.push(this.employerList[i]);
-    }
-    for (let i = 0; i < this.investorList.length; i++) {
-      updateProjectDTO.participants.push(this.investorList[i]);
-    }
-    for (let i = 0; i < this.consultantList.length; i++) {
-      updateProjectDTO.participants.push(this.consultantList[i]);
-    }
-    for (let i = 0; i < this.contractorsList.length; i++) {
-      updateProjectDTO.participants.push(this.contractorsList[i]);
-    }
-    for (let i = 0; i < this.executorList.length; i++) {
-      updateProjectDTO.participants.push(this.executorList[i]);
-    }
-    for (let i = 0; i < this.supervisorList.length; i++) {
-      updateProjectDTO.participants.push(this.supervisorList[i]);
-    }
+    // this.createrojectService.CreateProject(
+    //   this.companyId, this.commonDataForCreateProjectService.getCreateProject()
+    // ).subscribe((res: ApiResult<string>) => {
+    //   if(res.isSuccess && res.statusCode == 200) {
+    //     this.openModal();
+    //     console.log(res);
 
-    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
-      res: ApiResult<boolean>
-    )=>{console.log(res.data);
-    })
+    //     this.projectId = res.data;
+    //   }
+    // }, (err: HttpErrorResponse) => {
+    // });
     this.edit = false;
   }
 
