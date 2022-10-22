@@ -29,8 +29,6 @@ export class DropDownProvinceListComponent implements OnInit {
 
   private initProjectList() {
     this.createrojectService.SearchLocation().subscribe((res:ApiResult<any>)=>{
-      console.log(res);
-      
       //this.placeHolder = res.data;
     })
     this.placeHolder = {
