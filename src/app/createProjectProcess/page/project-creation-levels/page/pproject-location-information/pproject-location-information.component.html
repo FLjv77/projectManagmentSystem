@@ -13,7 +13,7 @@
             <app-drop-down-region-list *ngIf="regionList" [regionList]="regionList" (region)="setRegion($event)"></app-drop-down-region-list>
             <app-drop-down-village-list *ngIf="villageList" [villageList]="villageList" (village)="setVillage($event)"></app-drop-down-village-list>
 
-            <hr class="my-3 opacity-hr">
+            <!-- <hr class="my-3 opacity-hr">
             <div class="col-md-3 col-12">
                 <section class="example-section text-end">
                     <mat-checkbox class="example-margin set-font-vazir" (click)="changeValue(1)"><label class="mat-checkbox-label">پروژه بین شهری</label></mat-checkbox>
@@ -30,7 +30,8 @@
             </div>
             <div class="col-md-9 col-12">
                 <app-drop-down-village-list [addInput]="checkVillage" *ngIf="villageList" [villageList]="villageList"></app-drop-down-village-list>
-            </div>
+            </div> -->
+            <app-inter-urban-and-inter-rural [cityList]="cityList" [villageList]="villageList"></app-inter-urban-and-inter-rural>
         </div>
 
         <div class="my-2" style="direction: ltr;">

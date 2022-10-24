@@ -40,12 +40,17 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   public add(name: string | string[]){
     if (name != null) {
       this.array.push(name);
-      console.log(this.array);
     }
   }
 
   public setValue(event: string | string[]){
-    if(event) this.city.emit(event);
+    console.log(event);
+    
+    //let name = this.projectData[Number(event)].text;
+    this.valueSelect = event;
+    console.log(event);
+    
+    this.city.emit(event);
   }
 
 }

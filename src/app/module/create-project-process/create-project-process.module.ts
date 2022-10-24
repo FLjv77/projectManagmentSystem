@@ -1,3 +1,4 @@
+import { InterUrbanAndInterRuralComponent } from './../../createProjectProcess/page/project-creation-levels/page/pproject-location-information/inter-urban-and-inter-rural/inter-urban-and-inter-rural.component';
 import { SpecializedInformationOnEmploymentComponent } from './../../createProjectProcess/page/specializedInformation/specialized-information-on-employment/specialized-information-on-employment.component';
 import { SpecializedInformationInTheOfFoodSafetyComponent } from './../../createProjectProcess/page/specializedInformation/specialized-information-in-the-of-food-safety/specialized-information-in-the-of-food-safety.component';
 import { ProjectObjectivesComponent } from './../../createProjectProcess/page/project-creation-levels/page/project-objectives/project-objectives.component';
@@ -81,7 +82,8 @@ import { CreateProjectModalComponent } from 'src/app/createProjectProcess/page/p
     WaterInformationTransferLineTypeComponent,
     SpecializedInformationOnEmploymentComponent,
     SpecializedInformationInTheOfFoodSafetyComponent,
-    CreateProjectModalComponent
+    CreateProjectModalComponent,
+    InterUrbanAndInterRuralComponent
   ],
   imports: [
     CommonModule,
