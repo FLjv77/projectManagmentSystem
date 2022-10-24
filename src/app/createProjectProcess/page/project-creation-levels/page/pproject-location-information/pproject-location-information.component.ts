@@ -24,8 +24,6 @@ export class PProjectLocationInformationComponent implements OnInit {
   private companyId: string;
   public inputCustomStyle: InputCustomStyle;
   public LocationFormControl = new FormControl();
-  public checkCity: boolean;
-  public checkVillage: boolean;
   private locations: Location[];
 
   private projectId: string;
@@ -116,15 +114,6 @@ export class PProjectLocationInformationComponent implements OnInit {
 
     this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
     this.router.navigate(['../../createProject/selectLocationOnMap'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
-  }
-
-  public changeValue(value:number){
-    if (value == 1) {
-      this.checkCity = !this.checkCity;
-    }
-    else if (value == 2) {
-      this.checkVillage = !this.checkVillage;
-    }
   }
 
   public openModal() {

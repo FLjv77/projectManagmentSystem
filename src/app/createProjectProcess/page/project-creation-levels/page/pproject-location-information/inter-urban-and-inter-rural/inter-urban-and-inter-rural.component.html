@@ -1,0 +1,18 @@
+<hr class="my-3 opacity-hr">
+            <div class="col-md-3 col-12">
+                <section class="example-section text-end">
+                    <mat-checkbox class="example-margin set-font-vazir" (click)="changeValue(1)"><label class="mat-checkbox-label">پروژه بین شهری</label></mat-checkbox>
+                </section>
+            </div>
+            <div class="col-md-9 col-12">
+                <app-drop-down-city-list [addInput]="checkCity" *ngIf="cityList" [cityList]="cityList" ></app-drop-down-city-list>
+            </div>
+            <hr class="my-3 opacity-hr">
+            <div class="col-md-3 col-12">
+                <section class="example-section text-end">
+                    <mat-checkbox class="example-margin set-font-vazir" (click)="changeValue(2)"><label class="mat-checkbox-label">پروژه بین روستایی</label></mat-checkbox>
+                </section>
+            </div>
+            <div class="col-md-9 col-12">
+                <app-drop-down-village-list [addInput]="checkVillage" *ngIf="villageList" [villageList]="villageList"></app-drop-down-village-list>
+            </div>
