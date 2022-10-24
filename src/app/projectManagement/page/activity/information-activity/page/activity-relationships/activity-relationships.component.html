@@ -8,7 +8,7 @@
       <div (click)="changeTabState(1)" class="{{selectedTab == 1 ? 'tab-active-container' : 'tab-container'}} my-3 text-nowrap" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
               role="tab" aria-controls="v-pills-profile" aria-selected="false">مشاهده جزئیات</div>
       <div (click)="changeTabState(2)" class="{{selectedTab == 2 ? 'tab-active-container' : 'tab-container'}} my-3 text-nowrap" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages"
-              role="tab" aria-controls="v-pills-messages" aria-selected="false">نمودار زمانی</div>
+              role="tab" aria-controls="v-pills-messages" aria-selected="false">نمودار ها</div>
     </div>
     <div class="tab-content row w-100 mx-auto mt-2" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -18,7 +18,7 @@
         <app-activity-by-detail></app-activity-by-detail>
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <app-time-line-chart-activity></app-time-line-chart-activity>
+        <app-time-line-chart-activity *ngIf="selectedTab == 2"></app-time-line-chart-activity>
       </div>
     </div>
   </div>
