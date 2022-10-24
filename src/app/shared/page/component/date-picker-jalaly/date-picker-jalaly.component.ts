@@ -4,6 +4,7 @@ import {noop} from "rxjs";
 import {InputCustomStyle} from "../input-style/input-style.component";
 import * as moment from "jalali-moment";
 import { Moment } from 'jalali-moment';
+import { MaterialPersianDateAdapter } from 'src/app/shared/service/jalalyDatePiker/material.persian-date.adapter';
 
 @Component({
   selector: 'app-date-picker-jalaly',
@@ -23,7 +24,7 @@ export class DatePickerJalalyComponent implements OnInit {
   @Input() isDatePiker: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
-  constructor(  ) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -48,7 +49,11 @@ export class DatePickerJalalyComponent implements OnInit {
 
   onChange(event: any) {
     let x = moment(event.value).format("YYYY-MM-DD");
-    x = x + 'T00:00:00.000Z';
+    let m: any = moment.from(x, 'fa', 'YYYY/MM/DD');
+
+    let date = (m._i).toString();
+    date = date.substring(0, 10) + 'T00:00:00.000Z';
+
     this.changeValue.emit(x);
   }
 }

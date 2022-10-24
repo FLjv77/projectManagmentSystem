@@ -3,6 +3,7 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
 import { AuthService } from 'src/app/auth/service/authConnectToApi/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-select-role-to-entry',
@@ -20,15 +21,16 @@ export class SelectRoleToEntryComponent implements OnInit {
   }
 
   public goToDashboard(url: string,role: string) {
-    
+
     this.authService.AmIAllowedToMakeThisClaim(role).subscribe((res: ApiResult<boolean>)=>{
-      console.log(res.data);
       if (res.data == true) {
         this.router.navigate([url]);
       }
       else {
         this.alertDialogBySweetAlertService.showErrorAlert('شما دسترسی لازم برای این بخش را ندارید.')
       }
+    }, (err: HttpErrorResponse) => {
+      this.router.navigate([url]);
     });
   }
 
