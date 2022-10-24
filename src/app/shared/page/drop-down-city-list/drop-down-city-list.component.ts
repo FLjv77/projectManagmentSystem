@@ -18,16 +18,15 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
   public array : Array<string | string[]> = [];
-  
+
   constructor(private createrojectService:CreaterojectService) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.createrojectService.cityList.subscribe((res:Array<Select2OptionData>)=>{
-      this.projectData = res;
-    })
+    this.projectData = this.cityList;
+
   }
 
   public setProject(name: string){
@@ -46,9 +45,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   }
 
   public setValue(event: string | string[]){
-    let name = this.projectData[Number(event)].text;
-    this.valueSelect = name;
-    this.city.emit(event);
+    if(event) this.city.emit(event);
   }
 
 }

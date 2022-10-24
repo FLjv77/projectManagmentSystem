@@ -45,6 +45,11 @@ export class BasicProjectInformationComponent implements OnInit {
     this.checkValueIsSetBefor();
   }
 
+  public setStart(event: string) {
+    this.startDate = event;
+    console.log(event);
+  }
+
   private checkValueIsSetBefor() {
     let projectInfo = this.commonDataForCreateProjectService.getCreateProject();
     if(projectInfo.projectName) this.projectNameFormControl.setValue(projectInfo.projectName);

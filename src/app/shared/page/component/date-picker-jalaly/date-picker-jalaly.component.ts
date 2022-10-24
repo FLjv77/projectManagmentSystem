@@ -54,6 +54,6 @@ export class DatePickerJalalyComponent implements OnInit {
     let date = (m._i).toString();
     date = date.substring(0, 10) + 'T00:00:00.000Z';
 
-    this.changeValue.emit(x);
+    this.changeValue.emit(date);
   }
 }
