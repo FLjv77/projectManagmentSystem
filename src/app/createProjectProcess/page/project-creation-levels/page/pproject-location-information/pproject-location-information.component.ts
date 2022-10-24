@@ -152,7 +152,7 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   public goNextStep() {
     this.commonDataForCreateProjectService.setLocationInformation(
-      'Isfahan', 'Kashan', 'Kashan', 'Kashan', this.locations[0].x_pos, this.locations[0].y_pos, [], []
+      this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
     );
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
@@ -203,8 +203,6 @@ export class PProjectLocationInformationComponent implements OnInit {
   public villageList: Array<Select2OptionData>;
 
   public setRegion($event: string|string[]){
-    console.log(2);
-
     this.regionName=$event;
     this.createrojectService.SearchLocation3(this.provinceName,this.cityName,this.regionName).subscribe((res:ApiResult<Region[]>)=>{
       this.villageList = [];

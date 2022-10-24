@@ -20,7 +20,7 @@
                 </section>
             </div>
             <div class="col-md-9 col-12">
-                <app-drop-down-city-list [addInput]="checkCity"></app-drop-down-city-list>
+                <app-drop-down-city-list [addInput]="checkCity" *ngIf="cityList" [cityList]="cityList" ></app-drop-down-city-list>
             </div>
             <hr class="my-3 opacity-hr">
             <div class="col-md-3 col-12">
@@ -29,7 +29,7 @@
                 </section>
             </div>
             <div class="col-md-9 col-12">
-                <app-drop-down-village-list [addInput]="checkVillage"></app-drop-down-village-list>
+                <app-drop-down-village-list [addInput]="checkVillage" *ngIf="villageList" [villageList]="villageList"></app-drop-down-village-list>
             </div>
         </div>
 
