@@ -9,41 +9,47 @@ import { Component, Input, OnInit, Output, EventEmitter, AfterViewInit } from '@
 })
 export class DropDownVillageListComponent implements OnInit , AfterViewInit {
 
+
   @Input() placeholder: string;
   @Input() addInput: boolean;
-  @Output() village = new EventEmitter<string | string[]>();
-  @Input() villageList: Array<Select2OptionData>;
+  @Output() city= new EventEmitter<string | string[]>();
+  @Input() cityList: Array<Select2OptionData>;
   public title: string = 'انتخاب پروژه';
+  public valueSelect: string | string[];
   public projectData: Array<Select2OptionData>;
   public placeHolder: Select2OptionData;
-  public valueSelect: string| string[];
   public array : Array<string | string[]> = [];
-
+  
   constructor(private createrojectService:CreaterojectService) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.projectData = this.villageList;
+    this.createrojectService.cityList.subscribe((res:Array<Select2OptionData>)=>{
+      this.projectData = res;
+    })
   }
 
   public setProject(name: string){
     this.title = name;
   }
 
+  public remove(index: number){
+    this.array.splice(index, 1);
+  }
+
   public add(name: string | string[]){
     if (name != null) {
       this.array.push(name);
+      console.log(this.array);
     }
   }
 
-  public setValue(event: string|string[]){
-    if(event) this.village.emit(event);
-  }
-
-  public remove(index: number){
-    this.array.splice(index, 1);
+  public setValue(event: string | string[]){
+    let name = this.projectData[Number(event)].text;
+    this.valueSelect = name;
+    this.city.emit(event);
   }
 
 }
