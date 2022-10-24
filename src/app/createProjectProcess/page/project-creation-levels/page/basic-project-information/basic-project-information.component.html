@@ -24,7 +24,7 @@
             </div>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
-      [inputFormControl]="projectStartDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
+      [inputFormControl]="projectStartDateFormControl" (changeValue)="setStart($event)"></app-date-picker-jalaly>
 
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
                               [inputFormControl]="projectDeliveryDateFormControl" (changeValue)="deliveryDate = $event"></app-date-picker-jalaly>
