@@ -37,6 +37,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   public projectIdSelect: string | string[];
   @Input() projectId: string | string[];
   public edit:boolean=false;
+  public supervisorName: string;
 
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
               private activeRoute:ActivatedRoute,
@@ -188,6 +189,12 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
 
   public remove(list : Array<Participant>, index: number){
     list.splice(index, 1);
+  }
+
+  public setSupervisor(supervisorName: string){
+    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName).
+    subscribe((res:ApiResult<boolean>)=>{console.log(res.data);
+    })
   }
 
 

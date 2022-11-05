@@ -45,9 +45,6 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   }
 
   public setValue($event: string|string[]){
-    //console.log($event);
-    
-    //let name = this.projectData[Number($event)].text;
     this.valueSelect = $event;
     this.village.emit($event);
   }

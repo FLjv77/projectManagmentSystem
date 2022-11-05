@@ -174,82 +174,82 @@ export class StakeholderManagementComponent implements OnInit {
     let list = new Array<Participant>();
 
     if(this.employerList.length == 0 && this.employerNameFormControl.value) {
-      this.commonDataForCreateProjectService.name1 = [new Participant(this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value, 'کارفرما')];
-      this.employerList = [new Participant(this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value, 'کارفرما')];
+      this.commonDataForCreateProjectService.name1 = [new Participant( 'کارفرما',this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value)];
+      this.employerList = [new Participant('کارفرما',this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value)];
     } else {
       this.commonDataForCreateProjectService.name1 = this.employerList;
       if(this.employerNameFormControl.value) {
-        this.commonDataForCreateProjectService.name1.push(new Participant(this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value, 'کارفرما'));
+        this.commonDataForCreateProjectService.name1.push(new Participant('کارفرما',this.employerNameFormControl.value, this.employerFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.supervisorList.length == 0 && this.supervisorNameFormControl.value) {
-      this.commonDataForCreateProjectService.name2 = [new Participant(this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value, 'ناظر')];
-      this.supervisorList = [new Participant(this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value, 'ناظر')];
+      this.commonDataForCreateProjectService.name2 = [new Participant('ناظر',this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value)];
+      this.supervisorList = [new Participant('ناظر',this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value)];
     } else {
       this.commonDataForCreateProjectService.name2 = this.supervisorList;
       if(this.supervisorNameFormControl.value) {
-        this.commonDataForCreateProjectService.name2.push(new Participant(this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value, 'ناظر'));
+        this.commonDataForCreateProjectService.name2.push(new Participant('ناظر',this.supervisorNameFormControl.value, this.supervisorFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.executorList.length == 0 && this.executorNameFormControl.value) {
-      this.commonDataForCreateProjectService.name3 = [new Participant(this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value, 'مجری')];
-      this.executorList = [new Participant(this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value, 'مجری')];
+      this.commonDataForCreateProjectService.name3 = [new Participant('مجری',this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value)];
+      this.executorList = [new Participant('مجری',this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value)];
 
     } else {
       this.commonDataForCreateProjectService.name3 = this.executorList;
       if(this.executorNameFormControl.value) {
-        this.commonDataForCreateProjectService.name3.push(new Participant(this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value, 'مجری'));
+        this.commonDataForCreateProjectService.name3.push(new Participant('مجری',this.executorNameFormControl.value, this.executorFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.contractorsList.length == 0 && this.contractorsNameFormControl.value) {
-      this.commonDataForCreateProjectService.name4 = [new Participant(this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value, 'پیمان کار')];
-      this.contractorsList = [new Participant(this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value, 'پیمان کار')];
+      this.commonDataForCreateProjectService.name4 = [new Participant('پیمان کار',this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value)];
+      this.contractorsList = [new Participant( 'پیمان کار',this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value)];
 
     } else {
       this.commonDataForCreateProjectService.name4 = this.contractorsList;
       if(this.contractorsNameFormControl.value) {
-        this.commonDataForCreateProjectService.name4.push(new Participant(this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value, 'پیمان کار'));
+        this.commonDataForCreateProjectService.name4.push(new Participant( 'پیمان کار',this.contractorsNameFormControl.value, this.ContractorsFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.consultantList.length == 0 && this.consultantNameFormControl.value) {
-      this.commonDataForCreateProjectService.name5 = [new Participant(this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value, 'مشاور')];
-      this.consultantList = [new Participant(this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value, 'مشاور')];
+      this.commonDataForCreateProjectService.name5 = [new Participant('مشاور',this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value)];
+      this.consultantList = [new Participant('مشاور',this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value)];
 
     } else {
       this.commonDataForCreateProjectService.name5 = this.consultantList;
       if(this.consultantNameFormControl.value) {
-        this.commonDataForCreateProjectService.name5.push(new Participant(this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value,'مشاور'));
+        this.commonDataForCreateProjectService.name5.push(new Participant('مشاور',this.consultantNameFormControl.value, this.consultantFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.investorList.length == 0 && this.investorNameFormControl.value) {
-      this.commonDataForCreateProjectService.name6 = [new Participant(this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value, 'سرمایه گذار')];
-      this.investorList = [new Participant(this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value, 'سرمایه گذار')];
+      this.commonDataForCreateProjectService.name6 = [new Participant('سرمایه گذار',this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value)];
+      this.investorList = [new Participant('سرمایه گذار',this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value)];
     } else {
       this.commonDataForCreateProjectService.name6 = this.investorList;
       if(this.investorNameFormControl.value) {
-        this.commonDataForCreateProjectService.name6.push(new Participant(this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value, 'سرمایه گذار'));
+        this.commonDataForCreateProjectService.name6.push(new Participant('سرمایه گذار',this.investorNameFormControl.value, this.investorFirstAndLastNameFormControl.value));
       }
     }
 
 
     if(this.contributorsList.length == 0 && this.contributorsNameFormControl.value) {
-      this.commonDataForCreateProjectService.name7 = [new Participant(this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value, 'مشارکت کنندگان')];
-      this.contributorsList = [new Participant(this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value, 'مشارکت کنندگان')];
+      this.commonDataForCreateProjectService.name7 = [new Participant('مشارکت کنندگان',this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value)];
+      this.contributorsList = [new Participant('مشارکت کنندگان',this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value)];
 
     } else {
       this.commonDataForCreateProjectService.name7 = this.contributorsList;
       if(this.contributorsNameFormControl.value) {
-        this.commonDataForCreateProjectService.name7.push(new Participant(this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value, 'مشارکت کنندگان'));
+        this.commonDataForCreateProjectService.name7.push(new Participant('مشارکت کنندگان',this.contributorsNameFormControl.value, this.contributorsFamilyFormControl.value));
       }
     }
 
@@ -276,11 +276,10 @@ export class StakeholderManagementComponent implements OnInit {
       list.push(this.employerList[i]);
     }
 
-    console.log();
-
     this.commonDataForCreateProjectService.setParticipant(
       list
     );
+    console.log();
     this.commonDataForCreateProjectService.selectStep.emit(4);
     setTimeout(() => {
       document.getElementById('locationInformation')?.click();

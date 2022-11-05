@@ -16,6 +16,7 @@ export class DisplayUserPathComponent implements OnInit {
   @Input() path2: DisplayPathModel;
   @Input() path3: DisplayPathModel;
   @Input() showProjectList: boolean;
+  @Input() showProjectList1: boolean;
   @Input() showCompanyList: boolean;
   @Output() companyIdSelected = new EventEmitter<string | string[]>();
   @Output() projectIdSelected = new EventEmitter<string| string[]>();

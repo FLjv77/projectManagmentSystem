@@ -1,3 +1,4 @@
+import { url } from './../../../../assets/url/url';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { ApiResult } from 'src/app/auth/model/authDTO';
@@ -5,7 +6,6 @@ import { CompanyListService } from 'src/app/workSpace/service/companyListDTO/com
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {Router} from "@angular/router";
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home-company-manager',
@@ -21,6 +21,13 @@ export class HomeCompanyManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.setRole();
+  }
+
+  public setRole(){
+    let role = 'companyAdmin';
+    localStorage.removeItem(url.RoleHome);
+    localStorage.setItem(url.RoleHome,role);
   }
 
   public goToCreateProject() {

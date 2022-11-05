@@ -1,3 +1,4 @@
+import { url } from './../../../../assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -15,6 +16,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.setRole();
+  }
+
+  public setRole(){
+    let role = 'holdingAdmin';
+    localStorage.removeItem(url.RoleHome);
+    localStorage.setItem(url.RoleHome,role);
   }
 
   public goToCreateProject() {

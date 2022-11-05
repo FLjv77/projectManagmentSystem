@@ -17,6 +17,7 @@ export class DropDownProvinceListComponent implements OnInit {
   public placeHolder: Select2OptionData;
   @Input() provinceName: string;
   @Output() province = new EventEmitter<string | string[]>();
+  @Output() refreshProvince = new EventEmitter<boolean>();
 
   constructor(private createrojectService:CreaterojectService) { }
 
@@ -164,6 +165,7 @@ export class DropDownProvinceListComponent implements OnInit {
   }
   public setValue($evnet: string | string[]){
     this.province.emit($evnet);
+    this.refreshProvince.emit(true);
   }
 
 }

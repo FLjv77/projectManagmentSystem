@@ -53,28 +53,43 @@ export class CreaterojectService {
     return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProject + projectId , imageFormData);
   }
 
-  public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<SearchLocationSelectedDto>> {
-    return this.http.get<ApiResult<SearchLocationSelectedDto>>(
-      url.SearchLocation +
+  public AssigneUserAsProjectSupervisor(projectId: string|string[],userName:string): Observable<ApiResult<boolean>>{
+    return this.http.post<ApiResult<boolean>>(url.AssigneUserAsProjectSupervisor
+       + projectId + '?userName=' + userName,userName);
+  }
+
+  // public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<SearchLocationSelectedDto>> {
+  //   return this.http.get<ApiResult<SearchLocationSelectedDto>>(
+  //     url.SearchLocation +
+  //     (stateName? '?stateName=' + stateName :'') +
+  //     (cityName? '&cityName=' + cityName : '') +
+  //     (regionName? '&regionName=' + regionName : '') +
+  //     (ruralName? '&ruralName=' + ruralName : '')
+  //     );
+
+  // }
+  // public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State[]>> {
+  //   return this.http.get<ApiResult<State[]>>(
+  //     url.SearchLocation +'?stateName=' + stateName)
+  // }
+  // public SearchLocation2(stateName: string|string[], cityName: string| string[]): Observable<ApiResult<City[]>> {
+  //   return this.http.get<ApiResult<City[]>>(
+  //     url.SearchLocation +'?stateName=' + stateName + '&cityName=' + cityName)
+  // }
+
+  // public SearchLocation3(stateName: string|string[], cityName: string| string[], regionName: string|string[]): Observable<ApiResult<Region[]>> {
+  //   return this.http.get<ApiResult<Region[]>>(
+  //     url.SearchLocation + '?stateName=' + stateName + '&cityName=' + cityName +'&regionName=' + regionName);
+
+  // }
+
+  public GetItemOfRegions(stateName?: string|string[], cityName?: string|string[], regionName?: string|string[]
+    , ruralName?: string|string[]): Observable<ApiResult<Array<string>>> {
+    return this.http.get<ApiResult<Array<string>>>(url.GetItemOfRegions +
       (stateName? '?stateName=' + stateName :'') +
       (cityName? '&cityName=' + cityName : '') +
       (regionName? '&regionName=' + regionName : '') +
       (ruralName? '&ruralName=' + ruralName : '')
-      );
-
-  }
-  public SearchLocation1(stateName: string| string[]): Observable<ApiResult<State[]>> {
-    return this.http.get<ApiResult<State[]>>(
-      url.SearchLocation +'?stateName=' + stateName)
-  }
-  public SearchLocation2(stateName: string|string[], cityName: string| string[]): Observable<ApiResult<City[]>> {
-    return this.http.get<ApiResult<City[]>>(
-      url.SearchLocation +'?stateName=' + stateName + '&cityName=' + cityName)
-  }
-
-  public SearchLocation3(stateName: string|string[], cityName: string| string[], regionName: string|string[]): Observable<ApiResult<Region[]>> {
-    return this.http.get<ApiResult<Region[]>>(
-      url.SearchLocation + '?stateName=' + stateName + '&cityName=' + cityName +'&regionName=' + regionName);
-
+    );
   }
 }

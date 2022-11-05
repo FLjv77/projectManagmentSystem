@@ -108,6 +108,6 @@ export class CommonDataForCreateProjectService {
   }
 
   public setParticipant(participants: Array<Participant>){
-    this.createProjectData.participants = participants;
+    this.createProjectData.participants = participants;   
   }
 }
