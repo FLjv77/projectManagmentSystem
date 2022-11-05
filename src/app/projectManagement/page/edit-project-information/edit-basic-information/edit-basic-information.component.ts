@@ -28,6 +28,11 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
   public x_location: number;
   public y_location: number;
 
+  public placeholderVillage: string;
+  public placeholderRegion: string;
+  public placeholderCity: string;
+  public placeholderProvince: string;
+
   @Input() projectId: string | string[];
   public projectIdSelect: string| string[];
   public edit:boolean=false;
@@ -47,6 +52,7 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
       if (this.projectIdSelect) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+          this.placeholderCity = res.data.address.city;
         this.projectNameFormControl.setValue(res.data.projectName);
         this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.timeInterval);
         this.descreptionFormControl.setValue(res.data.projectDescription);
@@ -93,6 +99,8 @@ export class EditBasicInformationComponent implements OnInit,AfterViewInit {
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      console.log(res.data);
+      
       this.projectNameFormControl.setValue(res.data.projectName);
       this.projectDeliveryDateFormControl.setValue(res.data.startTimeOfProject);
       this.descreptionFormControl.setValue(res.data.projectDescription);

@@ -1,8 +1,7 @@
 <div class="wrapper">
-  <app-display-user-path [showCompanyList]="true" [showProjectList]="true" [path2]="path2"
+  <app-display-user-path *ngIf="show == null" [showCompanyList]="true" [showProjectList]="true" [path2]="path2"
   [path1]="path1" [path3]="path3" (projectIdSelected)="setProjectId($event)"></app-display-user-path>
-  <!-- <app-display-user-path *ngIf="show" [path2]="path2"
-  [path1]="path1" [path3]="path3"></app-display-user-path> -->
+  <app-display-user-path *ngIf="show != null" [path2]="path2" [path1]="path1" [path3]="path3" [showProjectList1]="true"></app-display-user-path>
   <div class="bg-levels mx-4 mt-2" style="min-height: 1000px;">
     <div class="set-font-vazir" *ngIf="projectId != null">
       <ul class="nav nav-tabs" id="myTab" role="tablist">

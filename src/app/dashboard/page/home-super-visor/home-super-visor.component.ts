@@ -1,3 +1,4 @@
+import { url } from './../../../../assets/url/url';
 import { ReportConnectionToApiService } from './../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -22,6 +23,13 @@ export class HomeSuperVisorComponent implements OnInit {
     this.initDisplayPath();
     this.getReportAllocation();
     this.getReportProgress();
+    this.setRole();
+  }
+
+  public setRole(){
+    let role = 'supervisor';
+    localStorage.removeItem(url.RoleHome);
+    localStorage.setItem(url.RoleHome,role);
   }
 
   private getReportAllocation() {

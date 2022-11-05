@@ -12,6 +12,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   @Input() placeholder: string;
   @Input() addInput: boolean;
   @Output() city= new EventEmitter<string | string[]>();
+  @Output() refreshCity= new EventEmitter<boolean>();
   @Input() cityList: Array<Select2OptionData>;
   public title: string = 'انتخاب پروژه';
   public valueSelect: string | string[];
@@ -26,7 +27,6 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.projectData = this.cityList;
-
   }
 
   public setProject(name: string){
@@ -44,13 +44,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   }
 
   public setValue(event: string | string[]){
-    console.log(event);
-    
-    //let name = this.projectData[Number(event)].text;
-    this.valueSelect = event;
-    console.log(event);
-    
-    this.city.emit(event);
+    if(event) this.city.emit(event); this.refreshCity.emit(true);
   }
 
 }

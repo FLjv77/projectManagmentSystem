@@ -17,8 +17,8 @@ import { CompanySelectedDTO } from '../../../../../workSpace/model/companyModel'
 @Component({
   selector: 'app-pproject-location-information',
   templateUrl: './pproject-location-information.component.html',
-  styleUrls: ['./pproject-location-information.component.scss','../../project-creation-levels.component.scss',
-              '../basic-project-information/basic-project-information.component.scss']
+  styleUrls: ['./pproject-location-information.component.scss', '../../project-creation-levels.component.scss',
+    '../basic-project-information/basic-project-information.component.scss']
 })
 export class PProjectLocationInformationComponent implements OnInit {
   private companyId: string;
@@ -28,10 +28,14 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   private projectId: string;
 
-  public provinceName: string|string[];
-  public cityName: string|string[];
-  public regionName: string|string[];
-  public villageName: string|string[];
+  public provinceName: string | string[];
+  public cityName: string | string[];
+  public regionName: string | string[];
+  public villageName: string | string[];
+  
+  public show: boolean;
+  public show1: boolean;
+  public show2: boolean;
 
   constructor(
     private router: Router,
@@ -49,19 +53,19 @@ export class PProjectLocationInformationComponent implements OnInit {
 
   private setCompanyId() {
     let com = localStorage.getItem(url.CompanyInfo);
-    if(com) {
+    if (com) {
       let c = new CompanySelectedDTO();
       c = JSON.parse(com);
       this.companyId = c.companyId;
     } else {
       let idC = this.activeRouting.snapshot.queryParamMap.get('companyId');
-      if(idC) this.companyId = idC;
+      if (idC) this.companyId = idC;
     }
   }
 
   private checkValueIsSet() {
     let projectInfo = this.commonDataForCreateProjectService.getCreateProject();
-    if(projectInfo.latitude) this.LocationFormControl.setValue(projectInfo.latitude + ' - ' + projectInfo.longitude);
+    if (projectInfo.latitude) this.LocationFormControl.setValue(projectInfo.latitude + ' - ' + projectInfo.longitude);
   }
 
   private initInputStyle() {
@@ -85,12 +89,12 @@ export class PProjectLocationInformationComponent implements OnInit {
       );
     }
 
-    if(p_id) {
+    if (p_id) {
       this.router.navigate(['../../createProject/startCreatProject'],
-      {queryParams: {type: projectType, targetId: id, companyId: this.companyId, projectId: p_id}});
+        { queryParams: { type: projectType, targetId: id, companyId: this.companyId, projectId: p_id } });
     } else {
       this.router.navigate(['../../createProject/startCreatProject'],
-      {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
+        { queryParams: { type: projectType, targetId: id, companyId: this.companyId } });
     }
 
 
@@ -112,24 +116,24 @@ export class PProjectLocationInformationComponent implements OnInit {
     let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
     let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
-    this.router.navigate(['../../createProject/startCreatProject'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
-    this.router.navigate(['../../createProject/selectLocationOnMap'], {queryParams: {type: projectType, targetId: id, companyId: this.companyId}});
+    this.router.navigate(['../../createProject/startCreatProject'], { queryParams: { type: projectType, targetId: id, companyId: this.companyId } });
+    this.router.navigate(['../../createProject/selectLocationOnMap'], { queryParams: { type: projectType, targetId: id, companyId: this.companyId } });
   }
 
   public openModal() {
     this.handleModalService.openModal('create-project');
   }
 
-  public createProject(event: boolean){
-    if (event==false) {
-      this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
+  public createProject(event: boolean) {
+    if (event == false) {
+      this.router.navigate(['../projectManagement/projectList'], { queryParams: { idCompany: this.companyId } });
     }
-    else if(event==true) {
+    else if (event == true) {
       let projectType = this.activeRouting.snapshot.queryParamMap.get('type');
       let id = this.activeRouting.snapshot.queryParamMap.get('targetId');
 
       this.router.navigate(['../../createProject/startCreatProject'],
-       {queryParams: {type: projectType, targetId: id, companyId: this.companyId, projectId: this.projectId}});
+        { queryParams: { type: projectType, targetId: id, companyId: this.companyId, projectId: this.projectId } });
       this.commonDataForCreateProjectService.selectStep.emit(5);
 
       setTimeout(() => {
@@ -146,7 +150,7 @@ export class PProjectLocationInformationComponent implements OnInit {
     this.createrojectService.CreateProject(
       this.companyId, this.commonDataForCreateProjectService.getCreateProject()
     ).subscribe((res: ApiResult<string>) => {
-      if(res.isSuccess && res.statusCode == 200) {
+      if (res.isSuccess && res.statusCode == 200) {
         this.openModal();
         this.projectId = res.data;
       }
@@ -155,58 +159,73 @@ export class PProjectLocationInformationComponent implements OnInit {
   }
   public cityList: Array<Select2OptionData>;
 
-  public setProvince($event: string|string[]){
-    console.log(0);
-
-    this.provinceName=$event;
-    this.createrojectService.SearchLocation1(this.provinceName).subscribe((res:ApiResult<State[]>)=>{
-      this.cityList = [];
-      for (let i = 0; i < res.data.length; i++) {
-        let newValue: Select2OptionData = {
-          text: res.data[i].name,
-          id: res.data[i].name
-        };
-        this.cityList.push(newValue);
-      }
-    })
+  public setProvince($event: string | string[]) {
+    console.log($event +'/'+ this.provinceName);
+    if ($event != this.provinceName) {
+      this.provinceName = $event;
+      this.createrojectService.GetItemOfRegions(this.provinceName).subscribe((res: ApiResult<Array<string>>) => {
+        this.cityList = [];
+        for (let i = 0; i < res.data.length; i++) {
+          let newValue: Select2OptionData = {
+            text: res.data[i],
+            id: res.data[i]
+          };
+          this.cityList.push(newValue);
+        }
+        console.log(this.cityList);
+        this.show=false;
+      });
+    }
   }
 
   public regionList: Array<Select2OptionData>;
 
-  public setCity(event: string|string[]){
-    console.log(1);
-
-    this.cityName= event;
-    this.createrojectService.SearchLocation2(this.provinceName, this.cityName).subscribe((res:ApiResult<City[]>)=>{
+  public setCity(event: string | string[]) {
+    this.cityName = event;
+    this.createrojectService.GetItemOfRegions(this.provinceName, this.cityName).subscribe((res: ApiResult<Array<string>>) => {
+      console.log(res.data);
+      
       this.regionList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
-          text: res.data[i].name,
-          id: res.data[i].name
+          text: res.data[i],
+          id: res.data[i]
         };
         this.regionList.push(newValue);
       }
+      this.show1=false;
     })
   }
 
   public villageList: Array<Select2OptionData>;
 
-  public setRegion($event: string|string[]){
-    this.regionName=$event;
-    this.createrojectService.SearchLocation3(this.provinceName,this.cityName,this.regionName).subscribe((res:ApiResult<Region[]>)=>{
+  public setRegion($event: string | string[]) {
+    this.regionName = $event;
+    this.createrojectService.GetItemOfRegions(this.provinceName, this.cityName, this.regionName).subscribe((res: ApiResult<Array<string>>) => {
       this.villageList = [];
       for (let i = 0; i < res.data.length; i++) {
         let newValue: Select2OptionData = {
-          text: res.data[i].name,
-          id: res.data[i].name
+          text: res.data[i],
+          id: res.data[i]
         };
         this.villageList.push(newValue);
       }
+      this.show2=false;
     })
   }
 
-  public setVillage($event: string|string[]){
-    this.villageName=$event;
+  public setRefresh($event: boolean){
+    this.show = $event;
+  }
+  public setRefresh1($event: boolean){
+    this.show1 = $event;
+  }
+  public setRefresh2($event: boolean){
+    this.show2 = $event;
+  }
+
+  public setVillage($event: string | string[]) {
+    this.villageName = $event;
   }
 
 }

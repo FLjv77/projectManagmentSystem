@@ -12,6 +12,7 @@ export class DropDownRegionListComponent implements OnInit, AfterViewInit {
   @Input() placeholder: string;
   @Input() addInput: boolean;
   @Output() region = new EventEmitter<string | string[]>();
+  @Output() refreshRegion = new EventEmitter<boolean>();
   @Input() regionList: Array<Select2OptionData>;
   public title: string = 'انتخاب پروژه';
   public valueSelect: string | string[];
@@ -42,6 +43,6 @@ export class DropDownRegionListComponent implements OnInit, AfterViewInit {
   }
 
   public setValue(event: string | string[]){
-     if(event) this.region.emit(event);
+     if(event) this.region.emit(event); this.refreshRegion.emit(true);
   }
 }

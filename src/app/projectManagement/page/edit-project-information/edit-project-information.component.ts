@@ -1,3 +1,4 @@
+import { url } from './../../../../../dist/comprehensiveProjectManagement/assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -33,7 +34,16 @@ export class EditProjectInformationComponent implements OnInit {
 
   private getProjectId() {
     let id = this.activeRouting.snapshot.queryParamMap.get('projectIdEdit');
-    if (id) this.projectId = id; this.show = id;
+    
+    if (localStorage.getItem(url.RoleHome) == 'holdingAdmin') {
+      this.show = null;
+      if (id) this.projectId = id;
+    }
+    else if (localStorage.getItem(url.RoleHome) != 'holdingAdmin'){
+      if (id) this.projectId = id; this.show = id;
+    }
+    console.log(this.show);
+    
   }
 
   public setProjectId(event: string|string[]){

@@ -8,10 +8,10 @@
              [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
             [inputFormControl]="LocationFormControl"></app-input-style>
 
-            <app-drop-down-province-list (province)="setProvince($event)"></app-drop-down-province-list>
-            <app-drop-down-city-list *ngIf="cityList" [cityList]="cityList" (city)="setCity($event)"></app-drop-down-city-list>
-            <app-drop-down-region-list *ngIf="regionList" [regionList]="regionList" (region)="setRegion($event)"></app-drop-down-region-list>
-            <app-drop-down-village-list *ngIf="villageList" [villageList]="villageList" (village)="setVillage($event)"></app-drop-down-village-list>
+            <app-drop-down-province-list (province)="setProvince($event)" (refreshProvince)="setRefresh($event)"></app-drop-down-province-list>
+            <app-drop-down-city-list *ngIf="cityList && !show" [cityList]="cityList" (city)="setCity($event)" (refreshCity)="setRefresh1($event)"></app-drop-down-city-list>
+            <app-drop-down-region-list *ngIf="regionList && !show1" [regionList]="regionList" (region)="setRegion($event)" (refreshRegion)="setRefresh2($event)"></app-drop-down-region-list>
+            <app-drop-down-village-list *ngIf="villageList && !show2" [villageList]="villageList" (village)="setVillage($event)"></app-drop-down-village-list>
 
             <!-- <hr class="my-3 opacity-hr">
             <div class="col-md-3 col-12">

@@ -10,6 +10,20 @@
     </div>
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">assignment_ind</i>
+      <h4 class="title-page d-inline set-font-Raymon">انتخاب ناظر</h4>
+    </div>
+    <div class="row col-12">
+      <div class="col-sm-6 col-12">
+
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-12" [type]="'text'" [inputLabel]="'نام و نام خانوادگی ناظر'" [inputId]="'4'"
+                         [inputFormControl]="supervisorFirstAndLastNameFormControl"></app-input-style>
+      </div>
+      <div class="col-12">
+        <button (click)="setSupervisor(supervisorFirstAndLastNameFormControl.value)">ok</button>
+      </div>
+    </div>
+    <div class="col-12">
+      <i class="material-icons d-inline icon-styles">assignment_ind</i>
       <h4 class="title-page d-inline set-font-Raymon">انتخاب کارفرما</h4>
     </div>
     <div *ngIf="employerList" class="col-11">
@@ -48,7 +62,7 @@
     </div>
 
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">assignment_ind</i>
       <h4 class="title-page d-inline set-font-Raymon">انتخاب ناظر</h4>
@@ -86,7 +100,7 @@
       </button>
     </div>
 
-  </div>
+  </div> -->
   <div class="row">
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">assignment_ind</i>
