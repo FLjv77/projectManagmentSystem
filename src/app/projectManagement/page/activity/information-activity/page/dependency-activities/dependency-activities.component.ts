@@ -23,7 +23,6 @@ export class DependencyActivitiesComponent implements OnInit {
   ngOnInit(): void {
     this.setProjectId();
     this.getProjectctivity();
-    this.getDependency();
   }
 
   private setProjectId() {
@@ -42,13 +41,19 @@ export class DependencyActivitiesComponent implements OnInit {
   }
 
   private getDependency() {
-    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<ActivityDependencyDto>) => {
-      let data = res.data.data;
+    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<Map<string, Map<string, DependencyActivity>>>) => {
+      let data = res.data;
 
-      for(let i=0; i<this.activityList.length; i++) {
-              console.log((data.get(this.activityList[i].activityName)));
+      console.log(data);
 
-      }
+
+      for (let key in data) {
+        if(data.has(key)) {
+          let value = data.get(key);
+          console.log(key + " : " + value)
+        }
+    }
+
     });
   }
 
