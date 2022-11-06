@@ -53,7 +53,6 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
       if (this.projectIdSelect) {
-        console.log(this.projectIdSelect);
         this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
           if (res) {
@@ -113,10 +112,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     updateProjectDTO.section = '';
     updateProjectDTO.state = '';
     console.log(participants);
-    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
-      res: ApiResult<boolean>
-    )=>{console.log(res.data);
-    })
+    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO);
     this.edit = false;
   }
 
@@ -156,7 +152,6 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-      console.log(res.data.participants);
       this.employerList = [];
       this.supervisorList = [];
       this.executorList = [];
@@ -192,9 +187,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   }
 
   public setSupervisor(supervisorName: string){
-    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName).
-    subscribe((res:ApiResult<boolean>)=>{console.log(res.data);
-    })
+    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName);
   }
 
 

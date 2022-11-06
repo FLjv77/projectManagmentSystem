@@ -1,7 +1,7 @@
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { Select2OptionData } from 'ng-select2';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { event } from 'jquery';
 
 @Component({
@@ -9,7 +9,7 @@ import { event } from 'jquery';
   templateUrl: './drop-down-province-list.component.html',
   styleUrls: ['./drop-down-province-list.component.scss', '../drop-down-project-list/drop-down-project-list.component.scss']
 })
-export class DropDownProvinceListComponent implements OnInit {
+export class DropDownProvinceListComponent implements OnInit,AfterViewInit {
 
   @Input() placeholder: string;
   public title: string = 'انتخاب پروژه';
@@ -23,6 +23,13 @@ export class DropDownProvinceListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initProjectList();
+  }
+
+  ngAfterViewInit(): void {
+    if (this.placeholder) {
+      this.placeHolder.text = this.placeholder;
+      this.placeHolder.id = this.placeholder;
+    }
   }
 
   public setProject(name: string){
