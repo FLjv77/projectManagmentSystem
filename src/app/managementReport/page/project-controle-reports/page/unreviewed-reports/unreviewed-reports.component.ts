@@ -15,6 +15,8 @@ export class UnreviewedReportsComponent implements OnInit {
   public allocationReportSelectedDtos: AllocationReportSelectedDto[];
   public progressReportSelectedDtos:	ProgressReportSelectedDto[];
   public selectedReportId: string;
+  public selectedReportIndex: number;
+
   @Input() projectId: string;
 
   public openCloseAnswer1:boolean = false;
@@ -52,7 +54,7 @@ export class UnreviewedReportsComponent implements OnInit {
 
   private getReportAllocation() {
     this.reportConnectionToApiService.GetAllocationReports(
-      this.projectId, 3
+      this.projectId, 'notChecked'
     ).subscribe((res: ApiResult<AllocationReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.allocationReportSelectedDtos = res.data.allocationReportSelectedDtos;
@@ -62,7 +64,7 @@ export class UnreviewedReportsComponent implements OnInit {
 
   private getReportProgress() {
     this.reportConnectionToApiService.GetProgressReports(
-      this.projectId, 3
+      this.projectId, 'notChecked'
     ).subscribe((res: ApiResult<ProgressReportPaginationSelectedDto>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.progressReportSelectedDtos = res.data.progressReportSelectedDtos;
@@ -74,17 +76,31 @@ export class UnreviewedReportsComponent implements OnInit {
     return this.numberFormaterService.covertToFrNumber(num);
   }
 
-  public openModalFinancial(reportId: string) {
+  public openModalFinancial(reportId: string, index: number) {
     this.selectedReportId = reportId;
+    this.selectedReportIndex = index;
     setTimeout(() => {
       this.handleModalService.openModal('record-financial-report');
     }, 250);
   }
 
-  public openModalProgress(reportId: string) {
+  public openModalProgress(reportId: string, index: number) {
     this.selectedReportId = reportId;
+    this.selectedReportIndex = index;
+
     setTimeout(() => {
       this.handleModalService.openModal('record-progress-report');
     }, 250);
+  }
+
+  public reportHasSave(stat: boolean, chose: number) {
+    if(stat) {
+      if(chose == 0) {
+        this.progressReportSelectedDtos.splice(this.selectedReportIndex, 1);
+      } else{
+        this.allocationReportSelectedDtos.splice(this.selectedReportIndex, 1);
+      }
+    }
+
   }
 }

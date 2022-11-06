@@ -1,6 +1,8 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { FormControl } from '@angular/forms';
+import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 
 @Component({
   selector: 'app-filter-project-total-cost',
@@ -12,19 +14,29 @@ export class FilterProjectTotalCostComponent implements OnInit {
   public minValue: number = 0;
   @Output() handleMaxValue = new EventEmitter<number>();
   @Output() handleMinValue = new EventEmitter<number>();
+  public inputCustomStyle: InputCustomStyle;
+  public minFormControl  = new FormControl();
+  public maxFormControl  = new FormControl();
 
   constructor(private numberFormaterService:NumberFormaterService) { }
 
+
   ngOnInit(): void {
+    this.initInputStyle();
   }
 
-
-  public changeMax(event: MatSliderChange) {
-    if(event.value) this.handleMaxValue.emit(event.value);
+  private initInputStyle() {
+    this.inputCustomStyle = new InputCustomStyle(
+      '#AEAEAE', '#AEAEAE', '#AEAEAE'
+    )
   }
 
-  public changeMin(event: MatSliderChange) {
-    if(event.value) this.handleMinValue.emit(event.value);
+  public changeMax(event: any) {
+    if(event) this.handleMaxValue.emit(event);
+  }
+
+  public changeMin(event: any) {
+    if(event) this.handleMinValue.emit(event);
   }
 
   public formatLabel(value: number) {
@@ -57,5 +69,7 @@ export class FilterProjectTotalCostComponent implements OnInit {
   public clearFilter() {
     this.handleMaxValue.emit(undefined);
     this.handleMinValue.emit(undefined);
+    this.maxFormControl.reset();
+    this.minFormControl.reset();
   }
 }

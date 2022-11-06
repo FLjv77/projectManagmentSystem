@@ -6,20 +6,20 @@
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام فعالیت'" [inputId]="'1'"
         [inputFormControl]="activityNameFormControl"></app-input-style>
 
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
+    [inputFormControl]="endDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
+
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
         [inputFormControl]="startDateFormControl" (changeValue)="endDate = $event"></app-date-picker-jalaly>
 
-    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
-        [inputFormControl]="endDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
-
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
         [inputFormControl]="activityPriceFormControl"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
         [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
 
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
         [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح فعالیت'" [inputId]="'7'"

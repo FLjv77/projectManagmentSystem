@@ -32,11 +32,11 @@ export class AdvancedSearchAccordingToCompanyComponent implements OnInit {
     this.showList = !this.showList;
   }
 
-  public goToEditProject() {
-    this.router.navigate(['../../projectManagement/editProject'])
+  public goToEditProject(projectId: string) {
+    this.router.navigate(['../../projectManagement/editProject'],  {queryParams: { projectIdEdit: projectId }})
   }
-  public goToActivityProject() {
-    this.router.navigate(['../../projectManagement/InformationActivity'])
+  public goToActivityProject(projectId: string) {
+    this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: projectId}})
   }
   public goToChartPage() {
     this.router.navigate(['../../projectManagement/chart'])

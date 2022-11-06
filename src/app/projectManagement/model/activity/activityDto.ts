@@ -11,14 +11,14 @@ export class RequestCreateActivityDependency {
 export class CreateActivityDependency{
   constructor(sourceActivityName: string,
     destinationActivityName: string,
-    dependencyActivity: DependencyActivitystring) {
+    dependencyActivity: DependencyActivity) {
       this.sourceActivityName = sourceActivityName;
       this.destinationActivityName = destinationActivityName;
       this.dependencyActivity = dependencyActivity;
   }
   sourceActivityName: string;
   destinationActivityName: string;
-  dependencyActivity: DependencyActivitystring;
+  dependencyActivity: DependencyActivity;
 }
 
 export class CreateActivityDTO {
@@ -66,8 +66,12 @@ export class ActivityHierarchicalStructureSelectedDTO {
   endOfActivity: DateTime;
   approximateCost: number;
   childActivities: ActivityHierarchicalStructureSelectedDTO[];
-  }
+}
 
-export enum DependencyActivitystring {
+export class ActivityDependencyDto {
+  data: Map<string, Map<string, DependencyActivity>>;
+}
+
+export enum DependencyActivity {
   none, fs, ss, ff, sf
 }

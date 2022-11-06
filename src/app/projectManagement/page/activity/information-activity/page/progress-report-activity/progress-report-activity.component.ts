@@ -31,7 +31,7 @@ export class ProgressReportActivityComponent implements OnInit {
   }
 
   public newReport(){
-    this.router.navigate(['../../managementReport/submitProgressReporter'], {queryParams: { projectId: this.projectId}});
+    this.router.navigate(['../../managementReport/submitProgressReporter'], {queryParams: { projectId: this.projectId, reportType: 1}});
   }
 
   public changeToPersian(num:string){
