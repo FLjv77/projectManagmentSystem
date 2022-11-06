@@ -50,10 +50,10 @@
       <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مکانی</h4>
 
     </div>
-    <app-drop-down-province-list [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
-    <app-drop-down-city-list [placeholder]="placeholderCity" class="col-md-6 col-12"></app-drop-down-city-list>
-    <app-drop-down-region-list [placeholder]="placeholderRegion" class="col-md-6 col-12"></app-drop-down-region-list>
-    <app-drop-down-village-list [placeholder]="placeholderVillage" class="col-md-6 col-12"></app-drop-down-village-list>
+    <app-drop-down-province-list *ngIf="placeholderProvince!=null" [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
+    <app-drop-down-city-list *ngIf="placeholderCity!=null" [cityList]="cityList" [placeholder]="placeholderCity" class="col-md-6 col-12"></app-drop-down-city-list>
+    <!-- <app-drop-down-region-list *ngIf="placeholderRegion!=null" [placeholder]="placeholderRegion" class="col-md-6 col-12"></app-drop-down-region-list>
+    <app-drop-down-village-list *ngIf="placeholderVillage!=null" [placeholder]="placeholderVillage" class="col-md-6 col-12"></app-drop-down-village-list> -->
     <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
                      [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style> -->
 
