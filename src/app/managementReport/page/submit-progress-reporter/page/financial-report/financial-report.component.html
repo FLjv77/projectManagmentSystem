@@ -1,4 +1,6 @@
 <div class="mt-3">
+  <div *ngIf="activityList.length > 0" class="col-12 set-font-Raymon title-style py-3 pr-2">انتخاب فعالیت</div>
+  <div *ngIf="activityList.length == 0" class="col-12 set-font-Raymon title-style py-3 pr-2 text-center">چون فعالیتی برای این پروژه ایجاد نشده امکان ثبت گزارش نیست</div>
 
   <mat-accordion>
     <mat-expansion-panel #mep="matExpansionPanel" [disabled]="true">
@@ -54,7 +56,7 @@
 
 
   <div class="row col-12 my-2" style="direction: ltr;">
-        <button type="button" class="ok-button" (click)="sendProgressReport()">
+        <button type="button" class="ok-button" (click)="sendProgressReport()" [disabled]="getValue()">
             <img src="../../../../assets/image/createProject/ok-button.svg" alt="">
         </button>
     </div>

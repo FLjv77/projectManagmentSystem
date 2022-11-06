@@ -1,6 +1,6 @@
 <section class="example-section" *ngIf="types">
   <p *ngFor="let item of types">
-  <mat-checkbox [checked]="checked" (click)="setProjectType(item.targetId)" class="set-font-vazir">
+  <mat-checkbox [checked]="checked" (click)="setProjectType(item.objectiveTitle)" class="set-font-vazir">
     <span class="px-2 check-box-label">{{item.objectiveTitle}}</span>
   </mat-checkbox></p>
 </section>

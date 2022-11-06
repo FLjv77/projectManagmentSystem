@@ -18,6 +18,7 @@ import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDial
 })
 export class ProgressReportComponent implements OnInit {
 
+  private listActivity = new Array<ShareLevelOfActivityDTO>();
   public listPrepareShareLevelOfActivity: PrepareShareLevelOfActivityDTO[];
   public inputCustomStyle: InputCustomStyle;
   public reporterNameFormControl = new FormControl();
@@ -51,33 +52,40 @@ export class ProgressReportComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.reporterNameFormControl.value && this.registrationDateFormControl.value && this.descreptionFormControl.value &&
-      this.ProgressFormControl.value && this.fileFormControl.value &&
-      this.reporterNameFormControl.valid && this.registrationDateFormControl.valid && this.descreptionFormControl.valid &&
-      this.ProgressFormControl.valid && this.fileFormControl.valid){
-        return true;
+    if(this.reporterNameFormControl.value && this.descreptionFormControl.value &&
+      this.ProgressFormControl.value && this.registrationDate && this.listActivity.length > 0){
+        return false;
       }
-      else{return false}
+      else{return true}
   }
 
-  public sendProgressReport(){
-    let listActivity = new Array<ShareLevelOfActivityDTO>();
+  private changeActivityList() {
     for(let i=0; i<this.listPrepareShareLevelOfActivity.length; i++) {
-      if(this.listPrepareShareLevelOfActivity[i].isExist)listActivity.push(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
+      if(this.listPrepareShareLevelOfActivity[i].isExist) this.listActivity.push(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
+      else {
+        let index = this.listActivity.indexOf(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
+        if (index > -1) this.listActivity.splice(index, 1);
+      }
     }
+  }
+
+
+  public sendProgressReport() {
+
     this.reportConnectionToApiService.RegisterProgressReport(
       this.projectId, new ProgressReportDTO(
         this.reporterNameFormControl.value,
         this.descreptionFormControl.value,
         this.ProgressFormControl.value,
         this.registrationDate,
-        listActivity)).subscribe((res) => {
+        this.listActivity)).subscribe((res) => {
           if(res.statusCode == 200 && res.isSuccess) {
             this.alertDialogBySweetAlertService.showSuccessAlert('گزارش با موفقیت ایجاد شد');
             this.reporterNameFormControl.reset();
             this.descreptionFormControl.reset();
             this.ProgressFormControl.reset();
             this.registrationDateFormControl.reset();
+            this.listActivity = new Array<ShareLevelOfActivityDTO>();
             this.prepareActivityList();
           } else {
             this.handleDisplayErrorService.showError(res.statusCode);
@@ -93,7 +101,7 @@ export class ProgressReportComponent implements OnInit {
 
 
   public progressAmountControl: FormControl[];
-  public activityList: showActivityDto[];
+  public activityList: showActivityDto[] = [];
   public isEditMode: boolean = false;
   public panelOpenState: boolean = false;
 
@@ -131,6 +139,7 @@ export class ProgressReportComponent implements OnInit {
 
   public changeEditMode(i: number) {
     this.listPrepareShareLevelOfActivity[i].isExist = !this.listPrepareShareLevelOfActivity[i].isExist;
+    this.changeActivityList();
   }
 
   public changePersentOfActivity(i: number, value: string) {

@@ -1,3 +1,4 @@
+<!--
 <div class="row py-2">
   <div class="col-12 set-font-vazir slider-label text-right">
     حداقل:
@@ -41,6 +42,32 @@
       aria-label="units"></mat-slider>
   </div>
 </div>
+<div (click)="clearFilter()" class="pointer d-flex mt-4 remove-filter">
+  <span class="mt-1 px-2">    حذف فیلتر
+  </span>
+  <span class="material-icons ">
+    block
+  </span>
+</div>
+
+-->
+
+
+
+
+<div class="row set-font-vazir">
+
+  <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-11 d-inline"
+                          [inputLabel]="'حداقل'" [inputId]="'1infrastructureResource'" [type]="'number'"
+                          [inputFormControl]="minFormControl" (changeValue)="changeMin($event)">
+  </app-input-style>
+  <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-11 d-inline"
+                          [inputLabel]="'حداکثر'" [inputId]="'2infrastructureResource'" [type]="'number'"
+                          [inputFormControl]="maxFormControl" (changeValue)="changeMax($event)">
+  </app-input-style>
+</div>
+
+
 <div (click)="clearFilter()" class="pointer d-flex mt-4 remove-filter">
   <span class="mt-1 px-2">    حذف فیلتر
   </span>

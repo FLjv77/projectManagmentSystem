@@ -1,7 +1,7 @@
 import { ReportConnectionToApiService } from './../../../../../../../../managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AllocationVerificationDTO, RequestAllocationVerificationDTO } from 'src/app/managementReport/model/modelDtoAllocationReport';
 import { ApiResult } from '../../../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -15,6 +15,7 @@ import { HandleDisplayErrorService } from '../../../../../../../../shared/servic
 export class RecordFinancialReportModalComponent implements OnInit {
 
   @Input() reportId: string;
+  @Output() removedReport = new EventEmitter<boolean>();
   public inputCustomStyle: InputCustomStyle;
   public recordDateFormControl = new FormControl();
   public reporterNameFormControl = new FormControl();
@@ -51,7 +52,8 @@ export class RecordFinancialReportModalComponent implements OnInit {
     ).subscribe((res: ApiResult<boolean>) => {
       this.changeSpinnerState(false);
       if(res.isSuccess && res.statusCode == 200) {
-
+        this.closeModal();
+        this.removedReport.emit(true);
       } else {
         this.handleError.showError(res.statusCode);
       }

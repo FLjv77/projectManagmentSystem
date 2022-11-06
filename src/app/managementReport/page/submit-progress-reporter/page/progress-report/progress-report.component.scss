@@ -1,2 +1,7 @@
 @import "../../../../../../assets/style/base.scss";
 @import "../../../../../createProjectProcess/page/project-creation-levels/project-creation-levels.component.scss";
+.title-style {
+  color: $active-yellow-lite;
+  font-weight: bold;
+  font-size: medium;
+}

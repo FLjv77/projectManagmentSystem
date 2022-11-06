@@ -29,7 +29,7 @@ export class AdvancedSearchConnecctToApiService {
       ((getProjectsWithDynamicFilterDto.humanResourceLowerCost != undefined) ? ('humanResourceLowerCost=' + getProjectsWithDynamicFilterDto.humanResourceLowerCost) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.humanResourceUpperCost != undefined) ? ('humanResourceUpperCost=' + getProjectsWithDynamicFilterDto.humanResourceUpperCost) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.totalProjectLowerCost != undefined) ? ('totalProjectLowerCost=' + getProjectsWithDynamicFilterDto.totalProjectLowerCost) + '&' : '') +
-      ((getProjectsWithDynamicFilterDto.totaltProjectUpperCost != undefined) ? ('humanResourceUpperCost=' + getProjectsWithDynamicFilterDto.totaltProjectUpperCost) + '&' : '') +
+      ((getProjectsWithDynamicFilterDto.totaltProjectUpperCost != undefined) ? ('totalProjectUpperCost=' + getProjectsWithDynamicFilterDto.totaltProjectUpperCost) + '&' : '') +
       ((getProjectsWithDynamicFilterDto.projectTargets != undefined) ? ('projectTargets=' + getProjectsWithDynamicFilterDto.projectTargets) + '&' : '') +
 
       'activePage=1&takeEntity=100'

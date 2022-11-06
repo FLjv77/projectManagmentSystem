@@ -1,6 +1,8 @@
 import { NumberFormaterService } from './../../../../../shared/service/number/number-formater.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-project-human-resource-cost',
@@ -10,13 +12,16 @@ import { MatSliderChange } from '@angular/material/slider';
 export class FilterProjectHumanResourceCostComponent implements OnInit {
   @Output() handleMaxValue = new EventEmitter<number>();
   @Output() handleMinValue = new EventEmitter<number>();
-
+  public inputCustomStyle: InputCustomStyle;
+  public minFormControl  = new FormControl();
+  public maxFormControl  = new FormControl();
   public maxValue: number = 0;
   public minValue: number = 0;
 
   constructor(private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
+    this.initInputStyle();
   }
 
   public formatLabel(value: number) {
@@ -26,12 +31,19 @@ export class FilterProjectHumanResourceCostComponent implements OnInit {
     return value;
   }
 
-  public changeMax(event: MatSliderChange) {
-    if(event.value) this.handleMaxValue.emit(event.value);
+
+  private initInputStyle() {
+    this.inputCustomStyle = new InputCustomStyle(
+      '#AEAEAE', '#AEAEAE', '#AEAEAE'
+    )
   }
 
-  public changeMin(event: MatSliderChange) {
-    if(event.value) this.handleMinValue.emit(event.value);
+  public changeMax(event: any) {
+    if(event) this.handleMaxValue.emit(event);
+  }
+
+  public changeMin(event: any) {
+    if(event) this.handleMinValue.emit(event);
   }
 
   public getNumberWithSeparator(value: number): string {
@@ -57,5 +69,8 @@ export class FilterProjectHumanResourceCostComponent implements OnInit {
   public clearFilter() {
     this.handleMaxValue.emit(undefined);
     this.handleMinValue.emit(undefined);
+
+    this.maxFormControl.reset();
+    this.minFormControl.reset();
   }
 }

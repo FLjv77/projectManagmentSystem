@@ -83,7 +83,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: projectId}})
   }
 
-  public sendReport(){
-    this.router.navigate(['../../managementReport/submitProgressReporter'])
+  public sendReport(projectId: string) {
+    this.router.navigate(['../../managementReport/submitProgressReporter'], {queryParams: { projectId: projectId, reportType: 1}})
   }
 }

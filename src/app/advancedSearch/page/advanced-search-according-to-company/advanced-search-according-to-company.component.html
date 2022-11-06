@@ -26,11 +26,14 @@
             {{showProjectState(item.projectStatus)}}
           </div>
           <div class="col-12 col-md-3 d-flex justify-content-end">
+            <!--
             <img (click)="goToChartPage()" src="../../../../assets/icon/projectShortCut/Group 202.svg" class="icon-short-cut-project"
               mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="گزارش ها">
-            <img (click)="goToActivityProject()" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
+            -->
+
+            <img (click)="goToActivityProject(item.projectId)" src="../../../../assets/icon/projectShortCut/Group%20199.svg" class="icon-short-cut-project"
               mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="فعالیت ها">
-            <img (click)="goToEditProject()" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
+            <img (click)="goToEditProject(item.projectId)" src="../../../../assets/icon/projectShortCut/more.svg" class="icon-short-cut-project"
               mat-raised-button matTooltipClass="example-tooltip"[matTooltipPosition]="'above'" matTooltip="بیشتر">
           </div>
         </div>

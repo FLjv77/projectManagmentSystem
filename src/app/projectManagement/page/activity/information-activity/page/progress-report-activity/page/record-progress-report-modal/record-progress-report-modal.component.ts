@@ -1,7 +1,7 @@
 import { ReportVerificationDTO } from './../../../../../../../../managementReport/model/getReports';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from './../../../../../../../../shared/page/component/input-style/input-style.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
 import { PrepareShareLevelOfActivityDTO } from 'src/app/managementReport/model/getReports';
@@ -17,6 +17,8 @@ export class RecordProgressReportModalComponent implements OnInit {
 
 
   @Input() reportId: string;
+  @Output() removedReport = new EventEmitter<boolean>();
+
   public inputCustomStyle: InputCustomStyle;
   public recordDateFormControl = new FormControl();
   public reporterNameFormControl = new FormControl();
@@ -52,6 +54,8 @@ export class RecordProgressReportModalComponent implements OnInit {
       this.changeSpinnerState(false);
       if(res.isSuccess && res.statusCode == 200) {
         this.closeModal();
+        this.removedReport.emit(true);
+
       } else {
         this.handleError.showError(res.statusCode);
       }

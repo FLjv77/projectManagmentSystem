@@ -28,13 +28,13 @@ export class ReportConnectionToApiService {
     return this.http.post<ApiResult<string>>(url.RegisterProgressReport + projectId , progressReportDTO);
   }
 
-  public GetAllocationReports(projectId: string, reportStatus?: number): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
+  public GetAllocationReports(projectId: string, reportStatus?: string): Observable<ApiResult<AllocationReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<AllocationReportPaginationSelectedDto>>(url.GetAllocationReports
     + '?projectId=' + projectId + (reportStatus? ('&reportStatus=' + reportStatus): '') + '&activePage=1&takeEntity=100'
     );
   }
 
-  public GetProgressReports(projectId: string, reportStatus?: number): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
+  public GetProgressReports(projectId: string, reportStatus?: string): Observable<ApiResult<ProgressReportPaginationSelectedDto>> {
     return this.http.get<ApiResult<ProgressReportPaginationSelectedDto>>(url.GetProgressReports
     + '?projectId=' + projectId + (reportStatus? ('&reportStatus=' + reportStatus): '') + '&activePage=1&takeEntity=100'
     // + '&userSupervisorAcceptedOrRejectedNameOrPhoneNumber=' +

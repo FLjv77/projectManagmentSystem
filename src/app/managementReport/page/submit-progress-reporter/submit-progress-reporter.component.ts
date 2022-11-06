@@ -6,6 +6,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-submit-progress-reporter',
@@ -17,6 +18,7 @@ export class SubmitProgressReporterComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public selectedToggle: number;
 
   private _transformer = (node: Family, level: number) => {
     return {
@@ -39,19 +41,25 @@ export class SubmitProgressReporterComponent implements OnInit {
   );dataSource = new MatTreeFlatDataSource(
     this.treeControl, this.treeFlattener);
 
-  constructor() {
+  constructor(
+    private activeRouting: ActivatedRoute,
+  ) {
     this.dataSource.data = FAMILY_TREE;
   }
 
   hasChild = (_: number,
     node: ExampleFlatNode) => node.expandable;
 
-  public selectedToggle:number=1;
   ngOnInit(): void {
     this.initDisplayPath();
     this.initInputStyle();
+    this.initToggle();
   }
 
+  private initToggle() {
+    let id = this.activeRouting.snapshot.queryParamMap.get('reportType');
+    if(id) this.selectedToggle = Number(id);
+  }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateActivityDependency, DependencyActivitystring, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
+import { ActivityDependencyDto, CreateActivityDependency, DependencyActivity, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { ApiResult } from '../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -42,8 +42,13 @@ export class DependencyActivitiesComponent implements OnInit {
   }
 
   private getDependency() {
-    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<any>) => {
-      console.log((res.data));
+    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<ActivityDependencyDto>) => {
+      let data = res.data.data;
+
+      for(let i=0; i<this.activityList.length; i++) {
+              console.log((data.get(this.activityList[i].activityName)));
+
+      }
     });
   }
 
@@ -59,7 +64,7 @@ export class DependencyActivitiesComponent implements OnInit {
     });
   }
 
-  public changeActivityDependency(sourceActivityIndex: number, destinationActivityIndex: number, state: DependencyActivitystring) {
+  public changeActivityDependency(sourceActivityIndex: number, destinationActivityIndex: number, state: DependencyActivity) {
     this.disableChangeState(sourceActivityIndex, destinationActivityIndex ,true);
     this.activityConnectToApiService.modifyDependentActivity(
       new RequestCreateActivityDependency(
