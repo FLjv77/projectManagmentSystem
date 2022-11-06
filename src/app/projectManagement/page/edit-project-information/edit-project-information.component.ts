@@ -1,4 +1,3 @@
-import { url } from './../../../../../dist/comprehensiveProjectManagement/assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
@@ -7,6 +6,7 @@ import { ProjectConnectToApiService } from '../../service/project/projectConnect
 import { ApiResult } from '../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HandleDisplayErrorService } from '../../../shared/service/handleError/handle-display-error.service';
+import { url } from '../../../../assets/url/url';
 
 @Component({
   selector: 'app-edit-project-information',
@@ -34,7 +34,7 @@ export class EditProjectInformationComponent implements OnInit {
 
   private getProjectId() {
     let id = this.activeRouting.snapshot.queryParamMap.get('projectIdEdit');
-    
+
     if (localStorage.getItem(url.RoleHome) == 'holdingAdmin') {
       this.show = null;
       if (id) this.projectId = id;
@@ -43,7 +43,7 @@ export class EditProjectInformationComponent implements OnInit {
       if (id) this.projectId = id; this.show = id;
     }
     console.log(this.show);
-    
+
   }
 
   public setProjectId(event: string|string[]){

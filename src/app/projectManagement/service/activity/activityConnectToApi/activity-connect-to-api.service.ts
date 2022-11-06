@@ -2,7 +2,7 @@ import { ApiResult } from './../../../../auth/model/authDTO';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivityDependencyDto, ActivityHierarchicalStructureSelectedDTO, CreateActivityDTO, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
+import { ActivityDependencyDto, ActivityHierarchicalStructureSelectedDTO, CreateActivityDTO, DependencyActivity, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { url } from 'src/assets/url/url';
 
 @Injectable({
@@ -16,8 +16,8 @@ export class ActivityConnectToApiService {
     return this.http.post<ApiResult<boolean>>(url.modifyDependentActivity + dependency.projectId, dependency.createActivityDependency);
   }
 
-  public showDependentActivities(projectId: string): Observable<ApiResult<ActivityDependencyDto>> {
-    return this.http.get<ApiResult<ActivityDependencyDto>>(url.showDependentActivities + projectId);
+  public showDependentActivities(projectId: string): Observable<ApiResult<Map<string, Map<string, DependencyActivity>>>> {
+    return this.http.get<ApiResult<Map<string, Map<string, DependencyActivity>>>>(url.showDependentActivities + projectId);
   }
 
   public showActivities(projectId: string): Observable<ApiResult<showActivityDto[]>> {
