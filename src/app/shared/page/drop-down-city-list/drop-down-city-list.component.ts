@@ -27,10 +27,8 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.projectData = this.cityList;
-    console.log(this.projectData);
     
     if (this.placeholder && this.projectData) {
-      console.log('yes'+this.placeholder);
       this.placeHolder.text = this.placeholder;
       this.placeHolder.id = this.placeholder;
     }
@@ -52,7 +50,7 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
   }
 
   public setValue(event: string | string[]){
-    if(event) this.city.emit(event); this.refreshCity.emit(true);
+    if(event) this.valueSelect = event; this.city.emit(event); this.refreshCity.emit(true);
   }
 
 }

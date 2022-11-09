@@ -16,7 +16,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.checkIsLogin();
     this.setRole();
+  }
+
+  private checkIsLogin() {
+    let token = localStorage.getItem(url.tokenName);
+    if(!token) {
+      this.router.navigate(['../auth/loginUser'])
+    }
   }
 
   public setRole(){

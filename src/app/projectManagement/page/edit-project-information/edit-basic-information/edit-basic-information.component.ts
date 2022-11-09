@@ -18,6 +18,7 @@ import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/proj
 export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   public projectNameFormControl = new FormControl();
   public projectDeliveryDateFormControl = new FormControl();
+  public projectDeliveryDateFormControl1 = new FormControl();
   public descreptionFormControl = new FormControl();
   public humanResourceCostFormControl = new FormControl();
   public infrastructureCostFormControl = new FormControl();
@@ -114,11 +115,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           
           this.placeholderRegion = res.data.address.section;
           this.placeholderVillage = res.data.address.region;
-          
-          
-
           this.projectNameFormControl.setValue(res.data.projectName);
-          this.projectDeliveryDateFormControl.setValue(res.data.startTimeOfProject);
+          this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+ '/' +
+          res.data.projectDeliveryTime.month+'/'+res.data.projectDeliveryTime.day);
           this.descreptionFormControl.setValue(res.data.projectDescription);
           this.objectivesFormControl.setValue(res.data.projectTargets);
           this.projectChallengeFormControl.setValue(res.data.projectChallange);
@@ -150,7 +149,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     if (this.projectId) {
       let updateProjectDTO = new UpdateProjectDTO;
       updateProjectDTO.projectName = this.projectNameFormControl.value;
-      updateProjectDTO.projectDeliveryTime = this.projectDeliveryDateFormControl.value;
+      updateProjectDTO.projectDeliveryTime = this.projectDeliveryDateFormControl1.value;
       updateProjectDTO.projectDescription = this.descreptionFormControl.value;
       updateProjectDTO.projectTargets = this.objectivesFormControl.value;
       updateProjectDTO.projectChallange = this.projectChallengeFormControl.value;
@@ -170,6 +169,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       })
     }
     this.edit = false;
+    this.getInfo();
   }
 
   public editForm() {

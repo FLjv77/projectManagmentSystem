@@ -44,13 +44,11 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   public add(name: string | string[]){
     if (name != null) {
       this.array.push(name);
-      console.log(this.array);
     }
   }
 
   public setValue($event: string|string[]){
-    this.valueSelect = $event;
-    this.village.emit($event);
+    if($event) this.valueSelect = $event; this.village.emit($event);
   }
 
 }
