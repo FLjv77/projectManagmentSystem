@@ -1,2 +1,15 @@
 @import '../../../../createProjectProcess/page/project-creation-levels/page/stakeholder-management/stakeholder-management.component.scss';
 @import '../edit-basic-information/edit-basic-information.component.scss';
+
+.set-superVisur{
+    border: 2px solid $active-yellow;
+    background: transparent;
+    color: $active-yellow;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 30px;
+    &:hover {
+        background-color: $active-yellow;
+        color: white;
+    }
+}
