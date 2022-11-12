@@ -35,7 +35,6 @@ export class CreateNewSubActivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.setProjectId();
   }
 
   private initInputStyle() {
@@ -69,6 +68,8 @@ export class CreateNewSubActivityComponent implements OnInit {
   }
 
   public createActivity() {
+    this.setProjectId();
+
     this.createActivityModel.approximateCost = this.activityPriceFormControl.value;
     this.createActivityModel.costWeight = this.priceWeightActivityFormControl.value;
     this.createActivityModel.description = this.descreptionActivityFormControl.value;

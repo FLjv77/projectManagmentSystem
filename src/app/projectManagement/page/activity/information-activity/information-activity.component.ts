@@ -1,5 +1,8 @@
 import { DisplayPathModel } from './../../../../shared/model/displayPathModel';
 import { Component, OnInit } from '@angular/core';
+import { url } from 'src/assets/url/url';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-information-activity',
@@ -13,10 +16,28 @@ export class InformationActivityComponent implements OnInit {
 
   public selectedTab: number = 0;
 
-  constructor() { }
+  constructor(
+    private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService,
+    private router: Router
+  ) {
+    this.initProjectId();
+  }
 
   ngOnInit(): void {
     this.initDisplayPath();
+  }
+
+  private initProjectId() {
+    this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string) => {
+      this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: res}})
+    });
+  }
+
+  public checkShowProjectList(): boolean {
+    let res = false;
+    let comp = localStorage.getItem(url.CompanyInfo);
+    if(comp) res = true;
+    return res;
   }
 
   public setSelectedTab(tabInex: number) {

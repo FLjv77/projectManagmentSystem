@@ -28,7 +28,7 @@ export class DropDownProjectListComponent implements OnInit {
   constructor(
     private projectConnectToApiService: ProjectConnectToApiService,
     private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService
-  ) { 
+  ) {
     this.advancedSearchConnecctToApiService.companyIdSelected.subscribe((res:string|string[])=>{
       if (res) {
         this.companyId = res;
@@ -72,7 +72,6 @@ export class DropDownProjectListComponent implements OnInit {
               id: res.data[i].projectId
             }
             this.projectData.push(obj);
-            console.log(this.projectData.length);
           }
           this.showSpinner = false;
 
