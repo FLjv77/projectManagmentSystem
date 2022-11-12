@@ -58,7 +58,6 @@ export class NavebarComponent implements OnInit {
 
   public changeUserRole(stateRole: UserRole,role: string) {
     this.authService.AmIAllowedToMakeThisClaim(role).subscribe((res: ApiResult<boolean>)=>{
-      console.log(res.data);
       if (res.data == true) {
         this.router.navigate([url]);
         switch(stateRole) {
@@ -71,7 +70,7 @@ export class NavebarComponent implements OnInit {
         this.alertDialogBySweetAlertService.showErrorAlert('شما دسترسی لازم برای این بخش را ندارید.')
       }
     });
-    
+
   }
 
   private checkCurrentUserIsSuperAdmin(){

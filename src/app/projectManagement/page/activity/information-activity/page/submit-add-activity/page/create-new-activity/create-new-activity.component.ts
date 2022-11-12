@@ -34,7 +34,6 @@ export class CreateNewActivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
-    this.setProjectId();
   }
 
   private initInputStyle() {
@@ -61,6 +60,7 @@ export class CreateNewActivityComponent implements OnInit {
   }
 
   public createActivity() {
+    this.setProjectId();
     this.activityConnectToApiService.createActivities(
       new CreateActivityDTO(
         this.activityNameFormControl.value,

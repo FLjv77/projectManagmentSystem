@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
@@ -25,7 +26,7 @@ export class ActivityByDetailComponent implements OnInit {
   constructor(
     private activityConnectToApiService: ActivityConnectToApiService,
     private activeRouting: ActivatedRoute,
-    private handleDisplayErrorService: HandleDisplayErrorService
+    private handleDisplayErrorService: HandleDisplayErrorService,
     ) { }
 
   ngOnInit(): void {
