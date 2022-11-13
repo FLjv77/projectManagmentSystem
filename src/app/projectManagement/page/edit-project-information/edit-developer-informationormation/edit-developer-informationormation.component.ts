@@ -1,3 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
 import { threadId } from 'worker_threads';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
@@ -49,7 +52,9 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
               private activeRoute:ActivatedRoute,
               private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
-              private createrojectService:CreaterojectService) {}
+              private createrojectService:CreaterojectService,
+              private handleError: HandleDisplayErrorService,
+              private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -121,8 +126,14 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     updateProjectDTO.state = this.state;
     console.log(participants);
     this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
-      res:ApiResult<boolean>
-    )=>{console.log(res.data);
+      res:ApiResult<boolean>)=>{
+        if(res.statusCode == 200 && res.isSuccess) {
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+        } else {
+          this.handleError.showError(res.statusCode);
+        }
+    },(err: HttpErrorResponse) => {
+      this.handleError.showError(err.status);
     });
     this.edit = false;
   }

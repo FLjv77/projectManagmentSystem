@@ -1,3 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { CreaterojectService } from './../../../../createProjectProcess/service/projectCreationLevels/createroject.service';
 import { Select2OptionData } from 'ng-select2';
 import { UpdateProjectDTO } from './../../../model/project/projectDto';
@@ -43,7 +46,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   constructor(private router: Router, private activeRoute: ActivatedRoute,
     private projectConnectToApiService: ProjectConnectToApiService,
     private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService,
-    private createrojectService:CreaterojectService) { }
+    private createrojectService:CreaterojectService,
+    private handleError: HandleDisplayErrorService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -163,10 +168,15 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       updateProjectDTO.state = '';
 
       this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId, updateProjectDTO).subscribe((
-        res: ApiResult<boolean>
-      ) => {
-        console.log(res.data);
-      })
+        res: ApiResult<boolean>) => {
+          if(res.statusCode == 200 && res.isSuccess) {
+            this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+          } else {
+            this.handleError.showError(res.statusCode);
+          }
+      },(err: HttpErrorResponse) => {
+        this.handleError.showError(err.status);
+      });
     }
     this.edit = false;
     this.getInfo();
