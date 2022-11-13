@@ -29,7 +29,7 @@ export class PurificationComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.RefineryWaterShedAndCanalsList = new Array<RefineryWaterShedAndCanals>;
-    //this.addList();
+    this.addList();
     this.getData();
   }
 

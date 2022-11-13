@@ -30,7 +30,7 @@ export class TransferLineComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.TransferLineWaterShedAndCanalsList = new Array<TransferLineWaterShedAndCanals>;
-    //this.addList();
+    this.addList();
     this.getData();
   }
 
