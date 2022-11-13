@@ -53,12 +53,42 @@
       <h4 class="title-page d-inline set-font-Raymon ">اطلاعات مکانی</h4>
 
     </div>
-    <app-drop-down-province-list *ngIf="placeholderProvince!=null" [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
-    <app-drop-down-city-list *ngIf="placeholderCity!=null" [cityList]="cityList" [placeholder]="placeholderCity" class="col-md-6 col-12"></app-drop-down-city-list>
-    <!-- <app-drop-down-region-list *ngIf="placeholderRegion!=null" [placeholder]="placeholderRegion" class="col-md-6 col-12"></app-drop-down-region-list>
-    <app-drop-down-village-list *ngIf="placeholderVillage!=null" [placeholder]="placeholderVillage" class="col-md-6 col-12"></app-drop-down-village-list> -->
-    <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'آدرس'" [inputId]="'6'"
-                     [inputFormControl]="addressFormControl" [textarea]="true"></app-input-style> -->
+
+    <div class="col-4">
+      {{placeholderProvince}}
+      <span *ngIf="!showPlaceholderProvince" (click)="chengeState(true)" class="material-icons edit-icon">create</span>
+      <span *ngIf="showPlaceholderProvince" (click)="chengeState(false)" class="material-icons edit-icon">clear</span>
+    </div>
+    <div class="col-8">
+      <app-drop-down-province-list *ngIf="showPlaceholderProvince" [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
+    </div>
+
+    <div class="col-4">
+      {{placeholderCity}}
+      <span *ngIf="!showPlaceholderCity" (click)="chengeCity(true)" class="material-icons edit-icon">create</span>
+      <span *ngIf="showPlaceholderCity" (click)="chengeCity(false)" class="material-icons edit-icon">clear</span>
+    </div>
+    <div class="col-8">
+      <app-drop-down-city-list *ngIf="showPlaceholderCity" [cityList]="cityList" [placeholder]="placeholderCity" class="col-md-6 col-12"></app-drop-down-city-list>
+    </div>
+
+    <div class="col-4">
+      {{placeholderRegion}}
+      <span *ngIf="!showPlaceholderRegion" (click)="chengeRegion(true)" class="material-icons edit-icon">create</span>
+      <span *ngIf="showPlaceholderRegion" (click)="chengeRegion(false)" class="material-icons edit-icon">clear</span>
+    </div>
+    <div class="col-8">
+      <app-drop-down-region-list *ngIf="showPlaceholderRegion" [placeholder]="placeholderRegion" class="col-md-6 col-12"></app-drop-down-region-list>
+    </div>
+
+    <div class="col-4">
+      {{placeholderVillage}}
+      <span *ngIf="!showPlaceholderVillage" (click)="chengeVillage(true)" class="material-icons edit-icon">create</span>
+      <span *ngIf="showPlaceholderVillage" (click)="chengeVillage(false)" class="material-icons edit-icon">clear</span>
+    </div>
+    <div class="col-8">
+      <app-drop-down-village-list *ngIf="showPlaceholderVillage" [placeholder]="placeholderVillage" class="col-md-6 col-12"></app-drop-down-village-list>
+    </div>
 
     <app-input-style (click)="goOnMap()" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
                      [inputFormControl]="LocationFormControl"></app-input-style>
