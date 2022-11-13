@@ -27,7 +27,7 @@ export class PompComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.PumpStationWaterShedAndCanalsList = new Array<PumpStationWaterShedAndCanals>;
-    //this.addList();
+    this.addList();
     this.getData();
   }
 

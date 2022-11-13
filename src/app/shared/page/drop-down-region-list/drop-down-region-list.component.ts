@@ -26,7 +26,7 @@ export class DropDownRegionListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.projectData = this.regionList;
-    if (this.placeholder) {
+    if (this.placeholder && this.projectData) {
       this.placeHolder.text = this.placeholder;
       this.placeHolder.id = this.placeholder;
     }

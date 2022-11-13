@@ -18,7 +18,7 @@ export class RevivalIndustryComponent implements OnInit {
 
   @Input() data: ProjectSelectedDTO;
   private projectId : string|null;
-  public revivalIndustrySpeceficDetailDTO: Array<RevivalIndustry> = new Array<RevivalIndustry>();
+  public revivalIndustrySpeceficDetailDTO: Array<RevivalIndustry>;
   public inputCustomStyle: InputCustomStyle;
   public amountGrantedFacilities = new Array<FormControl>();
   public numberIndustries = new Array<FormControl>();
@@ -33,15 +33,18 @@ export class RevivalIndustryComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.revivalIndustrySpeceficDetailDTO = new Array<RevivalIndustry>();
     this.addList();
     this.getData();
   }
 
   public getData(){
-    if (this.data) {
+    if (this.data.projectSpeceficDetail.revivalIndustries.length!=0) {
       this.revivalIndustrySpeceficDetailDTO = this.data.projectSpeceficDetail.revivalIndustries;
-
       this.setValueInputs();
+    }
+    else{
+      this.addList();
     }
   }
 

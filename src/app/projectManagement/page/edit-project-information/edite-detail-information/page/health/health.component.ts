@@ -88,7 +88,11 @@ constructor(private specializedInformationService:SpecializedInformationService,
   }
 
   public getData(){
-    if (this.data) {
+    if (this.data.projectSpeceficDetail.healthVaccinations.length!=0 || this.data.projectSpeceficDetail.healthBathrooms.length!=0
+      || this.data.projectSpeceficDetail.healthHouses.length!=0 || this.data.projectSpeceficDetail.healthPharmacies.length!=0
+      || this.data.projectSpeceficDetail.healthToilets.length!=0 || this.data.projectSpeceficDetail.hospitals.length!=0
+      || this.data.projectSpeceficDetail.insurances.length!=0 || this.data.projectSpeceficDetail.medicines.length!=0
+      || this.data.projectSpeceficDetail.treatments.length!=0) {
       this.bathRoomList = this.data.projectSpeceficDetail.healthBathrooms;
       this.HealthHomeList = this.data.projectSpeceficDetail.healthHouses;
       this.HealthVaccinationList = this.data.projectSpeceficDetail.healthVaccinations;
@@ -99,6 +103,17 @@ constructor(private specializedInformationService:SpecializedInformationService,
       this.medicineList = this.data.projectSpeceficDetail.medicines;
       this.diseaseList = this.data.projectSpeceficDetail.treatments;
 
+      this.getBathRoomList();
+      this.getHospitalList();
+      this.getHealthHomeList();
+      this.getInsuranceList();
+      this.getHealthPharmacyList();
+      this.getWCList();
+      this.getHealthVaccinationList();
+      this.getDiseaseList();
+      this.getMedicineList();
+    }
+    else{
       this.getBathRoomList();
       this.getHospitalList();
       this.getHealthHomeList();

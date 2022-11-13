@@ -18,7 +18,7 @@ export class SubmitProgressReporterComponent implements OnInit {
   public inputCustomStyle: InputCustomStyle;
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public selectedToggle: number;
+  public selectedToggle: number = 1;
 
   private _transformer = (node: Family, level: number) => {
     return {

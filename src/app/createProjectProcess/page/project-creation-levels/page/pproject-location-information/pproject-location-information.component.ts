@@ -160,7 +160,6 @@ export class PProjectLocationInformationComponent implements OnInit {
   public cityList: Array<Select2OptionData>;
 
   public setProvince($event: string | string[]) {
-    console.log($event +'/'+ this.provinceName);
     if ($event != this.provinceName) {
       this.provinceName = $event;
       this.createrojectService.GetItemOfRegions(this.provinceName).subscribe((res: ApiResult<Array<string>>) => {
