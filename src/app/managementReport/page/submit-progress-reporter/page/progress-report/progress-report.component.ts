@@ -52,7 +52,7 @@ export class ProgressReportComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.reporterNameFormControl.value && this.descreptionFormControl.value &&
+    if(this.reporterNameFormControl.value && this.descreptionFormControl.value && this.ProgressFormControl.value > 0 &&
       this.ProgressFormControl.value && this.registrationDate && this.listActivity.length > 0){
         return false;
       }

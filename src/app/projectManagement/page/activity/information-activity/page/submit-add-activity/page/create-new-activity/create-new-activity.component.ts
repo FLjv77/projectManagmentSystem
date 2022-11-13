@@ -50,6 +50,7 @@ export class CreateNewActivityComponent implements OnInit {
   public getValue(){
     if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
       this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
+      this.activityPriceFormControl.value > 0 && this.timeWeightActivityFormControl.value > 0 && this.priceWeightActivityFormControl.value > 0 &&
       this.descreptionActivityFormControl.value &&
       this.activityNameFormControl.valid && this.startDateFormControl.valid && this.endDateFormControl.valid &&
       this.activityPriceFormControl.valid && this.timeWeightActivityFormControl.valid && this.priceWeightActivityFormControl.valid &&
