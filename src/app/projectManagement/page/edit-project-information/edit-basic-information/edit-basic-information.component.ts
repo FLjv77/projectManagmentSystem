@@ -36,6 +36,11 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   public placeholderCity: string;
   public placeholderProvince: string;
 
+  public showPlaceholderVillage: boolean;
+  public showPlaceholderRegion: boolean;
+  public showPlaceholderCity: boolean;
+  public showPlaceholderProvince: boolean;
+
   @Input() projectId: string | string[];
   public projectIdSelect: string | string[];
   public edit: boolean = false;
@@ -80,6 +85,21 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     })
   }
 
+  public chengeState(state: boolean) {
+    this.showPlaceholderProvince = state;
+  }
+
+  public chengeCity(state: boolean) {
+    this.showPlaceholderCity = state;
+  }
+
+  public chengeRegion(state: boolean) {
+    this.showPlaceholderRegion = state;
+  }
+
+  public chengeVillage(state: boolean) {
+    this.showPlaceholderVillage = state;
+  }
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
@@ -111,8 +131,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           this.placeholderProvince = res.data.address.state;
           this.setProvince();
           this.placeholderCity = res.data.address.city;
-          console.log(this.placeholderCity);
-          
+
           this.placeholderRegion = res.data.address.section;
           this.placeholderVillage = res.data.address.region;
           this.projectNameFormControl.setValue(res.data.projectName);
@@ -165,7 +184,6 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId, updateProjectDTO).subscribe((
         res: ApiResult<boolean>
       ) => {
-        console.log(res.data);
       })
     }
     this.edit = false;
