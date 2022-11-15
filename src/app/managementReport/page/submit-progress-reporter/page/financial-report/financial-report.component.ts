@@ -1,11 +1,9 @@
-import { ProgressReportDTO } from './../../../../model/modelDtoAllocationReport';
 import { InputCustomStyle } from './../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from '../../../../service/reportConnectionToApi/report-connection-to-api.service';
 import { RequestAllocationReportDTO } from 'src/app/managementReport/model/modelDtoAllocationReport';
 import { ApiResult } from '../../../../../auth/model/authDTO';
-import { HttpErrorResponse } from '@angular/common/http';
 import { HandleDisplayErrorService } from '../../../../../shared/service/handleError/handle-display-error.service';
 import { ActivatedRoute } from '@angular/router';
 import { PrepareShareLevelOfActivityDTO, ShareLevelOfActivityDTO } from 'src/app/managementReport/model/getReports';
@@ -58,7 +56,8 @@ export class FinancialReportComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.reporterNameFormControl.value && this.descreptionFormControl.value && this.reportAmounttFormControl.value &&
+    if(this.reporterNameFormControl.value && this.descreptionFormControl.value &&
+      this.reportAmounttFormControl.value && this.reportAmounttFormControl.value > 0 &&
        this.registrationDate && this.listActivity.length > 0){
         return false;
       }
@@ -87,11 +86,6 @@ export class FinancialReportComponent implements OnInit {
         });
   }
 
-
-
-
-
-  //////////
 
 
   public progressAmountControl: FormControl[];
