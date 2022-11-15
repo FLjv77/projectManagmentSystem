@@ -13,7 +13,9 @@ import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/ha
   styleUrls: ['./create-new-sub-activity.component.scss','../create-new-activity/create-new-activity.component.scss']
 })
 export class CreateNewSubActivityComponent implements OnInit {
-
+  public minYear: number;
+  public minMount: number;
+  public minDay: number;
   public projectId: string;
   private createActivityModel: CreateActivityDTO;
   public inputCustomStyle: InputCustomStyle;
@@ -94,5 +96,20 @@ export class CreateNewSubActivityComponent implements OnInit {
         this.handleDisplayErrorService.showSuccessAlert('فعالیت ایجاد شد');
       }
     });
+  }
+
+  public setStartTime(event: any) {
+    this.startDate = event;
+
+    let fullDate  = event.substring(0,10);
+    let arrayDate = fullDate.split('-');
+
+    this.minYear  = Number(arrayDate[0]);
+    this.minMount = Number(arrayDate[1]);
+    this.minDay   = Number(arrayDate[2]);
+  }
+
+  public setEndTime(event: any) {
+    this.endDate = event;
   }
 }

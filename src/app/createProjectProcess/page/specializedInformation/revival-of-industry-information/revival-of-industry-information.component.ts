@@ -10,6 +10,7 @@ import { ApiResult } from '../../../../auth/model/authDTO';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { url } from 'src/assets/url/url';
+import { ResourceInformation } from 'src/app/createProjectProcess/model/createProjectModel/createProject';
 
 @Component({
   selector: 'app-revival-of-industry-information',
@@ -76,6 +77,7 @@ export class RevivalOfIndustryInformationComponent implements OnInit {
     ).subscribe((res: ApiResult<RevivalIndustrySpeceficDetailDTO>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
+        this.commonDataForCreateProjectService.recoveryInfo = new ResourceInformation('', '');
 
       }
     })

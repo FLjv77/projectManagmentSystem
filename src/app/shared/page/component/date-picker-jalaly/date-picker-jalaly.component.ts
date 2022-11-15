@@ -12,7 +12,9 @@ import { MaterialPersianDateAdapter } from 'src/app/shared/service/jalalyDatePik
   styleUrls: ['./date-picker-jalaly.component.scss', '../input-style/input-style.component.scss']
 })
 export class DatePickerJalalyComponent implements OnInit {
-  minDate: Date;
+  @Input() minYear: number;
+  @Input() minMount: number;
+  @Input() minDay: number;
   @Input() inputId: string;
   @Input() inputLabel: string;
   @Input() inputError: string;
@@ -24,13 +26,12 @@ export class DatePickerJalalyComponent implements OnInit {
   @Input() isDatePiker: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
+  public minDate: Date;
   constructor() {
   }
 
   ngOnInit(): void {
-
-  const currentYear = new Date().getDate();
-  this.minDate = new Date(currentYear);
+    this.minDate = new Date(this.minYear, this.minMount, this.minDay);
   }
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
@@ -56,4 +57,10 @@ export class DatePickerJalalyComponent implements OnInit {
 
     this.changeValue.emit(date);
   }
+
+  public myFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+  };
 }

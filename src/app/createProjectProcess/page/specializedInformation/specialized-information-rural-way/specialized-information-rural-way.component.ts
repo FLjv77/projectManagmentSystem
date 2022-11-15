@@ -14,6 +14,7 @@ import { Location } from '../../project-creation-levels/page/pproject-location-i
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { url } from 'src/assets/url/url';
+import { ResourceInformation } from 'src/app/createProjectProcess/model/createProjectModel/createProject';
 
 @Component({
   selector: 'app-specialized-information-rural-way',
@@ -155,6 +156,7 @@ export class SpecializedInformationRuralWayComponent implements OnInit {
 
       if(res.isSuccess && res.statusCode == 200) {
         this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
+        this.commonDataForCreateProjectService.recoveryInfo = new ResourceInformation('', '');
       }
     });
   }
