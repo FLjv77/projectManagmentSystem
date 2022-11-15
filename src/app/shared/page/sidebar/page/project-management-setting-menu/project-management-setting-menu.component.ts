@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
 import { sidebarState, SelectSubmenueProjectManagement } from './../../../../model/sidebarModel';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { url } from 'src/assets/url/url';
 
 @Component({
@@ -15,6 +15,7 @@ export class ProjectManagementSettingMenuComponent implements OnInit {
   public selectSubmenueUser: SelectSubmenueProjectManagement = 0;
   public state: sidebarState = 0;
   public showReport: boolean = false;
+  @Input() permission: number;
 
   constructor(private sidebarControleServiceService:SidebarControleServiceService,
               private router:Router) {

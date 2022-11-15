@@ -43,9 +43,16 @@ export class DropDownCityListComponent implements OnInit, AfterViewInit {
     this.array.splice(index, 1);
   }
 
+  public newName: string| string[];
+
   public add(name: string | string[]){
-    if (name != null) {
+    if (name != null && this.array.length==0) {
+      this.newName = name;
+      this.array.push(this.newName);
+    }
+    else if (name != null && this.newName!=name) {
       this.array.push(name);
+      this.newName = name;
     }
   }
 

@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { event } from 'jquery';
 import { SearchLocationSelectedDto, State, City, Region } from './../../../../model/createProjectModel/createProject';
 import { Select2OptionData } from 'ng-select2';
@@ -42,7 +43,8 @@ export class PProjectLocationInformationComponent implements OnInit {
     private activeRouting: ActivatedRoute,
     private handleModalService: HandleModalService,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
-    private createrojectService: CreaterojectService) {}
+    private createrojectService: CreaterojectService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -144,18 +146,24 @@ export class PProjectLocationInformationComponent implements OnInit {
   }
 
   public goNextStep() {
-    this.commonDataForCreateProjectService.setLocationInformation(
-      this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
-    );
-    this.createrojectService.CreateProject(
-      this.companyId, this.commonDataForCreateProjectService.getCreateProject()
-    ).subscribe((res: ApiResult<string>) => {
-      if (res.isSuccess && res.statusCode == 200) {
-        this.openModal();
-        this.projectId = res.data;
-      }
-    }, (err: HttpErrorResponse) => {
-    });
+    if (this.provinceName!=null, this.cityName!=null, this.regionName!=null, this.villageName!=null
+      , this.locations!=null, this.locations!=null) {
+        this.commonDataForCreateProjectService.setLocationInformation(
+          this.provinceName, this.cityName, this.regionName, this.villageName, this.locations[0].x_pos, this.locations[0].y_pos, [], []
+        );
+        this.createrojectService.CreateProject(
+          this.companyId, this.commonDataForCreateProjectService.getCreateProject()
+        ).subscribe((res: ApiResult<string>) => {
+          if (res.isSuccess && res.statusCode == 200) {
+            this.openModal();
+            this.projectId = res.data;
+          }
+        }, (err: HttpErrorResponse) => {
+        });
+    }
+    else{
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید')
+    }
   }
   public cityList: Array<Select2OptionData>;
 

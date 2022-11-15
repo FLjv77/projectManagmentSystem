@@ -1,3 +1,4 @@
+import { url } from 'src/assets/url/url';
 import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
 import { sidebarState, SelectSubmenueDashbord } from './../../../../model/sidebarModel';
@@ -35,10 +36,22 @@ export class DashbordManagmentMenuComponent implements OnInit {
   public setSelected(select: SelectSubmenueDashbord){
     this.selectSubmenueUser = select;
     if (select == 1) {
-      this.router.navigate(['../dashboard']);
+      this.GoHome();
     }
     else if (select == 2) {
       this.router.navigate(['']);
+    }
+  }
+
+  public GoHome(){
+    if (localStorage.getItem(url.RoleHome) == 'supervisor') {
+      this.router.navigate(['../../dashboard/homeSupervisor']);
+    }
+    else if (localStorage.getItem(url.RoleHome) == 'companyAdmin') {
+      this.router.navigate(['../../dashboard/homeCompany']);
+    }
+    else if (localStorage.getItem(url.RoleHome) == 'holdingAdmin') {
+      this.router.navigate(['../../dashboard/home']);
     }
   }
 

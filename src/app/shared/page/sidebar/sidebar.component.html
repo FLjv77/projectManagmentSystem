@@ -17,13 +17,22 @@
     </div>
     <app-user-information></app-user-information>
 
-    <div class="menu-padding">
+    <div class="menu-padding" *ngIf="permission == 0">
       <app-dashbord-managment-menu class="d-block"></app-dashbord-managment-menu>
       <app-user-management-setting-menu class="d-block"></app-user-management-setting-menu>
-      <app-project-management-setting-menu class="d-block"></app-project-management-setting-menu>
+      <app-project-management-setting-menu [permission]="permission" class="d-block"></app-project-management-setting-menu>
       <app-company-management-setting-menu class="d-block"></app-company-management-setting-menu>
-      <!-- <app-project-dependency-management-setting-menu class="d-block"></app-project-dependency-management-setting-menu> -->
       <app-gallery-management-setting-menu class="d-block"></app-gallery-management-setting-menu>
+    </div>
+    <div class="menu-padding" *ngIf="permission == 1">
+      <app-dashbord-managment-menu class="d-block"></app-dashbord-managment-menu>
+      <app-project-management-setting-menu [permission]="permission" class="d-block"></app-project-management-setting-menu>
+      <app-gallery-management-setting-menu class="d-block"></app-gallery-management-setting-menu>
+    </div>
+    <div class="menu-padding" *ngIf="permission == 2">
+      <app-dashbord-managment-menu class="d-block"></app-dashbord-managment-menu>
+      <app-project-management-setting-menu [permission]="permission" class="d-block"></app-project-management-setting-menu>
+      <app-gallery-management-setting-menu [permission]="permission" class="d-block"></app-gallery-management-setting-menu>
     </div>
 
 

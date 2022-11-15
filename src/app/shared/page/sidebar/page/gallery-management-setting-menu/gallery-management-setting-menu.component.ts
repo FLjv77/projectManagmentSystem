@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { SidebarControleServiceService } from './../../../../service/sidebarControleService/sidebar-controle-service.service';
 import { sidebarState, SelectSubmenueGallery } from './../../../../model/sidebarModel';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-management-setting-menu',
@@ -13,6 +13,7 @@ export class GalleryManagementSettingMenuComponent implements OnInit {
 
   public selectSubmenueUser: SelectSubmenueGallery = 0;
   public state: sidebarState = 0;
+  @Input() permission: number;
 
   constructor(private sidebarControleServiceService:SidebarControleServiceService,
               private router:Router) {

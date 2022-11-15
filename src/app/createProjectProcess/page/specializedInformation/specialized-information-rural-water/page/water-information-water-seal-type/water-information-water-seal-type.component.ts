@@ -75,6 +75,14 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
     this.heightControl[i].valueChanges.subscribe(() => {
       this.checkValidationForm(i);
     });
+
+    this.stuffWaterSealControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
+    });
+
+    this.widthControl[i].valueChanges.subscribe(() => {
+      this.checkValidationForm(i);
+    });
   }
 
   private checkValidationForm(i: number) {
@@ -85,7 +93,9 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
       this.pompControl[i].value &&
       this.riverWidthControl[i].value &&
       this.lenControl[i].value &&
-      this.heightControl[i].value
+      this.heightControl[i].value &&
+      this.stuffWaterSealControl[i].value &&
+      this.widthControl[i].value
     ) {
       this.Dike.emit(this.DikeWaterShedAndCanalsList);
     } else {
@@ -101,6 +111,8 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
     this.riverWidthControl.push(new FormControl());
     this.lenControl.push(new FormControl());
     this.heightControl.push(new FormControl());
+    this.stuffWaterSealControl.push(new FormControl());
+    this.widthControl.push(new FormControl());
     this.DikeWaterShedAndCanalsList.push(new DikeWaterShedAndCanals());
     this.lengthList = this.DikeWaterShedAndCanalsList.length;
   }
@@ -156,20 +168,5 @@ export class WaterInformationWaterSealTypeComponent implements OnInit {
     this.lengthListDeleted = this.DikeWaterShedAndCanalsList.length;
     this.subscribeChangeFormCoontrol(index);
   }
-
-  // public createList(){
-  //   for (let i = 0; i < this.arrayList.length; i++) {
-  //     this.dikeList[i].constructionType = this.typeProjectList[i];
-  //     this.dikeList[i].riverName = this.riverNameControl.value;
-  //     this.dikeList[i].riverWidth = this.riverWidthControl.value;
-  //     this.dikeList[i].waterProviderResourceStatus = this.resourceSaveWaterStateControl.value;
-  //     this.dikeList[i].pumping = this.pompControl.value;
-  //     this.dikeList[i].dam = this.stopFloodControl.value;
-  //     this.dikeList[i].dikeMaterialType = this.stuffWaterSealControl.value;
-  //     this.dikeList[i].width = this.widthControl.value;
-  //     this.dikeList[i].height = this.heightControl.value;
-  //     this.dikeList[i].length = this.lenControl.value;
-  //   }
-  // }
   
 }
