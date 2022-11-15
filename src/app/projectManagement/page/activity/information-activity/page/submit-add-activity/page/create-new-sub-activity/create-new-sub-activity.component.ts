@@ -18,12 +18,12 @@ export class CreateNewSubActivityComponent implements OnInit {
   private createActivityModel: CreateActivityDTO;
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
-  public startDateFormControl = new FormControl();
-  public endDateFormControl = new FormControl();
+  public startDateFormControl    = new FormControl();
+  public endDateFormControl      = new FormControl();
   public startDate: string;
   public endDate: string;
   public activityPriceFormControl = new FormControl();
-  public timeWeightActivityFormControl = new FormControl();
+  public timeWeightActivityFormControl  = new FormControl();
   public priceWeightActivityFormControl = new FormControl();
   public descreptionActivityFormControl = new FormControl();
 
@@ -52,6 +52,7 @@ export class CreateNewSubActivityComponent implements OnInit {
     if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
       this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
       this.descreptionActivityFormControl.value &&
+      this.activityPriceFormControl.value > 0 && this.timeWeightActivityFormControl.value > 0 && this.priceWeightActivityFormControl.value > 0 &&
       this.activityNameFormControl.valid && this.startDateFormControl.valid && this.endDateFormControl.valid &&
       this.activityPriceFormControl.valid && this.timeWeightActivityFormControl.valid && this.priceWeightActivityFormControl.valid &&
       this.descreptionActivityFormControl.valid){
