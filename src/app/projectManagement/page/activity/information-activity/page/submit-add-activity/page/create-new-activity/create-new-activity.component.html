@@ -7,10 +7,10 @@
         [inputFormControl]="activityNameFormControl"></app-input-style>
 
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ شروع'" [inputId]="'3'"
-    [inputFormControl]="endDateFormControl" (changeValue)="startDate = $event"></app-date-picker-jalaly>
+    [inputFormControl]="endDateFormControl" (changeValue)="setStartTime($event)"></app-date-picker-jalaly>
 
-    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
-        [inputFormControl]="startDateFormControl" (changeValue)="endDate = $event"></app-date-picker-jalaly>
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" *ngIf="minYear" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
+        [inputFormControl]="startDateFormControl" (changeValue)="setEndTime($event)" [minDay]="minDay" [minMount]="minMount" [minYear]="minYear"></app-date-picker-jalaly>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
         [inputFormControl]="activityPriceFormControl"></app-input-style>

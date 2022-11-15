@@ -14,6 +14,7 @@ import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainW
 import { tileLayer } from 'leaflet';
 import { url } from 'src/assets/url/url';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
+import { ResourceInformation } from 'src/app/createProjectProcess/model/createProjectModel/createProject';
 
 @Component({
   selector: 'app-specialized-information-rural-water',
@@ -331,7 +332,7 @@ export class SpecializedInformationRuralWaterComponent implements OnInit {
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
       if(res.isSuccess && res.statusCode == 200) {
         this.router.navigate(['../projectManagement/projectList'] , {queryParams: {idCompany : this.companyId}});
-
+        this.commonDataForCreateProjectService.recoveryInfo = new ResourceInformation('', '');
       }
     });
   };

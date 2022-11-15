@@ -13,7 +13,9 @@ import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/ha
   styleUrls: ['./create-new-activity.component.scss']
 })
 export class CreateNewActivityComponent implements OnInit {
-
+  public minYear: number;
+  public minMount: number;
+  public minDay: number;
   private projectId: string;
   public inputCustomStyle: InputCustomStyle;
   public activityNameFormControl = new FormControl();
@@ -85,5 +87,20 @@ export class CreateNewActivityComponent implements OnInit {
         this.handleDisplayErrorService.showSuccessAlert('فعالیت ایجاد شد');
       }
     });
+  }
+
+  public setStartTime(event: any) {
+    this.startDate = event;
+
+    let fullDate  = event.substring(0,10);
+    let arrayDate = fullDate.split('-');
+
+    this.minYear  = Number(arrayDate[0]);
+    this.minMount = Number(arrayDate[1]);
+    this.minDay   = Number(arrayDate[2]);
+  }
+
+  public setEndTime(event: any) {
+    this.endDate = event;
   }
 }

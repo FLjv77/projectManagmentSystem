@@ -6,15 +6,17 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {InputCustomStyle} from "../../../../../shared/page/component/input-style/input-style.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
-import { HandleModalService } from 'src/app/shared/service/handleModalService/handle-modal.service';
 
 @Component({
   selector: 'app-basic-project-information',
   templateUrl: './basic-project-information.component.html',
-  styleUrls: ['./basic-project-information.component.scss','../../project-creation-levels.component.scss']
+  styleUrls: ['./basic-project-information.component.scss',
+  '../../project-creation-levels.component.scss']
 })
 export class BasicProjectInformationComponent implements OnInit {
-
+  public minYear: number;
+  public minMount: number;
+  public minDay: number;
   public projectNameFormControl = new FormControl();
   public projectDeliveryDateFormControl = new FormControl();
   public projectStartDateFormControl = new FormControl();
@@ -47,7 +49,12 @@ export class BasicProjectInformationComponent implements OnInit {
 
   public setStart(event: string) {
     this.startDate = event;
-    console.log(event);
+    let fullDate  = event.substring(0,10);
+    let arrayDate = fullDate.split('-');
+
+    this.minYear  = Number(arrayDate[0]);
+    this.minMount = Number(arrayDate[1]);
+    this.minDay   = Number(arrayDate[2]);
   }
 
   private checkValueIsSetBefor() {
