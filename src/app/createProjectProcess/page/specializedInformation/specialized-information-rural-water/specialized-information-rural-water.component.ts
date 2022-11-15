@@ -11,7 +11,6 @@ import {IranStateAndZoneService} from "../../../service/iranStateAndZone/iran-st
 import {GroundType, ProjectRuralWater} from "../../../model/EnumForSpecializeInformation/EnumForSpecializeInformation";
 import {DisplayPathModel} from "../../../../shared/model/displayPathModel";
 import { DamWaterShedAndCanals, DistributionNetworkWaterShedAndCanals, FountainWaterShedAndCanals, PumpStationWaterShedAndCanals, RefineryWaterShedAndCanals, TankWaterShedAndCanals, TransferLineWaterShedAndCanals, DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
-import { tileLayer } from 'leaflet';
 import { url } from 'src/assets/url/url';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 

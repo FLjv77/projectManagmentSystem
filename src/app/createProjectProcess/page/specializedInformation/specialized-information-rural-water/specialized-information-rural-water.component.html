@@ -1,112 +1,112 @@
-      <div class="bg-levels mx-4 mt-2">
-        <div class="row">
-          <div class="col-12">
-            <i class="material-icons d-inline icon-styles">water_drop</i>
-            <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
-          </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'" class="col-12 mt-2"
-                                 [inputFormControl]="equipmentControl"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'" class="col-12 mt-2"
-                                 [inputFormControl]="requirementControl"></app-input-style>
+<div class="bg-levels mx-4 mt-2">
+  <div class="row">
+    <div class="col-12">
+      <i class="material-icons d-inline icon-styles">water_drop</i>
+      <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
+    </div>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'" class="col-12 mt-2"
+                           [inputFormControl]="equipmentControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'" class="col-12 mt-2"
+                           [inputFormControl]="requirementControl"></app-input-style>
 
-          <!-- <div class="row mt-3">
-            <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
-              <div class="col-11 disabled-input">{{item}}</div>
-              <div class="remove-icon">
-                <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-              </div>
-            </div>
-            <div class="pr-3 mt-3 position-relative">
-              <div class="col-11">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'"
-                                 [inputFormControl]="requirementControl"></app-input-style>
-              </div>
-              <div *ngIf="checkShowAddButtonRequirement()" class="remove-icon">
-                <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mt-3">
-            <div class="pr-3 mt-3 position-relative" *ngFor="let item of equipmentList; let i = index">
-              <div class="col-11 disabled-input">{{item}}</div>
-              <div class="remove-icon">
-                <button (click)="removeEquipmentList(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
-              </div>
-            </div>
-            <div class="pr-3 mt-3 position-relative">
-              <div class="col-11">
-                <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'"
-                                 [inputFormControl]="equipmentControl"></app-input-style>
-              </div>
-              <div *ngIf="checkShowAddButtonEquipment()" class="remove-icon">
-                <button (click)="addEquipmentList()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
-              </div>
-            </div>
-          </div> -->
-
-
-          <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
-          <section class="example-section text-end">
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(0)">
-              <label class="mat-checkbox-label">چاه</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(1)">
-              <label class="mat-checkbox-label">چشمه</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(2)">
-              <label class="mat-checkbox-label">سد</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(3)">
-              <label class="mat-checkbox-label">شبکه توزیع</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(4)">
-              <label class="mat-checkbox-label">مخزن</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(5)">
-              <label class="mat-checkbox-label">ایستگاه پمپاژ</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(6)">
-              <label class="mat-checkbox-label">تصفیه خانه</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(7)">
-              <label class="mat-checkbox-label">آب بند</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(8)">
-              <label class="mat-checkbox-label">خط انتقال</label>
-            </mat-checkbox>
-          </section>
+    <!-- <div class="row mt-3">
+      <div class="pr-3 mt-3 position-relative" *ngFor="let item of requirementList; let i = index">
+        <div class="col-11 disabled-input">{{item}}</div>
+        <div class="remove-icon">
+          <button (click)="removeRequirement(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
         </div>
-
-        <app-water-information-transfer-line-type (transferLineList)="setTransferLine($event)" *ngIf="select8"></app-water-information-transfer-line-type>
-        <app-water-information-water-seal-type (Dike)="setDikeList($event)" *ngIf="select7"></app-water-information-water-seal-type>
-        <app-water-information-purification-type (Refinery)="setRefinery($event)" *ngIf="select6"></app-water-information-purification-type>
-        <app-water-information-pomp-type (pumpStation)="setPumpStation($event)" *ngIf="select5"></app-water-information-pomp-type>
-        <app-water-information-source-type (Tank)="setTank($event)" *ngIf="select4"></app-water-information-source-type>
-        <app-water-information-distribution-network-type (networkWaterShedList)="setNetworkWaterShedList($event)" *ngIf="select3"></app-water-information-distribution-network-type>
-        <app-water-information-dam-type (damList)="setDamList($event)" *ngIf="select2"></app-water-information-dam-type>
-        <app-water-information-fountain-type (fountainList)="setFountainList($event)" *ngIf="select1"></app-water-information-fountain-type>
-        <app-water-information-well-type (Pit)="setPit($event)" *ngIf="select0"></app-water-information-well-type>
-
-
-        <div class="my-2" style="direction: ltr;">
-          <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" 
-          [disabled]="!checkValidation()" (click)="sendInfo()">
-              تایید و ادامه
-          </button>
-        </div>
-
       </div>
+      <div class="pr-3 mt-3 position-relative">
+        <div class="col-11">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'نیازمندی ها'" [inputId]="'equipment'"
+                           [inputFormControl]="requirementControl"></app-input-style>
+        </div>
+        <div *ngIf="checkShowAddButtonRequirement()" class="remove-icon">
+          <button (click)="addRequirement()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="pr-3 mt-3 position-relative" *ngFor="let item of equipmentList; let i = index">
+        <div class="col-11 disabled-input">{{item}}</div>
+        <div class="remove-icon">
+          <button (click)="removeEquipmentList(i)" class="button-add"><img src="../../../../../assets/image/createProject/remove.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="pr-3 mt-3 position-relative">
+        <div class="col-11">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'تجهیزات'" [inputId]="'requirement'"
+                           [inputFormControl]="equipmentControl"></app-input-style>
+        </div>
+        <div *ngIf="checkShowAddButtonEquipment()" class="remove-icon">
+          <button (click)="addEquipmentList()" class="button-add"><img src="../../../../../assets/image/createProject/add-icon.svg" alt=""></button>
+        </div>
+      </div>
+    </div> -->
+
+
+    <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
+    <section class="example-section text-end">
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select0" (change)="setProjectRuralWaterArea(0)">
+        <label class="mat-checkbox-label">چاه</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select1" (change)="setProjectRuralWaterArea(1)">
+        <label class="mat-checkbox-label">چشمه</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select2" (change)="setProjectRuralWaterArea(2)">
+        <label class="mat-checkbox-label">سد</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select3" (change)="setProjectRuralWaterArea(3)">
+        <label class="mat-checkbox-label">شبکه توزیع</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select4" (change)="setProjectRuralWaterArea(4)">
+        <label class="mat-checkbox-label">مخزن</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select5" (change)="setProjectRuralWaterArea(5)">
+        <label class="mat-checkbox-label">ایستگاه پمپاژ</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select6" (change)="setProjectRuralWaterArea(6)">
+        <label class="mat-checkbox-label">تصفیه خانه</label>
+      </mat-checkbox>            
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select8" (change)="setProjectRuralWaterArea(8)">
+        <label class="mat-checkbox-label">خط انتقال</label>
+      </mat-checkbox>
+
+      <mat-checkbox class="example-margin set-font-vazir mx-2" ([ngModel])="select7" (change)="setProjectRuralWaterArea(7)">
+        <label class="mat-checkbox-label">آب بند</label>
+      </mat-checkbox>
+    </section>
+  </div>
+
+  <app-water-information-transfer-line-type (transferLineList)="setTransferLine($event)" *ngIf="select8"></app-water-information-transfer-line-type>
+  <app-water-information-water-seal-type (Dike)="setDikeList($event)" *ngIf="select7"></app-water-information-water-seal-type>
+  <app-water-information-purification-type (Refinery)="setRefinery($event)" *ngIf="select6"></app-water-information-purification-type>
+  <app-water-information-pomp-type (pumpStation)="setPumpStation($event)" *ngIf="select5"></app-water-information-pomp-type>
+  <app-water-information-source-type (Tank)="setTank($event)" *ngIf="select4"></app-water-information-source-type>
+  <app-water-information-distribution-network-type (networkWaterShedList)="setNetworkWaterShedList($event)" *ngIf="select3"></app-water-information-distribution-network-type>
+  <app-water-information-dam-type (damList)="setDamList($event)" *ngIf="select2"></app-water-information-dam-type>
+  <app-water-information-fountain-type (fountainList)="setFountainList($event)" *ngIf="select1"></app-water-information-fountain-type>
+  <app-water-information-well-type (Pit)="setPit($event)" *ngIf="select0"></app-water-information-well-type>
+
+
+  <div class="my-2" style="direction: ltr;">
+    <button type="button" class="ok-button-text opacity-light px-4 py-2 {{checkValidation() ? 'opacity-bold':''}}" 
+    [disabled]="!checkValidation()" (click)="sendInfo()">
+        تایید و ادامه
+    </button>
+  </div>
+
+</div>

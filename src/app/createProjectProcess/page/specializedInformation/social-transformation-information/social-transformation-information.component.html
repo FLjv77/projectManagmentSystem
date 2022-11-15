@@ -8,46 +8,33 @@
 
           <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
           <section class="example-section text-end">
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(0)">
-              <label class="mat-checkbox-label">اعتیاد</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(1)">
-              <label class="mat-checkbox-label">ساخت کمپ</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(2)">
-              <label class="mat-checkbox-label">طلاق</label>
-            </mat-checkbox>
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(3)">
-              <label class="mat-checkbox-label">زندانیان غیر عمد</label>
-            </mat-checkbox>
-
-            <!--
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(4)">
-              <label class="mat-checkbox-label">توان خواه</label>
-            </mat-checkbox>
-            -->
-
-
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(5)">
-              <label class="mat-checkbox-label">بازماندگان از تحصیل</label>
+            
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(8)">
+              <label class="mat-checkbox-label">بیماران خاص</label>
             </mat-checkbox>
 
             <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(6)">
               <label class="mat-checkbox-label">دهک بندی</label>
             </mat-checkbox>
 
-            <!--
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(7)">
-              <label class="mat-checkbox-label">کودکان کار</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(5)">
+              <label class="mat-checkbox-label">بازماندگان از تحصیل</label>
             </mat-checkbox>
-            -->
 
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(3)">
+              <label class="mat-checkbox-label">زندانیان غیر عمد</label>
+            </mat-checkbox>
 
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(8)">
-              <label class="mat-checkbox-label">بیماران خاص</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(2)">
+              <label class="mat-checkbox-label">طلاق</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(1)">
+              <label class="mat-checkbox-label">ساخت کمپ</label>
+            </mat-checkbox>
+
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectSocial(0)">
+              <label class="mat-checkbox-label">اعتیاد</label>
             </mat-checkbox>
           </section>
 
@@ -154,21 +141,6 @@
               <div class="col-12 mt-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">طلاق : </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'"
                [inputId]="'consultantWorkshops' + k" [type]="'number'" [inputFormControl]="consultantWorkshops[k]" (changeValue)="observeChange_amountDivorceGivenFacilities($event, k)"></app-input-style>
@@ -185,7 +157,7 @@
                 </div>
               </div>
             </div>
-            <div class="row mx-auto">
+            <div class="row mx-auto d-none">
               <div class="mx-auto text-start" (click)="addListDivorce()">
                   <button class="button-add-activity">
                       <img src="../../../../assets/image/createProject/add-icon.svg" alt=""

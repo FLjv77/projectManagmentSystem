@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
+// import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-project-objectives',
@@ -27,7 +28,6 @@ export class ProjectObjectivesComponent implements OnInit {
   }
 
   private checkValueIsSet() {
-    //this.commonDataForCreateProjectService.initCreateProjectData();
     if(this.commonDataForCreateProjectService.projectChallange) this.projectChallengeFormControl.setValue(this.commonDataForCreateProjectService.projectChallange);
     if(this.commonDataForCreateProjectService.projectTargets) this.projectObjectiveFormControl.setValue(this.commonDataForCreateProjectService.projectTargets);
     if(this.commonDataForCreateProjectService.projectBottleNeck) this.projectTheBottleneckFormControl.setValue(this.commonDataForCreateProjectService.projectBottleNeck);
@@ -50,15 +50,23 @@ export class ProjectObjectivesComponent implements OnInit {
 
   public inputInfo: OutputInfo;
   public goToNext(state: number) {
-    this.commonDataForCreateProjectService.selectStep.emit(2);
-    this.commonDataForCreateProjectService.setObjective(
-      this.projectObjectiveFormControl.value,
-      this.projectTheBottleneckFormControl.value,
-      this.projectChallengeFormControl.value
-    );
-    setTimeout(() => {
-      document.getElementById('basicInformationProject')?.click();
-    }, 200);
+    if (this.projectChallengeFormControl.value && this.projectObjectiveFormControl.value &&
+      this.projectTheBottleneckFormControl.value) {
+        this.commonDataForCreateProjectService.selectStep.emit(2);
+        this.commonDataForCreateProjectService.setObjective(
+          this.projectObjectiveFormControl.value,
+          this.projectTheBottleneckFormControl.value,
+          this.projectChallengeFormControl.value
+        );
+        setTimeout(() => {
+          document.getElementById('basicInformationProject')?.click();
+        }, 200);
+    }
+    else {
+        // this._snackBar.open('تمامی فیلد ها رو پر کنید', 'Splash', {
+        //   horizontalPosition: 'start',
+        //   verticalPosition: 'bottom',
+        // });
+      }
+    }
   }
-
-}

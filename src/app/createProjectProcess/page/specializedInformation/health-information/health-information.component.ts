@@ -91,6 +91,8 @@ export class HealthInformationComponent implements OnInit {
     this.addHealthTreatment();
     this.addHealthVaccination();
     this.addHospital();
+    this.addInsuranceList();
+    this.addHealthMedicine();
   }
 
   private initInputStyle() {
@@ -219,7 +221,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHospital(){
-    this.hospitalList = new Array<HealthHospital>();
     this.NumberOfFloors.push(new FormControl());
     this.numberOfBedsHospital.push(new FormControl());
     this.numberHospital.push(new FormControl());
@@ -252,9 +253,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthHome(){
-    this.HealthHomeList = new Array<HealthHealthHouse>();
     this.HealthHomeList.push(new HealthHealthHouse());
-
     this.numberHealthHome.push(new FormControl());
     this.Meterage.push(new FormControl());
     this.numberOfBedsHealthHouse.push(new FormControl());
@@ -287,9 +286,7 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addInsuranceList(){
-    this.insuranceList = new Array<HealthInsurance>();
     this.insuranceList.push(new HealthInsurance());
-
     this.numberOfPeopleCoveredByInsurance.push(new FormControl());
   }
 
@@ -302,7 +299,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthPharmacyList(){
-    this.healthPharmacyList = new Array<HealthPharmacy>();
     this.healthPharmacyList.push(new HealthPharmacy());
     this.numberpharmacy.push(new FormControl());
     this.numberOfPeopleCoveredByInsurance.push(new FormControl());
@@ -317,7 +313,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthBathroom(){
-    this.bathRoomList = new Array<HealthBathroom>();
     this.bathRoomList.push(new HealthBathroom());
     this.numberBathroom.push(new FormControl());
   }
@@ -331,7 +326,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthToilet(){
-    this.WCList = new Array<HealthToilet>();
     this.WCList.push(new HealthToilet());
     this.numberWC.push(new FormControl());
   }
@@ -345,7 +339,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthVaccination(){
-    this.medicineList = new Array<HealthMedicine>();
     this.HealthVaccinationList = new Array<HealthVaccination>();
     this.HealthVaccinationList.push(new HealthVaccination());
     this.numberVaccination.push(new FormControl());
@@ -360,7 +353,6 @@ export class HealthInformationComponent implements OnInit {
   }
 
   public addHealthTreatment(){
-    this.diseaseList = new Array<HealthTreatment>();
     this.diseaseList.push(new HealthTreatment());
     this.TypeOfDisease.push(new FormControl());
     this.NumberOfTreatments.push(new FormControl());
