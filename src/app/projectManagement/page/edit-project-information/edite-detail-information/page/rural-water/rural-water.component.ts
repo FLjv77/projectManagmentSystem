@@ -60,7 +60,7 @@ export class RuralWaterComponent implements OnInit {
 
   public getData(){
     if (this.data) {
-      console.log(this.data.projectSpeceficDetail.pit);
+      console.log(this.data.projectSpeceficDetail);
       this.debeyControl.setValue(this.data.projectSpeceficDetail.currentDebye);
       this.regionControl.setValue(this.data.projectSpeceficDetail.consumability);
       this.groundTypeControl.setValue(this.data.projectSpeceficDetail.typeOfLand);
@@ -158,7 +158,9 @@ export class RuralWaterComponent implements OnInit {
     list.resourceStability = this.stabilityResourceControl.value;
     list.typeOfLand = this.groundTypeControl.value;
     list.ownerShipType = this.ownerShipTypeControl.value;
-    list.dam = this.damList;
+    for(let i=0;i<this.damList.length;i++){
+      list.dam[i] = this.damList[i];
+    }
     list.dike = this.DikeList;
     list.distributionNetwork = this.networkWater;
     list.equipment = this.equipmentControl.value;
@@ -168,7 +170,6 @@ export class RuralWaterComponent implements OnInit {
     list.refinery = this.RefineryList;
     list.tank = this.TankList;
     list.requirements = this.requirementControl.value;
-    console.log(list);
     
     this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail1(this.projectIdSelect,list)
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
@@ -181,7 +182,9 @@ export class RuralWaterComponent implements OnInit {
         this.ownerShipTypeControl.setValue(res.data.ownerShipType);
         this.requirementControl.setValue(res.data.requirements);
 
-        this.damList = res.data.dam;
+        for(let i=0;i<res.data.dam.length;i++){
+          this.damList[i] = res.data.dam[i];
+        }
         this.networkWater = res.data.distributionNetwork;
         this.FountainList = res.data.fountain;
         this.PumpStationList = res.data.pumpStation;

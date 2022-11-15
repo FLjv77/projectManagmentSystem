@@ -1,3 +1,5 @@
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ResourceInformation } from './../../../../createProjectProcess/model/createProjectModel/createProject';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
@@ -26,7 +28,9 @@ export class EditRecoveryInformationormationComponent implements OnInit,AfterVie
 
   constructor(private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
               private projectConnectToApiService:ProjectConnectToApiService,
-              private createrojectService:CreaterojectService) { }
+              private createrojectService:CreaterojectService,
+              private handleError: HandleDisplayErrorService,
+              private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
 
   ngOnInit(): void {
@@ -59,11 +63,14 @@ export class EditRecoveryInformationormationComponent implements OnInit,AfterVie
     let data=new ResourceInformation(this.resourceNameFormControl.value,this.addressResourceFormControl.value);
     this.createrojectService.ModifyProjectResourceInformation1(
       this.projectId, data).subscribe((res: ApiResult<boolean>) => {
-      if(res.isSuccess && res.statusCode == 200) {
-        console.log(res);
-        this.edit = false;
-      }
-    }, (err: HttpErrorResponse) => {
+        if(res.statusCode == 200 && res.isSuccess) {
+          this.edit = false;
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+        } else {
+          this.handleError.showError(res.statusCode);
+        }
+    },(err: HttpErrorResponse) => {
+      this.handleError.showError(err.status);
     });
   }
 

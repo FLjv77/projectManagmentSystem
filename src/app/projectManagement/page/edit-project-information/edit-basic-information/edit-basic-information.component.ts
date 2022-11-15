@@ -1,3 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { CreaterojectService } from './../../../../createProjectProcess/service/projectCreationLevels/createroject.service';
 import { Select2OptionData } from 'ng-select2';
 import { UpdateProjectDTO } from './../../../model/project/projectDto';
@@ -36,11 +39,6 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   public placeholderCity: string;
   public placeholderProvince: string;
 
-  public showPlaceholderVillage: boolean;
-  public showPlaceholderRegion: boolean;
-  public showPlaceholderCity: boolean;
-  public showPlaceholderProvince: boolean;
-
   @Input() projectId: string | string[];
   public projectIdSelect: string | string[];
   public edit: boolean = false;
@@ -48,7 +46,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   constructor(private router: Router, private activeRoute: ActivatedRoute,
     private projectConnectToApiService: ProjectConnectToApiService,
     private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService,
-    private createrojectService:CreaterojectService) { }
+    private createrojectService:CreaterojectService,
+    private handleError: HandleDisplayErrorService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -85,21 +85,6 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     })
   }
 
-  public chengeState(state: boolean) {
-    this.showPlaceholderProvince = state;
-  }
-
-  public chengeCity(state: boolean) {
-    this.showPlaceholderCity = state;
-  }
-
-  public chengeRegion(state: boolean) {
-    this.showPlaceholderRegion = state;
-  }
-
-  public chengeVillage(state: boolean) {
-    this.showPlaceholderVillage = state;
-  }
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
       '#AEAEAE', '#AEAEAE', '#AEAEAE'
@@ -131,7 +116,8 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           this.placeholderProvince = res.data.address.state;
           this.setProvince();
           this.placeholderCity = res.data.address.city;
-
+          console.log(this.placeholderCity);
+          
           this.placeholderRegion = res.data.address.section;
           this.placeholderVillage = res.data.address.region;
           this.projectNameFormControl.setValue(res.data.projectName);
@@ -182,9 +168,15 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       updateProjectDTO.state = '';
 
       this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId, updateProjectDTO).subscribe((
-        res: ApiResult<boolean>
-      ) => {
-      })
+        res: ApiResult<boolean>) => {
+          if(res.statusCode == 200 && res.isSuccess) {
+            this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+          } else {
+            this.handleError.showError(res.statusCode);
+          }
+      },(err: HttpErrorResponse) => {
+        this.handleError.showError(err.status);
+      });
     }
     this.edit = false;
     this.getInfo();

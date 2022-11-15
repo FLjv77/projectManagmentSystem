@@ -1,3 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { threadId } from 'worker_threads';
 import { CreaterojectService } from 'src/app/createProjectProcess/service/projectCreationLevels/createroject.service';
 import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { Participant } from './../../../../createProjectProcess/model/createProjectModel/createProject';
@@ -39,10 +43,18 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   public edit:boolean=false;
   public supervisorName: string;
 
+  public city:string;
+  public country: string;
+  public state: string;
+  public section: string;
+  public region: string;
+
   constructor(private projectConnectToApiService :ProjectConnectToApiService,
               private activeRoute:ActivatedRoute,
               private advancedSearchConnecctToApiService:AdvancedSearchConnecctToApiService,
-              private createrojectService:CreaterojectService) {}
+              private createrojectService:CreaterojectService,
+              private handleError: HandleDisplayErrorService,
+              private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -55,6 +67,7 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
       if (this.projectIdSelect) {
         this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+          console.log(res.data.participants);
           if (res) {
             for (let i = 0; i < res.data.participants.length; i++) {
               if (res.data.participants[i].tag == 'کارفرما') {
@@ -102,17 +115,26 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     for (let i = 0; i < this.executorList.length; i++) {
       participants.push(this.executorList[i]);
     }
-    for (let i = 0; i < this.supervisorList.length; i++) {
-      participants.push(this.supervisorList[i]);
-    }
+    // for (let i = 0; i < this.supervisorList.length; i++) {
+    //   participants.push(this.supervisorList[i]);
+    // }
     //updateProjectDTO.participants = participants;
-    updateProjectDTO.city = '';
-    updateProjectDTO.country = '';
-    updateProjectDTO.region = '';
-    updateProjectDTO.section = '';
-    updateProjectDTO.state = '';
+    updateProjectDTO.city = this.city;
+    updateProjectDTO.country = this.country;
+    updateProjectDTO.region = this.region;
+    updateProjectDTO.section = this.section;
+    updateProjectDTO.state = this.state;
     console.log(participants);
-    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO);
+    this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
+      res:ApiResult<boolean>)=>{
+        if(res.statusCode == 200 && res.isSuccess) {
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+        } else {
+          this.handleError.showError(res.statusCode);
+        }
+    },(err: HttpErrorResponse) => {
+      this.handleError.showError(err.status);
+    });
     this.edit = false;
   }
 
@@ -152,6 +174,11 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
     .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
+      this.city = res.data.address.city;
+      this.country = res.data.address.country;
+      this.region = res.data.address.region;
+      this.section = res.data.address.section;
+      this.state = res.data.address.state;
       this.employerList = [];
       this.supervisorList = [];
       this.executorList = [];
