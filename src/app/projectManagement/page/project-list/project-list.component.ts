@@ -16,6 +16,7 @@ import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 })
 export class ProjectListComponent implements OnInit, AfterViewInit {
   private companyId: string | string[];
+  public role: string| null;
 
   public projectList: ProjectSelectedDTO[];
   public path1: DisplayPathModel;
@@ -37,6 +38,25 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.initDisplayPath();
+    this.getRole();
+  }
+
+  public getRole(){ 
+    if (localStorage.getItem(url.RoleHome)!=null) {
+      this.role = localStorage.getItem(url.RoleHome);
+      if (this.role=='holdingAdmin') {
+        localStorage.removeItem(url.RoleHome);
+        localStorage.setItem(url.RoleHome,'holdingAdmin');
+      } 
+      else if (this.role=='companyAdmin') {
+        localStorage.removeItem(url.RoleHome);
+        localStorage.setItem(url.RoleHome,'companyAdmin');
+      }
+      else if (this.role=='supervisor') {
+        localStorage.removeItem(url.RoleHome);
+        localStorage.setItem(url.RoleHome,'supervisor');
+      }
+    }
   }
 
 

@@ -31,9 +31,7 @@ export class SidebarComponent implements OnInit {
     expandSideBar ? expandSideBar.style.right = '-400px' : noop();
   }
 
-  public getRole(){    
-    console.log(';;;');
-    
+  public getRole(){ 
     if (localStorage.getItem(url.RoleHome)!=null) {
       this.role = localStorage.getItem(url.RoleHome);
       if (this.role=='holdingAdmin') {
@@ -51,8 +49,6 @@ export class SidebarComponent implements OnInit {
         localStorage.setItem(url.RoleHome,'supervisor');
         this.permission=2;
       }
-      console.log(this.permission);
-      
     }
   }
 
