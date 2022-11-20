@@ -3,7 +3,7 @@
     <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
       [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
     </div>
-    <input (ngModelChange)="changeValue.emit($event)" class="custom-input-style set-font-vazir w-100"
+    <input (ngModelChange)="changeValue.emit($event)" name="{{inputFormControl}}" class="custom-input-style set-font-vazir w-100"
        [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
            [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
