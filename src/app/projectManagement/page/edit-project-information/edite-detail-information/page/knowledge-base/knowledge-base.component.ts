@@ -40,7 +40,6 @@ export class KnowledgeBaseComponent implements OnInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.knowledgeBaseds = new Array<KnowledgeBased>();
-    this.addList();
     this.getData();
     //this.getQuery();
   }
@@ -59,6 +58,9 @@ export class KnowledgeBaseComponent implements OnInit {
     if (this.data.projectSpeceficDetail.knowledgeBaseds) {
       this.knowledgeBaseds = this.data.projectSpeceficDetail.knowledgeBaseds;
       this.setResult();
+    }
+    else{
+      this.addList();
     }
   }
 
@@ -104,23 +106,6 @@ export class KnowledgeBaseComponent implements OnInit {
     this.router.navigate(['../../createProject/selectLocationOnMap']);
   }
 
-  // public checkValidation(): boolean {
-  //   let res = true;
-  //   for(let i=0; i<this.knowledgeBaseds.length; i++) {
-  //     if(
-  //       this.numberCompanyControlList[i].value &&
-  //       this.AreaOfExpertise[i].value &&
-  //       this.numberAmount[i].value &&
-  //       this.loanAmount[i].value &&
-  //       this.reasonAmount[i].value) res = false;
-  //       else {
-  //         res = true; break;
-  //       }
-  //   }
-
-  //   return res;
-  // }
-
   public setTypeProject(state: ConstructionTypestring, index: number) {
     this.knowledgeBaseds[index].constructionType = state;
   }
@@ -165,13 +150,31 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   public editList(){
-    this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
-      new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
-        if (res.statusCode==200 && res.isSuccess==true) {
-          this.knowledgeBaseds = res.data.knowledgeBaseds;
-          this.refreshList.emit(true);
-        }
-      });
+    console.log(this.checkedNumberCompanyControlList());
+    // this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
+    //   new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
+    //     if (res.statusCode==200 && res.isSuccess==true) {
+    //       this.knowledgeBaseds = res.data.knowledgeBaseds;
+    //       this.refreshList.emit(true);
+    //     }
+    //   });
+  }
+
+  public checkedNumberCompanyControlList(): any{
+    let res = true;
+    for (let i = 0; i < this.numberCompanyControlList.length; i++) {
+      console.log(this.numberCompanyControlList[i].value);
+      console.log(this.numberCompanyControlList.length);
+      
+      
+      // if (res=true) {
+      //   if (this.numberCompanyControlList[i].value!=null) {}
+      //   else {
+      //     res = false;
+      //     return res;
+      //   }
+      // }
+    }
   }
 
 }

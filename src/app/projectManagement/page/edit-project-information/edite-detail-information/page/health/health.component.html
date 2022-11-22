@@ -7,43 +7,71 @@
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
-  <!-- <section *ngIf="edit" class="example-section text-end mt-3">
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(0)">
-      <label class="mat-checkbox-label">بیمارستان</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(1)">
-      <label class="mat-checkbox-label">خانه بهداشت</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(2)">
-      <label class="mat-checkbox-label">بیمه</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(3)">
-      <label class="mat-checkbox-label">داروخانه</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(4)">
-      <label class="mat-checkbox-label">حمام</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(5)">
-      <label class="mat-checkbox-label">سرویس بهداشتی</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(6)">
-      <label class="mat-checkbox-label">واکسیناسیون</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(7)">
-      <label class="mat-checkbox-label">درمان</label>
-    </mat-checkbox>
-
-    <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectRuralWaterArea(8)">
-      <label class="mat-checkbox-label">دارو</label>
-    </mat-checkbox>
-  </section> -->
+  <div *ngIf="edit" class="row">
+    <div style="display: contents;">
+      <span>بیمارستان</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHospital()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>خانه بهداشت</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthHome()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>بیمه</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addInsuranceList()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>داروخانه</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthPharmacyList()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>حمام</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthBathroom()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>سرویس بهداشتی</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthToilet()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>واکسیناسیون</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthVaccination()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>درمان</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthTreatment()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+    <div style="display: contents;">
+      <span>دارو</span>
+        <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHealthMedicine()">
+            <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+            mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+        </button>
+    </div>
+  </div>
       <div *ngIf="hospitalList.length!=0">
         <div *ngFor="let Hospital of hospitalList , let i = index" class="row">
 
@@ -233,14 +261,14 @@
       </div>
 
       <div *ngIf="WCList.length!=0" class="row">
-        <div *ngFor="let item of  WCList;let j = index" class="row">
+        <div *ngFor="let item of  WCList;let w = index" class="row">
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
-          [inputId]="'numberWC' + j" [type]="'number'" [inputFormControl]="numberWC[j]" (changeValue)="observeChange_numberWC($event, j)"></app-input-style>
-          <div *ngIf="j>=0 && edit" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteHealthToiletList(j)">
+          [inputId]="'numberWC' + w" [type]="'number'" [inputFormControl]="numberWC[w]" (changeValue)="observeChange_numberWC($event, w)"></app-input-style>
+          <div *ngIf="w>=0 && edit" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteHealthToiletList(w)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                     mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -259,14 +287,14 @@
      </div>
 
       <div *ngIf="HealthVaccinationList.length!=0" class="row">
-        <div *ngFor="let item of HealthVaccinationList; let j = index" class="row">
+        <div *ngFor="let item of HealthVaccinationList; let c = index" class="row">
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
-          [inputId]="'numberVaccination' + j" [type]="'number'" [inputFormControl]="numberVaccination[j]" (changeValue)="observeChange_numberVaccination($event, j)"></app-input-style>
-          <div *ngIf="j>=0 && edit" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteHealthVaccination(j)">
+          [inputId]="'numberVaccination' + c" [type]="'number'" [inputFormControl]="numberVaccination[c]" (changeValue)="observeChange_numberVaccination($event, c)"></app-input-style>
+          <div *ngIf="c>=0 && edit" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteHealthVaccination(c)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                     mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -289,23 +317,23 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
         </div>
         <div class="col-12">
-          <div *ngFor="let list1 of diseaseList; let i = index" class="row">
+          <div *ngFor="let list1 of diseaseList; let d = index" class="row">
             <div class="col-12">
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'"
-              [inputId]="'TypeOfDisease' + i" [inputFormControl]="TypeOfDisease[i]" (changeValue)="observeChange_TypeOfDisease($event, i)"></app-input-style>
+              [inputId]="'TypeOfDisease' + d" [inputFormControl]="TypeOfDisease[d]" (changeValue)="observeChange_TypeOfDisease($event, d)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
-              [inputId]="'NumberOfTreatments' + i" [type]="'number'" [inputFormControl]="NumberOfTreatments[i]" (changeValue)="observeChange_NumberOfTreatments($event, i)"></app-input-style>
+              [inputId]="'NumberOfTreatments' + d" [type]="'number'" [inputFormControl]="NumberOfTreatments[d]" (changeValue)="observeChange_NumberOfTreatments($event, d)"></app-input-style>
 
-              <div *ngIf="i>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteHealthTreatment(i)">
+              <div *ngIf="d>=0 && edit" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteHealthTreatment(d)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
                     </button>
                 </div>
               </div>
-        <div class="row mx-auto">
+        <div *ngIf="edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthTreatment()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -323,14 +351,14 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
         </div>
         <div class="col-12">
-          <div *ngFor="let list2 of medicineList; let i = index" class="row my-2">
+          <div *ngFor="let list2 of medicineList; let e = index" class="row my-2">
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'"
-              [inputId]="'typeOfMedicine' + i" [inputFormControl]="typeOfMedicine[i]" (changeValue)="observeChange_typeOfMedicine($event, i)"></app-input-style>
+              [inputId]="'typeOfMedicine' + e" [inputFormControl]="typeOfMedicine[e]" (changeValue)="observeChange_typeOfMedicine($event, e)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
-               [inputId]="'numberOfMedicine' + i" [type]="'number'" [inputFormControl]="numberOfMedicine[i]" (changeValue)="observeChange_numberOfMedicine($event, i)"></app-input-style>
-               <div *ngIf="i>=0 && edit" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteHealthMedicine(i)">
+               [inputId]="'numberOfMedicine' + e" [type]="'number'" [inputFormControl]="numberOfMedicine[e]" (changeValue)="observeChange_numberOfMedicine($event, e)"></app-input-style>
+               <div *ngIf="e>=0 && edit" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteHealthMedicine(e)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                         mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
