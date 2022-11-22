@@ -5,9 +5,9 @@
 <!--  <img src="../../../../assets/icon/naveBar/changeDisplayMode.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر تم"
        class="first-icon nave-bar-icon">-->
-  <img src="../../../../assets/icon/naveBar/logOutButtonIcon.svg"
+  <!-- <img src="../../../../assets/icon/naveBar/logOutButtonIcon.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="خروج"
-       (click)="logout()" class="nave-bar-icon first-icon">
+       (click)="logout()" class="nave-bar-icon first-icon"> -->
   <img *ngIf="!isFullScreen" src="../../../../assets/icon/naveBar/fullScreen.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تمام صفحه"
        class="nave-bar-icon mx-4" (click)="openFullscreen()">
@@ -17,9 +17,9 @@
   <img src="../../../../assets/icon/naveBar/change-role.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر نقش"
        class="nave-bar-icon" (click)="select.open()">
-  <img src="../../../../assets/icon/naveBar/notificationIcon.svg"
+  <!-- <img src="../../../../assets/icon/naveBar/notificationIcon.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="اعلان ها"
-       class="nave-bar-icon mx-4">
+       class="nave-bar-icon mx-4"> -->
 
   <mat-select class="select-container" #select>
     <mat-option (click)="changeUserRole(0,'holdingAdmin')" class="set-font-Raymon d-block text-center pointer mx-2 mt-2 mb-1 pb-1">

@@ -23,12 +23,14 @@
                 <app-drop-down-project-list (parentid)="setParentId($event)" [companyId]="companyId"></app-drop-down-project-list>
             </div>
 
-      <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
+      <div class="row">
+        <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ شروع پروژه'" [inputId]="'projectStartDateFormControl'"
       [inputFormControl]="projectStartDateFormControl" (changeValue)="setStart($event)"></app-date-picker-jalaly>
 
-      <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
+      <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
                               [inputFormControl]="projectDeliveryDateFormControl" (changeValue)="deliveryDate = $event"
                               *ngIf="minYear" [minYear]="minYear" [minMount]="minMount" [minDay]="minDay"></app-date-picker-jalaly>
+      </div>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'توضیحات'" [inputId]="'3'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
@@ -39,14 +41,14 @@
             <i class="material-icons d-inline icon-styles">business_center</i>
             <h4 class="title-page mt-3 d-inline set-font-Raymon">اطلاعات مالی</h4>
         </div>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه زیرساخت'" [inputId]="'4'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'هزینه زیرساخت'" [inputId]="'4'"
             [inputFormControl]="infrastructureCostFormControl" [unit]="3"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه منابع انسانی'" [inputId]="'5'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'هزینه منابع انسانی'" [inputId]="'5'"
             [inputFormControl]="humanResourceCostFormControl" [unit]="3"></app-input-style>
     </div>
 
-    <div class="my-2" style="direction: ltr;">
+    <div class="my-3" style="direction: ltr;">
         <button type="button" class="ok-button-text opacity-light px-4 py-2 {{getValue() ? 'opacity-bold':''}}" [disabled]="!getValue()" (click)="goToNext()">
             تایید و ادامه
         </button>
