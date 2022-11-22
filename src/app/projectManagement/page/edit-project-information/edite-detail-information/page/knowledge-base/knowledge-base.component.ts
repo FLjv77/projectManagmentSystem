@@ -150,14 +150,14 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   public editList(){
-    console.log(this.checkedNumberCompanyControlList());
-    // this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
-    //   new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
-    //     if (res.statusCode==200 && res.isSuccess==true) {
-    //       this.knowledgeBaseds = res.data.knowledgeBaseds;
-    //       this.refreshList.emit(true);
-    //     }
-    //   });
+    // console.log(this.checkedNumberCompanyControlList());
+    this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
+      new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
+        if (res.statusCode==200 && res.isSuccess==true) {
+          this.knowledgeBaseds = res.data.knowledgeBaseds;
+          this.refreshList.emit(true);
+        }
+      });
   }
 
   public checkedNumberCompanyControlList(): any{
