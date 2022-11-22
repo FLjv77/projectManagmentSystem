@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-12">
-    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+    <!-- <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
       <i class="material-icons d-inline">edit</i>
-    </button>
-    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+    </button> -->
+    <button class="mx-auto float-left w-auto edit-button" (click)="saved()">
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
@@ -55,7 +55,7 @@
            [inputId]="'reasonAmount' + i" [inputFormControl]="reasonAmount[i]"
            (changeValue)="set_reasonAmount($event, i)"></app-input-style>
 
-        <div *ngIf="i>=0 && edit" class="row mx-auto">
+        <div *ngIf="i>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteList(i)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addList()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""

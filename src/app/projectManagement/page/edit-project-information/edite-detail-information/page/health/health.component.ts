@@ -1,5 +1,4 @@
-import { threadId } from 'worker_threads';
-import { ProjectSelectedDTO, projectSpeceficDetail } from './../../../../../model/project/projectDto';
+import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
 import { InputCustomStyle } from './../../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring } from './../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
@@ -7,11 +6,8 @@ import { HealthMedicine, HealthHealthHouse, HealthInsurance, HealthTreatment, He
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
-import { AdvancedSearchConnecctToApiService } from 'src/app/advancedSearch/service/advancedSearchConnecctToApi/advanced-search-connecct-to-api.service';
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { outputAst } from '@angular/compiler';
-import { VirtualAction } from 'rxjs';
 
 @Component({
   selector: 'app-health',
@@ -88,7 +84,10 @@ constructor(private specializedInformationService:SpecializedInformationService,
   }
 
   public getData(){
-    if (this.data.projectSpeceficDetail.healthVaccinations.length!=0 || this.data.projectSpeceficDetail.healthBathrooms.length!=0
+    if(this.data.projectSpeceficDetail == null){
+      this.edit = true;
+    }
+    else if (this.data.projectSpeceficDetail.healthVaccinations.length!=0 || this.data.projectSpeceficDetail.healthBathrooms.length!=0
       || this.data.projectSpeceficDetail.healthHouses.length!=0 || this.data.projectSpeceficDetail.healthPharmacies.length!=0
       || this.data.projectSpeceficDetail.healthToilets.length!=0 || this.data.projectSpeceficDetail.hospitals.length!=0
       || this.data.projectSpeceficDetail.insurances.length!=0 || this.data.projectSpeceficDetail.medicines.length!=0
@@ -494,6 +493,9 @@ constructor(private specializedInformationService:SpecializedInformationService,
   }
 
   public editList(){
+    // if (this.numberOfPeopleCoveredByInsurance) {
+      
+    // }
     let list = new HealthSpeceficDetailDTO(this.hospitalList,this.HealthHomeList,this.insuranceList,
       this.healthPharmacyList, this.bathRoomList,this.WCList, this.HealthVaccinationList,
       this.diseaseList,this.medicineList);
