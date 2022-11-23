@@ -1,15 +1,79 @@
 <div class="row">
   <div class="col-12">
-    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+    <!-- <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
       <i class="material-icons d-inline">edit</i>
-    </button>
-    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+    </button> -->
+    <button class="mx-auto float-left w-auto edit-button" (click)="saved()">
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
     <div class="col-12">
       <i class="material-icons d-inline icon-styles">water_drop</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی آبخیز و قنوات</h4>
+    </div>
+    <div class="row">
+      <div style="display: contents;">
+        <span>چاه</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>چشمه</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>سد</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>شبکه توزیع</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>مخزن</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>ایستگاه پمپاژ</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>تصفیه خانه</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>خط انتقال</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>آب بند</span>
+          <button style="background: transparent;border: none;border-radius: 100%;">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
     </div>
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>

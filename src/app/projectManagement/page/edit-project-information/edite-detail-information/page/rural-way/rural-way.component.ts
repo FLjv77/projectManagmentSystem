@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from './../../../../../../shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { Router } from '@angular/router';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
@@ -36,17 +37,17 @@ export class RuralWayComponent implements OnInit {
 
   constructor(private router:Router, private activeRouting:ActivatedRoute,
               private specializedInformationService:SpecializedInformationService,
-              private commonDataForCreateProjectService: CommonDataForCreateProjectService) { }
+              private commonDataForCreateProjectService: CommonDataForCreateProjectService,
+              private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.ruralRoadList = new Array<RuralRoad>;
-    this.addList();
     this.getData();
   }
 
-  public getData(){
-    if (this.data) {
+  public getData(){    
+    if (this.data.projectSpeceficDetail.ruralRoads) {
       this.ruralRoadList = this.data.projectSpeceficDetail.ruralRoads;
       for (let i = 0; i < this.ruralRoadList.length; i++) {
         this.roadWidth.push(new FormControl());
@@ -55,6 +56,9 @@ export class RuralWayComponent implements OnInit {
         this.roadWidth[i].setValue(this.ruralRoadList[i].roadWidth);
         this.roadLength[i].setValue(this.ruralRoadList[i].roadLength);
       }
+    }
+    else{
+      this.addList();
     }
   }
 
@@ -115,6 +119,8 @@ export class RuralWayComponent implements OnInit {
 
   public deleteList(index: number){
     this.ruralRoadList.splice(index, 1);
+    this.roadWidth.splice(index, 1);
+    this.roadLength.splice(index, 1);
   }
 
   public goOnMap(i: number) {
@@ -161,10 +167,47 @@ export class RuralWayComponent implements OnInit {
   }
 
   public editList(){
-    this.specializedInformationService.ModifyRuralRoadSpeceficDetail1(this.projectIdSelect,
-      new RuralRoadSpeceficDetailDTO(this.ruralRoadList)).subscribe((res:ApiResult<RuralRoadSpeceficDetailDTO>)=>{
-        this.ruralRoadList = res.data.ruralRoads;
-      });
-    this.refreshList.emit(true);
+    if (this.checkedRoadWidth()==true && this.checkedRoadLength()==true) {
+      this.specializedInformationService.ModifyRuralRoadSpeceficDetail1(this.projectIdSelect,
+        new RuralRoadSpeceficDetailDTO(this.ruralRoadList)).subscribe((res:ApiResult<RuralRoadSpeceficDetailDTO>)=>{
+          this.ruralRoadList = res.data.ruralRoads;
+        });
+      this.refreshList.emit(true);
+    }
+    else {
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+    }
+    
+  }
+
+  public checkedRoadLength(): any{
+    let res : boolean = true;
+    console.log(this.roadLength);
+    
+    for (let i = 0; i < this.roadLength.length; i++) {
+      if (this.roadLength[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedRoadWidth(): any{
+    console.log(this.roadWidth);
+    let res : boolean = true;
+    for (let i = 0; i < this.roadWidth.length; i++) {
+      if (this.roadWidth[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
   }
 }

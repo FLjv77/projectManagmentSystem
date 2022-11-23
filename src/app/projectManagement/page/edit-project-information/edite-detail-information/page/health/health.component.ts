@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from './../../../../../../shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
 import { InputCustomStyle } from './../../../../../../shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
@@ -40,8 +41,6 @@ export class HealthComponent implements OnInit {
 
   public typeOfMedicine= new Array<FormControl>();
   public numberOfMedicine= new Array<FormControl>();
-
-  public LocationFormControl= new FormControl();
   public numberVaccination= new Array<FormControl>();
 
   public NumberOfFloors = new Array<FormControl>();
@@ -57,7 +56,8 @@ export class HealthComponent implements OnInit {
 
 constructor(private specializedInformationService:SpecializedInformationService,
     private activeRoute: ActivatedRoute,
-    private projectConnectToApiService :ProjectConnectToApiService) { }
+    private projectConnectToApiService :ProjectConnectToApiService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   public select0: boolean = false;
   public select1: boolean = true;
@@ -73,7 +73,6 @@ constructor(private specializedInformationService:SpecializedInformationService,
   ngOnInit(): void {
     this.initInputStyle();
     this.getQuery();
-    this.addList();
     this.getData();
   }
 
@@ -86,6 +85,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
   public getData(){
     if(this.data.projectSpeceficDetail == null){
       this.edit = true;
+      this.addList();
     }
     else if (this.data.projectSpeceficDetail.healthVaccinations.length!=0 || this.data.projectSpeceficDetail.healthBathrooms.length!=0
       || this.data.projectSpeceficDetail.healthHouses.length!=0 || this.data.projectSpeceficDetail.healthPharmacies.length!=0
@@ -240,6 +240,11 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthHome(index: number){
     this.HealthHomeList.splice(index, 1);
+    this.numberHealthHome.splice(index, 1);
+    this.Meterage.splice(index, 1);
+    this.numberOfBedsHealthHouse.splice(index, 1);
+    this.numberNurses.splice(index, 1);
+    this.numberDoctors.splice(index, 1);
   }
 
   public setValue(state: ConstructionTypestring,index:number): boolean {
@@ -268,6 +273,9 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteListHealthHospital(index: number){
     this.hospitalList.splice(index, 1);
+    this.NumberOfFloors.splice(index, 1);
+    this.numberOfBedsHospital.splice(index, 1);
+    this.numberHospital.splice(index, 1);
   }
 
   public addInsuranceList(){
@@ -278,6 +286,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteInsuranceList(index: number){
     this.insuranceList.splice(index, 1);
+    this.numberOfPeopleCoveredByInsurance.splice(index, 1);
   }
 
   public addHealthPharmacyList(){
@@ -288,6 +297,8 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deletehealthPharmacyList(index: number){
     this.healthPharmacyList.splice(index, 1);
+    this.numberpharmacy.splice(index, 1);
+    this.numberOfPeopleCoveredByInsurance.splice(index, 1);
   }
 
   public addHealthBathroom(){
@@ -297,6 +308,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthBathroomList(index: number){
     this.bathRoomList.splice(index, 1);
+    this.numberBathroom.splice(index, 1);
   }
 
   public addHealthToilet(){
@@ -306,6 +318,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthToiletList(index: number){
     this.WCList.splice(index, 1);
+    this.numberWC.splice(index, 1);
   }
 
   public addHealthVaccination(){
@@ -315,6 +328,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthVaccination(index: number){
     this.HealthVaccinationList.splice(index, 1);
+    this.numberVaccination.splice(index, 1);
   }
 
   public addHealthTreatment(){
@@ -325,6 +339,8 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthTreatment(index: number){
     this.diseaseList.splice(index, 1);
+    this.TypeOfDisease.splice(index, 1);
+    this.NumberOfTreatments.splice(index, 1);
   }
 
   public addHealthMedicine(){
@@ -336,6 +352,8 @@ constructor(private specializedInformationService:SpecializedInformationService,
 
   public deleteHealthMedicine(index: number){
     this.medicineList.splice(index, 1);
+    this.numberOfMedicine.splice(index, 1);
+    this.typeOfMedicine.splice(index, 1);
   }
 
   public observeChange_numberOfPeopleCoveredByInsurance(event: string, index: number) {
@@ -493,26 +511,274 @@ constructor(private specializedInformationService:SpecializedInformationService,
   }
 
   public editList(){
-    // if (this.numberOfPeopleCoveredByInsurance) {
-      
-    // }
-    let list = new HealthSpeceficDetailDTO(this.hospitalList,this.HealthHomeList,this.insuranceList,
-      this.healthPharmacyList, this.bathRoomList,this.WCList, this.HealthVaccinationList,
-      this.diseaseList,this.medicineList);
-    this.specializedInformationService.ModifyGetHealthSpeceficDetail1(this.projectIdSelect,list)
-    .subscribe((res:ApiResult<HealthSpeceficDetailDTO>)=>{
-      if (res.statusCode==200 && res.isSuccess==true) {
-        this.bathRoomList = res.data.healthBathrooms;
-        this.HealthHomeList = res.data.healthHouses;
-        this.HealthVaccinationList = res.data.healthVaccinations;
-        this.healthPharmacyList = res.data.healthPharmacies;
-        this.WCList = res.data.healthToilets;
-        this.hospitalList = res.data.hospitals;
-        this.insuranceList = res.data.insurances;
-        this.medicineList = res.data.medicines;
-        this.diseaseList = res.data.treatments;
-        this.refreshList.emit(true);
+    if (this.checkedNumberpharmacy()==true && this.checkedNumberOfPeopleCoveredByInsurance()==true &&
+    this.checkedNumberWC()==true && this.checkedNumberBathroom()==true && this.checkedNumberOfTreatments()==true &&
+    this.checkedTypeOfDisease()==true && this.checkedNumberOfMedicine()==true && this.checkedTypeOfMedicine()==true &&
+    this.checkedNumberOfFloors()==true && this.checkedNumberVaccination()==true && this.checkedNumberOfBedsHospital()==true &&
+    this.checkedNumberHospital()==true && this.checkedNumberDoctors()==true && this.checkedNumberNurses()==true &&
+    this.checkedNumberOfBedsHealthHouse()==true && this.checkedMeterage()==true && this.checkedNumberHealthHome()==true) {
+      let list = new HealthSpeceficDetailDTO(this.hospitalList,this.HealthHomeList,this.insuranceList,
+        this.healthPharmacyList, this.bathRoomList,this.WCList, this.HealthVaccinationList,
+        this.diseaseList,this.medicineList);
+      this.specializedInformationService.ModifyGetHealthSpeceficDetail1(this.projectIdSelect,list)
+      .subscribe((res:ApiResult<HealthSpeceficDetailDTO>)=>{
+        if (res.statusCode==200 && res.isSuccess==true) {
+          this.bathRoomList = res.data.healthBathrooms;
+          this.HealthHomeList = res.data.healthHouses;
+          this.HealthVaccinationList = res.data.healthVaccinations;
+          this.healthPharmacyList = res.data.healthPharmacies;
+          this.WCList = res.data.healthToilets;
+          this.hospitalList = res.data.hospitals;
+          this.insuranceList = res.data.insurances;
+          this.medicineList = res.data.medicines;
+          this.diseaseList = res.data.treatments;
+          this.refreshList.emit(true);
+        }
+      });
+    }
+    else{
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+    }
+    
+  }
+
+  public checkedNumberpharmacy(): any{
+    let res : boolean = true;
+    console.log(this.numberpharmacy);
+    
+    for (let i = 0; i < this.numberpharmacy.length; i++) {
+      if (this.numberpharmacy[i].value==null) {
+        res = false;
+        return res;
       }
-    });
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfPeopleCoveredByInsurance(): any{
+    console.log(this.numberOfPeopleCoveredByInsurance);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberOfPeopleCoveredByInsurance.length; i++) {
+      if (this.numberOfPeopleCoveredByInsurance[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberWC(): any{
+    console.log(this.numberWC);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberWC.length; i++) {
+      if (this.numberWC[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberBathroom(): any{
+    console.log(this.numberBathroom);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberBathroom.length; i++) {
+      if (this.numberBathroom[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfTreatments(): any{
+    console.log(this.NumberOfTreatments);
+    let res : boolean = true;
+    for (let i = 0; i < this.NumberOfTreatments.length; i++) {
+      if (this.NumberOfTreatments[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedTypeOfDisease(): any{
+    console.log(this.TypeOfDisease);
+    let res : boolean = true;
+    for (let i = 0; i < this.TypeOfDisease.length; i++) {
+      if (this.TypeOfDisease[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfMedicine(): any{
+    console.log(this.numberOfMedicine);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberOfMedicine.length; i++) {
+      if (this.numberOfMedicine[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedTypeOfMedicine(): any{
+    console.log(this.typeOfMedicine);
+    let res : boolean = true;
+    for (let i = 0; i < this.typeOfMedicine.length; i++) {
+      if (this.typeOfMedicine[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfFloors(): any{
+    console.log(this.NumberOfFloors);
+    let res : boolean = true;
+    for (let i = 0; i < this.NumberOfFloors.length; i++) {
+      if (this.NumberOfFloors[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberVaccination(): any{
+    console.log(this.numberVaccination);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberVaccination.length; i++) {
+      if (this.numberVaccination[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfBedsHospital(): any{
+    console.log(this.numberOfBedsHospital);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberOfBedsHospital.length; i++) {
+      if (this.numberOfBedsHospital[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberHospital(): any{
+    console.log(this.numberHospital);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberHospital.length; i++) {
+      if (this.numberHospital[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberDoctors(): any{
+    console.log(this.numberDoctors);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberDoctors.length; i++) {
+      if (this.numberDoctors[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberNurses(): any{
+    console.log(this.numberNurses);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberNurses.length; i++) {
+      if (this.numberNurses[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberOfBedsHealthHouse(): any{
+    console.log(this.numberOfBedsHealthHouse);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberOfBedsHealthHouse.length; i++) {
+      if (this.numberOfBedsHealthHouse[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedMeterage(): any{
+    console.log(this.Meterage);
+    let res : boolean = true;
+    for (let i = 0; i < this.Meterage.length; i++) {
+      if (this.Meterage[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+  public checkedNumberHealthHome(): any{
+    console.log(this.numberHealthHome);
+    let res : boolean = true;
+    for (let i = 0; i < this.numberHealthHome.length; i++) {
+      if (this.numberHealthHome[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
   }
 }

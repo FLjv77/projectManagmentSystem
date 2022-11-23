@@ -1,14 +1,14 @@
 import { ConstructionTypestring, DamWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-dam',
   templateUrl: './dam.component.html',
   styleUrls: ['./dam.component.scss']
 })
-export class DamComponent implements OnInit {
+export class DamComponent implements OnInit,AfterViewInit {
 
   @Input() dam: DamWaterShedAndCanals[];
   @Input() edit: boolean;
@@ -27,6 +27,7 @@ export class DamComponent implements OnInit {
   public lengthListDeleted: number;
 
   @Output() damList = new EventEmitter<DamWaterShedAndCanals[]>();
+  @Input() add : boolean;
 
   constructor() { }
 
@@ -35,6 +36,12 @@ export class DamComponent implements OnInit {
     this.damWaterShedAndCanalsList = new Array<DamWaterShedAndCanals>;
     this.addList();
     this.getData();
+  }
+
+  ngAfterViewInit(): void {
+    if (this.add==true) {
+      this.addList();
+    }
   }
 
   public getData(){

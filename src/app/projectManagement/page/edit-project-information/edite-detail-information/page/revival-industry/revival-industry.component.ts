@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from './../../../../../../shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { Router } from '@angular/router';
 import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/service/commonData/commonDataForCreateProject/common-data-for-create-project.service';
@@ -29,7 +30,8 @@ export class RevivalIndustryComponent implements OnInit {
 
   constructor(private router: Router,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
-    private specializedInformationService: SpecializedInformationService) {}
+    private specializedInformationService: SpecializedInformationService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -119,11 +121,12 @@ export class RevivalIndustryComponent implements OnInit {
 
   public deleteList(index: number) {
     this.revivalIndustrySpeceficDetailDTO.splice(index, 1);
+    this.amountGrantedFacilities.splice(index,1);
+    this.numberIndustries.splice(index,1);
   }
 
   public saved(){
     this.editList();
-    this.edit = false;
   }
 
   public editForm(){
@@ -131,13 +134,50 @@ export class RevivalIndustryComponent implements OnInit {
   }
 
   public editList(){
-    this.specializedInformationService.ModifyRevivalIndustrySpeceficDetail1(this.projectIdSelect
-      ,new RevivalIndustrySpeceficDetailDTO(this.revivalIndustrySpeceficDetailDTO))
-      .subscribe((res:ApiResult<RevivalIndustrySpeceficDetailDTO>)=>{
-        if (res.statusCode==200 && res.isSuccess==true){
-          this.revivalIndustrySpeceficDetailDTO = res.data.revivalIndustries;
-          this.refreshList.emit(true);
-        }
-      });
+    if (this.checkedNumberIndustries()==true && this.checkedAmountGrantedFacilities()==true) {
+      this.specializedInformationService.ModifyRevivalIndustrySpeceficDetail1(this.projectIdSelect
+        ,new RevivalIndustrySpeceficDetailDTO(this.revivalIndustrySpeceficDetailDTO))
+        .subscribe((res:ApiResult<RevivalIndustrySpeceficDetailDTO>)=>{
+          if (res.statusCode==200 && res.isSuccess==true){
+            this.revivalIndustrySpeceficDetailDTO = res.data.revivalIndustries;
+            this.refreshList.emit(true);
+          }
+        });
+    }
+    else {
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+    }
+  }
+
+  public checkedNumberIndustries(): any{
+    console.log(this.numberIndustries);
+    
+    let res : boolean = true;
+    for (let i = 0; i < this.numberIndustries.length; i++) {
+      if (this.numberIndustries[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedAmountGrantedFacilities(): any{
+    console.log(this.amountGrantedFacilities);
+    
+    let res : boolean = true;
+    for (let i = 0; i < this.amountGrantedFacilities.length; i++) {
+      if (this.amountGrantedFacilities[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
   }
 }
