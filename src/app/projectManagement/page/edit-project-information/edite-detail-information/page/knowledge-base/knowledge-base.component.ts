@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from './../../../../../../shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { ApiResult } from 'src/app/auth/model/authDTO';
@@ -27,7 +28,6 @@ export class KnowledgeBaseComponent implements OnInit {
   public numberAmount = new Array<FormControl>();
   public loanAmount = new Array<FormControl>();
   public reasonAmount = new Array<FormControl>();
-  public LocationFormControl = new Array<FormControl>();
   @Output() refreshList= new EventEmitter<boolean>();
 
   public edit: boolean;
@@ -35,7 +35,8 @@ export class KnowledgeBaseComponent implements OnInit {
     private router: Router,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
-    private activeRoute:ActivatedRoute) {}
+    private activeRoute:ActivatedRoute,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) {}
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -150,31 +151,90 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   public editList(){
-    // console.log(this.checkedNumberCompanyControlList());
-    this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
+    console.log(this.checkedNumberCompanyControlList());
+    if (this.checkedNumberCompanyControlList()==true && this.checkedNumberAmount()==true && this.checkedAreaOfExpertise()==true
+    && this.checkedNumberAmount()==true && this.checkedLoanAmount()==true && this.checkedReasonAmount()==true) {
+      this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
       new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
         if (res.statusCode==200 && res.isSuccess==true) {
           this.knowledgeBaseds = res.data.knowledgeBaseds;
           this.refreshList.emit(true);
         }
       });
+    }
+    else {
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+    }
+    
   }
 
   public checkedNumberCompanyControlList(): any{
-    let res = true;
+    let res : boolean = true;
     for (let i = 0; i < this.numberCompanyControlList.length; i++) {
-      console.log(this.numberCompanyControlList[i].value);
-      console.log(this.numberCompanyControlList.length);
-      
-      
-      // if (res=true) {
-      //   if (this.numberCompanyControlList[i].value!=null) {}
-      //   else {
-      //     res = false;
-      //     return res;
-      //   }
-      // }
+      if (this.numberCompanyControlList[i].value==null || this.numberCompanyControlList[i].value==0) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
     }
+    return res;
   }
 
+  public checkedAreaOfExpertise(): any{
+    let res : boolean = true;
+    for (let i = 0; i < this.AreaOfExpertise.length; i++) {
+      if (this.AreaOfExpertise[i].value==null || this.AreaOfExpertise[i].value==0) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberAmount(): any{
+    let res : boolean = true;
+    for (let i = 0; i < this.numberAmount.length; i++) {
+      if (this.numberAmount[i].value==null || this.numberAmount[i].value==0) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedLoanAmount(): any{
+    let res : boolean = true;
+    for (let i = 0; i < this.loanAmount.length; i++) {
+      if (this.loanAmount[i].value==null || this.loanAmount[i].value==0) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedReasonAmount(): any{
+    let res : boolean = true;
+    for (let i = 0; i < this.reasonAmount.length; i++) {
+      if (this.reasonAmount[i].value==null || this.reasonAmount[i].value==0) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
 }
