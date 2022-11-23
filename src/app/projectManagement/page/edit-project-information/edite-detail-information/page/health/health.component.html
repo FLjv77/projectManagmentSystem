@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-12">
-    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+    <!-- <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
       <i class="material-icons d-inline">edit</i>
-    </button>
-    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+    </button> -->
+    <button class="mx-auto float-left w-auto edit-button" (click)="saved()">
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
-  <div *ngIf="edit" class="row">
+  <div class="row">
     <div style="display: contents;">
       <span>بیمارستان</span>
         <button style="background: transparent;border: none;border-radius: 100%;"(click)="addHospital()">
@@ -70,7 +70,7 @@
             <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
             mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
         </button>
-    </div>
+  </div>
   </div>
       <div *ngIf="hospitalList.length!=0">
         <div *ngFor="let Hospital of hospitalList , let i = index" class="row">
@@ -104,7 +104,7 @@
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
             [inputId]="'numberOfBedsHospital' + i" [type]="'number'" [inputFormControl]="numberOfBedsHospital[i]" (changeValue)="observeChange_numberOfBedsHospital($event, i)"></app-input-style>
           </form>
-          <div *ngIf="i>=0 && edit" class="row mx-auto">
+          <div *ngIf="i>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteListHealthHospital(i)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -113,7 +113,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHospital()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -159,7 +159,7 @@
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'"
            [inputId]="'numberNurses' + j" [type]="'number'" [inputFormControl]="numberNurses[j]" (changeValue)="observeChange_numberNurses($event, j)"></app-input-style>
-           <div *ngIf="j>=0 && edit" class="row mx-auto">
+           <div *ngIf="j>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthHome(j)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -169,7 +169,7 @@
           </div>
         </div>
 
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthHome()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -187,7 +187,7 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
           [inputId]="'numberOfPeopleCoveredByInsurance' + v" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance[v]" (changeValue)="observeChange_numberOfPeopleCoveredByInsurance($event, v)"></app-input-style>
 
-          <div *ngIf="v>=0 && edit" class="row mx-auto">
+          <div *ngIf="v>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteInsuranceList(v)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -197,7 +197,7 @@
           </div>
         </div>
 
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addInsuranceList()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -215,7 +215,7 @@
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
           [inputId]="'numberpharmacy' + t" [type]="'number'" [inputFormControl]="numberpharmacy[t]" (changeValue)="observeChange_numberpharmacy($event, t)"></app-input-style>
-          <div *ngIf="t>=0 && edit" class="row mx-auto">
+          <div *ngIf="t>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deletehealthPharmacyList(t)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -224,7 +224,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthPharmacyList()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -241,7 +241,7 @@
         <div *ngFor="let item of bathRoomList; let x = index" class="row">
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'"
           [inputId]="'numberBathroom' + x" [type]="'number'" [inputFormControl]="numberBathroom[x]" (changeValue)="observeChange_numberBathroom($event, x)"></app-input-style>
-          <div *ngIf="x>=0 && edit" class="row mx-auto">
+          <div *ngIf="x>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthBathroomList(x)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -250,7 +250,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthBathroom()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -267,7 +267,7 @@
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
           [inputId]="'numberWC' + w" [type]="'number'" [inputFormControl]="numberWC[w]" (changeValue)="observeChange_numberWC($event, w)"></app-input-style>
-          <div *ngIf="w>=0 && edit" class="row mx-auto">
+          <div *ngIf="w>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthToiletList(w)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -276,7 +276,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthToilet()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -293,7 +293,7 @@
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
           [inputId]="'numberVaccination' + c" [type]="'number'" [inputFormControl]="numberVaccination[c]" (changeValue)="observeChange_numberVaccination($event, c)"></app-input-style>
-          <div *ngIf="c>=0 && edit" class="row mx-auto">
+          <div *ngIf="c>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthVaccination(c)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -302,7 +302,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthVaccination()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -325,7 +325,7 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
               [inputId]="'NumberOfTreatments' + d" [type]="'number'" [inputFormControl]="NumberOfTreatments[d]" (changeValue)="observeChange_NumberOfTreatments($event, d)"></app-input-style>
 
-              <div *ngIf="d>=0 && edit" class="row mx-auto">
+              <div *ngIf="d>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteHealthTreatment(d)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -333,7 +333,7 @@
                     </button>
                 </div>
               </div>
-        <div *ngIf="edit" class="row mx-auto">
+        <div class="row mx-auto">
           <div class="mx-auto text-start" (click)="addHealthTreatment()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -357,7 +357,7 @@
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
                [inputId]="'numberOfMedicine' + e" [type]="'number'" [inputFormControl]="numberOfMedicine[e]" (changeValue)="observeChange_numberOfMedicine($event, e)"></app-input-style>
-               <div *ngIf="e>=0 && edit" class="row mx-auto">
+               <div *ngIf="e>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteHealthMedicine(e)">
                     <button class="button-add-activity">
                         <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -367,7 +367,7 @@
               </div>
             </div>
   
-          <div *ngIf="edit" class="row mx-auto">
+          <div class="row mx-auto">
             <div class="mx-auto text-start" (click)="addHealthMedicine()">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/add-icon.svg" alt=""

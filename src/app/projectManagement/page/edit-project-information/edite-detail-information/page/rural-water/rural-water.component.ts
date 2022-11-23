@@ -1,5 +1,4 @@
 import { ApiResult } from './../../../../../../auth/model/authDTO';
-import { EditBasicInformationComponent } from './../../../edit-basic-information/edit-basic-information.component';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { IranStateAndZoneService } from './../../../../../../createProjectProcess/service/iranStateAndZone/iran-state-and-zone.service';

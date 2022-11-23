@@ -42,12 +42,7 @@ export class KnowledgeBaseComponent implements OnInit {
     this.initInputStyle();
     this.knowledgeBaseds = new Array<KnowledgeBased>();
     this.getData();
-    //this.getQuery();
   }
-
-  // private getQuery(){
-  //   this.projectId = this.activeRoute.snapshot.queryParamMap.get("projectId");
-  // }
 
   private initInputStyle() {
     this.inputCustomStyle = new InputCustomStyle(
@@ -151,8 +146,7 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   public editList(){
-    console.log(this.checkedNumberCompanyControlList());
-    if (this.checkedNumberCompanyControlList()==true && this.checkedNumberAmount()==true && this.checkedAreaOfExpertise()==true
+    if (this.checkedNumberCompanyControlList()==true && this.checkedAreaOfExpertise()==true
     && this.checkedNumberAmount()==true && this.checkedLoanAmount()==true && this.checkedReasonAmount()==true) {
       this.specializedInformationService.ModifyKnowledgeBasedSpeceficDetail1(this.projectIdSelect,
       new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
@@ -165,13 +159,14 @@ export class KnowledgeBaseComponent implements OnInit {
     else {
       this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
     }
-    
   }
 
   public checkedNumberCompanyControlList(): any{
     let res : boolean = true;
+    console.log(this.numberCompanyControlList);
+    
     for (let i = 0; i < this.numberCompanyControlList.length; i++) {
-      if (this.numberCompanyControlList[i].value==null || this.numberCompanyControlList[i].value==0) {
+      if (this.numberCompanyControlList[i].value==null) {
         res = false;
         return res;
       }
@@ -183,9 +178,10 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   public checkedAreaOfExpertise(): any{
+    console.log(this.AreaOfExpertise);
     let res : boolean = true;
     for (let i = 0; i < this.AreaOfExpertise.length; i++) {
-      if (this.AreaOfExpertise[i].value==null || this.AreaOfExpertise[i].value==0) {
+      if (this.AreaOfExpertise[i].value==null) {
         res = false;
         return res;
       }
@@ -199,7 +195,7 @@ export class KnowledgeBaseComponent implements OnInit {
   public checkedNumberAmount(): any{
     let res : boolean = true;
     for (let i = 0; i < this.numberAmount.length; i++) {
-      if (this.numberAmount[i].value==null || this.numberAmount[i].value==0) {
+      if (this.numberAmount[i].value==null) {
         res = false;
         return res;
       }
@@ -213,7 +209,7 @@ export class KnowledgeBaseComponent implements OnInit {
   public checkedLoanAmount(): any{
     let res : boolean = true;
     for (let i = 0; i < this.loanAmount.length; i++) {
-      if (this.loanAmount[i].value==null || this.loanAmount[i].value==0) {
+      if (this.loanAmount[i].value==null) {
         res = false;
         return res;
       }
@@ -227,7 +223,7 @@ export class KnowledgeBaseComponent implements OnInit {
   public checkedReasonAmount(): any{
     let res : boolean = true;
     for (let i = 0; i < this.reasonAmount.length; i++) {
-      if (this.reasonAmount[i].value==null || this.reasonAmount[i].value==0) {
+      if (this.reasonAmount[i].value==null) {
         res = false;
         return res;
       }
