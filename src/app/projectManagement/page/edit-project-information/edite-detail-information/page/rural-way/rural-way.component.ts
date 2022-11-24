@@ -175,7 +175,7 @@ export class RuralWayComponent implements OnInit {
       this.refreshList.emit(true);
     }
     else {
-      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید')
     }
     
   }

@@ -537,7 +537,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
       });
     }
     else{
-      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید همچنین مقادیر صفر وارد نکنید')
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید')
     }
     
   }

@@ -46,7 +46,7 @@ export class SocialTransformationSpeceficDetailDTO {
     numberOfFloor: number;
   }
 
-  export class 	SocialTransformationDivorce {
+  export class SocialTransformationDivorce {
     numberOfConsultationWorkShopn: number;
     amountOfFacilities: number;
   }
