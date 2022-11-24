@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from './../../../../../../shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { ProjectSelectedDTO } from './../../../../../model/project/projectDto';
 import { ApiResult } from 'src/app/auth/model/authDTO';
@@ -27,7 +28,7 @@ export class SocialTransformationComponent implements OnInit {
   public numberCamp =  new Array<FormControl>();
   public edit: boolean;
 
-  public budget = new FormControl();
+
   public numberIntroduction = new Array<FormControl>();
 
   public amountPrisonerGivenFacilities = new Array<FormControl>();
@@ -35,21 +36,14 @@ export class SocialTransformationComponent implements OnInit {
   public numberElectricalBonds = new Array<FormControl>();
   public typeCrime = new Array<FormControl>();
 
-  public amountDivorceGivenFacilities = new Array<FormControl>();
-  public consultantWorkshops = new Array<FormControl>();
+  public amountDivorceGivenFacilities = new FormControl();
+  public consultantWorkshops = new FormControl();
 
   public campBudget =  new Array<FormControl>();
 
   public numberTargetPatients = new Array<FormControl>();
   public numberDrugPackagesSpecificPatients = new Array<FormControl>();
   public volumeTreatmentFacilities = new Array<FormControl>();
-
-  public numberDrugPackages = new FormControl();
-  public packagesCost = new FormControl();
-  public typeTools = new FormControl();
-  public numberTools = new FormControl();
-  public costTools = new FormControl();
-  public numberChildrenCovered = new FormControl();
 
   public numberSubsistencePackages = new Array<FormControl>();
   public costSubsistencePackages = new Array<FormControl>();
@@ -59,10 +53,6 @@ export class SocialTransformationComponent implements OnInit {
   public costEducational = new Array<FormControl>();
   public numberPeopleCovered = new Array<FormControl>();
 
-  public number = new FormControl();
-  public number2 = new FormControl();
-  public number3 = new FormControl();
-  public number4 = new FormControl();
   public arrayListAddicion: Array<SocialTransformationAddicion> = new Array<SocialTransformationAddicion>();
   public arrayListBuildingCamp: Array<SocialTransformationCampConstruction> = new Array<SocialTransformationCampConstruction>();
   public arrayListDivorce: SocialTransformationDivorce = new SocialTransformationDivorce();
@@ -79,11 +69,11 @@ export class SocialTransformationComponent implements OnInit {
   constructor(private router:Router,
     private commonDataForCreateProjectService: CommonDataForCreateProjectService,
     private specializedInformationService: SpecializedInformationService,
-    private activeRoute:ActivatedRoute) { }
+    private activeRoute:ActivatedRoute,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
-    //this.addList();
     this.getData();
   }
 
@@ -94,9 +84,11 @@ export class SocialTransformationComponent implements OnInit {
   }
 
   public getData(){
-    if (this.data) {
-      console.log(this.data);
-      
+    if (this.data.projectSpeceficDetail.addicions || this.data.projectSpeceficDetail.campConstructions ||
+      this.data.projectSpeceficDetail.divorces || this.data.projectSpeceficDetail.unintentionalPrisoners ||
+      this.data.projectSpeceficDetail.bannedFromEducations || this.data.projectSpeceficDetail.segmentations ||
+      this.data.projectSpeceficDetail.specialPatients) {
+
       this.arrayListAddicion = this.data.projectSpeceficDetail.addicions;
       this.arrayListBuildingCamp = this.data.projectSpeceficDetail.campConstructions;
       this.arrayListDivorce = this.data.projectSpeceficDetail.divorces;
@@ -111,6 +103,9 @@ export class SocialTransformationComponent implements OnInit {
       this.getarraySocialTransformationBannedFromEducation();
       this.getarrayListSocialTransformationSegmentation();
       this.getarrayListSocialTransformationSpecialPatient();
+      if (this.data.projectSpeceficDetail.divorces!=null) {
+        this.showDivorce = true;
+      }
     }
   }
 
@@ -137,11 +132,11 @@ export class SocialTransformationComponent implements OnInit {
   }
 
   public getarrayListDivorce(){
-      this.amountDivorceGivenFacilities.push(new FormControl());
-      this.consultantWorkshops.push(new FormControl());
+      this.amountDivorceGivenFacilities = new FormControl();
+      this.consultantWorkshops = new FormControl();
 
-      this.amountDivorceGivenFacilities[0].setValue(this.arrayListDivorce.amountOfFacilities);
-      this.consultantWorkshops[0].setValue(this.arrayListDivorce.numberOfConsultationWorkShopn);
+      this.amountDivorceGivenFacilities.setValue(this.arrayListDivorce.amountOfFacilities);
+      this.consultantWorkshops.setValue(this.arrayListDivorce.numberOfConsultationWorkShopn);
   }
 
   public getarrayListUnintentionalPrisoner(){
@@ -250,6 +245,8 @@ export class SocialTransformationComponent implements OnInit {
 
   public deleteListAddicion(index: number){
     this.arrayListAddicion.splice(index, 1);
+    this.campBudget.splice(index, 1);
+    this.numberIntroduction.splice(index, 1);
   }
 
   public observeChangeNumberIntroduction(event: string, index: number) {
@@ -262,6 +259,9 @@ export class SocialTransformationComponent implements OnInit {
 
   public deleteListBuildingCamp(index: number){
     this.arrayListBuildingCamp.splice(index, 1);
+    this.numberCamp.splice(index, 1);
+    this.Capacity.splice(index, 1);
+    this.numberFloors.splice(index, 1);
   }
 
   public addListBuildingCamp(){
@@ -283,26 +283,33 @@ export class SocialTransformationComponent implements OnInit {
   public observeChange_numberFloors(event: string, index: number) {
     this.arrayListBuildingCamp[index].numberOfFloor = Number(event);
   }
-
-  public deleteListDivorce(index: number){
-    this.arrayListDivorce = new SocialTransformationDivorce();
+  public showDivorce:boolean=false;
+  public deleteListDivorce(){
+    this.showDivorce = false;
+    // this.amountDivorceGivenFacilities.removeAsyncValidators;
   }
 
   public addListDivorce(){
-    this.amountDivorceGivenFacilities.push(new FormControl());
-    this.consultantWorkshops.push(new FormControl());
+    this.showDivorce=true;
+    // this.arrayListDivorce = null;
+    // this.amountDivorceGivenFacilities = new FormControl();
+    // this.consultantWorkshops = new FormControl();
 
-    this.arrayListDivorce = new SocialTransformationDivorce();
+    // this.arrayListDivorce = new SocialTransformationDivorce();
   }
-  public observeChange_amountDivorceGivenFacilities(event: string, index: number) {
+  public observeChange_amountDivorceGivenFacilities(event: string) {
     this.arrayListDivorce.amountOfFacilities = Number(event);
   }
-  public observeChange_consultantWorkshops(event: string, index: number) {
+  public observeChange_consultantWorkshops(event: string) {
     this.arrayListDivorce.numberOfConsultationWorkShopn = Number(event);
   }
 
   public deleteListUnintentionalPrisoner(index: number){
     this.arrayListUnintentionalPrisoner.splice(index, 1);
+    this.numberElectricalBonds.splice(index, 1);
+    this.prisonerBudget.splice(index, 1);
+    this.amountPrisonerGivenFacilities.splice(index, 1);
+    this.typeCrime.splice(index, 1);
   }
 
   public addListUnintentionalPrisoner() {
@@ -331,6 +338,9 @@ export class SocialTransformationComponent implements OnInit {
 
   public deleteListSocialTransformationBannedFromEducation(index: number){
     this.arraySocialTransformationBannedFromEducation.splice(index, 1);
+    this.numberEducationalPackages.splice(index, 1);
+    this.costEducational.splice(index, 1);
+    this.numberPeopleCovered.splice(index, 1);
   }
 
   public addListSocialTransformationBannedFromEducation() {
@@ -355,6 +365,8 @@ export class SocialTransformationComponent implements OnInit {
 
   public deleteListSocialTransformationSegmentation(index: number){
     this.arrayListSocialTransformationSegmentation.splice(index, 1);
+    this.numberSubsistencePackages.splice(index, 1);
+    this.costSubsistencePackages.splice(index, 1);
   }
 
   public addListSocialTransformationSegmentation() {
@@ -374,6 +386,9 @@ export class SocialTransformationComponent implements OnInit {
 
   public deleteListSocialTransformationSpecialPatient(index: number){
     this.arrayListSocialTransformationSpecialPatient.splice(index, 1);
+    this.numberTargetPatients.splice(index, 1);
+    this.numberDrugPackagesSpecificPatients.splice(index, 1);
+    this.volumeTreatmentFacilities.splice(index, 1);
   }
 
   public addListSocialTransformationSpecialPatient() {
@@ -406,21 +421,348 @@ export class SocialTransformationComponent implements OnInit {
   }
 
   public editList(){
-    let list = new SocialTransformationSpeceficDetailDTO(this.arrayListAddicion,this.arrayListBuildingCamp,
-      this.arrayListDivorce,this.arrayListUnintentionalPrisoner,[],this.arraySocialTransformationBannedFromEducation,
-      this.arrayListSocialTransformationSegmentation,[],this.arrayListSocialTransformationSpecialPatient)
-    this.specializedInformationService.ModifySocialTransformationSpeceficDetail1(this.projectIdSelect,list).
-    subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>)=>{
-      console.log(res.data);
-      this.arrayListAddicion = res.data.addicions;
-      this.arrayListBuildingCamp = res.data.campConstructions;
-      this.arrayListDivorce = res.data.divorces;
-      this.arrayListUnintentionalPrisoner = res.data.unintentionalPrisoners;
-      this.arraySocialTransformationBannedFromEducation = res.data.bannedFromEducations;
-      this.arrayListSocialTransformationSegmentation = res.data.segmentations;
-      this.arrayListSocialTransformationSpecialPatient = res.data.specialPatients;
-      
-    })
+    if (this.checkedNumberFloors()==true && this.checkedCapacity()==true && this.checkedNumberIntroduction()==true
+    && this.checkedNumberCamp()==true && this.checkedAmountPrisonerGivenFacilities()==true &&
+    this.checkedPrisonerBudget()==true && this.checkedNumberElectricalBonds()==true && this.checkedTypeCrime()==true &&
+    this.checkedAmountDivorceGivenFacilities()==true && this.checkedConsultantWorkshops()==true &&
+    this.checkedCampBudget()==true && this.checkedNumberTargetPatients()==true &&
+    this.checkedNumberDrugPackagesSpecificPatients()==true && this.checkedVolumeTreatmentFacilities()==true &&
+    this.checkedNumberSubsistencePackages()==true && this.checkedCostSubsistencePackages()==true &&
+    this.checkedNumber1()==true && this.checkedNumberEducationalPackages()==true && this.checkedCostEducational()==true &&
+    this.checkedNumberPeopleCovered()==true) {
+      let list = new SocialTransformationSpeceficDetailDTO(this.arrayListAddicion,this.arrayListBuildingCamp,
+        this.arrayListDivorce,this.arrayListUnintentionalPrisoner,[],this.arraySocialTransformationBannedFromEducation,
+        this.arrayListSocialTransformationSegmentation,[],this.arrayListSocialTransformationSpecialPatient)
+      this.specializedInformationService.ModifySocialTransformationSpeceficDetail1(this.projectIdSelect,list).
+      subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>)=>{
+        console.log(res.data);
+        this.arrayListAddicion = res.data.addicions;
+        this.arrayListBuildingCamp = res.data.campConstructions;
+        this.arrayListDivorce = res.data.divorces;
+        this.arrayListUnintentionalPrisoner = res.data.unintentionalPrisoners;
+        this.arraySocialTransformationBannedFromEducation = res.data.bannedFromEducations;
+        this.arrayListSocialTransformationSegmentation = res.data.segmentations;
+        this.arrayListSocialTransformationSpecialPatient = res.data.specialPatients;
+
+      })
+    }
+    else{
+      this.alertDialogBySweetAlertService.showErrorAlert('تمامی فیلد ها رو پرکنید')
+    }
+  }
+
+  public checkedNumberFloors(): any{
+    let res : boolean = true;
+    console.log(this.numberFloors);
+
+    for (let i = 0; i < this.numberFloors.length; i++) {
+      if (this.numberFloors[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedCapacity(): any{
+    let res : boolean = true;
+    console.log(this.Capacity);
+
+    for (let i = 0; i < this.Capacity.length; i++) {
+      if (this.Capacity[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberCamp(): any{
+    let res : boolean = true;
+    console.log(this.numberCamp);
+
+    for (let i = 0; i < this.numberCamp.length; i++) {
+      if (this.numberCamp[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberIntroduction(): any{
+    let res : boolean = true;
+    console.log(this.numberIntroduction);
+
+    for (let i = 0; i < this.numberIntroduction.length; i++) {
+      if (this.numberIntroduction[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedAmountPrisonerGivenFacilities(): any{
+    let res : boolean = true;
+    console.log(this.amountPrisonerGivenFacilities);
+
+    for (let i = 0; i < this.amountPrisonerGivenFacilities.length; i++) {
+      if (this.amountPrisonerGivenFacilities[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedPrisonerBudget(): any{
+    let res : boolean = true;
+    console.log(this.prisonerBudget);
+
+    for (let i = 0; i < this.prisonerBudget.length; i++) {
+      if (this.prisonerBudget[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberElectricalBonds(): any{
+    let res : boolean = true;
+    console.log(this.numberElectricalBonds);
+
+    for (let i = 0; i < this.numberElectricalBonds.length; i++) {
+      if (this.numberElectricalBonds[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedTypeCrime(): any{
+    let res : boolean = true;
+    console.log(this.typeCrime);
+
+    for (let i = 0; i < this.typeCrime.length; i++) {
+      if (this.typeCrime[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedAmountDivorceGivenFacilities(): any{
+    let res : boolean = true;
+    if (this.amountDivorceGivenFacilities.value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+      return res;
+  }
+
+  public checkedConsultantWorkshops(): any{
+    let res : boolean = true;
+    console.log(this.consultantWorkshops);
+
+      if (this.consultantWorkshops.value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+    }
+    return res;
+  }
+
+  public checkedCampBudget(): any{
+    let res : boolean = true;
+    console.log(this.campBudget);
+
+    for (let i = 0; i < this.campBudget.length; i++) {
+      if (this.campBudget[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberTargetPatients(): any{
+    let res : boolean = true;
+    console.log(this.numberTargetPatients);
+
+    for (let i = 0; i < this.numberTargetPatients.length; i++) {
+      if (this.numberTargetPatients[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberDrugPackagesSpecificPatients(): any{
+    let res : boolean = true;
+    console.log(this.numberDrugPackagesSpecificPatients);
+
+    for (let i = 0; i < this.numberDrugPackagesSpecificPatients.length; i++) {
+      if (this.numberDrugPackagesSpecificPatients[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedVolumeTreatmentFacilities(): any{
+    let res : boolean = true;
+    console.log(this.volumeTreatmentFacilities);
+
+    for (let i = 0; i < this.volumeTreatmentFacilities.length; i++) {
+      if (this.volumeTreatmentFacilities[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberSubsistencePackages(): any{
+    let res : boolean = true;
+    console.log(this.numberSubsistencePackages);
+
+    for (let i = 0; i < this.numberSubsistencePackages.length; i++) {
+      if (this.numberSubsistencePackages[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedCostSubsistencePackages(): any{
+    let res : boolean = true;
+    console.log(this.costSubsistencePackages);
+
+    for (let i = 0; i < this.costSubsistencePackages.length; i++) {
+      if (this.costSubsistencePackages[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumber1(): any{
+    let res : boolean = true;
+    console.log(this.number1);
+
+    for (let i = 0; i < this.number1.length; i++) {
+      if (this.number1[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberEducationalPackages(): any{
+    let res : boolean = true;
+    console.log(this.numberEducationalPackages);
+
+    for (let i = 0; i < this.numberEducationalPackages.length; i++) {
+      if (this.numberEducationalPackages[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedCostEducational(): any{
+    let res : boolean = true;
+    console.log(this.costEducational);
+
+    for (let i = 0; i < this.costEducational.length; i++) {
+      if (this.costEducational[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
+  }
+
+  public checkedNumberPeopleCovered(): any{
+    let res : boolean = true;
+    console.log(this.numberPeopleCovered);
+
+    for (let i = 0; i < this.numberPeopleCovered.length; i++) {
+      if (this.numberPeopleCovered[i].value==null) {
+        res = false;
+        return res;
+      }
+      else {
+          res = true;
+      }
+    }
+    return res;
   }
 
 }

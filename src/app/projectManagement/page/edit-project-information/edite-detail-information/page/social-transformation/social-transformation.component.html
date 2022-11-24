@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-12">
-    <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+    <!-- <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
       <i class="material-icons d-inline">edit</i>
-    </button>
-    <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+    </button> -->
+    <button class="mx-auto float-left w-auto edit-button" (click)="saved()">
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
@@ -12,34 +12,70 @@
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی تحول اجتماعی</h4>
     </div>
 
-    <div *ngIf="arrayListAddicion">
+    <div class="row">
+      <div style="display: contents;">
+        <span>اعتیاد</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListAddicion()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>ساخت کمپ</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListBuildingCamp()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>طلاق</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListDivorce()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>زندانیان غیر عمد</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListUnintentionalPrisoner()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>بازماندگان از تحصیل</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListSocialTransformationBannedFromEducation()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>دهک بندی</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListSocialTransformationSegmentation()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+      <div style="display: contents;">
+        <span>بیماران خاص</span>
+          <button style="background: transparent;border: none;border-radius: 100%;"(click)="addListSocialTransformationSpecialPatient()">
+              <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
+              mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+          </button>
+      </div>
+    </div>
+
+    <div *ngIf="arrayListAddicion.length!=0">
       <div *ngFor="let list0 of arrayListAddicion , let i = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
         </div>
-        <!-- <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-        </div>
-        <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(0,i)">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(1,i)">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [checked]="setValue(2,i)">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
-
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'"
         [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"
         [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
 
-        <div *ngIf="i>=0 && edit" class="row mx-auto">
+        <div *ngIf="i>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListAddicion(i)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -48,18 +84,17 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <!-- <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListAddicion()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                 mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن پروژه اعتیاد جدید">
             </button>
         </div>
-      </div>
+      </div> -->
     </div>
 
-
-    <div *ngIf="arrayListBuildingCamp">
+    <div *ngIf="arrayListBuildingCamp.length!=0">
       <div *ngFor="let list1 of arrayListBuildingCamp , let j = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">ساخت کمپ : </h4>
@@ -89,7 +124,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
          [inputId]="'numberFloors' + j" [type]="'number'" [inputFormControl]="numberFloors[j]" (changeValue)="observeChange_numberFloors($event, j)"></app-input-style>
 
-        <div *ngIf="j>=0 && edit" class="row mx-auto">
+        <div *ngIf="j>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListBuildingCamp(j)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -98,7 +133,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListBuildingCamp()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -108,36 +143,20 @@
       </div>
     </div>
 
-
-    <div *ngIf="arrayListDivorce">
-      <div *ngFor="let list2 of [arrayListDivorce]; let k = index" class="row">
+    <div *ngIf="arrayListDivorce!=null">
+      <div *ngIf="showDivorce" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">طلاق : </h4>
         </div>
-        <!-- <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-        </div>
-        <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
-
+      
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'"
-         [inputId]="'consultantWorkshops' + k" [type]="'number'" [inputFormControl]="consultantWorkshops[k]" (changeValue)="observeChange_amountDivorceGivenFacilities($event, k)"></app-input-style>
+         [inputId]="'consultantWorkshops'" [type]="'number'" [inputFormControl]="consultantWorkshops" (changeValue)="observeChange_amountDivorceGivenFacilities($event)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
-        [inputId]="'amountDivorceGivenFacilities' + k" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities[k]" (changeValue)="observeChange_consultantWorkshops($event, k)"></app-input-style>
+        [inputId]="'amountDivorceGivenFacilities'" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities" (changeValue)="observeChange_consultantWorkshops($event)"></app-input-style>
 
-        <div *ngIf="k>=0 && edit" class="row mx-auto">
-          <div class="mx-auto text-start" (click)="deleteListDivorce(k)">
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="deleteListDivorce()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                   mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -145,36 +164,21 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <!-- <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListDivorce()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
                 mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن پروژه طلاق جدید">
             </button>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <div *ngIf="arrayListUnintentionalPrisoner">
+    <div *ngIf="arrayListUnintentionalPrisoner.length!=0">
       <div *ngFor="let list3 of arrayListUnintentionalPrisoner , let l = index" class="row">
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">زندانیان غیرعمد : </h4>
         </div>
-        <!-- <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-        </div>
-        <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'"
         [inputId]="'numberElectricalBonds' + l" [type]="'number'" [inputFormControl]="numberElectricalBonds[l]" (changeValue)="observeChange_numberElectricalBonds($event, l)"></app-input-style>
@@ -188,7 +192,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع جرم جهت آزادی'"
         [inputId]="'typeCrime' + l" [inputFormControl]="typeCrime[l]" (changeValue)="observeChange_typeCrime($event, l)"></app-input-style>
 
-        <div *ngIf="l-1>=0" class="row mx-auto">
+        <div *ngIf="l>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListUnintentionalPrisoner(l)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -215,18 +219,6 @@
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
         </div>
-        <!-- <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'"
          [inputId]="'numberEducationalPackages' + n" [type]="'number'" [inputFormControl]="numberEducationalPackages[n]" (changeValue)="observeChange_numberEducationalPackages($event , n)"></app-input-style>
@@ -237,7 +229,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'"
          [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>
 
-        <div *ngIf="n>=0 && edit" class="row mx-auto">
+        <div *ngIf="n>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListSocialTransformationBannedFromEducation(n)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -246,7 +238,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListSocialTransformationBannedFromEducation()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
@@ -261,21 +253,6 @@
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2"> دهک بندی: </h4>
         </div>
-        <!-- <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-        </div>
-        <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'"
         [inputId]="'numberSubsistencePackages' + p" [type]="'number'" [inputFormControl]="numberSubsistencePackages[p]" (changeValue)="observeChange_numberSubsistencePackages($event, p)"></app-input-style>
@@ -283,7 +260,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'"
         [inputId]="'costSubsistencePackages' + p" [type]="'number'" [inputFormControl]="costSubsistencePackages[p]"  (changeValue)="observeChange_costSubsistencePackages($event, p)"></app-input-style>
 
-        <div *ngIf="p-1>=0" class="row mx-auto">
+        <div *ngIf="p>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListSocialTransformationSegmentation(p)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -307,21 +284,6 @@
         <div class="col-12 mt-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">  بیماران خاص: </h4>
         </div>
-        <!-- <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-        </div>
-        <mat-radio-group [value]="0"
-          class="example-radio-group font-size-small">
-          <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-            <span class="px-2">احداث</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-            <span class="px-2">تکمیل و توسعه</span>
-          </mat-radio-button>
-          <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-            <span class="px-2">مرمت</span>
-          </mat-radio-button>
-        </mat-radio-group> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'"
          [inputId]="'numberDrugPackagesSpecificPatients' + d" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients[d]" (changeValue)="observeChange_numberDrugPackagesSpecificPatients($event, d)"></app-input-style>
@@ -332,7 +294,7 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'"
         [inputId]="'numberTargetPatients' + d" [type]="'number'" [inputFormControl]="numberTargetPatients[d]" (changeValue)="observeChange_numberTargetPatients($event, d)"></app-input-style>
 
-        <div *ngIf="d>=0 && edit" class="row mx-auto">
+        <div *ngIf="d>=0" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteListSocialTransformationSpecialPatient(d)">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
@@ -341,7 +303,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="edit" class="row mx-auto">
+      <div class="row mx-auto">
         <div class="mx-auto text-start" (click)="addListSocialTransformationSpecialPatient()">
             <button class="button-add-activity">
                 <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
