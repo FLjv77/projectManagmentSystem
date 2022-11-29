@@ -1,6 +1,6 @@
 <div class="bg-levels mx-4 mt-2">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 my-2">
         <i class="material-icons d-inline icon-styles">local_hospital</i>
         <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی پروژه سلامت</h4>
       </div>
@@ -51,7 +51,7 @@
           </div>
 
       <div class="col-12 mt-2">
-        <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+        <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
       </div>
       <mat-radio-group [value]="0"
         class="example-radio-group font-size-small">
@@ -96,12 +96,12 @@
 
       <div *ngIf="select1">
         <div *ngFor="let item of HealthHomeList , let j = index" class="row">
-          <div class="col-12 mt-2">
+          <div class="col-12 my-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">خانه بهداشت : </h4>
           </div>
 
           <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
@@ -153,7 +153,7 @@
 
       <div *ngIf="select2" class="row">
         <div *ngFor="let item of insuranceList; let v = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
+          <div class="col-md-3 col-12 mt-5 mb-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
@@ -183,7 +183,7 @@
       <div *ngIf="select3" class="row">
         <div *ngFor="let item of healthPharmacyList; let t = index" class="row">
 
-          <div class="col-md-3 col-12 mt-5">
+          <div class="col-md-3 col-12 mt-5 mb-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
@@ -208,7 +208,7 @@
       </div>
 
       <div *ngIf="select4" class="row">
-        <div class="col-md-3 col-12 mt-5">
+        <div class="col-md-3 col-12 mt-5 mb-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
         </div>
         <div *ngFor="let item of bathRoomList; let x = index" class="row">
@@ -235,7 +235,7 @@
 
       <div *ngIf="select5" class="row">
         <div *ngFor="let item of  WCList;let j = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
+          <div class="col-md-3 col-12 mt-5 mb-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
@@ -261,7 +261,7 @@
 
       <div *ngIf="select6" class="row">
         <div *ngFor="let item of HealthVaccinationList; let j = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
+          <div class="col-md-3 col-12 mt-5 mb-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
@@ -286,7 +286,7 @@
     </div>
 
       <div *ngIf="select7" class="row">
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5 mb-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
         </div>
         <div *ngIf="diseaseList" class="col-12">
@@ -323,7 +323,7 @@
       </div>
 
       <div *ngIf="select8" class="row">
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5 mb-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
         </div>
         <div *ngIf="medicineList" class="col-12">

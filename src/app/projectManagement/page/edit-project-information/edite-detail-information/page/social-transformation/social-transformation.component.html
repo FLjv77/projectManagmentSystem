@@ -7,7 +7,7 @@
       <i class="material-icons d-inline">check</i>
     </button>
   </div>
-    <div class="col-12">
+    <div class="col-12 my-2">
       <i class="material-icons d-inline icon-styles">public</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی تحول اجتماعی</h4>
     </div>
@@ -66,7 +66,7 @@
 
     <div *ngIf="arrayListAddicion.length!=0">
       <div *ngFor="let list0 of arrayListAddicion , let i = index" class="row">
-        <div class="col-12 mt-2">
+        <div class="col-12 my-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
         </div>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'"
@@ -100,7 +100,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">ساخت کمپ : </h4>
         </div>
         <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
         </div>
         <mat-radio-group [value]="0"
           class="example-radio-group font-size-small">
@@ -217,7 +217,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2"> بازماندگان از تحصیل: </h4>
         </div>
         <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+          <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
         </div>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'"

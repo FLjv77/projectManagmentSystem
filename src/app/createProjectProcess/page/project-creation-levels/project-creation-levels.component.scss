@@ -2,6 +2,17 @@
 @import "../../../../assets/style/colorPalette.scss";
 
 .title-page{
+    color: white;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: rgba($side-bar-color, 0.7);
+    border: none;
+    border-radius: 5px;
+}
+
+.title-page1{
     color: $side-bar-color;
 }
 
