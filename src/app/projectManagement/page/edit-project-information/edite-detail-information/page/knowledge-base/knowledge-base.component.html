@@ -8,7 +8,7 @@
     </button>
   </div>
   <div *ngIf="knowledgeBaseds" class="row">
-    <div class="col-12">
+    <div class="col-12 my-2">
       <i class="material-icons d-inline icon-styles">wb_incandescent</i>
       <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی دانش بنیان</h4>
     </div>
@@ -16,7 +16,7 @@
     <div>
       <div *ngFor="let list of knowledgeBaseds , let i = index" class="row mt-5">
         <div class="col-12 mt-2">
-          <h4 class="title-page d-inline set-font-Raymon px-2 pb-3">پروژه از نوع : </h4>
+          <h4 class="title-page1 d-inline set-font-Raymon px-2 pb-3">پروژه از نوع : </h4>
         </div>
         <mat-radio-group [value]="list.constructionType"
           class="example-radio-group font-size-small">

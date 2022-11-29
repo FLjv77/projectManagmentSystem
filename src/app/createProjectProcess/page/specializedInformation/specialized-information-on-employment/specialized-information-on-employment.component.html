@@ -1,11 +1,11 @@
 <div class="bg-levels mx-4 mt-2">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 my-2">
         <i class="material-icons d-inline icon-styles">work</i>
         <h4 class="title-page d-inline set-font-Raymon px-2">اطلاعات تخصصی اشتغال</h4>
       </div>
 
-      <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page">حوزه پروژه :</label>
+      <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page1">حوزه پروژه :</label>
           <section class="example-section text-end">
             <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectEmployment(0)">
               <label class="mat-checkbox-label">کارگاه</label>
@@ -22,11 +22,11 @@
 
       <div *ngIf="select0">
         <div *ngFor="let list0 of arrayList0 , let i = index" class="row">
-          <div class="col-12 mt-2">
+          <div class="col-12 my-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">کارگاه : </h4>
           </div>
           <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
@@ -65,12 +65,12 @@
 
       <div *ngIf="select1">
         <div *ngFor="let list1 of arrayList1 , let j = index" class="row">
-          <div class="col-12 mt-2">
+          <div class="col-12 my-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">مرکز آموزش : </h4>
           </div>
 
           <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
@@ -109,13 +109,13 @@
 
       <div *ngIf="select2">
         <div *ngFor="let list2 of arrayList2 , let k = index" class="row">
-          <div class="col-12 mt-2">
+          <div class="col-12 my-2">
             <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
           </div>
 
 
           <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+            <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
           </div>
           <mat-radio-group [value]="0"
             class="example-radio-group font-size-small">
