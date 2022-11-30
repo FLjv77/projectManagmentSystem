@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ProjectConnectToApiService } from 'src/app/projectManagement/service/project/projectConnectToApi/project-connect-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-edit-basic-information',
@@ -41,8 +42,15 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   public showPlaceholderCity: boolean;
   public showPlaceholderProvince: boolean;
 
+  private newState: string;
+  private newCity: string;
+  private newSectin: string;
+  private newVillage: string;
+
   @Input() projectId: string | string[];
   public projectIdSelect: string | string[];
+  public villageList: Array<Select2OptionData>;
+  public cityList: Array<Select2OptionData>;
   public edit: boolean = false;
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
@@ -83,6 +91,30 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           });
       }
     })
+  }
+
+  public changeNewStat(obj: any) {
+    this.newState = obj;
+    this.placeholderProvince = obj;
+    this.showPlaceholderCity = false;
+    this.setProvince(obj);
+  }
+
+  public changeNewCity(obj: any) {
+    this.newCity = obj;
+    this.placeholderCity = obj;
+    this.showPlaceholderRegion = false;
+    this.setCity(this.placeholderProvince, obj);
+  }
+
+  public changeNewSection(obj: any) {
+    this.newSectin = obj;
+    this.showPlaceholderVillage = false
+    this.setRegion(this.placeholderProvince, this.placeholderCity, obj);
+  }
+
+  public changeNewVillage(obj: any) {
+    this.newVillage = obj;
   }
 
   public chengeState(state: boolean) {
@@ -127,13 +159,14 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
         .subscribe((res: ApiResult<ProjectSelectedDTO>) => {
-          console.log(res.data);
           this.placeholderProvince = res.data.address.state;
-          this.setProvince();
           this.placeholderCity = res.data.address.city;
-
           this.placeholderRegion = res.data.address.section;
           this.placeholderVillage = res.data.address.region;
+          this.setProvince(this.placeholderProvince);
+          this.setRegion(this.placeholderRegion, this.placeholderCity, this.placeholderVillage);
+          this.setCity(this.placeholderProvince, this.placeholderCity);
+
           this.projectNameFormControl.setValue(res.data.projectName);
           this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+ '/' +
           res.data.projectDeliveryTime.month+'/'+res.data.projectDeliveryTime.day);
@@ -149,10 +182,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public cityList: Array<Select2OptionData>;
 
-  public setProvince() {
-      this.createrojectService.GetItemOfRegions(this.placeholderProvince).subscribe((res: ApiResult<Array<string>>) => {
+  public setProvince(state: string) {
+      this.createrojectService.GetItemOfRegions(state).subscribe((res: ApiResult<Array<string>>) => {
         this.cityList = [];
         for (let i = 0; i < res.data.length; i++) {
           let newValue: Select2OptionData = {
@@ -162,6 +194,35 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           this.cityList.push(newValue);
         }
       });
+  }
+
+  public setRegion(provinceName: string, cityName: string, regionName: string) {
+    this.createrojectService.GetItemOfRegions(provinceName, cityName, regionName).subscribe((res: ApiResult<Array<string>>) => {
+      this.villageList = [];
+      for (let i = 0; i < res.data.length; i++) {
+        let newValue: Select2OptionData = {
+          text: res.data[i],
+          id: res.data[i]
+        };
+        this.villageList.push(newValue);
+      }
+
+    })
+  }
+
+  public regionList: Array<Select2OptionData>;
+
+  public setCity(provinceName: string, cityName: string) {
+    this.createrojectService.GetItemOfRegions(provinceName, cityName).subscribe((res: ApiResult<Array<string>>) => {
+      this.regionList = [];
+      for (let i = 0; i < res.data.length; i++) {
+        let newValue: Select2OptionData = {
+          text: res.data[i],
+          id: res.data[i]
+        };
+        this.regionList.push(newValue);
+      }
+    })
   }
 
   public saved() {
@@ -175,12 +236,11 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       updateProjectDTO.projectBottleNeck = this.projectTheBottleneckFormControl.value;
       updateProjectDTO.humanResourceCost = this.humanResourceCostFormControl.value;
       updateProjectDTO.infrastructureCost = this.infrastructureCostFormControl.value;
-      updateProjectDTO.region = '';
-      updateProjectDTO.section = '';
-      updateProjectDTO.city = '';
+      updateProjectDTO.region = this.newVillage ? this.newVillage : this.placeholderVillage;
+      updateProjectDTO.section = this.newSectin ? this.newSectin : this.placeholderRegion;
+      updateProjectDTO.city = this.newCity ? this.newCity : this.placeholderCity;
       updateProjectDTO.country = '';
-      updateProjectDTO.state = '';
-
+      updateProjectDTO.state = this.newState ? this.newState : this.placeholderProvince;
       this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId, updateProjectDTO).subscribe((
         res: ApiResult<boolean>
       ) => {

@@ -1,6 +1,8 @@
 <div class="nave-bar">
   <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
-  <app-current-user-user-name [userName]="companyName"></app-current-user-user-name>
+  <app-current-user-user-name *ngIf="companyName" [userName]="companyName"></app-current-user-user-name>
+  <div style="margin-left: 20px; margin-top: 10px;" *ngIf="!companyName" class="text-light spinner-border spinner-border-sm" role="status">
+  </div>
 
 <!--  <img src="../../../../assets/icon/naveBar/changeDisplayMode.svg"
        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'below'" matTooltip="تغییر تم"

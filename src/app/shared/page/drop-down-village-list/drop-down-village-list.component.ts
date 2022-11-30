@@ -26,10 +26,7 @@ export class DropDownVillageListComponent implements OnInit , AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.placeholder) {
-      this.placeHolder.text = this.placeholder;
-      this.placeHolder.id = this.placeholder;
-    }
+
     this.projectData = this.villageList;
   }
 

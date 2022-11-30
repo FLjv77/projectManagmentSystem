@@ -6,6 +6,7 @@ import { CreateActivityDTO } from 'src/app/projectManagement/model/activity/acti
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-new-sub-activity',
@@ -13,7 +14,7 @@ import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/ha
   styleUrls: ['./create-new-sub-activity.component.scss','../create-new-activity/create-new-activity.component.scss']
 })
 export class CreateNewSubActivityComponent implements OnInit {
-  public minYear: number;
+  public minYear: number | undefined;
   public minMount: number;
   public minDay: number;
   public projectId: string;
@@ -32,7 +33,8 @@ export class CreateNewSubActivityComponent implements OnInit {
   constructor(
     private activityConnectToApiService: ActivityConnectToApiService,
     private activeRouting: ActivatedRoute,
-    private handleDisplayErrorService: HandleDisplayErrorService
+    private handleDisplayErrorService: HandleDisplayErrorService,
+    private handleError: HandleDisplayErrorService,
     ) { }
 
   ngOnInit(): void {
@@ -94,7 +96,11 @@ export class CreateNewSubActivityComponent implements OnInit {
         this.endDateFormControl.reset();
 
         this.handleDisplayErrorService.showSuccessAlert('فعالیت ایجاد شد');
+      } else {
+        this.handleError.showError(res.statusCode);
       }
+    }, (err: HttpErrorResponse) => {
+      this.handleError.showError(err.status);
     });
   }
 
@@ -103,10 +109,13 @@ export class CreateNewSubActivityComponent implements OnInit {
 
     let fullDate  = event.substring(0,10);
     let arrayDate = fullDate.split('-');
+    this.minYear = undefined;
 
-    this.minYear  = Number(arrayDate[0]);
-    this.minMount = Number(arrayDate[1]);
-    this.minDay   = Number(arrayDate[2]);
+    setTimeout(() => {
+      this.minYear  = Number(arrayDate[0]);
+      this.minMount = Number(arrayDate[1]);
+      this.minDay   = Number(arrayDate[2]);
+    }, 300);
   }
 
   public setEndTime(event: any) {

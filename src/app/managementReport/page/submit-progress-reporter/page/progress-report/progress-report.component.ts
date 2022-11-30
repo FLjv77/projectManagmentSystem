@@ -10,11 +10,13 @@ import { ActivityConnectToApiService } from 'src/app/projectManagement/service/a
 import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
 import { PrepareShareLevelOfActivityDTO, ShareLevelOfActivityDTO } from 'src/app/managementReport/model/getReports';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-progress-report',
   templateUrl: './progress-report.component.html',
-  styleUrls: ['./progress-report.component.scss', '../../../../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component.scss']
+  styleUrls: ['./progress-report.component.scss',
+  '../../../../../projectManagement/page/activity/information-activity/page/activity-relationships/activity-relationships.component.scss']
 })
 export class ProgressReportComponent implements OnInit {
 
@@ -35,7 +37,8 @@ export class ProgressReportComponent implements OnInit {
     private activityConnectToApiService: ActivityConnectToApiService,
     private activeRouting: ActivatedRoute,
     private alertDialogBySweetAlertService: AlertDialogBySweetAlertService,
-    private handleDisplayErrorService: HandleDisplayErrorService
+    private handleDisplayErrorService: HandleDisplayErrorService,
+    private handleError: HandleDisplayErrorService,
     ) { }
 
   ngOnInit(): void {
@@ -52,7 +55,8 @@ export class ProgressReportComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.reporterNameFormControl.value && this.descreptionFormControl.value && this.ProgressFormControl.value > 0 &&
+    if(this.reporterNameFormControl.value && this.descreptionFormControl.value &&
+      this.ProgressFormControl.value > 0 && this.ProgressFormControl.value < 100 &&
       this.ProgressFormControl.value && this.registrationDate && this.listActivity.length > 0){
         return false;
       }
@@ -71,7 +75,6 @@ export class ProgressReportComponent implements OnInit {
 
 
   public sendProgressReport() {
-
     this.reportConnectionToApiService.RegisterProgressReport(
       this.projectId, new ProgressReportDTO(
         this.reporterNameFormControl.value,
@@ -90,15 +93,12 @@ export class ProgressReportComponent implements OnInit {
           } else {
             this.handleDisplayErrorService.showError(res.statusCode);
           }
+        }, (err: HttpErrorResponse) => {
+          this.handleError.showError(err.status);
         });
   }
 
-
-
-
-
   //////////
-
 
   public progressAmountControl: FormControl[];
   public activityList: showActivityDto[] = [];
@@ -121,6 +121,7 @@ export class ProgressReportComponent implements OnInit {
 
   private prepareActivityList() {
     this.listPrepareShareLevelOfActivity = new Array<PrepareShareLevelOfActivityDTO>();
+    this.initFormControl();
     for(let i=0; i<this.activityList.length; i++) {
       this.progressAmountControl.push(new FormControl());
       this.listPrepareShareLevelOfActivity.push(
