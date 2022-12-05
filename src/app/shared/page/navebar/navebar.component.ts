@@ -19,7 +19,7 @@ import { SidebarControleServiceService } from '../../service/sidebarControleServ
 export class NavebarComponent implements OnInit {
   public companyInformation: CompanySelectedDTO;
   public isFullScreen: boolean = false;
-  public companyName: string = 'ادمین';
+  public companyName: string = '';
   constructor(
     private router: Router, private reportConnectionToApiService:ReportConnectionToApiService,
     private authService: AuthService,
@@ -91,10 +91,14 @@ export class NavebarComponent implements OnInit {
         localStorage.removeItem(url.CompanyInfo);
         localStorage.removeItem(url.userRole);
         localStorage.setItem(url.userRole, 'admin');
+        this.companyName = 'ادمین';
       }
+
+      console.log(this.companyName);
+
     }, (err: HttpErrorResponse) => {
       //this.handleDisplayErrorService.showError(err.error.StatusCode);
-
+      this.companyName = 'ادمین';
       localStorage.removeItem(url.CompanyInfo);
       localStorage.removeItem(url.userRole);
       localStorage.setItem(url.userRole, 'admin');

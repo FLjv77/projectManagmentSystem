@@ -11,7 +11,8 @@
         <mat-panel-description class="position-relative pb-2">
           <div class="row px-2 set-font-vazir w-100">
             <div class="col-12 col-md-8 detail-activity">
-              <app-input-style *ngIf="listPrepareShareLevelOfActivity[i].isExist" [inputCustomStyle]="inputCustomStyle"
+              <app-input-style *ngIf="listPrepareShareLevelOfActivity[i].isExist"
+               [inputCustomStyle]="inputCustomStyle"
                class="w-100"
               [type]="'number'" [inputLabel]="'سهم فعالیت'" [inputId]="'progressAmountControl' + i"
               (changeValue)="changePersentOfActivity(i, $event)" [inputFormControl]="progressAmountControl[i]">
@@ -28,7 +29,6 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
     </mat-expansion-panel>
-
   </mat-accordion>
 </div>
 

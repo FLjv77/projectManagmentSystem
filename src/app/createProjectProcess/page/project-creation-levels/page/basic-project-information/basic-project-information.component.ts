@@ -14,7 +14,7 @@ import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/
   '../../project-creation-levels.component.scss']
 })
 export class BasicProjectInformationComponent implements OnInit {
-  public minYear: number;
+  public minYear: number | undefined;
   public minMount: number;
   public minDay: number;
   public projectNameFormControl = new FormControl();
@@ -52,9 +52,13 @@ export class BasicProjectInformationComponent implements OnInit {
     let fullDate  = event.substring(0,10);
     let arrayDate = fullDate.split('-');
 
-    this.minYear  = Number(arrayDate[0]);
-    this.minMount = Number(arrayDate[1]);
-    this.minDay   = Number(arrayDate[2]);
+    this.minYear = undefined;
+
+    setTimeout(() => {
+      this.minYear  = Number(arrayDate[0]);
+      this.minMount = Number(arrayDate[1]);
+      this.minDay   = Number(arrayDate[2]);
+    }, 300);
   }
 
   private checkValueIsSetBefor() {
@@ -96,7 +100,8 @@ export class BasicProjectInformationComponent implements OnInit {
     if(this.projectNameFormControl.value && this.projectDeliveryDateFormControl.value && this.descreptionFormControl.value &&
       this.infrastructureCostFormControl.value && this.humanResourceCostFormControl.value && this.contributors != null &&
       this.projectNameFormControl.valid && this.projectDeliveryDateFormControl.valid && this.descreptionFormControl.valid &&
-      this.infrastructureCostFormControl.valid && this.humanResourceCostFormControl.valid && this.checkbox != null ){
+      this.infrastructureCostFormControl.valid && this.humanResourceCostFormControl.valid && this.checkbox != null &&
+      this.infrastructureCostFormControl.value > 0 && this.humanResourceCostFormControl.value > 0){
         return true;
       }
       else {

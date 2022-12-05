@@ -10,6 +10,7 @@ import { PrepareShareLevelOfActivityDTO, ShareLevelOfActivityDTO } from 'src/app
 import { showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-financial-report',
@@ -39,7 +40,8 @@ export class FinancialReportComponent implements OnInit {
     private activityConnectToApiService: ActivityConnectToApiService,
     private activeRouting: ActivatedRoute,
     private handleDisplayErrorService: HandleDisplayErrorService,
-    private alertDialogBySweetAlertService: AlertDialogBySweetAlertService
+    private alertDialogBySweetAlertService: AlertDialogBySweetAlertService,
+    private handleError: HandleDisplayErrorService,
     ) { }
 
   ngOnInit(): void {
@@ -64,7 +66,7 @@ export class FinancialReportComponent implements OnInit {
       else{return true}
   }
 
-  public sendProgressReport(){
+  public sendProgressReport() {
     this.reportConnectionToApiService.registerAllocationReport(
       this.projectId, new RequestAllocationReportDTO(
         this.reporterNameFormControl.value,
@@ -83,6 +85,8 @@ export class FinancialReportComponent implements OnInit {
           } else {
             this.handleDisplayErrorService.showError(res.statusCode);
           }
+        }, (err: HttpErrorResponse) => {
+          this.handleError.showError(err.status);
         });
   }
 
@@ -108,6 +112,7 @@ export class FinancialReportComponent implements OnInit {
   }
 
   private prepareActivityList() {
+    this.initFormControl();
     this.listPrepareShareLevelOfActivity = new Array<PrepareShareLevelOfActivityDTO>();
     for(let i=0; i<this.activityList.length; i++) {
       this.progressAmountControl.push(new FormControl());
@@ -145,7 +150,7 @@ export class FinancialReportComponent implements OnInit {
     this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity.shareLevelOfActivity = Number(value);
   }
 
-public togglePanel() {
-    this.panelOpenState = !this.panelOpenState
-}
+  public togglePanel() {
+      this.panelOpenState = !this.panelOpenState
+  }
 }

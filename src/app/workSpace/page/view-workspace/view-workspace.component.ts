@@ -33,14 +33,14 @@ export class ViewWorkspaceComponent implements OnInit {
     this.getQueryParam();
     this.projectList();
   }
-  public goToEditProject() {
-    this.router.navigate(['../../projectManagement/editProject'])
+  public goToEditProject(projectId: string) {
+    this.router.navigate(['../../projectManagement/editProject'], {queryParams: { projectIdEdit: projectId }})
   }
-  public goToActivityProject() {
-    this.router.navigate(['../../projectManagement/InformationActivity'])
+  public goToActivityProject(projectId: string) {
+    this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: projectId}})
   }
-  public goToChartPage() {
-    this.router.navigate(['../../projectManagement/chart'])
+  public goToChartPage(projectId: string) {
+    this.router.navigate(['../../managementReport/submitProgressReporter'], {queryParams: { projectId: projectId, reportType: 1}})
   }
 
   private initDisplayPath() {
@@ -103,7 +103,6 @@ export class ViewWorkspaceComponent implements OnInit {
       }
     }
     let idCompany = this.activeRouting.snapshot.queryParamMap.get('idCompany');
-    console.log(idCompany)
     if (idCompany) this.idCompany=idCompany;
   }
 
