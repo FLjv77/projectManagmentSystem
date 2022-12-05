@@ -7,21 +7,29 @@
 
         <label id="example-radio-group-label" class="mt-3 mb-2 set-font-vazir title-page1">حوزه پروژه :</label>
           <section class="example-section text-end">
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(0)">
+            <div class="d-inline text-nowrap">
               <label class="mat-checkbox-label">مسجد</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(0)">
             </mat-checkbox>
+            </div>
 
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(1)">
+            <div class="d-inline text-nowrap">
               <label class="mat-checkbox-label">مدرسه</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(1)">
             </mat-checkbox>
+            </div>
 
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(2)">
+            <div class="d-inline text-nowrap">
               <label class="mat-checkbox-label">پارک</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(2)">
             </mat-checkbox>
+            </div>
 
-            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(3)">
+            <div class="d-inline text-nowrap">
               <label class="mat-checkbox-label">درمانگاه</label>
+            <mat-checkbox class="example-margin set-font-vazir mx-2" (click)="setProjectMarginalization(3)">
             </mat-checkbox>
+            </div>
           </section>
 
           <div *ngIf="select0">
