@@ -7,6 +7,7 @@ import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/ha
 import { PrepareShareLevelOfActivityDTO } from 'src/app/managementReport/model/getReports';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ApiResult } from 'src/app/auth/model/authDTO';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 
 @Component({
   selector: 'app-record-progress-report-modal',
@@ -28,6 +29,7 @@ export class RecordProgressReportModalComponent implements OnInit {
   public stateRecord: number = 0;
 
   constructor(private reportConnectionToApiService: ReportConnectionToApiService,
+    private alertDialogBySweetAlertService: AlertDialogBySweetAlertService,
     private handleError: HandleDisplayErrorService) { }
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class RecordProgressReportModalComponent implements OnInit {
       if(res.isSuccess && res.statusCode == 200) {
         this.closeModal();
         this.removedReport.emit(true);
-
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ثبت شد');
       } else {
         this.handleError.showError(res.statusCode);
       }

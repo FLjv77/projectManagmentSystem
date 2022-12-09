@@ -95,6 +95,7 @@ export class UnreviewedReportsComponent implements OnInit {
 
   public reportHasSave(stat: boolean, chose: number) {
     if(stat) {
+      this.selectedReportId = '';
       if(chose == 0) {
         this.progressReportSelectedDtos.splice(this.selectedReportIndex, 1);
       } else{

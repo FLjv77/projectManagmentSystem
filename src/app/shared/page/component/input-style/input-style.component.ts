@@ -92,7 +92,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
       } break;
 
       case Units.length: {
-        res = lengthUnits
+        res = lengthUnits;
       } break;
 
       case Units.price: {
@@ -103,7 +103,6 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
         res = volumeUnit;
       } break;
     }
-
     return res;
   }
 }
