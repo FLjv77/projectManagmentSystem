@@ -1,4 +1,4 @@
-import { CompanyStatusstring } from './../../model/companyModel';
+import { CompanyStatusstring, ProjectSelectedDTOResualt } from './../../model/companyModel';
 import { CompanyVerificationDTo } from './../../model/comanyModel';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -17,4 +17,7 @@ export class CompanyVerificationDToService {
     return this.http.post<ApiResult<CompanyStatusstring>>(url.CompanyModify + companyId ,CompanyVerification);
   }
 
+  public GetUsersWithDynamicFilter(): Observable<ApiResult<ProjectSelectedDTOResualt>> {
+    return this.http.get<ApiResult<ProjectSelectedDTOResualt>>(url.GetUsersWithDynamicFilter + '?activePage=1&takeEntity=100');
+  }
 }

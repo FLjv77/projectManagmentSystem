@@ -6,6 +6,7 @@ import { AllocationVerificationDTO, RequestAllocationVerificationDTO } from 'src
 import { ApiResult } from '../../../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HandleDisplayErrorService } from '../../../../../../../../shared/service/handleError/handle-display-error.service';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 
 @Component({
   selector: 'app-record-financial-report-modal',
@@ -25,6 +26,7 @@ export class RecordFinancialReportModalComponent implements OnInit {
   public stateRecord: number = 0;
 
   constructor(private reportConnectionToApiService: ReportConnectionToApiService,
+    private alertDialogBySweetAlertService: AlertDialogBySweetAlertService,
     private handleError: HandleDisplayErrorService) { }
 
   ngOnInit(): void {
@@ -54,6 +56,7 @@ export class RecordFinancialReportModalComponent implements OnInit {
       if(res.isSuccess && res.statusCode == 200) {
         this.closeModal();
         this.removedReport.emit(true);
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ثبت شد');
       } else {
         this.handleError.showError(res.statusCode);
       }

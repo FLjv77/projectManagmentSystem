@@ -48,5 +48,5 @@ export const url = {
   ComputeCompanyProjectProgress: 'Holding/ComputeCompanyProjectProgress',
   AmIAllowedToMakeThisClaim: 'Auth/AmIAllowedToMakeThisClaim/',
   GetItemOfRegions: 'Region/GetItemOfRegions',
-  AssigneUserAsProjectSupervisor: 'Holding/AssigneUserAsProjectSupervisor/'
+  AssigneUserAsProjectSupervisor: 'Holding/AssigneUserAsProjectSupervisor/',
 }

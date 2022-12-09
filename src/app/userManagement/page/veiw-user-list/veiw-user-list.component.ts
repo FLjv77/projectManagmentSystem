@@ -1,6 +1,9 @@
 import { DisplayPathModel } from './../../../shared/model/displayPathModel';
 import { HandleModalService } from './../../../shared/service/handleModalService/handle-modal.service';
 import { Component, OnInit } from '@angular/core';
+import { CompanyVerificationDToService } from 'src/app/workSpace/service/CompanyVerificationDTo/company-verification-dto.service';
+import { ApiResult } from '../../../auth/model/authDTO';
+import { ProjectSelectedDTOResualt, UserSelectedDtos } from 'src/app/workSpace/model/companyModel';
 
 @Component({
   selector: 'app-veiw-user-list',
@@ -10,8 +13,10 @@ import { Component, OnInit } from '@angular/core';
 export class VeiwUserListComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public userList: UserSelectedDtos[];
 
-  constructor(private handleModalService : HandleModalService) { }
+  constructor(private handleModalService : HandleModalService,
+              private companyVerificationDToService: CompanyVerificationDToService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -23,8 +28,13 @@ export class VeiwUserListComponent implements OnInit {
     this.path2 = new DisplayPathModel('مشاهده کاربران', false, '');
   }
 
-  public getUser(){
-    
+  public getUser() {
+    this.companyVerificationDToService.GetUsersWithDynamicFilter().
+    subscribe((res: ApiResult<ProjectSelectedDTOResualt>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.userList = res.data.userSelectedDtos;
+      }
+    });
   }
 
   public openMdalAddUser(){

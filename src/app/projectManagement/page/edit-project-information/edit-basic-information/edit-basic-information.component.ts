@@ -10,6 +10,7 @@ import { ProjectConnectToApiService } from 'src/app/projectManagement/service/pr
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { stat } from 'fs';
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 
 @Component({
   selector: 'app-edit-basic-information',
@@ -55,6 +56,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
     private projectConnectToApiService: ProjectConnectToApiService,
+    private alertDialogBySweetAlertService: AlertDialogBySweetAlertService,
     private advancedSearchConnecctToApiService: AdvancedSearchConnecctToApiService,
     private createrojectService:CreaterojectService) { }
 
@@ -244,6 +246,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId, updateProjectDTO).subscribe((
         res: ApiResult<boolean>
       ) => {
+        if(res.isSuccess && res.statusCode == 200) {
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+        }
       })
     }
     this.edit = false;

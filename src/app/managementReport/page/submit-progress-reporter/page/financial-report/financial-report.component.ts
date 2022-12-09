@@ -142,6 +142,9 @@ export class FinancialReportComponent implements OnInit {
   }
 
   public changeEditMode(i: number) {
+    if(this.listPrepareShareLevelOfActivity[i].isExist) {
+      this.progressAmountControl[i].reset();
+    }
     this.listPrepareShareLevelOfActivity[i].isExist = !this.listPrepareShareLevelOfActivity[i].isExist;
     this.changeActivityList();
   }
