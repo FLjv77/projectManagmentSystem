@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivityDependencyDto, CreateActivityDependency, DependencyActivity, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
+import { CreateActivityDependency, DependencyActivity, RequestCreateActivityDependency, showActivityDto } from 'src/app/projectManagement/model/activity/activityDto';
 import { ActivityConnectToApiService } from 'src/app/projectManagement/service/activity/activityConnectToApi/activity-connect-to-api.service';
 import { ApiResult } from '../../../../../../auth/model/authDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HandleDisplayErrorService } from '../../../../../../shared/service/handleError/handle-display-error.service';
 import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom} from 'rxjs'
 
 @Component({
   selector: 'app-dependency-activities',
@@ -13,16 +14,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DependencyActivitiesComponent implements OnInit {
   public disableChangeMatrix: boolean[][] = [[]];
+  public dependentActivities: Array<ActivitySelectedDTO>;
   public activityList: showActivityDto[] = [];
   private projectId: string;
-  constructor(
+  public constructor(
     private activeRouting: ActivatedRoute,
     private activityConnectToApiService: ActivityConnectToApiService,
-    private handleError: HandleDisplayErrorService) { }
+    private handleError: HandleDisplayErrorService) 
+    {
+      this.dependentActivities = new Array<ActivitySelectedDTO>
+    }
 
   ngOnInit(): void {
     this.setProjectId();
     this.getProjectctivity();
+
+    //TODO: develope dependency of activities
+    this.getDependency();
+    // show the dependentActivities
   }
 
   private setProjectId() {
@@ -41,19 +50,10 @@ export class DependencyActivitiesComponent implements OnInit {
   }
 
   private getDependency() {
-    this.activityConnectToApiService.showDependentActivities(this.projectId).subscribe((res: ApiResult<Map<string, Map<string, DependencyActivity>>>) => {
-      let data = res.data;
-
-      console.log(data);
-
-
-      for (let key in data) {
-        if(data.has(key)) {
-          let value = data.get(key);
-          console.log(key + " : " + value)
-        }
-    }
-
+    this.showDependentActivitiesAsync()
+    .then(result => {
+      this.dependentActivities = result;
+      console.log(this.dependentActivities);
     });
   }
 
@@ -81,20 +81,52 @@ export class DependencyActivitiesComponent implements OnInit {
         )
       )
     ).subscribe((res: ApiResult<boolean>) => {
-      this.disableChangeState(sourceActivityIndex, destinationActivityIndex ,false);
+      this.disableChangeState(sourceActivityIndex, destinationActivityIndex, false);
       if(res.isSuccess && res.statusCode == 200) {
 
       } else {
         this.handleError.showError(res.statusCode);
       }
     }, (err: HttpErrorResponse) => {
-      this.disableChangeState(sourceActivityIndex, destinationActivityIndex ,false);
+      this.disableChangeState(sourceActivityIndex, destinationActivityIndex, false);
       this.handleError.showError(err.error.StatusCode);
 
     })
   }
 
-  private disableChangeState(index1: number, index2: number, state: boolean) {
+  private disableChangeState(index1: number, index2: number, state: boolean) : void {
     this.disableChangeMatrix[index1][index2] = state;
+  }
+
+  private async showDependentActivitiesAsync(): Promise<Array<ActivitySelectedDTO>>
+  {
+    let dependenctActivity = await lastValueFrom
+    (this.activityConnectToApiService.showDependentActivities(this.projectId));
+  
+    let data = dependenctActivity.data;
+    let dependentActivitiesSelectedDto: Array<ActivitySelectedDTO> = 
+        new Array<ActivitySelectedDTO>();
+
+    Object.entries(data).forEach(activity => {
+      dependentActivitiesSelectedDto
+              .push(new ActivitySelectedDTO(activity[0], DependencyActivity.none));
+      Object.entries(activity[1]).forEach(childActivity => 
+        {            
+          let currentActivity = dependentActivitiesSelectedDto
+              .find(c => c.activityName == activity[0]);
+          currentActivity?.dependentActivity
+              .push(new ActivitySelectedDTO(childActivity[0], childActivity[1]));
+        });
+    });    
+    return dependentActivitiesSelectedDto;
+  }
+}
+
+export class ActivitySelectedDTO {
+  public constructor(public activityName: string,
+    public typeOfDependentActivity: DependencyActivity | string | [string, number],
+    public dependentActivity: Array<ActivitySelectedDTO>= 
+    new Array<ActivitySelectedDTO>()) {
+    
   }
 }

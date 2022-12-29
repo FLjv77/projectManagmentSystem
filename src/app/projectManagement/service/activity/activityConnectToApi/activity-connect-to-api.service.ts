@@ -16,8 +16,8 @@ export class ActivityConnectToApiService {
     return this.http.post<ApiResult<boolean>>(url.modifyDependentActivity + dependency.projectId, dependency.createActivityDependency);
   }
 
-  public showDependentActivities(projectId: string): Observable<ApiResult<Map<string, Map<string, DependencyActivity>>>> {
-    return this.http.get<ApiResult<Map<string, Map<string, DependencyActivity>>>>(url.showDependentActivities + projectId);
+  public showDependentActivities(projectId: string): Observable<ApiResult<[string, [string, number]][]>> {
+    return this.http.get<ApiResult<[string, [string, DependencyActivity]][]>>(url.showDependentActivities + projectId);
   }
 
   public showActivities(projectId: string): Observable<ApiResult<showActivityDto[]>> {
