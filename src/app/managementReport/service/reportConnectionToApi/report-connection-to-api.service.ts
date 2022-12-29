@@ -59,4 +59,10 @@ export class ReportConnectionToApiService {
   public ProgressReportVerification(data: ReportVerificationDTO, allocationReportId: string): Observable<ApiResult<any>>{
     return this.http.put<ApiResult<any>>(url.ProgressReportVerification + allocationReportId, data);
   }
+
+  public UploadDocumentsOfProgressReport(reportId: string, imageForm: File): Observable<ApiResult<boolean>>{
+    const imageFormData = new FormData();
+    imageFormData.append('media', imageForm);
+    return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProgressReport + reportId , imageFormData);
+  }
 }
