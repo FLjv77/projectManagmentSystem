@@ -231,10 +231,14 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
 
   public setSupervisor(supervisorName: string){
     this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName).subscribe((res:ApiResult<boolean>)=>{
-      console.log(res);
-      
-    });
-  }
-
-
+      console.log(res.data);
+      if(res.statusCode == 200 && res.isSuccess) {
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+      }
+  },(err: HttpErrorResponse) => {
+    if (err.status==500) {
+      this.alertDialogBySweetAlertService.showErrorAlert('کاربر مورد نظر یافت نشد لطفا از صحت نام کاربری اطمینان حاصل کنید');
+    }
+  });
+    };
 }
