@@ -1,3 +1,4 @@
+import { SupervisorUserRegisterDTO, SupervisorSelectedDTO } from './../../../auth/model/userDTO';
 import { Select2OptionData } from 'ng-select2';
 import { Participant, ResourceInformation, SearchLocationSelectedDto, State, City, Region } from './../../model/createProjectModel/createProject';
 import { CreateProjectDTO, CreateActivityDTO, CreateParentActivityDTO } from '../../model/createProjectModel/createProject';
@@ -56,6 +57,10 @@ export class CreaterojectService {
   public AssigneUserAsProjectSupervisor(projectId: string|string[],userName:string): Observable<ApiResult<boolean>>{
     return this.http.post<ApiResult<boolean>>(url.AssigneUserAsProjectSupervisor
        + projectId + '?userName=' + userName,userName);
+  }
+
+  public GetProjectSupervisor(projectId: string|string[]): Observable<ApiResult<SupervisorSelectedDTO>>{
+    return this.http.get<ApiResult<SupervisorSelectedDTO>>(url.GetProjectSupervisor+projectId);
   }
 
   // public SearchLocation(stateName?: string, cityName?: string, regionName?: string, ruralName?: string): Observable<ApiResult<SearchLocationSelectedDto>> {

@@ -49,4 +49,5 @@ export const url = {
   AmIAllowedToMakeThisClaim: 'Auth/AmIAllowedToMakeThisClaim/',
   GetItemOfRegions: 'Region/GetItemOfRegions',
   AssigneUserAsProjectSupervisor: 'Holding/AssigneUserAsProjectSupervisor/',
+  GetProjectSupervisor:'Project/GetProjectSupervisor/'
 }

@@ -28,3 +28,13 @@ export class SupervisorUserRegisterDTO {
   phoneNumber: string;
   password: string;
 }
+
+export class SupervisorSelectedDTO{
+  userId: string;
+  userName:	string;
+  constructor(userId: string,
+    userName:	string){
+      this.userId=userId;
+      this.userName=userName;
+    }
+  }
