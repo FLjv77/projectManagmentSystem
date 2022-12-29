@@ -36,7 +36,8 @@ export class FinancialReportComponent implements OnInit {
 
   public projectId: string;
 
-  constructor(private reportConnectionToApiService: ReportConnectionToApiService,
+  constructor(
+    private reportConnectionToApiService: ReportConnectionToApiService,
     private activityConnectToApiService: ActivityConnectToApiService,
     private activeRouting: ActivatedRoute,
     private handleDisplayErrorService: HandleDisplayErrorService,
@@ -93,7 +94,7 @@ export class FinancialReportComponent implements OnInit {
 
 
   public progressAmountControl: FormControl[];
-  public activityList: showActivityDto[];
+  public activityList: showActivityDto[] = [];
   public isEditMode: boolean = false;
   public panelOpenState: boolean = false;
 
