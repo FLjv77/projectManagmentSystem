@@ -52,5 +52,6 @@ export const url = {
   AssigneUserAsProjectSupervisor: 'Holding/AssigneUserAsProjectSupervisor/',
   GetProgressReportMedia: 'Media/GetProgressReportMedia/',
   GetAllocationRepotMedia: 'Media/GetAllocationRepotMedia/',
-  DownloadFile: 'Media/DownloadFile/'
+  DownloadFile: 'Media/DownloadFile/',
+  GetProjectSupervisor:'Project/GetProjectSupervisor/'
 }

@@ -161,14 +161,6 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
     if (this.projectId) {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
         .subscribe((res: ApiResult<ProjectSelectedDTO>) => {
-          this.placeholderProvince = res.data.address.state;
-          this.placeholderCity = res.data.address.city;
-          this.placeholderRegion = res.data.address.section;
-          this.placeholderVillage = res.data.address.region;
-          this.setProvince(this.placeholderProvince);
-          this.setRegion(this.placeholderRegion, this.placeholderCity, this.placeholderVillage);
-          this.setCity(this.placeholderProvince, this.placeholderCity);
-
           this.projectNameFormControl.setValue(res.data.projectName);
           this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+ '/' +
           res.data.projectDeliveryTime.month+'/'+res.data.projectDeliveryTime.day);
@@ -180,6 +172,13 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           this.infrastructureCostFormControl.setValue(res.data.infrastructureCost);
           this.x_location = res.data.address.latitude;
           this.y_location = res.data.address.longitude;
+          this.placeholderProvince = res.data.address.state;
+          this.placeholderCity = res.data.address.city;
+          this.placeholderRegion = res.data.address.section;
+          this.placeholderVillage = res.data.address.region;
+          this.setProvince(this.placeholderProvince);
+          this.setRegion(this.placeholderRegion, this.placeholderCity, this.placeholderVillage);
+          this.setCity(this.placeholderProvince, this.placeholderCity);
         });
     }
   }
@@ -251,8 +250,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
         }
       })
     }
-    this.edit = false;
-    this.getInfo();
+    location.reload();
   }
 
   public editForm() {

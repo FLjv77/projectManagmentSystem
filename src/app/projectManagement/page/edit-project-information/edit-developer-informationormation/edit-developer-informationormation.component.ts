@@ -1,3 +1,4 @@
+import { SupervisorSelectedDTO } from './../../../../auth/model/userDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
@@ -65,6 +66,8 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
       if (this.projectIdSelect) {
+        console.log('1111');
+        
         this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
           console.log(res.data.participants);
@@ -92,6 +95,13 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
           }
 
       });
+      console.log('22222');
+      
+      this.createrojectService.GetProjectSupervisor(this.projectIdSelect).subscribe((res:ApiResult<SupervisorSelectedDTO>)=>{
+        console.log('33333');
+        
+          this.supervisorFirstAndLastNameFormControl.setValue(res.data.userName);
+      })
       }
     })
   }
@@ -206,6 +216,12 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
         }
       }
     });
+
+    this.createrojectService.GetProjectSupervisor(this.projectId).subscribe((res:ApiResult<SupervisorSelectedDTO>)=>{
+      if(res.isSuccess == true&& res.statusCode==200){
+        this.supervisorFirstAndLastNameFormControl.setValue(res.data.userName);
+      }
+    })
     }
   }
 
@@ -214,8 +230,15 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   }
 
   public setSupervisor(supervisorName: string){
-    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName);
-  }
-
-
+    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName).subscribe((res:ApiResult<boolean>)=>{
+      console.log(res.data);
+      if(res.statusCode == 200 && res.isSuccess) {
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
+      }
+  },(err: HttpErrorResponse) => {
+    if (err.status==500) {
+      this.alertDialogBySweetAlertService.showErrorAlert('کاربر مورد نظر یافت نشد لطفا از صحت نام کاربری اطمینان حاصل کنید');
+    }
+  });
+    };
 }
