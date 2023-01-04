@@ -219,3 +219,10 @@ export class ReportVerificationDTO {
     this.commentBody = commentBody;
   }
 }
+
+export class MediaSelectedDTO {
+  fileSpace: number;
+  address:	string;
+  fileId:	string;
+  mediaId: string;
+  }

@@ -31,7 +31,7 @@
                 <td><span>{{item.progressReporterName}}</span></td>
                 <td><span>{{item.progressDescription}}</span></td>
                 <td><span>{{changeToPersian(item.progressPercentage.toString())}}%</span></td>
-                <td><i class="material-icons d-inline icon-styles">file_download</i></td>
+                <td class="pointer" (click)="downloadProgressReportMedia(item.progressReportId)"><i class="material-icons d-inline icon-styles">file_download</i></td>
                 <!--
                 <td><i class="material-icons d-inline icon-styles">check_box</i></td>
                 -->

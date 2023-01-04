@@ -14,6 +14,8 @@ import { CommonDataForCreateProjectService } from 'src/app/createProjectProcess/
   styleUrls: ['./upload-images.component.scss','../../project-creation-levels.component.scss']
 })
 export class UploadImagesComponent implements OnInit {
+  public fileFormControl = new FormControl();
+  public buttonEnabled: boolean = false;
   public inputCustomStyle: InputCustomStyle;
   public showUploadPhoto = true;
   private companyId: string;
@@ -68,16 +70,17 @@ export class UploadImagesComponent implements OnInit {
     }
   }
 
+  public handleUploadFile(state: boolean) {
+    this.buttonEnabled = state;
+  }
+
   public onUpload(){
     this.loading = true;
-    this.createrojectService.UploadDocumentsOfProject(this.projectId, this.file)
-      .subscribe((res: ApiResult<boolean>) => {
-        this.commonDataForCreateProjectService.selectStep.emit(6);
+    this.commonDataForCreateProjectService.selectStep.emit(6);
 
-        setTimeout(() => {
-          document.getElementById('recoveryResources')?.click();
-        }, 200);
-      });
+    setTimeout(() => {
+      document.getElementById('recoveryResources')?.click();
+    }, 200);
   }
 
   public removeSelectedPage() {

@@ -8,6 +8,28 @@ import { Router } from '@angular/router';
 export class HandleDisplayErrorService {
   constructor(private router: Router) {}
 
+  public showInfoAlert(message: string) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        title: 'set-font-Raymon',
+        confirmButton: 'set-font-vazir button-project ',
+        container: 'set-font-vazir',
+      },
+      buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+      icon: 'info',
+      title: 'توجه',
+      text: message,
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'متوجه شدم',
+    }).then((result: any) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+      }
+    });
+  }
+
   public showSuccessAlert(message: string) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

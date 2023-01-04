@@ -4,28 +4,28 @@
       <thead>
       <tr>
         <th scope="col">نام فعالیت</th>
-        <th *ngFor="let item of activityList" scope="col">{{item.activityName}}</th>
+        <th *ngFor="let item of dependentActivities" scope="col">{{item.activityName}}</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of activityList; let i=index;">
+      <tr *ngFor="let item of dependentActivities; let i=index;">
         <th scope="row">{{item.activityName}}</th>
-        <td *ngFor="let subItem of activityList; let j=index">
+        <td *ngFor="let subItem of item.dependentActivity; let j=index">
           <mat-form-field class="select-style">
-            <mat-select [value]="'none'" class="d-rtl set-font-vazir text-right font-size-small">
+            <mat-select [value]="subItem.typeOfDependentActivity" class="d-rtl set-font-vazir text-right font-size-small">
               <mat-option class="set-font-vazir text-right" [value]="'none'">
                 تعیین نشده
               </mat-option>
-              <mat-option (click)="changeActivityDependency(i, j, 3)" [value]="'FF'">
+              <mat-option (click)="changeActivityDependency(i, j, 3)" [value]="3">
                 FF
               </mat-option>
-              <mat-option (click)="changeActivityDependency(i, j, 1)" [value]="'FS'">
+              <mat-option (click)="changeActivityDependency(i, j, 1)" [value]="1">
                 FS
               </mat-option>
-              <mat-option (click)="changeActivityDependency(i, j, 4)" [value]="'SF'">
+              <mat-option (click)="changeActivityDependency(i, j, 4)" [value]="4">
                 SF
               </mat-option>
-              <mat-option (click)="changeActivityDependency(i, j, 2)" [value]="'SS'">
+              <mat-option (click)="changeActivityDependency(i, j, 2)" [value]="2">
                 SS
               </mat-option>
             </mat-select>

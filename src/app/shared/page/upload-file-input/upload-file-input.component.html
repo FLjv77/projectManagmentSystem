@@ -1,3 +1,7 @@
+<div *ngIf="uploadType == 3" class="container-upload-image px-2 position-relative mt-4">
+  <img *ngIf="fileUrl" class="preview-image" [src]="fileUrl">
+</div>
+
 <div class="position-relative container-input-upload-style py-2">
   <div class="input-label set-font-vazir">{{filePath}}</div>
   <input #inputFile class="input-upload-style"
