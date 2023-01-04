@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { RequestAllocationReportDTO, RequestAllocationVerificationDTO } from '../../model/modelDtoAllocationReport';
 import { url } from 'src/assets/url/url';
-import { AllocationReportPaginationSelectedDto, PrepareShareLevelOfActivityDTO, ProgressReportPaginationSelectedDto, ReportVerificationDTO } from '../../model/getReports';
+import { AllocationReportPaginationSelectedDto, MediaSelectedDTO, PrepareShareLevelOfActivityDTO, ProgressReportPaginationSelectedDto, ReportVerificationDTO } from '../../model/getReports';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +64,24 @@ export class ReportConnectionToApiService {
     const imageFormData = new FormData();
     imageFormData.append('media', imageForm);
     return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfProgressReport + reportId , imageFormData);
+  }
+
+
+  public UploadDocumentsOfAllocationReport(reportId: string, imageForm: File): Observable<ApiResult<boolean>>{
+    const imageFormData = new FormData();
+    imageFormData.append('media', imageForm);
+    return this.http.post<ApiResult<boolean>>(url.UploadDocumentsOfAllocationReport + reportId , imageFormData);
+  }
+
+  public GetProgressReportMedia(reportId: string, projectId: string): Observable<ApiResult<MediaSelectedDTO[]>> {
+    return this.http.get<ApiResult<MediaSelectedDTO[]>>(url.GetProgressReportMedia + projectId + '/' + reportId)
+  }
+
+  public GetAllocationRepotMedia(reportId: string, projectId: string): Observable<ApiResult<MediaSelectedDTO[]>> {
+    return this.http.get<ApiResult<MediaSelectedDTO[]>>(url.GetAllocationRepotMedia + projectId + '/' + reportId)
+  }
+
+  public DownloadFile(fileId: string): Observable<any> {
+    return this.http.get(url.DownloadFile + fileId, {responseType: 'blob'})
   }
 }

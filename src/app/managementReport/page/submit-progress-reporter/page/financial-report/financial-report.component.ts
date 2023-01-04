@@ -27,14 +27,12 @@ export class FinancialReportComponent implements OnInit {
   public reporterNameFormControl = new FormControl();
   public registrationDateFormControl = new FormControl();
   public reportAmounttFormControl = new FormControl();
-
   public registrationDate: string;
-
   public ProgressFormControl = new FormControl();
   public descreptionFormControl = new FormControl();
   public fileFormControl = new FormControl();
-
   public projectId: string;
+  public createdReportId: string;
 
   constructor(
     private reportConnectionToApiService: ReportConnectionToApiService,
@@ -77,12 +75,7 @@ export class FinancialReportComponent implements OnInit {
         this.listActivity)).subscribe((res: ApiResult<string>) => {
           if(res.statusCode == 200 && res.isSuccess) {
             this.alertDialogBySweetAlertService.showSuccessAlert('گزارش با موفقیت ایجاد شد');
-            this.reporterNameFormControl.reset();
-            this.descreptionFormControl.reset();
-            this.reportAmounttFormControl.reset();
-            this.registrationDateFormControl.reset();
-            this.listActivity = new Array<ShareLevelOfActivityDTO>();
-            this.prepareActivityList();
+            this.createdReportId = res.data;
           } else {
             this.handleDisplayErrorService.showError(res.statusCode);
           }
@@ -127,10 +120,11 @@ export class FinancialReportComponent implements OnInit {
     }
   }
 
-
   private changeActivityList() {
     for(let i=0; i<this.listPrepareShareLevelOfActivity.length; i++) {
-      if(this.listPrepareShareLevelOfActivity[i].isExist) this.listActivity.push(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
+      if(this.listPrepareShareLevelOfActivity[i].isExist) {
+        if(this.listActivity.indexOf(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity) < 0) this.listActivity.push(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
+      }
       else {
         let index = this.listActivity.indexOf(this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity);
         if (index > -1) this.listActivity.splice(index, 1);
@@ -156,5 +150,17 @@ export class FinancialReportComponent implements OnInit {
 
   public togglePanel() {
       this.panelOpenState = !this.panelOpenState
+  }
+
+  public handleUploadFile(state: boolean) {
+    if(state) {
+      this.reporterNameFormControl.reset();
+      this.descreptionFormControl.reset();
+      this.reportAmounttFormControl.reset();
+      this.registrationDateFormControl.reset();
+      this.listActivity = new Array<ShareLevelOfActivityDTO>();
+      this.prepareActivityList();
+      this.alertDialogBySweetAlertService.showSuccessAlert('مستندات گزارش با موفقیت ایجاد شد');
+    }
   }
 }

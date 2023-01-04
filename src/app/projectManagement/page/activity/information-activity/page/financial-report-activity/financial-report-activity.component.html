@@ -34,7 +34,7 @@
                 <td><span>{{item.allocationReporterName}}</span></td>
                 <td><span>{{item.allocationDescription}}</span></td>
                 <td><span>{{changeToPersian(item.amountOfAllocation.toString())}} <h6>ریال</h6></span></td>
-                <td><i class="material-icons d-inline icon-styles">file_download</i></td>
+                <td class="pointer" (click)="downloadAllocationReportMedia(item.allocationReportId)"><i class="material-icons d-inline icon-styles">file_download</i></td>
                 <!--
                 <td><i class="material-icons d-inline icon-styles">check_box</i></td>
                 -->

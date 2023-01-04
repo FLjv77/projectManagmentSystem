@@ -4,7 +4,9 @@ import { HandleModalService } from './../../../../../../shared/service/handleMod
 import { Component, OnInit } from '@angular/core';
 import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from 'src/app/managementReport/model/getReports';
+import { MediaSelectedDTO, ProgressReportPaginationSelectedDto, ProgressReportSelectedDto } from 'src/app/managementReport/model/getReports';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-progress-report-activity',
@@ -19,6 +21,7 @@ export class ProgressReportActivityComponent implements OnInit {
     private activeRouting: ActivatedRoute,
     private router: Router,
     private reportConnectionToApiService: ReportConnectionToApiService,
+    private handleDisplayErrorService: HandleDisplayErrorService,
     private numberFormaterService:NumberFormaterService) { }
 
   ngOnInit(): void {
@@ -51,5 +54,31 @@ export class ProgressReportActivityComponent implements OnInit {
         this.progressReportSelected = res.data.progressReportSelectedDtos;
       }
     });
+  }
+
+  public downloadProgressReportMedia(reportId: string) {
+    this.reportConnectionToApiService.GetProgressReportMedia(
+      reportId, this.projectId
+    ).subscribe((res: ApiResult<MediaSelectedDTO[]>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        if(res.data.length > 0) {
+          this.reportConnectionToApiService.DownloadFile(
+            res.data[res.data.length - 1].fileId
+          ).subscribe((response: any) => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(response);
+            link.download = res.data[0].address;
+            link.click();
+            }), (error: any) => console.log('Error downloading the file'),
+            () => console.info('File downloaded successfully');
+        } else {
+          this.handleDisplayErrorService.showInfoAlert('مستنداتی برای گزارش ثبت نشده');
+        }
+      } else {
+        this.handleDisplayErrorService.showError(res.statusCode);
+      }
+    }, (err: HttpErrorResponse) => {
+      this.handleDisplayErrorService.showError(err.status);
+    })
   }
 }

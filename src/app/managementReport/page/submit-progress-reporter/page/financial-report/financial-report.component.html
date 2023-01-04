@@ -52,7 +52,7 @@
                      [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'4'"
             [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
 
-  <app-upload-file-input [id]="'0fb92d13-aff6-4f75-9fd5-328884687df5'" [inputFormControl]="fileFormControl" [inputLabel]="'بارگذاری مستندات تخصیص پروژه'"></app-upload-file-input>
+  <app-upload-file-input (loadRequestStatus)="handleUploadFile($event)" *ngIf="createdReportId" [uploadType]="2" [id]="createdReportId" [inputFormControl]="fileFormControl" [inputLabel]="'بارگذاری مستندات تخصیص پروژه'"></app-upload-file-input>
 
 
   <div class="row col-12 my-2" style="direction: ltr;">

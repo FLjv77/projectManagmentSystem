@@ -28,6 +28,7 @@ export const url = {
   ModifyGetHealthSpeceficDetail: 'Project/ModifyGetHealthSpeceficDetail/',
   GetCompaniesWithRegisterationStatus: 'Holding/GetCompaniesWithRegisterationStatus',
   UploadDocumentsOfProgressReport: 'Media/UploadDocumentsOfProgressReport/',
+  UploadDocumentsOfAllocationReport: 'Media/UploadDocumentsOfAllocationReport/',
   GetProgressReports :'Project/GetProgressReports',
   GetAllocationReports:'Project/GetAllocationReports',
   ModifyProjectGeneralInfo:'Project/ModifyProjectGeneralInfo/',
@@ -49,5 +50,8 @@ export const url = {
   AmIAllowedToMakeThisClaim: 'Auth/AmIAllowedToMakeThisClaim/',
   GetItemOfRegions: 'Region/GetItemOfRegions',
   AssigneUserAsProjectSupervisor: 'Holding/AssigneUserAsProjectSupervisor/',
+  GetProgressReportMedia: 'Media/GetProgressReportMedia/',
+  GetAllocationRepotMedia: 'Media/GetAllocationRepotMedia/',
+  DownloadFile: 'Media/DownloadFile/',
   GetProjectSupervisor:'Project/GetProjectSupervisor/'
 }
