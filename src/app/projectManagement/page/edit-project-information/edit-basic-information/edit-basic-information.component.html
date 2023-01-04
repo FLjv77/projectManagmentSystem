@@ -1,10 +1,10 @@
 <div class="p-3">
   <div class="row">
     <div class="col-12">
-      <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
+      <!-- <button *ngIf="!edit" class="mx-auto float-left w-auto edit-button" (click)="editForm()">
         <i class="material-icons d-inline">edit</i>
-      </button>
-      <button *ngIf="edit" class="mx-auto float-left w-auto edit-button" (click)="saved()">
+      </button> -->
+      <button class="mx-auto float-left w-auto edit-button" (click)="saved()">
         <i class="material-icons d-inline">check</i>
       </button>
     </div>
@@ -90,8 +90,8 @@
       <app-drop-down-village-list [villageList]="villageList" (village)="changeNewVillage($event)" *ngIf="showPlaceholderVillage && villageList" [placeholder]="placeholderVillage" class="col-md-6 col-12"></app-drop-down-village-list>
     </div>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
-                     [inputFormControl]="LocationFormControl"></app-input-style>
+    <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'7'"
+                     [inputFormControl]="LocationFormControl"></app-input-style> -->
 
     <app-edit-project-location *ngIf="x_location" [selectedX]="y_location" [selectedY]="x_location"></app-edit-project-location>
   </div>
