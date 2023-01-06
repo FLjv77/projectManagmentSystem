@@ -16,6 +16,7 @@ import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/ha
 export class ActivityRelationshipsTreeModeComponent implements OnInit {
   private projectId: string;
   public TREE_DATA: TreeMode[] = [];
+  public data: ActivityHierarchicalStructureSelectedDTO[];
 
   ngOnInit(): void {
     this.setProjectId();
@@ -58,6 +59,9 @@ export class ActivityRelationshipsTreeModeComponent implements OnInit {
   private getActivityInTreeMode() {
     this.activityConnectToApiService.showHierarchicalStructureActivities(this.projectId).subscribe(
       (res: ApiResult<ActivityHierarchicalStructureSelectedDTO[]>) => {
+        this.data = res.data;
+        console.log(this.data);
+
         for(let i=0; i<res.data.length; i++) {
           let obj = new TreeMode();
           obj.name = res.data[i].activityName;
@@ -70,6 +74,7 @@ export class ActivityRelationshipsTreeModeComponent implements OnInit {
           this.TREE_DATA.push(obj);
         }
         this.dataSource.data = this.TREE_DATA;
+
       }
     );
   }

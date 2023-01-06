@@ -36,8 +36,6 @@ export class DropDownActivitiesComponent implements OnInit {
     this.activityConnectToApiService.showActivities(
       this.projectId
     ).subscribe((res: ApiResult<showActivityDto[]>) => {
-      console.log(res.data);
-
       for(let i=0; i<res.data.length; i++) {
         let obj = {
           text: res.data[i].activityName,

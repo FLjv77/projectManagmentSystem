@@ -21,7 +21,8 @@ export class ActivityConnectToApiService {
   }
 
   public showActivities(projectId: string): Observable<ApiResult<showActivityDto[]>> {
-    return this.http.get<ApiResult<showActivityDto[]>>(url.showActivities + projectId);
+    return this.http.get<ApiResult<showActivityDto[]>>(url.showActivities + projectId + '?pageId=1&take=100'
+    );
   }
 
   public createActivities(createActivity: CreateActivityDTO, projectId: string): Observable<ApiResult<string>> {

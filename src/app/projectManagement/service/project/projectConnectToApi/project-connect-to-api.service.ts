@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GetProjectsGeneralInfoOfCompanyDto, ProjectSelectedDTO, ProjectSortedBy } from 'src/app/projectManagement/model/project/projectDto';
 import { url } from '../../../../../assets/url/url';
+import { MediaSelectedDTO } from 'src/app/managementReport/model/getReports';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,9 @@ export class ProjectConnectToApiService {
   public ModifyProjectGeneralInfo(projectId : string|string[],updateProjectDTO: UpdateProjectDTO): Observable<ApiResult<boolean>>{
     return this.http.put<ApiResult<boolean>>(url.ModifyProjectGeneralInfo + projectId,updateProjectDTO);
   }
+
+  public GetProjectMedia(projectId: string): Observable<ApiResult<MediaSelectedDTO[]>> {
+    return this.http.get<ApiResult<MediaSelectedDTO[]>>(url.GetProjectMedia + projectId);
+  }
+
 }

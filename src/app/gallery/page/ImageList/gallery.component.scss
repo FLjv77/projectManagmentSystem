@@ -1,5 +1,5 @@
 @import "../../../../assets/style/base";
-@import "../../../../assets/style/colorPalette";
+@import "../../../../assets/style/colorPalette.scss";
 
 .img1{
     height: 150px;
@@ -101,4 +101,27 @@ span, a, a:hover {
         margin-left: -1rem;
         margin-right: 1rem;
     }
+}
+
+p {
+  background-color: #eee;
+  width: 500px;
+  margin: 10px auto;
+  padding: 15px;
+  border-right: 5px solid $side-bar-color;
+  position: relative;
+  counter-increment: number;
+}
+
+
+p::before {
+  content: counter(number);
+  background-color: $side-bar-color;
+  border-left: 1px solid $side-bar-color;
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+  position: absolute;
+  left: -30px;
+  top: 0px;
 }

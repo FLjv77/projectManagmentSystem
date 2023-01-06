@@ -145,7 +145,8 @@ export class FinancialReportComponent implements OnInit {
   }
 
   public changePersentOfActivity(i: number, value: string) {
-    this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity.shareLevelOfActivity = Number(value);
+    if(Number(value) <= 100) this.listPrepareShareLevelOfActivity[i].shareLevelOfActivity.shareLevelOfActivity = Number(value);
+    else this.progressAmountControl[i].reset();
   }
 
   public togglePanel() {
