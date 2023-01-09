@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { RequestAllocationReportDTO, RequestAllocationVerificationDTO } from '../../model/modelDtoAllocationReport';
 import { url } from 'src/assets/url/url';
-import { AllocationReportPaginationSelectedDto, MediaSelectedDTO, PrepareShareLevelOfActivityDTO, ProgressReportPaginationSelectedDto, ReportVerificationDTO } from '../../model/getReports';
+import { AllocationReportPaginationSelectedDto, MediaSelectedDTO, PrepareShareLevelOfActivityDTO, ProgressReportPaginationSelectedDto, ProjectForSupervisor, ReportVerificationDTO } from '../../model/getReports';
 
 @Injectable({
   providedIn: 'root'
@@ -83,5 +83,9 @@ export class ReportConnectionToApiService {
 
   public DownloadFile(fileId: string): Observable<any> {
     return this.http.get(url.DownloadFile + fileId, {responseType: 'blob'})
+  }
+
+  public GetProjectsForSupervisorThatHasOpenReport(): Observable<ApiResult<ProjectForSupervisor[]>> {
+    return this.http.get<ApiResult<ProjectForSupervisor[]>>(url.GetProjectsForSupervisorThatHasOpenReport);
   }
 }

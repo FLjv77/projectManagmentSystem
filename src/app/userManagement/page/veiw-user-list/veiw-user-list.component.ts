@@ -37,6 +37,17 @@ export class VeiwUserListComponent implements OnInit {
     });
   }
 
+  public getUserRole(list: string[]) {
+    let res = '';
+    for(let i =0; i< list.length; i++) {
+      if(res) res += '-'
+      if(list[i] == "CompanyAdmin") res += ' مدیر شرکت ';
+      else if(list[i] == "Supervisor") res += ' ناظر ';
+      else if(list[i] == "HoldingAdmin") res += ' مدیر هولدینگ ';
+    }
+    return res;
+  }
+
   public openMdalAddUser(){
     this.handleModalService.openModal('add-user-modal');
   }

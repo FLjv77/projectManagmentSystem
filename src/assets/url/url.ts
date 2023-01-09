@@ -54,5 +54,6 @@ export const url = {
   GetAllocationRepotMedia: 'Media/GetAllocationRepotMedia/',
   DownloadFile: 'Media/DownloadFile/',
   GetProjectMedia: 'Media/GetProjectMedia/',
-  GetProjectSupervisor:'Project/GetProjectSupervisor/'
+  GetProjectSupervisor:'Project/GetProjectSupervisor/',
+  GetProjectsForSupervisorThatHasOpenReport: 'Project/GetProjectsForSupervisorThatHasOpenReport'
 }

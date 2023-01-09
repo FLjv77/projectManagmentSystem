@@ -42,8 +42,6 @@ export class EditProjectInformationComponent implements OnInit {
     else if (localStorage.getItem(url.RoleHome) != 'holdingAdmin'){
       if (id) this.projectId = id; this.show = id;
     }
-    console.log(this.show);
-
   }
 
   public setProjectId(event: string|string[]){

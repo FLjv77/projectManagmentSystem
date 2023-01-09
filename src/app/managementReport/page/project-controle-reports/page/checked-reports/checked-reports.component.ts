@@ -14,8 +14,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CheckedReportsComponent implements OnInit {
 
-  public allocationReportSelectedDtos: AllocationReportSelectedDto[];
-  public progressReportSelectedDtos:	ProgressReportSelectedDto[];
+  public allocationReportSelectedDtos: AllocationReportSelectedDto[] = [];
+  public progressReportSelectedDtos:	ProgressReportSelectedDto[] = [];
   @Input() projectId: string;
 
   public openCloseAnswer1:boolean = false;

@@ -6,6 +6,7 @@ import { ReportConnectionToApiService } from '../../service/reportConnectionToAp
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { CompanySelectedDTO } from 'src/app/workSpace/model/companyModel';
 import { url } from 'src/assets/url/url';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-controle-reports',
@@ -17,18 +18,30 @@ export class ProjectControleReportsComponent implements OnInit {
   public progressReportSelectedDtos:	ProgressReportSelectedDto[];
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
-  public projectId: string;
+  public projectId: string | null;
   public selectedTab: number = 1;
   public listAllocationReport: Array<AllocationReportSelectedDto>;
   public listProgressReport: Array<ProgressReportSelectedDto>;
   public companyId: string;
   public checkedReport: boolean = false;
 
-  constructor(private reportConnectionToApiService:ReportConnectionToApiService){ }
+  constructor(private reportConnectionToApiService:ReportConnectionToApiService,
+    private activeRouting: ActivatedRoute,){ }
 
   ngOnInit(): void {
     this.initDisplayPath();
     this.setCompanyId();
+    this.getProjectId();
+  }
+
+  getProjectId() {
+      let id = this.activeRouting.snapshot.queryParamMap.get('projectId');
+      if(id) {
+        this.projectId = '';
+        setTimeout(() => {
+          this.projectId = id;
+        }, 200);
+      }
   }
 
   private initDisplayPath() {

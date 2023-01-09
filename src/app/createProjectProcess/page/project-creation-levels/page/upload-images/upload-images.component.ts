@@ -83,6 +83,15 @@ export class UploadImagesComponent implements OnInit {
     }, 200);
   }
 
+  public next(){
+    this.loading = true;
+    this.commonDataForCreateProjectService.selectStep.emit(6);
+
+    setTimeout(() => {
+      document.getElementById('recoveryResources')?.click();
+    }, 200);
+  }
+
   public removeSelectedPage() {
     this.imgURL = '';
   }
