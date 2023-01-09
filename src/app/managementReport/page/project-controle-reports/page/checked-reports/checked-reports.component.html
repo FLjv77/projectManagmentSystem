@@ -1,5 +1,6 @@
 
-<div *ngFor="let item of progressReportSelectedDtos" class="bg-levels mx-auto my-3 set-font-vazir">
+<div *ngIf="allocationReportSelectedDtos.length > 0 || allocationReportSelectedDtos.length > 0">
+  <div *ngFor="let item of progressReportSelectedDtos" class="bg-levels mx-auto my-3 set-font-vazir">
     <div class="text-report">
         <h3 class="set-font-Raymon title-efficiency px-5 d-inline py-1"> گزارش پیشرفت</h3>
         <p class="mt-3">{{item.progressDescription}}</p>
@@ -92,3 +93,9 @@
         </div>
     </div>
 </div>
+</div>
+
+<div *ngIf="allocationReportSelectedDtos.length == 0 && allocationReportSelectedDtos.length == 0">
+  <app-empty-result></app-empty-result>
+</div>
+

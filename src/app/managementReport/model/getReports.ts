@@ -1,3 +1,4 @@
+import { DateTime } from 'src/app/shared/model/dateTime';
 export class AllocationReportPaginationSelectedDto {
     constructor() {}
     pageId: number;
@@ -226,3 +227,11 @@ export class MediaSelectedDTO {
   fileId:	string;
   mediaId: string;
   }
+
+
+export class ProjectForSupervisor {
+  companyName: string;
+  createDate: DateTime;
+  projectId: string;
+  projectName: string;
+}

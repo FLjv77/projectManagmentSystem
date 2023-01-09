@@ -20,7 +20,7 @@ export class DependencyActivitiesComponent implements OnInit {
   public constructor(
     private activeRouting: ActivatedRoute,
     private activityConnectToApiService: ActivityConnectToApiService,
-    private handleError: HandleDisplayErrorService) 
+    private handleError: HandleDisplayErrorService)
     {
       this.dependentActivities = new Array<ActivitySelectedDTO>
     }
@@ -53,7 +53,7 @@ export class DependencyActivitiesComponent implements OnInit {
     this.showDependentActivitiesAsync()
     .then(result => {
       this.dependentActivities = result;
-      console.log(this.dependentActivities);
+      this.initDisableChangeMatrix(result.length);
     });
   }
 
@@ -70,13 +70,16 @@ export class DependencyActivitiesComponent implements OnInit {
   }
 
   public changeActivityDependency(sourceActivityIndex: number, destinationActivityIndex: number, state: DependencyActivity) {
+    console.log(sourceActivityIndex);
+    console.log(destinationActivityIndex);
+
     this.disableChangeState(sourceActivityIndex, destinationActivityIndex ,true);
     this.activityConnectToApiService.modifyDependentActivity(
       new RequestCreateActivityDependency(
         this.projectId,
         new CreateActivityDependency(
-          this.activityList[sourceActivityIndex].activityName,
-          this.activityList[destinationActivityIndex].activityName,
+          this.dependentActivities[sourceActivityIndex].activityName,
+          this.dependentActivities[destinationActivityIndex].activityName,
           state
         )
       )
@@ -98,26 +101,39 @@ export class DependencyActivitiesComponent implements OnInit {
     this.disableChangeMatrix[index1][index2] = state;
   }
 
+  public checkValueDependency(ac1: string, ac2: string) {
+    let res: any = 0;
+    for(let i=0; i<this.dependentActivities.length; i++) {
+      for(let j=0; j<this.dependentActivities[i].dependentActivity.length; j++) {
+        if(this.dependentActivities[i].activityName == ac1 && this.dependentActivities[i].dependentActivity[j].activityName == ac2) {
+          res = this.dependentActivities[i].dependentActivity[j].typeOfDependentActivity;
+        }
+      }
+    }
+    return res;
+  }
+
   private async showDependentActivitiesAsync(): Promise<Array<ActivitySelectedDTO>>
   {
     let dependenctActivity = await lastValueFrom
     (this.activityConnectToApiService.showDependentActivities(this.projectId));
-  
+
     let data = dependenctActivity.data;
-    let dependentActivitiesSelectedDto: Array<ActivitySelectedDTO> = 
+
+    let dependentActivitiesSelectedDto: Array<ActivitySelectedDTO> =
         new Array<ActivitySelectedDTO>();
 
     Object.entries(data).forEach(activity => {
       dependentActivitiesSelectedDto
               .push(new ActivitySelectedDTO(activity[0], DependencyActivity.none));
-      Object.entries(activity[1]).forEach(childActivity => 
-        {            
+      Object.entries(activity[1]).forEach(childActivity =>
+        {
           let currentActivity = dependentActivitiesSelectedDto
               .find(c => c.activityName == activity[0]);
           currentActivity?.dependentActivity
               .push(new ActivitySelectedDTO(childActivity[0], childActivity[1]));
         });
-    });    
+    });
     return dependentActivitiesSelectedDto;
   }
 }
@@ -125,8 +141,8 @@ export class DependencyActivitiesComponent implements OnInit {
 export class ActivitySelectedDTO {
   public constructor(public activityName: string,
     public typeOfDependentActivity: DependencyActivity | string | [string, number],
-    public dependentActivity: Array<ActivitySelectedDTO>= 
+    public dependentActivity: Array<ActivitySelectedDTO>=
     new Array<ActivitySelectedDTO>()) {
-    
+
   }
 }

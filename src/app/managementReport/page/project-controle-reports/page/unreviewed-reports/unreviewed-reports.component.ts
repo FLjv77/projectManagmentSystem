@@ -12,8 +12,8 @@ import { ReportConnectionToApiService } from 'src/app/managementReport/service/r
   ,'../../../view-chart-progress-roport/view-chart-progress-roport.component.scss']
 })
 export class UnreviewedReportsComponent implements OnInit {
-  public allocationReportSelectedDtos: AllocationReportSelectedDto[];
-  public progressReportSelectedDtos:	ProgressReportSelectedDto[];
+  public allocationReportSelectedDtos: AllocationReportSelectedDto[] = [];
+  public progressReportSelectedDtos:	ProgressReportSelectedDto[] = [];
   public selectedReportId: string;
   public selectedReportIndex: number;
 

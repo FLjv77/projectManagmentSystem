@@ -4,12 +4,13 @@
     </div>
     <div *ngIf="userList" class="col-12 mx-auto px-5">
         <div *ngFor="let user of userList" class="row list-result-project set-font-vazir py-1">
-            <div class="col-12 col-sm-4 text-sm-end text-center">
+            <div class="col-12 col-sm-3 text-sm-end text-center">
                 <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
                 <span>{{user.userName}}</span>
             </div>
-            <div class="col-12 col-sm-4 my-auto text-center py-sm-0 py-2">{{user.userIsActivated ? 'فعال' : 'غیر فعال'}}</div>
-            <div class="col-12 col-md-4 my-auto text-sm-start text-center">{{user.createDate.timeInterval}}</div>
+            <div class="col-12 col-md-3 my-auto text-right">{{getUserRole(user.roleNames)}}</div>
+            <div class="col-12 col-md-3 my-auto text-center py-sm-0 py-2">{{user.userIsActivated ? 'فعال' : 'غیر فعال'}}</div>
+            <div class="col-12 col-md-3 my-auto text-sm-start text-center">{{user.createDate.timeInterval}}</div>
         </div>
 
     </div>

@@ -3,6 +3,8 @@ import { ReportConnectionToApiService } from './../../../managementReport/servic
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DisplayPathModel } from '../../../shared/model/displayPathModel';
+import { ApiResult } from '../../../auth/model/authDTO';
+import { ProjectForSupervisor } from 'src/app/managementReport/model/getReports';
 
 @Component({
   selector: 'app-home-super-visor',
@@ -16,13 +18,15 @@ import { DisplayPathModel } from '../../../shared/model/displayPathModel';
 export class HomeSuperVisorComponent implements OnInit {
   public path1: DisplayPathModel;
   public path2: DisplayPathModel;
+  public listProject: ProjectForSupervisor[];
   constructor(private router: Router,
-    private reportConnectionToApiService:ReportConnectionToApiService) { }
+    private reportConnectionToApiService: ReportConnectionToApiService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
     this.getReportAllocation();
     this.getReportProgress();
+    this.getReport();
     this.setRole();
   }
 
@@ -30,6 +34,14 @@ export class HomeSuperVisorComponent implements OnInit {
     let role = 'supervisor';
     localStorage.removeItem(url.RoleHome);
     localStorage.setItem(url.RoleHome,role);
+  }
+
+  private getReport() {
+    this.reportConnectionToApiService.GetProjectsForSupervisorThatHasOpenReport().subscribe((res: ApiResult<ProjectForSupervisor[]>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        this.listProject = res.data;
+      }
+    })
   }
 
   private getReportAllocation() {
@@ -57,8 +69,8 @@ export class HomeSuperVisorComponent implements OnInit {
     this.path2 = new DisplayPathModel('خانه', false, '');
   }
 
-  public goToEditProject() {
-    this.router.navigate(['../../projectManagement/editProject'])
+  public goToEditProject(projectId: string) {
+    this.router.navigate(['../../managementReport/projectControleReports'], {queryParams: { projectId: projectId }});
   }
   public goToActivityProject() {
     this.router.navigate(['../../projectManagement/InformationActivity'])

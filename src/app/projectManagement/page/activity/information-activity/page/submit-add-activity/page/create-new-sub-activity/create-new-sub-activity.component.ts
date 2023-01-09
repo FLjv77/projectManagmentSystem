@@ -39,6 +39,8 @@ export class CreateNewSubActivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.initInputStyle();
+    this.setProjectId();
+
   }
 
   private initInputStyle() {
@@ -53,13 +55,10 @@ export class CreateNewSubActivityComponent implements OnInit {
   }
 
   public getValue(){
-    if(this.activityNameFormControl.value && this.startDateFormControl.value && this.endDateFormControl.value &&
+    if(this.activityNameFormControl.value && this.endDate && this.startDate &&
       this.activityPriceFormControl.value && this.timeWeightActivityFormControl.value && this.priceWeightActivityFormControl.value &&
       this.descreptionActivityFormControl.value &&
-      this.activityPriceFormControl.value > 0 && this.timeWeightActivityFormControl.value > 0 && this.priceWeightActivityFormControl.value > 0 &&
-      this.activityNameFormControl.valid && this.startDateFormControl.valid && this.endDateFormControl.valid &&
-      this.activityPriceFormControl.valid && this.timeWeightActivityFormControl.valid && this.priceWeightActivityFormControl.valid &&
-      this.descreptionActivityFormControl.valid){
+      this.activityPriceFormControl.value > 0 && this.timeWeightActivityFormControl.value > 0 && this.priceWeightActivityFormControl.value > 0){
         return true;
       }
       else{return false}
@@ -73,7 +72,6 @@ export class CreateNewSubActivityComponent implements OnInit {
   }
 
   public createActivity() {
-    this.setProjectId();
 
     this.createActivityModel.approximateCost = this.activityPriceFormControl.value;
     this.createActivityModel.costWeight = this.priceWeightActivityFormControl.value;

@@ -1,9 +1,9 @@
 <div class="row pb-5">
     <div class="col-12 d-block my-auto">
         <i class="material-icons d-inline icon-styles">assignment</i>
-        <h4 class="title-page d-inline set-font-Raymon">ایجاد فعالیت اصلی</h4>
+        <h4 class="title-page d-inline set-font-Raymon">ایجاد زیر فعالیت </h4>
     </div>
-    <div class="col-12">
+    <div *ngIf="projectId" class="col-12">
         <app-drop-down-activities (activityId)="setParentActivityId($event)" [projectId]="projectId"></app-drop-down-activities>
     </div>
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'نام زیر فعالیت'" [inputId]="'1'"

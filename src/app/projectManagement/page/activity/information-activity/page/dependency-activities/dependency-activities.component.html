@@ -10,10 +10,11 @@
       <tbody>
       <tr *ngFor="let item of dependentActivities; let i=index;">
         <th scope="row">{{item.activityName}}</th>
-        <td *ngFor="let subItem of item.dependentActivity; let j=index">
+
+        <td *ngFor="let subItem of dependentActivities; let j=index">
           <mat-form-field class="select-style">
-            <mat-select [value]="subItem.typeOfDependentActivity" class="d-rtl set-font-vazir text-right font-size-small">
-              <mat-option class="set-font-vazir text-right" [value]="'none'">
+            <mat-select [value]="checkValueDependency(item.activityName, subItem.activityName)" class="d-rtl set-font-vazir text-right font-size-small">
+              <mat-option class="set-font-vazir text-right" [value]="0">
                 تعیین نشده
               </mat-option>
               <mat-option (click)="changeActivityDependency(i, j, 3)" [value]="3">

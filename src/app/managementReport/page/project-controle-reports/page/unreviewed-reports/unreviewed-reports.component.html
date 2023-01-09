@@ -1,89 +1,95 @@
-<div *ngFor="let item of progressReportSelectedDtos; let i=index" class="bg-levels mx-auto my-3 set-font-vazir">
-  <div class="text-report">
-      <h3 class="set-font-Raymon title-efficiency px-5 d-inline py-1"> گزارش پیشرفت</h3>
-      <p class="mt-3">{{item.progressDescription}}</p>
-      <div class="row bg-answer-report py-2" id="answer1">
-          <div class="col-6 text-end d-inline-block">
-              <span class="text-style text-nowrap">
-                 درصد پیشرفت تایید شده:{{changeToPersian(item.progressPercentage.toString())}}%
-              </span>
-          </div>
-          <div class="col-6 text-start d-inline-block">
-              <span class="text-style text-nowrap">
-                  <i class="material-icons icon-Report">access_time
-                  </i>
-                  {{item.progressCommitmentDate.year +'/'+ item.progressCommitmentDate.month + '/' + item.progressCommitmentDate.day}}
-              </span>
-          </div>
-          <p class="col-12">{{item.progressDescription}}</p>
-      </div>
-      <div class="row">
-          <div class="col-md-5 col-12">
-            <button class="button-style-report-progress px-4 py-2" (click)="openModalProgress(item.progressReportId, i)">گزارش ناظر</button>
-          </div>
-          <div class="col-md-7 col-12 text-start">
-              <span class="mx-2 text-style pointer d-inline-block text-nowrap">
-                  <i class="material-icons icon-Report">file_download</i>
-                  مستندات
-              </span>
-              <span class="mx-2 text-style text-nowrap d-inline-block">
-                  <i class="material-icons icon-Report">record_voice_over
-                  </i>
-                  {{item.progressReporterName}}
-              </span>
-              <span class="mx-2 text-style text-nowrap d-inline-block">
-                  <i class="material-icons icon-Report">access_time
-                  </i>
-                  {{item.progressCommitmentDate.year +'/'+ item.progressCommitmentDate.month + '/' + item.progressCommitmentDate.day}}
-              </span>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div *ngFor="let item of allocationReportSelectedDtos; let i=index" class="bg-levels mx-auto my-3 set-font-vazir">
-  <div class="text-report">
-      <h3 class="set-font-Raymon title-progress px-5 d-inline py-1"> گزارش تخصیص</h3>
-      <p class="mt-3">{{item.allocationDescription}}</p>
-      <div class="row bg-answer-report py-2" id="answer2">
-          <div class="col-6 text-end d-inline-block">
-              <span class="text-style text-nowrap">
-                  میزان پرداخت:{{changeToPersian(item.amountOfAllocation.toString())}}
-              </span>
-          </div>
-          <div class="col-6 text-start d-inline-block">
-              <span class="text-style text-nowrap">
-                  <i class="material-icons icon-Report">access_time
-                  </i>
-                  {{item.paymentTime.year +'/'+ item.paymentTime.month + '/' + item.paymentTime.day}}
-              </span>
-          </div>
-          <p>{{item.allocationDescription}}</p>
+<div *ngIf="progressReportSelectedDtos.length > 0 || allocationReportSelectedDtos.length > 0">
+  <div *ngFor="let item of progressReportSelectedDtos; let i=index" class="bg-levels mx-auto my-3 set-font-vazir">
+    <div class="text-report">
+        <h3 class="set-font-Raymon title-efficiency px-5 d-inline py-1"> گزارش پیشرفت</h3>
+        <p class="mt-3">{{item.progressDescription}}</p>
+        <div class="row bg-answer-report py-2" id="answer1">
+            <div class="col-6 text-end d-inline-block">
+                <span class="text-style text-nowrap">
+                  درصد پیشرفت تایید شده:{{changeToPersian(item.progressPercentage.toString())}}%
+                </span>
+            </div>
+            <div class="col-6 text-start d-inline-block">
+                <span class="text-style text-nowrap">
+                    <i class="material-icons icon-Report">access_time
+                    </i>
+                    {{item.progressCommitmentDate.year +'/'+ item.progressCommitmentDate.month + '/' + item.progressCommitmentDate.day}}
+                </span>
+            </div>
+            <p class="col-12">{{item.progressDescription}}</p>
         </div>
-      <div class="row">
+        <div class="row">
+            <div class="col-md-5 col-12">
+              <button class="button-style-report-progress px-4 py-2" (click)="openModalProgress(item.progressReportId, i)">گزارش ناظر</button>
+            </div>
+            <div class="col-md-7 col-12 text-start">
+                <span class="mx-2 text-style pointer d-inline-block text-nowrap">
+                    <i class="material-icons icon-Report">file_download</i>
+                    مستندات
+                </span>
+                <span class="mx-2 text-style text-nowrap d-inline-block">
+                    <i class="material-icons icon-Report">record_voice_over
+                    </i>
+                    {{item.progressReporterName}}
+                </span>
+                <span class="mx-2 text-style text-nowrap d-inline-block">
+                    <i class="material-icons icon-Report">access_time
+                    </i>
+                    {{item.progressCommitmentDate.year +'/'+ item.progressCommitmentDate.month + '/' + item.progressCommitmentDate.day}}
+                </span>
+            </div>
+        </div>
+    </div>
+  </div>
 
-        <div class="col-md-5 col-12">
-          <button class="button-style-report-efficiency px-4 py-2" (click)="openModalFinancial(item.allocationReportId, i)">گزارش ناظر</button>
-      </div>
-          <div class="col-md-7 col-12 text-start">
-              <span class="mx-2 text-style pointer d-inline-block text-nowrap">
-                  <i class="material-icons icon-Report">file_download</i>
-                  مستندات
-              </span>
-              <span class="mx-2 text-style text-nowrap d-inline-block">
-                  <i class="material-icons icon-Report">record_voice_over
-                  </i>
-                  {{item.allocationReporterName}}
-              </span>
-              <span class="mx-2 text-style text-nowrap d-inline-block">
-                  <i class="material-icons icon-Report">access_time
-                  </i>
-                  {{item.paymentTime.year +'/'+ item.paymentTime.month + '/' + item.paymentTime.day}}
-              </span>
+  <div *ngFor="let item of allocationReportSelectedDtos; let i=index" class="bg-levels mx-auto my-3 set-font-vazir">
+    <div class="text-report">
+        <h3 class="set-font-Raymon title-progress px-5 d-inline py-1"> گزارش تخصیص</h3>
+        <p class="mt-3">{{item.allocationDescription}}</p>
+        <div class="row bg-answer-report py-2" id="answer2">
+            <div class="col-6 text-end d-inline-block">
+                <span class="text-style text-nowrap">
+                    میزان پرداخت:{{changeToPersian(item.amountOfAllocation.toString())}}
+                </span>
+            </div>
+            <div class="col-6 text-start d-inline-block">
+                <span class="text-style text-nowrap">
+                    <i class="material-icons icon-Report">access_time
+                    </i>
+                    {{item.paymentTime.year +'/'+ item.paymentTime.month + '/' + item.paymentTime.day}}
+                </span>
+            </div>
+            <p>{{item.allocationDescription}}</p>
           </div>
-      </div>
+        <div class="row">
+
+          <div class="col-md-5 col-12">
+            <button class="button-style-report-efficiency px-4 py-2" (click)="openModalFinancial(item.allocationReportId, i)">گزارش ناظر</button>
+        </div>
+            <div class="col-md-7 col-12 text-start">
+                <span class="mx-2 text-style pointer d-inline-block text-nowrap">
+                    <i class="material-icons icon-Report">file_download</i>
+                    مستندات
+                </span>
+                <span class="mx-2 text-style text-nowrap d-inline-block">
+                    <i class="material-icons icon-Report">record_voice_over
+                    </i>
+                    {{item.allocationReporterName}}
+                </span>
+                <span class="mx-2 text-style text-nowrap d-inline-block">
+                    <i class="material-icons icon-Report">access_time
+                    </i>
+                    {{item.paymentTime.year +'/'+ item.paymentTime.month + '/' + item.paymentTime.day}}
+                </span>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
+
+<div *ngIf="progressReportSelectedDtos.length == 0 && allocationReportSelectedDtos.length == 0">
+  <app-empty-result></app-empty-result>
+</div>
 <app-record-financial-report-modal *ngIf="selectedReportId" [reportId]="selectedReportId" (removedReport)="reportHasSave($event, 1)"></app-record-financial-report-modal>
 <app-record-progress-report-modal *ngIf="selectedReportId" [reportId]="selectedReportId" (removedReport)="reportHasSave($event, 0)"></app-record-progress-report-modal>

@@ -11,8 +11,7 @@
       </div>
       <div class="col-lg-6 col-md-5 col-12 pb-md-3 pt-md-3 pb-2">
         <app-drop-down-company-list (companyIdSelected)="setId($event)"[customStyle]="projectListAndCompanyListIsActive()" class="w-100" *ngIf="showCompanyList"></app-drop-down-company-list>
-        <app-drop-down-project-list (parentid)="projectIdSelected.emit($event)" class="w-100" *ngIf="showProjectList && showProjectSelect" [companyId]="companyId"></app-drop-down-project-list>
-        <app-drop-down-project-list (parentid)="projectIdSelected.emit($event)" class="w-100" *ngIf="showProjectList1" [companyId]="companyId"></app-drop-down-project-list>
+        <app-drop-down-project-list (parentid)="projectIdSelected.emit($event)" class="w-100" *ngIf="showProjectList && companyId" [companyId]="companyId"></app-drop-down-project-list>
       </div>
       <div class="col-md-2 col-12 d-flex justify-content-end my-auto back-icon-container">
         <img src="../../../../assets/icon/naveBar/back.svg" class="back-icon pointer" (click)="goBack()">
