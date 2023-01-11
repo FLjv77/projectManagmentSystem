@@ -132,6 +132,10 @@ export class ProgressReportComponent implements OnInit {
     }
   }
 
+  public progressActivityObserve(value: string) {
+    if(Number(value) > 100) this.ProgressFormControl.reset();
+  }
+
   private initFormControl() {
     this.progressAmountControl = new Array<FormControl>();
   }
