@@ -25,6 +25,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() minValue: number;
   @Input() unit: Units;
   @Input() disabled: boolean;
+  @Input() authInput: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   constructor() {

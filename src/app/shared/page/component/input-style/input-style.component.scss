@@ -45,6 +45,45 @@
   }
 }
 
+.auth-input {
+  position: relative;
+  margin-top: 25px;
+  justify-self: right !important;
+  .custom-place {
+    position: relative;
+    bottom: 25%;
+    right: 5px !important;
+    font-size: small;
+    font-weight: 100;
+    white-space: nowrap;
+    border-radius: 5px;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0.8;
+    transition: all 0.15s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    @media(min-width:576px) {
+      margin-left: 5px;
+      font-size: medium;
+    }
+  }
+
+  .custom-input-style{
+    background: none;
+    outline: none;
+    font-size: medium;
+    border: none;
+    text-align: right;
+    direction: rtl;
+  }
+  .invalid-custom-input-style{
+    color: red;
+    font-size: small;
+  }
+}
+
 .text-pop-up-tr {
   -webkit-animation: text-pop-up-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: text-pop-up-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

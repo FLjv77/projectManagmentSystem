@@ -3,8 +3,8 @@
     <div class="col-sm-5 col-12 back-ground-dark boxShadow">
       <div class="row m-top-form">
         <div class="col-10 col-sm-8 mx-auto mt-3">
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'userName'" [type]="'text'" [inputFormControl]="userNameControl" [inputLabel]="'نام کاربری'" [authInput]="true"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" [inputId]="'password'" [type]="'password'" [inputFormControl]="passwordControl" [inputLabel]="'رمز عبور'" [authInput]="true"
           (keyup.enter)="submitLogin()" class="mt-3" [haveEye]="true"></app-input-style>
         </div>
       </div>

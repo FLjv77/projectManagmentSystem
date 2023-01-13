@@ -1,8 +1,9 @@
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 import { ConstructionTypestring } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { PitWaterShedAndCanals } from './../../../../../../../../createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
-import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-well',
@@ -25,7 +26,16 @@ export class WellComponent implements OnInit {
   public lengthList: number;
   public lengthListDeleted: number;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.wellBoolean.subscribe((res: boolean) => {
+      if (res) {
+        console.log(res);
+        if (res == true) {
+          this.addList();
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -40,7 +50,7 @@ export class WellComponent implements OnInit {
     )
   }
 
-  public getData(){
+  public getData() {
     if (this.PitWaterList) {
       this.PitWaterShedAndCanalsList = this.PitWaterList;
       for (let i = 0; i < this.PitWaterShedAndCanalsList.length; i++) {
@@ -57,10 +67,10 @@ export class WellComponent implements OnInit {
     }
   }
 
-  public setValue(state: ConstructionTypestring,index:number): boolean {
+  public setValue(state: ConstructionTypestring, index: number): boolean {
     let res = false;
-    if(this.PitWaterShedAndCanalsList) {
-      if(this.PitWaterShedAndCanalsList[index].constructionType == state) res = true;
+    if (this.PitWaterShedAndCanalsList) {
+      if (this.PitWaterShedAndCanalsList[index].constructionType == state) res = true;
     }
     return res;
   }
@@ -88,8 +98,8 @@ export class WellComponent implements OnInit {
     });
   }
 
-  private checkValidationForm(i:number) {
-    if(
+  private checkValidationForm(i: number) {
+    if (
       this.amountOfSurfaceControl[i].value &&
       this.widthWellControl[i].value &&
       this.lenPipeControl[i].value &&
@@ -101,7 +111,7 @@ export class WellComponent implements OnInit {
     }
   }
 
-  public addList(){
+  public addList() {
     this.amountOfSurfaceControl.push(new FormControl());
     this.widthWellControl.push(new FormControl());
     this.lenColControl.push(new FormControl());
@@ -110,7 +120,7 @@ export class WellComponent implements OnInit {
     this.lengthList = this.PitWaterShedAndCanalsList.length;
   }
 
-  public setTypeProject(state: ConstructionTypestring,index: number){
+  public setTypeProject(state: ConstructionTypestring, index: number) {
     this.typeProject = state;
     this.PitWaterShedAndCanalsList[index].constructionType = state;
     this.subscribeChangeFormCoontrol(index);
@@ -136,7 +146,7 @@ export class WellComponent implements OnInit {
     this.subscribeChangeFormCoontrol(index);
   }
 
-  public deleteList(index: number){
+  public deleteList(index: number) {
     this.PitWaterShedAndCanalsList.splice(index, 1);
     this.lengthListDeleted = this.PitWaterShedAndCanalsList.length;
     this.subscribeChangeFormCoontrol(index);

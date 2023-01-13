@@ -37,11 +37,11 @@
           <div class="w-sm-50 w-100 lite-part">
             <div class="mt-2 d-flex">
               <div class="option-in-card mt-1"></div>
-              <span class="set-font-vazir sub-menu-text px-2 " (click)="goToRequestCompany()">شرکت تایید نشده</span>
+              <span class="set-font-vazir sub-menu-text px-2 " (click)="goToRequestCompany()"><span class="mx-2">شرکت تایید نشده</span><span class="number-style px-1">{{companyListNoRegistered}}</span></span>
             </div>
             <div class="mt-4 d-flex">
               <div class="option-in-card mt-1"></div>
-              <span class="set-font-vazir sub-menu-text px-2 " (click)="goToCompanyList()">شرکت تایید شده</span>
+              <span class="set-font-vazir sub-menu-text px-2 " (click)="goToCompanyList()"><span class="mx-2">شرکت تایید شده<span class="number-style px-1">{{companyListRegistered}}</span></span></span>
             </div>
             <!-- <div class="mt-4 d-flex">
               <div class="option-in-card mt-1"></div>

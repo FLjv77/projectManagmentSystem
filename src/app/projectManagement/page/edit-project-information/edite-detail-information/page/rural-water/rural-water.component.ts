@@ -205,4 +205,8 @@ export class RuralWaterComponent implements OnInit {
   public editForm(){
     this.edit = true;
   }
+
+  public addWell(){
+    this.specializedInformationService.wellBoolean.emit(true);
+  }
 }

@@ -1,5 +1,33 @@
   <div *ngIf="!textarea" class="row text-right col-12 mx-auto px-0 mt-2">
-  <div class="col-12 custom-input mx-auto px-0 position-relative">
+  <div *ngIf="!authInput" class="col-12 custom-input mx-auto px-0 position-relative">
+    <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
+      [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
+    </div>
+    <input (ngModelChange)="changeValue.emit($event)" name="{{inputFormControl}}" class="custom-input-style set-font-vazir w-100"
+       [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
+           [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
+                       'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
+           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)">
+
+    <div *ngIf="haveEye" class="eye-pos">
+      <span *ngIf="!hideInput" (click)="hideInput = true" class="material-icons pointer text-lite">visibility</span>
+      <span *ngIf="hideInput" (click)="hideInput = false" class="material-icons pointer text-lite">visibility_off</span>
+    </div>
+    <div *ngIf="label" class="label-pos">
+      {{label}}
+    </div>
+
+    <mat-form-field *ngIf="unit > -1" class="set-font-vazir label-unit">
+      <mat-label class="set-font-vazir text-right unit-text">واحد</mat-label>
+      <mat-select [value]="getUnits()[0]" class="set-font-vazir unit-text" >
+        <mat-option class="set-font-vazir unit-text" *ngFor="let unit of getUnits()" [value]="unit">
+          {{unit}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="authInput" class="col-12 mx-auto px-0 position-relative auth-input">
     <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
       [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
     </div>

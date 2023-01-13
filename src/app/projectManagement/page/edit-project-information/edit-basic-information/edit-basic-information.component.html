@@ -22,14 +22,14 @@
       <h4 class="title-page d-inline set-font-Raymon">اطلاعات اولیه</h4>
     </div>
     <app-input-style [isDatePiker]="true" [inputCustomStyle]="inputCustomStyle"
-                     class="col-12" [type]="'text'" [inputLabel]="'نام پروژه'" [inputId]="'1'" [disabled]="true"
+                     class="col-12" [type]="'date'" [inputLabel]="'نام پروژه'" [inputId]="'1'" [disabled]="true"
                      [inputFormControl]="projectNameFormControl"></app-input-style>
 
-    <app-input-style *ngIf="!edit" [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
-                            [inputFormControl]="projectDeliveryDateFormControl"></app-input-style>
+    <!-- <app-input-style *ngIf="!edit" [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
+                            [inputFormControl]="projectDeliveryDateFormControl"></app-input-style> -->
 
-    <app-date-picker-jalaly *ngIf="edit" [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
-                            [inputFormControl]="projectDeliveryDateFormControl1"></app-date-picker-jalaly>
+    <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تاریخ تحویل پروژه'" [inputId]="'2'"
+                            [inputFormControl]="projectDeliveryDateFormControl1" [changeValue1]="projectDeliveryDateFormControl1"></app-date-picker-jalaly>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" [inputLabel]="'توضیحات'" [inputId]="'3'"
                      [inputFormControl]="descreptionFormControl" [textarea]="true"></app-input-style>
