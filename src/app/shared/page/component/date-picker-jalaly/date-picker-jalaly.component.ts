@@ -24,6 +24,7 @@ export class DatePickerJalalyComponent implements OnInit {
   @Input() haveEye: boolean;
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
+  @Input() changeValue1: any;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
   public minDate: Date;
@@ -53,7 +54,7 @@ export class DatePickerJalalyComponent implements OnInit {
     let m: any = moment.from(x, 'fa', 'YYYY/MM/DD');
 
     let date = (m._i).toString();
-    date = date.substring(0, 10) + 'T00:00:00.000Z';
+    date = date.substring(0, 10);
 
     this.changeValue.emit(date);
   }

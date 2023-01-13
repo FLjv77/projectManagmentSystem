@@ -76,40 +76,82 @@
         </button>
   </div>
   </div>
-      <div *ngIf="hospitalList.length!=0">
-        <div *ngFor="let Hospital of hospitalList , let i = index" class="row">
 
-          <div class="col-12 mt-2">
-            <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
-          </div>
+      <div *ngIf="medicineList.length!=0" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
+        </div>
+        <div class="col-12">
+          <div *ngFor="let list2 of medicineList; let e = index" class="row my-2">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'"
+              [inputId]="'typeOfMedicine' + e" [inputFormControl]="typeOfMedicine[e]" (changeValue)="observeChange_typeOfMedicine($event, e)"></app-input-style>
 
-      <div class="col-12 mt-2">
-        <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+               [inputId]="'numberOfMedicine' + e" [type]="'number'" [inputFormControl]="numberOfMedicine[e]" (changeValue)="observeChange_numberOfMedicine($event, e)"></app-input-style>
+               <div *ngIf="e>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteHealthMedicine(e)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
+            </div>
+  
+          <div class="row mx-auto">
+            <div class="mx-auto text-start" (click)="addHealthMedicine()">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن درمان جدید">
+                </button>
+            </div>
+        </div>
+        </div>
       </div>
-      <mat-radio-group [value]="Hospital.constructionType"
-        class="example-radio-group font-size-small">
-        <mat-radio-button (click)="set_type_numberHospital(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-          <span class="px-2">احداث</span>
-        </mat-radio-button>
-        <mat-radio-button (click)="set_type_numberHospital(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-          <span class="px-2">تکمیل و توسعه</span>
-        </mat-radio-button>
-        <mat-radio-button (click)="set_type_numberHospital(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-          <span class="px-2">مرمت</span>
-        </mat-radio-button>
-      </mat-radio-group>
-          <form>
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
-            [inputId]="'numberHospital' + i" [inputFormControl]="numberHospital[i]" [type]="'number'" (changeValue)="observeChange_numberHospital($event, i)"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
-            [inputId]="'NumberOfFloors' + i" [type]="'number'" [inputFormControl]="NumberOfFloors[i]" (changeValue)="observeChange_NumberOfFloors($event, i)"></app-input-style>
+      <div *ngIf="diseaseList.length!=0" class="row">
+        <div class="col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
+        </div>
+        <div class="col-12">
+          <div *ngFor="let list1 of diseaseList; let d = index" class="row">
+            <div class="col-12">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'"
+              [inputId]="'TypeOfDisease' + d" [inputFormControl]="TypeOfDisease[d]" (changeValue)="observeChange_TypeOfDisease($event, d)"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
-            [inputId]="'numberOfBedsHospital' + i" [type]="'number'" [inputFormControl]="numberOfBedsHospital[i]" (changeValue)="observeChange_numberOfBedsHospital($event, i)"></app-input-style>
-          </form>
-          <div *ngIf="i>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteListHealthHospital(i)">
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
+              [inputId]="'NumberOfTreatments' + d" [type]="'number'" [inputFormControl]="NumberOfTreatments[d]" (changeValue)="observeChange_NumberOfTreatments($event, d)"></app-input-style>
+
+              <div *ngIf="d>=0" class="row mx-auto">
+                <div class="mx-auto text-start" (click)="deleteHealthTreatment(d)">
+                    <button class="button-add-activity">
+                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                    </button>
+                </div>
+              </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHealthTreatment()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن درمان جدید">
+              </button>
+          </div>
+      </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="HealthVaccinationList.length!=0" class="row">
+        <div *ngFor="let item of HealthVaccinationList; let c = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
+          [inputId]="'numberVaccination' + c" [type]="'number'" [inputFormControl]="numberVaccination[c]" (changeValue)="observeChange_numberVaccination($event, c)"></app-input-style>
+          <div *ngIf="c>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteHealthVaccination(c)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                     mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -118,10 +160,117 @@
           </div>
         </div>
         <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHospital()">
+          <div class="mx-auto text-start" (click)="addHealthVaccination()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
+              </button>
+          </div>
+      </div>
+      </div>
+
+      <div *ngIf="WCList.length!=0" class="row">
+        <div *ngFor="let item of  WCList;let w = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
+          [inputId]="'numberWC' + w" [type]="'number'" [inputFormControl]="numberWC[w]" (changeValue)="observeChange_numberWC($event, w)"></app-input-style>
+          <div *ngIf="w>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteHealthToiletList(w)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHealthToilet()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
+              </button>
+          </div>
+      </div>
+     </div>
+
+      <div *ngIf="bathRoomList.length!=0" class="row">
+        <div class="col-md-3 col-12 mt-5">
+          <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
+        </div>
+        <div *ngFor="let item of bathRoomList; let x = index" class="row">
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'"
+          [inputId]="'numberBathroom' + x" [type]="'number'" [inputFormControl]="numberBathroom[x]" (changeValue)="observeChange_numberBathroom($event, x)"></app-input-style>
+          <div *ngIf="x>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteHealthBathroomList(x)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHealthBathroom()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
+              </button>
+          </div>
+      </div>
+      </div>
+
+      <div *ngIf="healthPharmacyList.length!=0" class="row">
+        <div *ngFor="let item of healthPharmacyList; let t = index" class="row">
+
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
+          [inputId]="'numberpharmacy' + t" [type]="'number'" [inputFormControl]="numberpharmacy[t]" (changeValue)="observeChange_numberpharmacy($event, t)"></app-input-style>
+          <div *ngIf="t>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deletehealthPharmacyList(t)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addHealthPharmacyList()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
+              </button>
+          </div>
+      </div>
+      </div>
+
+      <div *ngIf="insuranceList.length!=0" class="row">
+        <div *ngFor="let item of insuranceList; let v = index" class="row">
+          <div class="col-md-3 col-12 mt-5">
+            <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
+          </div>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
+          [inputId]="'numberOfPeopleCoveredByInsurance' + v" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance[v]" (changeValue)="observeChange_numberOfPeopleCoveredByInsurance($event, v)"></app-input-style>
+
+          <div *ngIf="v>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteInsuranceList(v)">
+                <button class="button-add-activity">
+                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
+                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
+                </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mx-auto">
+          <div class="mx-auto text-start" (click)="addInsuranceList()">
+              <button class="button-add-activity">
+                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمه جدید">
               </button>
           </div>
       </div>
@@ -183,70 +332,40 @@
       </div>
       </div>
 
-      <div *ngIf="insuranceList.length!=0" class="row">
-        <div *ngFor="let item of insuranceList; let v = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
-            <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
-          </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
-          [inputId]="'numberOfPeopleCoveredByInsurance' + v" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance[v]" (changeValue)="observeChange_numberOfPeopleCoveredByInsurance($event, v)"></app-input-style>
+      <div *ngIf="hospitalList.length!=0">
+        <div *ngFor="let Hospital of hospitalList , let i = index" class="row">
 
-          <div *ngIf="v>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteInsuranceList(v)">
-                <button class="button-add-activity">
-                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                </button>
-            </div>
+          <div class="col-12 mt-2">
+            <h4 class="title-page d-inline set-font-Raymon px-2">بیمارستان : </h4>
           </div>
-        </div>
 
-        <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addInsuranceList()">
-              <button class="button-add-activity">
-                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمه جدید">
-              </button>
-          </div>
+      <div class="col-12 mt-2">
+        <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
       </div>
-      </div>
+      <mat-radio-group [value]="Hospital.constructionType"
+        class="example-radio-group font-size-small">
+        <mat-radio-button (click)="set_type_numberHospital(0, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
+          <span class="px-2">احداث</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="set_type_numberHospital(1, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
+          <span class="px-2">تکمیل و توسعه</span>
+        </mat-radio-button>
+        <mat-radio-button (click)="set_type_numberHospital(2, i)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
+          <span class="px-2">مرمت</span>
+        </mat-radio-button>
+      </mat-radio-group>
+          <form>
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
+            [inputId]="'numberHospital' + i" [inputFormControl]="numberHospital[i]" [type]="'number'" (changeValue)="observeChange_numberHospital($event, i)"></app-input-style>
 
-      <div *ngIf="healthPharmacyList.length!=0" class="row">
-        <div *ngFor="let item of healthPharmacyList; let t = index" class="row">
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+            [inputId]="'NumberOfFloors' + i" [type]="'number'" [inputFormControl]="NumberOfFloors[i]" (changeValue)="observeChange_NumberOfFloors($event, i)"></app-input-style>
 
-          <div class="col-md-3 col-12 mt-5">
-            <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
-          </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
-          [inputId]="'numberpharmacy' + t" [type]="'number'" [inputFormControl]="numberpharmacy[t]" (changeValue)="observeChange_numberpharmacy($event, t)"></app-input-style>
-          <div *ngIf="t>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deletehealthPharmacyList(t)">
-                <button class="button-add-activity">
-                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                </button>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHealthPharmacyList()">
-              <button class="button-add-activity">
-                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
-              </button>
-          </div>
-      </div>
-      </div>
-
-      <div *ngIf="bathRoomList.length!=0" class="row">
-        <div class="col-md-3 col-12 mt-5">
-          <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
-        </div>
-        <div *ngFor="let item of bathRoomList; let x = index" class="row">
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'"
-          [inputId]="'numberBathroom' + x" [type]="'number'" [inputFormControl]="numberBathroom[x]" (changeValue)="observeChange_numberBathroom($event, x)"></app-input-style>
-          <div *ngIf="x>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteHealthBathroomList(x)">
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
+            [inputId]="'numberOfBedsHospital' + i" [type]="'number'" [inputFormControl]="numberOfBedsHospital[i]" (changeValue)="observeChange_numberOfBedsHospital($event, i)"></app-input-style>
+          </form>
+          <div *ngIf="i>=0" class="row mx-auto">
+            <div class="mx-auto text-start" (click)="deleteListHealthHospital(i)">
                 <button class="button-add-activity">
                     <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
                     mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
@@ -255,130 +374,15 @@
           </div>
         </div>
         <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHealthBathroom()">
+          <div class="mx-auto text-start" (click)="addHospital()">
               <button class="button-add-activity">
                   <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
+                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن بیمارستان جدید">
               </button>
           </div>
       </div>
       </div>
 
-      <div *ngIf="WCList.length!=0" class="row">
-        <div *ngFor="let item of  WCList;let w = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
-            <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
-          </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
-          [inputId]="'numberWC' + w" [type]="'number'" [inputFormControl]="numberWC[w]" (changeValue)="observeChange_numberWC($event, w)"></app-input-style>
-          <div *ngIf="w>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteHealthToiletList(w)">
-                <button class="button-add-activity">
-                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                </button>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHealthToilet()">
-              <button class="button-add-activity">
-                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
-              </button>
-          </div>
-      </div>
-     </div>
+      
 
-      <div *ngIf="HealthVaccinationList.length!=0" class="row">
-        <div *ngFor="let item of HealthVaccinationList; let c = index" class="row">
-          <div class="col-md-3 col-12 mt-5">
-            <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
-          </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
-          [inputId]="'numberVaccination' + c" [type]="'number'" [inputFormControl]="numberVaccination[c]" (changeValue)="observeChange_numberVaccination($event, c)"></app-input-style>
-          <div *ngIf="c>=0" class="row mx-auto">
-            <div class="mx-auto text-start" (click)="deleteHealthVaccination(c)">
-                <button class="button-add-activity">
-                    <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                </button>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHealthVaccination()">
-              <button class="button-add-activity">
-                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن داروخانه جدید">
-              </button>
-          </div>
-      </div>
-      </div>
-
-      <div *ngIf="diseaseList.length!=0" class="row">
-        <div class="col-12 mt-5">
-          <h4 class="title-page d-inline set-font-Raymon px-2">درمان : </h4>
-        </div>
-        <div class="col-12">
-          <div *ngFor="let list1 of diseaseList; let d = index" class="row">
-            <div class="col-12">
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'"
-              [inputId]="'TypeOfDisease' + d" [inputFormControl]="TypeOfDisease[d]" (changeValue)="observeChange_TypeOfDisease($event, d)"></app-input-style>
-
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
-              [inputId]="'NumberOfTreatments' + d" [type]="'number'" [inputFormControl]="NumberOfTreatments[d]" (changeValue)="observeChange_NumberOfTreatments($event, d)"></app-input-style>
-
-              <div *ngIf="d>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteHealthTreatment(d)">
-                    <button class="button-add-activity">
-                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                    </button>
-                </div>
-              </div>
-        <div class="row mx-auto">
-          <div class="mx-auto text-start" (click)="addHealthTreatment()">
-              <button class="button-add-activity">
-                  <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                  mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن درمان جدید">
-              </button>
-          </div>
-      </div>
-        </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="medicineList.length!=0" class="row">
-        <div class="col-12 mt-5">
-          <h4 class="title-page d-inline set-font-Raymon px-2">دارو : </h4>
-        </div>
-        <div class="col-12">
-          <div *ngFor="let list2 of medicineList; let e = index" class="row my-2">
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'"
-              [inputId]="'typeOfMedicine' + e" [inputFormControl]="typeOfMedicine[e]" (changeValue)="observeChange_typeOfMedicine($event, e)"></app-input-style>
-
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
-               [inputId]="'numberOfMedicine' + e" [type]="'number'" [inputFormControl]="numberOfMedicine[e]" (changeValue)="observeChange_numberOfMedicine($event, e)"></app-input-style>
-               <div *ngIf="e>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteHealthMedicine(e)">
-                    <button class="button-add-activity">
-                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                    </button>
-                </div>
-              </div>
-            </div>
-  
-          <div class="row mx-auto">
-            <div class="mx-auto text-start" (click)="addHealthMedicine()">
-                <button class="button-add-activity">
-                    <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                    mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن درمان جدید">
-                </button>
-            </div>
-        </div>
-        </div>
-      </div>
 </div>

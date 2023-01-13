@@ -1,3 +1,4 @@
+import { url } from 'src/assets/url/url';
 import { SupervisorSelectedDTO } from './../../../../auth/model/userDTO';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
@@ -60,6 +61,14 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   ngOnInit(): void {
     this.initInputStyle();
     this.getInfo();
+    this.getRole();
+  }
+
+  public role : string|null;
+  getRole(){
+    if (localStorage.getItem(url.RoleHome)!=null) {
+      this.role = localStorage.getItem(url.RoleHome);
+    }
   }
 
   ngAfterViewInit(): void {

@@ -8,11 +8,11 @@
         <i class="material-icons d-inline">check</i>
       </button>
     </div>
-    <div class="col-12">
+    <div *ngIf="role=='holdingAdmin'" class="col-12">
       <i class="material-icons d-inline icon-styles">assignment_ind</i>
       <h4 class="title-page d-inline set-font-Raymon">انتخاب ناظر</h4>
     </div>
-    <div class="row col-12">
+    <div *ngIf="role=='holdingAdmin'" class="row col-12">
       <div class="col-sm-6 col-12">
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-11" [type]="'text'" [inputLabel]="'نام و نام خانوادگی ناظر'" [inputId]="'4'"

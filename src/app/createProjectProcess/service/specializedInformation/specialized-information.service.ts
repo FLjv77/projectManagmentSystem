@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { ApiResult } from 'src/app/auth/model/authDTO';
 import { WaterShedAndCanalsSpeceficDetailBehaviorDTO } from './../../model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { RuralRoadSpeceficDetailDTO } from '../../model/specializedInformation/modifyRuralRoadSpeceficDetail';
 
 @Injectable({
@@ -17,6 +17,9 @@ export class SpecializedInformationService {
 
   constructor(private http: HttpClient) { }
 
+  public wellBoolean = new EventEmitter<boolean>();
+
+  
   public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string|null, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
     return this.http.put<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);
   }

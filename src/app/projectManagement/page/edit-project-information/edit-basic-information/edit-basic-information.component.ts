@@ -162,8 +162,10 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
         .subscribe((res: ApiResult<ProjectSelectedDTO>) => {
           this.projectNameFormControl.setValue(res.data.projectName);
-          this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+ '/' +
-          res.data.projectDeliveryTime.month+'/'+res.data.projectDeliveryTime.day);
+          this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+'-'+res.data.projectDeliveryTime.month+'-'+
+          res.data.projectDeliveryTime.day);
+          console.log(this.projectDeliveryDateFormControl);
+          
           this.descreptionFormControl.setValue(res.data.projectDescription);
           this.objectivesFormControl.setValue(res.data.projectTargets);
           this.projectChallengeFormControl.setValue(res.data.projectChallange);
