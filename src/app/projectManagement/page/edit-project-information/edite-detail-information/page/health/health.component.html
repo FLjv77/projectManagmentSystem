@@ -86,7 +86,7 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع دارو'"
               [inputId]="'typeOfMedicine' + e" [inputFormControl]="typeOfMedicine[e]" (changeValue)="observeChange_typeOfMedicine($event, e)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [minValue]="0"
                [inputId]="'numberOfMedicine' + e" [type]="'number'" [inputFormControl]="numberOfMedicine[e]" (changeValue)="observeChange_numberOfMedicine($event, e)"></app-input-style>
                <div *ngIf="e>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteHealthMedicine(e)">
@@ -119,7 +119,7 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع بیماری'"
               [inputId]="'TypeOfDisease' + d" [inputFormControl]="TypeOfDisease[d]" (changeValue)="observeChange_TypeOfDisease($event, d)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد درمان'" [minValue]="0"
               [inputId]="'NumberOfTreatments' + d" [type]="'number'" [inputFormControl]="NumberOfTreatments[d]" (changeValue)="observeChange_NumberOfTreatments($event, d)"></app-input-style>
 
               <div *ngIf="d>=0" class="row mx-auto">
@@ -148,7 +148,7 @@
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">واکسیناسیون : </h4>
           </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد واکسیناسیون'" [minValue]="0"
           [inputId]="'numberVaccination' + c" [type]="'number'" [inputFormControl]="numberVaccination[c]" (changeValue)="observeChange_numberVaccination($event, c)"></app-input-style>
           <div *ngIf="c>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthVaccination(c)">
@@ -174,7 +174,7 @@
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">سرویس بهداشتی : </h4>
           </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد سرویس بهداشتی'" [minValue]="0"
           [inputId]="'numberWC' + w" [type]="'number'" [inputFormControl]="numberWC[w]" (changeValue)="observeChange_numberWC($event, w)"></app-input-style>
           <div *ngIf="w>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthToiletList(w)">
@@ -200,7 +200,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">حمام : </h4>
         </div>
         <div *ngFor="let item of bathRoomList; let x = index" class="row">
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد حمام'" [minValue]="0"
           [inputId]="'numberBathroom' + x" [type]="'number'" [inputFormControl]="numberBathroom[x]" (changeValue)="observeChange_numberBathroom($event, x)"></app-input-style>
           <div *ngIf="x>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthBathroomList(x)">
@@ -227,7 +227,7 @@
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">داروخانه : </h4>
           </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-2" [inputLabel]="'تعداد داروخانه'" [minValue]="0"
           [inputId]="'numberpharmacy' + t" [type]="'number'" [inputFormControl]="numberpharmacy[t]" (changeValue)="observeChange_numberpharmacy($event, t)"></app-input-style>
           <div *ngIf="t>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deletehealthPharmacyList(t)">
@@ -253,7 +253,7 @@
           <div class="col-md-3 col-12 mt-5">
             <h4 class="title-page d-inline set-font-Raymon px-2">بیمه : </h4>
           </div>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12 mt-3" [inputLabel]="'تعداد نفرات تحت پوشش بیمه'" [minValue]="0"
           [inputId]="'numberOfPeopleCoveredByInsurance' + v" [type]="'number'" [inputFormControl]="numberOfPeopleCoveredByInsurance[v]" (changeValue)="observeChange_numberOfPeopleCoveredByInsurance($event, v)"></app-input-style>
 
           <div *ngIf="v>=0" class="row mx-auto">
@@ -298,19 +298,19 @@
             </mat-radio-button>
           </mat-radio-group>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'" [minValue]="0"
           [inputId]="'numberHealthHome' + j" [inputFormControl]="numberHealthHome[j]" [type]="'number'" (changeValue)="observeChange_numberHealthHome($event, j)"></app-input-style>
 
           <app-input-style [label]="'متر'" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'متراژ'"
           [inputId]="'Meterage' + j" [inputFormControl]="Meterage[j]" [unit]="0" [type]="'number'" (changeValue)="observeChange_Meterage($event, j)"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [minValue]="0"
           [inputId]="'numberOfBedsHealthHouse' + j" [type]="'number'" [inputFormControl]="numberOfBedsHealthHouse[j]" (changeValue)="observeChange_numberOfBedsHealthHouse($event, j)"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پزشک'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پزشک'" [minValue]="0"
            [inputId]="'numberDoctors' + j" [type]="'number'" [inputFormControl]="numberDoctors[j]" (changeValue)="observeChange_numberDoctors($event, j)"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پرستار'" [minValue]="0"
            [inputId]="'numberNurses' + j" [type]="'number'" [inputFormControl]="numberNurses[j]" (changeValue)="observeChange_numberNurses($event, j)"></app-input-style>
            <div *ngIf="j>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteHealthHome(j)">
@@ -355,13 +355,13 @@
         </mat-radio-button>
       </mat-radio-group>
           <form>
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'تعداد'" [minValue]="0"
             [inputId]="'numberHospital' + i" [inputFormControl]="numberHospital[i]" [type]="'number'" (changeValue)="observeChange_numberHospital($event, i)"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [minValue]="0"
             [inputId]="'NumberOfFloors' + i" [type]="'number'" [inputFormControl]="NumberOfFloors[i]" (changeValue)="observeChange_NumberOfFloors($event, i)"></app-input-style>
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد تخت'" [minValue]="0"
             [inputId]="'numberOfBedsHospital' + i" [type]="'number'" [inputFormControl]="numberOfBedsHospital[i]" (changeValue)="observeChange_numberOfBedsHospital($event, i)"></app-input-style>
           </form>
           <div *ngIf="i>=0" class="row mx-auto">

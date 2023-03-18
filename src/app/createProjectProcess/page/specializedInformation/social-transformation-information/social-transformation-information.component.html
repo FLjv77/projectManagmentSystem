@@ -74,7 +74,7 @@
                 </mat-radio-button>
               </mat-radio-group> -->
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [minValue]="0"
               [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"
@@ -121,13 +121,13 @@
                 </mat-radio-button>
               </mat-radio-group>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [minValue]="0"
               [inputId]="'numberCamp' + j" [type]="'number'" [inputFormControl]="numberCamp[j]" (changeValue)="observeChange_numberCamp($event, j)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'ظرفیت بیمار یا معتاد'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'ظرفیت بیمار یا معتاد'" [minValue]="0"
                [inputId]="'Capacity' + j" [type]="'number'" [inputFormControl]="Capacity[j]" (changeValue)="observeChange_Capacity($event, j)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [minValue]="0"
                [inputId]="'numberFloors' + j" [type]="'number'" [inputFormControl]="numberFloors[j]" (changeValue)="observeChange_numberFloors($event, j)"></app-input-style>
 
               <div *ngIf="j-1>=0" class="row mx-auto">
@@ -202,7 +202,7 @@
                 </mat-radio-button>
               </mat-radio-group> -->
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'" [minValue]="0"
               [inputId]="'numberElectricalBonds' + l" [type]="'number'" [inputFormControl]="numberElectricalBonds[l]" (changeValue)="observeChange_numberElectricalBonds($event, l)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'"

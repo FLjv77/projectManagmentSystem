@@ -70,13 +70,13 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">  بیماران خاص: </h4>
         </div>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [minValue]="0"
          [inputId]="'numberDrugPackagesSpecificPatients' + d" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients[d]" (changeValue)="observeChange_numberDrugPackagesSpecificPatients($event, d)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'"
          [inputId]="'volumeTreatmentFacilities' + d" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities[d]" (changeValue)="observeChange_volumeTreatmentFacilities($event, d)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'" [minValue]="0"
         [inputId]="'numberTargetPatients' + d" [type]="'number'" [inputFormControl]="numberTargetPatients[d]" (changeValue)="observeChange_numberTargetPatients($event, d)"></app-input-style>
 
         <div *ngIf="d>=0" class="row mx-auto">
@@ -104,7 +104,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2"> دهک بندی: </h4>
         </div>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'" [minValue]="0"
         [inputId]="'numberSubsistencePackages' + p" [type]="'number'" [inputFormControl]="numberSubsistencePackages[p]" (changeValue)="observeChange_numberSubsistencePackages($event, p)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'"
@@ -138,13 +138,13 @@
           <h4 class="title-page1 d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
         </div>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'" [minValue]="0"
          [inputId]="'numberEducationalPackages' + n" [type]="'number'" [inputFormControl]="numberEducationalPackages[n]" (changeValue)="observeChange_numberEducationalPackages($event , n)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational' + n"
         [type]="'number'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'" [minValue]="0"
          [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>
 
         <div *ngIf="n>=0" class="row mx-auto">
@@ -172,7 +172,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">زندانیان غیرعمد : </h4>
         </div>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'" [minValue]="0"
         [inputId]="'numberElectricalBonds' + l" [type]="'number'" [inputFormControl]="numberElectricalBonds[l]" (changeValue)="observeChange_numberElectricalBonds($event, l)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'"
@@ -209,7 +209,7 @@
           <h4 class="title-page d-inline set-font-Raymon px-2">طلاق : </h4>
         </div>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد کارگاه مشاور'" [minValue]="0"
          [inputId]="'consultantWorkshops'" [type]="'number'" [inputFormControl]="consultantWorkshops" (changeValue)="observeChange_amountDivorceGivenFacilities($event)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
@@ -255,13 +255,13 @@
           </mat-radio-button>
         </mat-radio-group>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [minValue]="0"
         [inputId]="'numberCamp' + j" [type]="'number'" [inputFormControl]="numberCamp[j]" (changeValue)="observeChange_numberCamp($event, j)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'ظرفیت بیمار یا معتاد'"
          [inputId]="'Capacity' + j" [type]="'number'" [inputFormControl]="Capacity[j]" (changeValue)="observeChange_Capacity($event, j)"></app-input-style>
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد طبقات'" [minValue]="0"
          [inputId]="'numberFloors' + j" [type]="'number'" [inputFormControl]="numberFloors[j]" (changeValue)="observeChange_numberFloors($event, j)"></app-input-style>
 
         <div *ngIf="j>=0" class="row mx-auto">
@@ -288,7 +288,7 @@
         <div class="col-12 my-2">
           <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
         </div>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'"
+        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [minValue]="0"
         [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"

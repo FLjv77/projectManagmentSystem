@@ -12,7 +12,7 @@
           <div class="row px-2 set-font-vazir w-100">
             <div class="col-12 col-md-8 detail-activity">
               <app-input-style *ngIf="listPrepareShareLevelOfActivity[i].isExist" [inputCustomStyle]="inputCustomStyle"
-               class="w-100"
+               class="w-100" [minValue]="0" [maxValue]="100"
               [type]="'number'" [inputLabel]="'سهم فعالیت'" [inputId]="'progressAmountControl' + i"
               (changeValue)="changePersentOfActivity(i, $event)" [inputFormControl]="progressAmountControl[i]">
             </app-input-style>
@@ -35,7 +35,7 @@
 <div class="row">
 
   <div class="col-12 my-auto">
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="w-100"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="w-100" [minValue]="0" [maxValue]="100"
     [type]="'number'" [inputLabel]="'میزان تخصیص'" [inputId]="'5'" [inputFormControl]="reportAmounttFormControl"></app-input-style>
   </div>
 

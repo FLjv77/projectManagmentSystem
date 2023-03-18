@@ -26,7 +26,7 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'"
            [unit]="3" [inputId]="'amountGrantedFacilities'" [type]="'number'" [inputFormControl]="amountGrantedFacilities[i]" (changeValue)="observeChange_amountGrantedFacilities($event, i)"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد صنایع'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد صنایع'" [minValue]="0"
            [inputId]="'numberIndustries'" [type]="'number'" [inputFormControl]="numberIndustries[i]" (changeValue)="observeChange_numberIndustries($event, i)"></app-input-style>
 
           <div *ngIf="i-1>=0" class="row mx-auto">

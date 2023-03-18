@@ -17,10 +17,10 @@
             [inputFormControl]="activityPriceFormControl"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
-            [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
+            [inputFormControl]="timeWeightActivityFormControl" [minValue]="0" [maxValue]="100"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
-            [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
+            [inputFormControl]="priceWeightActivityFormControl" [minValue]="0" [maxValue]="100"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح فعالیت'" [inputId]="'7'"
             [inputFormControl]="descreptionActivityFormControl" [textarea]="true"></app-input-style>
