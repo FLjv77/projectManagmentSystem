@@ -8,7 +8,7 @@
       <li class="{{selectSubmenueUser == 1 ? 'selectMenue':''}}" *ngIf="permission==0 || permission==1" (click)="setSelected(1)">ایجاد پروژه</li>
       <li class="{{selectSubmenueUser == 2 ? 'selectMenue':''}}" *ngIf="permission==0" (click)="setSelected(2)">ویرایش پروژه</li>
       <li class="{{selectSubmenueUser == 3 ? 'selectMenue':''}}" (click)="setSelected(3)">مشاهده پروژه</li>
-      <li class="{{selectSubmenueUser == 4 ? 'selectMenue':''}}" *ngIf="permission!=2" (click)="setSelected(4)">ارسال گزارش</li>
+      <!-- <li class="{{selectSubmenueUser == 4 ? 'selectMenue':''}}" *ngIf="permission!=2" (click)="setSelected(4)">ارسال گزارش</li> -->
       <li *ngIf="showReport && permission==2" class="{{selectSubmenueUser == 5 ? 'selectMenue':''}}" (click)="setSelected(5)">مدیریت گزارش ها</li>
     </ul>
   </div>

@@ -12,14 +12,14 @@
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" *ngIf="minYear" class="col-md-6 col-12" [inputLabel]="'تاریخ اتمام'" [inputId]="'2'"
         [inputFormControl]="startDateFormControl" (changeValue)="setEndTime($event)" [minDay]="minDay" [minMount]="minMount" [minYear]="minYear"></app-date-picker-jalaly>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه فعالیت'" [inputId]="'4'" [minValue]="0" [maxValue]="100"
         [inputFormControl]="activityPriceFormControl"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن زمانی فعالیت'" [inputId]="'5'" [minValue]="0" [maxValue]="100"
         [inputFormControl]="timeWeightActivityFormControl"></app-input-style>
 
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'"
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن مالی فعالیت'" [inputId]="'6'" [minValue]="0" [maxValue]="100"
         [inputFormControl]="priceWeightActivityFormControl"></app-input-style>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح فعالیت'" [inputId]="'7'"

@@ -24,7 +24,7 @@
           </mat-radio-group>
 
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد شرکت'" [minValue]="0"
           [inputId]="'numberCompany' + i" [type]="'number'" [inputFormControl]="numberCompanyControlList[i]"
           (changeValue)="setNumberOfCompany($event, i)"></app-input-style>
 
@@ -39,7 +39,7 @@
            [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]"
            (changeValue)="set_loanAmount($event, i)"></app-input-style>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '"
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [minValue]="0"
            [inputId]="'numberAmount' + i" [type]="'number'" [inputFormControl]="numberAmount[i]"
            (changeValue)="set_numberAmount($event, i)"></app-input-style>
 

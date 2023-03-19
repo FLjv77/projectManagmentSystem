@@ -15,7 +15,7 @@ export class CurrentUserProfileImageComponent implements OnInit {
   }
 
   private setUserProfileUrl() {
-    this.userProfileUrl = 'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=360';
+    this.userProfileUrl = '../../../../../assets/image/profile.png';
   }
 
 }
