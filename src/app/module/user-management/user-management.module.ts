@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DropDownProjectListComponent } from './../../shared/page/drop-down-project-list/drop-down-project-list.component';
 import { AddUserModalComponent } from './../../userManagement/page/add-user-modal/add-user-modal.component';
@@ -24,7 +25,8 @@ import { RoleManagementOrganizationComponent} from "../../userManagement/page/ro
     CommonModule,
     UserManagementRoutingModule,
     SharedModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule,
   ],
   exports: [
     AddUserModalComponent

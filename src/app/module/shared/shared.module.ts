@@ -111,7 +111,7 @@ import { EmptyResultComponent } from '../../shared/page/empty-result/empty-resul
       DropDownRoleUserComponent,
       DropDownCompanyListComponent,
       EmptyResultComponent,
-      DropDownRegionListComponent
+      DropDownRegionListComponent,
     ],
   imports: [
     CommonModule,

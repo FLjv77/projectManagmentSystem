@@ -1,10 +1,17 @@
 <div class="wrapper set-font-vazir">
     <div class="col-12">
         <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
-    </div>
+        <div class="content mx-auto row" role="main">
+    
+            <div class="form-group mx-auto col-8">
+              <input *ngIf="userList" type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+                [(ngModel)]="searchText" autofocus placeholder="جستجو کنید" (ngModelChange)="setList($event)">
+            </div>
+          
+        </div>
     <div *ngIf="userList" class="col-12 mx-auto px-5">
         <div *ngFor="let user of userList" class="row list-result-project set-font-vazir py-1">
-            <div class="col-12 col-sm-3 text-sm-end text-center">
+            <div ng-repeat="user.userName in characters | filter:test" class="col-12 col-sm-3 text-sm-end text-center">
                 <app-current-user-profile-image [profileStyle]="'profile-display-navebar'"></app-current-user-profile-image>
                 <span>{{user.userName}}</span>
             </div>

@@ -31,7 +31,7 @@
             <div class="col-md-9 col-12">
                 <app-drop-down-village-list [addInput]="checkVillage" *ngIf="villageList" [villageList]="villageList"></app-drop-down-village-list>
             </div> -->
-            <app-inter-urban-and-inter-rural [cityList]="cityList" [villageList]="villageList"></app-inter-urban-and-inter-rural>
+            <app-inter-urban-and-inter-rural *ngIf="cityList && !show && villageList && !show2" [cityList]="cityList" [villageList]="villageList"></app-inter-urban-and-inter-rural>
         </div>
 
         <div class="my-2" style="direction: ltr;">
