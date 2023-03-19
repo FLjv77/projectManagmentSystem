@@ -140,7 +140,7 @@ export class UpdateProjectDTO {
   projectChallange: string;
   projectBottleNeck: string;
   startTimeOfProject: string;
-  projectDeliveryTime: string;
+  projectDeliveryTime: any;
   infrastructureCost: number;
   humanResourceCost: number;
   country: string;
