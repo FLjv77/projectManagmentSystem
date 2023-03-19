@@ -11,6 +11,7 @@ import { ApiResult } from 'src/app/auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { stat } from 'fs';
 import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
+import * as moment from 'jalali-moment';
 
 @Component({
   selector: 'app-edit-basic-information',
@@ -20,7 +21,7 @@ import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDial
 export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   public projectNameFormControl = new FormControl();
   public projectDeliveryDateFormControl = new FormControl();
-  public projectDeliveryDateFormControl1 = new FormControl();
+  public projectDeliveryDateFormControl1 = new FormControl(moment());
   public descreptionFormControl = new FormControl();
   public humanResourceCostFormControl = new FormControl();
   public infrastructureCostFormControl = new FormControl();
@@ -63,6 +64,13 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.initInputStyle();
     this.getInfo();
+  }
+
+  setMonthAndYear(m: string, y: number) {
+    const ctrlValue = this.projectDeliveryDateFormControl1.value!;
+    ctrlValue.month(m);
+    ctrlValue.year(y);
+    this.projectDeliveryDateFormControl1.setValue(ctrlValue);
   }
 
   ngAfterViewInit(): void {
@@ -162,10 +170,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
       this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectId)
         .subscribe((res: ApiResult<ProjectSelectedDTO>) => {
           this.projectNameFormControl.setValue(res.data.projectName);
-          this.projectDeliveryDateFormControl.setValue(res.data.projectDeliveryTime.year+'-'+res.data.projectDeliveryTime.month+'-'+
-          res.data.projectDeliveryTime.day);
+          this.setMonthAndYear(res.data.projectDeliveryTime.month, Number(res.data.projectDeliveryTime.year))
           console.log(this.projectDeliveryDateFormControl);
-          
+
           this.descreptionFormControl.setValue(res.data.projectDescription);
           this.objectivesFormControl.setValue(res.data.projectTargets);
           this.projectChallengeFormControl.setValue(res.data.projectChallange);
