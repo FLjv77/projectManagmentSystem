@@ -60,7 +60,8 @@
       <span *ngIf="showPlaceholderProvince" (click)="chengeState(false)" class="material-icons edit-icon">clear</span>
     </div>
     <div class="col-8">
-      <app-drop-down-province-list (province)="changeNewStat($event)" *ngIf="showPlaceholderProvince" [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
+      <app-drop-down-province-list (province)="changeNewStat($event)" *ngIf="showPlaceholderProvince"
+      [placeholder]="placeholderProvince" class="col-md-6 col-12"></app-drop-down-province-list>
     </div>
 
     <div class="col-4">
