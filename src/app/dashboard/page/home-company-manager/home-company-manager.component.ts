@@ -35,7 +35,7 @@ export class HomeCompanyManagerComponent implements OnInit {
   }
   public goToEditProject() {
     this.companyListService.CompanySelected(1, 50
-    ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {      
+    ).subscribe((res: ApiResult<CompanySelectedDTO[]>) => {
       if(res){
         if (res.statusCode==200 && res.isSuccess==true) {
           this.router.navigate(['../projectManagement/editProject']);
@@ -49,11 +49,11 @@ export class HomeCompanyManagerComponent implements OnInit {
   public goToProjectList() {
     this.router.navigate(['../projectManagement/projectList']);
   }
-  public goToSubmitReport() {
-    this.router.navigate(['../managementReport/submitProgressReporter']);
+  public goToGallery() {
+    this.router.navigate(['../../gallery']);
   }
-  public goToActivityInformation() {
-    this.router.navigate(['../projectManagement/InformationActivity']);
+  public goToSearch() {
+    this.router.navigate(['../../advancedSearch']);
   }
   private initDisplayPath() {
     this.path1 = new DisplayPathModel('داشبورد', false, '');

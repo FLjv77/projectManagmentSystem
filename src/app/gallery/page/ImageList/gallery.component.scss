@@ -125,3 +125,18 @@ p::before {
   left: -30px;
   top: 0px;
 }
+
+.delete-icon {
+  color: $side-bar-color;
+
+}
+.ok-button-text{
+  border: solid 2px #9d78b3;
+  background-color: transparent;
+  border-radius: 30px;
+  color: #9d78b3;
+  &:hover{
+      background-color: #9d78b3;
+      color: white;
+  }
+}

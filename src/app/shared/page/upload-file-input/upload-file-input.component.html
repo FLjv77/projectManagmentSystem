@@ -1,4 +1,4 @@
-<div *ngIf="uploadType == 3" class="container-upload-image px-2 position-relative mt-4">
+<div *ngIf="uploadType == 3 && fileUrl" class="container-upload-image px-2 position-relative mt-4">
   <img *ngIf="fileUrl" class="preview-image" [src]="fileUrl">
 </div>
 

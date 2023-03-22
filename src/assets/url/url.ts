@@ -55,5 +55,6 @@ export const url = {
   DownloadFile: 'Media/DownloadFile/',
   GetProjectMedia: 'Media/GetProjectMedia/',
   GetProjectSupervisor:'Project/GetProjectSupervisor/',
-  GetProjectsForSupervisorThatHasOpenReport: 'Project/GetProjectsForSupervisorThatHasOpenReport'
+  GetProjectsForSupervisorThatHasOpenReport: 'Project/GetProjectsForSupervisorThatHasOpenReport',
+  DeleteDocumentOfProject: 'Media/DeleteDocumentOfProject/'
 }
