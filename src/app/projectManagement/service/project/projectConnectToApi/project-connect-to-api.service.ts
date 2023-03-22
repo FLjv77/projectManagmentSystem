@@ -38,4 +38,8 @@ export class ProjectConnectToApiService {
     return this.http.get<ApiResult<MediaSelectedDTO[]>>(url.GetProjectMedia + projectId);
   }
 
+  public DeleteDocumentOfProject(projectId: string, fileId: string): Observable<ApiResult<boolean>> {
+    return this.http.post<ApiResult<boolean>>(url.DeleteDocumentOfProject + projectId + '/' + fileId, '');
+  }
+
 }

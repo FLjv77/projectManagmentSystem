@@ -1,12 +1,35 @@
 <div class="wrapper">
     <div class="col-12">
-        <app-display-user-path (projectIdSelected)="setProjectId($event)" [showProjectList]="true" [showCompanyList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
+        <app-display-user-path (projectIdSelected)="setProjectId($event)" [showProjectList]="true"
+        [showCompanyList]="true" [path1]="path1" [path2]="path2"></app-display-user-path>
     </div>
     <div *ngIf="listMedia.length > 0">
-      <p *ngFor="let item of listMedia" (click)="downloadFile(item)" class="pointer set-font-vazir d-rtl">
-        {{item.address}}
+      <p *ngFor="let item of listMedia; let i=index" class="set-font-vazir d-rtl">
+        <span class="material-icons pointer delete-icon" (click)="delete_doc(item.fileId, i)">delete</span>
+        <span class="pointer" (click)="downloadFile(item)">{{item.address}}</span>
       </p>
     </div>
+
+
+    <div class="row">
+      <div *ngIf="projectId" class="delete-icon d-flex justify-content-center col-12">
+          <div class="title-page d-flex set-font-Raymon pointer" (click)="changeShowUploadComponent(true)">
+            <i class="material-icons icon-styles mx-2">add_circle</i>
+              مستندات جدید
+          </div>
+      </div>
+      <div *ngIf="showUploadImg" class="col-12">
+        <div class="col-12 px-3">
+
+          <app-upload-file-input (loadRequestStatus)="handleUploadFile($event)"
+          [uploadType]="3" [id]="projectId" [inputFormControl]="fileFormControl"
+          [inputLabel]="'بارگذاری مستندات پروژه'"></app-upload-file-input>
+      </div>
+
+      </div>
+    </div>
+
+
     <div *ngIf="listMedia.length == 0">
       <app-empty-result></app-empty-result>
     </div>
