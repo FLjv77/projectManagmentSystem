@@ -124,6 +124,7 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
 
   public changeNewVillage(obj: any) {
     this.newVillage = obj;
+    this.placeholderVillage = obj;
   }
 
   public chengeState(state: boolean) {
@@ -203,7 +204,11 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
           this.cityList.push(newValue);
         }
         this.showPlaceholderCity = show;
-        if(show) this.placeholderCity = 'نامشخص';
+        if(show) {
+          this.placeholderCity = 'نامشخص';
+          this.placeholderVillage = 'نامشخص';
+          this.placeholderRegion = 'نامشخص';
+        }
       });
   }
 
@@ -217,7 +222,9 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
         };
         this.villageList.push(newValue);
         this.showPlaceholderVillage = show;
-        if(show) this.placeholderVillage = 'نامشخص';
+        if(show) {
+          this.placeholderVillage = 'نامشخص';
+        }
       }
     })
   }
@@ -234,7 +241,10 @@ export class EditBasicInformationComponent implements OnInit, AfterViewInit {
         };
         this.regionList.push(newValue);
         this.showPlaceholderRegion = show;
-        if(show) this.placeholderRegion = 'نامشخص';
+        if(show) {
+          this.placeholderRegion = 'نامشخص';
+          this.placeholderVillage = 'نامشخص';
+        }
       }
     })
   }

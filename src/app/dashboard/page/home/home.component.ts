@@ -5,6 +5,8 @@ import { url } from './../../../../assets/url/url';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
+import { SidebarControleServiceService } from 'src/app/shared/service/sidebarControleService/sidebar-controle-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,9 @@ export class HomeComponent implements OnInit {
   public path2: DisplayPathModel;
   public companyListNoRegistered : number;
   public companyListRegistered : number;
-  constructor(private router: Router,private companyList: CompanyListService) { }
+  constructor(private router: Router,
+    private sidebarControleServiceService: SidebarControleServiceService,
+    private companyList: CompanyListService) { }
 
   ngOnInit(): void {
     this.initDisplayPath();
@@ -42,9 +46,13 @@ export class HomeComponent implements OnInit {
             list1.push(res.data[i]);
           }
         }
+      } else {
+        this.sidebarControleServiceService.logOut();
       }
         this.companyListNoRegistered = list.length;
         this.companyListRegistered = list1.length;
+    }, (err: HttpErrorResponse) => {
+      this.sidebarControleServiceService.logOut();
     });
     })
   }

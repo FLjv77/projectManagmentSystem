@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { DisplayPathModel } from '../../../shared/model/displayPathModel';
 import { ApiResult } from '../../../auth/model/authDTO';
 import { ProjectForSupervisor } from 'src/app/managementReport/model/getReports';
+import { SidebarControleServiceService } from 'src/app/shared/service/sidebarControleService/sidebar-controle-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-super-visor',
@@ -20,6 +22,7 @@ export class HomeSuperVisorComponent implements OnInit {
   public path2: DisplayPathModel;
   public listProject: ProjectForSupervisor[];
   constructor(private router: Router,
+    private sidebarControleServiceService: SidebarControleServiceService,
     private reportConnectionToApiService: ReportConnectionToApiService) { }
 
   ngOnInit(): void {
@@ -40,8 +43,12 @@ export class HomeSuperVisorComponent implements OnInit {
     this.reportConnectionToApiService.GetProjectsForSupervisorThatHasOpenReport().subscribe((res: ApiResult<ProjectForSupervisor[]>) => {
       if(res.isSuccess && res.statusCode == 200) {
         this.listProject = res.data;
+      } else {
+        this.sidebarControleServiceService.logOut();
       }
-    })
+    }, (err: HttpErrorResponse) => {
+      this.sidebarControleServiceService.logOut();
+    });
   }
 
   private getReportAllocation() {
