@@ -32,7 +32,7 @@
                  [inputId]="'damStateControl'" [inputFormControl]="damStateControl"></app-input-style> -->
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'ظرفیت آبدهی'" [type]="'number'"
-                 [inputId]="'capacityWaterControl'+i" [inputFormControl]="capacityWaterControl[i]"
+                 [inputId]="'capacityWaterControl'+i" [inputFormControl]="capacityWaterControl[i]" [minValue]="0"
                  (changeValue)="setCapacityWater($event, i)"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
                  [inputId]="'riverNameControl'" [inputFormControl]="riverNameControl[i]"
@@ -41,7 +41,7 @@
                  [inputId]="'staffControl'" [inputFormControl]="staffControl[i]"
                  (changeValue)="setStaff($event, i)"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'حجم مخزن سد'"
-                 [inputId]="'volumeDamControl'" [inputFormControl]="volumeDamControl[i]" [type]="'number'"
+                 [inputId]="'volumeDamControl'" [inputFormControl]="volumeDamControl[i]" [type]="'number'" [minValue]="0"
                  (changeValue)="setVolumeDam($event, i)"></app-input-style>
         <div *ngIf="i>=0 && edit" class="row mx-auto">
           <div class="mx-auto text-start" (click)="deleteList(i)">

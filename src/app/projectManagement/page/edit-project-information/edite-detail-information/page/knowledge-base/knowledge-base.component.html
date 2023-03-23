@@ -44,7 +44,7 @@
             <h4 class="title-page d-inline set-font-Raymon px-2">وام و تسهیلات : </h4>
           </div>
           <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="3" class="col-md-6 col-12" [inputLabel]="'میزان'"
-           [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]"
+           [inputId]="'loanAmount' + i" [type]="'number'" [inputFormControl]="loanAmount[i]" [minValue]="0"
            (changeValue)="set_loanAmount($event, i)"></app-input-style>
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [minValue]="0"

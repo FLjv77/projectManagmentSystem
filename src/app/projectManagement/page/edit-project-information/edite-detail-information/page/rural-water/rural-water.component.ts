@@ -1,3 +1,4 @@
+import { AlertDialogBySweetAlertService } from 'src/app/shared/service/alertDialog/alert-dialog-by-sweet-alert.service';
 import { ApiResult } from './../../../../../../auth/model/authDTO';
 import { ProjectSelectedDTO } from 'src/app/projectManagement/model/project/projectDto';
 import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
@@ -49,7 +50,8 @@ export class RuralWaterComponent implements OnInit {
   @Output() refreshList= new EventEmitter<boolean>();
 
   constructor(private iranStateAndZoneService: IranStateAndZoneService,
-    private specializedInformationService:SpecializedInformationService) { }
+    private specializedInformationService:SpecializedInformationService,
+    private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
     this.initInputStyle();
@@ -192,6 +194,7 @@ export class RuralWaterComponent implements OnInit {
         this.TransferLineList = res.data.transferLine;
         this.DikeList = res.data.dike;
         this.PitWaterList = res.data.pit;
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
         this.refreshList.emit(true);
       }
     });

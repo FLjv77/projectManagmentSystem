@@ -152,6 +152,7 @@ export class KnowledgeBaseComponent implements OnInit {
       new KnowledgeBasedSpeceficDetailDTO(this.knowledgeBaseds)).subscribe((res:ApiResult<KnowledgeBasedSpeceficDetailDTO>)=>{
         if (res.statusCode==200 && res.isSuccess==true) {
           this.knowledgeBaseds = res.data.knowledgeBaseds;
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
           this.refreshList.emit(true);
         }
       });

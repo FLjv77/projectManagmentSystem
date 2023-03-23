@@ -36,7 +36,7 @@
                      (changeValue)="setElectricState($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [unit]="2" [inputLabel]="'ظرفیت'" [type]="'number'"
-                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="capacityStateControl[i]"
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="capacityStateControl[i]" [minValue]="0"
                      (changeValue)="setCapacityState($event, i)"></app-input-style>
 
                      <div *ngIf="i>=0 && edit" class="row mx-auto">

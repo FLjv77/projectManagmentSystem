@@ -58,26 +58,11 @@
               <div class="col-12 my-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">اعتیاد : </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [minValue]="0"
               [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'" [minValue]="0"
               [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
 
               <div *ngIf="i-1>=0" class="row mx-auto">

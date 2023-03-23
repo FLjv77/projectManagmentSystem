@@ -435,7 +435,6 @@ export class SocialTransformationComponent implements OnInit {
         this.arrayListSocialTransformationSegmentation,[],this.arrayListSocialTransformationSpecialPatient)
       this.specializedInformationService.ModifySocialTransformationSpeceficDetail1(this.projectIdSelect,list).
       subscribe((res: ApiResult<SocialTransformationSpeceficDetailDTO>)=>{
-        console.log(res.data);
         this.arrayListAddicion = res.data.addicions;
         this.arrayListBuildingCamp = res.data.campConstructions;
         this.arrayListDivorce = res.data.divorces;
@@ -443,7 +442,7 @@ export class SocialTransformationComponent implements OnInit {
         this.arraySocialTransformationBannedFromEducation = res.data.bannedFromEducations;
         this.arrayListSocialTransformationSegmentation = res.data.segmentations;
         this.arrayListSocialTransformationSpecialPatient = res.data.specialPatients;
-
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
       })
     }
     else{

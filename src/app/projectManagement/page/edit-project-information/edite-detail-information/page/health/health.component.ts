@@ -532,6 +532,7 @@ constructor(private specializedInformationService:SpecializedInformationService,
           this.insuranceList = res.data.insurances;
           this.medicineList = res.data.medicines;
           this.diseaseList = res.data.treatments;
+          this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
           this.refreshList.emit(true);
         }
       });

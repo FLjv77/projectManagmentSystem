@@ -7,7 +7,7 @@
        [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
            [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
-           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)">
+           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" min="{{minValue}}" max="{{maxValue}}">
 
     <div *ngIf="haveEye" class="eye-pos">
       <span *ngIf="!hideInput" (click)="hideInput = true" class="material-icons pointer text-lite">visibility</span>
@@ -35,7 +35,7 @@
        [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
            [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
-           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)">
+           (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" min="{{minValue}}" max="{{maxValue}}">
 
     <div *ngIf="haveEye" class="eye-pos">
       <span *ngIf="!hideInput" (click)="hideInput = true" class="material-icons pointer text-lite">visibility</span>

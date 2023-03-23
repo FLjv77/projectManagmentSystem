@@ -140,6 +140,7 @@ export class RevivalIndustryComponent implements OnInit {
         .subscribe((res:ApiResult<RevivalIndustrySpeceficDetailDTO>)=>{
           if (res.statusCode==200 && res.isSuccess==true){
             this.revivalIndustrySpeceficDetailDTO = res.data.revivalIndustries;
+            this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
             this.refreshList.emit(true);
           }
         });
