@@ -6,6 +6,8 @@ import { CompanyListService } from 'src/app/workSpace/service/companyListDTO/com
 import { Component, OnInit } from '@angular/core';
 import {DisplayPathModel} from "../../../shared/model/displayPathModel";
 import {Router} from "@angular/router";
+import { HttpErrorResponse } from '@angular/common/http';
+import { SidebarControleServiceService } from 'src/app/shared/service/sidebarControleService/sidebar-controle-service.service';
 
 @Component({
   selector: 'app-home-company-manager',
@@ -17,6 +19,7 @@ export class HomeCompanyManagerComponent implements OnInit {
   public path2: DisplayPathModel;
   constructor(private router: Router,
     private companyListService:CompanyListService,
+    private sidebarControleServiceService: SidebarControleServiceService,
     private alertDialogBySweetAlertService:AlertDialogBySweetAlertService) { }
 
   ngOnInit(): void {
@@ -42,8 +45,11 @@ export class HomeCompanyManagerComponent implements OnInit {
         }
         else if(res.statusCode == 403){
           this.alertDialogBySweetAlertService.showErrorAlert('شما دسترسی لازم برای این بخش را ندارید.');
+          this.sidebarControleServiceService.logOut();
         }
       }
+    }, (err: HttpErrorResponse) => {
+      this.sidebarControleServiceService.logOut();
     });
   }
   public goToProjectList() {

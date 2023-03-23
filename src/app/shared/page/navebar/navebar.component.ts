@@ -93,9 +93,6 @@ export class NavebarComponent implements OnInit {
         localStorage.setItem(url.userRole, 'admin');
         this.companyName = 'ادمین';
       }
-
-      console.log(this.companyName);
-
     }, (err: HttpErrorResponse) => {
       //this.handleDisplayErrorService.showError(err.error.StatusCode);
       this.companyName = 'ادمین';

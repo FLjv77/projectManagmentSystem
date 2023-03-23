@@ -29,7 +29,9 @@ export class InformationActivityComponent implements OnInit {
 
   private initProjectId() {
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string) => {
-      this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: res}})
+      if(location.href.includes('InformationActivity')) {
+        this.router.navigate(['../../projectManagement/InformationActivity'], {queryParams: { projectId: res}})
+      }
     });
   }
 
