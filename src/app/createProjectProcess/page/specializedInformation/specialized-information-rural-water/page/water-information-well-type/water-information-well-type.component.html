@@ -20,13 +20,6 @@
             </mat-radio-button>
           </mat-radio-group>
 
-        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [unit]="2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
-
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'میزان اراضی تحت پوشش'"
                      [inputId]="'amountOfSurfaceControl'+i" [type]="'number'" [unit]="1"
@@ -36,19 +29,19 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'قطر چاه'" [unit]="0"
                      [inputId]="'widthWellControl'+i" [type]="'number'"
-                     [inputFormControl]="widthWellControl[i]"
+                     [inputFormControl]="widthWellControl[i]" [minValue]="0"
                      (changeValue)="setWidthWell($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'طول لوله جداره'" [unit]="0"
                      [inputId]="'lenPipeControl'+i" [type]="'number'"
-                     [inputFormControl]="lenPipeControl[i]"
+                     [inputFormControl]="lenPipeControl[i]" [minValue]="0"
                      (changeValue)="setLenPipe($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'طول کول گذاری'" [unit]="0"
                      [inputId]="'lenColControl'+i" [type]="'number'"
-                     [inputFormControl]="lenColControl[i]"
+                     [inputFormControl]="lenColControl[i]" [minValue]="0"
                      (changeValue)="setPiLenCol($event, i)"></app-input-style>
 
                      <div *ngIf="i-1>=0" class="row mx-auto">

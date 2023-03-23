@@ -172,6 +172,7 @@ export class RuralWayComponent implements OnInit {
         new RuralRoadSpeceficDetailDTO(this.ruralRoadList)).subscribe((res:ApiResult<RuralRoadSpeceficDetailDTO>)=>{
           this.ruralRoadList = res.data.ruralRoads;
         });
+        this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد')
       this.refreshList.emit(true);
     }
     else {

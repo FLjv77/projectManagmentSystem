@@ -24,25 +24,25 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'میزان اراضی تحت پوشش'"
                      [inputId]="'amountOfSurfaceControl'+i" [type]="'number'" [unit]="1"
-                     [inputFormControl]="amountOfSurfaceControl[i]"
+                     [inputFormControl]="amountOfSurfaceControl[i]" [minValue]="0"
                      (changeValue)="setAmountOfSurface($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'قطر چاه'" [unit]="0"
                      [inputId]="'widthWellControl'+i" [type]="'number'"
-                     [inputFormControl]="widthWellControl[i]"
+                     [inputFormControl]="widthWellControl[i]" [minValue]="0"
                      (changeValue)="setWidthWell($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'طول لوله جداره'" [unit]="0"
                      [inputId]="'lenPipeControl'+i" [type]="'number'"
-                     [inputFormControl]="lenPipeControl[i]"
+                     [inputFormControl]="lenPipeControl[i]" [minValue]="0"
                      (changeValue)="setLenPipe($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle"
                      class="col-12 mt-2" [inputLabel]="'طول لوله گذاری'" [unit]="0"
                      [inputId]="'lenColControl'+i" [type]="'number'"
-                     [inputFormControl]="lenColControl[i]"
+                     [inputFormControl]="lenColControl[i]" [minValue]="0"
                      (changeValue)="setPiLenCol($event, i)"></app-input-style>
 
                      <div *ngIf="i>=0 && edit" class="row mx-auto">

@@ -63,10 +63,10 @@
       </mat-radio-group>
 
       <app-input-style [id]="'roadLength'+i" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0"
-      [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength[i]"
+      [inputLabel]="'طول جاده'" [inputId]="'roadLength '" [type]="'number'" [inputFormControl]="roadLength[i]" [minValue]="0"
       (changeValue)="set_roadLength($event, i)"></app-input-style>
       <app-input-style [id]="'roadWidth'+i" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="0"
-      [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth[i]"
+      [inputLabel]="'عرض جاده'" [inputId]="'roadWidth'" [type]="'number'" [inputFormControl]="roadWidth[i]" [minValue]="0"
       (changeValue)="set_roadWidth($event, i)"></app-input-style>
       <!-- <app-input-style (click)="goOnMap(i)" [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'موقعیت در نقشه'" [inputId]="'4'"
       [inputFormControl]="LocationFormControl"></app-input-style> -->

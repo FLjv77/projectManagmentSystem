@@ -20,14 +20,6 @@
           </mat-radio-button>
         </mat-radio-group>
 
-
-        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="2" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
-
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'نام رودخانه'"
                      [inputId]="'riverNameControl'+i" [inputFormControl]="riverNameControl[i]"
                      (changeValue)="setRiverName($event, i)"></app-input-style>
@@ -45,7 +37,7 @@
                      (changeValue)="setStopFlood($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض رودخانه'" [unit]="0" [type]="'number'"
-                     [inputId]="'riverWidthControl'+i" [inputFormControl]="riverWidthControl[i]"
+                     [inputId]="'riverWidthControl'+i" [inputFormControl]="riverWidthControl[i]" [minValue]="0"
                      (changeValue)="setRiverWidth($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس مصالح آب بند'"
@@ -53,15 +45,15 @@
                      (changeValue)="setStuffWaterSeal($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'عرض'" [type]="'number'" [unit]="0"
-                     [inputId]="'widthControl'" [inputFormControl]="widthControl[i]"
+                     [inputId]="'widthControl'" [inputFormControl]="widthControl[i]" [minValue]="0"
                      (changeValue)="setWidth($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'طول'" [type]="'number'" [unit]="0"
-                     [inputId]="'lenControl'+i" [inputFormControl]="lenControl[i]"
+                     [inputId]="'lenControl'+i" [inputFormControl]="lenControl[i]" [minValue]="0"
                      (changeValue)="setLen($event, i)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'ارتفاع'" [type]="'number'" [unit]="0"
-                     [inputId]="'heightControl'+i" [inputFormControl]="heightControl[i]"
+                     [inputId]="'heightControl'+i" [inputFormControl]="heightControl[i]" [minValue]="0"
                      (changeValue)="setHeight($event, i)"></app-input-style>
 
                      <div *ngIf="i>=0 && edit" class="row mx-auto">

@@ -20,13 +20,6 @@
             </mat-radio-button>
           </mat-radio-group>
 
-        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'تعداد'" [inputId]="'number'" [inputFormControl]="number"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'قابلیت مصرف'" [inputId]="'regionControl'" [inputFormControl]="regionControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'پایداری منابع'" [inputId]="'stabilityResourceControl'" [inputFormControl]="stabilityResourceControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="2" class="col-md-6 col-12 mt-2" [inputLabel]="'دبی فعلی'" [type]="'number'" [inputId]="'debeyControl'" [inputFormControl]="debeyControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع مالکیت'" [inputId]="'ownerShipTypeControl'" [inputFormControl]="ownerShipTypeControl"></app-input-style>
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12 mt-2" [inputLabel]="'نوع زمین'" [inputId]="'groundTypeControl'" [inputFormControl]="groundTypeControl"></app-input-style> -->
-
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'وضعیت مخزن موجود'"
                      [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceStateControl[i]"
                      (changeValue)="setSourceState($event, i)"></app-input-style>
@@ -34,7 +27,7 @@
                      [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceStaffControl[i]"
                      (changeValue)="setSourceStaff($event, i)"></app-input-style>
         <app-input-style [inputCustomStyle]="inputCustomStyle" [unit]="2" class="col-12 mt-2" [inputLabel]="'حجم مخزن '" [type]="'number'"
-                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceVolumeControl[i]"
+                     [inputId]="'resourceSaveWaterStateControl'+i" [inputFormControl]="sourceVolumeControl[i]" [minValue]="0"
                      (changeValue)="setSourceVolume($event, i)"></app-input-style>
 
                      <div *ngIf="i-1>=0" class="row mx-auto">
