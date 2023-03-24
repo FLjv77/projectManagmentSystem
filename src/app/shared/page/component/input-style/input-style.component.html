@@ -31,11 +31,18 @@
     <div class="custom-place w-100 text-right set-font-vazir {{inputFormControl.value? 'holder' : ''}}"
       [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.labelColor : ''}" [id]="inputId">{{inputLabel}}
     </div>
-    <input (ngModelChange)="changeValue.emit($event)" name="{{inputFormControl}}" class="custom-input-style set-font-vazir w-100"
+    <input *ngIf="!separate" (ngModelChange)="changeValue.emit($event)" name="{{inputFormControl}}" class="custom-input-style set-font-vazir w-100"
        [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
            [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
                        'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
            (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" min="{{minValue}}" max="{{maxValue}}">
+
+    <input *ngIf="separate" (ngModelChange)="emitValue($event)" name="{{inputFormControl}}" class="custom-input-style set-font-vazir w-100"
+           [type]="hideInput ? type : 'text'" [formControl]="inputFormControl" [disabled]="disabled==true ? true:false"
+               [ngStyle]="{'color': inputCustomStyle ? inputCustomStyle.colorText : '',
+                           'border-bottom': inputCustomStyle ? ('1px solid ' + inputCustomStyle.lineColor): ''}"
+               (focus)="addStyles(type)" (focusout)="removeStyles(inputFormControl.value)" min="{{minValue}}" max="{{maxValue}}"
+               >
 
     <div *ngIf="haveEye" class="eye-pos">
       <span *ngIf="!hideInput" (click)="hideInput = true" class="material-icons pointer text-lite">visibility</span>

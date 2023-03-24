@@ -1,3 +1,4 @@
+import { NumberFormatService } from './../../../service/numberFormat/number-format.service';
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {noop} from "rxjs";
@@ -21,6 +22,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
   @Input() haveLimit: boolean;
+  @Input() separate: boolean;
   @Input() maxValue: number;
   @Input() minValue: number;
   @Input() unit: Units;
@@ -28,16 +30,25 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() authInput: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
-  constructor() {
+  constructor(public numberFormatService:NumberFormatService) {
   }
 
   ngOnInit(): void {
-    this.subscribeChangePhoneNumber();
+    this.subscribeChangePhoneNumber();  
+    // const number = new Intl.NumberFormat('en-US', {style : "decimal" }).format(987654321);
+    // console.log(number)  
   }
 
   addStyles(type:string) {
     let element = document.getElementById(this.inputId);
     element ? element.classList.add('holder') : noop();
+  }
+
+  public emitValue($event:any){
+    let value = this.numberFormatService.separate($event)
+    console.log('val',value);
+    
+    this.changeValue.emit(value);
   }
 
   removeStyles(value: FormControl) {
