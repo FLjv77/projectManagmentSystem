@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="Fountain != undefined || FountainWaterShedAndCanalsList.length > 0" class="row">
 
     <div *ngFor="let list of FountainWaterShedAndCanalsList , let i = index" class="row">
         <div class="col-12 mt-2">

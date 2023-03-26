@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./progress-report-activity.component.scss']
 })
 export class ProgressReportActivityComponent implements OnInit {
-  public progressReportSelected:	ProgressReportSelectedDto[];
+  public progressReportSelected:	ProgressReportSelectedDto[] = [];
 
   private projectId: string;
   constructor(private handleModalService : HandleModalService,

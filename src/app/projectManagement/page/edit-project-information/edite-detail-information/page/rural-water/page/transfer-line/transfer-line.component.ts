@@ -2,6 +2,7 @@ import { InputCustomStyle } from 'src/app/shared/page/component/input-style/inpu
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, TransferLineWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-transfer-line',
@@ -25,12 +26,17 @@ export class TransferLineComponent implements OnInit {
   public lengthList: number;
   public lengthListDeleted: number;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.transferLineBoolean.subscribe((res: boolean) => {
+      if (res == true) {
+        this.addList();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.TransferLineWaterShedAndCanalsList = new Array<TransferLineWaterShedAndCanals>;
-    this.addList();
     this.getData();
   }
 

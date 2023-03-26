@@ -2,6 +2,7 @@ import { DistributionNetworkWaterShedAndCanals, ConstructionTypestring } from 's
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-distribution-network',
@@ -24,12 +25,17 @@ export class DistributionNetworkComponent implements OnInit {
   public lengthList: number;
   public lengthListDeleted: number;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.distributionNetworkBoolean.subscribe((res: boolean) => {
+      if (res == true) {
+        this.addList();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.distributionNetwork = new Array<DistributionNetworkWaterShedAndCanals>;
-    this.addList();
     this.getData();
   }
 

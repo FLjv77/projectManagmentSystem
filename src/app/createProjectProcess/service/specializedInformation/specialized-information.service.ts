@@ -18,7 +18,14 @@ export class SpecializedInformationService {
   constructor(private http: HttpClient) { }
 
   public wellBoolean = new EventEmitter<boolean>();
-
+  public fountainBoolean = new EventEmitter<boolean>();
+  public damBoolean = new EventEmitter<boolean>();
+  public distributionNetworkBoolean = new EventEmitter<boolean>();
+  public purificationBoolean = new EventEmitter<boolean>();
+  public sourceBoolean = new EventEmitter<boolean>();
+  public transferLineBoolean = new EventEmitter<boolean>();
+  public sealBoolean = new EventEmitter<boolean>();
+  public pompBoolean = new EventEmitter<boolean>();
 
   public ModifyWaterShedAndCanalsSpeceficDetail(projectId : string|null, waterShedAndCanalsSpeceficDetailBehaviorDTO: WaterShedAndCanalsSpeceficDetailBehaviorDTO): Observable<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>{
     return this.http.put<ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>>(url.ModifyWaterShedAndCanalsSpeceficDetail + projectId , waterShedAndCanalsSpeceficDetailBehaviorDTO);

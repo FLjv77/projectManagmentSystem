@@ -2,6 +2,7 @@ import { ConstructionTypestring, DamWaterShedAndCanals } from 'src/app/createPro
 import { FormControl } from '@angular/forms';
 import { InputCustomStyle } from 'src/app/shared/page/component/input-style/input-style.component';
 import { Component, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@angular/core';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-dam',
@@ -29,12 +30,17 @@ export class DamComponent implements OnInit,AfterViewInit {
   @Output() damList = new EventEmitter<DamWaterShedAndCanals[]>();
   @Input() add : boolean;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.damBoolean.subscribe((res: boolean) => {
+      if (res == true) {
+        this.addList();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.damWaterShedAndCanalsList = new Array<DamWaterShedAndCanals>;
-    this.addList();
     this.getData();
   }
 
