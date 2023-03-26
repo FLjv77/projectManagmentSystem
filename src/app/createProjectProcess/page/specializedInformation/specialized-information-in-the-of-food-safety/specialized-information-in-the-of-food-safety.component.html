@@ -25,7 +25,7 @@
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'عنوان مرکز'" [inputId]="'centerTitle'" [inputFormControl]="centerTitle"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد '" [inputId]="'number'" [type]="'number'" [inputFormControl]="number" [minValue]="0"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [type]="'number'" [inputFormControl]="budget" [minValue]="0"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه '" [inputId]="'budget'" [type]="'text'" [inputFormControl]="budget" [minValue]="0" [separate]="true"></app-input-style>
           <div *ngIf="i-1>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteList(i)">
                 <button class="button-add-activity">

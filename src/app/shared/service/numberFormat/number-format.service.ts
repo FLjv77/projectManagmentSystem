@@ -10,7 +10,6 @@ export class NumberFormatService {
   constructor() { }
 
   public separate(Number:string) {
-    console.log('num',Number);
     Number+= '';
     Number= Number.replace(',', '');
     let x = Number.split('.');

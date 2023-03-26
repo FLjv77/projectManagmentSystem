@@ -137,7 +137,7 @@
             </mat-radio-button>
           </mat-radio-group>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [minValue]="0" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
-          <app-input-style [unit]="3" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'amount'" [type]="'number'" [inputFormControl]="amount"></app-input-style>
+          <app-input-style [unit]="3" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'میزان'" [inputId]="'amount'" [type]="'text'" [separate]="true" [inputFormControl]="amount"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'بابت'" [inputId]="'reason'" [inputFormControl]="reason"></app-input-style>
           <div *ngIf="k-1>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteList(arrayList2,k)">

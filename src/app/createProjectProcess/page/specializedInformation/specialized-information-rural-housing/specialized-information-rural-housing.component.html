@@ -23,8 +23,8 @@
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [minValue]="0" [inputLabel]="'تعداد'" [inputId]="'meterageLand'" [type]="'number'" [inputFormControl]="meterageLand"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [minValue]="0" [unit]="0" [inputLabel]="'متراژ'" [inputId]="'meterageInfrastructure'" [type]="'number'" [inputFormControl]="meterageInfrastructure"></app-input-style>
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [minValue]="0" [inputLabel]="'تعداد طبقات'" [inputId]="'numberOfFloors'" [type]="'number'" [inputFormControl]="numberOfFloors"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [minValue]="0" [unit]="3" [inputLabel]="'میزان تسهیلات'" [inputId]="'amountFacilities'" [type]="'number'" [inputFormControl]="amountFacilities"></app-input-style>
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [minValue]="0" [unit]="3" [inputLabel]="'میزان پرداخت متقاضیان'" [inputId]="'ApplicantsPaymentAmount'" [type]="'number'" [inputFormControl]="ApplicantsPaymentAmount"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [minValue]="0" [separate]="true" [unit]="3" [inputLabel]="'میزان تسهیلات'" [inputId]="'amountFacilities'" [type]="'text'" [inputFormControl]="amountFacilities"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [minValue]="0" [separate]="true" [unit]="3" [inputLabel]="'میزان پرداخت متقاضیان'" [inputId]="'ApplicantsPaymentAmount'" [type]="'text'" [inputFormControl]="ApplicantsPaymentAmount"></app-input-style>
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'انشعابات'" [inputId]="'branches'" [inputFormControl]="branches"></app-input-style>
           <div *ngIf="beneficiariesList" class="col-11">
@@ -64,7 +64,7 @@
           </mat-radio-group>
 
           <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نام خیّر'" [inputId]="'goodName'" [inputFormControl]="goodName"></app-input-style>
-          <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'میزان هزینه'" [type]="'number'" [inputId]="'amountCost'" [inputFormControl]="amountCost"></app-input-style>
+          <app-input-style *ngIf="good" [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12"  [separate]="true" [minValue]="0" [unit]="3" [inputLabel]="'میزان هزینه'" [type]="'text'" [inputId]="'amountCost'" [inputFormControl]="amountCost"></app-input-style>
 
           <div *ngIf="i-1>=0" class="row mx-auto">
             <div class="mx-auto text-start" (click)="deleteList(i)">

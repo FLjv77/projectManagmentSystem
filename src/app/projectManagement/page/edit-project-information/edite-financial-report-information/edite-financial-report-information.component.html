@@ -10,8 +10,8 @@
     <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ ثبت'" [inputId]="'2'"
                             [inputFormControl]="saveDateFormControl"></app-date-picker-jalaly>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'number'" [inputLabel]="'میزان تخصیص'" [inputId]="'3'"
-                     [inputFormControl]="progressFormControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [type]="'text'" [inputLabel]="'میزان تخصیص'" [inputId]="'3'"
+                     [inputFormControl]="progressFormControl" [minValue]="0" [separate]="true"></app-input-style>
 
     <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'4'"
                      [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>

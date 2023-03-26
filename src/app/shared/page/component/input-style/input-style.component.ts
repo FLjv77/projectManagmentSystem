@@ -44,11 +44,21 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
     element ? element.classList.add('holder') : noop();
   }
 
+  public setseparate(value: any){
+    this.numberFormatService.separate(value);
+  }
+
   public emitValue($event:any){
-    let value = this.numberFormatService.separate($event)
-    console.log('val',value);
-    
-    this.changeValue.emit(value);
+    this.inputFormControl.setValue(this.numberFormatService.separate($event));
+    this.changeValue.emit(this.numberFormatService.separate($event));
+  }
+
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
   }
 
   removeStyles(value: FormControl) {
@@ -56,6 +66,13 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();
     }
+    this.emitValue(value);
+  }
+
+  public setNumberValue(event:any){
+    console.log();
+        
+    event.replace(/\D/g, '');
   }
 
   private subscribeChangePhoneNumber() {
