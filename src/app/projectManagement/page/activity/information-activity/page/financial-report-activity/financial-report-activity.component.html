@@ -21,9 +21,6 @@
                 <th scope="col"><span>توضیحات</span></th>
                 <th scope="col"><span>مبلغ تخصیص</span></th>
                 <th scope="col"><span>مستندات</span></th>
-                <!--
-                <th scope="col"><span>نظارت برگزارش</span></th>
-                -->
               </tr>
             </thead>
             <tbody>
@@ -35,9 +32,6 @@
                 <td><span>{{item.allocationDescription}}</span></td>
                 <td><span>{{changeToPersian(item.amountOfAllocation.toString())}} <h6>ریال</h6></span></td>
                 <td class="pointer" (click)="downloadAllocationReportMedia(item.allocationReportId)"><i class="material-icons d-inline icon-styles">file_download</i></td>
-                <!--
-                <td><i class="material-icons d-inline icon-styles">check_box</i></td>
-                -->
               </tr>
 
             </tbody>

@@ -1,3 +1,4 @@
+import { NumberFormatService } from './../../../service/numberFormat/number-format.service';
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {noop} from "rxjs";
@@ -21,6 +22,7 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() textarea: boolean;
   @Input() isDatePiker: boolean;
   @Input() haveLimit: boolean;
+  @Input() separate: boolean;
   @Input() maxValue: number;
   @Input() minValue: number;
   @Input() unit: Units;
@@ -28,11 +30,13 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
   @Input() authInput: boolean;
   @Output() changeValue = new EventEmitter<string>();
   public hideInput: boolean = true;
-  constructor() {
+  constructor(public numberFormatService:NumberFormatService) {
   }
 
   ngOnInit(): void {
-    this.subscribeChangePhoneNumber();
+    this.subscribeChangePhoneNumber();  
+    // const number = new Intl.NumberFormat('en-US', {style : "decimal" }).format(987654321);
+    // console.log(number)  
   }
 
   addStyles(type:string) {
@@ -40,11 +44,35 @@ export class InputStyleComponent implements OnInit, AfterViewInit {
     element ? element.classList.add('holder') : noop();
   }
 
+  public setseparate(value: any){
+    this.numberFormatService.separate(value);
+  }
+
+  public emitValue($event:any){
+    this.inputFormControl.setValue(this.numberFormatService.separate($event));
+    this.changeValue.emit(this.numberFormatService.separate($event));
+  }
+
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
   removeStyles(value: FormControl) {
     if (!value) {
       let element = document.getElementById(this.inputId);
       element ? element.classList.remove('holder') : noop();
     }
+    this.emitValue(value);
+  }
+
+  public setNumberValue(event:any){
+    console.log();
+        
+    event.replace(/\D/g, '');
   }
 
   private subscribeChangePhoneNumber() {

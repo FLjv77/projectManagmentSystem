@@ -76,6 +76,7 @@ export class FinancialReportComponent implements OnInit {
           if(res.statusCode == 200 && res.isSuccess) {
             this.alertDialogBySweetAlertService.showSuccessAlert('گزارش با موفقیت ایجاد شد');
             this.createdReportId = res.data;
+            this.onChange(this.valueUpload);
           } else {
             this.handleDisplayErrorService.showError(res.statusCode);
           }
@@ -161,7 +162,48 @@ export class FinancialReportComponent implements OnInit {
       this.registrationDateFormControl.reset();
       this.listActivity = new Array<ShareLevelOfActivityDTO>();
       this.prepareActivityList();
-      this.alertDialogBySweetAlertService.showSuccessAlert('مستندات گزارش با موفقیت ایجاد شد');
+      // this.alertDialogBySweetAlertService.showSuccessAlert('مستندات گزارش با موفقیت ایجاد شد');
     }
+  }
+
+
+  public fileUrl: string;
+  public loading: boolean = false;
+  public filePath: string;
+  public file: File;
+
+
+  public initFilePath() {
+    this.filePath = 'بارگذاری مستندات تخصیص پروژه';
+  }
+
+  public valueUpload:File;
+  public setChange(event: any){
+    this.valueUpload = event;
+  }
+  public onChange(event: any) {
+    this.file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.fileUrl = reader.result as string;
+      this.filePath = event.target.files[0].name;
+    }
+    reader.readAsDataURL(this.file);
+
+      this.reportConnectionToApiService.UploadDocumentsOfProgressReport(
+        this.createdReportId, this.file
+        ).subscribe((res: ApiResult<boolean>) => {
+          if(res.statusCode == 200 && res.isSuccess && res.data) {
+            this.handleUploadFile(true);
+            // this.inputFormControl.reset();
+            this.filePath = '';
+          } else {
+            this.handleUploadFile(false);
+            this.handleError.showError(res.statusCode);
+          }
+        }, (err: HttpErrorResponse) => {
+          this.handleError.showError(err.status);
+        });
+
   }
 }

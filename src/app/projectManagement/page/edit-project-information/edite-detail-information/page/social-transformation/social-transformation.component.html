@@ -142,7 +142,7 @@
          [inputId]="'numberEducationalPackages' + n" [type]="'number'" [inputFormControl]="numberEducationalPackages[n]" (changeValue)="observeChange_numberEducationalPackages($event , n)"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational' + n"
-        [type]="'number'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)"></app-input-style>
+        [type]="'text'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)" [minValue]="0" [separate]="true"></app-input-style>
 
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'" [minValue]="0"
          [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>

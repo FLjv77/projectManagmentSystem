@@ -23,8 +23,8 @@
             </mat-radio-button>
           </mat-radio-group>
 
-          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [minValue]="0"
-           [unit]="3" [inputId]="'amountGrantedFacilities'" [type]="'number'" [inputFormControl]="amountGrantedFacilities[i]" (changeValue)="observeChange_amountGrantedFacilities($event, i)"></app-input-style>
+          <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'حجم تسهیلات اعطایی'" [minValue]="0" [separate]="true"
+           [unit]="3" [inputId]="'amountGrantedFacilities'" [type]="'text'" [inputFormControl]="amountGrantedFacilities[i]" (changeValue)="observeChange_amountGrantedFacilities($event, i)"></app-input-style>
 
           <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد صنایع'" [minValue]="0"
            [inputId]="'numberIndustries'" [type]="'number'" [inputFormControl]="numberIndustries[i]" (changeValue)="observeChange_numberIndustries($event, i)"></app-input-style>

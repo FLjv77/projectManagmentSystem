@@ -13,8 +13,8 @@
       <app-date-picker-jalaly [inputCustomStyle]="inputCustomStyle" class="col-sm-6 col-12" [inputLabel]="'تاریخ پرداخت'" [inputId]="'paymentDateFormControl'"
                         [inputFormControl]="paymentDateFormControl"></app-date-picker-jalaly>
 
-      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [type]="'number'" [unit]="3" [inputLabel]="'میزان تخصیص'" [inputId]="'7'"
-                       [inputFormControl]="progressFormControl"></app-input-style>
+      <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [type]="'text'" [unit]="3" [inputLabel]="'میزان تخصیص'" [inputId]="'7'"
+                       [inputFormControl]="progressFormControl" [separate]="true"></app-input-style>
 
       <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [inputLabel]="'شرح گزارش تخصیص'" [inputId]="'8'"
                        [inputFormControl]="descreptionReportFormControl" [textarea]="true"></app-input-style>

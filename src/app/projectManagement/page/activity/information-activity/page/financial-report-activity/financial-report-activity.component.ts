@@ -1,3 +1,4 @@
+import { NumberFormatService } from './../../../../../../shared/service/numberFormat/number-format.service';
 import { NumberFormaterService } from './../../../../../../shared/service/number/number-formater.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HandleModalService } from './../../../../../../shared/service/handleModalService/handle-modal.service';
@@ -22,7 +23,8 @@ export class FinancialReportActivityComponent implements OnInit {
               private activeRouting: ActivatedRoute,
               private reportConnectionToApiService: ReportConnectionToApiService,
               private handleDisplayErrorService: HandleDisplayErrorService,
-              private numberFormaterService:NumberFormaterService) {}
+              private numberFormaterService:NumberFormaterService,
+              private numberFormatService:NumberFormatService) {}
 
   ngOnInit(): void {
     this.setProjectId();
@@ -38,7 +40,8 @@ export class FinancialReportActivityComponent implements OnInit {
   }
 
   public changeToPersian(num:string){
-    return this.numberFormaterService.covertToFrNumber(num)
+    let value = this.numberFormatService.separate(num);
+    return this.numberFormaterService.covertToFrNumber(value)
   }
 
   private setProjectId() {

@@ -40,11 +40,11 @@
       <i class="material-icons d-inline icon-styles">business_center</i>
       <h4 class="title-page mt-3 d-inline set-font-Raymon">اطلاعات مالی</h4>
     </div>
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه زیرساخت'" [inputId]="'infrastructureCost'"
-                     [inputFormControl]="infrastructureCostFormControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه زیرساخت'" [inputId]="'infrastructureCost'"
+                     [inputFormControl]="infrastructureCostFormControl" [minValue]="0" [separate]="true"></app-input-style>
 
-    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه منابع انسانی'" [inputId]="'humanResourceCost'"
-                     [inputFormControl]="humanResourceCostFormControl"></app-input-style>
+    <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه منابع انسانی'" [inputId]="'humanResourceCost'"
+                     [inputFormControl]="humanResourceCostFormControl" [minValue]="0" [minValue]="0"></app-input-style>
   </div>
 
   <div class="row position-relative">

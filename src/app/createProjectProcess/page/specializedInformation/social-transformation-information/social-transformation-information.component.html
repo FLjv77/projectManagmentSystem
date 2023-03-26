@@ -62,8 +62,8 @@
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد معرفی به کمپ'" [minValue]="0"
               [inputId]="'numberIntroduction' + i" [type]="'number'" [inputFormControl]="numberIntroduction[i]" (changeValue)="observeChangeNumberIntroduction($event, i)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'" [minValue]="0"
-              [inputId]="'campBudget' + i" [type]="'number'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'بودجه مورد نظر'" [minValue]="0" [separate]="true"
+              [inputId]="'campBudget' + i" [type]="'text'" [inputFormControl]="campBudget[i]" (changeValue)="observeChangeCampBudget($event, i)"></app-input-style>
 
               <div *ngIf="i-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteListAddicion(i)">
@@ -145,7 +145,7 @@
                [inputId]="'consultantWorkshops' + k" [type]="'number'" [inputFormControl]="consultantWorkshops[k]" (changeValue)="observeChange_amountDivorceGivenFacilities($event, k)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
-              [inputId]="'amountDivorceGivenFacilities' + k" [type]="'number'" [inputFormControl]="amountDivorceGivenFacilities[k]" (changeValue)="observeChange_consultantWorkshops($event, k)"></app-input-style>
+              [inputId]="'amountDivorceGivenFacilities' + k" [type]="'text'" [separate]="true" [inputFormControl]="amountDivorceGivenFacilities[k]" (changeValue)="observeChange_consultantWorkshops($event, k)"></app-input-style>
 
               <div *ngIf="k-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteListDivorce(k)">
@@ -171,30 +171,15 @@
               <div class="col-12 my-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">زندانیان غیرعمد : </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد پابندهای الکتریکی'" [minValue]="0"
               [inputId]="'numberElectricalBonds' + l" [type]="'number'" [inputFormControl]="numberElectricalBonds[l]" (changeValue)="observeChange_numberElectricalBonds($event, l)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'"
-              [inputId]="'prisonerBudget' + l" [type]="'number'" [inputFormControl]="prisonerBudget[l]" (changeValue)="observeChange_prisonerBudget($event, l)"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه یا بودجه'" [separate]="true" [minValue]="0"
+              [inputId]="'prisonerBudget' + l" [type]="'text'" [separate]="true" [inputFormControl]="prisonerBudget[l]" (changeValue)="observeChange_prisonerBudget($event, l)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'"
-              [inputId]="'amountPrisonerGivenFacilities' + l" [type]="'number'" (changeValue)="observeChange_amountPrisonerGivenFacilities($event, l)" [inputFormControl]="amountPrisonerGivenFacilities[l]"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات اعطایی'" [separate]="true" [minValue]="0"
+              [inputId]="'amountPrisonerGivenFacilities' + l" [type]="'text'" (changeValue)="observeChange_amountPrisonerGivenFacilities($event, l)" [inputFormControl]="amountPrisonerGivenFacilities[l]"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع جرم جهت آزادی'"
               [inputId]="'typeCrime' + l" [inputFormControl]="typeCrime[l]" (changeValue)="observeChange_typeCrime($event, l)"></app-input-style>
@@ -218,83 +203,19 @@
             </div>
           </div>
 
-          <!--
-                      <div *ngIf="select4">
-            <div *ngFor="let list4 of arrayList4 , let m = index" class="row">
-              <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2"> توان خواه: </h4>
-              </div>
-              <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group>
-
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number'" [type]="'number'" [inputFormControl]="number"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [inputId]="'numberDrugPackages'" [type]="'number'" [inputFormControl]="numberDrugPackages"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر بسته ها'" [inputId]="'packagesCost'" [type]="'number'" [inputFormControl]="packagesCost"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'نوع وسایل توان خواه'" [inputId]="'typeTools'" [inputFormControl]="typeTools"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'numberTools'" [type]="'number'" [inputFormControl]="numberTools"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه های وسایل'" [inputId]="'costTools'" [type]="'number'" [inputFormControl]="costTools"></app-input-style>
-              <div *ngIf="m-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList4,m)">
-                    <button class="button-add-activity">
-                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                    </button>
-                </div>
-              </div>
-            </div>
-            <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList4)">
-                  <button class="button-add-activity">
-                      <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                      mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن توان خواه جدید">
-                  </button>
-              </div>
-            </div>
-          </div>
-
-          -->
-
           <div *ngIf="select5">
             <div *ngFor="let list5 of arraySocialTransformationBannedFromEducation , let n = index" class="row">
               <div class="col-12 my-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2"> بازماندگان از تحصیل: </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های آموزشی'" [minValue]="0"
                [inputId]="'numberEducationalPackages' + n" [type]="'number'" [inputFormControl]="numberEducationalPackages[n]" (changeValue)="observeChange_numberEducationalPackages($event , n)"></app-input-style>
 
               <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر جهت آموزش'" [inputId]="'costEducational' + n"
-              [type]="'number'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)"></app-input-style>
+              [type]="'text'" [inputFormControl]="costEducational[n]" (changeValue)="observeChange_costEducational($event , n)" [minValue]="0" [separate]="true"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد افراد تحت پوشش'" [minValue]="0"
                [inputId]="'numberPeopleCovered'" [type]="'number' + n" [inputFormControl]="numberPeopleCovered[n]" (changeValue)="observeChange_numberPeopleCovered($event, n)"></app-input-style>
 
               <div *ngIf="n-1>=0" class="row mx-auto">
@@ -321,27 +242,12 @@
               <div class="col-12 my-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2"> دهک بندی: </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های معیشتی'" [minValue]="0"
               [inputId]="'numberSubsistencePackages' + p" [type]="'number'" [inputFormControl]="numberSubsistencePackages[p]" (changeValue)="observeChange_numberSubsistencePackages($event, p)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'"
-              [inputId]="'costSubsistencePackages' + p" [type]="'number'" [inputFormControl]="costSubsistencePackages[p]"  (changeValue)="observeChange_costSubsistencePackages($event, p)"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'هزینه مورد نظر'" [minValue]="0" [separate]="true"
+              [inputId]="'costSubsistencePackages' + p" [type]="'text'" [inputFormControl]="costSubsistencePackages[p]"  (changeValue)="observeChange_costSubsistencePackages($event, p)"></app-input-style>
 
               <div *ngIf="p-1>=0" class="row mx-auto">
                 <div class="mx-auto text-start" (click)="deleteListSocialTransformationSegmentation(p)">
@@ -362,78 +268,19 @@
             </div>
           </div>
 
-          <!--
-          <div *ngIf="select7">
-            <div *ngFor="let list7 of arrayList7 , let r = index" class="row">
-              <div class="col-12 mt-5">
-                <h4 class="title-page d-inline set-font-Raymon px-2"> کودکان کار: </h4>
-              </div>
-              <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد'" [inputId]="'number3'" [type]="'number'" [inputFormControl]="number3"></app-input-style>
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-9 col-12" [inputLabel]="'تعداد کودکان تحت پوشش'" [inputId]="'numberChildrenCovered'" [type]="'number'" [inputFormControl]="numberChildrenCovered"></app-input-style>
-              <div *ngIf="r-1>=0" class="row mx-auto">
-                <div class="mx-auto text-start" (click)="deleteList(arrayList7,r)">
-                    <button class="button-add-activity">
-                        <img src="../../../../assets/image/createProject/delete-icon.svg" alt=""
-                        mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="حذف مورد">
-                    </button>
-                </div>
-              </div>
-            </div>
-            <div class="row mx-auto">
-              <div class="mx-auto text-start" (click)="addList(arrayList7)">
-                  <button class="button-add-activity">
-                      <img src="../../../../assets/image/createProject/add-icon.svg" alt=""
-                      mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن کودکان کار جدید">
-                  </button>
-              </div>
-            </div>
-          </div>
-          -->
-
-
           <div *ngIf="select8">
             <div *ngFor="let list8 of arrayListSocialTransformationSpecialPatient; let d = index" class="row">
               <div class="col-12 my-2">
                 <h4 class="title-page d-inline set-font-Raymon px-2">  بیماران خاص: </h4>
               </div>
-              <!-- <div class="col-12 mt-2">
-                <h4 class="title-page d-inline set-font-Raymon px-2">پروژه از نوع : </h4>
-              </div>
-              <mat-radio-group [value]="0"
-                class="example-radio-group font-size-small">
-                <mat-radio-button (click)="setTypeProject(0)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="0">
-                  <span class="px-2">احداث</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(1)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="1">
-                  <span class="px-2">تکمیل و توسعه</span>
-                </mat-radio-button>
-                <mat-radio-button (click)="setTypeProject(2)" class="px-2 example-radio-button set-font-vazir text-right mt-3" [value]="2">
-                  <span class="px-2">مرمت</span>
-                </mat-radio-button>
-              </mat-radio-group> -->
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بسته های دارویی'" [minValue]="0"
                [inputId]="'numberDrugPackagesSpecificPatients' + d" [type]="'number'" [inputFormControl]="numberDrugPackagesSpecificPatients[d]" (changeValue)="observeChange_numberDrugPackagesSpecificPatients($event, d)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'"
-               [inputId]="'volumeTreatmentFacilities' + d" [type]="'number'" [inputFormControl]="volumeTreatmentFacilities[d]" (changeValue)="observeChange_volumeTreatmentFacilities($event, d)"></app-input-style>
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [unit]="3" [inputLabel]="'حجم تسهیلات درمانی'" [separate]="true"  [minValue]="0"
+               [inputId]="'volumeTreatmentFacilities' + d" [type]="'text'" [inputFormControl]="volumeTreatmentFacilities[d]" (changeValue)="observeChange_volumeTreatmentFacilities($event, d)"></app-input-style>
 
-              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'"
+              <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [inputLabel]="'تعداد بیماران هدف جهت پوشش'" [minValue]="0"
               [inputId]="'numberTargetPatients' + d" [type]="'number'" [inputFormControl]="numberTargetPatients[d]" (changeValue)="observeChange_numberTargetPatients($event, d)"></app-input-style>
 
               <div *ngIf="d-1>=0" class="row mx-auto">

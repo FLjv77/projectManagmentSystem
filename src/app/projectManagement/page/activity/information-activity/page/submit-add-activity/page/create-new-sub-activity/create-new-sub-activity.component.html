@@ -17,7 +17,7 @@
                 [inputFormControl]="startDateFormControl" (changeValue)="setEndTime($event)" [minDay]="minDay" [minMount]="minMount" [minYear]="minYear"></app-date-picker-jalaly>
 
 
-            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'number'" [inputLabel]="'هزینه زیر فعالیت'" [inputId]="'4'"
+            <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12" [type]="'text'" [inputLabel]="'هزینه زیر فعالیت'" [inputId]="'4'" [minValue]="0" [separate]="true"
                 [inputFormControl]="activityPriceFormControl"></app-input-style>
 
             <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-md-6 col-12" [type]="'number'" [inputLabel]="'وزن زمانی زیر فعالیت'" [inputId]="'5'" [minValue]="0" [maxValue]="100"
