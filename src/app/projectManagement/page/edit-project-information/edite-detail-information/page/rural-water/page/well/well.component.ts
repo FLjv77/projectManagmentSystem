@@ -28,10 +28,7 @@ export class WellComponent implements OnInit {
 
   constructor(public specializedInformationService: SpecializedInformationService) {
     this.specializedInformationService.wellBoolean.subscribe((res: boolean) => {
-      console.log(res);
-
       if (res) {
-        console.log(res);
         if (res == true) {
           this.addList();
         }

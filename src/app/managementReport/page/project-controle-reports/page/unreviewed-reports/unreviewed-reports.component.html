@@ -23,7 +23,7 @@
               <button class="button-style-report-progress px-4 py-2" (click)="openModalProgress(item.progressReportId, i)">گزارش ناظر</button>
             </div>
             <div class="col-md-7 col-12 text-start">
-                <span class="mx-2 text-style pointer d-inline-block text-nowrap">
+                <span (click)="downloadProgressReportMedia(item.progressReportId)" class="mx-2 text-style pointer d-inline-block text-nowrap">
                     <i class="material-icons icon-Report">file_download</i>
                     مستندات
                 </span>
@@ -67,7 +67,7 @@
             <button class="button-style-report-efficiency px-4 py-2" (click)="openModalFinancial(item.allocationReportId, i)">گزارش ناظر</button>
         </div>
             <div class="col-md-7 col-12 text-start">
-                <span class="mx-2 text-style pointer d-inline-block text-nowrap">
+                <span (click)="downloadProgressReportMedia(item.allocationReportId)" class="mx-2 text-style pointer d-inline-block text-nowrap">
                     <i class="material-icons icon-Report">file_download</i>
                     مستندات
                 </span>

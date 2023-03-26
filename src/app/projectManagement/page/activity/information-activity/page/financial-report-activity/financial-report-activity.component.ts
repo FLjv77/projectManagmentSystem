@@ -15,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class FinancialReportActivityComponent implements OnInit {
   private projectId: string;
-  public allocationReportSelectedDtos: AllocationReportSelectedDto[];
+  public allocationReportSelectedDtos: AllocationReportSelectedDto[] = [];
 
   constructor(private handleModalService : HandleModalService,
               private router: Router,

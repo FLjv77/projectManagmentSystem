@@ -117,7 +117,7 @@ export class RuralWaterComponent implements OnInit {
   }
 
   public setDamList(list: DamWaterShedAndCanals[]){
-    this.damList = list;    
+    this.damList = list;
   }
 
   public setNetworkWaterShedList(list: DistributionNetworkWaterShedAndCanals[]){
@@ -159,9 +159,8 @@ export class RuralWaterComponent implements OnInit {
     list.resourceStability = this.stabilityResourceControl.value;
     list.typeOfLand = this.groundTypeControl.value;
     list.ownerShipType = this.ownerShipTypeControl.value;
-    for(let i=0;i<this.damList.length;i++){
-      list.dam[i] = this.damList[i];
-    }
+
+    list.dam = this.damList;
     list.dike = this.DikeList;
     list.distributionNetwork = this.networkWater;
     list.equipment = this.equipmentControl.value;
@@ -171,10 +170,10 @@ export class RuralWaterComponent implements OnInit {
     list.refinery = this.RefineryList;
     list.tank = this.TankList;
     list.requirements = this.requirementControl.value;
-    
+
     this.specializedInformationService.ModifyWaterShedAndCanalsSpeceficDetail1(this.projectIdSelect,list)
     .subscribe((res:ApiResult<WaterShedAndCanalsSpeceficDetailBehaviorDTO>)=>{
-      if (res.statusCode==200 && res.isSuccess==true) {        
+      if (res.statusCode==200 && res.isSuccess==true) {
         this.debeyControl.setValue(res.data.currentDebye);
         this.regionControl.setValue(res.data.consumability);
         this.groundTypeControl.setValue(res.data.typeOfLand);
@@ -211,5 +210,29 @@ export class RuralWaterComponent implements OnInit {
 
   public addWell(){
     this.specializedInformationService.wellBoolean.emit(true);
+  }
+  public addFountain(){
+    this.specializedInformationService.fountainBoolean.emit(true);
+  }
+  public addDam(){
+    this.specializedInformationService.damBoolean.emit(true);
+  }
+  public distributionNetwork() {
+    this.specializedInformationService.distributionNetworkBoolean.emit(true);
+  }
+  public addPurification(){
+    this.specializedInformationService.purificationBoolean.emit(true);
+  }
+  public addSource(){
+    this.specializedInformationService.sourceBoolean.emit(true);
+  }
+  public addTransferLine(){
+    this.specializedInformationService.transferLineBoolean.emit(true);
+  }
+  public addSeal(){
+    this.specializedInformationService.sealBoolean.emit(true);
+  }
+  public addPomp(){
+    this.specializedInformationService.pompBoolean.emit(true);
   }
 }

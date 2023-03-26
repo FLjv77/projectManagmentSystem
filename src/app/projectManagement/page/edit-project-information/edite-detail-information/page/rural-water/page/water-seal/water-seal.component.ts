@@ -2,6 +2,7 @@ import { InputCustomStyle } from 'src/app/shared/page/component/input-style/inpu
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, DikeWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-water-seal',
@@ -29,12 +30,17 @@ export class WaterSealComponent implements OnInit {
   public lengthList: number;
   public lengthListDeleted: number;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.sealBoolean.subscribe((res: boolean) => {
+      if (res == true) {
+        this.addList();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.DikeWaterShedAndCanalsList = new Array<DikeWaterShedAndCanals>;
-    this.addList();
     this.getData();
   }
 
@@ -66,7 +72,7 @@ export class WaterSealComponent implements OnInit {
         this.riverNameControl[i].setValue(this.DikeWaterShedAndCanalsList[i].riverName);
         this.riverWidthControl[i].setValue(this.DikeWaterShedAndCanalsList[i].riverWidth);
         this.resourceSaveWaterStateControl[i].setValue(this.DikeWaterShedAndCanalsList[i].waterProviderResourceStatus);
-        this.widthControl[i].setValue(this.DikeWaterShedAndCanalsList[i].width);
+        this.widthControl[i].setValue(this.DikeWaterShedAndCanalsList[i].width ? this.DikeWaterShedAndCanalsList[i].width : 0);
       }
     }
   }
@@ -137,7 +143,9 @@ export class WaterSealComponent implements OnInit {
     this.pompControl.push(new FormControl());
     this.riverWidthControl.push(new FormControl());
     this.lenControl.push(new FormControl());
+    this.widthControl.push(new FormControl());
     this.heightControl.push(new FormControl());
+    this.stuffWaterSealControl.push(new FormControl());
     this.DikeWaterShedAndCanalsList.push(new DikeWaterShedAndCanals());
     this.lengthList = this.DikeWaterShedAndCanalsList.length;
   }

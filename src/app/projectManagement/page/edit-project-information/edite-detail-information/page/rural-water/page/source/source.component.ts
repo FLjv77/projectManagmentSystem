@@ -2,6 +2,7 @@ import { InputCustomStyle } from 'src/app/shared/page/component/input-style/inpu
 import { FormControl } from '@angular/forms';
 import { ConstructionTypestring, TankWaterShedAndCanals } from 'src/app/createProjectProcess/model/specializedInformation/modifyWaterShedAndCanalsSpeceficDetail';
 import { Component, OnInit, EventEmitter,Output,Input } from '@angular/core';
+import { SpecializedInformationService } from 'src/app/createProjectProcess/service/specializedInformation/specialized-information.service';
 
 @Component({
   selector: 'app-source',
@@ -23,12 +24,17 @@ export class SourceComponent implements OnInit {
   public lengthList: number;
   public lengthListDeleted: number;
 
-  constructor() { }
+  constructor(public specializedInformationService: SpecializedInformationService) {
+    this.specializedInformationService.sourceBoolean.subscribe((res: boolean) => {
+      if (res == true) {
+        this.addList();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initInputStyle();
     this.TankWaterShedAndCanalsList = new Array<TankWaterShedAndCanals>;
-    this.addList();
     this.getData();
   }
 

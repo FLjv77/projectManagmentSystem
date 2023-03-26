@@ -2,8 +2,10 @@ import { NumberFormaterService } from './../../../../../shared/service/number/nu
 import { HandleModalService } from './../../../../../shared/service/handleModalService/handle-modal.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiResult } from 'src/app/auth/model/authDTO';
-import { AllocationReportSelectedDto, ProgressReportSelectedDto, AllocationReportPaginationSelectedDto, ProgressReportPaginationSelectedDto } from 'src/app/managementReport/model/getReports';
+import { AllocationReportSelectedDto, ProgressReportSelectedDto, AllocationReportPaginationSelectedDto, ProgressReportPaginationSelectedDto, MediaSelectedDTO } from 'src/app/managementReport/model/getReports';
 import { ReportConnectionToApiService } from 'src/app/managementReport/service/reportConnectionToApi/report-connection-to-api.service';
+import { HandleDisplayErrorService } from 'src/app/shared/service/handleError/handle-display-error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-unreviewed-reports',
@@ -25,6 +27,7 @@ export class UnreviewedReportsComponent implements OnInit {
   constructor(private numberFormaterService:NumberFormaterService,
     private reportConnectionToApiService: ReportConnectionToApiService,
     private handleModalService:HandleModalService,
+    private handleDisplayErrorService: HandleDisplayErrorService
     ) { }
 
   ngOnInit(): void {
@@ -102,6 +105,64 @@ export class UnreviewedReportsComponent implements OnInit {
         this.allocationReportSelectedDtos.splice(this.selectedReportIndex, 1);
       }
     }
+  }
 
+  public downloadProgressReportMedia(reportId: string) {
+    this.reportConnectionToApiService.GetProgressReportMedia(
+      reportId, this.projectId
+    ).subscribe((res: ApiResult<MediaSelectedDTO[]>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        if(res.data.length > 0) {
+          this.reportConnectionToApiService.DownloadFile(
+            res.data[res.data.length - 1].fileId
+          ).subscribe((response: any) => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(response);
+            link.download = res.data[0].address;
+            link.click();
+            }), (error: any) => console.log('Error downloading the file'),
+            () => console.info('File downloaded successfully');
+        } else {
+          this.handleDisplayErrorService.showInfoAlert('مستنداتی برای گزارش ثبت نشده');
+        }
+      } else {
+        this.handleDisplayErrorService.showError(res.statusCode);
+      }
+    }, (err: HttpErrorResponse) => {
+      this.handleDisplayErrorService.showError(err.status);
+    })
+  }
+
+  downloadFile(data: any) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url= window.URL.createObjectURL(blob);
+    window.open(url);
+  }
+
+  public downloadAllocationReportMedia(reportId: string) {
+    this.reportConnectionToApiService.GetAllocationRepotMedia(
+      reportId, this.projectId
+    ).subscribe((res: ApiResult<MediaSelectedDTO[]>) => {
+      if(res.isSuccess && res.statusCode == 200) {
+        if(res.data.length > 0) {
+                  this.reportConnectionToApiService.DownloadFile(
+          res.data[res.data.length - 1].fileId
+        ).subscribe((response: any) => {
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(response);
+          link.download = res.data[0].address;
+          link.click();
+          }), (error: any) => console.log('Error downloading the file'),
+          () => console.info('File downloaded successfully');
+        } else {
+          this.handleDisplayErrorService.showInfoAlert('مستنداتی برای گزارش ثبت نشده');
+        }
+
+      } else {
+        this.handleDisplayErrorService.showError(res.statusCode);
+      }
+    }, (err: HttpErrorResponse) => {
+      this.handleDisplayErrorService.showError(err.status);
+    })
   }
 }

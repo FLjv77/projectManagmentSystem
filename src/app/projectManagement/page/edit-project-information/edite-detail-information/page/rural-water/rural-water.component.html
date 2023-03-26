@@ -21,56 +21,56 @@
       </div>
       <div style="display: contents;">
         <span>چشمه</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addFountain()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن چشمه جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>سد</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addDam()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن سد جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>شبکه توزیع</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="distributionNetwork()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن شبکه توزیع جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>مخزن</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addSource()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن مخزن جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>ایستگاه پمپاژ</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addPomp()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن ایستگاه پمپاژ جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>تصفیه خانه</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addPurification()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن تصفیه خانه جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>خط انتقال</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button (click)="addTransferLine()" style="background: transparent;border: none;border-radius: 100%;">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن خط انتقال جدید">
           </button>
       </div>
       <div style="display: contents;">
         <span>آب بند</span>
-          <button style="background: transparent;border: none;border-radius: 100%;">
+          <button style="background: transparent;border: none;border-radius: 100%;" (click)="addSeal()">
               <img src="../../../../assets/image/createProject/add-icon.svg" alt="" style="width: 20px;"
               mat-raised-button matTooltipClass="example-tooltip" [matTooltipPosition]="'above'" matTooltip="افزودن آب بند جدید">
           </button>
@@ -86,17 +86,17 @@
                            [inputFormControl]="requirementControl"></app-input-style>
 
     <div *ngIf="!edit" class="row">
-      <app-dam *ngIf="damList" [dam]="damList" [edit]="edit"></app-dam>
-      <app-fountain *ngIf="FountainList" [Fountain]="FountainList" [edit]="edit"></app-fountain>
-      <app-distribution-network *ngIf="networkWater" [network]="networkWater" [edit]="edit"></app-distribution-network>
-      <app-purification *ngIf="RefineryList" [RefineryList]="RefineryList" [edit]="edit"></app-purification>
-      <app-source *ngIf="TankList" [TankList]="TankList" [edit]="edit"></app-source>
-      <app-transfer-line *ngIf="TransferLineList" [TransferLine]="TransferLineList" [edit]="edit"></app-transfer-line>
-      <app-water-seal *ngIf="DikeList" [DikeList]="DikeList" [edit]="edit"></app-water-seal>
-      <app-well *ngIf="PitWaterList" [PitWaterList]="PitWaterList" [edit]="edit"></app-well>
-      <app-pomp *ngIf="PumpStationList" [Pump]="PumpStationList" [edit]="edit"></app-pomp>
+      <app-dam (damList)="damList = $event" [dam]="damList" [edit]="edit"></app-dam>
+      <app-fountain (fountainList)="FountainList = $event" [Fountain]="FountainList" [edit]="edit"></app-fountain>
+      <app-distribution-network (networkWaterShedList)="networkWater = $event" [network]="networkWater" [edit]="edit"></app-distribution-network>
+      <app-purification (Refinery)="RefineryList = $event" [RefineryList]="RefineryList" [edit]="edit"></app-purification>
+      <app-source (Tank)="TankList = $event" [TankList]="TankList" [edit]="edit"></app-source>
+      <app-transfer-line (transferLineList)="TransferLineList = $event" [TransferLine]="TransferLineList" [edit]="edit"></app-transfer-line>
+      <app-water-seal (Dike)="DikeList = $event" [DikeList]="DikeList" [edit]="edit"></app-water-seal>
+      <app-well (Pit)="PitWaterList = $event" [PitWaterList]="PitWaterList" [edit]="edit"></app-well>
+      <app-pomp (pumpStation)="PumpStationList = $event" [Pump]="PumpStationList" [edit]="edit"></app-pomp>
     </div>
-    
+
     <div *ngIf="edit" class="row">
       <app-dam [dam]="damList" [edit]="edit"></app-dam>
       <app-fountain [Fountain]="FountainList" [edit]="edit"></app-fountain>

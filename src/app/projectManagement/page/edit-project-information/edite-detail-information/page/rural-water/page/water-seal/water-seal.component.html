@@ -40,6 +40,7 @@
                      [inputId]="'riverWidthControl'+i" [inputFormControl]="riverWidthControl[i]" [minValue]="0"
                      (changeValue)="setRiverWidth($event, i)"></app-input-style>
 
+
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'جنس مصالح آب بند'"
                      [inputId]="'stuffWaterSealControl'+i" [inputFormControl]="stuffWaterSealControl[i]"
                      (changeValue)="setStuffWaterSeal($event, i)"></app-input-style>
@@ -51,7 +52,6 @@
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'طول'" [type]="'number'" [unit]="0"
                      [inputId]="'lenControl'+i" [inputFormControl]="lenControl[i]" [minValue]="0"
                      (changeValue)="setLen($event, i)"></app-input-style>
-
         <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-12 mt-2" [inputLabel]="'ارتفاع'" [type]="'number'" [unit]="0"
                      [inputId]="'heightControl'+i" [inputFormControl]="heightControl[i]" [minValue]="0"
                      (changeValue)="setHeight($event, i)"></app-input-style>
