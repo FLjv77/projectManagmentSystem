@@ -74,12 +74,9 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
   ngAfterViewInit(): void {
     this.advancedSearchConnecctToApiService.projectIdSelected.subscribe((res: string | string[])=>{
       this.projectIdSelect = res;
-      if (this.projectIdSelect) {
-        console.log('1111');
-        
+      if (this.projectIdSelect) {        
         this.projectConnectToApiService.getProjectGeneralPropertiesSelect(this.projectIdSelect)
         .subscribe((res: ApiResult<ProjectSelectedDTO>)=>{
-          console.log(res.data.participants);
           if (res) {
             for (let i = 0; i < res.data.participants.length; i++) {
               if (res.data.participants[i].tag == 'کارفرما') {
@@ -103,12 +100,8 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
             }
           }
 
-      });
-      console.log('22222');
-      
-      this.createrojectService.GetProjectSupervisor(this.projectIdSelect).subscribe((res:ApiResult<SupervisorSelectedDTO>)=>{
-        console.log('33333');
-        
+      });     
+      this.createrojectService.GetProjectSupervisor(this.projectIdSelect).subscribe((res:ApiResult<SupervisorSelectedDTO>)=>{      
           this.supervisorFirstAndLastNameFormControl.setValue(res.data.userName);
       })
       }
@@ -134,16 +127,12 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     for (let i = 0; i < this.executorList.length; i++) {
       participants.push(this.executorList[i]);
     }
-    // for (let i = 0; i < this.supervisorList.length; i++) {
-    //   participants.push(this.supervisorList[i]);
-    // }
-    //updateProjectDTO.participants = participants;
+    
     updateProjectDTO.city = this.city;
     updateProjectDTO.country = this.country;
     updateProjectDTO.region = this.region;
     updateProjectDTO.section = this.section;
     updateProjectDTO.state = this.state;
-    console.log(participants);
     this.projectConnectToApiService.ModifyProjectGeneralInfo(this.projectId,updateProjectDTO).subscribe((
       res:ApiResult<boolean>)=>{
         if(res.statusCode == 200 && res.isSuccess) {
@@ -238,9 +227,13 @@ export class EditDeveloperInformationormationComponent implements OnInit, AfterV
     list.splice(index, 1);
   }
 
-  public setSupervisor(supervisorName: string){
-    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,supervisorName).subscribe((res:ApiResult<boolean>)=>{
-      console.log(res.data);
+  public nameSelected : string;
+  public setUser(event:any){
+    this.nameSelected = event; 
+  }
+
+  public setSupervisor(){
+    this.createrojectService.AssigneUserAsProjectSupervisor(this.projectId,this.nameSelected).subscribe((res:ApiResult<boolean>)=>{
       if(res.statusCode == 200 && res.isSuccess) {
         this.alertDialogBySweetAlertService.showSuccessAlert('با موفقیت ویرایش شد');
       }

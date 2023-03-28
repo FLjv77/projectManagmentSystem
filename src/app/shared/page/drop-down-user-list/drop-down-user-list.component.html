@@ -1,0 +1,10 @@
+<!-- <div *ngIf="!empty && showSpinner" class="spinner-border spinner-border-sm" role="status"></div> -->
+<div *ngIf="projectData.length!=0" class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl pt-2">
+  <ng-select2 [data]="projectData" [placeholder]="'انتخاب یک کاربر به عنوان ناظر'"
+  (valueChanged)="setParentId($event)"
+  [(ngModel)]="placeHolder"></ng-select2>
+</div>
+
+<!-- <div *ngIf="empty && !showSpinner" class="text-center">
+  <span class="set-font-vazir font-weight-bold mx-auto" style="color: rgb(112, 112, 112);">پروژه ای برای این شرکت وجود ندارد</span>
+</div> -->

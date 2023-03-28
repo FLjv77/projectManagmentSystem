@@ -15,11 +15,12 @@
     <div *ngIf="role=='holdingAdmin'" class="row col-12">
       <div class="col-sm-6 col-12">
 
-        <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-11" [type]="'text'" [inputLabel]="'نام و نام خانوادگی ناظر'" [inputId]="'4'"
-                         [inputFormControl]="supervisorFirstAndLastNameFormControl"></app-input-style>
+        <app-drop-down-user-list (parentid)="setUser($event)"></app-drop-down-user-list>
+        <!-- <app-input-style [inputCustomStyle]="inputCustomStyle" class="col-sm-6 co-11" [type]="'text'" [inputLabel]="'نام و نام خانوادگی ناظر'" [inputId]="'4'"
+                         [inputFormControl]="supervisorFirstAndLastNameFormControl"></app-input-style> -->
       </div>
       <div class="col-1 mt-4">
-        <button class="set-superVisur px-3 py-1" (click)="setSupervisor(supervisorFirstAndLastNameFormControl.value)">ذخیره</button>
+        <button class="set-superVisur px-3 py-1" (click)="setSupervisor()">ذخیره</button>
       </div>
     </div>
   </div>

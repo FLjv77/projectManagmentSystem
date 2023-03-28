@@ -11,7 +11,7 @@ import { url } from 'src/assets/url/url';
 @Component({
   selector: 'app-drop-down-project-list',
   templateUrl: './drop-down-project-list.component.html',
-  styleUrls: ['./drop-down-project-list.component.scss']
+  styleUrls: ['./drop-down-project-list.component.scss', '../drop-down-project-list/drop-down-project-list.component.scss']
 })
 export class DropDownProjectListComponent implements OnInit {
 

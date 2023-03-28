@@ -51,7 +51,6 @@ export class AddUserModalComponent implements OnInit {
         this.phoneNumberControl.value,
         this.passwordControl.value
       )).subscribe((res: ApiResult<boolean>) => {
-        console.log(res.data);
         this.showSpinner = false;
         this.closeModal();
       }, (err: HttpErrorResponse) => {
@@ -64,7 +63,6 @@ export class AddUserModalComponent implements OnInit {
         this.phoneNumberControl.value,
         this.passwordControl.value
       )).subscribe((res: ApiResult<boolean>) => {
-        console.log(res.data);
         this.showSpinner = false;
         this.closeModal();
       }, (err: HttpErrorResponse) => {
