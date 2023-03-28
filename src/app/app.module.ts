@@ -14,8 +14,6 @@ import {AuthModule} from "./module/auth/auth.module";
 import { AuthInterceptor } from './interseptor/interseptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
-import { EditProjectLocationComponent } from './projectManagement/page/edit-project-information/edit-project-location/edit-project-location.component';
-
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#FFFFF",

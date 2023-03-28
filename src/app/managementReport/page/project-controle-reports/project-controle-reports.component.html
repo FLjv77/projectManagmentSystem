@@ -3,7 +3,17 @@
         <app-display-user-path [path1]="path1" [path2]="path2"></app-display-user-path>
     </div>
     <div class="bg-levels mx-4 mt-2">
-      <app-drop-down-project-list (parentid)="setProjectId($event)" class="w-100" [companyId]="companyId"></app-drop-down-project-list>
+      <!-- <app-drop-down-project-list (parentid)="setProjectId($event)" class="w-100" [companyId]="companyId"></app-drop-down-project-list> -->
+      <div *ngIf="!empty && showSpinner" class="spinner-border spinner-border-sm" role="status"></div>
+        <div *ngIf="!empty && !showSpinner" class="set-font-vazir d-flex justify-content-center mx-auto row d-rtl pt-2">
+          <ng-select2 [data]="projectData" [placeholder]="'انتخاب پروژه'"
+            (valueChanged)="setProjectId($event)"
+            [(ngModel)]="placeHolder"></ng-select2>
+        </div>
+
+<div *ngIf="empty && !showSpinner" class="text-center">
+  <span class="set-font-vazir font-weight-bold mx-auto" style="color: rgb(112, 112, 112);">پروژه ای برای این شرکت وجود ندارد</span>
+</div>
       <div class=" set-font-vazir pt-3">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">

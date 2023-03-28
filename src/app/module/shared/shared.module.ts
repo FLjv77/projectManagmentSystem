@@ -1,3 +1,4 @@
+import { DropDownUserListComponent } from './../../shared/page/drop-down-user-list/drop-down-user-list.component';
 import { DropDownRegionListComponent } from './../../shared/page/drop-down-region-list/drop-down-region-list.component';
 import { DropDownRoleUserComponent } from './../../shared/page/drop-down-role-user/drop-down-role-user.component';
 import { DropDownActivitiesComponent } from './../../shared/page/drop-down-activities/drop-down-activities.component';
@@ -79,7 +80,8 @@ import { EmptyResultComponent } from '../../shared/page/empty-result/empty-resul
     DropDownActivitiesComponent,
     DropDownRoleUserComponent,
     DropDownCompanyListComponent,
-    DropDownRegionListComponent
+    DropDownRegionListComponent,
+    DropDownUserListComponent
   ],
     exports: [
       NavebarComponent,
@@ -112,6 +114,7 @@ import { EmptyResultComponent } from '../../shared/page/empty-result/empty-resul
       DropDownCompanyListComponent,
       EmptyResultComponent,
       DropDownRegionListComponent,
+      DropDownUserListComponent
     ],
   imports: [
     CommonModule,

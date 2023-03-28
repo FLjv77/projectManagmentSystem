@@ -1,3 +1,4 @@
+import { NgSelect2Module } from 'ng-select2';
 import { ProjectManagementModule } from './../project-management/project-management.module';
 import { CheckedReportsComponent } from './../../managementReport/page/project-controle-reports/page/checked-reports/checked-reports.component';
 import { UnreviewedReportsComponent } from './../../managementReport/page/project-controle-reports/page/unreviewed-reports/unreviewed-reports.component';
@@ -52,6 +53,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatExpansionModule,
     ProjectManagementModule,
     MatCheckboxModule,
+    NgSelect2Module,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
